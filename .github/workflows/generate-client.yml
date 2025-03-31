@@ -12,7 +12,7 @@ jobs:
 
       - name: Fetch OpenAPI Spec
         run: |
-          curl -o openapi.json https://raw.githubusercontent.com/cedricziel/aha-spec/main/openapi.yaml
+          curl -o openapi.yaml https://raw.githubusercontent.com/cedricziel/aha-spec/main/openapi.yaml
 
       - name: Generate TypeScript-Axios Client
         uses: openapi-generators/openapitools-generator-action@v1
