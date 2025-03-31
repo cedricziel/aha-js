@@ -1,5 +1,6 @@
 {
-  "npmName": "aha-api-client",
+  "npmName": "aha-js",
+  "npmRepository": "https://github.com/cedricziel/aha-js",
   "supportsES6": true,
   "modelPropertyNaming": "camelCase",
   "enumPropertyNaming": "UPPERCASE",
