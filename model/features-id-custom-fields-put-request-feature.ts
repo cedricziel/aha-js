@@ -14,9 +14,17 @@
 
 
 
-export * from './api/default-api';
-export * from './api/epics-api';
-export * from './api/features-api';
-export * from './api/goals-api';
-export * from './api/initiatives-api';
+/**
+ * 
+ * @export
+ * @interface FeaturesIdCustomFieldsPutRequestFeature
+ */
+export interface FeaturesIdCustomFieldsPutRequestFeature {
+    /**
+     * Object containing custom field key-value pairs
+     * @type {{ [key: string]: any; }}
+     * @memberof FeaturesIdCustomFieldsPutRequestFeature
+     */
+    'custom_fields'?: { [key: string]: any; };
+}
 

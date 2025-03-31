@@ -1,4 +1,4 @@
-# FeatureCreateRequestFeatureWorkflowStatus
+# FeaturesIdPutRequestFeatureWorkflowStatus
 
 Status of the feature — must be a valid status for the selected product
 
@@ -11,9 +11,9 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { FeatureCreateRequestFeatureWorkflowStatus } from 'aha-js';
+import { FeaturesIdPutRequestFeatureWorkflowStatus } from 'aha-js';
 
-const instance: FeatureCreateRequestFeatureWorkflowStatus = {
+const instance: FeaturesIdPutRequestFeatureWorkflowStatus = {
     name,
 };
 ```

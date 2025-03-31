@@ -13,10 +13,21 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Feature1 } from './feature1';
 
-export * from './api/default-api';
-export * from './api/epics-api';
-export * from './api/features-api';
-export * from './api/goals-api';
-export * from './api/initiatives-api';
+/**
+ * 
+ * @export
+ * @interface FeatureGetResponse
+ */
+export interface FeatureGetResponse {
+    /**
+     * 
+     * @type {Feature1}
+     * @memberof FeatureGetResponse
+     */
+    'feature'?: Feature1;
+}
 

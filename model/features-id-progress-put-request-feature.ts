@@ -14,9 +14,17 @@
 
 
 
-export * from './api/default-api';
-export * from './api/epics-api';
-export * from './api/features-api';
-export * from './api/goals-api';
-export * from './api/initiatives-api';
+/**
+ * 
+ * @export
+ * @interface FeaturesIdProgressPutRequestFeature
+ */
+export interface FeaturesIdProgressPutRequestFeature {
+    /**
+     * Progress completed on the feature (0-100)
+     * @type {number}
+     * @memberof FeaturesIdProgressPutRequestFeature
+     */
+    'progress'?: number;
+}
 

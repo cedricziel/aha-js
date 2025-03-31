@@ -14,9 +14,17 @@
 
 
 
-export * from './api/default-api';
-export * from './api/epics-api';
-export * from './api/features-api';
-export * from './api/goals-api';
-export * from './api/initiatives-api';
+/**
+ * Status of the feature — must be a valid status for the selected product
+ * @export
+ * @interface FeaturesIdPutRequestFeatureWorkflowStatus
+ */
+export interface FeaturesIdPutRequestFeatureWorkflowStatus {
+    /**
+     * 
+     * @type {string}
+     * @memberof FeaturesIdPutRequestFeatureWorkflowStatus
+     */
+    'name'?: string;
+}
 

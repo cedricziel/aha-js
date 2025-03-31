@@ -15,197 +15,163 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { FeatureCreateRequestFeatureAssignedToUser } from './feature-create-request-feature-assigned-to-user';
-// May contain unused imports in some cases
-// @ts-ignore
-import type { FeatureCreateRequestFeatureScoreFactsInner } from './feature-create-request-feature-score-facts-inner';
-// May contain unused imports in some cases
-// @ts-ignore
 import type { FeaturesIdPutRequestFeatureWorkflowStatus } from './features-id-put-request-feature-workflow-status';
 
 /**
  * 
  * @export
- * @interface FeatureCreateRequestFeature
+ * @interface FeaturesIdPutRequestFeature
  */
-export interface FeatureCreateRequestFeature {
+export interface FeaturesIdPutRequestFeature {
     /**
      * Name of the feature
      * @type {string}
-     * @memberof FeatureCreateRequestFeature
+     * @memberof FeaturesIdPutRequestFeature
      */
-    'name': string;
+    'name'?: string;
     /**
      * Type of feature
      * @type {string}
-     * @memberof FeatureCreateRequestFeature
+     * @memberof FeaturesIdPutRequestFeature
      */
     'workflow_kind'?: string;
     /**
      * 
      * @type {FeaturesIdPutRequestFeatureWorkflowStatus}
-     * @memberof FeatureCreateRequestFeature
+     * @memberof FeaturesIdPutRequestFeature
      */
     'workflow_status'?: FeaturesIdPutRequestFeatureWorkflowStatus;
     /**
      * Numeric ID or key of the release the feature should be created in
      * @type {string}
-     * @memberof FeatureCreateRequestFeature
+     * @memberof FeaturesIdPutRequestFeature
      */
     'release'?: string;
     /**
      * Description of the feature — may include HTML formatting
      * @type {string}
-     * @memberof FeatureCreateRequestFeature
+     * @memberof FeaturesIdPutRequestFeature
      */
     'description'?: string;
     /**
      * Email address of the user who created the feature
      * @type {string}
-     * @memberof FeatureCreateRequestFeature
+     * @memberof FeaturesIdPutRequestFeature
      */
     'created_by'?: string;
     /**
-     * 
-     * @type {FeatureCreateRequestFeatureAssignedToUser}
-     * @memberof FeatureCreateRequestFeature
+     * Email address of user that is assigned the feature
+     * @type {string}
+     * @memberof FeaturesIdPutRequestFeature
      */
-    'assigned_to_user'?: FeatureCreateRequestFeatureAssignedToUser;
+    'assigned_to_user'?: string;
     /**
      * Tags to add to the feature. Multiple tags must be separated by commas
      * @type {string}
-     * @memberof FeatureCreateRequestFeature
+     * @memberof FeaturesIdPutRequestFeature
      */
     'tags'?: string;
     /**
-     * The initial estimated effort in time or story points for this feature, depending on the capacity units configured
+     * The initial estimated effort in time or story points for this feature, depending on the capacity units configured. For time: use min, h, d, w, m. Example: \"2d 1h\". 1d = 8h, 1w = 5d, 1m = 22d. For story points: Use p to represent points. Example: \"4p\".
      * @type {string}
-     * @memberof FeatureCreateRequestFeature
+     * @memberof FeaturesIdPutRequestFeature
      */
     'initial_estimate_text'?: string;
     /**
-     * The detailed estimated effort in time or story points for this feature, depending on the capacity units configured
+     * The detailed estimated effort in time or story points for this feature, depending on the capacity units configured. For time: use min, h, d, w, m. Example: \"2d 1h\". 1d = 8h, 1w = 5d, 1m = 22d. For story points: Use p to represent points. Example: \"4p\".
      * @type {string}
-     * @memberof FeatureCreateRequestFeature
+     * @memberof FeaturesIdPutRequestFeature
      */
     'detailed_estimate_text'?: string;
     /**
-     * The remaining estimated effort in time or story points for this feature, depending on the capacity units configured
+     * The remaining estimated effort in time or story points for this feature, depending on the capacity units configured. For time: use min, h, d, w, m. Example: \"2d 1h\". 1d = 8h, 1w = 5d, 1m = 22d. For story points: Use p to represent points. Example: \"4p\".
      * @type {string}
-     * @memberof FeatureCreateRequestFeature
+     * @memberof FeaturesIdPutRequestFeature
      */
     'remaining_estimate_text'?: string;
     /**
      * Set the initial estimated effort in minutes or story points, depending on the capacity units configured
      * @type {number}
-     * @memberof FeatureCreateRequestFeature
+     * @memberof FeaturesIdPutRequestFeature
      */
     'initial_estimate'?: number;
     /**
      * Set the detailed estimated effort in minutes or story points, depending on the capacity units configured
      * @type {number}
-     * @memberof FeatureCreateRequestFeature
+     * @memberof FeaturesIdPutRequestFeature
      */
     'detailed_estimate'?: number;
     /**
      * Set the remaining estimated effort in minutes or story points, depending on the capacity units configured
      * @type {number}
-     * @memberof FeatureCreateRequestFeature
+     * @memberof FeaturesIdPutRequestFeature
      */
     'remaining_estimate'?: number;
     /**
      * Date that work will start on the feature in format YYYY-MM-DD
      * @type {string}
-     * @memberof FeatureCreateRequestFeature
+     * @memberof FeaturesIdPutRequestFeature
      */
     'start_date'?: string;
     /**
      * Date that work is due to be completed on the feature in format YYYY-MM-DD
      * @type {string}
-     * @memberof FeatureCreateRequestFeature
+     * @memberof FeaturesIdPutRequestFeature
      */
     'due_date'?: string;
     /**
      * Name or id of release phase which the feature belongs to
      * @type {string}
-     * @memberof FeatureCreateRequestFeature
+     * @memberof FeaturesIdPutRequestFeature
      */
     'release_phase'?: string;
     /**
      * Name or id of initiative which the feature belongs to
      * @type {string}
-     * @memberof FeatureCreateRequestFeature
+     * @memberof FeaturesIdPutRequestFeature
      */
     'initiative'?: string;
     /**
      * Name or id of epic which the feature belongs to
      * @type {string}
-     * @memberof FeatureCreateRequestFeature
+     * @memberof FeaturesIdPutRequestFeature
      */
     'epic'?: string;
     /**
-     * Source for calculating progress on the feature
+     * Source for calculating progress on the feature. Options are: progress_manual, progress_from_requirements, progress_from_remaining_estimate, progress_from_todos
      * @type {string}
-     * @memberof FeatureCreateRequestFeature
+     * @memberof FeaturesIdPutRequestFeature
      */
-    'progress_source'?: FeatureCreateRequestFeatureProgressSourceEnum;
+    'progress_source'?: string;
     /**
      * Progress completed on the feature. May only be set when the progress_source is manual
      * @type {number}
-     * @memberof FeatureCreateRequestFeature
+     * @memberof FeaturesIdPutRequestFeature
      */
     'progress'?: number;
     /**
      * Numeric ID or key of the Develop team to assign the feature to
      * @type {string}
-     * @memberof FeatureCreateRequestFeature
+     * @memberof FeaturesIdPutRequestFeature
      */
     'team'?: string;
     /**
      * Team status of the feature — must be a valid status for the selected team
      * @type {string}
-     * @memberof FeatureCreateRequestFeature
+     * @memberof FeaturesIdPutRequestFeature
      */
     'team_workflow_status'?: string;
     /**
      * ID of sprint to assign the feature to, must belong to the selected team
      * @type {string}
-     * @memberof FeatureCreateRequestFeature
+     * @memberof FeaturesIdPutRequestFeature
      */
     'iteration'?: string;
     /**
      * Numeric ID or key of the PI to assign the feature to, must belong to the selected team
      * @type {string}
-     * @memberof FeatureCreateRequestFeature
+     * @memberof FeaturesIdPutRequestFeature
      */
     'program_increment'?: string;
-    /**
-     * Score facts to add to the feature (e.g., Benefit, Effort)
-     * @type {Array<FeatureCreateRequestFeatureScoreFactsInner>}
-     * @memberof FeatureCreateRequestFeature
-     */
-    'score_facts'?: Array<FeatureCreateRequestFeatureScoreFactsInner>;
-    /**
-     * Comma-separated list of goal IDs to associate with the feature
-     * @type {string}
-     * @memberof FeatureCreateRequestFeature
-     */
-    'goals'?: string;
-    /**
-     * Comma-separated list of user IDs to add as watchers to the feature
-     * @type {string}
-     * @memberof FeatureCreateRequestFeature
-     */
-    'watchers'?: string;
 }
-
-export const FeatureCreateRequestFeatureProgressSourceEnum = {
-    PROGRESS_MANUAL: 'progress_manual',
-    PROGRESS_FROM_REQUIREMENTS: 'progress_from_requirements',
-    PROGRESS_FROM_REMAINING_ESTIMATE: 'progress_from_remaining_estimate',
-    PROGRESS_FROM_TODOS: 'progress_from_todos'
-} as const;
-
-export type FeatureCreateRequestFeatureProgressSourceEnum = typeof FeatureCreateRequestFeatureProgressSourceEnum[keyof typeof FeatureCreateRequestFeatureProgressSourceEnum];
-
 

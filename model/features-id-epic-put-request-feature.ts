@@ -15,16 +15,16 @@
 
 
 /**
- * Status of the feature — must be a valid status for the selected product
+ * 
  * @export
- * @interface FeatureCreateRequestFeatureWorkflowStatus
+ * @interface FeaturesIdEpicPutRequestFeature
  */
-export interface FeatureCreateRequestFeatureWorkflowStatus {
+export interface FeaturesIdEpicPutRequestFeature {
     /**
-     * 
+     * Name or id of epic which the feature belongs to
      * @type {string}
-     * @memberof FeatureCreateRequestFeatureWorkflowStatus
+     * @memberof FeaturesIdEpicPutRequestFeature
      */
-    'name'?: string;
+    'epic'?: string;
 }
 
