@@ -4,6 +4,9 @@ on:
     - cron: '0 0 * * *'  # Daily at midnight
   workflow_dispatch:  # Manual trigger
 
+permissions:
+  contents: write  # Required to push changes back to the repository
+
 jobs:
   generate:
     runs-on: ubuntu-latest
