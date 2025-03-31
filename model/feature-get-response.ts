@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Feature1 } from './feature1';
+import type { Feature } from './feature';
 
 /**
  * 
@@ -25,9 +25,9 @@ import type { Feature1 } from './feature1';
 export interface FeatureGetResponse {
     /**
      * 
-     * @type {Feature1}
+     * @type {Feature}
      * @memberof FeatureGetResponse
      */
-    'feature'?: Feature1;
+    'feature'?: Feature;
 }
 

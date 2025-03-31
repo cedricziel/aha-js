@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**feature** | [**Feature1**](Feature1.md) |  | [optional] [default to undefined]
+**feature** | [**Feature**](Feature.md) |  | [optional] [default to undefined]
 
 ## Example
 

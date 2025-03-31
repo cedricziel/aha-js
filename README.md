@@ -77,17 +77,6 @@ Class | Method | HTTP request | Description
 *EpicsApi* | [**productsProductIdEpicsPost**](docs/EpicsApi.md#productsproductidepicspost) | **POST** /products/{product_id}/epics | Create an epic in a product
 *EpicsApi* | [**releasesReleaseIdEpicsGet**](docs/EpicsApi.md#releasesreleaseidepicsget) | **GET** /releases/{release_id}/epics | List epics in a release
 *EpicsApi* | [**releasesReleaseIdEpicsPost**](docs/EpicsApi.md#releasesreleaseidepicspost) | **POST** /releases/{release_id}/epics | Create an epic in a release
-*FeaturesApi* | [**featuresIdCustomFieldsPut**](docs/FeaturesApi.md#featuresidcustomfieldsput) | **PUT** /features/{id}/custom_fields | Update a feature\&#39;s custom fields
-*FeaturesApi* | [**featuresIdCustomFieldsTagPut**](docs/FeaturesApi.md#featuresidcustomfieldstagput) | **PUT** /features/{id}/custom_fields/tag | Update a feature\&#39;s custom fields with tag-like value
-*FeaturesApi* | [**featuresIdCustomFieldsWorksheetPut**](docs/FeaturesApi.md#featuresidcustomfieldsworksheetput) | **PUT** /features/{id}/custom_fields/worksheet | Update a feature\&#39;s custom worksheet fields
-*FeaturesApi* | [**featuresIdDelete**](docs/FeaturesApi.md#featuresiddelete) | **DELETE** /features/{id} | Delete a feature
-*FeaturesApi* | [**featuresIdEpicPut**](docs/FeaturesApi.md#featuresidepicput) | **PUT** /features/{id}/epic | Update a feature\&#39;s epic
-*FeaturesApi* | [**featuresIdGet**](docs/FeaturesApi.md#featuresidget) | **GET** /features/{id} | Get a specific feature
-*FeaturesApi* | [**featuresIdGoalsPut**](docs/FeaturesApi.md#featuresidgoalsput) | **PUT** /features/{id}/goals | Update a feature\&#39;s goals
-*FeaturesApi* | [**featuresIdProgressPut**](docs/FeaturesApi.md#featuresidprogressput) | **PUT** /features/{id}/progress | Update a feature\&#39;s progress
-*FeaturesApi* | [**featuresIdPut**](docs/FeaturesApi.md#featuresidput) | **PUT** /features/{id} | Update a feature
-*FeaturesApi* | [**releasesReleaseIdFeaturesGet**](docs/FeaturesApi.md#releasesreleaseidfeaturesget) | **GET** /releases/{release_id}/features | List features in a release
-*FeaturesApi* | [**releasesReleaseIdFeaturesPost**](docs/FeaturesApi.md#releasesreleaseidfeaturespost) | **POST** /releases/{release_id}/features | Create a feature
 *GoalsApi* | [**goalsGoalIdEpicsGet**](docs/GoalsApi.md#goalsgoalidepicsget) | **GET** /goals/{goal_id}/epics | List epics associated with a goal
 *InitiativesApi* | [**initiativesInitiativeIdEpicsGet**](docs/InitiativesApi.md#initiativesinitiativeidepicsget) | **GET** /initiatives/{initiative_id}/epics | List epics associated with an initiative
 
@@ -109,12 +98,12 @@ Class | Method | HTTP request | Description
  - [EpicUpdateRequestEpic](docs/EpicUpdateRequestEpic.md)
  - [EpicsEpicIdCommentsGet200Response](docs/EpicsEpicIdCommentsGet200Response.md)
  - [Feature](docs/Feature.md)
- - [Feature1](docs/Feature1.md)
  - [FeatureCreateRequest](docs/FeatureCreateRequest.md)
  - [FeatureCreateRequestFeature](docs/FeatureCreateRequestFeature.md)
  - [FeatureCreateRequestFeatureAssignedToUser](docs/FeatureCreateRequestFeatureAssignedToUser.md)
  - [FeatureCreateRequestFeatureAssignedToUserOneOf](docs/FeatureCreateRequestFeatureAssignedToUserOneOf.md)
  - [FeatureCreateRequestFeatureScoreFactsInner](docs/FeatureCreateRequestFeatureScoreFactsInner.md)
+ - [FeatureCreateRequestFeatureWorkflowStatus](docs/FeatureCreateRequestFeatureWorkflowStatus.md)
  - [FeatureDescription](docs/FeatureDescription.md)
  - [FeatureGetResponse](docs/FeatureGetResponse.md)
  - [FeatureIntegrationFieldsInner](docs/FeatureIntegrationFieldsInner.md)
@@ -123,23 +112,6 @@ Class | Method | HTTP request | Description
  - [FeatureWorkflowKind](docs/FeatureWorkflowKind.md)
  - [FeatureWorkflowStatus](docs/FeatureWorkflowStatus.md)
  - [FeatureWorkflowStatusTimesInner](docs/FeatureWorkflowStatusTimesInner.md)
- - [FeaturesIdCustomFieldsPutRequest](docs/FeaturesIdCustomFieldsPutRequest.md)
- - [FeaturesIdCustomFieldsPutRequestFeature](docs/FeaturesIdCustomFieldsPutRequestFeature.md)
- - [FeaturesIdCustomFieldsTagPutRequest](docs/FeaturesIdCustomFieldsTagPutRequest.md)
- - [FeaturesIdCustomFieldsTagPutRequestFeature](docs/FeaturesIdCustomFieldsTagPutRequestFeature.md)
- - [FeaturesIdCustomFieldsTagPutRequestFeatureCustomFields](docs/FeaturesIdCustomFieldsTagPutRequestFeatureCustomFields.md)
- - [FeaturesIdCustomFieldsWorksheetPutRequest](docs/FeaturesIdCustomFieldsWorksheetPutRequest.md)
- - [FeaturesIdCustomFieldsWorksheetPutRequestFeature](docs/FeaturesIdCustomFieldsWorksheetPutRequestFeature.md)
- - [FeaturesIdCustomFieldsWorksheetPutRequestFeatureCustomFields](docs/FeaturesIdCustomFieldsWorksheetPutRequestFeatureCustomFields.md)
- - [FeaturesIdEpicPutRequest](docs/FeaturesIdEpicPutRequest.md)
- - [FeaturesIdEpicPutRequestFeature](docs/FeaturesIdEpicPutRequestFeature.md)
- - [FeaturesIdGoalsPutRequest](docs/FeaturesIdGoalsPutRequest.md)
- - [FeaturesIdGoalsPutRequestFeature](docs/FeaturesIdGoalsPutRequestFeature.md)
- - [FeaturesIdProgressPutRequest](docs/FeaturesIdProgressPutRequest.md)
- - [FeaturesIdProgressPutRequestFeature](docs/FeaturesIdProgressPutRequestFeature.md)
- - [FeaturesIdPutRequest](docs/FeaturesIdPutRequest.md)
- - [FeaturesIdPutRequestFeature](docs/FeaturesIdPutRequestFeature.md)
- - [FeaturesIdPutRequestFeatureWorkflowStatus](docs/FeaturesIdPutRequestFeatureWorkflowStatus.md)
  - [FeaturesListResponse](docs/FeaturesListResponse.md)
  - [FeaturesListResponseFeaturesInner](docs/FeaturesListResponseFeaturesInner.md)
  - [FeaturesListResponsePagination](docs/FeaturesListResponsePagination.md)

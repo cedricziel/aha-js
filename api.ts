@@ -16,7 +16,6 @@
 
 export * from './api/default-api';
 export * from './api/epics-api';
-export * from './api/features-api';
 export * from './api/goals-api';
 export * from './api/initiatives-api';
 

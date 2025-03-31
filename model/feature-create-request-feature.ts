@@ -21,7 +21,7 @@ import type { FeatureCreateRequestFeatureAssignedToUser } from './feature-create
 import type { FeatureCreateRequestFeatureScoreFactsInner } from './feature-create-request-feature-score-facts-inner';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { FeaturesIdPutRequestFeatureWorkflowStatus } from './features-id-put-request-feature-workflow-status';
+import type { FeatureCreateRequestFeatureWorkflowStatus } from './feature-create-request-feature-workflow-status';
 
 /**
  * 
@@ -43,10 +43,10 @@ export interface FeatureCreateRequestFeature {
     'workflow_kind'?: string;
     /**
      * 
-     * @type {FeaturesIdPutRequestFeatureWorkflowStatus}
+     * @type {FeatureCreateRequestFeatureWorkflowStatus}
      * @memberof FeatureCreateRequestFeature
      */
-    'workflow_status'?: FeaturesIdPutRequestFeatureWorkflowStatus;
+    'workflow_status'?: FeatureCreateRequestFeatureWorkflowStatus;
     /**
      * Numeric ID or key of the release the feature should be created in
      * @type {string}

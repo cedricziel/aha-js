@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **string** | Name of the feature | [default to undefined]
 **workflowKind** | **string** | Type of feature | [optional] [default to undefined]
-**workflowStatus** | [**FeaturesIdPutRequestFeatureWorkflowStatus**](FeaturesIdPutRequestFeatureWorkflowStatus.md) |  | [optional] [default to undefined]
+**workflowStatus** | [**FeatureCreateRequestFeatureWorkflowStatus**](FeatureCreateRequestFeatureWorkflowStatus.md) |  | [optional] [default to undefined]
 **release** | **string** | Numeric ID or key of the release the feature should be created in | [optional] [default to undefined]
 **description** | **string** | Description of the feature — may include HTML formatting | [optional] [default to undefined]
 **createdBy** | **string** | Email address of the user who created the feature | [optional] [default to undefined]
