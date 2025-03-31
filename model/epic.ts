@@ -18,7 +18,7 @@
 import type { EpicDescription } from './epic-description';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { EpicWorkflowStatus } from './epic-workflow-status';
+import type { FeatureWorkflowStatus } from './feature-workflow-status';
 // May contain unused imports in some cases
 // @ts-ignore
 import type { User } from './user';
@@ -109,10 +109,10 @@ export interface Epic {
     'created_by'?: User;
     /**
      * 
-     * @type {EpicWorkflowStatus}
+     * @type {FeatureWorkflowStatus}
      * @memberof Epic
      */
-    'workflow_status'?: EpicWorkflowStatus;
+    'workflow_status'?: FeatureWorkflowStatus;
     /**
      * 
      * @type {EpicDescription}

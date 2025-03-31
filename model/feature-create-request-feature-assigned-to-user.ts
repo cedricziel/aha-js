@@ -15,19 +15,13 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { FeatureCreateRequestFeature } from './feature-create-request-feature';
+import type { FeatureCreateRequestFeatureAssignedToUserOneOf } from './feature-create-request-feature-assigned-to-user-one-of';
 
 /**
- * 
+ * @type FeatureCreateRequestFeatureAssignedToUser
+ * Email address of user that is assigned the feature. Can be specified as a string or as an object with an email property.
  * @export
- * @interface FeatureCreateRequest
  */
-export interface FeatureCreateRequest {
-    /**
-     * 
-     * @type {FeatureCreateRequestFeature}
-     * @memberof FeatureCreateRequest
-     */
-    'feature'?: FeatureCreateRequestFeature;
-}
+export type FeatureCreateRequestFeatureAssignedToUser = FeatureCreateRequestFeatureAssignedToUserOneOf | string;
+
 

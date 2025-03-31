@@ -1,4 +1,4 @@
-# EpicWorkflowStatus
+# FeatureWorkflowKind
 
 
 ## Properties
@@ -7,21 +7,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [optional] [default to undefined]
 **name** | **string** |  | [optional] [default to undefined]
-**position** | **number** |  | [optional] [default to undefined]
-**complete** | **boolean** |  | [optional] [default to undefined]
-**color** | **string** |  | [optional] [default to undefined]
 
 ## Example
 
 ```typescript
-import { EpicWorkflowStatus } from 'aha-js';
+import { FeatureWorkflowKind } from 'aha-js';
 
-const instance: EpicWorkflowStatus = {
+const instance: FeatureWorkflowKind = {
     id,
     name,
-    position,
-    complete,
-    color,
 };
 ```
 

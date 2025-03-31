@@ -17,38 +17,20 @@
 /**
  * 
  * @export
- * @interface EpicWorkflowStatus
+ * @interface FeatureWorkflowKind
  */
-export interface EpicWorkflowStatus {
+export interface FeatureWorkflowKind {
     /**
      * 
      * @type {string}
-     * @memberof EpicWorkflowStatus
+     * @memberof FeatureWorkflowKind
      */
     'id'?: string;
     /**
      * 
      * @type {string}
-     * @memberof EpicWorkflowStatus
+     * @memberof FeatureWorkflowKind
      */
     'name'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof EpicWorkflowStatus
-     */
-    'position'?: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EpicWorkflowStatus
-     */
-    'complete'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicWorkflowStatus
-     */
-    'color'?: string;
 }
 

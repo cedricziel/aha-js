@@ -64,7 +64,6 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**productsProductIdCompetitorsPost**](docs/DefaultApi.md#productsproductidcompetitorspost) | **POST** /products/{product_id}/competitors | Create a competitor
 *DefaultApi* | [**releasePhasesReleasePhaseIdCommentsGet**](docs/DefaultApi.md#releasephasesreleasephaseidcommentsget) | **GET** /release_phases/{release_phase_id}/comments | List comments on a release phase
 *DefaultApi* | [**releasesReleaseIdCommentsGet**](docs/DefaultApi.md#releasesreleaseidcommentsget) | **GET** /releases/{release_id}/comments | List comments on a release
-*DefaultApi* | [**releasesReleaseIdFeaturesPost**](docs/DefaultApi.md#releasesreleaseidfeaturespost) | **POST** /releases/{release_id}/features | Create a feature
 *DefaultApi* | [**requirementsRequirementIdCommentsGet**](docs/DefaultApi.md#requirementsrequirementidcommentsget) | **GET** /requirements/{requirement_id}/comments | List comments on a requirement
 *DefaultApi* | [**todosTodoIdCommentsGet**](docs/DefaultApi.md#todostodoidcommentsget) | **GET** /todos/{todo_id}/comments | List comments on a to-do
 *DefaultApi* | [**usersGet**](docs/DefaultApi.md#usersget) | **GET** /users | List users
@@ -97,10 +96,21 @@ Class | Method | HTTP request | Description
  - [EpicDescription](docs/EpicDescription.md)
  - [EpicUpdateRequest](docs/EpicUpdateRequest.md)
  - [EpicUpdateRequestEpic](docs/EpicUpdateRequestEpic.md)
- - [EpicWorkflowStatus](docs/EpicWorkflowStatus.md)
  - [EpicsEpicIdCommentsGet200Response](docs/EpicsEpicIdCommentsGet200Response.md)
  - [Feature](docs/Feature.md)
  - [FeatureCreateRequest](docs/FeatureCreateRequest.md)
+ - [FeatureCreateRequestFeature](docs/FeatureCreateRequestFeature.md)
+ - [FeatureCreateRequestFeatureAssignedToUser](docs/FeatureCreateRequestFeatureAssignedToUser.md)
+ - [FeatureCreateRequestFeatureAssignedToUserOneOf](docs/FeatureCreateRequestFeatureAssignedToUserOneOf.md)
+ - [FeatureCreateRequestFeatureScoreFactsInner](docs/FeatureCreateRequestFeatureScoreFactsInner.md)
+ - [FeatureCreateRequestFeatureWorkflowStatus](docs/FeatureCreateRequestFeatureWorkflowStatus.md)
+ - [FeatureDescription](docs/FeatureDescription.md)
+ - [FeatureIntegrationFieldsInner](docs/FeatureIntegrationFieldsInner.md)
+ - [FeatureProject](docs/FeatureProject.md)
+ - [FeatureRelease](docs/FeatureRelease.md)
+ - [FeatureWorkflowKind](docs/FeatureWorkflowKind.md)
+ - [FeatureWorkflowStatus](docs/FeatureWorkflowStatus.md)
+ - [FeatureWorkflowStatusTimesInner](docs/FeatureWorkflowStatusTimesInner.md)
  - [ProductsProductIdCompetitorsGet200Response](docs/ProductsProductIdCompetitorsGet200Response.md)
  - [ProductsProductIdEpicsGet200Response](docs/ProductsProductIdEpicsGet200Response.md)
  - [User](docs/User.md)

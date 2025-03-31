@@ -13,21 +13,18 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import type { FeatureCreateRequestFeature } from './feature-create-request-feature';
 
 /**
  * 
  * @export
- * @interface FeatureCreateRequest
+ * @interface FeatureCreateRequestFeatureAssignedToUserOneOf
  */
-export interface FeatureCreateRequest {
+export interface FeatureCreateRequestFeatureAssignedToUserOneOf {
     /**
-     * 
-     * @type {FeatureCreateRequestFeature}
-     * @memberof FeatureCreateRequest
+     * Email address of user that is assigned the feature
+     * @type {string}
+     * @memberof FeatureCreateRequestFeatureAssignedToUserOneOf
      */
-    'feature'?: FeatureCreateRequestFeature;
+    'email'?: string;
 }
 

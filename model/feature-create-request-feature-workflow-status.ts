@@ -13,21 +13,18 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import type { FeatureCreateRequestFeature } from './feature-create-request-feature';
 
 /**
- * 
+ * Status of the feature — must be a valid status for the selected product
  * @export
- * @interface FeatureCreateRequest
+ * @interface FeatureCreateRequestFeatureWorkflowStatus
  */
-export interface FeatureCreateRequest {
+export interface FeatureCreateRequestFeatureWorkflowStatus {
     /**
      * 
-     * @type {FeatureCreateRequestFeature}
-     * @memberof FeatureCreateRequest
+     * @type {string}
+     * @memberof FeatureCreateRequestFeatureWorkflowStatus
      */
-    'feature'?: FeatureCreateRequestFeature;
+    'name'?: string;
 }
 

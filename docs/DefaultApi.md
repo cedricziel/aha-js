@@ -17,7 +17,6 @@ All URIs are relative to *https://mycompany.aha.io/api/v1*
 |[**productsProductIdCompetitorsPost**](#productsproductidcompetitorspost) | **POST** /products/{product_id}/competitors | Create a competitor|
 |[**releasePhasesReleasePhaseIdCommentsGet**](#releasephasesreleasephaseidcommentsget) | **GET** /release_phases/{release_phase_id}/comments | List comments on a release phase|
 |[**releasesReleaseIdCommentsGet**](#releasesreleaseidcommentsget) | **GET** /releases/{release_id}/comments | List comments on a release|
-|[**releasesReleaseIdFeaturesPost**](#releasesreleaseidfeaturespost) | **POST** /releases/{release_id}/features | Create a feature|
 |[**requirementsRequirementIdCommentsGet**](#requirementsrequirementidcommentsget) | **GET** /requirements/{requirement_id}/comments | List comments on a requirement|
 |[**todosTodoIdCommentsGet**](#todostodoidcommentsget) | **GET** /todos/{todo_id}/comments | List comments on a to-do|
 |[**usersGet**](#usersget) | **GET** /users | List users|
@@ -697,61 +696,6 @@ const { status, data } = await apiInstance.releasesReleaseIdCommentsGet(
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | A list of comments |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **releasesReleaseIdFeaturesPost**
-> Feature releasesReleaseIdFeaturesPost(featureCreateRequest)
-
-Adds a new feature to a specified release.
-
-### Example
-
-```typescript
-import {
-    DefaultApi,
-    Configuration,
-    FeatureCreateRequest
-} from 'aha-js';
-
-const configuration = new Configuration();
-const apiInstance = new DefaultApi(configuration);
-
-let releaseId: string; // (default to undefined)
-let featureCreateRequest: FeatureCreateRequest; //
-
-const { status, data } = await apiInstance.releasesReleaseIdFeaturesPost(
-    releaseId,
-    featureCreateRequest
-);
-```
-
-### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **featureCreateRequest** | **FeatureCreateRequest**|  | |
-| **releaseId** | [**string**] |  | defaults to undefined|
-
-
-### Return type
-
-**Feature**
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-|**201** | Feature created |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -34,10 +34,6 @@ import type { CompetitorUpdateRequest } from '../model';
 // @ts-ignore
 import type { EpicsEpicIdCommentsGet200Response } from '../model';
 // @ts-ignore
-import type { Feature } from '../model';
-// @ts-ignore
-import type { FeatureCreateRequest } from '../model';
-// @ts-ignore
 import type { ProductsProductIdCompetitorsGet200Response } from '../model';
 // @ts-ignore
 import type { User } from '../model';
@@ -612,54 +608,6 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Adds a new feature to a specified release.
-         * @summary Create a feature
-         * @param {string} releaseId 
-         * @param {FeatureCreateRequest} featureCreateRequest 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        releasesReleaseIdFeaturesPost: async (releaseId: string, featureCreateRequest: FeatureCreateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'releaseId' is not null or undefined
-            assertParamExists('releasesReleaseIdFeaturesPost', 'releaseId', releaseId)
-            // verify required parameter 'featureCreateRequest' is not null or undefined
-            assertParamExists('releasesReleaseIdFeaturesPost', 'featureCreateRequest', featureCreateRequest)
-            const localVarPath = `/releases/{release_id}/features`
-                .replace(`{${"release_id"}}`, encodeURIComponent(String(releaseId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication OAuth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
-
-            // authentication BearerAuth required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(featureCreateRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Retrieves a list of comments associated with the specified requirement.
          * @summary List comments on a requirement
          * @param {string} requirementId 
@@ -1006,20 +954,6 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Adds a new feature to a specified release.
-         * @summary Create a feature
-         * @param {string} releaseId 
-         * @param {FeatureCreateRequest} featureCreateRequest 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async releasesReleaseIdFeaturesPost(releaseId: string, featureCreateRequest: FeatureCreateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Feature>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.releasesReleaseIdFeaturesPost(releaseId, featureCreateRequest, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DefaultApi.releasesReleaseIdFeaturesPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
          * Retrieves a list of comments associated with the specified requirement.
          * @summary List comments on a requirement
          * @param {string} requirementId 
@@ -1211,16 +1145,6 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.releasesReleaseIdCommentsGet(requestParameters.releaseId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Adds a new feature to a specified release.
-         * @summary Create a feature
-         * @param {DefaultApiReleasesReleaseIdFeaturesPostRequest} requestParameters Request parameters.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        releasesReleaseIdFeaturesPost(requestParameters: DefaultApiReleasesReleaseIdFeaturesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<Feature> {
-            return localVarFp.releasesReleaseIdFeaturesPost(requestParameters.releaseId, requestParameters.featureCreateRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
          * Retrieves a list of comments associated with the specified requirement.
          * @summary List comments on a requirement
          * @param {DefaultApiRequirementsRequirementIdCommentsGetRequest} requestParameters Request parameters.
@@ -1397,16 +1321,6 @@ export interface DefaultApiInterface {
      * @memberof DefaultApiInterface
      */
     releasesReleaseIdCommentsGet(requestParameters: DefaultApiReleasesReleaseIdCommentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsEpicIdCommentsGet200Response>;
-
-    /**
-     * Adds a new feature to a specified release.
-     * @summary Create a feature
-     * @param {DefaultApiReleasesReleaseIdFeaturesPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DefaultApiInterface
-     */
-    releasesReleaseIdFeaturesPost(requestParameters: DefaultApiReleasesReleaseIdFeaturesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<Feature>;
 
     /**
      * Retrieves a list of comments associated with the specified requirement.
@@ -1653,27 +1567,6 @@ export interface DefaultApiReleasesReleaseIdCommentsGetRequest {
 }
 
 /**
- * Request parameters for releasesReleaseIdFeaturesPost operation in DefaultApi.
- * @export
- * @interface DefaultApiReleasesReleaseIdFeaturesPostRequest
- */
-export interface DefaultApiReleasesReleaseIdFeaturesPostRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof DefaultApiReleasesReleaseIdFeaturesPost
-     */
-    readonly releaseId: string
-
-    /**
-     * 
-     * @type {FeatureCreateRequest}
-     * @memberof DefaultApiReleasesReleaseIdFeaturesPost
-     */
-    readonly featureCreateRequest: FeatureCreateRequest
-}
-
-/**
  * Request parameters for requirementsRequirementIdCommentsGet operation in DefaultApi.
  * @export
  * @interface DefaultApiRequirementsRequirementIdCommentsGetRequest
@@ -1876,18 +1769,6 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
      */
     public releasesReleaseIdCommentsGet(requestParameters: DefaultApiReleasesReleaseIdCommentsGetRequest, options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).releasesReleaseIdCommentsGet(requestParameters.releaseId, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Adds a new feature to a specified release.
-     * @summary Create a feature
-     * @param {DefaultApiReleasesReleaseIdFeaturesPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DefaultApi
-     */
-    public releasesReleaseIdFeaturesPost(requestParameters: DefaultApiReleasesReleaseIdFeaturesPostRequest, options?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).releasesReleaseIdFeaturesPost(requestParameters.releaseId, requestParameters.featureCreateRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **productId** | **string** |  | [optional] [default to undefined]
 **progress** | **number** |  | [optional] [default to undefined]
 **createdBy** | [**User**](User.md) |  | [optional] [default to undefined]
-**workflowStatus** | [**EpicWorkflowStatus**](EpicWorkflowStatus.md) |  | [optional] [default to undefined]
+**workflowStatus** | [**FeatureWorkflowStatus**](FeatureWorkflowStatus.md) |  | [optional] [default to undefined]
 **description** | [**EpicDescription**](EpicDescription.md) |  | [optional] [default to undefined]
 **url** | **string** |  | [optional] [default to undefined]
 **resource** | **string** |  | [optional] [default to undefined]

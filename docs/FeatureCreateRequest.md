@@ -5,10 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **string** |  | [optional] [default to undefined]
-**description** | **string** |  | [optional] [default to undefined]
-**startDate** | **string** |  | [optional] [default to undefined]
-**dueDate** | **string** |  | [optional] [default to undefined]
+**feature** | [**FeatureCreateRequestFeature**](FeatureCreateRequestFeature.md) |  | [optional] [default to undefined]
 
 ## Example
 
@@ -16,10 +13,7 @@ Name | Type | Description | Notes
 import { FeatureCreateRequest } from 'aha-js';
 
 const instance: FeatureCreateRequest = {
-    name,
-    description,
-    startDate,
-    dueDate,
+    feature,
 };
 ```
 
