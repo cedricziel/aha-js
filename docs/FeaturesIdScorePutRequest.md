@@ -1,0 +1,20 @@
+# FeaturesIdScorePutRequest
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**feature** | [**FeaturesIdScorePutRequestFeature**](FeaturesIdScorePutRequestFeature.md) |  | [optional] [default to undefined]
+
+## Example
+
+```typescript
+import { FeaturesIdScorePutRequest } from 'aha-js';
+
+const instance: FeaturesIdScorePutRequest = {
+    feature,
+};
+```
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

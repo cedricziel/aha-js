@@ -36,6 +36,14 @@ import type { FeaturesIdGoalsPutRequest } from '../model';
 // @ts-ignore
 import type { FeaturesIdProgressPutRequest } from '../model';
 // @ts-ignore
+import type { FeaturesIdProgressSourcePutRequest } from '../model';
+// @ts-ignore
+import type { FeaturesIdReleasePutRequest } from '../model';
+// @ts-ignore
+import type { FeaturesIdScorePutRequest } from '../model';
+// @ts-ignore
+import type { FeaturesIdTagsPutRequest } from '../model';
+// @ts-ignore
 import type { FeaturesListResponse } from '../model';
 /**
  * FeaturesApi - axios parameter creator
@@ -343,6 +351,198 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * Updates the progress source of an existing feature. Options are: progress_manual, progress_from_requirements, progress_from_remaining_estimate, progress_from_todos. 
+         * @summary Update a feature\'s progress source
+         * @param {string} id Numeric ID or key of the feature
+         * @param {FeaturesIdProgressSourcePutRequest} featuresIdProgressSourcePutRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        featuresIdProgressSourcePut: async (id: string, featuresIdProgressSourcePutRequest: FeaturesIdProgressSourcePutRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('featuresIdProgressSourcePut', 'id', id)
+            // verify required parameter 'featuresIdProgressSourcePutRequest' is not null or undefined
+            assertParamExists('featuresIdProgressSourcePut', 'featuresIdProgressSourcePutRequest', featuresIdProgressSourcePutRequest)
+            const localVarPath = `/features/{id}/progress_source`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(featuresIdProgressSourcePutRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Updates the release of an existing feature. 
+         * @summary Update a feature\'s release
+         * @param {string} id Numeric ID or key of the feature
+         * @param {FeaturesIdReleasePutRequest} featuresIdReleasePutRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        featuresIdReleasePut: async (id: string, featuresIdReleasePutRequest: FeaturesIdReleasePutRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('featuresIdReleasePut', 'id', id)
+            // verify required parameter 'featuresIdReleasePutRequest' is not null or undefined
+            assertParamExists('featuresIdReleasePut', 'featuresIdReleasePutRequest', featuresIdReleasePutRequest)
+            const localVarPath = `/features/{id}/release`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(featuresIdReleasePutRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Updates the score of an existing feature. 
+         * @summary Update a feature\'s score
+         * @param {string} id Numeric ID or key of the feature
+         * @param {FeaturesIdScorePutRequest} featuresIdScorePutRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        featuresIdScorePut: async (id: string, featuresIdScorePutRequest: FeaturesIdScorePutRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('featuresIdScorePut', 'id', id)
+            // verify required parameter 'featuresIdScorePutRequest' is not null or undefined
+            assertParamExists('featuresIdScorePut', 'featuresIdScorePutRequest', featuresIdScorePutRequest)
+            const localVarPath = `/features/{id}/score`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(featuresIdScorePutRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Updates the tags of an existing feature using an array. 
+         * @summary Update a feature\'s tags with an array
+         * @param {string} id Numeric ID or key of the feature
+         * @param {FeaturesIdTagsPutRequest} featuresIdTagsPutRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        featuresIdTagsPut: async (id: string, featuresIdTagsPutRequest: FeaturesIdTagsPutRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('featuresIdTagsPut', 'id', id)
+            // verify required parameter 'featuresIdTagsPutRequest' is not null or undefined
+            assertParamExists('featuresIdTagsPut', 'featuresIdTagsPutRequest', featuresIdTagsPutRequest)
+            const localVarPath = `/features/{id}/tags`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(featuresIdTagsPutRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -439,6 +639,62 @@ export const FeaturesApiFp = function(configuration?: Configuration) {
             const localVarOperationServerBasePath = operationServerMap['FeaturesApi.featuresIdProgressPut']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         * Updates the progress source of an existing feature. Options are: progress_manual, progress_from_requirements, progress_from_remaining_estimate, progress_from_todos. 
+         * @summary Update a feature\'s progress source
+         * @param {string} id Numeric ID or key of the feature
+         * @param {FeaturesIdProgressSourcePutRequest} featuresIdProgressSourcePutRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async featuresIdProgressSourcePut(id: string, featuresIdProgressSourcePutRequest: FeaturesIdProgressSourcePutRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Feature>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.featuresIdProgressSourcePut(id, featuresIdProgressSourcePutRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['FeaturesApi.featuresIdProgressSourcePut']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Updates the release of an existing feature. 
+         * @summary Update a feature\'s release
+         * @param {string} id Numeric ID or key of the feature
+         * @param {FeaturesIdReleasePutRequest} featuresIdReleasePutRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async featuresIdReleasePut(id: string, featuresIdReleasePutRequest: FeaturesIdReleasePutRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Feature>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.featuresIdReleasePut(id, featuresIdReleasePutRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['FeaturesApi.featuresIdReleasePut']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Updates the score of an existing feature. 
+         * @summary Update a feature\'s score
+         * @param {string} id Numeric ID or key of the feature
+         * @param {FeaturesIdScorePutRequest} featuresIdScorePutRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async featuresIdScorePut(id: string, featuresIdScorePutRequest: FeaturesIdScorePutRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Feature>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.featuresIdScorePut(id, featuresIdScorePutRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['FeaturesApi.featuresIdScorePut']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Updates the tags of an existing feature using an array. 
+         * @summary Update a feature\'s tags with an array
+         * @param {string} id Numeric ID or key of the feature
+         * @param {FeaturesIdTagsPutRequest} featuresIdTagsPutRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async featuresIdTagsPut(id: string, featuresIdTagsPutRequest: FeaturesIdTagsPutRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Feature>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.featuresIdTagsPut(id, featuresIdTagsPutRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['FeaturesApi.featuresIdTagsPut']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     }
 };
 
@@ -509,6 +765,46 @@ export const FeaturesApiFactory = function (configuration?: Configuration, baseP
         featuresIdProgressPut(requestParameters: FeaturesApiFeaturesIdProgressPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<Feature> {
             return localVarFp.featuresIdProgressPut(requestParameters.id, requestParameters.featuresIdProgressPutRequest, options).then((request) => request(axios, basePath));
         },
+        /**
+         * Updates the progress source of an existing feature. Options are: progress_manual, progress_from_requirements, progress_from_remaining_estimate, progress_from_todos. 
+         * @summary Update a feature\'s progress source
+         * @param {FeaturesApiFeaturesIdProgressSourcePutRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        featuresIdProgressSourcePut(requestParameters: FeaturesApiFeaturesIdProgressSourcePutRequest, options?: RawAxiosRequestConfig): AxiosPromise<Feature> {
+            return localVarFp.featuresIdProgressSourcePut(requestParameters.id, requestParameters.featuresIdProgressSourcePutRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Updates the release of an existing feature. 
+         * @summary Update a feature\'s release
+         * @param {FeaturesApiFeaturesIdReleasePutRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        featuresIdReleasePut(requestParameters: FeaturesApiFeaturesIdReleasePutRequest, options?: RawAxiosRequestConfig): AxiosPromise<Feature> {
+            return localVarFp.featuresIdReleasePut(requestParameters.id, requestParameters.featuresIdReleasePutRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Updates the score of an existing feature. 
+         * @summary Update a feature\'s score
+         * @param {FeaturesApiFeaturesIdScorePutRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        featuresIdScorePut(requestParameters: FeaturesApiFeaturesIdScorePutRequest, options?: RawAxiosRequestConfig): AxiosPromise<Feature> {
+            return localVarFp.featuresIdScorePut(requestParameters.id, requestParameters.featuresIdScorePutRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Updates the tags of an existing feature using an array. 
+         * @summary Update a feature\'s tags with an array
+         * @param {FeaturesApiFeaturesIdTagsPutRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        featuresIdTagsPut(requestParameters: FeaturesApiFeaturesIdTagsPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<Feature> {
+            return localVarFp.featuresIdTagsPut(requestParameters.id, requestParameters.featuresIdTagsPutRequest, options).then((request) => request(axios, basePath));
+        },
     };
 };
 
@@ -577,6 +873,46 @@ export interface FeaturesApiInterface {
      * @memberof FeaturesApiInterface
      */
     featuresIdProgressPut(requestParameters: FeaturesApiFeaturesIdProgressPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<Feature>;
+
+    /**
+     * Updates the progress source of an existing feature. Options are: progress_manual, progress_from_requirements, progress_from_remaining_estimate, progress_from_todos. 
+     * @summary Update a feature\'s progress source
+     * @param {FeaturesApiFeaturesIdProgressSourcePutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FeaturesApiInterface
+     */
+    featuresIdProgressSourcePut(requestParameters: FeaturesApiFeaturesIdProgressSourcePutRequest, options?: RawAxiosRequestConfig): AxiosPromise<Feature>;
+
+    /**
+     * Updates the release of an existing feature. 
+     * @summary Update a feature\'s release
+     * @param {FeaturesApiFeaturesIdReleasePutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FeaturesApiInterface
+     */
+    featuresIdReleasePut(requestParameters: FeaturesApiFeaturesIdReleasePutRequest, options?: RawAxiosRequestConfig): AxiosPromise<Feature>;
+
+    /**
+     * Updates the score of an existing feature. 
+     * @summary Update a feature\'s score
+     * @param {FeaturesApiFeaturesIdScorePutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FeaturesApiInterface
+     */
+    featuresIdScorePut(requestParameters: FeaturesApiFeaturesIdScorePutRequest, options?: RawAxiosRequestConfig): AxiosPromise<Feature>;
+
+    /**
+     * Updates the tags of an existing feature using an array. 
+     * @summary Update a feature\'s tags with an array
+     * @param {FeaturesApiFeaturesIdTagsPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FeaturesApiInterface
+     */
+    featuresIdTagsPut(requestParameters: FeaturesApiFeaturesIdTagsPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<Feature>;
 
 }
 
@@ -721,6 +1057,90 @@ export interface FeaturesApiFeaturesIdProgressPutRequest {
 }
 
 /**
+ * Request parameters for featuresIdProgressSourcePut operation in FeaturesApi.
+ * @export
+ * @interface FeaturesApiFeaturesIdProgressSourcePutRequest
+ */
+export interface FeaturesApiFeaturesIdProgressSourcePutRequest {
+    /**
+     * Numeric ID or key of the feature
+     * @type {string}
+     * @memberof FeaturesApiFeaturesIdProgressSourcePut
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {FeaturesIdProgressSourcePutRequest}
+     * @memberof FeaturesApiFeaturesIdProgressSourcePut
+     */
+    readonly featuresIdProgressSourcePutRequest: FeaturesIdProgressSourcePutRequest
+}
+
+/**
+ * Request parameters for featuresIdReleasePut operation in FeaturesApi.
+ * @export
+ * @interface FeaturesApiFeaturesIdReleasePutRequest
+ */
+export interface FeaturesApiFeaturesIdReleasePutRequest {
+    /**
+     * Numeric ID or key of the feature
+     * @type {string}
+     * @memberof FeaturesApiFeaturesIdReleasePut
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {FeaturesIdReleasePutRequest}
+     * @memberof FeaturesApiFeaturesIdReleasePut
+     */
+    readonly featuresIdReleasePutRequest: FeaturesIdReleasePutRequest
+}
+
+/**
+ * Request parameters for featuresIdScorePut operation in FeaturesApi.
+ * @export
+ * @interface FeaturesApiFeaturesIdScorePutRequest
+ */
+export interface FeaturesApiFeaturesIdScorePutRequest {
+    /**
+     * Numeric ID or key of the feature
+     * @type {string}
+     * @memberof FeaturesApiFeaturesIdScorePut
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {FeaturesIdScorePutRequest}
+     * @memberof FeaturesApiFeaturesIdScorePut
+     */
+    readonly featuresIdScorePutRequest: FeaturesIdScorePutRequest
+}
+
+/**
+ * Request parameters for featuresIdTagsPut operation in FeaturesApi.
+ * @export
+ * @interface FeaturesApiFeaturesIdTagsPutRequest
+ */
+export interface FeaturesApiFeaturesIdTagsPutRequest {
+    /**
+     * Numeric ID or key of the feature
+     * @type {string}
+     * @memberof FeaturesApiFeaturesIdTagsPut
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {FeaturesIdTagsPutRequest}
+     * @memberof FeaturesApiFeaturesIdTagsPut
+     */
+    readonly featuresIdTagsPutRequest: FeaturesIdTagsPutRequest
+}
+
+/**
  * FeaturesApi - object-oriented interface
  * @export
  * @class FeaturesApi
@@ -797,6 +1217,54 @@ export class FeaturesApi extends BaseAPI implements FeaturesApiInterface {
      */
     public featuresIdProgressPut(requestParameters: FeaturesApiFeaturesIdProgressPutRequest, options?: RawAxiosRequestConfig) {
         return FeaturesApiFp(this.configuration).featuresIdProgressPut(requestParameters.id, requestParameters.featuresIdProgressPutRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Updates the progress source of an existing feature. Options are: progress_manual, progress_from_requirements, progress_from_remaining_estimate, progress_from_todos. 
+     * @summary Update a feature\'s progress source
+     * @param {FeaturesApiFeaturesIdProgressSourcePutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FeaturesApi
+     */
+    public featuresIdProgressSourcePut(requestParameters: FeaturesApiFeaturesIdProgressSourcePutRequest, options?: RawAxiosRequestConfig) {
+        return FeaturesApiFp(this.configuration).featuresIdProgressSourcePut(requestParameters.id, requestParameters.featuresIdProgressSourcePutRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Updates the release of an existing feature. 
+     * @summary Update a feature\'s release
+     * @param {FeaturesApiFeaturesIdReleasePutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FeaturesApi
+     */
+    public featuresIdReleasePut(requestParameters: FeaturesApiFeaturesIdReleasePutRequest, options?: RawAxiosRequestConfig) {
+        return FeaturesApiFp(this.configuration).featuresIdReleasePut(requestParameters.id, requestParameters.featuresIdReleasePutRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Updates the score of an existing feature. 
+     * @summary Update a feature\'s score
+     * @param {FeaturesApiFeaturesIdScorePutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FeaturesApi
+     */
+    public featuresIdScorePut(requestParameters: FeaturesApiFeaturesIdScorePutRequest, options?: RawAxiosRequestConfig) {
+        return FeaturesApiFp(this.configuration).featuresIdScorePut(requestParameters.id, requestParameters.featuresIdScorePutRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Updates the tags of an existing feature using an array. 
+     * @summary Update a feature\'s tags with an array
+     * @param {FeaturesApiFeaturesIdTagsPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FeaturesApi
+     */
+    public featuresIdTagsPut(requestParameters: FeaturesApiFeaturesIdTagsPutRequest, options?: RawAxiosRequestConfig) {
+        return FeaturesApiFp(this.configuration).featuresIdTagsPut(requestParameters.id, requestParameters.featuresIdTagsPutRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

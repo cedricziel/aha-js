@@ -89,6 +89,10 @@ Class | Method | HTTP request | Description
 *FeaturesApi* | [**featuresIdEpicPut**](docs/FeaturesApi.md#featuresidepicput) | **PUT** /features/{id}/epic | Update a feature\&#39;s epic
 *FeaturesApi* | [**featuresIdGoalsPut**](docs/FeaturesApi.md#featuresidgoalsput) | **PUT** /features/{id}/goals | Update a feature\&#39;s goals
 *FeaturesApi* | [**featuresIdProgressPut**](docs/FeaturesApi.md#featuresidprogressput) | **PUT** /features/{id}/progress | Update a feature\&#39;s progress
+*FeaturesApi* | [**featuresIdProgressSourcePut**](docs/FeaturesApi.md#featuresidprogresssourceput) | **PUT** /features/{id}/progress_source | Update a feature\&#39;s progress source
+*FeaturesApi* | [**featuresIdReleasePut**](docs/FeaturesApi.md#featuresidreleaseput) | **PUT** /features/{id}/release | Update a feature\&#39;s release
+*FeaturesApi* | [**featuresIdScorePut**](docs/FeaturesApi.md#featuresidscoreput) | **PUT** /features/{id}/score | Update a feature\&#39;s score
+*FeaturesApi* | [**featuresIdTagsPut**](docs/FeaturesApi.md#featuresidtagsput) | **PUT** /features/{id}/tags | Update a feature\&#39;s tags with an array
 *GoalsApi* | [**goalsGoalIdCommentsGet**](docs/GoalsApi.md#goalsgoalidcommentsget) | **GET** /goals/{goal_id}/comments | List comments on a goal
 *GoalsApi* | [**goalsGoalIdEpicsGet**](docs/GoalsApi.md#goalsgoalidepicsget) | **GET** /goals/{goal_id}/epics | List epics associated with a goal
 *IdeasApi* | [**ideasIdeaIdCommentsGet**](docs/IdeasApi.md#ideasideaidcommentsget) | **GET** /ideas/{idea_id}/comments | List comments on an idea
@@ -143,6 +147,15 @@ Class | Method | HTTP request | Description
  - [FeaturesIdGoalsPutRequestFeature](docs/FeaturesIdGoalsPutRequestFeature.md)
  - [FeaturesIdProgressPutRequest](docs/FeaturesIdProgressPutRequest.md)
  - [FeaturesIdProgressPutRequestFeature](docs/FeaturesIdProgressPutRequestFeature.md)
+ - [FeaturesIdProgressSourcePutRequest](docs/FeaturesIdProgressSourcePutRequest.md)
+ - [FeaturesIdProgressSourcePutRequestFeature](docs/FeaturesIdProgressSourcePutRequestFeature.md)
+ - [FeaturesIdReleasePutRequest](docs/FeaturesIdReleasePutRequest.md)
+ - [FeaturesIdReleasePutRequestFeature](docs/FeaturesIdReleasePutRequestFeature.md)
+ - [FeaturesIdScorePutRequest](docs/FeaturesIdScorePutRequest.md)
+ - [FeaturesIdScorePutRequestFeature](docs/FeaturesIdScorePutRequestFeature.md)
+ - [FeaturesIdScorePutRequestFeatureScoreFactsInner](docs/FeaturesIdScorePutRequestFeatureScoreFactsInner.md)
+ - [FeaturesIdTagsPutRequest](docs/FeaturesIdTagsPutRequest.md)
+ - [FeaturesIdTagsPutRequestFeature](docs/FeaturesIdTagsPutRequestFeature.md)
  - [FeaturesListResponse](docs/FeaturesListResponse.md)
  - [FeaturesListResponseFeaturesInner](docs/FeaturesListResponseFeaturesInner.md)
  - [FeaturesListResponsePagination](docs/FeaturesListResponsePagination.md)

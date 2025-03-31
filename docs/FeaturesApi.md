@@ -10,6 +10,10 @@ All URIs are relative to *https://mycompany.aha.io/api/v1*
 |[**featuresIdEpicPut**](#featuresidepicput) | **PUT** /features/{id}/epic | Update a feature\&#39;s epic|
 |[**featuresIdGoalsPut**](#featuresidgoalsput) | **PUT** /features/{id}/goals | Update a feature\&#39;s goals|
 |[**featuresIdProgressPut**](#featuresidprogressput) | **PUT** /features/{id}/progress | Update a feature\&#39;s progress|
+|[**featuresIdProgressSourcePut**](#featuresidprogresssourceput) | **PUT** /features/{id}/progress_source | Update a feature\&#39;s progress source|
+|[**featuresIdReleasePut**](#featuresidreleaseput) | **PUT** /features/{id}/release | Update a feature\&#39;s release|
+|[**featuresIdScorePut**](#featuresidscoreput) | **PUT** /features/{id}/score | Update a feature\&#39;s score|
+|[**featuresIdTagsPut**](#featuresidtagsput) | **PUT** /features/{id}/tags | Update a feature\&#39;s tags with an array|
 
 # **featuresFeatureIdCommentsPost**
 > Comment featuresFeatureIdCommentsPost(commentCreateRequest)
@@ -354,6 +358,238 @@ const { status, data } = await apiInstance.featuresIdProgressPut(
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | Feature progress updated |  -  |
+|**401** | Unauthorized |  -  |
+|**403** | Forbidden |  -  |
+|**404** | Feature not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **featuresIdProgressSourcePut**
+> Feature featuresIdProgressSourcePut(featuresIdProgressSourcePutRequest)
+
+Updates the progress source of an existing feature. Options are: progress_manual, progress_from_requirements, progress_from_remaining_estimate, progress_from_todos. 
+
+### Example
+
+```typescript
+import {
+    FeaturesApi,
+    Configuration,
+    FeaturesIdProgressSourcePutRequest
+} from 'aha-js';
+
+const configuration = new Configuration();
+const apiInstance = new FeaturesApi(configuration);
+
+let id: string; //Numeric ID or key of the feature (default to undefined)
+let featuresIdProgressSourcePutRequest: FeaturesIdProgressSourcePutRequest; //
+
+const { status, data } = await apiInstance.featuresIdProgressSourcePut(
+    id,
+    featuresIdProgressSourcePutRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **featuresIdProgressSourcePutRequest** | **FeaturesIdProgressSourcePutRequest**|  | |
+| **id** | [**string**] | Numeric ID or key of the feature | defaults to undefined|
+
+
+### Return type
+
+**Feature**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Feature progress source updated |  -  |
+|**401** | Unauthorized |  -  |
+|**403** | Forbidden |  -  |
+|**404** | Feature not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **featuresIdReleasePut**
+> Feature featuresIdReleasePut(featuresIdReleasePutRequest)
+
+Updates the release of an existing feature. 
+
+### Example
+
+```typescript
+import {
+    FeaturesApi,
+    Configuration,
+    FeaturesIdReleasePutRequest
+} from 'aha-js';
+
+const configuration = new Configuration();
+const apiInstance = new FeaturesApi(configuration);
+
+let id: string; //Numeric ID or key of the feature (default to undefined)
+let featuresIdReleasePutRequest: FeaturesIdReleasePutRequest; //
+
+const { status, data } = await apiInstance.featuresIdReleasePut(
+    id,
+    featuresIdReleasePutRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **featuresIdReleasePutRequest** | **FeaturesIdReleasePutRequest**|  | |
+| **id** | [**string**] | Numeric ID or key of the feature | defaults to undefined|
+
+
+### Return type
+
+**Feature**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Feature release updated |  -  |
+|**401** | Unauthorized |  -  |
+|**403** | Forbidden |  -  |
+|**404** | Feature not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **featuresIdScorePut**
+> Feature featuresIdScorePut(featuresIdScorePutRequest)
+
+Updates the score of an existing feature. 
+
+### Example
+
+```typescript
+import {
+    FeaturesApi,
+    Configuration,
+    FeaturesIdScorePutRequest
+} from 'aha-js';
+
+const configuration = new Configuration();
+const apiInstance = new FeaturesApi(configuration);
+
+let id: string; //Numeric ID or key of the feature (default to undefined)
+let featuresIdScorePutRequest: FeaturesIdScorePutRequest; //
+
+const { status, data } = await apiInstance.featuresIdScorePut(
+    id,
+    featuresIdScorePutRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **featuresIdScorePutRequest** | **FeaturesIdScorePutRequest**|  | |
+| **id** | [**string**] | Numeric ID or key of the feature | defaults to undefined|
+
+
+### Return type
+
+**Feature**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Feature score updated |  -  |
+|**401** | Unauthorized |  -  |
+|**403** | Forbidden |  -  |
+|**404** | Feature not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **featuresIdTagsPut**
+> Feature featuresIdTagsPut(featuresIdTagsPutRequest)
+
+Updates the tags of an existing feature using an array. 
+
+### Example
+
+```typescript
+import {
+    FeaturesApi,
+    Configuration,
+    FeaturesIdTagsPutRequest
+} from 'aha-js';
+
+const configuration = new Configuration();
+const apiInstance = new FeaturesApi(configuration);
+
+let id: string; //Numeric ID or key of the feature (default to undefined)
+let featuresIdTagsPutRequest: FeaturesIdTagsPutRequest; //
+
+const { status, data } = await apiInstance.featuresIdTagsPut(
+    id,
+    featuresIdTagsPutRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **featuresIdTagsPutRequest** | **FeaturesIdTagsPutRequest**|  | |
+| **id** | [**string**] | Numeric ID or key of the feature | defaults to undefined|
+
+
+### Return type
+
+**Feature**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Feature tags updated |  -  |
 |**401** | Unauthorized |  -  |
 |**403** | Forbidden |  -  |
 |**404** | Feature not found |  -  |
