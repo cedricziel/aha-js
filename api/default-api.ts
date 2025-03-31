@@ -28,13 +28,7 @@ import type { CommentCreateRequest } from '../model';
 // @ts-ignore
 import type { Competitor } from '../model';
 // @ts-ignore
-import type { CompetitorCreateRequest } from '../model';
-// @ts-ignore
-import type { CompetitorUpdateRequest } from '../model';
-// @ts-ignore
 import type { EpicsEpicIdCommentsGet200Response } from '../model';
-// @ts-ignore
-import type { ProductsProductIdCompetitorsGet200Response } from '../model';
 // @ts-ignore
 import type { User } from '../model';
 /**
@@ -43,48 +37,6 @@ import type { User } from '../model';
  */
 export const DefaultApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
-        /**
-         * Removes the specified competitor.
-         * @summary Delete a competitor
-         * @param {string} competitorId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        competitorsCompetitorIdDelete: async (competitorId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'competitorId' is not null or undefined
-            assertParamExists('competitorsCompetitorIdDelete', 'competitorId', competitorId)
-            const localVarPath = `/competitors/{competitor_id}`
-                .replace(`{${"competitor_id"}}`, encodeURIComponent(String(competitorId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication OAuth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
-
-            // authentication BearerAuth required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
         /**
          * Retrieves details of the specified competitor.
          * @summary Get a specific competitor
@@ -121,54 +73,6 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Updates the details of the specified competitor.
-         * @summary Update a competitor
-         * @param {string} competitorId 
-         * @param {CompetitorUpdateRequest} competitorUpdateRequest 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        competitorsCompetitorIdPut: async (competitorId: string, competitorUpdateRequest: CompetitorUpdateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'competitorId' is not null or undefined
-            assertParamExists('competitorsCompetitorIdPut', 'competitorId', competitorId)
-            // verify required parameter 'competitorUpdateRequest' is not null or undefined
-            assertParamExists('competitorsCompetitorIdPut', 'competitorUpdateRequest', competitorUpdateRequest)
-            const localVarPath = `/competitors/{competitor_id}`
-                .replace(`{${"competitor_id"}}`, encodeURIComponent(String(competitorId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication OAuth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
-
-            // authentication BearerAuth required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(competitorUpdateRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -639,96 +543,6 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Retrieves a list of competitors associated with the specified product.
-         * @summary List competitors in a product
-         * @param {string} productId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        productsProductIdCompetitorsGet: async (productId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'productId' is not null or undefined
-            assertParamExists('productsProductIdCompetitorsGet', 'productId', productId)
-            const localVarPath = `/products/{product_id}/competitors`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication OAuth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
-
-            // authentication BearerAuth required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Adds a new competitor to the specified product.
-         * @summary Create a competitor
-         * @param {string} productId 
-         * @param {CompetitorCreateRequest} competitorCreateRequest 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        productsProductIdCompetitorsPost: async (productId: string, competitorCreateRequest: CompetitorCreateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'productId' is not null or undefined
-            assertParamExists('productsProductIdCompetitorsPost', 'productId', productId)
-            // verify required parameter 'competitorCreateRequest' is not null or undefined
-            assertParamExists('productsProductIdCompetitorsPost', 'competitorCreateRequest', competitorCreateRequest)
-            const localVarPath = `/products/{product_id}/competitors`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication OAuth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
-
-            // authentication BearerAuth required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(competitorCreateRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Retrieves a list of comments associated with the specified release phase.
          * @summary List comments on a release phase
          * @param {string} releasePhaseId 
@@ -1069,19 +883,6 @@ export const DefaultApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = DefaultApiAxiosParamCreator(configuration)
     return {
         /**
-         * Removes the specified competitor.
-         * @summary Delete a competitor
-         * @param {string} competitorId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async competitorsCompetitorIdDelete(competitorId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.competitorsCompetitorIdDelete(competitorId, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DefaultApi.competitorsCompetitorIdDelete']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
          * Retrieves details of the specified competitor.
          * @summary Get a specific competitor
          * @param {string} competitorId 
@@ -1092,20 +893,6 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.competitorsCompetitorIdGet(competitorId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.competitorsCompetitorIdGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * Updates the details of the specified competitor.
-         * @summary Update a competitor
-         * @param {string} competitorId 
-         * @param {CompetitorUpdateRequest} competitorUpdateRequest 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async competitorsCompetitorIdPut(competitorId: string, competitorUpdateRequest: CompetitorUpdateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Competitor>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.competitorsCompetitorIdPut(competitorId, competitorUpdateRequest, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DefaultApi.competitorsCompetitorIdPut']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1248,33 +1035,6 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Retrieves a list of competitors associated with the specified product.
-         * @summary List competitors in a product
-         * @param {string} productId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async productsProductIdCompetitorsGet(productId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProductsProductIdCompetitorsGet200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.productsProductIdCompetitorsGet(productId, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DefaultApi.productsProductIdCompetitorsGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * Adds a new competitor to the specified product.
-         * @summary Create a competitor
-         * @param {string} productId 
-         * @param {CompetitorCreateRequest} competitorCreateRequest 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async productsProductIdCompetitorsPost(productId: string, competitorCreateRequest: CompetitorCreateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Competitor>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.productsProductIdCompetitorsPost(productId, competitorCreateRequest, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DefaultApi.productsProductIdCompetitorsPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
          * Retrieves a list of comments associated with the specified release phase.
          * @summary List comments on a release phase
          * @param {string} releasePhaseId 
@@ -1386,16 +1146,6 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
     const localVarFp = DefaultApiFp(configuration)
     return {
         /**
-         * Removes the specified competitor.
-         * @summary Delete a competitor
-         * @param {DefaultApiCompetitorsCompetitorIdDeleteRequest} requestParameters Request parameters.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        competitorsCompetitorIdDelete(requestParameters: DefaultApiCompetitorsCompetitorIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.competitorsCompetitorIdDelete(requestParameters.competitorId, options).then((request) => request(axios, basePath));
-        },
-        /**
          * Retrieves details of the specified competitor.
          * @summary Get a specific competitor
          * @param {DefaultApiCompetitorsCompetitorIdGetRequest} requestParameters Request parameters.
@@ -1404,16 +1154,6 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          */
         competitorsCompetitorIdGet(requestParameters: DefaultApiCompetitorsCompetitorIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<Competitor> {
             return localVarFp.competitorsCompetitorIdGet(requestParameters.competitorId, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Updates the details of the specified competitor.
-         * @summary Update a competitor
-         * @param {DefaultApiCompetitorsCompetitorIdPutRequest} requestParameters Request parameters.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        competitorsCompetitorIdPut(requestParameters: DefaultApiCompetitorsCompetitorIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<Competitor> {
-            return localVarFp.competitorsCompetitorIdPut(requestParameters.competitorId, requestParameters.competitorUpdateRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * Retrieves a list of comments associated with the specified epic.
@@ -1521,26 +1261,6 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.productsProductIdCommentsGet(requestParameters.productId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Retrieves a list of competitors associated with the specified product.
-         * @summary List competitors in a product
-         * @param {DefaultApiProductsProductIdCompetitorsGetRequest} requestParameters Request parameters.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        productsProductIdCompetitorsGet(requestParameters: DefaultApiProductsProductIdCompetitorsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ProductsProductIdCompetitorsGet200Response> {
-            return localVarFp.productsProductIdCompetitorsGet(requestParameters.productId, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Adds a new competitor to the specified product.
-         * @summary Create a competitor
-         * @param {DefaultApiProductsProductIdCompetitorsPostRequest} requestParameters Request parameters.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        productsProductIdCompetitorsPost(requestParameters: DefaultApiProductsProductIdCompetitorsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<Competitor> {
-            return localVarFp.productsProductIdCompetitorsPost(requestParameters.productId, requestParameters.competitorCreateRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
          * Retrieves a list of comments associated with the specified release phase.
          * @summary List comments on a release phase
          * @param {DefaultApiReleasePhasesReleasePhaseIdCommentsGetRequest} requestParameters Request parameters.
@@ -1627,16 +1347,6 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
  */
 export interface DefaultApiInterface {
     /**
-     * Removes the specified competitor.
-     * @summary Delete a competitor
-     * @param {DefaultApiCompetitorsCompetitorIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DefaultApiInterface
-     */
-    competitorsCompetitorIdDelete(requestParameters: DefaultApiCompetitorsCompetitorIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
-
-    /**
      * Retrieves details of the specified competitor.
      * @summary Get a specific competitor
      * @param {DefaultApiCompetitorsCompetitorIdGetRequest} requestParameters Request parameters.
@@ -1645,16 +1355,6 @@ export interface DefaultApiInterface {
      * @memberof DefaultApiInterface
      */
     competitorsCompetitorIdGet(requestParameters: DefaultApiCompetitorsCompetitorIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<Competitor>;
-
-    /**
-     * Updates the details of the specified competitor.
-     * @summary Update a competitor
-     * @param {DefaultApiCompetitorsCompetitorIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DefaultApiInterface
-     */
-    competitorsCompetitorIdPut(requestParameters: DefaultApiCompetitorsCompetitorIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<Competitor>;
 
     /**
      * Retrieves a list of comments associated with the specified epic.
@@ -1762,26 +1462,6 @@ export interface DefaultApiInterface {
     productsProductIdCommentsGet(requestParameters: DefaultApiProductsProductIdCommentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsEpicIdCommentsGet200Response>;
 
     /**
-     * Retrieves a list of competitors associated with the specified product.
-     * @summary List competitors in a product
-     * @param {DefaultApiProductsProductIdCompetitorsGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DefaultApiInterface
-     */
-    productsProductIdCompetitorsGet(requestParameters: DefaultApiProductsProductIdCompetitorsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ProductsProductIdCompetitorsGet200Response>;
-
-    /**
-     * Adds a new competitor to the specified product.
-     * @summary Create a competitor
-     * @param {DefaultApiProductsProductIdCompetitorsPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DefaultApiInterface
-     */
-    productsProductIdCompetitorsPost(requestParameters: DefaultApiProductsProductIdCompetitorsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<Competitor>;
-
-    /**
      * Retrieves a list of comments associated with the specified release phase.
      * @summary List comments on a release phase
      * @param {DefaultApiReleasePhasesReleasePhaseIdCommentsGetRequest} requestParameters Request parameters.
@@ -1861,20 +1541,6 @@ export interface DefaultApiInterface {
 }
 
 /**
- * Request parameters for competitorsCompetitorIdDelete operation in DefaultApi.
- * @export
- * @interface DefaultApiCompetitorsCompetitorIdDeleteRequest
- */
-export interface DefaultApiCompetitorsCompetitorIdDeleteRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof DefaultApiCompetitorsCompetitorIdDelete
-     */
-    readonly competitorId: string
-}
-
-/**
  * Request parameters for competitorsCompetitorIdGet operation in DefaultApi.
  * @export
  * @interface DefaultApiCompetitorsCompetitorIdGetRequest
@@ -1886,27 +1552,6 @@ export interface DefaultApiCompetitorsCompetitorIdGetRequest {
      * @memberof DefaultApiCompetitorsCompetitorIdGet
      */
     readonly competitorId: string
-}
-
-/**
- * Request parameters for competitorsCompetitorIdPut operation in DefaultApi.
- * @export
- * @interface DefaultApiCompetitorsCompetitorIdPutRequest
- */
-export interface DefaultApiCompetitorsCompetitorIdPutRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof DefaultApiCompetitorsCompetitorIdPut
-     */
-    readonly competitorId: string
-
-    /**
-     * 
-     * @type {CompetitorUpdateRequest}
-     * @memberof DefaultApiCompetitorsCompetitorIdPut
-     */
-    readonly competitorUpdateRequest: CompetitorUpdateRequest
 }
 
 /**
@@ -2071,41 +1716,6 @@ export interface DefaultApiProductsProductIdCommentsGetRequest {
 }
 
 /**
- * Request parameters for productsProductIdCompetitorsGet operation in DefaultApi.
- * @export
- * @interface DefaultApiProductsProductIdCompetitorsGetRequest
- */
-export interface DefaultApiProductsProductIdCompetitorsGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof DefaultApiProductsProductIdCompetitorsGet
-     */
-    readonly productId: string
-}
-
-/**
- * Request parameters for productsProductIdCompetitorsPost operation in DefaultApi.
- * @export
- * @interface DefaultApiProductsProductIdCompetitorsPostRequest
- */
-export interface DefaultApiProductsProductIdCompetitorsPostRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof DefaultApiProductsProductIdCompetitorsPost
-     */
-    readonly productId: string
-
-    /**
-     * 
-     * @type {CompetitorCreateRequest}
-     * @memberof DefaultApiProductsProductIdCompetitorsPost
-     */
-    readonly competitorCreateRequest: CompetitorCreateRequest
-}
-
-/**
  * Request parameters for releasePhasesReleasePhaseIdCommentsGet operation in DefaultApi.
  * @export
  * @interface DefaultApiReleasePhasesReleasePhaseIdCommentsGetRequest
@@ -2211,18 +1821,6 @@ export interface DefaultApiUsersIdGetRequest {
  */
 export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     /**
-     * Removes the specified competitor.
-     * @summary Delete a competitor
-     * @param {DefaultApiCompetitorsCompetitorIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DefaultApi
-     */
-    public competitorsCompetitorIdDelete(requestParameters: DefaultApiCompetitorsCompetitorIdDeleteRequest, options?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).competitorsCompetitorIdDelete(requestParameters.competitorId, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Retrieves details of the specified competitor.
      * @summary Get a specific competitor
      * @param {DefaultApiCompetitorsCompetitorIdGetRequest} requestParameters Request parameters.
@@ -2232,18 +1830,6 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
      */
     public competitorsCompetitorIdGet(requestParameters: DefaultApiCompetitorsCompetitorIdGetRequest, options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).competitorsCompetitorIdGet(requestParameters.competitorId, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Updates the details of the specified competitor.
-     * @summary Update a competitor
-     * @param {DefaultApiCompetitorsCompetitorIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DefaultApi
-     */
-    public competitorsCompetitorIdPut(requestParameters: DefaultApiCompetitorsCompetitorIdPutRequest, options?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).competitorsCompetitorIdPut(requestParameters.competitorId, requestParameters.competitorUpdateRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2371,30 +1957,6 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
      */
     public productsProductIdCommentsGet(requestParameters: DefaultApiProductsProductIdCommentsGetRequest, options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).productsProductIdCommentsGet(requestParameters.productId, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Retrieves a list of competitors associated with the specified product.
-     * @summary List competitors in a product
-     * @param {DefaultApiProductsProductIdCompetitorsGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DefaultApi
-     */
-    public productsProductIdCompetitorsGet(requestParameters: DefaultApiProductsProductIdCompetitorsGetRequest, options?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).productsProductIdCompetitorsGet(requestParameters.productId, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Adds a new competitor to the specified product.
-     * @summary Create a competitor
-     * @param {DefaultApiProductsProductIdCompetitorsPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DefaultApi
-     */
-    public productsProductIdCompetitorsPost(requestParameters: DefaultApiProductsProductIdCompetitorsPostRequest, options?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).productsProductIdCompetitorsPost(requestParameters.productId, requestParameters.competitorCreateRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

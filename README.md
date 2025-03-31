@@ -51,9 +51,11 @@ All URIs are relative to *https://mycompany.aha.io/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**competitorsCompetitorIdDelete**](docs/DefaultApi.md#competitorscompetitoriddelete) | **DELETE** /competitors/{competitor_id} | Delete a competitor
+*CompetitorsApi* | [**competitorsCompetitorIdDelete**](docs/CompetitorsApi.md#competitorscompetitoriddelete) | **DELETE** /competitors/{competitor_id} | Delete a competitor
+*CompetitorsApi* | [**competitorsCompetitorIdPut**](docs/CompetitorsApi.md#competitorscompetitoridput) | **PUT** /competitors/{competitor_id} | Update a competitor
+*CompetitorsApi* | [**productsProductIdCompetitorsGet**](docs/CompetitorsApi.md#productsproductidcompetitorsget) | **GET** /products/{product_id}/competitors | List competitors in a product
+*CompetitorsApi* | [**productsProductIdCompetitorsPost**](docs/CompetitorsApi.md#productsproductidcompetitorspost) | **POST** /products/{product_id}/competitors | Create a competitor
 *DefaultApi* | [**competitorsCompetitorIdGet**](docs/DefaultApi.md#competitorscompetitoridget) | **GET** /competitors/{competitor_id} | Get a specific competitor
-*DefaultApi* | [**competitorsCompetitorIdPut**](docs/DefaultApi.md#competitorscompetitoridput) | **PUT** /competitors/{competitor_id} | Update a competitor
 *DefaultApi* | [**epicsEpicIdCommentsGet**](docs/DefaultApi.md#epicsepicidcommentsget) | **GET** /epics/{epic_id}/comments | List comments on an epic
 *DefaultApi* | [**featuresFeatureIdCommentsPost**](docs/DefaultApi.md#featuresfeatureidcommentspost) | **POST** /features/{feature_id}/comments | Create a comment on a feature
 *DefaultApi* | [**featuresIdCustomFieldsPut**](docs/DefaultApi.md#featuresidcustomfieldsput) | **PUT** /features/{id}/custom_fields | 
@@ -65,8 +67,6 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**ideasIdeaIdCommentsGet**](docs/DefaultApi.md#ideasideaidcommentsget) | **GET** /ideas/{idea_id}/comments | List comments on an idea
 *DefaultApi* | [**initiativesInitiativeIdCommentsGet**](docs/DefaultApi.md#initiativesinitiativeidcommentsget) | **GET** /initiatives/{initiative_id}/comments | List comments on an initiative
 *DefaultApi* | [**productsProductIdCommentsGet**](docs/DefaultApi.md#productsproductidcommentsget) | **GET** /products/{product_id}/comments | List comments in a product
-*DefaultApi* | [**productsProductIdCompetitorsGet**](docs/DefaultApi.md#productsproductidcompetitorsget) | **GET** /products/{product_id}/competitors | List competitors in a product
-*DefaultApi* | [**productsProductIdCompetitorsPost**](docs/DefaultApi.md#productsproductidcompetitorspost) | **POST** /products/{product_id}/competitors | Create a competitor
 *DefaultApi* | [**releasePhasesReleasePhaseIdCommentsGet**](docs/DefaultApi.md#releasephasesreleasephaseidcommentsget) | **GET** /release_phases/{release_phase_id}/comments | List comments on a release phase
 *DefaultApi* | [**releasesReleaseIdCommentsGet**](docs/DefaultApi.md#releasesreleaseidcommentsget) | **GET** /releases/{release_id}/comments | List comments on a release
 *DefaultApi* | [**releasesReleaseIdFeaturesGet**](docs/DefaultApi.md#releasesreleaseidfeaturesget) | **GET** /releases/{release_id}/features | 

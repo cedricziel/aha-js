@@ -14,6 +14,7 @@
 
 
 
+export * from './api/competitors-api';
 export * from './api/default-api';
 export * from './api/epics-api';
 export * from './api/features-api';
