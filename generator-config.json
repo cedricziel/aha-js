@@ -1,0 +1,15 @@
+{
+  "npmName": "aha-api-client",
+  "supportsES6": true,
+  "modelPropertyNaming": "camelCase",
+  "enumPropertyNaming": "UPPERCASE",
+  "withSeparateModelsAndApi": true,
+  "withInterfaces": true,
+  "typescriptThreePlus": true,
+  "useSingleRequestParameter": true,
+  "additionalProperties": {
+    "npmVersion": "1.0.0",
+    "supportsES6": true,
+    "npmRepository": "https://github.com/cedricziel/aha-js"
+  }
+}

@@ -1,0 +1,37 @@
+name: Generate API Client
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Daily at midnight
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Fetch OpenAPI Spec
+        run: |
+          curl -o openapi.json https://raw.githubusercontent.com/cedricziel/aha-spec/main/openapi.yaml
+
+      - name: Generate TypeScript-Axios Client
+        uses: openapi-generators/openapitools-generator-action@v1
+        with:
+          generator: typescript-axios
+          openapi-file: openapi.yaml
+          config-file: generator-config.json
+          generator-tag: v6.6.0  # Using a recent version for OpenAPI 3.1 support
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build Package
+        run: npm run build
+
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Update API client from latest spec" || echo "No changes to commit"
+          git push

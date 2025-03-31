@@ -1,0 +1,31 @@
+{
+  "name": "aha-api-client",
+  "version": "1.0.0",
+  "description": "TypeScript API client for Aha",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cedricziel/aha-js.git"
+  },
+  "keywords": [
+    "aha",
+    "api",
+    "client",
+    "typescript",
+    "axios"
+  ],
+  "author": "Cedric Ziel",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.0",
+    "typescript": "^5.2.2"
+  }
+}
