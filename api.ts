@@ -14,10 +14,18 @@
 
 
 
+export * from './api/comments-api';
 export * from './api/competitors-api';
 export * from './api/default-api';
 export * from './api/epics-api';
 export * from './api/features-api';
 export * from './api/goals-api';
+export * from './api/ideas-api';
 export * from './api/initiatives-api';
+export * from './api/products-api';
+export * from './api/release-phases-api';
+export * from './api/releases-api';
+export * from './api/requirements-api';
+export * from './api/to-dos-api';
+export * from './api/users-api';
 

@@ -22,6 +22,10 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
+import type { Comment } from '../model';
+// @ts-ignore
+import type { CommentCreateRequest } from '../model';
+// @ts-ignore
 import type { Feature } from '../model';
 // @ts-ignore
 import type { FeaturesIdCustomFieldsWorksheetPutRequest } from '../model';
@@ -39,6 +43,54 @@ import type { FeaturesListResponse } from '../model';
  */
 export const FeaturesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
+        /**
+         * Adds a new comment to the specified feature.
+         * @summary Create a comment on a feature
+         * @param {string} featureId 
+         * @param {CommentCreateRequest} commentCreateRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        featuresFeatureIdCommentsPost: async (featureId: string, commentCreateRequest: CommentCreateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'featureId' is not null or undefined
+            assertParamExists('featuresFeatureIdCommentsPost', 'featureId', featureId)
+            // verify required parameter 'commentCreateRequest' is not null or undefined
+            assertParamExists('featuresFeatureIdCommentsPost', 'commentCreateRequest', commentCreateRequest)
+            const localVarPath = `/features/{feature_id}/comments`
+                .replace(`{${"feature_id"}}`, encodeURIComponent(String(featureId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(commentCreateRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
         /**
          * Returns a list of features. You can filter by various criteria like name, modification date, tag, or assignee. Features belong to releases, so they are scoped to a release. 
          * @summary List features
@@ -302,6 +354,20 @@ export const FeaturesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = FeaturesApiAxiosParamCreator(configuration)
     return {
         /**
+         * Adds a new comment to the specified feature.
+         * @summary Create a comment on a feature
+         * @param {string} featureId 
+         * @param {CommentCreateRequest} commentCreateRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async featuresFeatureIdCommentsPost(featureId: string, commentCreateRequest: CommentCreateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Comment>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.featuresFeatureIdCommentsPost(featureId, commentCreateRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['FeaturesApi.featuresFeatureIdCommentsPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Returns a list of features. You can filter by various criteria like name, modification date, tag, or assignee. Features belong to releases, so they are scoped to a release. 
          * @summary List features
          * @param {string} [q] Search term to match against feature name
@@ -384,6 +450,16 @@ export const FeaturesApiFactory = function (configuration?: Configuration, baseP
     const localVarFp = FeaturesApiFp(configuration)
     return {
         /**
+         * Adds a new comment to the specified feature.
+         * @summary Create a comment on a feature
+         * @param {FeaturesApiFeaturesFeatureIdCommentsPostRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        featuresFeatureIdCommentsPost(requestParameters: FeaturesApiFeaturesFeatureIdCommentsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<Comment> {
+            return localVarFp.featuresFeatureIdCommentsPost(requestParameters.featureId, requestParameters.commentCreateRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Returns a list of features. You can filter by various criteria like name, modification date, tag, or assignee. Features belong to releases, so they are scoped to a release. 
          * @summary List features
          * @param {FeaturesApiFeaturesGetRequest} requestParameters Request parameters.
@@ -443,6 +519,16 @@ export const FeaturesApiFactory = function (configuration?: Configuration, baseP
  */
 export interface FeaturesApiInterface {
     /**
+     * Adds a new comment to the specified feature.
+     * @summary Create a comment on a feature
+     * @param {FeaturesApiFeaturesFeatureIdCommentsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FeaturesApiInterface
+     */
+    featuresFeatureIdCommentsPost(requestParameters: FeaturesApiFeaturesFeatureIdCommentsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<Comment>;
+
+    /**
      * Returns a list of features. You can filter by various criteria like name, modification date, tag, or assignee. Features belong to releases, so they are scoped to a release. 
      * @summary List features
      * @param {FeaturesApiFeaturesGetRequest} requestParameters Request parameters.
@@ -492,6 +578,27 @@ export interface FeaturesApiInterface {
      */
     featuresIdProgressPut(requestParameters: FeaturesApiFeaturesIdProgressPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<Feature>;
 
+}
+
+/**
+ * Request parameters for featuresFeatureIdCommentsPost operation in FeaturesApi.
+ * @export
+ * @interface FeaturesApiFeaturesFeatureIdCommentsPostRequest
+ */
+export interface FeaturesApiFeaturesFeatureIdCommentsPostRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof FeaturesApiFeaturesFeatureIdCommentsPost
+     */
+    readonly featureId: string
+
+    /**
+     * 
+     * @type {CommentCreateRequest}
+     * @memberof FeaturesApiFeaturesFeatureIdCommentsPost
+     */
+    readonly commentCreateRequest: CommentCreateRequest
 }
 
 /**
@@ -620,6 +727,18 @@ export interface FeaturesApiFeaturesIdProgressPutRequest {
  * @extends {BaseAPI}
  */
 export class FeaturesApi extends BaseAPI implements FeaturesApiInterface {
+    /**
+     * Adds a new comment to the specified feature.
+     * @summary Create a comment on a feature
+     * @param {FeaturesApiFeaturesFeatureIdCommentsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FeaturesApi
+     */
+    public featuresFeatureIdCommentsPost(requestParameters: FeaturesApiFeaturesFeatureIdCommentsPostRequest, options?: RawAxiosRequestConfig) {
+        return FeaturesApiFp(this.configuration).featuresFeatureIdCommentsPost(requestParameters.featureId, requestParameters.commentCreateRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * Returns a list of features. You can filter by various criteria like name, modification date, tag, or assignee. Features belong to releases, so they are scoped to a release. 
      * @summary List features

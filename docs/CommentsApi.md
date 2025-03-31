@@ -1,19 +1,19 @@
-# EpicsApi
+# CommentsApi
 
 All URIs are relative to *https://mycompany.aha.io/api/v1*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
 |[**epicsEpicIdCommentsGet**](#epicsepicidcommentsget) | **GET** /epics/{epic_id}/comments | List comments on an epic|
-|[**epicsEpicIdDelete**](#epicsepiciddelete) | **DELETE** /epics/{epic_id} | Delete an epic|
-|[**epicsEpicIdGet**](#epicsepicidget) | **GET** /epics/{epic_id} | Get a specific epic|
-|[**epicsEpicIdPut**](#epicsepicidput) | **PUT** /epics/{epic_id} | Update an epic|
-|[**goalsGoalIdEpicsGet**](#goalsgoalidepicsget) | **GET** /goals/{goal_id}/epics | List epics associated with a goal|
-|[**initiativesInitiativeIdEpicsGet**](#initiativesinitiativeidepicsget) | **GET** /initiatives/{initiative_id}/epics | List epics associated with an initiative|
-|[**productsProductIdEpicsGet**](#productsproductidepicsget) | **GET** /products/{product_id}/epics | List epics in a product|
-|[**productsProductIdEpicsPost**](#productsproductidepicspost) | **POST** /products/{product_id}/epics | Create an epic in a product|
-|[**releasesReleaseIdEpicsGet**](#releasesreleaseidepicsget) | **GET** /releases/{release_id}/epics | List epics in a release|
-|[**releasesReleaseIdEpicsPost**](#releasesreleaseidepicspost) | **POST** /releases/{release_id}/epics | Create an epic in a release|
+|[**featuresFeatureIdCommentsPost**](#featuresfeatureidcommentspost) | **POST** /features/{feature_id}/comments | Create a comment on a feature|
+|[**goalsGoalIdCommentsGet**](#goalsgoalidcommentsget) | **GET** /goals/{goal_id}/comments | List comments on a goal|
+|[**ideasIdeaIdCommentsGet**](#ideasideaidcommentsget) | **GET** /ideas/{idea_id}/comments | List comments on an idea|
+|[**initiativesInitiativeIdCommentsGet**](#initiativesinitiativeidcommentsget) | **GET** /initiatives/{initiative_id}/comments | List comments on an initiative|
+|[**productsProductIdCommentsGet**](#productsproductidcommentsget) | **GET** /products/{product_id}/comments | List comments in a product|
+|[**releasePhasesReleasePhaseIdCommentsGet**](#releasephasesreleasephaseidcommentsget) | **GET** /release_phases/{release_phase_id}/comments | List comments on a release phase|
+|[**releasesReleaseIdCommentsGet**](#releasesreleaseidcommentsget) | **GET** /releases/{release_id}/comments | List comments on a release|
+|[**requirementsRequirementIdCommentsGet**](#requirementsrequirementidcommentsget) | **GET** /requirements/{requirement_id}/comments | List comments on a requirement|
+|[**todosTodoIdCommentsGet**](#todostodoidcommentsget) | **GET** /todos/{todo_id}/comments | List comments on a to-do|
 
 # **epicsEpicIdCommentsGet**
 > EpicsEpicIdCommentsGet200Response epicsEpicIdCommentsGet()
@@ -24,12 +24,12 @@ Retrieves a list of comments associated with the specified epic.
 
 ```typescript
 import {
-    EpicsApi,
+    CommentsApi,
     Configuration
 } from 'aha-js';
 
 const configuration = new Configuration();
-const apiInstance = new EpicsApi(configuration);
+const apiInstance = new CommentsApi(configuration);
 
 let epicId: string; // (default to undefined)
 
@@ -68,133 +68,29 @@ const { status, data } = await apiInstance.epicsEpicIdCommentsGet(
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **epicsEpicIdDelete**
-> epicsEpicIdDelete()
+# **featuresFeatureIdCommentsPost**
+> Comment featuresFeatureIdCommentsPost(commentCreateRequest)
 
-Deletes the specified epic.
-
-### Example
-
-```typescript
-import {
-    EpicsApi,
-    Configuration
-} from 'aha-js';
-
-const configuration = new Configuration();
-const apiInstance = new EpicsApi(configuration);
-
-let epicId: string; //Numeric ID or key of the epic (default to undefined)
-
-const { status, data } = await apiInstance.epicsEpicIdDelete(
-    epicId
-);
-```
-
-### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **epicId** | [**string**] | Numeric ID or key of the epic | defaults to undefined|
-
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-|**204** | Epic deleted successfully (no content returned) |  -  |
-|**404** | Epic not found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **epicsEpicIdGet**
-> Epic epicsEpicIdGet()
-
-Retrieves details of a specific epic by its ID.
+Adds a new comment to the specified feature.
 
 ### Example
 
 ```typescript
 import {
-    EpicsApi,
-    Configuration
-} from 'aha-js';
-
-const configuration = new Configuration();
-const apiInstance = new EpicsApi(configuration);
-
-let epicId: string; //Numeric ID or key of the epic (default to undefined)
-
-const { status, data } = await apiInstance.epicsEpicIdGet(
-    epicId
-);
-```
-
-### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **epicId** | [**string**] | Numeric ID or key of the epic | defaults to undefined|
-
-
-### Return type
-
-**Epic**
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-|**200** | Epic details |  -  |
-|**404** | Epic not found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **epicsEpicIdPut**
-> Epic epicsEpicIdPut(epicUpdateRequest)
-
-Updates the details of the specified epic.
-
-### Example
-
-```typescript
-import {
-    EpicsApi,
+    CommentsApi,
     Configuration,
-    EpicUpdateRequest
+    CommentCreateRequest
 } from 'aha-js';
 
 const configuration = new Configuration();
-const apiInstance = new EpicsApi(configuration);
+const apiInstance = new CommentsApi(configuration);
 
-let epicId: string; //Numeric ID or key of the epic (default to undefined)
-let epicUpdateRequest: EpicUpdateRequest; //
+let featureId: string; // (default to undefined)
+let commentCreateRequest: CommentCreateRequest; //
 
-const { status, data } = await apiInstance.epicsEpicIdPut(
-    epicId,
-    epicUpdateRequest
+const { status, data } = await apiInstance.featuresFeatureIdCommentsPost(
+    featureId,
+    commentCreateRequest
 );
 ```
 
@@ -202,13 +98,13 @@ const { status, data } = await apiInstance.epicsEpicIdPut(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **epicUpdateRequest** | **EpicUpdateRequest**|  | |
-| **epicId** | [**string**] | Numeric ID or key of the epic | defaults to undefined|
+| **commentCreateRequest** | **CommentCreateRequest**|  | |
+| **featureId** | [**string**] |  | defaults to undefined|
 
 
 ### Return type
 
-**Epic**
+**Comment**
 
 ### Authorization
 
@@ -223,31 +119,29 @@ const { status, data } = await apiInstance.epicsEpicIdPut(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Epic updated |  -  |
-|**400** | Invalid input |  -  |
-|**404** | Epic not found |  -  |
+|**201** | Comment created |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **goalsGoalIdEpicsGet**
-> ProductsProductIdEpicsGet200Response goalsGoalIdEpicsGet()
+# **goalsGoalIdCommentsGet**
+> EpicsEpicIdCommentsGet200Response goalsGoalIdCommentsGet()
 
-Retrieves a list of epics associated with the specified goal.
+Retrieves a list of comments associated with the specified goal.
 
 ### Example
 
 ```typescript
 import {
-    EpicsApi,
+    CommentsApi,
     Configuration
 } from 'aha-js';
 
 const configuration = new Configuration();
-const apiInstance = new EpicsApi(configuration);
+const apiInstance = new CommentsApi(configuration);
 
-let goalId: string; //Numeric ID or key of the goal (default to undefined)
+let goalId: string; // (default to undefined)
 
-const { status, data } = await apiInstance.goalsGoalIdEpicsGet(
+const { status, data } = await apiInstance.goalsGoalIdCommentsGet(
     goalId
 );
 ```
@@ -256,12 +150,12 @@ const { status, data } = await apiInstance.goalsGoalIdEpicsGet(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **goalId** | [**string**] | Numeric ID or key of the goal | defaults to undefined|
+| **goalId** | [**string**] |  | defaults to undefined|
 
 
 ### Return type
 
-**ProductsProductIdEpicsGet200Response**
+**EpicsEpicIdCommentsGet200Response**
 
 ### Authorization
 
@@ -276,30 +170,80 @@ const { status, data } = await apiInstance.goalsGoalIdEpicsGet(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | A list of epics |  -  |
-|**404** | Goal not found |  -  |
+|**200** | A list of comments |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **initiativesInitiativeIdEpicsGet**
-> ProductsProductIdEpicsGet200Response initiativesInitiativeIdEpicsGet()
+# **ideasIdeaIdCommentsGet**
+> EpicsEpicIdCommentsGet200Response ideasIdeaIdCommentsGet()
 
-Retrieves a list of epics associated with the specified initiative.
+Retrieves a list of comments associated with the specified idea.
 
 ### Example
 
 ```typescript
 import {
-    EpicsApi,
+    CommentsApi,
     Configuration
 } from 'aha-js';
 
 const configuration = new Configuration();
-const apiInstance = new EpicsApi(configuration);
+const apiInstance = new CommentsApi(configuration);
 
-let initiativeId: string; //Numeric ID or key of the initiative (default to undefined)
+let ideaId: string; // (default to undefined)
 
-const { status, data } = await apiInstance.initiativesInitiativeIdEpicsGet(
+const { status, data } = await apiInstance.ideasIdeaIdCommentsGet(
+    ideaId
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **ideaId** | [**string**] |  | defaults to undefined|
+
+
+### Return type
+
+**EpicsEpicIdCommentsGet200Response**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | A list of comments |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **initiativesInitiativeIdCommentsGet**
+> EpicsEpicIdCommentsGet200Response initiativesInitiativeIdCommentsGet()
+
+Retrieves a list of comments associated with the specified initiative.
+
+### Example
+
+```typescript
+import {
+    CommentsApi,
+    Configuration
+} from 'aha-js';
+
+const configuration = new Configuration();
+const apiInstance = new CommentsApi(configuration);
+
+let initiativeId: string; // (default to undefined)
+
+const { status, data } = await apiInstance.initiativesInitiativeIdCommentsGet(
     initiativeId
 );
 ```
@@ -308,12 +252,12 @@ const { status, data } = await apiInstance.initiativesInitiativeIdEpicsGet(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **initiativeId** | [**string**] | Numeric ID or key of the initiative | defaults to undefined|
+| **initiativeId** | [**string**] |  | defaults to undefined|
 
 
 ### Return type
 
-**ProductsProductIdEpicsGet200Response**
+**EpicsEpicIdCommentsGet200Response**
 
 ### Authorization
 
@@ -328,30 +272,29 @@ const { status, data } = await apiInstance.initiativesInitiativeIdEpicsGet(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | A list of epics |  -  |
-|**404** | Initiative not found |  -  |
+|**200** | A list of comments |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **productsProductIdEpicsGet**
-> ProductsProductIdEpicsGet200Response productsProductIdEpicsGet()
+# **productsProductIdCommentsGet**
+> EpicsEpicIdCommentsGet200Response productsProductIdCommentsGet()
 
-Retrieves a list of epics associated with the specified product.
+Retrieves a list of comments associated with the specified product.
 
 ### Example
 
 ```typescript
 import {
-    EpicsApi,
+    CommentsApi,
     Configuration
 } from 'aha-js';
 
 const configuration = new Configuration();
-const apiInstance = new EpicsApi(configuration);
+const apiInstance = new CommentsApi(configuration);
 
-let productId: string; //Numeric ID or key of the product (default to undefined)
+let productId: string; // (default to undefined)
 
-const { status, data } = await apiInstance.productsProductIdEpicsGet(
+const { status, data } = await apiInstance.productsProductIdCommentsGet(
     productId
 );
 ```
@@ -360,12 +303,12 @@ const { status, data } = await apiInstance.productsProductIdEpicsGet(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **productId** | [**string**] | Numeric ID or key of the product | defaults to undefined|
+| **productId** | [**string**] |  | defaults to undefined|
 
 
 ### Return type
 
-**ProductsProductIdEpicsGet200Response**
+**EpicsEpicIdCommentsGet200Response**
 
 ### Authorization
 
@@ -380,34 +323,30 @@ const { status, data } = await apiInstance.productsProductIdEpicsGet(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | A list of epics |  -  |
-|**404** | Product not found |  -  |
+|**200** | A list of comments |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **productsProductIdEpicsPost**
-> Epic productsProductIdEpicsPost(epicCreateRequest)
+# **releasePhasesReleasePhaseIdCommentsGet**
+> EpicsEpicIdCommentsGet200Response releasePhasesReleasePhaseIdCommentsGet()
 
-Creates a new epic in the specified product.
+Retrieves a list of comments associated with the specified release phase.
 
 ### Example
 
 ```typescript
 import {
-    EpicsApi,
-    Configuration,
-    EpicCreateRequest
+    CommentsApi,
+    Configuration
 } from 'aha-js';
 
 const configuration = new Configuration();
-const apiInstance = new EpicsApi(configuration);
+const apiInstance = new CommentsApi(configuration);
 
-let productId: string; //Numeric ID or key of the product the epic should be created in (default to undefined)
-let epicCreateRequest: EpicCreateRequest; //
+let releasePhaseId: string; // (default to undefined)
 
-const { status, data } = await apiInstance.productsProductIdEpicsPost(
-    productId,
-    epicCreateRequest
+const { status, data } = await apiInstance.releasePhasesReleasePhaseIdCommentsGet(
+    releasePhaseId
 );
 ```
 
@@ -415,13 +354,12 @@ const { status, data } = await apiInstance.productsProductIdEpicsPost(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **epicCreateRequest** | **EpicCreateRequest**|  | |
-| **productId** | [**string**] | Numeric ID or key of the product the epic should be created in | defaults to undefined|
+| **releasePhaseId** | [**string**] |  | defaults to undefined|
 
 
 ### Return type
 
-**Epic**
+**EpicsEpicIdCommentsGet200Response**
 
 ### Authorization
 
@@ -429,38 +367,36 @@ const { status, data } = await apiInstance.productsProductIdEpicsPost(
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**201** | Epic created |  -  |
-|**400** | Invalid input |  -  |
-|**404** | Product not found |  -  |
+|**200** | A list of comments |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **releasesReleaseIdEpicsGet**
-> ProductsProductIdEpicsGet200Response releasesReleaseIdEpicsGet()
+# **releasesReleaseIdCommentsGet**
+> EpicsEpicIdCommentsGet200Response releasesReleaseIdCommentsGet()
 
-Retrieves a list of epics associated with the specified release.
+Retrieves a list of comments associated with the specified release.
 
 ### Example
 
 ```typescript
 import {
-    EpicsApi,
+    CommentsApi,
     Configuration
 } from 'aha-js';
 
 const configuration = new Configuration();
-const apiInstance = new EpicsApi(configuration);
+const apiInstance = new CommentsApi(configuration);
 
-let releaseId: string; //Numeric ID or key of the release (default to undefined)
+let releaseId: string; // (default to undefined)
 
-const { status, data } = await apiInstance.releasesReleaseIdEpicsGet(
+const { status, data } = await apiInstance.releasesReleaseIdCommentsGet(
     releaseId
 );
 ```
@@ -469,12 +405,12 @@ const { status, data } = await apiInstance.releasesReleaseIdEpicsGet(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **releaseId** | [**string**] | Numeric ID or key of the release | defaults to undefined|
+| **releaseId** | [**string**] |  | defaults to undefined|
 
 
 ### Return type
 
-**ProductsProductIdEpicsGet200Response**
+**EpicsEpicIdCommentsGet200Response**
 
 ### Authorization
 
@@ -489,34 +425,30 @@ const { status, data } = await apiInstance.releasesReleaseIdEpicsGet(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | A list of epics |  -  |
-|**404** | Release not found |  -  |
+|**200** | A list of comments |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **releasesReleaseIdEpicsPost**
-> Epic releasesReleaseIdEpicsPost(epicCreateRequest)
+# **requirementsRequirementIdCommentsGet**
+> EpicsEpicIdCommentsGet200Response requirementsRequirementIdCommentsGet()
 
-Creates a new epic in the specified release.
+Retrieves a list of comments associated with the specified requirement.
 
 ### Example
 
 ```typescript
 import {
-    EpicsApi,
-    Configuration,
-    EpicCreateRequest
+    CommentsApi,
+    Configuration
 } from 'aha-js';
 
 const configuration = new Configuration();
-const apiInstance = new EpicsApi(configuration);
+const apiInstance = new CommentsApi(configuration);
 
-let releaseId: string; //Numeric ID or key of the release the epic should be created in (default to undefined)
-let epicCreateRequest: EpicCreateRequest; //
+let requirementId: string; // (default to undefined)
 
-const { status, data } = await apiInstance.releasesReleaseIdEpicsPost(
-    releaseId,
-    epicCreateRequest
+const { status, data } = await apiInstance.requirementsRequirementIdCommentsGet(
+    requirementId
 );
 ```
 
@@ -524,13 +456,12 @@ const { status, data } = await apiInstance.releasesReleaseIdEpicsPost(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **epicCreateRequest** | **EpicCreateRequest**|  | |
-| **releaseId** | [**string**] | Numeric ID or key of the release the epic should be created in | defaults to undefined|
+| **requirementId** | [**string**] |  | defaults to undefined|
 
 
 ### Return type
 
-**Epic**
+**EpicsEpicIdCommentsGet200Response**
 
 ### Authorization
 
@@ -538,16 +469,67 @@ const { status, data } = await apiInstance.releasesReleaseIdEpicsPost(
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**201** | Epic created |  -  |
+|**200** | A list of comments |  -  |
 |**400** | Invalid input |  -  |
-|**404** | Release not found |  -  |
+|**404** | Requirement not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **todosTodoIdCommentsGet**
+> EpicsEpicIdCommentsGet200Response todosTodoIdCommentsGet()
+
+Retrieves a list of comments associated with the specified to-do.
+
+### Example
+
+```typescript
+import {
+    CommentsApi,
+    Configuration
+} from 'aha-js';
+
+const configuration = new Configuration();
+const apiInstance = new CommentsApi(configuration);
+
+let todoId: string; // (default to undefined)
+
+const { status, data } = await apiInstance.todosTodoIdCommentsGet(
+    todoId
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **todoId** | [**string**] |  | defaults to undefined|
+
+
+### Return type
+
+**EpicsEpicIdCommentsGet200Response**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | A list of comments |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

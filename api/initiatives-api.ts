@@ -22,6 +22,8 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
+import type { EpicsEpicIdCommentsGet200Response } from '../model';
+// @ts-ignore
 import type { ProductsProductIdEpicsGet200Response } from '../model';
 /**
  * InitiativesApi - axios parameter creator
@@ -29,6 +31,48 @@ import type { ProductsProductIdEpicsGet200Response } from '../model';
  */
 export const InitiativesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
+        /**
+         * Retrieves a list of comments associated with the specified initiative.
+         * @summary List comments on an initiative
+         * @param {string} initiativeId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        initiativesInitiativeIdCommentsGet: async (initiativeId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'initiativeId' is not null or undefined
+            assertParamExists('initiativesInitiativeIdCommentsGet', 'initiativeId', initiativeId)
+            const localVarPath = `/initiatives/{initiative_id}/comments`
+                .replace(`{${"initiative_id"}}`, encodeURIComponent(String(initiativeId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
         /**
          * Retrieves a list of epics associated with the specified initiative.
          * @summary List epics associated with an initiative
@@ -82,6 +126,19 @@ export const InitiativesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = InitiativesApiAxiosParamCreator(configuration)
     return {
         /**
+         * Retrieves a list of comments associated with the specified initiative.
+         * @summary List comments on an initiative
+         * @param {string} initiativeId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async initiativesInitiativeIdCommentsGet(initiativeId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EpicsEpicIdCommentsGet200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.initiativesInitiativeIdCommentsGet(initiativeId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['InitiativesApi.initiativesInitiativeIdCommentsGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Retrieves a list of epics associated with the specified initiative.
          * @summary List epics associated with an initiative
          * @param {string} initiativeId Numeric ID or key of the initiative
@@ -105,6 +162,16 @@ export const InitiativesApiFactory = function (configuration?: Configuration, ba
     const localVarFp = InitiativesApiFp(configuration)
     return {
         /**
+         * Retrieves a list of comments associated with the specified initiative.
+         * @summary List comments on an initiative
+         * @param {InitiativesApiInitiativesInitiativeIdCommentsGetRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        initiativesInitiativeIdCommentsGet(requestParameters: InitiativesApiInitiativesInitiativeIdCommentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsEpicIdCommentsGet200Response> {
+            return localVarFp.initiativesInitiativeIdCommentsGet(requestParameters.initiativeId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Retrieves a list of epics associated with the specified initiative.
          * @summary List epics associated with an initiative
          * @param {InitiativesApiInitiativesInitiativeIdEpicsGetRequest} requestParameters Request parameters.
@@ -124,6 +191,16 @@ export const InitiativesApiFactory = function (configuration?: Configuration, ba
  */
 export interface InitiativesApiInterface {
     /**
+     * Retrieves a list of comments associated with the specified initiative.
+     * @summary List comments on an initiative
+     * @param {InitiativesApiInitiativesInitiativeIdCommentsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InitiativesApiInterface
+     */
+    initiativesInitiativeIdCommentsGet(requestParameters: InitiativesApiInitiativesInitiativeIdCommentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsEpicIdCommentsGet200Response>;
+
+    /**
      * Retrieves a list of epics associated with the specified initiative.
      * @summary List epics associated with an initiative
      * @param {InitiativesApiInitiativesInitiativeIdEpicsGetRequest} requestParameters Request parameters.
@@ -133,6 +210,20 @@ export interface InitiativesApiInterface {
      */
     initiativesInitiativeIdEpicsGet(requestParameters: InitiativesApiInitiativesInitiativeIdEpicsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ProductsProductIdEpicsGet200Response>;
 
+}
+
+/**
+ * Request parameters for initiativesInitiativeIdCommentsGet operation in InitiativesApi.
+ * @export
+ * @interface InitiativesApiInitiativesInitiativeIdCommentsGetRequest
+ */
+export interface InitiativesApiInitiativesInitiativeIdCommentsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof InitiativesApiInitiativesInitiativeIdCommentsGet
+     */
+    readonly initiativeId: string
 }
 
 /**
@@ -156,6 +247,18 @@ export interface InitiativesApiInitiativesInitiativeIdEpicsGetRequest {
  * @extends {BaseAPI}
  */
 export class InitiativesApi extends BaseAPI implements InitiativesApiInterface {
+    /**
+     * Retrieves a list of comments associated with the specified initiative.
+     * @summary List comments on an initiative
+     * @param {InitiativesApiInitiativesInitiativeIdCommentsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InitiativesApi
+     */
+    public initiativesInitiativeIdCommentsGet(requestParameters: InitiativesApiInitiativesInitiativeIdCommentsGetRequest, options?: RawAxiosRequestConfig) {
+        return InitiativesApiFp(this.configuration).initiativesInitiativeIdCommentsGet(requestParameters.initiativeId, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * Retrieves a list of epics associated with the specified initiative.
      * @summary List epics associated with an initiative

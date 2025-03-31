@@ -28,6 +28,8 @@ import type { EpicCreateRequest } from '../model';
 // @ts-ignore
 import type { EpicUpdateRequest } from '../model';
 // @ts-ignore
+import type { EpicsEpicIdCommentsGet200Response } from '../model';
+// @ts-ignore
 import type { ProductsProductIdEpicsGet200Response } from '../model';
 /**
  * EpicsApi - axios parameter creator
@@ -35,6 +37,48 @@ import type { ProductsProductIdEpicsGet200Response } from '../model';
  */
 export const EpicsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
+        /**
+         * Retrieves a list of comments associated with the specified epic.
+         * @summary List comments on an epic
+         * @param {string} epicId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        epicsEpicIdCommentsGet: async (epicId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'epicId' is not null or undefined
+            assertParamExists('epicsEpicIdCommentsGet', 'epicId', epicId)
+            const localVarPath = `/epics/{epic_id}/comments`
+                .replace(`{${"epic_id"}}`, encodeURIComponent(String(epicId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
         /**
          * Deletes the specified epic.
          * @summary Delete an epic
@@ -442,6 +486,19 @@ export const EpicsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = EpicsApiAxiosParamCreator(configuration)
     return {
         /**
+         * Retrieves a list of comments associated with the specified epic.
+         * @summary List comments on an epic
+         * @param {string} epicId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async epicsEpicIdCommentsGet(epicId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EpicsEpicIdCommentsGet200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.epicsEpicIdCommentsGet(epicId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['EpicsApi.epicsEpicIdCommentsGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Deletes the specified epic.
          * @summary Delete an epic
          * @param {string} epicId Numeric ID or key of the epic
@@ -572,6 +629,16 @@ export const EpicsApiFactory = function (configuration?: Configuration, basePath
     const localVarFp = EpicsApiFp(configuration)
     return {
         /**
+         * Retrieves a list of comments associated with the specified epic.
+         * @summary List comments on an epic
+         * @param {EpicsApiEpicsEpicIdCommentsGetRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        epicsEpicIdCommentsGet(requestParameters: EpicsApiEpicsEpicIdCommentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsEpicIdCommentsGet200Response> {
+            return localVarFp.epicsEpicIdCommentsGet(requestParameters.epicId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Deletes the specified epic.
          * @summary Delete an epic
          * @param {EpicsApiEpicsEpicIdDeleteRequest} requestParameters Request parameters.
@@ -671,6 +738,16 @@ export const EpicsApiFactory = function (configuration?: Configuration, basePath
  */
 export interface EpicsApiInterface {
     /**
+     * Retrieves a list of comments associated with the specified epic.
+     * @summary List comments on an epic
+     * @param {EpicsApiEpicsEpicIdCommentsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EpicsApiInterface
+     */
+    epicsEpicIdCommentsGet(requestParameters: EpicsApiEpicsEpicIdCommentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsEpicIdCommentsGet200Response>;
+
+    /**
      * Deletes the specified epic.
      * @summary Delete an epic
      * @param {EpicsApiEpicsEpicIdDeleteRequest} requestParameters Request parameters.
@@ -760,6 +837,20 @@ export interface EpicsApiInterface {
      */
     releasesReleaseIdEpicsPost(requestParameters: EpicsApiReleasesReleaseIdEpicsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<Epic>;
 
+}
+
+/**
+ * Request parameters for epicsEpicIdCommentsGet operation in EpicsApi.
+ * @export
+ * @interface EpicsApiEpicsEpicIdCommentsGetRequest
+ */
+export interface EpicsApiEpicsEpicIdCommentsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof EpicsApiEpicsEpicIdCommentsGet
+     */
+    readonly epicId: string
 }
 
 /**
@@ -916,6 +1007,18 @@ export interface EpicsApiReleasesReleaseIdEpicsPostRequest {
  * @extends {BaseAPI}
  */
 export class EpicsApi extends BaseAPI implements EpicsApiInterface {
+    /**
+     * Retrieves a list of comments associated with the specified epic.
+     * @summary List comments on an epic
+     * @param {EpicsApiEpicsEpicIdCommentsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EpicsApi
+     */
+    public epicsEpicIdCommentsGet(requestParameters: EpicsApiEpicsEpicIdCommentsGetRequest, options?: RawAxiosRequestConfig) {
+        return EpicsApiFp(this.configuration).epicsEpicIdCommentsGet(requestParameters.epicId, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * Deletes the specified epic.
      * @summary Delete an epic

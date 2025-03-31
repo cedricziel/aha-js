@@ -1,45 +1,38 @@
-# GoalsApi
+# UsersApi
 
 All URIs are relative to *https://mycompany.aha.io/api/v1*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|[**goalsGoalIdCommentsGet**](#goalsgoalidcommentsget) | **GET** /goals/{goal_id}/comments | List comments on a goal|
-|[**goalsGoalIdEpicsGet**](#goalsgoalidepicsget) | **GET** /goals/{goal_id}/epics | List epics associated with a goal|
+|[**usersGet**](#usersget) | **GET** /users | List users|
+|[**usersIdGet**](#usersidget) | **GET** /users/{id} | Get a specific user|
 
-# **goalsGoalIdCommentsGet**
-> EpicsEpicIdCommentsGet200Response goalsGoalIdCommentsGet()
+# **usersGet**
+> Array<User> usersGet()
 
-Retrieves a list of comments associated with the specified goal.
+Fetches a list of users associated with the Aha! account.
 
 ### Example
 
 ```typescript
 import {
-    GoalsApi,
+    UsersApi,
     Configuration
 } from 'aha-js';
 
 const configuration = new Configuration();
-const apiInstance = new GoalsApi(configuration);
+const apiInstance = new UsersApi(configuration);
 
-let goalId: string; // (default to undefined)
-
-const { status, data } = await apiInstance.goalsGoalIdCommentsGet(
-    goalId
-);
+const { status, data } = await apiInstance.usersGet();
 ```
 
 ### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **goalId** | [**string**] |  | defaults to undefined|
+This endpoint does not have any parameters.
 
 
 ### Return type
 
-**EpicsEpicIdCommentsGet200Response**
+**Array<User>**
 
 ### Authorization
 
@@ -54,30 +47,30 @@ const { status, data } = await apiInstance.goalsGoalIdCommentsGet(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | A list of comments |  -  |
+|**200** | A list of users |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **goalsGoalIdEpicsGet**
-> ProductsProductIdEpicsGet200Response goalsGoalIdEpicsGet()
+# **usersIdGet**
+> User usersIdGet()
 
-Retrieves a list of epics associated with the specified goal.
+Retrieves details of a specific user by their ID.
 
 ### Example
 
 ```typescript
 import {
-    GoalsApi,
+    UsersApi,
     Configuration
 } from 'aha-js';
 
 const configuration = new Configuration();
-const apiInstance = new GoalsApi(configuration);
+const apiInstance = new UsersApi(configuration);
 
-let goalId: string; //Numeric ID or key of the goal (default to undefined)
+let id: string; // (default to undefined)
 
-const { status, data } = await apiInstance.goalsGoalIdEpicsGet(
-    goalId
+const { status, data } = await apiInstance.usersIdGet(
+    id
 );
 ```
 
@@ -85,12 +78,12 @@ const { status, data } = await apiInstance.goalsGoalIdEpicsGet(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **goalId** | [**string**] | Numeric ID or key of the goal | defaults to undefined|
+| **id** | [**string**] |  | defaults to undefined|
 
 
 ### Return type
 
-**ProductsProductIdEpicsGet200Response**
+**User**
 
 ### Authorization
 
@@ -105,8 +98,7 @@ const { status, data } = await apiInstance.goalsGoalIdEpicsGet(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | A list of epics |  -  |
-|**404** | Goal not found |  -  |
+|**200** | A single user |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

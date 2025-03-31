@@ -22,6 +22,8 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
+import type { EpicsEpicIdCommentsGet200Response } from '../model';
+// @ts-ignore
 import type { ProductsProductIdEpicsGet200Response } from '../model';
 /**
  * GoalsApi - axios parameter creator
@@ -29,6 +31,48 @@ import type { ProductsProductIdEpicsGet200Response } from '../model';
  */
 export const GoalsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
+        /**
+         * Retrieves a list of comments associated with the specified goal.
+         * @summary List comments on a goal
+         * @param {string} goalId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        goalsGoalIdCommentsGet: async (goalId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'goalId' is not null or undefined
+            assertParamExists('goalsGoalIdCommentsGet', 'goalId', goalId)
+            const localVarPath = `/goals/{goal_id}/comments`
+                .replace(`{${"goal_id"}}`, encodeURIComponent(String(goalId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
         /**
          * Retrieves a list of epics associated with the specified goal.
          * @summary List epics associated with a goal
@@ -82,6 +126,19 @@ export const GoalsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = GoalsApiAxiosParamCreator(configuration)
     return {
         /**
+         * Retrieves a list of comments associated with the specified goal.
+         * @summary List comments on a goal
+         * @param {string} goalId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async goalsGoalIdCommentsGet(goalId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EpicsEpicIdCommentsGet200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.goalsGoalIdCommentsGet(goalId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['GoalsApi.goalsGoalIdCommentsGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Retrieves a list of epics associated with the specified goal.
          * @summary List epics associated with a goal
          * @param {string} goalId Numeric ID or key of the goal
@@ -105,6 +162,16 @@ export const GoalsApiFactory = function (configuration?: Configuration, basePath
     const localVarFp = GoalsApiFp(configuration)
     return {
         /**
+         * Retrieves a list of comments associated with the specified goal.
+         * @summary List comments on a goal
+         * @param {GoalsApiGoalsGoalIdCommentsGetRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        goalsGoalIdCommentsGet(requestParameters: GoalsApiGoalsGoalIdCommentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsEpicIdCommentsGet200Response> {
+            return localVarFp.goalsGoalIdCommentsGet(requestParameters.goalId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Retrieves a list of epics associated with the specified goal.
          * @summary List epics associated with a goal
          * @param {GoalsApiGoalsGoalIdEpicsGetRequest} requestParameters Request parameters.
@@ -124,6 +191,16 @@ export const GoalsApiFactory = function (configuration?: Configuration, basePath
  */
 export interface GoalsApiInterface {
     /**
+     * Retrieves a list of comments associated with the specified goal.
+     * @summary List comments on a goal
+     * @param {GoalsApiGoalsGoalIdCommentsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GoalsApiInterface
+     */
+    goalsGoalIdCommentsGet(requestParameters: GoalsApiGoalsGoalIdCommentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsEpicIdCommentsGet200Response>;
+
+    /**
      * Retrieves a list of epics associated with the specified goal.
      * @summary List epics associated with a goal
      * @param {GoalsApiGoalsGoalIdEpicsGetRequest} requestParameters Request parameters.
@@ -133,6 +210,20 @@ export interface GoalsApiInterface {
      */
     goalsGoalIdEpicsGet(requestParameters: GoalsApiGoalsGoalIdEpicsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ProductsProductIdEpicsGet200Response>;
 
+}
+
+/**
+ * Request parameters for goalsGoalIdCommentsGet operation in GoalsApi.
+ * @export
+ * @interface GoalsApiGoalsGoalIdCommentsGetRequest
+ */
+export interface GoalsApiGoalsGoalIdCommentsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof GoalsApiGoalsGoalIdCommentsGet
+     */
+    readonly goalId: string
 }
 
 /**
@@ -156,6 +247,18 @@ export interface GoalsApiGoalsGoalIdEpicsGetRequest {
  * @extends {BaseAPI}
  */
 export class GoalsApi extends BaseAPI implements GoalsApiInterface {
+    /**
+     * Retrieves a list of comments associated with the specified goal.
+     * @summary List comments on a goal
+     * @param {GoalsApiGoalsGoalIdCommentsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GoalsApi
+     */
+    public goalsGoalIdCommentsGet(requestParameters: GoalsApiGoalsGoalIdCommentsGetRequest, options?: RawAxiosRequestConfig) {
+        return GoalsApiFp(this.configuration).goalsGoalIdCommentsGet(requestParameters.goalId, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * Retrieves a list of epics associated with the specified goal.
      * @summary List epics associated with a goal

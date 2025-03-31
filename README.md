@@ -51,30 +51,29 @@ All URIs are relative to *https://mycompany.aha.io/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*CommentsApi* | [**epicsEpicIdCommentsGet**](docs/CommentsApi.md#epicsepicidcommentsget) | **GET** /epics/{epic_id}/comments | List comments on an epic
+*CommentsApi* | [**featuresFeatureIdCommentsPost**](docs/CommentsApi.md#featuresfeatureidcommentspost) | **POST** /features/{feature_id}/comments | Create a comment on a feature
+*CommentsApi* | [**goalsGoalIdCommentsGet**](docs/CommentsApi.md#goalsgoalidcommentsget) | **GET** /goals/{goal_id}/comments | List comments on a goal
+*CommentsApi* | [**ideasIdeaIdCommentsGet**](docs/CommentsApi.md#ideasideaidcommentsget) | **GET** /ideas/{idea_id}/comments | List comments on an idea
+*CommentsApi* | [**initiativesInitiativeIdCommentsGet**](docs/CommentsApi.md#initiativesinitiativeidcommentsget) | **GET** /initiatives/{initiative_id}/comments | List comments on an initiative
+*CommentsApi* | [**productsProductIdCommentsGet**](docs/CommentsApi.md#productsproductidcommentsget) | **GET** /products/{product_id}/comments | List comments in a product
+*CommentsApi* | [**releasePhasesReleasePhaseIdCommentsGet**](docs/CommentsApi.md#releasephasesreleasephaseidcommentsget) | **GET** /release_phases/{release_phase_id}/comments | List comments on a release phase
+*CommentsApi* | [**releasesReleaseIdCommentsGet**](docs/CommentsApi.md#releasesreleaseidcommentsget) | **GET** /releases/{release_id}/comments | List comments on a release
+*CommentsApi* | [**requirementsRequirementIdCommentsGet**](docs/CommentsApi.md#requirementsrequirementidcommentsget) | **GET** /requirements/{requirement_id}/comments | List comments on a requirement
+*CommentsApi* | [**todosTodoIdCommentsGet**](docs/CommentsApi.md#todostodoidcommentsget) | **GET** /todos/{todo_id}/comments | List comments on a to-do
 *CompetitorsApi* | [**competitorsCompetitorIdDelete**](docs/CompetitorsApi.md#competitorscompetitoriddelete) | **DELETE** /competitors/{competitor_id} | Delete a competitor
+*CompetitorsApi* | [**competitorsCompetitorIdGet**](docs/CompetitorsApi.md#competitorscompetitoridget) | **GET** /competitors/{competitor_id} | Get a specific competitor
 *CompetitorsApi* | [**competitorsCompetitorIdPut**](docs/CompetitorsApi.md#competitorscompetitoridput) | **PUT** /competitors/{competitor_id} | Update a competitor
 *CompetitorsApi* | [**productsProductIdCompetitorsGet**](docs/CompetitorsApi.md#productsproductidcompetitorsget) | **GET** /products/{product_id}/competitors | List competitors in a product
 *CompetitorsApi* | [**productsProductIdCompetitorsPost**](docs/CompetitorsApi.md#productsproductidcompetitorspost) | **POST** /products/{product_id}/competitors | Create a competitor
-*DefaultApi* | [**competitorsCompetitorIdGet**](docs/DefaultApi.md#competitorscompetitoridget) | **GET** /competitors/{competitor_id} | Get a specific competitor
-*DefaultApi* | [**epicsEpicIdCommentsGet**](docs/DefaultApi.md#epicsepicidcommentsget) | **GET** /epics/{epic_id}/comments | List comments on an epic
-*DefaultApi* | [**featuresFeatureIdCommentsPost**](docs/DefaultApi.md#featuresfeatureidcommentspost) | **POST** /features/{feature_id}/comments | Create a comment on a feature
 *DefaultApi* | [**featuresIdCustomFieldsPut**](docs/DefaultApi.md#featuresidcustomfieldsput) | **PUT** /features/{id}/custom_fields | 
 *DefaultApi* | [**featuresIdCustomFieldsTagPut**](docs/DefaultApi.md#featuresidcustomfieldstagput) | **PUT** /features/{id}/custom_fields/tag | 
 *DefaultApi* | [**featuresIdDelete**](docs/DefaultApi.md#featuresiddelete) | **DELETE** /features/{id} | 
 *DefaultApi* | [**featuresIdGet**](docs/DefaultApi.md#featuresidget) | **GET** /features/{id} | 
 *DefaultApi* | [**featuresIdPut**](docs/DefaultApi.md#featuresidput) | **PUT** /features/{id} | 
-*DefaultApi* | [**goalsGoalIdCommentsGet**](docs/DefaultApi.md#goalsgoalidcommentsget) | **GET** /goals/{goal_id}/comments | List comments on a goal
-*DefaultApi* | [**ideasIdeaIdCommentsGet**](docs/DefaultApi.md#ideasideaidcommentsget) | **GET** /ideas/{idea_id}/comments | List comments on an idea
-*DefaultApi* | [**initiativesInitiativeIdCommentsGet**](docs/DefaultApi.md#initiativesinitiativeidcommentsget) | **GET** /initiatives/{initiative_id}/comments | List comments on an initiative
-*DefaultApi* | [**productsProductIdCommentsGet**](docs/DefaultApi.md#productsproductidcommentsget) | **GET** /products/{product_id}/comments | List comments in a product
-*DefaultApi* | [**releasePhasesReleasePhaseIdCommentsGet**](docs/DefaultApi.md#releasephasesreleasephaseidcommentsget) | **GET** /release_phases/{release_phase_id}/comments | List comments on a release phase
-*DefaultApi* | [**releasesReleaseIdCommentsGet**](docs/DefaultApi.md#releasesreleaseidcommentsget) | **GET** /releases/{release_id}/comments | List comments on a release
 *DefaultApi* | [**releasesReleaseIdFeaturesGet**](docs/DefaultApi.md#releasesreleaseidfeaturesget) | **GET** /releases/{release_id}/features | 
 *DefaultApi* | [**releasesReleaseIdFeaturesPost**](docs/DefaultApi.md#releasesreleaseidfeaturespost) | **POST** /releases/{release_id}/features | 
-*DefaultApi* | [**requirementsRequirementIdCommentsGet**](docs/DefaultApi.md#requirementsrequirementidcommentsget) | **GET** /requirements/{requirement_id}/comments | List comments on a requirement
-*DefaultApi* | [**todosTodoIdCommentsGet**](docs/DefaultApi.md#todostodoidcommentsget) | **GET** /todos/{todo_id}/comments | List comments on a to-do
-*DefaultApi* | [**usersGet**](docs/DefaultApi.md#usersget) | **GET** /users | List users
-*DefaultApi* | [**usersIdGet**](docs/DefaultApi.md#usersidget) | **GET** /users/{id} | Get a specific user
+*EpicsApi* | [**epicsEpicIdCommentsGet**](docs/EpicsApi.md#epicsepicidcommentsget) | **GET** /epics/{epic_id}/comments | List comments on an epic
 *EpicsApi* | [**epicsEpicIdDelete**](docs/EpicsApi.md#epicsepiciddelete) | **DELETE** /epics/{epic_id} | Delete an epic
 *EpicsApi* | [**epicsEpicIdGet**](docs/EpicsApi.md#epicsepicidget) | **GET** /epics/{epic_id} | Get a specific epic
 *EpicsApi* | [**epicsEpicIdPut**](docs/EpicsApi.md#epicsepicidput) | **PUT** /epics/{epic_id} | Update an epic
@@ -84,13 +83,24 @@ Class | Method | HTTP request | Description
 *EpicsApi* | [**productsProductIdEpicsPost**](docs/EpicsApi.md#productsproductidepicspost) | **POST** /products/{product_id}/epics | Create an epic in a product
 *EpicsApi* | [**releasesReleaseIdEpicsGet**](docs/EpicsApi.md#releasesreleaseidepicsget) | **GET** /releases/{release_id}/epics | List epics in a release
 *EpicsApi* | [**releasesReleaseIdEpicsPost**](docs/EpicsApi.md#releasesreleaseidepicspost) | **POST** /releases/{release_id}/epics | Create an epic in a release
+*FeaturesApi* | [**featuresFeatureIdCommentsPost**](docs/FeaturesApi.md#featuresfeatureidcommentspost) | **POST** /features/{feature_id}/comments | Create a comment on a feature
 *FeaturesApi* | [**featuresGet**](docs/FeaturesApi.md#featuresget) | **GET** /features | List features
 *FeaturesApi* | [**featuresIdCustomFieldsWorksheetPut**](docs/FeaturesApi.md#featuresidcustomfieldsworksheetput) | **PUT** /features/{id}/custom_fields/worksheet | Update a feature\&#39;s custom worksheet fields
 *FeaturesApi* | [**featuresIdEpicPut**](docs/FeaturesApi.md#featuresidepicput) | **PUT** /features/{id}/epic | Update a feature\&#39;s epic
 *FeaturesApi* | [**featuresIdGoalsPut**](docs/FeaturesApi.md#featuresidgoalsput) | **PUT** /features/{id}/goals | Update a feature\&#39;s goals
 *FeaturesApi* | [**featuresIdProgressPut**](docs/FeaturesApi.md#featuresidprogressput) | **PUT** /features/{id}/progress | Update a feature\&#39;s progress
+*GoalsApi* | [**goalsGoalIdCommentsGet**](docs/GoalsApi.md#goalsgoalidcommentsget) | **GET** /goals/{goal_id}/comments | List comments on a goal
 *GoalsApi* | [**goalsGoalIdEpicsGet**](docs/GoalsApi.md#goalsgoalidepicsget) | **GET** /goals/{goal_id}/epics | List epics associated with a goal
+*IdeasApi* | [**ideasIdeaIdCommentsGet**](docs/IdeasApi.md#ideasideaidcommentsget) | **GET** /ideas/{idea_id}/comments | List comments on an idea
+*InitiativesApi* | [**initiativesInitiativeIdCommentsGet**](docs/InitiativesApi.md#initiativesinitiativeidcommentsget) | **GET** /initiatives/{initiative_id}/comments | List comments on an initiative
 *InitiativesApi* | [**initiativesInitiativeIdEpicsGet**](docs/InitiativesApi.md#initiativesinitiativeidepicsget) | **GET** /initiatives/{initiative_id}/epics | List epics associated with an initiative
+*ProductsApi* | [**productsProductIdCommentsGet**](docs/ProductsApi.md#productsproductidcommentsget) | **GET** /products/{product_id}/comments | List comments in a product
+*ReleasePhasesApi* | [**releasePhasesReleasePhaseIdCommentsGet**](docs/ReleasePhasesApi.md#releasephasesreleasephaseidcommentsget) | **GET** /release_phases/{release_phase_id}/comments | List comments on a release phase
+*ReleasesApi* | [**releasesReleaseIdCommentsGet**](docs/ReleasesApi.md#releasesreleaseidcommentsget) | **GET** /releases/{release_id}/comments | List comments on a release
+*RequirementsApi* | [**requirementsRequirementIdCommentsGet**](docs/RequirementsApi.md#requirementsrequirementidcommentsget) | **GET** /requirements/{requirement_id}/comments | List comments on a requirement
+*ToDosApi* | [**todosTodoIdCommentsGet**](docs/ToDosApi.md#todostodoidcommentsget) | **GET** /todos/{todo_id}/comments | List comments on a to-do
+*UsersApi* | [**usersGet**](docs/UsersApi.md#usersget) | **GET** /users | List users
+*UsersApi* | [**usersIdGet**](docs/UsersApi.md#usersidget) | **GET** /users/{id} | Get a specific user
 
 
 ### Documentation For Models

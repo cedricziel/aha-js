@@ -4,11 +4,67 @@ All URIs are relative to *https://mycompany.aha.io/api/v1*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
+|[**featuresFeatureIdCommentsPost**](#featuresfeatureidcommentspost) | **POST** /features/{feature_id}/comments | Create a comment on a feature|
 |[**featuresGet**](#featuresget) | **GET** /features | List features|
 |[**featuresIdCustomFieldsWorksheetPut**](#featuresidcustomfieldsworksheetput) | **PUT** /features/{id}/custom_fields/worksheet | Update a feature\&#39;s custom worksheet fields|
 |[**featuresIdEpicPut**](#featuresidepicput) | **PUT** /features/{id}/epic | Update a feature\&#39;s epic|
 |[**featuresIdGoalsPut**](#featuresidgoalsput) | **PUT** /features/{id}/goals | Update a feature\&#39;s goals|
 |[**featuresIdProgressPut**](#featuresidprogressput) | **PUT** /features/{id}/progress | Update a feature\&#39;s progress|
+
+# **featuresFeatureIdCommentsPost**
+> Comment featuresFeatureIdCommentsPost(commentCreateRequest)
+
+Adds a new comment to the specified feature.
+
+### Example
+
+```typescript
+import {
+    FeaturesApi,
+    Configuration,
+    CommentCreateRequest
+} from 'aha-js';
+
+const configuration = new Configuration();
+const apiInstance = new FeaturesApi(configuration);
+
+let featureId: string; // (default to undefined)
+let commentCreateRequest: CommentCreateRequest; //
+
+const { status, data } = await apiInstance.featuresFeatureIdCommentsPost(
+    featureId,
+    commentCreateRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **commentCreateRequest** | **CommentCreateRequest**|  | |
+| **featureId** | [**string**] |  | defaults to undefined|
+
+
+### Return type
+
+**Comment**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**201** | Comment created |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **featuresGet**
 > FeaturesListResponse featuresGet()
