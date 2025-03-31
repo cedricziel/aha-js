@@ -37,8 +37,8 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      #- name: Build Package
-      #  run: npm run build
+      - name: Build Package
+        run: npm run build
 
       - name: Commit and Push Changes
         run: |
