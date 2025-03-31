@@ -1,0 +1,998 @@
+openapi: 3.0.3
+info:
+  title: Aha! REST API
+  description: API for interacting with Aha! product management platform.
+  version: 1.0.0
+
+servers:
+  - url: https://{subdomain}.aha.io/api/v1
+    description: Aha! API server
+    variables:
+      subdomain:
+        default: mycompany
+        description: Your Aha! account subdomain
+
+paths:
+  /users:
+    get:
+      summary: List users
+      description: Fetches a list of users associated with the Aha! account.
+      responses:
+        '200':
+          description: A list of users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+
+  /users/{id}:
+    get:
+      summary: Get a specific user
+      description: Retrieves details of a specific user by their ID.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A single user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+
+  /releases/{release_id}/features:
+    post:
+      summary: Create a feature
+      description: Adds a new feature to a specified release.
+      parameters:
+        - name: release_id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FeatureCreateRequest'
+      responses:
+        '201':
+          description: Feature created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Feature'
+
+  /features/{feature_id}/comments:
+    post:
+      summary: Create a comment on a feature
+      description: Adds a new comment to the specified feature.
+      parameters:
+        - name: feature_id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommentCreateRequest'
+      responses:
+        '201':
+          description: Comment created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+
+  /epics/{epic_id}/comments:
+    get:
+      summary: List comments on an epic
+      description: Retrieves a list of comments associated with the specified epic.
+      parameters:
+        - name: epic_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of comments
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  comments:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Comment'
+        '400':
+          description: Invalid input
+        '404':
+          description: Epic not found
+
+  /requirements/{requirement_id}/comments:
+    get:
+      summary: List comments on a requirement
+      description: Retrieves a list of comments associated with the specified requirement.
+      parameters:
+        - name: requirement_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of comments
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  comments:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Comment'
+        '400':
+          description: Invalid input
+        '404':
+          description: Requirement not found
+
+  /ideas/{idea_id}/comments:
+    get:
+      summary: List comments on an idea
+      description: Retrieves a list of comments associated with the specified idea.
+      parameters:
+        - name: idea_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of comments
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  comments:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Comment'
+
+  /initiatives/{initiative_id}/comments:
+    get:
+      summary: List comments on an initiative
+      description: Retrieves a list of comments associated with the specified initiative.
+      parameters:
+        - name: initiative_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of comments
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  comments:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Comment'
+
+  /goals/{goal_id}/comments:
+    get:
+      summary: List comments on a goal
+      description: Retrieves a list of comments associated with the specified goal.
+      parameters:
+        - name: goal_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of comments
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  comments:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Comment'
+
+  /releases/{release_id}/comments:
+    get:
+      summary: List comments on a release
+      description: Retrieves a list of comments associated with the specified release.
+      parameters:
+        - name: release_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of comments
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  comments:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Comment'
+
+  /products/{product_id}/epics:
+    post:
+      summary: Create an epic in a product
+      description: Creates a new epic in the specified product.
+      tags:
+        - Epics
+      parameters:
+        - name: product_id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Numeric ID or key of the product the epic should be created in
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EpicCreateRequest'
+      responses:
+        '201':
+          description: Epic created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Epic'
+        '400':
+          description: Invalid input
+        '404':
+          description: Product not found
+
+    get:
+      summary: List epics in a product
+      description: Retrieves a list of epics associated with the specified product.
+      tags:
+        - Epics
+      parameters:
+        - name: product_id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Numeric ID or key of the product
+      responses:
+        '200':
+          description: A list of epics
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  epics:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Epic'
+        '404':
+          description: Product not found
+
+  /releases/{release_id}/epics:
+    post:
+      summary: Create an epic in a release
+      description: Creates a new epic in the specified release.
+      tags:
+        - Epics
+      parameters:
+        - name: release_id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Numeric ID or key of the release the epic should be created in
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EpicCreateRequest'
+      responses:
+        '201':
+          description: Epic created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Epic'
+        '400':
+          description: Invalid input
+        '404':
+          description: Release not found
+
+    get:
+      summary: List epics in a release
+      description: Retrieves a list of epics associated with the specified release.
+      tags:
+        - Epics
+      parameters:
+        - name: release_id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Numeric ID or key of the release
+      responses:
+        '200':
+          description: A list of epics
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  epics:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Epic'
+        '404':
+          description: Release not found
+
+  /epics/{epic_id}:
+    get:
+      summary: Get a specific epic
+      description: Retrieves details of a specific epic by its ID.
+      tags:
+        - Epics
+      parameters:
+        - name: epic_id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Numeric ID or key of the epic
+      responses:
+        '200':
+          description: Epic details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Epic'
+        '404':
+          description: Epic not found
+
+    put:
+      summary: Update an epic
+      description: Updates the details of the specified epic.
+      tags:
+        - Epics
+      parameters:
+        - name: epic_id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Numeric ID or key of the epic
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EpicUpdateRequest'
+      responses:
+        '200':
+          description: Epic updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Epic'
+        '400':
+          description: Invalid input
+        '404':
+          description: Epic not found
+
+    delete:
+      summary: Delete an epic
+      description: Deletes the specified epic.
+      tags:
+        - Epics
+      parameters:
+        - name: epic_id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Numeric ID or key of the epic
+      responses:
+        '204':
+          description: Epic deleted
+        '404':
+          description: Epic not found
+
+  /goals/{goal_id}/epics:
+    get:
+      summary: List epics associated with a goal
+      description: Retrieves a list of epics associated with the specified goal.
+      tags:
+        - Epics
+        - Goals
+      parameters:
+        - name: goal_id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Numeric ID or key of the goal
+      responses:
+        '200':
+          description: A list of epics
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  epics:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Epic'
+        '404':
+          description: Goal not found
+
+  /initiatives/{initiative_id}/epics:
+    get:
+      summary: List epics associated with an initiative
+      description: Retrieves a list of epics associated with the specified initiative.
+      tags:
+        - Epics
+        - Initiatives
+      parameters:
+        - name: initiative_id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Numeric ID or key of the initiative
+      responses:
+        '200':
+          description: A list of epics
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  epics:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Epic'
+        '404':
+          description: Initiative not found
+
+  /release_phases/{release_phase_id}/comments:
+    get:
+      summary: List comments on a release phase
+      description: Retrieves a list of comments associated with the specified release phase.
+      parameters:
+        - name: release_phase_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of comments
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  comments:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Comment'
+
+  /todos/{todo_id}/comments:
+    get:
+      summary: List comments on a to-do
+      description: Retrieves a list of comments associated with the specified to-do.
+      parameters:
+        - name: todo_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of comments
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  comments:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Comment'
+
+  /products/{product_id}/comments:
+    get:
+      summary: List comments in a product
+      description: Retrieves a list of comments associated with the specified product.
+      parameters:
+        - name: product_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of comments
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  comments:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Comment'
+  /products/{product_id}/competitors:
+    get:
+      summary: List competitors in a product
+      description: Retrieves a list of competitors associated with the specified product.
+      parameters:
+        - name: product_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of competitors
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  competitors:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Competitor'
+    post:
+      summary: Create a competitor
+      description: Adds a new competitor to the specified product.
+      parameters:
+        - name: product_id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompetitorCreateRequest'
+      responses:
+        '201':
+          description: Competitor created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Competitor'
+
+  /competitors/{competitor_id}:
+    get:
+      summary: Get a specific competitor
+      description: Retrieves details of the specified competitor.
+      parameters:
+        - name: competitor_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Competitor details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Competitor'
+    put:
+      summary: Update a competitor
+      description: Updates the details of the specified competitor.
+      parameters:
+        - name: competitor_id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompetitorUpdateRequest'
+      responses:
+        '200':
+          description: Competitor updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Competitor'
+    delete:
+      summary: Delete a competitor
+      description: Removes the specified competitor.
+      parameters:
+        - name: competitor_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Competitor deleted
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+
+    FeatureCreateRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        start_date:
+          type: string
+          format: date
+        due_date:
+          type: string
+          format: date
+
+    Feature:
+      allOf:
+        - $ref: '#/components/schemas/FeatureCreateRequest'
+        - type: object
+          properties:
+            id:
+              type: string
+            release_id:
+              type: string
+
+    CommentCreateRequest:
+      type: object
+      properties:
+        body:
+          type: string
+      required:
+        - body
+
+    Comment:
+      type: object
+      properties:
+        id:
+          type: string
+        body:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        user:
+          $ref: '#/components/schemas/User'
+    CompetitorCreateRequest:
+      type: object
+      properties:
+        competitor:
+          type: object
+          required:
+            - name
+          properties:
+            name:
+              type: string
+            description:
+              type: string
+            strengths:
+              type: string
+            weaknesses:
+              type: string
+            website:
+              type: string
+              format: uri
+
+    CompetitorUpdateRequest:
+      type: object
+      properties:
+        competitor:
+          type: object
+          properties:
+            name:
+              type: string
+            description:
+              type: string
+            strengths:
+              type: string
+            weaknesses:
+              type: string
+            website:
+              type: string
+              format: uri
+
+    Competitor:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        strengths:
+          type: string
+        weaknesses:
+          type: string
+        website:
+          type: string
+          format: uri
+
+    EpicUpdateRequest:
+      type: object
+      properties:
+        epic:
+          type: object
+          properties:
+            name:
+              type: string
+              description: Name of the epic
+            description:
+              type: string
+              description: Description of the epic - may include HTML formatting
+            workflow_status:
+              type: string
+              description: Status of the epic - must be a valid status for the selected product
+            assigned_to_user:
+              type: string
+              description: Email address of user that is assigned the epic
+            tags:
+              type: string
+              description: Tags to add to the epic. Multiple tags must be separated by commas
+            detailed_estimate_text:
+              type: string
+              description: The detailed estimated effort in time or story points for this epic
+            remaining_estimate_text:
+              type: string
+              description: The remaining estimated effort in time or story points for this epic
+            initial_estimate:
+              type: number
+              description: Set the initial estimated effort in minutes or story points
+            detailed_estimate:
+              type: number
+              description: Set the detailed estimated effort in minutes or story points
+            remaining_estimate:
+              type: number
+              description: Set the remaining estimated effort in minutes or story points
+            start_date:
+              type: string
+              format: date
+              description: Date that work will start on the epic in format YYYY-MM-DD
+            due_date:
+              type: string
+              format: date
+              description: Date that work is due to be completed on the epic in format YYYY-MM-DD
+            initiative:
+              type: string
+              description: Name or id of initiative which the epic belongs to
+            progress:
+              type: number
+              description: Progress completed on the epic. May only be set when the progress_source is manual
+            duration_source:
+              type: string
+              enum: [duration_manual, duration_from_features]
+              description: Source for automatically calculating start and due dates
+            team:
+              type: string
+              description: Numeric ID or key of the Develop team to assign the epic to
+            team_workflow_status:
+              type: string
+              description: Team status of the epic - must be a valid status for the selected team
+            iteration:
+              type: string
+              description: ID of sprint to assign the epic to, must belong to the selected team
+            program_increment:
+              type: string
+              description: Numeric ID or key of the PI to assign the epic to
+
+    EpicCreateRequest:
+      type: object
+      properties:
+        epic:
+          type: object
+          required:
+            - name
+          properties:
+            name:
+              type: string
+              description: Name of the epic
+            description:
+              type: string
+              description: Description of the epic - may include HTML formatting
+            workflow_status:
+              type: string
+              description: Status of the epic - must be a valid status for the selected product
+            created_by:
+              type: string
+              description: Email address of the user who created the epic
+            assigned_to_user:
+              type: string
+              description: Email address of user that is assigned the epic
+            tags:
+              type: string
+              description: Tags to add to the epic. Multiple tags must be separated by commas
+            detailed_estimate_text:
+              type: string
+              description: The detailed estimated effort in time or story points for this epic
+            remaining_estimate_text:
+              type: string
+              description: The remaining estimated effort in time or story points for this epic
+            initial_estimate:
+              type: number
+              description: Set the initial estimated effort in minutes or story points
+            detailed_estimate:
+              type: number
+              description: Set the detailed estimated effort in minutes or story points
+            remaining_estimate:
+              type: number
+              description: Set the remaining estimated effort in minutes or story points
+            start_date:
+              type: string
+              format: date
+              description: Date that work will start on the epic in format YYYY-MM-DD
+            due_date:
+              type: string
+              format: date
+              description: Date that work is due to be completed on the epic in format YYYY-MM-DD
+            initiative:
+              type: string
+              description: Name or id of initiative which the epic belongs to
+            progress:
+              type: number
+              description: Progress completed on the epic. May only be set when the progress_source is manual
+            duration_source:
+              type: string
+              enum: [duration_manual, duration_from_features]
+              description: Source for automatically calculating start and due dates
+            team:
+              type: string
+              description: Numeric ID or key of the Develop team to assign the epic to
+            team_workflow_status:
+              type: string
+              description: Team status of the epic - must be a valid status for the selected team
+            iteration:
+              type: string
+              description: ID of sprint to assign the epic to, must belong to the selected team
+            program_increment:
+              type: string
+              description: Numeric ID or key of the PI to assign the epic to
+
+    Epic:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        reference_num:
+          type: string
+        initiative_reference_num:
+          type: string
+        position:
+          type: integer
+        score:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        start_date:
+          type: string
+          format: date
+        due_date:
+          type: string
+          format: date
+        product_id:
+          type: string
+        progress:
+          type: integer
+        created_by:
+          $ref: '#/components/schemas/User'
+        workflow_status:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+            position:
+              type: integer
+            complete:
+              type: boolean
+            color:
+              type: string
+        description:
+          type: object
+          properties:
+            id:
+              type: string
+            body:
+              type: string
+            created_at:
+              type: string
+              format: date-time
+            updated_at:
+              type: string
+              format: date-time
+        url:
+          type: string
+          format: uri
+        resource:
+          type: string
+          format: uri
+
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{subdomain}.aha.io/oauth/authorize
+          tokenUrl: https://{subdomain}.aha.io/oauth/token
+          scopes: {}
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+security:
+  - OAuth2: []
+  - BearerAuth: []
+
+tags:
+  - name: Competitors
+  - name: Users
+  - name: Features
+  - name: Releases
+  - name: Comments
+  - name: Epics
+  - name: Requirements
+  - name: Ideas
+  - name: Initiatives
+  - name: Goals
+  - name: Release Phases
+  - name: Todos
+  - name: Products
