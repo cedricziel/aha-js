@@ -56,6 +56,11 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**competitorsCompetitorIdPut**](docs/DefaultApi.md#competitorscompetitoridput) | **PUT** /competitors/{competitor_id} | Update a competitor
 *DefaultApi* | [**epicsEpicIdCommentsGet**](docs/DefaultApi.md#epicsepicidcommentsget) | **GET** /epics/{epic_id}/comments | List comments on an epic
 *DefaultApi* | [**featuresFeatureIdCommentsPost**](docs/DefaultApi.md#featuresfeatureidcommentspost) | **POST** /features/{feature_id}/comments | Create a comment on a feature
+*DefaultApi* | [**featuresIdCustomFieldsPut**](docs/DefaultApi.md#featuresidcustomfieldsput) | **PUT** /features/{id}/custom_fields | 
+*DefaultApi* | [**featuresIdCustomFieldsTagPut**](docs/DefaultApi.md#featuresidcustomfieldstagput) | **PUT** /features/{id}/custom_fields/tag | 
+*DefaultApi* | [**featuresIdDelete**](docs/DefaultApi.md#featuresiddelete) | **DELETE** /features/{id} | 
+*DefaultApi* | [**featuresIdGet**](docs/DefaultApi.md#featuresidget) | **GET** /features/{id} | 
+*DefaultApi* | [**featuresIdPut**](docs/DefaultApi.md#featuresidput) | **PUT** /features/{id} | 
 *DefaultApi* | [**goalsGoalIdCommentsGet**](docs/DefaultApi.md#goalsgoalidcommentsget) | **GET** /goals/{goal_id}/comments | List comments on a goal
 *DefaultApi* | [**ideasIdeaIdCommentsGet**](docs/DefaultApi.md#ideasideaidcommentsget) | **GET** /ideas/{idea_id}/comments | List comments on an idea
 *DefaultApi* | [**initiativesInitiativeIdCommentsGet**](docs/DefaultApi.md#initiativesinitiativeidcommentsget) | **GET** /initiatives/{initiative_id}/comments | List comments on an initiative
@@ -64,6 +69,8 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**productsProductIdCompetitorsPost**](docs/DefaultApi.md#productsproductidcompetitorspost) | **POST** /products/{product_id}/competitors | Create a competitor
 *DefaultApi* | [**releasePhasesReleasePhaseIdCommentsGet**](docs/DefaultApi.md#releasephasesreleasephaseidcommentsget) | **GET** /release_phases/{release_phase_id}/comments | List comments on a release phase
 *DefaultApi* | [**releasesReleaseIdCommentsGet**](docs/DefaultApi.md#releasesreleaseidcommentsget) | **GET** /releases/{release_id}/comments | List comments on a release
+*DefaultApi* | [**releasesReleaseIdFeaturesGet**](docs/DefaultApi.md#releasesreleaseidfeaturesget) | **GET** /releases/{release_id}/features | 
+*DefaultApi* | [**releasesReleaseIdFeaturesPost**](docs/DefaultApi.md#releasesreleaseidfeaturespost) | **POST** /releases/{release_id}/features | 
 *DefaultApi* | [**requirementsRequirementIdCommentsGet**](docs/DefaultApi.md#requirementsrequirementidcommentsget) | **GET** /requirements/{requirement_id}/comments | List comments on a requirement
 *DefaultApi* | [**todosTodoIdCommentsGet**](docs/DefaultApi.md#todostodoidcommentsget) | **GET** /todos/{todo_id}/comments | List comments on a to-do
 *DefaultApi* | [**usersGet**](docs/DefaultApi.md#usersget) | **GET** /users | List users
@@ -77,6 +84,11 @@ Class | Method | HTTP request | Description
 *EpicsApi* | [**productsProductIdEpicsPost**](docs/EpicsApi.md#productsproductidepicspost) | **POST** /products/{product_id}/epics | Create an epic in a product
 *EpicsApi* | [**releasesReleaseIdEpicsGet**](docs/EpicsApi.md#releasesreleaseidepicsget) | **GET** /releases/{release_id}/epics | List epics in a release
 *EpicsApi* | [**releasesReleaseIdEpicsPost**](docs/EpicsApi.md#releasesreleaseidepicspost) | **POST** /releases/{release_id}/epics | Create an epic in a release
+*FeaturesApi* | [**featuresGet**](docs/FeaturesApi.md#featuresget) | **GET** /features | List features
+*FeaturesApi* | [**featuresIdCustomFieldsWorksheetPut**](docs/FeaturesApi.md#featuresidcustomfieldsworksheetput) | **PUT** /features/{id}/custom_fields/worksheet | Update a feature\&#39;s custom worksheet fields
+*FeaturesApi* | [**featuresIdEpicPut**](docs/FeaturesApi.md#featuresidepicput) | **PUT** /features/{id}/epic | Update a feature\&#39;s epic
+*FeaturesApi* | [**featuresIdGoalsPut**](docs/FeaturesApi.md#featuresidgoalsput) | **PUT** /features/{id}/goals | Update a feature\&#39;s goals
+*FeaturesApi* | [**featuresIdProgressPut**](docs/FeaturesApi.md#featuresidprogressput) | **PUT** /features/{id}/progress | Update a feature\&#39;s progress
 *GoalsApi* | [**goalsGoalIdEpicsGet**](docs/GoalsApi.md#goalsgoalidepicsget) | **GET** /goals/{goal_id}/epics | List epics associated with a goal
 *InitiativesApi* | [**initiativesInitiativeIdEpicsGet**](docs/InitiativesApi.md#initiativesinitiativeidepicsget) | **GET** /initiatives/{initiative_id}/epics | List epics associated with an initiative
 
@@ -112,6 +124,15 @@ Class | Method | HTTP request | Description
  - [FeatureWorkflowKind](docs/FeatureWorkflowKind.md)
  - [FeatureWorkflowStatus](docs/FeatureWorkflowStatus.md)
  - [FeatureWorkflowStatusTimesInner](docs/FeatureWorkflowStatusTimesInner.md)
+ - [FeaturesIdCustomFieldsWorksheetPutRequest](docs/FeaturesIdCustomFieldsWorksheetPutRequest.md)
+ - [FeaturesIdCustomFieldsWorksheetPutRequestFeature](docs/FeaturesIdCustomFieldsWorksheetPutRequestFeature.md)
+ - [FeaturesIdCustomFieldsWorksheetPutRequestFeatureCustomFields](docs/FeaturesIdCustomFieldsWorksheetPutRequestFeatureCustomFields.md)
+ - [FeaturesIdEpicPutRequest](docs/FeaturesIdEpicPutRequest.md)
+ - [FeaturesIdEpicPutRequestFeature](docs/FeaturesIdEpicPutRequestFeature.md)
+ - [FeaturesIdGoalsPutRequest](docs/FeaturesIdGoalsPutRequest.md)
+ - [FeaturesIdGoalsPutRequestFeature](docs/FeaturesIdGoalsPutRequestFeature.md)
+ - [FeaturesIdProgressPutRequest](docs/FeaturesIdProgressPutRequest.md)
+ - [FeaturesIdProgressPutRequestFeature](docs/FeaturesIdProgressPutRequestFeature.md)
  - [FeaturesListResponse](docs/FeaturesListResponse.md)
  - [FeaturesListResponseFeaturesInner](docs/FeaturesListResponseFeaturesInner.md)
  - [FeaturesListResponsePagination](docs/FeaturesListResponsePagination.md)

@@ -14,9 +14,17 @@
 
 
 
-export * from './api/default-api';
-export * from './api/epics-api';
-export * from './api/features-api';
-export * from './api/goals-api';
-export * from './api/initiatives-api';
+/**
+ * 
+ * @export
+ * @interface FeaturesIdEpicPutRequestFeature
+ */
+export interface FeaturesIdEpicPutRequestFeature {
+    /**
+     * Name or id of epic which the feature belongs to
+     * @type {string}
+     * @memberof FeaturesIdEpicPutRequestFeature
+     */
+    'epic'?: string;
+}
 

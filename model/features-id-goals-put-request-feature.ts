@@ -14,9 +14,17 @@
 
 
 
-export * from './api/default-api';
-export * from './api/epics-api';
-export * from './api/features-api';
-export * from './api/goals-api';
-export * from './api/initiatives-api';
+/**
+ * 
+ * @export
+ * @interface FeaturesIdGoalsPutRequestFeature
+ */
+export interface FeaturesIdGoalsPutRequestFeature {
+    /**
+     * Array of goal IDs to associate with the feature
+     * @type {Array<number>}
+     * @memberof FeaturesIdGoalsPutRequestFeature
+     */
+    'goals'?: Array<number>;
+}
 

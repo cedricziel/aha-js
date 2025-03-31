@@ -266,6 +266,211 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
+         * 
+         * @param {string} id Numeric ID or key of the feature
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        featuresIdCustomFieldsPut: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('featuresIdCustomFieldsPut', 'id', id)
+            const localVarPath = `/features/{id}/custom_fields`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} id Numeric ID or key of the feature
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        featuresIdCustomFieldsTagPut: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('featuresIdCustomFieldsTagPut', 'id', id)
+            const localVarPath = `/features/{id}/custom_fields/tag`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} id Numeric ID or key of the feature
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        featuresIdDelete: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('featuresIdDelete', 'id', id)
+            const localVarPath = `/features/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} id Numeric ID or key of the feature
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        featuresIdGet: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('featuresIdGet', 'id', id)
+            const localVarPath = `/features/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} id Numeric ID or key of the feature
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        featuresIdPut: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('featuresIdPut', 'id', id)
+            const localVarPath = `/features/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Retrieves a list of comments associated with the specified goal.
          * @summary List comments on a goal
          * @param {string} goalId 
@@ -608,6 +813,88 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
+         * 
+         * @param {string} releaseId Numeric ID or key of the release
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        releasesReleaseIdFeaturesGet: async (releaseId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'releaseId' is not null or undefined
+            assertParamExists('releasesReleaseIdFeaturesGet', 'releaseId', releaseId)
+            const localVarPath = `/releases/{release_id}/features`
+                .replace(`{${"release_id"}}`, encodeURIComponent(String(releaseId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} releaseId Numeric ID or key of the release
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        releasesReleaseIdFeaturesPost: async (releaseId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'releaseId' is not null or undefined
+            assertParamExists('releasesReleaseIdFeaturesPost', 'releaseId', releaseId)
+            const localVarPath = `/releases/{release_id}/features`
+                .replace(`{${"release_id"}}`, encodeURIComponent(String(releaseId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Retrieves a list of comments associated with the specified requirement.
          * @summary List comments on a requirement
          * @param {string} requirementId 
@@ -849,6 +1136,66 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * 
+         * @param {string} id Numeric ID or key of the feature
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async featuresIdCustomFieldsPut(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.featuresIdCustomFieldsPut(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DefaultApi.featuresIdCustomFieldsPut']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} id Numeric ID or key of the feature
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async featuresIdCustomFieldsTagPut(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.featuresIdCustomFieldsTagPut(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DefaultApi.featuresIdCustomFieldsTagPut']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} id Numeric ID or key of the feature
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async featuresIdDelete(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.featuresIdDelete(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DefaultApi.featuresIdDelete']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} id Numeric ID or key of the feature
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async featuresIdGet(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.featuresIdGet(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DefaultApi.featuresIdGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} id Numeric ID or key of the feature
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async featuresIdPut(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.featuresIdPut(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DefaultApi.featuresIdPut']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Retrieves a list of comments associated with the specified goal.
          * @summary List comments on a goal
          * @param {string} goalId 
@@ -951,6 +1298,30 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.releasesReleaseIdCommentsGet(releaseId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.releasesReleaseIdCommentsGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} releaseId Numeric ID or key of the release
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async releasesReleaseIdFeaturesGet(releaseId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.releasesReleaseIdFeaturesGet(releaseId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DefaultApi.releasesReleaseIdFeaturesGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} releaseId Numeric ID or key of the release
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async releasesReleaseIdFeaturesPost(releaseId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.releasesReleaseIdFeaturesPost(releaseId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DefaultApi.releasesReleaseIdFeaturesPost']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1065,6 +1436,51 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.featuresFeatureIdCommentsPost(requestParameters.featureId, requestParameters.commentCreateRequest, options).then((request) => request(axios, basePath));
         },
         /**
+         * 
+         * @param {DefaultApiFeaturesIdCustomFieldsPutRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        featuresIdCustomFieldsPut(requestParameters: DefaultApiFeaturesIdCustomFieldsPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.featuresIdCustomFieldsPut(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {DefaultApiFeaturesIdCustomFieldsTagPutRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        featuresIdCustomFieldsTagPut(requestParameters: DefaultApiFeaturesIdCustomFieldsTagPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.featuresIdCustomFieldsTagPut(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {DefaultApiFeaturesIdDeleteRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        featuresIdDelete(requestParameters: DefaultApiFeaturesIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.featuresIdDelete(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {DefaultApiFeaturesIdGetRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        featuresIdGet(requestParameters: DefaultApiFeaturesIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.featuresIdGet(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {DefaultApiFeaturesIdPutRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        featuresIdPut(requestParameters: DefaultApiFeaturesIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.featuresIdPut(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Retrieves a list of comments associated with the specified goal.
          * @summary List comments on a goal
          * @param {DefaultApiGoalsGoalIdCommentsGetRequest} requestParameters Request parameters.
@@ -1143,6 +1559,24 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          */
         releasesReleaseIdCommentsGet(requestParameters: DefaultApiReleasesReleaseIdCommentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsEpicIdCommentsGet200Response> {
             return localVarFp.releasesReleaseIdCommentsGet(requestParameters.releaseId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {DefaultApiReleasesReleaseIdFeaturesGetRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        releasesReleaseIdFeaturesGet(requestParameters: DefaultApiReleasesReleaseIdFeaturesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.releasesReleaseIdFeaturesGet(requestParameters.releaseId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {DefaultApiReleasesReleaseIdFeaturesPostRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        releasesReleaseIdFeaturesPost(requestParameters: DefaultApiReleasesReleaseIdFeaturesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.releasesReleaseIdFeaturesPost(requestParameters.releaseId, options).then((request) => request(axios, basePath));
         },
         /**
          * Retrieves a list of comments associated with the specified requirement.
@@ -1243,6 +1677,51 @@ export interface DefaultApiInterface {
     featuresFeatureIdCommentsPost(requestParameters: DefaultApiFeaturesFeatureIdCommentsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<Comment>;
 
     /**
+     * 
+     * @param {DefaultApiFeaturesIdCustomFieldsPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApiInterface
+     */
+    featuresIdCustomFieldsPut(requestParameters: DefaultApiFeaturesIdCustomFieldsPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+
+    /**
+     * 
+     * @param {DefaultApiFeaturesIdCustomFieldsTagPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApiInterface
+     */
+    featuresIdCustomFieldsTagPut(requestParameters: DefaultApiFeaturesIdCustomFieldsTagPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+
+    /**
+     * 
+     * @param {DefaultApiFeaturesIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApiInterface
+     */
+    featuresIdDelete(requestParameters: DefaultApiFeaturesIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+
+    /**
+     * 
+     * @param {DefaultApiFeaturesIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApiInterface
+     */
+    featuresIdGet(requestParameters: DefaultApiFeaturesIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+
+    /**
+     * 
+     * @param {DefaultApiFeaturesIdPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApiInterface
+     */
+    featuresIdPut(requestParameters: DefaultApiFeaturesIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+
+    /**
      * Retrieves a list of comments associated with the specified goal.
      * @summary List comments on a goal
      * @param {DefaultApiGoalsGoalIdCommentsGetRequest} requestParameters Request parameters.
@@ -1321,6 +1800,24 @@ export interface DefaultApiInterface {
      * @memberof DefaultApiInterface
      */
     releasesReleaseIdCommentsGet(requestParameters: DefaultApiReleasesReleaseIdCommentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsEpicIdCommentsGet200Response>;
+
+    /**
+     * 
+     * @param {DefaultApiReleasesReleaseIdFeaturesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApiInterface
+     */
+    releasesReleaseIdFeaturesGet(requestParameters: DefaultApiReleasesReleaseIdFeaturesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+
+    /**
+     * 
+     * @param {DefaultApiReleasesReleaseIdFeaturesPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApiInterface
+     */
+    releasesReleaseIdFeaturesPost(requestParameters: DefaultApiReleasesReleaseIdFeaturesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
     /**
      * Retrieves a list of comments associated with the specified requirement.
@@ -1448,6 +1945,76 @@ export interface DefaultApiFeaturesFeatureIdCommentsPostRequest {
 }
 
 /**
+ * Request parameters for featuresIdCustomFieldsPut operation in DefaultApi.
+ * @export
+ * @interface DefaultApiFeaturesIdCustomFieldsPutRequest
+ */
+export interface DefaultApiFeaturesIdCustomFieldsPutRequest {
+    /**
+     * Numeric ID or key of the feature
+     * @type {string}
+     * @memberof DefaultApiFeaturesIdCustomFieldsPut
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for featuresIdCustomFieldsTagPut operation in DefaultApi.
+ * @export
+ * @interface DefaultApiFeaturesIdCustomFieldsTagPutRequest
+ */
+export interface DefaultApiFeaturesIdCustomFieldsTagPutRequest {
+    /**
+     * Numeric ID or key of the feature
+     * @type {string}
+     * @memberof DefaultApiFeaturesIdCustomFieldsTagPut
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for featuresIdDelete operation in DefaultApi.
+ * @export
+ * @interface DefaultApiFeaturesIdDeleteRequest
+ */
+export interface DefaultApiFeaturesIdDeleteRequest {
+    /**
+     * Numeric ID or key of the feature
+     * @type {string}
+     * @memberof DefaultApiFeaturesIdDelete
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for featuresIdGet operation in DefaultApi.
+ * @export
+ * @interface DefaultApiFeaturesIdGetRequest
+ */
+export interface DefaultApiFeaturesIdGetRequest {
+    /**
+     * Numeric ID or key of the feature
+     * @type {string}
+     * @memberof DefaultApiFeaturesIdGet
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for featuresIdPut operation in DefaultApi.
+ * @export
+ * @interface DefaultApiFeaturesIdPutRequest
+ */
+export interface DefaultApiFeaturesIdPutRequest {
+    /**
+     * Numeric ID or key of the feature
+     * @type {string}
+     * @memberof DefaultApiFeaturesIdPut
+     */
+    readonly id: string
+}
+
+/**
  * Request parameters for goalsGoalIdCommentsGet operation in DefaultApi.
  * @export
  * @interface DefaultApiGoalsGoalIdCommentsGetRequest
@@ -1567,6 +2134,34 @@ export interface DefaultApiReleasesReleaseIdCommentsGetRequest {
 }
 
 /**
+ * Request parameters for releasesReleaseIdFeaturesGet operation in DefaultApi.
+ * @export
+ * @interface DefaultApiReleasesReleaseIdFeaturesGetRequest
+ */
+export interface DefaultApiReleasesReleaseIdFeaturesGetRequest {
+    /**
+     * Numeric ID or key of the release
+     * @type {string}
+     * @memberof DefaultApiReleasesReleaseIdFeaturesGet
+     */
+    readonly releaseId: string
+}
+
+/**
+ * Request parameters for releasesReleaseIdFeaturesPost operation in DefaultApi.
+ * @export
+ * @interface DefaultApiReleasesReleaseIdFeaturesPostRequest
+ */
+export interface DefaultApiReleasesReleaseIdFeaturesPostRequest {
+    /**
+     * Numeric ID or key of the release
+     * @type {string}
+     * @memberof DefaultApiReleasesReleaseIdFeaturesPost
+     */
+    readonly releaseId: string
+}
+
+/**
  * Request parameters for requirementsRequirementIdCommentsGet operation in DefaultApi.
  * @export
  * @interface DefaultApiRequirementsRequirementIdCommentsGetRequest
@@ -1676,6 +2271,61 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
+     * 
+     * @param {DefaultApiFeaturesIdCustomFieldsPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public featuresIdCustomFieldsPut(requestParameters: DefaultApiFeaturesIdCustomFieldsPutRequest, options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).featuresIdCustomFieldsPut(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {DefaultApiFeaturesIdCustomFieldsTagPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public featuresIdCustomFieldsTagPut(requestParameters: DefaultApiFeaturesIdCustomFieldsTagPutRequest, options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).featuresIdCustomFieldsTagPut(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {DefaultApiFeaturesIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public featuresIdDelete(requestParameters: DefaultApiFeaturesIdDeleteRequest, options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).featuresIdDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {DefaultApiFeaturesIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public featuresIdGet(requestParameters: DefaultApiFeaturesIdGetRequest, options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).featuresIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {DefaultApiFeaturesIdPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public featuresIdPut(requestParameters: DefaultApiFeaturesIdPutRequest, options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).featuresIdPut(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Retrieves a list of comments associated with the specified goal.
      * @summary List comments on a goal
      * @param {DefaultApiGoalsGoalIdCommentsGetRequest} requestParameters Request parameters.
@@ -1769,6 +2419,28 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
      */
     public releasesReleaseIdCommentsGet(requestParameters: DefaultApiReleasesReleaseIdCommentsGetRequest, options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).releasesReleaseIdCommentsGet(requestParameters.releaseId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {DefaultApiReleasesReleaseIdFeaturesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public releasesReleaseIdFeaturesGet(requestParameters: DefaultApiReleasesReleaseIdFeaturesGetRequest, options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).releasesReleaseIdFeaturesGet(requestParameters.releaseId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {DefaultApiReleasesReleaseIdFeaturesPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public releasesReleaseIdFeaturesPost(requestParameters: DefaultApiReleasesReleaseIdFeaturesPostRequest, options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).releasesReleaseIdFeaturesPost(requestParameters.releaseId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
