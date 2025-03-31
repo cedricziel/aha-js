@@ -17,7 +17,7 @@ Retrieves a list of epics associated with the specified goal.
 import {
     GoalsApi,
     Configuration
-} from 'aha-api-client';
+} from 'aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new GoalsApi(configuration);

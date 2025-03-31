@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { CompetitorCreateRequestCompetitor } from 'aha-api-client';
+import { CompetitorCreateRequestCompetitor } from 'aha-js';
 
 const instance: CompetitorCreateRequestCompetitor = {
     name,

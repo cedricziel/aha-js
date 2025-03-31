@@ -25,7 +25,7 @@ Deletes the specified epic.
 import {
     EpicsApi,
     Configuration
-} from 'aha-api-client';
+} from 'aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new EpicsApi(configuration);
@@ -77,7 +77,7 @@ Retrieves details of a specific epic by its ID.
 import {
     EpicsApi,
     Configuration
-} from 'aha-api-client';
+} from 'aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new EpicsApi(configuration);
@@ -130,7 +130,7 @@ import {
     EpicsApi,
     Configuration,
     EpicUpdateRequest
-} from 'aha-api-client';
+} from 'aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new EpicsApi(configuration);
@@ -186,7 +186,7 @@ Retrieves a list of epics associated with the specified goal.
 import {
     EpicsApi,
     Configuration
-} from 'aha-api-client';
+} from 'aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new EpicsApi(configuration);
@@ -238,7 +238,7 @@ Retrieves a list of epics associated with the specified initiative.
 import {
     EpicsApi,
     Configuration
-} from 'aha-api-client';
+} from 'aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new EpicsApi(configuration);
@@ -290,7 +290,7 @@ Retrieves a list of epics associated with the specified product.
 import {
     EpicsApi,
     Configuration
-} from 'aha-api-client';
+} from 'aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new EpicsApi(configuration);
@@ -343,7 +343,7 @@ import {
     EpicsApi,
     Configuration,
     EpicCreateRequest
-} from 'aha-api-client';
+} from 'aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new EpicsApi(configuration);
@@ -399,7 +399,7 @@ Retrieves a list of epics associated with the specified release.
 import {
     EpicsApi,
     Configuration
-} from 'aha-api-client';
+} from 'aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new EpicsApi(configuration);
@@ -452,7 +452,7 @@ import {
     EpicsApi,
     Configuration,
     EpicCreateRequest
-} from 'aha-api-client';
+} from 'aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new EpicsApi(configuration);

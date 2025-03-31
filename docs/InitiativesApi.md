@@ -17,7 +17,7 @@ Retrieves a list of epics associated with the specified initiative.
 import {
     InitiativesApi,
     Configuration
-} from 'aha-api-client';
+} from 'aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new InitiativesApi(configuration);

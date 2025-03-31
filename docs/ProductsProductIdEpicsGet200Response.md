@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { ProductsProductIdEpicsGet200Response } from 'aha-api-client';
+import { ProductsProductIdEpicsGet200Response } from 'aha-js';
 
 const instance: ProductsProductIdEpicsGet200Response = {
     epics,

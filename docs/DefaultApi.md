@@ -34,7 +34,7 @@ Removes the specified competitor.
 import {
     DefaultApi,
     Configuration
-} from 'aha-api-client';
+} from 'aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
@@ -85,7 +85,7 @@ Retrieves details of the specified competitor.
 import {
     DefaultApi,
     Configuration
-} from 'aha-api-client';
+} from 'aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
@@ -137,7 +137,7 @@ import {
     DefaultApi,
     Configuration,
     CompetitorUpdateRequest
-} from 'aha-api-client';
+} from 'aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
@@ -191,7 +191,7 @@ Retrieves a list of comments associated with the specified epic.
 import {
     DefaultApi,
     Configuration
-} from 'aha-api-client';
+} from 'aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
@@ -245,7 +245,7 @@ import {
     DefaultApi,
     Configuration,
     CommentCreateRequest
-} from 'aha-api-client';
+} from 'aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
@@ -299,7 +299,7 @@ Retrieves a list of comments associated with the specified goal.
 import {
     DefaultApi,
     Configuration
-} from 'aha-api-client';
+} from 'aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
@@ -350,7 +350,7 @@ Retrieves a list of comments associated with the specified idea.
 import {
     DefaultApi,
     Configuration
-} from 'aha-api-client';
+} from 'aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
@@ -401,7 +401,7 @@ Retrieves a list of comments associated with the specified initiative.
 import {
     DefaultApi,
     Configuration
-} from 'aha-api-client';
+} from 'aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
@@ -452,7 +452,7 @@ Retrieves a list of comments associated with the specified product.
 import {
     DefaultApi,
     Configuration
-} from 'aha-api-client';
+} from 'aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
@@ -503,7 +503,7 @@ Retrieves a list of competitors associated with the specified product.
 import {
     DefaultApi,
     Configuration
-} from 'aha-api-client';
+} from 'aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
@@ -555,7 +555,7 @@ import {
     DefaultApi,
     Configuration,
     CompetitorCreateRequest
-} from 'aha-api-client';
+} from 'aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
@@ -609,7 +609,7 @@ Retrieves a list of comments associated with the specified release phase.
 import {
     DefaultApi,
     Configuration
-} from 'aha-api-client';
+} from 'aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
@@ -660,7 +660,7 @@ Retrieves a list of comments associated with the specified release.
 import {
     DefaultApi,
     Configuration
-} from 'aha-api-client';
+} from 'aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
@@ -712,7 +712,7 @@ import {
     DefaultApi,
     Configuration,
     FeatureCreateRequest
-} from 'aha-api-client';
+} from 'aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
@@ -766,7 +766,7 @@ Retrieves a list of comments associated with the specified requirement.
 import {
     DefaultApi,
     Configuration
-} from 'aha-api-client';
+} from 'aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
@@ -819,7 +819,7 @@ Retrieves a list of comments associated with the specified to-do.
 import {
     DefaultApi,
     Configuration
-} from 'aha-api-client';
+} from 'aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
@@ -870,7 +870,7 @@ Fetches a list of users associated with the Aha! account.
 import {
     DefaultApi,
     Configuration
-} from 'aha-api-client';
+} from 'aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
@@ -914,7 +914,7 @@ Retrieves details of a specific user by their ID.
 import {
     DefaultApi,
     Configuration
-} from 'aha-api-client';
+} from 'aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);

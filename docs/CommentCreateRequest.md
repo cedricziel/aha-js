@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { CommentCreateRequest } from 'aha-api-client';
+import { CommentCreateRequest } from 'aha-js';
 
 const instance: CommentCreateRequest = {
     body,

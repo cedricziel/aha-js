@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { Epic } from 'aha-api-client';
+import { Epic } from 'aha-js';
 
 const instance: Epic = {
     id,

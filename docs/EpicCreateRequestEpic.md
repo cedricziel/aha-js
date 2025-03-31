@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { EpicCreateRequestEpic } from 'aha-api-client';
+import { EpicCreateRequestEpic } from 'aha-js';
 
 const instance: EpicCreateRequestEpic = {
     name,

@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { EpicWorkflowStatus } from 'aha-api-client';
+import { EpicWorkflowStatus } from 'aha-js';
 
 const instance: EpicWorkflowStatus = {
     id,

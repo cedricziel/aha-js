@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { FeatureCreateRequest } from 'aha-api-client';
+import { FeatureCreateRequest } from 'aha-js';
 
 const instance: FeatureCreateRequest = {
     name,
