@@ -31,6 +31,7 @@ jobs:
 
       - name: Move Generated Files
         run: |
+          rm -rf api docs model
           mv generated/* .
           rm -rf generated
 
