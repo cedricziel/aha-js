@@ -13,9 +13,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Fetch OpenAPI Spec
+      - name: Clone aha-spec Repository
         run: |
-          curl -o openapi.yaml https://raw.githubusercontent.com/cedricziel/aha-spec/main/openapi.yaml
+          git clone https://github.com/cedricziel/aha-spec.git spec
 
       - name: Create Output Directory
         run: |
@@ -25,7 +25,7 @@ jobs:
         uses: openapi-generators/openapitools-generator-action@v1
         with:
           generator: typescript-axios
-          openapi-url: https://raw.githubusercontent.com/cedricziel/aha-spec/main/openapi.yaml
+          openapi-file: spec/api/openapi.yaml
           config-file: generator-config.json
           command-args: --output=generated
 

@@ -1,4 +1,5 @@
 .clinefile
+spec/
 
 # Dependencies
 node_modules/
