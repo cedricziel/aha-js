@@ -11,6 +11,8 @@
   "additionalProperties": {
     "npmVersion": "1.0.0",
     "supportsES6": true,
-    "npmRepository": "https://github.com/cedricziel/aha-js"
+    "npmRepository": "https://github.com/cedricziel/aha-js",
+    "apiPackage": "api",
+    "modelPackage": "model"
   }
 }
