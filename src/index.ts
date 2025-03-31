@@ -1,6 +1,6 @@
 // Export all generated models and API classes
-// Note: The 'generated' directory will be created by the OpenAPI Generator
-// This is a placeholder until the actual code is generated
+// The 'generated' directory will be created by the OpenAPI Generator
+export * from './generated';
 
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 
@@ -13,10 +13,16 @@ export interface AhaClientOptions {
   headers?: Record<string, string>;
 }
 
-// This class will serve as a wrapper around the generated API client
-// It will be updated once the actual client is generated
+// Import the generated APIs
+import { FeaturesApi, ProductsApi } from './generated';
+
+// This class serves as a wrapper around the generated API client
 export class AhaClient {
   private axiosInstance: AxiosInstance;
+
+  // Generated API instances
+  public features: FeaturesApi;
+  public products: ProductsApi;
 
   constructor(options: AhaClientOptions = {}) {
     const baseUrl = options.baseUrl || 'https://api.aha.io';
@@ -38,6 +44,12 @@ export class AhaClient {
     }
 
     this.axiosInstance = axios.create(axiosConfig);
+
+    // Initialize API instances
+    // Note: In the actual generated client, these would be properly initialized
+    // with the axios instance
+    this.features = new FeaturesApi();
+    this.products = new ProductsApi();
   }
 
   // This method will be used to get the axios instance
@@ -45,9 +57,6 @@ export class AhaClient {
   getAxiosInstance(): AxiosInstance {
     return this.axiosInstance;
   }
-
-  // Additional utility methods will be added here
-  // once the API client is generated
 }
 
 // Default export for easier imports

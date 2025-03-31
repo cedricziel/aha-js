@@ -14,12 +14,17 @@ jobs:
         run: |
           curl -o openapi.yaml https://raw.githubusercontent.com/cedricziel/aha-spec/main/openapi.yaml
 
+      - name: Create Output Directory
+        run: |
+          mkdir -p src/generated
+
       - name: Generate TypeScript-Axios Client
         uses: openapi-generators/openapitools-generator-action@v1
         with:
           generator: typescript-axios
-          openapi-file: openapi.yaml
-          config-file: generator-config.json
+          openapi-file: /github/workspace/openapi.yaml
+          config-file: /github/workspace/generator-config.json
+          output-directory: /github/workspace/src/generated
           generator-tag: v6.6.0  # Using a recent version for OpenAPI 3.1 support
 
       - name: Install Dependencies

@@ -7,6 +7,7 @@
   "withInterfaces": true,
   "typescriptThreePlus": true,
   "useSingleRequestParameter": true,
+  "outputDir": "src/generated",
   "additionalProperties": {
     "npmVersion": "1.0.0",
     "supportsES6": true,
