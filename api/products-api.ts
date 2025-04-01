@@ -23,12 +23,59 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
 import type { EpicsEpicIdCommentsGet200Response } from '../model';
+// @ts-ignore
+import type { ProductsListResponse } from '../model';
 /**
  * ProductsApi - axios parameter creator
  * @export
  */
 export const ProductsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
+        /**
+         * Retrieves a list of all products in the account.
+         * @summary List products in the account
+         * @param {string} [updatedSince] UTC timestamp (in ISO8601 format). If provided, only products updated after the timestamp will be returned.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        productsGet: async (updatedSince?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/products`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (updatedSince !== undefined) {
+                localVarQueryParameter['updated_since'] = (updatedSince as any instanceof Date) ?
+                    (updatedSince as any).toISOString() :
+                    updatedSince;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
         /**
          * Retrieves a list of comments associated with the specified product.
          * @summary List comments in a product
@@ -82,6 +129,19 @@ export const ProductsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ProductsApiAxiosParamCreator(configuration)
     return {
         /**
+         * Retrieves a list of all products in the account.
+         * @summary List products in the account
+         * @param {string} [updatedSince] UTC timestamp (in ISO8601 format). If provided, only products updated after the timestamp will be returned.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async productsGet(updatedSince?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProductsListResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.productsGet(updatedSince, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ProductsApi.productsGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Retrieves a list of comments associated with the specified product.
          * @summary List comments in a product
          * @param {string} productId 
@@ -105,6 +165,16 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
     const localVarFp = ProductsApiFp(configuration)
     return {
         /**
+         * Retrieves a list of all products in the account.
+         * @summary List products in the account
+         * @param {ProductsApiProductsGetRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        productsGet(requestParameters: ProductsApiProductsGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ProductsListResponse> {
+            return localVarFp.productsGet(requestParameters.updatedSince, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Retrieves a list of comments associated with the specified product.
          * @summary List comments in a product
          * @param {ProductsApiProductsProductIdCommentsGetRequest} requestParameters Request parameters.
@@ -124,6 +194,16 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
  */
 export interface ProductsApiInterface {
     /**
+     * Retrieves a list of all products in the account.
+     * @summary List products in the account
+     * @param {ProductsApiProductsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProductsApiInterface
+     */
+    productsGet(requestParameters?: ProductsApiProductsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ProductsListResponse>;
+
+    /**
      * Retrieves a list of comments associated with the specified product.
      * @summary List comments in a product
      * @param {ProductsApiProductsProductIdCommentsGetRequest} requestParameters Request parameters.
@@ -133,6 +213,20 @@ export interface ProductsApiInterface {
      */
     productsProductIdCommentsGet(requestParameters: ProductsApiProductsProductIdCommentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsEpicIdCommentsGet200Response>;
 
+}
+
+/**
+ * Request parameters for productsGet operation in ProductsApi.
+ * @export
+ * @interface ProductsApiProductsGetRequest
+ */
+export interface ProductsApiProductsGetRequest {
+    /**
+     * UTC timestamp (in ISO8601 format). If provided, only products updated after the timestamp will be returned.
+     * @type {string}
+     * @memberof ProductsApiProductsGet
+     */
+    readonly updatedSince?: string
 }
 
 /**
@@ -156,6 +250,18 @@ export interface ProductsApiProductsProductIdCommentsGetRequest {
  * @extends {BaseAPI}
  */
 export class ProductsApi extends BaseAPI implements ProductsApiInterface {
+    /**
+     * Retrieves a list of all products in the account.
+     * @summary List products in the account
+     * @param {ProductsApiProductsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProductsApi
+     */
+    public productsGet(requestParameters: ProductsApiProductsGetRequest = {}, options?: RawAxiosRequestConfig) {
+        return ProductsApiFp(this.configuration).productsGet(requestParameters.updatedSince, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * Retrieves a list of comments associated with the specified product.
      * @summary List comments in a product

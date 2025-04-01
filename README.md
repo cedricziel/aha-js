@@ -103,8 +103,12 @@ Class | Method | HTTP request | Description
 *IdeasApi* | [**productsProductIdIdeasPost**](docs/IdeasApi.md#productsproductidideaspost) | **POST** /products/{product_id}/ideas | Create an idea
 *IdeasApi* | [**productsProductIdIdeasWithCategoryPost**](docs/IdeasApi.md#productsproductidideaswithcategorypost) | **POST** /products/{product_id}/ideas/with_category | Create an idea with a category
 *IdeasApi* | [**productsProductIdIdeasWithScorePost**](docs/IdeasApi.md#productsproductidideaswithscorepost) | **POST** /products/{product_id}/ideas/with_score | Create an idea with a score
+*InitiativesApi* | [**initiativesGet**](docs/InitiativesApi.md#initiativesget) | **GET** /initiatives | List initiatives
+*InitiativesApi* | [**initiativesIdGet**](docs/InitiativesApi.md#initiativesidget) | **GET** /initiatives/{id} | Get a specific initiative
 *InitiativesApi* | [**initiativesInitiativeIdCommentsGet**](docs/InitiativesApi.md#initiativesinitiativeidcommentsget) | **GET** /initiatives/{initiative_id}/comments | List comments on an initiative
 *InitiativesApi* | [**initiativesInitiativeIdEpicsGet**](docs/InitiativesApi.md#initiativesinitiativeidepicsget) | **GET** /initiatives/{initiative_id}/epics | List epics associated with an initiative
+*InitiativesApi* | [**productsProductIdInitiativesPost**](docs/InitiativesApi.md#productsproductidinitiativespost) | **POST** /products/{product_id}/initiatives | Create an initiative
+*ProductsApi* | [**productsGet**](docs/ProductsApi.md#productsget) | **GET** /products | List products in the account
 *ProductsApi* | [**productsProductIdCommentsGet**](docs/ProductsApi.md#productsproductidcommentsget) | **GET** /products/{product_id}/comments | List comments in a product
 *ReleasePhasesApi* | [**releasePhasesReleasePhaseIdCommentsGet**](docs/ReleasePhasesApi.md#releasephasesreleasephaseidcommentsget) | **GET** /release_phases/{release_phase_id}/comments | List comments on a release phase
 *ReleasesApi* | [**releasesReleaseIdCommentsGet**](docs/ReleasesApi.md#releasesreleaseidcommentsget) | **GET** /releases/{release_id}/comments | List comments on a release
@@ -182,6 +186,24 @@ Class | Method | HTTP request | Description
  - [IdeasListResponseIdeasInnerDescription](docs/IdeasListResponseIdeasInnerDescription.md)
  - [IdeasListResponseIdeasInnerWorkflowStatus](docs/IdeasListResponseIdeasInnerWorkflowStatus.md)
  - [IdeasListResponsePagination](docs/IdeasListResponsePagination.md)
+ - [InitiativeCreateRequest](docs/InitiativeCreateRequest.md)
+ - [InitiativeCreateRequestInitiative](docs/InitiativeCreateRequestInitiative.md)
+ - [InitiativeCreateRequestInitiativeTimeFrame](docs/InitiativeCreateRequestInitiativeTimeFrame.md)
+ - [InitiativeCreateRequestInitiativeWorkflowStatus](docs/InitiativeCreateRequestInitiativeWorkflowStatus.md)
+ - [InitiativeResponse](docs/InitiativeResponse.md)
+ - [InitiativeResponseInitiative](docs/InitiativeResponseInitiative.md)
+ - [InitiativeResponseInitiativeAssignedToUser](docs/InitiativeResponseInitiativeAssignedToUser.md)
+ - [InitiativeResponseInitiativeCreatedByUser](docs/InitiativeResponseInitiativeCreatedByUser.md)
+ - [InitiativeResponseInitiativeProject](docs/InitiativeResponseInitiativeProject.md)
+ - [InitiativeResponseInitiativeTimeFrame](docs/InitiativeResponseInitiativeTimeFrame.md)
+ - [InitiativeResponseInitiativeWorkflowStatusTimesInner](docs/InitiativeResponseInitiativeWorkflowStatusTimesInner.md)
+ - [InitiativesListResponse](docs/InitiativesListResponse.md)
+ - [InitiativesListResponseInitiativesInner](docs/InitiativesListResponseInitiativesInner.md)
+ - [InitiativesListResponseInitiativesInnerAssignedToUser](docs/InitiativesListResponseInitiativesInnerAssignedToUser.md)
+ - [InitiativesListResponseInitiativesInnerCreatedByUser](docs/InitiativesListResponseInitiativesInnerCreatedByUser.md)
+ - [InitiativesListResponseInitiativesInnerTimeFrame](docs/InitiativesListResponseInitiativesInnerTimeFrame.md)
+ - [ProductsListResponse](docs/ProductsListResponse.md)
+ - [ProductsListResponseProductsInner](docs/ProductsListResponseProductsInner.md)
  - [ProductsProductIdCompetitorsGet200Response](docs/ProductsProductIdCompetitorsGet200Response.md)
  - [ProductsProductIdEpicsGet200Response](docs/ProductsProductIdEpicsGet200Response.md)
  - [User](docs/User.md)
