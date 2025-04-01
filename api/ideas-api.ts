@@ -29,12 +29,98 @@ import type { IdeaCreateByPortalUserRequest } from '../model';
 import type { IdeaCreateRequest } from '../model';
 // @ts-ignore
 import type { IdeaResponse } from '../model';
+// @ts-ignore
+import type { IdeasListResponse } from '../model';
 /**
  * IdeasApi - axios parameter creator
  * @export
  */
 export const IdeasApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
+        /**
+         * Deletes the specified idea.
+         * @summary Delete an idea
+         * @param {string} id Numeric ID or key of the idea
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        ideasIdDelete: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('ideasIdDelete', 'id', id)
+            const localVarPath = `/ideas/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieves the details of a specific idea.
+         * @summary Get a specific idea
+         * @param {string} id Numeric ID or key of the idea
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        ideasIdGet: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('ideasIdGet', 'id', id)
+            const localVarPath = `/ideas/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
         /**
          * Retrieves a list of comments associated with the specified idea.
          * @summary List comments on an idea
@@ -65,6 +151,104 @@ export const IdeasApiAxiosParamCreator = function (configuration?: Configuration
             // authentication BearerAuth required
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieves a list of ideas for the specified product.
+         * @summary List ideas for a product
+         * @param {string} productId Numeric ID or key of the product
+         * @param {string} [q] Search term to match against the idea name
+         * @param {boolean} [spam] When true, shows ideas that have been marked as spam. By default, no spam ideas will be shown.
+         * @param {string} [workflowStatus] When present, filters to ideas with the provided workflow status ID or name.
+         * @param {ProductsProductIdIdeasGetSortEnum} [sort] Sorting of the list of ideas. Accepted values are recent, trending, or popular.
+         * @param {string} [createdBefore] UTC timestamp (in ISO8601 format). If provided, only ideas created before the timestamp will be returned.
+         * @param {string} [createdSince] UTC timestamp (in ISO8601 format). If provided, only ideas created after the timestamp will be returned.
+         * @param {string} [updatedSince] UTC timestamp (in ISO8601 format). If provided, only ideas updated or created after the timestamp will be returned.
+         * @param {string} [tag] String tag value. If provided, only ideas with the associated tag will be returned.
+         * @param {string} [userId] ID of a user. If provided, only ideas created by that user will be returned.
+         * @param {string} [ideaUserId] ID of an idea user. If provided, only ideas created by that idea user will be returned.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        productsProductIdIdeasGet: async (productId: string, q?: string, spam?: boolean, workflowStatus?: string, sort?: ProductsProductIdIdeasGetSortEnum, createdBefore?: string, createdSince?: string, updatedSince?: string, tag?: string, userId?: string, ideaUserId?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'productId' is not null or undefined
+            assertParamExists('productsProductIdIdeasGet', 'productId', productId)
+            const localVarPath = `/products/{product_id}/ideas`
+                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (q !== undefined) {
+                localVarQueryParameter['q'] = q;
+            }
+
+            if (spam !== undefined) {
+                localVarQueryParameter['spam'] = spam;
+            }
+
+            if (workflowStatus !== undefined) {
+                localVarQueryParameter['workflow_status'] = workflowStatus;
+            }
+
+            if (sort !== undefined) {
+                localVarQueryParameter['sort'] = sort;
+            }
+
+            if (createdBefore !== undefined) {
+                localVarQueryParameter['created_before'] = (createdBefore as any instanceof Date) ?
+                    (createdBefore as any).toISOString() :
+                    createdBefore;
+            }
+
+            if (createdSince !== undefined) {
+                localVarQueryParameter['created_since'] = (createdSince as any instanceof Date) ?
+                    (createdSince as any).toISOString() :
+                    createdSince;
+            }
+
+            if (updatedSince !== undefined) {
+                localVarQueryParameter['updated_since'] = (updatedSince as any instanceof Date) ?
+                    (updatedSince as any).toISOString() :
+                    updatedSince;
+            }
+
+            if (tag !== undefined) {
+                localVarQueryParameter['tag'] = tag;
+            }
+
+            if (userId !== undefined) {
+                localVarQueryParameter['user_id'] = userId;
+            }
+
+            if (ideaUserId !== undefined) {
+                localVarQueryParameter['idea_user_id'] = ideaUserId;
+            }
 
 
     
@@ -280,6 +464,32 @@ export const IdeasApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = IdeasApiAxiosParamCreator(configuration)
     return {
         /**
+         * Deletes the specified idea.
+         * @summary Delete an idea
+         * @param {string} id Numeric ID or key of the idea
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async ideasIdDelete(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.ideasIdDelete(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['IdeasApi.ideasIdDelete']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Retrieves the details of a specific idea.
+         * @summary Get a specific idea
+         * @param {string} id Numeric ID or key of the idea
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async ideasIdGet(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdeaResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.ideasIdGet(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['IdeasApi.ideasIdGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Retrieves a list of comments associated with the specified idea.
          * @summary List comments on an idea
          * @param {string} ideaId 
@@ -290,6 +500,29 @@ export const IdeasApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.ideasIdeaIdCommentsGet(ideaId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IdeasApi.ideasIdeaIdCommentsGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Retrieves a list of ideas for the specified product.
+         * @summary List ideas for a product
+         * @param {string} productId Numeric ID or key of the product
+         * @param {string} [q] Search term to match against the idea name
+         * @param {boolean} [spam] When true, shows ideas that have been marked as spam. By default, no spam ideas will be shown.
+         * @param {string} [workflowStatus] When present, filters to ideas with the provided workflow status ID or name.
+         * @param {ProductsProductIdIdeasGetSortEnum} [sort] Sorting of the list of ideas. Accepted values are recent, trending, or popular.
+         * @param {string} [createdBefore] UTC timestamp (in ISO8601 format). If provided, only ideas created before the timestamp will be returned.
+         * @param {string} [createdSince] UTC timestamp (in ISO8601 format). If provided, only ideas created after the timestamp will be returned.
+         * @param {string} [updatedSince] UTC timestamp (in ISO8601 format). If provided, only ideas updated or created after the timestamp will be returned.
+         * @param {string} [tag] String tag value. If provided, only ideas with the associated tag will be returned.
+         * @param {string} [userId] ID of a user. If provided, only ideas created by that user will be returned.
+         * @param {string} [ideaUserId] ID of an idea user. If provided, only ideas created by that idea user will be returned.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async productsProductIdIdeasGet(productId: string, q?: string, spam?: boolean, workflowStatus?: string, sort?: ProductsProductIdIdeasGetSortEnum, createdBefore?: string, createdSince?: string, updatedSince?: string, tag?: string, userId?: string, ideaUserId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdeasListResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.productsProductIdIdeasGet(productId, q, spam, workflowStatus, sort, createdBefore, createdSince, updatedSince, tag, userId, ideaUserId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['IdeasApi.productsProductIdIdeasGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -359,6 +592,26 @@ export const IdeasApiFactory = function (configuration?: Configuration, basePath
     const localVarFp = IdeasApiFp(configuration)
     return {
         /**
+         * Deletes the specified idea.
+         * @summary Delete an idea
+         * @param {IdeasApiIdeasIdDeleteRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        ideasIdDelete(requestParameters: IdeasApiIdeasIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.ideasIdDelete(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieves the details of a specific idea.
+         * @summary Get a specific idea
+         * @param {IdeasApiIdeasIdGetRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        ideasIdGet(requestParameters: IdeasApiIdeasIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaResponse> {
+            return localVarFp.ideasIdGet(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Retrieves a list of comments associated with the specified idea.
          * @summary List comments on an idea
          * @param {IdeasApiIdeasIdeaIdCommentsGetRequest} requestParameters Request parameters.
@@ -367,6 +620,16 @@ export const IdeasApiFactory = function (configuration?: Configuration, basePath
          */
         ideasIdeaIdCommentsGet(requestParameters: IdeasApiIdeasIdeaIdCommentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsEpicIdCommentsGet200Response> {
             return localVarFp.ideasIdeaIdCommentsGet(requestParameters.ideaId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieves a list of ideas for the specified product.
+         * @summary List ideas for a product
+         * @param {IdeasApiProductsProductIdIdeasGetRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        productsProductIdIdeasGet(requestParameters: IdeasApiProductsProductIdIdeasGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasListResponse> {
+            return localVarFp.productsProductIdIdeasGet(requestParameters.productId, requestParameters.q, requestParameters.spam, requestParameters.workflowStatus, requestParameters.sort, requestParameters.createdBefore, requestParameters.createdSince, requestParameters.updatedSince, requestParameters.tag, requestParameters.userId, requestParameters.ideaUserId, options).then((request) => request(axios, basePath));
         },
         /**
          * Creates a new idea for the specified product, where the creator is an ideas portal user.  When creating an idea where the creator is an idea user we strongly suggest to provide the submitted_idea_portal_id attribute to the idea to ensure that the idea is created in the correct ideas portal and the user gets access to the portal.  If you don\'t want the idea to be submitted to any portal, you can skip this by setting skip_portal: true in the request body. 
@@ -418,6 +681,26 @@ export const IdeasApiFactory = function (configuration?: Configuration, basePath
  */
 export interface IdeasApiInterface {
     /**
+     * Deletes the specified idea.
+     * @summary Delete an idea
+     * @param {IdeasApiIdeasIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdeasApiInterface
+     */
+    ideasIdDelete(requestParameters: IdeasApiIdeasIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+
+    /**
+     * Retrieves the details of a specific idea.
+     * @summary Get a specific idea
+     * @param {IdeasApiIdeasIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdeasApiInterface
+     */
+    ideasIdGet(requestParameters: IdeasApiIdeasIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaResponse>;
+
+    /**
      * Retrieves a list of comments associated with the specified idea.
      * @summary List comments on an idea
      * @param {IdeasApiIdeasIdeaIdCommentsGetRequest} requestParameters Request parameters.
@@ -426,6 +709,16 @@ export interface IdeasApiInterface {
      * @memberof IdeasApiInterface
      */
     ideasIdeaIdCommentsGet(requestParameters: IdeasApiIdeasIdeaIdCommentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsEpicIdCommentsGet200Response>;
+
+    /**
+     * Retrieves a list of ideas for the specified product.
+     * @summary List ideas for a product
+     * @param {IdeasApiProductsProductIdIdeasGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdeasApiInterface
+     */
+    productsProductIdIdeasGet(requestParameters: IdeasApiProductsProductIdIdeasGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasListResponse>;
 
     /**
      * Creates a new idea for the specified product, where the creator is an ideas portal user.  When creating an idea where the creator is an idea user we strongly suggest to provide the submitted_idea_portal_id attribute to the idea to ensure that the idea is created in the correct ideas portal and the user gets access to the portal.  If you don\'t want the idea to be submitted to any portal, you can skip this by setting skip_portal: true in the request body. 
@@ -470,6 +763,34 @@ export interface IdeasApiInterface {
 }
 
 /**
+ * Request parameters for ideasIdDelete operation in IdeasApi.
+ * @export
+ * @interface IdeasApiIdeasIdDeleteRequest
+ */
+export interface IdeasApiIdeasIdDeleteRequest {
+    /**
+     * Numeric ID or key of the idea
+     * @type {string}
+     * @memberof IdeasApiIdeasIdDelete
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for ideasIdGet operation in IdeasApi.
+ * @export
+ * @interface IdeasApiIdeasIdGetRequest
+ */
+export interface IdeasApiIdeasIdGetRequest {
+    /**
+     * Numeric ID or key of the idea
+     * @type {string}
+     * @memberof IdeasApiIdeasIdGet
+     */
+    readonly id: string
+}
+
+/**
  * Request parameters for ideasIdeaIdCommentsGet operation in IdeasApi.
  * @export
  * @interface IdeasApiIdeasIdeaIdCommentsGetRequest
@@ -481,6 +802,90 @@ export interface IdeasApiIdeasIdeaIdCommentsGetRequest {
      * @memberof IdeasApiIdeasIdeaIdCommentsGet
      */
     readonly ideaId: string
+}
+
+/**
+ * Request parameters for productsProductIdIdeasGet operation in IdeasApi.
+ * @export
+ * @interface IdeasApiProductsProductIdIdeasGetRequest
+ */
+export interface IdeasApiProductsProductIdIdeasGetRequest {
+    /**
+     * Numeric ID or key of the product
+     * @type {string}
+     * @memberof IdeasApiProductsProductIdIdeasGet
+     */
+    readonly productId: string
+
+    /**
+     * Search term to match against the idea name
+     * @type {string}
+     * @memberof IdeasApiProductsProductIdIdeasGet
+     */
+    readonly q?: string
+
+    /**
+     * When true, shows ideas that have been marked as spam. By default, no spam ideas will be shown.
+     * @type {boolean}
+     * @memberof IdeasApiProductsProductIdIdeasGet
+     */
+    readonly spam?: boolean
+
+    /**
+     * When present, filters to ideas with the provided workflow status ID or name.
+     * @type {string}
+     * @memberof IdeasApiProductsProductIdIdeasGet
+     */
+    readonly workflowStatus?: string
+
+    /**
+     * Sorting of the list of ideas. Accepted values are recent, trending, or popular.
+     * @type {'recent' | 'trending' | 'popular'}
+     * @memberof IdeasApiProductsProductIdIdeasGet
+     */
+    readonly sort?: ProductsProductIdIdeasGetSortEnum
+
+    /**
+     * UTC timestamp (in ISO8601 format). If provided, only ideas created before the timestamp will be returned.
+     * @type {string}
+     * @memberof IdeasApiProductsProductIdIdeasGet
+     */
+    readonly createdBefore?: string
+
+    /**
+     * UTC timestamp (in ISO8601 format). If provided, only ideas created after the timestamp will be returned.
+     * @type {string}
+     * @memberof IdeasApiProductsProductIdIdeasGet
+     */
+    readonly createdSince?: string
+
+    /**
+     * UTC timestamp (in ISO8601 format). If provided, only ideas updated or created after the timestamp will be returned.
+     * @type {string}
+     * @memberof IdeasApiProductsProductIdIdeasGet
+     */
+    readonly updatedSince?: string
+
+    /**
+     * String tag value. If provided, only ideas with the associated tag will be returned.
+     * @type {string}
+     * @memberof IdeasApiProductsProductIdIdeasGet
+     */
+    readonly tag?: string
+
+    /**
+     * ID of a user. If provided, only ideas created by that user will be returned.
+     * @type {string}
+     * @memberof IdeasApiProductsProductIdIdeasGet
+     */
+    readonly userId?: string
+
+    /**
+     * ID of an idea user. If provided, only ideas created by that idea user will be returned.
+     * @type {string}
+     * @memberof IdeasApiProductsProductIdIdeasGet
+     */
+    readonly ideaUserId?: string
 }
 
 /**
@@ -575,6 +980,30 @@ export interface IdeasApiProductsProductIdIdeasWithScorePostRequest {
  */
 export class IdeasApi extends BaseAPI implements IdeasApiInterface {
     /**
+     * Deletes the specified idea.
+     * @summary Delete an idea
+     * @param {IdeasApiIdeasIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdeasApi
+     */
+    public ideasIdDelete(requestParameters: IdeasApiIdeasIdDeleteRequest, options?: RawAxiosRequestConfig) {
+        return IdeasApiFp(this.configuration).ideasIdDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieves the details of a specific idea.
+     * @summary Get a specific idea
+     * @param {IdeasApiIdeasIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdeasApi
+     */
+    public ideasIdGet(requestParameters: IdeasApiIdeasIdGetRequest, options?: RawAxiosRequestConfig) {
+        return IdeasApiFp(this.configuration).ideasIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Retrieves a list of comments associated with the specified idea.
      * @summary List comments on an idea
      * @param {IdeasApiIdeasIdeaIdCommentsGetRequest} requestParameters Request parameters.
@@ -584,6 +1013,18 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
      */
     public ideasIdeaIdCommentsGet(requestParameters: IdeasApiIdeasIdeaIdCommentsGetRequest, options?: RawAxiosRequestConfig) {
         return IdeasApiFp(this.configuration).ideasIdeaIdCommentsGet(requestParameters.ideaId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieves a list of ideas for the specified product.
+     * @summary List ideas for a product
+     * @param {IdeasApiProductsProductIdIdeasGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdeasApi
+     */
+    public productsProductIdIdeasGet(requestParameters: IdeasApiProductsProductIdIdeasGetRequest, options?: RawAxiosRequestConfig) {
+        return IdeasApiFp(this.configuration).productsProductIdIdeasGet(requestParameters.productId, requestParameters.q, requestParameters.spam, requestParameters.workflowStatus, requestParameters.sort, requestParameters.createdBefore, requestParameters.createdSince, requestParameters.updatedSince, requestParameters.tag, requestParameters.userId, requestParameters.ideaUserId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -635,3 +1076,12 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
     }
 }
 
+/**
+ * @export
+ */
+export const ProductsProductIdIdeasGetSortEnum = {
+    RECENT: 'recent',
+    TRENDING: 'trending',
+    POPULAR: 'popular'
+} as const;
+export type ProductsProductIdIdeasGetSortEnum = typeof ProductsProductIdIdeasGetSortEnum[keyof typeof ProductsProductIdIdeasGetSortEnum];

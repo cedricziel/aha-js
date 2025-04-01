@@ -95,7 +95,10 @@ Class | Method | HTTP request | Description
 *FeaturesApi* | [**featuresIdTagsPut**](docs/FeaturesApi.md#featuresidtagsput) | **PUT** /features/{id}/tags | Update a feature\&#39;s tags with an array
 *GoalsApi* | [**goalsGoalIdCommentsGet**](docs/GoalsApi.md#goalsgoalidcommentsget) | **GET** /goals/{goal_id}/comments | List comments on a goal
 *GoalsApi* | [**goalsGoalIdEpicsGet**](docs/GoalsApi.md#goalsgoalidepicsget) | **GET** /goals/{goal_id}/epics | List epics associated with a goal
+*IdeasApi* | [**ideasIdDelete**](docs/IdeasApi.md#ideasiddelete) | **DELETE** /ideas/{id} | Delete an idea
+*IdeasApi* | [**ideasIdGet**](docs/IdeasApi.md#ideasidget) | **GET** /ideas/{id} | Get a specific idea
 *IdeasApi* | [**ideasIdeaIdCommentsGet**](docs/IdeasApi.md#ideasideaidcommentsget) | **GET** /ideas/{idea_id}/comments | List comments on an idea
+*IdeasApi* | [**productsProductIdIdeasGet**](docs/IdeasApi.md#productsproductidideasget) | **GET** /products/{product_id}/ideas | List ideas for a product
 *IdeasApi* | [**productsProductIdIdeasPortalUserPost**](docs/IdeasApi.md#productsproductidideasportaluserpost) | **POST** /products/{product_id}/ideas/portal_user | Create an idea created by a ideas portal user
 *IdeasApi* | [**productsProductIdIdeasPost**](docs/IdeasApi.md#productsproductidideaspost) | **POST** /products/{product_id}/ideas | Create an idea
 *IdeasApi* | [**productsProductIdIdeasWithCategoryPost**](docs/IdeasApi.md#productsproductidideaswithcategorypost) | **POST** /products/{product_id}/ideas/with_category | Create an idea with a category
@@ -174,6 +177,11 @@ Class | Method | HTTP request | Description
  - [IdeaResponseIdeaCreatedByPortalUser](docs/IdeaResponseIdeaCreatedByPortalUser.md)
  - [IdeaResponseIdeaCreatedByUser](docs/IdeaResponseIdeaCreatedByUser.md)
  - [IdeaResponseIdeaWorkflowStatusTimesInner](docs/IdeaResponseIdeaWorkflowStatusTimesInner.md)
+ - [IdeasListResponse](docs/IdeasListResponse.md)
+ - [IdeasListResponseIdeasInner](docs/IdeasListResponseIdeasInner.md)
+ - [IdeasListResponseIdeasInnerDescription](docs/IdeasListResponseIdeasInnerDescription.md)
+ - [IdeasListResponseIdeasInnerWorkflowStatus](docs/IdeasListResponseIdeasInnerWorkflowStatus.md)
+ - [IdeasListResponsePagination](docs/IdeasListResponsePagination.md)
  - [ProductsProductIdCompetitorsGet200Response](docs/ProductsProductIdCompetitorsGet200Response.md)
  - [ProductsProductIdEpicsGet200Response](docs/ProductsProductIdEpicsGet200Response.md)
  - [User](docs/User.md)
