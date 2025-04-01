@@ -96,6 +96,10 @@ Class | Method | HTTP request | Description
 *GoalsApi* | [**goalsGoalIdCommentsGet**](docs/GoalsApi.md#goalsgoalidcommentsget) | **GET** /goals/{goal_id}/comments | List comments on a goal
 *GoalsApi* | [**goalsGoalIdEpicsGet**](docs/GoalsApi.md#goalsgoalidepicsget) | **GET** /goals/{goal_id}/epics | List epics associated with a goal
 *IdeasApi* | [**ideasIdeaIdCommentsGet**](docs/IdeasApi.md#ideasideaidcommentsget) | **GET** /ideas/{idea_id}/comments | List comments on an idea
+*IdeasApi* | [**productsProductIdIdeasPortalUserPost**](docs/IdeasApi.md#productsproductidideasportaluserpost) | **POST** /products/{product_id}/ideas/portal_user | Create an idea created by a ideas portal user
+*IdeasApi* | [**productsProductIdIdeasPost**](docs/IdeasApi.md#productsproductidideaspost) | **POST** /products/{product_id}/ideas | Create an idea
+*IdeasApi* | [**productsProductIdIdeasWithCategoryPost**](docs/IdeasApi.md#productsproductidideaswithcategorypost) | **POST** /products/{product_id}/ideas/with_category | Create an idea with a category
+*IdeasApi* | [**productsProductIdIdeasWithScorePost**](docs/IdeasApi.md#productsproductidideaswithscorepost) | **POST** /products/{product_id}/ideas/with_score | Create an idea with a score
 *InitiativesApi* | [**initiativesInitiativeIdCommentsGet**](docs/InitiativesApi.md#initiativesinitiativeidcommentsget) | **GET** /initiatives/{initiative_id}/comments | List comments on an initiative
 *InitiativesApi* | [**initiativesInitiativeIdEpicsGet**](docs/InitiativesApi.md#initiativesinitiativeidepicsget) | **GET** /initiatives/{initiative_id}/epics | List epics associated with an initiative
 *ProductsApi* | [**productsProductIdCommentsGet**](docs/ProductsApi.md#productsproductidcommentsget) | **GET** /products/{product_id}/comments | List comments in a product
@@ -159,6 +163,17 @@ Class | Method | HTTP request | Description
  - [FeaturesListResponse](docs/FeaturesListResponse.md)
  - [FeaturesListResponseFeaturesInner](docs/FeaturesListResponseFeaturesInner.md)
  - [FeaturesListResponsePagination](docs/FeaturesListResponsePagination.md)
+ - [IdeaCreateByPortalUserRequest](docs/IdeaCreateByPortalUserRequest.md)
+ - [IdeaCreateByPortalUserRequestIdea](docs/IdeaCreateByPortalUserRequestIdea.md)
+ - [IdeaCreateByPortalUserRequestIdeaCreatedByPortalUser](docs/IdeaCreateByPortalUserRequestIdeaCreatedByPortalUser.md)
+ - [IdeaCreateRequest](docs/IdeaCreateRequest.md)
+ - [IdeaCreateRequestIdea](docs/IdeaCreateRequestIdea.md)
+ - [IdeaResponse](docs/IdeaResponse.md)
+ - [IdeaResponseIdea](docs/IdeaResponseIdea.md)
+ - [IdeaResponseIdeaAssignedToUser](docs/IdeaResponseIdeaAssignedToUser.md)
+ - [IdeaResponseIdeaCreatedByPortalUser](docs/IdeaResponseIdeaCreatedByPortalUser.md)
+ - [IdeaResponseIdeaCreatedByUser](docs/IdeaResponseIdeaCreatedByUser.md)
+ - [IdeaResponseIdeaWorkflowStatusTimesInner](docs/IdeaResponseIdeaWorkflowStatusTimesInner.md)
  - [ProductsProductIdCompetitorsGet200Response](docs/ProductsProductIdCompetitorsGet200Response.md)
  - [ProductsProductIdEpicsGet200Response](docs/ProductsProductIdEpicsGet200Response.md)
  - [User](docs/User.md)

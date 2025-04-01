@@ -23,6 +23,12 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
 import type { EpicsEpicIdCommentsGet200Response } from '../model';
+// @ts-ignore
+import type { IdeaCreateByPortalUserRequest } from '../model';
+// @ts-ignore
+import type { IdeaCreateRequest } from '../model';
+// @ts-ignore
+import type { IdeaResponse } from '../model';
 /**
  * IdeasApi - axios parameter creator
  * @export
@@ -71,6 +77,198 @@ export const IdeasApiAxiosParamCreator = function (configuration?: Configuration
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * Creates a new idea for the specified product, where the creator is an ideas portal user.  When creating an idea where the creator is an idea user we strongly suggest to provide the submitted_idea_portal_id attribute to the idea to ensure that the idea is created in the correct ideas portal and the user gets access to the portal.  If you don\'t want the idea to be submitted to any portal, you can skip this by setting skip_portal: true in the request body. 
+         * @summary Create an idea created by a ideas portal user
+         * @param {string} productId Numeric ID or key of the product
+         * @param {IdeaCreateByPortalUserRequest} ideaCreateByPortalUserRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        productsProductIdIdeasPortalUserPost: async (productId: string, ideaCreateByPortalUserRequest: IdeaCreateByPortalUserRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'productId' is not null or undefined
+            assertParamExists('productsProductIdIdeasPortalUserPost', 'productId', productId)
+            // verify required parameter 'ideaCreateByPortalUserRequest' is not null or undefined
+            assertParamExists('productsProductIdIdeasPortalUserPost', 'ideaCreateByPortalUserRequest', ideaCreateByPortalUserRequest)
+            const localVarPath = `/products/{product_id}/ideas/portal_user`
+                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(ideaCreateByPortalUserRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Creates a new idea for the specified product.  When creating an idea where the creator is an idea user we strongly suggest to provide the submitted_idea_portal_id attribute to the idea to ensure that the idea is created in the correct ideas portal and the user gets access to the portal.  If you don\'t want the idea to be submitted to any portal, you can skip this by setting skip_portal: true in the request body. 
+         * @summary Create an idea
+         * @param {string} productId Numeric ID or key of the product
+         * @param {IdeaCreateRequest} ideaCreateRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        productsProductIdIdeasPost: async (productId: string, ideaCreateRequest: IdeaCreateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'productId' is not null or undefined
+            assertParamExists('productsProductIdIdeasPost', 'productId', productId)
+            // verify required parameter 'ideaCreateRequest' is not null or undefined
+            assertParamExists('productsProductIdIdeasPost', 'ideaCreateRequest', ideaCreateRequest)
+            const localVarPath = `/products/{product_id}/ideas`
+                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(ideaCreateRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Creates a new idea for the specified product with a category.  When creating an idea where the creator is an idea user we strongly suggest to provide the submitted_idea_portal_id attribute to the idea to ensure that the idea is created in the correct ideas portal and the user gets access to the portal.  If you don\'t want the idea to be submitted to any portal, you can skip this by setting skip_portal: true in the request body. 
+         * @summary Create an idea with a category
+         * @param {string} productId Numeric ID or key of the product
+         * @param {IdeaCreateRequest} ideaCreateRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        productsProductIdIdeasWithCategoryPost: async (productId: string, ideaCreateRequest: IdeaCreateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'productId' is not null or undefined
+            assertParamExists('productsProductIdIdeasWithCategoryPost', 'productId', productId)
+            // verify required parameter 'ideaCreateRequest' is not null or undefined
+            assertParamExists('productsProductIdIdeasWithCategoryPost', 'ideaCreateRequest', ideaCreateRequest)
+            const localVarPath = `/products/{product_id}/ideas/with_category`
+                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(ideaCreateRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Creates a new idea for the specified product with a score.  When creating an idea where the creator is an idea user we strongly suggest to provide the submitted_idea_portal_id attribute to the idea to ensure that the idea is created in the correct ideas portal and the user gets access to the portal.  If you don\'t want the idea to be submitted to any portal, you can skip this by setting skip_portal: true in the request body. 
+         * @summary Create an idea with a score
+         * @param {string} productId Numeric ID or key of the product
+         * @param {IdeaCreateRequest} ideaCreateRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        productsProductIdIdeasWithScorePost: async (productId: string, ideaCreateRequest: IdeaCreateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'productId' is not null or undefined
+            assertParamExists('productsProductIdIdeasWithScorePost', 'productId', productId)
+            // verify required parameter 'ideaCreateRequest' is not null or undefined
+            assertParamExists('productsProductIdIdeasWithScorePost', 'ideaCreateRequest', ideaCreateRequest)
+            const localVarPath = `/products/{product_id}/ideas/with_score`
+                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(ideaCreateRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -94,6 +292,62 @@ export const IdeasApiFp = function(configuration?: Configuration) {
             const localVarOperationServerBasePath = operationServerMap['IdeasApi.ideasIdeaIdCommentsGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         * Creates a new idea for the specified product, where the creator is an ideas portal user.  When creating an idea where the creator is an idea user we strongly suggest to provide the submitted_idea_portal_id attribute to the idea to ensure that the idea is created in the correct ideas portal and the user gets access to the portal.  If you don\'t want the idea to be submitted to any portal, you can skip this by setting skip_portal: true in the request body. 
+         * @summary Create an idea created by a ideas portal user
+         * @param {string} productId Numeric ID or key of the product
+         * @param {IdeaCreateByPortalUserRequest} ideaCreateByPortalUserRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async productsProductIdIdeasPortalUserPost(productId: string, ideaCreateByPortalUserRequest: IdeaCreateByPortalUserRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdeaResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.productsProductIdIdeasPortalUserPost(productId, ideaCreateByPortalUserRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['IdeasApi.productsProductIdIdeasPortalUserPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Creates a new idea for the specified product.  When creating an idea where the creator is an idea user we strongly suggest to provide the submitted_idea_portal_id attribute to the idea to ensure that the idea is created in the correct ideas portal and the user gets access to the portal.  If you don\'t want the idea to be submitted to any portal, you can skip this by setting skip_portal: true in the request body. 
+         * @summary Create an idea
+         * @param {string} productId Numeric ID or key of the product
+         * @param {IdeaCreateRequest} ideaCreateRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async productsProductIdIdeasPost(productId: string, ideaCreateRequest: IdeaCreateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdeaResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.productsProductIdIdeasPost(productId, ideaCreateRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['IdeasApi.productsProductIdIdeasPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Creates a new idea for the specified product with a category.  When creating an idea where the creator is an idea user we strongly suggest to provide the submitted_idea_portal_id attribute to the idea to ensure that the idea is created in the correct ideas portal and the user gets access to the portal.  If you don\'t want the idea to be submitted to any portal, you can skip this by setting skip_portal: true in the request body. 
+         * @summary Create an idea with a category
+         * @param {string} productId Numeric ID or key of the product
+         * @param {IdeaCreateRequest} ideaCreateRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async productsProductIdIdeasWithCategoryPost(productId: string, ideaCreateRequest: IdeaCreateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdeaResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.productsProductIdIdeasWithCategoryPost(productId, ideaCreateRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['IdeasApi.productsProductIdIdeasWithCategoryPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Creates a new idea for the specified product with a score.  When creating an idea where the creator is an idea user we strongly suggest to provide the submitted_idea_portal_id attribute to the idea to ensure that the idea is created in the correct ideas portal and the user gets access to the portal.  If you don\'t want the idea to be submitted to any portal, you can skip this by setting skip_portal: true in the request body. 
+         * @summary Create an idea with a score
+         * @param {string} productId Numeric ID or key of the product
+         * @param {IdeaCreateRequest} ideaCreateRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async productsProductIdIdeasWithScorePost(productId: string, ideaCreateRequest: IdeaCreateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdeaResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.productsProductIdIdeasWithScorePost(productId, ideaCreateRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['IdeasApi.productsProductIdIdeasWithScorePost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     }
 };
 
@@ -114,6 +368,46 @@ export const IdeasApiFactory = function (configuration?: Configuration, basePath
         ideasIdeaIdCommentsGet(requestParameters: IdeasApiIdeasIdeaIdCommentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsEpicIdCommentsGet200Response> {
             return localVarFp.ideasIdeaIdCommentsGet(requestParameters.ideaId, options).then((request) => request(axios, basePath));
         },
+        /**
+         * Creates a new idea for the specified product, where the creator is an ideas portal user.  When creating an idea where the creator is an idea user we strongly suggest to provide the submitted_idea_portal_id attribute to the idea to ensure that the idea is created in the correct ideas portal and the user gets access to the portal.  If you don\'t want the idea to be submitted to any portal, you can skip this by setting skip_portal: true in the request body. 
+         * @summary Create an idea created by a ideas portal user
+         * @param {IdeasApiProductsProductIdIdeasPortalUserPostRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        productsProductIdIdeasPortalUserPost(requestParameters: IdeasApiProductsProductIdIdeasPortalUserPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaResponse> {
+            return localVarFp.productsProductIdIdeasPortalUserPost(requestParameters.productId, requestParameters.ideaCreateByPortalUserRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Creates a new idea for the specified product.  When creating an idea where the creator is an idea user we strongly suggest to provide the submitted_idea_portal_id attribute to the idea to ensure that the idea is created in the correct ideas portal and the user gets access to the portal.  If you don\'t want the idea to be submitted to any portal, you can skip this by setting skip_portal: true in the request body. 
+         * @summary Create an idea
+         * @param {IdeasApiProductsProductIdIdeasPostRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        productsProductIdIdeasPost(requestParameters: IdeasApiProductsProductIdIdeasPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaResponse> {
+            return localVarFp.productsProductIdIdeasPost(requestParameters.productId, requestParameters.ideaCreateRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Creates a new idea for the specified product with a category.  When creating an idea where the creator is an idea user we strongly suggest to provide the submitted_idea_portal_id attribute to the idea to ensure that the idea is created in the correct ideas portal and the user gets access to the portal.  If you don\'t want the idea to be submitted to any portal, you can skip this by setting skip_portal: true in the request body. 
+         * @summary Create an idea with a category
+         * @param {IdeasApiProductsProductIdIdeasWithCategoryPostRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        productsProductIdIdeasWithCategoryPost(requestParameters: IdeasApiProductsProductIdIdeasWithCategoryPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaResponse> {
+            return localVarFp.productsProductIdIdeasWithCategoryPost(requestParameters.productId, requestParameters.ideaCreateRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Creates a new idea for the specified product with a score.  When creating an idea where the creator is an idea user we strongly suggest to provide the submitted_idea_portal_id attribute to the idea to ensure that the idea is created in the correct ideas portal and the user gets access to the portal.  If you don\'t want the idea to be submitted to any portal, you can skip this by setting skip_portal: true in the request body. 
+         * @summary Create an idea with a score
+         * @param {IdeasApiProductsProductIdIdeasWithScorePostRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        productsProductIdIdeasWithScorePost(requestParameters: IdeasApiProductsProductIdIdeasWithScorePostRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaResponse> {
+            return localVarFp.productsProductIdIdeasWithScorePost(requestParameters.productId, requestParameters.ideaCreateRequest, options).then((request) => request(axios, basePath));
+        },
     };
 };
 
@@ -133,6 +427,46 @@ export interface IdeasApiInterface {
      */
     ideasIdeaIdCommentsGet(requestParameters: IdeasApiIdeasIdeaIdCommentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsEpicIdCommentsGet200Response>;
 
+    /**
+     * Creates a new idea for the specified product, where the creator is an ideas portal user.  When creating an idea where the creator is an idea user we strongly suggest to provide the submitted_idea_portal_id attribute to the idea to ensure that the idea is created in the correct ideas portal and the user gets access to the portal.  If you don\'t want the idea to be submitted to any portal, you can skip this by setting skip_portal: true in the request body. 
+     * @summary Create an idea created by a ideas portal user
+     * @param {IdeasApiProductsProductIdIdeasPortalUserPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdeasApiInterface
+     */
+    productsProductIdIdeasPortalUserPost(requestParameters: IdeasApiProductsProductIdIdeasPortalUserPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaResponse>;
+
+    /**
+     * Creates a new idea for the specified product.  When creating an idea where the creator is an idea user we strongly suggest to provide the submitted_idea_portal_id attribute to the idea to ensure that the idea is created in the correct ideas portal and the user gets access to the portal.  If you don\'t want the idea to be submitted to any portal, you can skip this by setting skip_portal: true in the request body. 
+     * @summary Create an idea
+     * @param {IdeasApiProductsProductIdIdeasPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdeasApiInterface
+     */
+    productsProductIdIdeasPost(requestParameters: IdeasApiProductsProductIdIdeasPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaResponse>;
+
+    /**
+     * Creates a new idea for the specified product with a category.  When creating an idea where the creator is an idea user we strongly suggest to provide the submitted_idea_portal_id attribute to the idea to ensure that the idea is created in the correct ideas portal and the user gets access to the portal.  If you don\'t want the idea to be submitted to any portal, you can skip this by setting skip_portal: true in the request body. 
+     * @summary Create an idea with a category
+     * @param {IdeasApiProductsProductIdIdeasWithCategoryPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdeasApiInterface
+     */
+    productsProductIdIdeasWithCategoryPost(requestParameters: IdeasApiProductsProductIdIdeasWithCategoryPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaResponse>;
+
+    /**
+     * Creates a new idea for the specified product with a score.  When creating an idea where the creator is an idea user we strongly suggest to provide the submitted_idea_portal_id attribute to the idea to ensure that the idea is created in the correct ideas portal and the user gets access to the portal.  If you don\'t want the idea to be submitted to any portal, you can skip this by setting skip_portal: true in the request body. 
+     * @summary Create an idea with a score
+     * @param {IdeasApiProductsProductIdIdeasWithScorePostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdeasApiInterface
+     */
+    productsProductIdIdeasWithScorePost(requestParameters: IdeasApiProductsProductIdIdeasWithScorePostRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaResponse>;
+
 }
 
 /**
@@ -147,6 +481,90 @@ export interface IdeasApiIdeasIdeaIdCommentsGetRequest {
      * @memberof IdeasApiIdeasIdeaIdCommentsGet
      */
     readonly ideaId: string
+}
+
+/**
+ * Request parameters for productsProductIdIdeasPortalUserPost operation in IdeasApi.
+ * @export
+ * @interface IdeasApiProductsProductIdIdeasPortalUserPostRequest
+ */
+export interface IdeasApiProductsProductIdIdeasPortalUserPostRequest {
+    /**
+     * Numeric ID or key of the product
+     * @type {string}
+     * @memberof IdeasApiProductsProductIdIdeasPortalUserPost
+     */
+    readonly productId: string
+
+    /**
+     * 
+     * @type {IdeaCreateByPortalUserRequest}
+     * @memberof IdeasApiProductsProductIdIdeasPortalUserPost
+     */
+    readonly ideaCreateByPortalUserRequest: IdeaCreateByPortalUserRequest
+}
+
+/**
+ * Request parameters for productsProductIdIdeasPost operation in IdeasApi.
+ * @export
+ * @interface IdeasApiProductsProductIdIdeasPostRequest
+ */
+export interface IdeasApiProductsProductIdIdeasPostRequest {
+    /**
+     * Numeric ID or key of the product
+     * @type {string}
+     * @memberof IdeasApiProductsProductIdIdeasPost
+     */
+    readonly productId: string
+
+    /**
+     * 
+     * @type {IdeaCreateRequest}
+     * @memberof IdeasApiProductsProductIdIdeasPost
+     */
+    readonly ideaCreateRequest: IdeaCreateRequest
+}
+
+/**
+ * Request parameters for productsProductIdIdeasWithCategoryPost operation in IdeasApi.
+ * @export
+ * @interface IdeasApiProductsProductIdIdeasWithCategoryPostRequest
+ */
+export interface IdeasApiProductsProductIdIdeasWithCategoryPostRequest {
+    /**
+     * Numeric ID or key of the product
+     * @type {string}
+     * @memberof IdeasApiProductsProductIdIdeasWithCategoryPost
+     */
+    readonly productId: string
+
+    /**
+     * 
+     * @type {IdeaCreateRequest}
+     * @memberof IdeasApiProductsProductIdIdeasWithCategoryPost
+     */
+    readonly ideaCreateRequest: IdeaCreateRequest
+}
+
+/**
+ * Request parameters for productsProductIdIdeasWithScorePost operation in IdeasApi.
+ * @export
+ * @interface IdeasApiProductsProductIdIdeasWithScorePostRequest
+ */
+export interface IdeasApiProductsProductIdIdeasWithScorePostRequest {
+    /**
+     * Numeric ID or key of the product
+     * @type {string}
+     * @memberof IdeasApiProductsProductIdIdeasWithScorePost
+     */
+    readonly productId: string
+
+    /**
+     * 
+     * @type {IdeaCreateRequest}
+     * @memberof IdeasApiProductsProductIdIdeasWithScorePost
+     */
+    readonly ideaCreateRequest: IdeaCreateRequest
 }
 
 /**
@@ -166,6 +584,54 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
      */
     public ideasIdeaIdCommentsGet(requestParameters: IdeasApiIdeasIdeaIdCommentsGetRequest, options?: RawAxiosRequestConfig) {
         return IdeasApiFp(this.configuration).ideasIdeaIdCommentsGet(requestParameters.ideaId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Creates a new idea for the specified product, where the creator is an ideas portal user.  When creating an idea where the creator is an idea user we strongly suggest to provide the submitted_idea_portal_id attribute to the idea to ensure that the idea is created in the correct ideas portal and the user gets access to the portal.  If you don\'t want the idea to be submitted to any portal, you can skip this by setting skip_portal: true in the request body. 
+     * @summary Create an idea created by a ideas portal user
+     * @param {IdeasApiProductsProductIdIdeasPortalUserPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdeasApi
+     */
+    public productsProductIdIdeasPortalUserPost(requestParameters: IdeasApiProductsProductIdIdeasPortalUserPostRequest, options?: RawAxiosRequestConfig) {
+        return IdeasApiFp(this.configuration).productsProductIdIdeasPortalUserPost(requestParameters.productId, requestParameters.ideaCreateByPortalUserRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Creates a new idea for the specified product.  When creating an idea where the creator is an idea user we strongly suggest to provide the submitted_idea_portal_id attribute to the idea to ensure that the idea is created in the correct ideas portal and the user gets access to the portal.  If you don\'t want the idea to be submitted to any portal, you can skip this by setting skip_portal: true in the request body. 
+     * @summary Create an idea
+     * @param {IdeasApiProductsProductIdIdeasPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdeasApi
+     */
+    public productsProductIdIdeasPost(requestParameters: IdeasApiProductsProductIdIdeasPostRequest, options?: RawAxiosRequestConfig) {
+        return IdeasApiFp(this.configuration).productsProductIdIdeasPost(requestParameters.productId, requestParameters.ideaCreateRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Creates a new idea for the specified product with a category.  When creating an idea where the creator is an idea user we strongly suggest to provide the submitted_idea_portal_id attribute to the idea to ensure that the idea is created in the correct ideas portal and the user gets access to the portal.  If you don\'t want the idea to be submitted to any portal, you can skip this by setting skip_portal: true in the request body. 
+     * @summary Create an idea with a category
+     * @param {IdeasApiProductsProductIdIdeasWithCategoryPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdeasApi
+     */
+    public productsProductIdIdeasWithCategoryPost(requestParameters: IdeasApiProductsProductIdIdeasWithCategoryPostRequest, options?: RawAxiosRequestConfig) {
+        return IdeasApiFp(this.configuration).productsProductIdIdeasWithCategoryPost(requestParameters.productId, requestParameters.ideaCreateRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Creates a new idea for the specified product with a score.  When creating an idea where the creator is an idea user we strongly suggest to provide the submitted_idea_portal_id attribute to the idea to ensure that the idea is created in the correct ideas portal and the user gets access to the portal.  If you don\'t want the idea to be submitted to any portal, you can skip this by setting skip_portal: true in the request body. 
+     * @summary Create an idea with a score
+     * @param {IdeasApiProductsProductIdIdeasWithScorePostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdeasApi
+     */
+    public productsProductIdIdeasWithScorePost(requestParameters: IdeasApiProductsProductIdIdeasWithScorePostRequest, options?: RawAxiosRequestConfig) {
+        return IdeasApiFp(this.configuration).productsProductIdIdeasWithScorePost(requestParameters.productId, requestParameters.ideaCreateRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
