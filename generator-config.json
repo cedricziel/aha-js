@@ -1,6 +1,7 @@
 {
+  "gitUserId": "cedricziel",
+  "gitRepoId": "aha-js",
   "npmName": "@cedricziel/aha-js",
-  "npmRepository": "https://github.com/cedricziel/aha-js",
   "supportsES6": true,
   "modelPropertyNaming": "camelCase",
   "enumPropertyNaming": "UPPERCASE",
@@ -12,7 +13,6 @@
   "additionalProperties": {
     "npmVersion": "1.0.0",
     "supportsES6": true,
-    "npmRepository": "https://github.com/cedricziel/aha-js",
     "apiPackage": "api",
     "modelPackage": "model"
   }
