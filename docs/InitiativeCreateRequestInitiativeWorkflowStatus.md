@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { InitiativeCreateRequestInitiativeWorkflowStatus } from 'aha-js';
+import { InitiativeCreateRequestInitiativeWorkflowStatus } from '@cedricziel/aha-js';
 
 const instance: InitiativeCreateRequestInitiativeWorkflowStatus = {
     name,

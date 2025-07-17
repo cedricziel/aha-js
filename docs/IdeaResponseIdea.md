@@ -39,7 +39,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { IdeaResponseIdea } from 'aha-js';
+import { IdeaResponseIdea } from '@cedricziel/aha-js';
 
 const instance: IdeaResponseIdea = {
     id,

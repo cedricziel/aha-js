@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { FeatureRelease } from 'aha-js';
+import { FeatureRelease } from '@cedricziel/aha-js';
 
 const instance: FeatureRelease = {
     id,

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { InitiativeCreateRequestInitiative } from 'aha-js';
+import { InitiativeCreateRequestInitiative } from '@cedricziel/aha-js';
 
 const instance: InitiativeCreateRequestInitiative = {
     name,

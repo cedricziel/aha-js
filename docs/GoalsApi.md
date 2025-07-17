@@ -18,7 +18,7 @@ Retrieves a list of comments associated with the specified goal.
 import {
     GoalsApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new GoalsApi(configuration);
@@ -69,7 +69,7 @@ Retrieves a list of epics associated with the specified goal.
 import {
     GoalsApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new GoalsApi(configuration);

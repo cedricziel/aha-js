@@ -37,7 +37,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { FeatureCreateRequestFeature } from 'aha-js';
+import { FeatureCreateRequestFeature } from '@cedricziel/aha-js';
 
 const instance: FeatureCreateRequestFeature = {
     name,

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { FeaturesIdScorePutRequestFeatureScoreFactsInner } from 'aha-js';
+import { FeaturesIdScorePutRequestFeatureScoreFactsInner } from '@cedricziel/aha-js';
 
 const instance: FeaturesIdScorePutRequestFeatureScoreFactsInner = {
     name,

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { FeatureCreateRequestFeatureScoreFactsInner } from 'aha-js';
+import { FeatureCreateRequestFeatureScoreFactsInner } from '@cedricziel/aha-js';
 
 const instance: FeatureCreateRequestFeatureScoreFactsInner = {
     name,

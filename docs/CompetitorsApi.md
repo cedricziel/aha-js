@@ -21,7 +21,7 @@ Removes the specified competitor.
 import {
     CompetitorsApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new CompetitorsApi(configuration);
@@ -72,7 +72,7 @@ Retrieves details of the specified competitor.
 import {
     CompetitorsApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new CompetitorsApi(configuration);
@@ -124,7 +124,7 @@ import {
     CompetitorsApi,
     Configuration,
     CompetitorUpdateRequest
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new CompetitorsApi(configuration);
@@ -178,7 +178,7 @@ Retrieves a list of competitors associated with the specified product.
 import {
     CompetitorsApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new CompetitorsApi(configuration);
@@ -230,7 +230,7 @@ import {
     CompetitorsApi,
     Configuration,
     CompetitorCreateRequest
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new CompetitorsApi(configuration);

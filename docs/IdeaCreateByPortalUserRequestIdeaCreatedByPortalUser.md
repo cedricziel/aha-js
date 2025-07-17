@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { IdeaCreateByPortalUserRequestIdeaCreatedByPortalUser } from 'aha-js';
+import { IdeaCreateByPortalUserRequestIdeaCreatedByPortalUser } from '@cedricziel/aha-js';
 
 const instance: IdeaCreateByPortalUserRequestIdeaCreatedByPortalUser = {
     id,

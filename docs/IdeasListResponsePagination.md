@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { IdeasListResponsePagination } from 'aha-js';
+import { IdeasListResponsePagination } from '@cedricziel/aha-js';
 
 const instance: IdeasListResponsePagination = {
     totalRecords,

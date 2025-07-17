@@ -17,7 +17,7 @@ Retrieves a list of comments associated with the specified to-do.
 import {
     ToDosApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new ToDosApi(configuration);

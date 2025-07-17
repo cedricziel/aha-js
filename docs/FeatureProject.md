@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { FeatureProject } from 'aha-js';
+import { FeatureProject } from '@cedricziel/aha-js';
 
 const instance: FeatureProject = {
     id,

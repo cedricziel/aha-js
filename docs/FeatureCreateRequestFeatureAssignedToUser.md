@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { FeatureCreateRequestFeatureAssignedToUser } from 'aha-js';
+import { FeatureCreateRequestFeatureAssignedToUser } from '@cedricziel/aha-js';
 
 const instance: FeatureCreateRequestFeatureAssignedToUser = {
     email,

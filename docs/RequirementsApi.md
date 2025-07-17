@@ -17,7 +17,7 @@ Retrieves a list of comments associated with the specified requirement.
 import {
     RequirementsApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new RequirementsApi(configuration);

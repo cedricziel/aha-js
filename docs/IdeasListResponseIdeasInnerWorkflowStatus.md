@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { IdeasListResponseIdeasInnerWorkflowStatus } from 'aha-js';
+import { IdeasListResponseIdeasInnerWorkflowStatus } from '@cedricziel/aha-js';
 
 const instance: IdeasListResponseIdeasInnerWorkflowStatus = {
     id,

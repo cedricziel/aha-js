@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { FeaturesIdScorePutRequest } from 'aha-js';
+import { FeaturesIdScorePutRequest } from '@cedricziel/aha-js';
 
 const instance: FeaturesIdScorePutRequest = {
     feature,

@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { InitiativeResponseInitiativeProject } from 'aha-js';
+import { InitiativeResponseInitiativeProject } from '@cedricziel/aha-js';
 
 const instance: InitiativeResponseInitiativeProject = {
     id,

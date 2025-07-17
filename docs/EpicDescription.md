@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { EpicDescription } from 'aha-js';
+import { EpicDescription } from '@cedricziel/aha-js';
 
 const instance: EpicDescription = {
     id,

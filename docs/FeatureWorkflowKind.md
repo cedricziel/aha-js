@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { FeatureWorkflowKind } from 'aha-js';
+import { FeatureWorkflowKind } from '@cedricziel/aha-js';
 
 const instance: FeatureWorkflowKind = {
     id,

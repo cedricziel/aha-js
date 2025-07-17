@@ -22,7 +22,7 @@ All URIs are relative to *https://mycompany.aha.io/api/v1*
 import {
     DefaultApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
@@ -67,7 +67,7 @@ void (empty response body)
 import {
     DefaultApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
@@ -112,7 +112,7 @@ void (empty response body)
 import {
     DefaultApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
@@ -157,7 +157,7 @@ void (empty response body)
 import {
     DefaultApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
@@ -202,7 +202,7 @@ void (empty response body)
 import {
     DefaultApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
@@ -247,7 +247,7 @@ void (empty response body)
 import {
     DefaultApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
@@ -292,7 +292,7 @@ void (empty response body)
 import {
     DefaultApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);

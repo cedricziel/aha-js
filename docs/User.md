@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { User } from 'aha-js';
+import { User } from '@cedricziel/aha-js';
 
 const instance: User = {
     id,

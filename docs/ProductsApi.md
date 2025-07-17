@@ -18,7 +18,7 @@ Retrieves a list of all products in the account.
 import {
     ProductsApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new ProductsApi(configuration);
@@ -71,7 +71,7 @@ Retrieves a list of comments associated with the specified product.
 import {
     ProductsApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new ProductsApi(configuration);

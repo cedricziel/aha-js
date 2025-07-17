@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { EpicsEpicIdCommentsGet200Response } from 'aha-js';
+import { EpicsEpicIdCommentsGet200Response } from '@cedricziel/aha-js';
 
 const instance: EpicsEpicIdCommentsGet200Response = {
     comments,

@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { Comment } from 'aha-js';
+import { Comment } from '@cedricziel/aha-js';
 
 const instance: Comment = {
     id,

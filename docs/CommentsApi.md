@@ -26,7 +26,7 @@ Retrieves a list of comments associated with the specified epic.
 import {
     CommentsApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new CommentsApi(configuration);
@@ -80,7 +80,7 @@ import {
     CommentsApi,
     Configuration,
     CommentCreateRequest
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new CommentsApi(configuration);
@@ -134,7 +134,7 @@ Retrieves a list of comments associated with the specified goal.
 import {
     CommentsApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new CommentsApi(configuration);
@@ -185,7 +185,7 @@ Retrieves a list of comments associated with the specified idea.
 import {
     CommentsApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new CommentsApi(configuration);
@@ -236,7 +236,7 @@ Retrieves a list of comments associated with the specified initiative.
 import {
     CommentsApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new CommentsApi(configuration);
@@ -287,7 +287,7 @@ Retrieves a list of comments associated with the specified product.
 import {
     CommentsApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new CommentsApi(configuration);
@@ -338,7 +338,7 @@ Retrieves a list of comments associated with the specified release phase.
 import {
     CommentsApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new CommentsApi(configuration);
@@ -389,7 +389,7 @@ Retrieves a list of comments associated with the specified release.
 import {
     CommentsApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new CommentsApi(configuration);
@@ -440,7 +440,7 @@ Retrieves a list of comments associated with the specified requirement.
 import {
     CommentsApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new CommentsApi(configuration);
@@ -493,7 +493,7 @@ Retrieves a list of comments associated with the specified to-do.
 import {
     CommentsApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new CommentsApi(configuration);

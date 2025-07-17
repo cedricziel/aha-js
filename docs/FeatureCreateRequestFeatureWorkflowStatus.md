@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { FeatureCreateRequestFeatureWorkflowStatus } from 'aha-js';
+import { FeatureCreateRequestFeatureWorkflowStatus } from '@cedricziel/aha-js';
 
 const instance: FeatureCreateRequestFeatureWorkflowStatus = {
     name,

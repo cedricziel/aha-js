@@ -21,7 +21,7 @@ Retrieves a list of all initiatives in the account.
 import {
     InitiativesApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new InitiativesApi(configuration);
@@ -83,7 +83,7 @@ Retrieves the details of a specific initiative.
 import {
     InitiativesApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new InitiativesApi(configuration);
@@ -137,7 +137,7 @@ Retrieves a list of comments associated with the specified initiative.
 import {
     InitiativesApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new InitiativesApi(configuration);
@@ -188,7 +188,7 @@ Retrieves a list of epics associated with the specified initiative.
 import {
     InitiativesApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new InitiativesApi(configuration);
@@ -241,7 +241,7 @@ import {
     InitiativesApi,
     Configuration,
     InitiativeCreateRequest
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new InitiativesApi(configuration);

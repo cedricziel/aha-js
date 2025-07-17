@@ -24,7 +24,7 @@ Deletes the specified idea.
 import {
     IdeasApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new IdeasApi(configuration);
@@ -78,7 +78,7 @@ Retrieves the details of a specific idea.
 import {
     IdeasApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new IdeasApi(configuration);
@@ -132,7 +132,7 @@ Retrieves a list of comments associated with the specified idea.
 import {
     IdeasApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new IdeasApi(configuration);
@@ -183,7 +183,7 @@ Retrieves a list of ideas for the specified product.
 import {
     IdeasApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new IdeasApi(configuration);
@@ -268,7 +268,7 @@ import {
     IdeasApi,
     Configuration,
     IdeaCreateByPortalUserRequest
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new IdeasApi(configuration);
@@ -323,7 +323,7 @@ import {
     IdeasApi,
     Configuration,
     IdeaCreateRequest
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new IdeasApi(configuration);
@@ -378,7 +378,7 @@ import {
     IdeasApi,
     Configuration,
     IdeaCreateRequest
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new IdeasApi(configuration);
@@ -433,7 +433,7 @@ import {
     IdeasApi,
     Configuration,
     IdeaCreateRequest
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new IdeasApi(configuration);

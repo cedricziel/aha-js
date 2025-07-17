@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { InitiativeCreateRequestInitiativeTimeFrame } from 'aha-js';
+import { InitiativeCreateRequestInitiativeTimeFrame } from '@cedricziel/aha-js';
 
 const instance: InitiativeCreateRequestInitiativeTimeFrame = {
     id,

@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { InitiativeResponseInitiativeAssignedToUser } from 'aha-js';
+import { InitiativeResponseInitiativeAssignedToUser } from '@cedricziel/aha-js';
 
 const instance: InitiativeResponseInitiativeAssignedToUser = {
     id,

@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { EpicUpdateRequestEpic } from 'aha-js';
+import { EpicUpdateRequestEpic } from '@cedricziel/aha-js';
 
 const instance: EpicUpdateRequestEpic = {
     name,

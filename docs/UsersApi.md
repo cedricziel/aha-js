@@ -18,7 +18,7 @@ Fetches a list of users associated with the Aha! account.
 import {
     UsersApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new UsersApi(configuration);
@@ -62,7 +62,7 @@ Retrieves details of a specific user by their ID.
 import {
     UsersApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new UsersApi(configuration);

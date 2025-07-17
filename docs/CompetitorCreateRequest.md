@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { CompetitorCreateRequest } from 'aha-js';
+import { CompetitorCreateRequest } from '@cedricziel/aha-js';
 
 const instance: CompetitorCreateRequest = {
     competitor,

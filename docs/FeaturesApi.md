@@ -27,7 +27,7 @@ import {
     FeaturesApi,
     Configuration,
     CommentCreateRequest
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new FeaturesApi(configuration);
@@ -81,7 +81,7 @@ Returns a list of features. You can filter by various criteria like name, modifi
 import {
     FeaturesApi,
     Configuration
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new FeaturesApi(configuration);
@@ -144,7 +144,7 @@ import {
     FeaturesApi,
     Configuration,
     FeaturesIdCustomFieldsWorksheetPutRequest
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new FeaturesApi(configuration);
@@ -202,7 +202,7 @@ import {
     FeaturesApi,
     Configuration,
     FeaturesIdEpicPutRequest
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new FeaturesApi(configuration);
@@ -260,7 +260,7 @@ import {
     FeaturesApi,
     Configuration,
     FeaturesIdGoalsPutRequest
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new FeaturesApi(configuration);
@@ -318,7 +318,7 @@ import {
     FeaturesApi,
     Configuration,
     FeaturesIdProgressPutRequest
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new FeaturesApi(configuration);
@@ -376,7 +376,7 @@ import {
     FeaturesApi,
     Configuration,
     FeaturesIdProgressSourcePutRequest
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new FeaturesApi(configuration);
@@ -434,7 +434,7 @@ import {
     FeaturesApi,
     Configuration,
     FeaturesIdReleasePutRequest
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new FeaturesApi(configuration);
@@ -492,7 +492,7 @@ import {
     FeaturesApi,
     Configuration,
     FeaturesIdScorePutRequest
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new FeaturesApi(configuration);
@@ -550,7 +550,7 @@ import {
     FeaturesApi,
     Configuration,
     FeaturesIdTagsPutRequest
-} from 'aha-js';
+} from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new FeaturesApi(configuration);

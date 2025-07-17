@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { IdeasListResponseIdeasInnerDescription } from 'aha-js';
+import { IdeasListResponseIdeasInnerDescription } from '@cedricziel/aha-js';
 
 const instance: IdeasListResponseIdeasInnerDescription = {
     id,

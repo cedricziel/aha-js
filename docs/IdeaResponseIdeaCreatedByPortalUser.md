@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { IdeaResponseIdeaCreatedByPortalUser } from 'aha-js';
+import { IdeaResponseIdeaCreatedByPortalUser } from '@cedricziel/aha-js';
 
 const instance: IdeaResponseIdeaCreatedByPortalUser = {
     id,

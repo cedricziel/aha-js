@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { IdeaCreateRequestIdea } from 'aha-js';
+import { IdeaCreateRequestIdea } from '@cedricziel/aha-js';
 
 const instance: IdeaCreateRequestIdea = {
     name,

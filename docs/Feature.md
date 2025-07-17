@@ -49,7 +49,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { Feature } from 'aha-js';
+import { Feature } from '@cedricziel/aha-js';
 
 const instance: Feature = {
     id,

@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { Competitor } from 'aha-js';
+import { Competitor } from '@cedricziel/aha-js';
 
 const instance: Competitor = {
     id,

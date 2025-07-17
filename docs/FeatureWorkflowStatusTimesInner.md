@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { FeatureWorkflowStatusTimesInner } from 'aha-js';
+import { FeatureWorkflowStatusTimesInner } from '@cedricziel/aha-js';
 
 const instance: FeatureWorkflowStatusTimesInner = {
     statusId,

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { IdeaResponse } from 'aha-js';
+import { IdeaResponse } from '@cedricziel/aha-js';
 
 const instance: IdeaResponse = {
     idea,
