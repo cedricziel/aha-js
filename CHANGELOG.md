@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.3](https://github.com/cedricziel/aha-js/compare/v1.0.2...v1.0.3) (2025-07-17)
+
+
+### Bug Fixes
+
+* Update API client from latest spec ([db399f6](https://github.com/cedricziel/aha-js/commit/db399f6d2e27a352be5e864c50928b5e261f4c58))
+* Update API client from latest spec ([0184555](https://github.com/cedricziel/aha-js/commit/01845557517245be1f1a541399fcee3ece469cef))
+* Update package.json for npm publishing ([655f8f4](https://github.com/cedricziel/aha-js/commit/655f8f426ebd1edaa85136aef7f12e7917e958a4))
+
 ## [1.0.2](https://github.com/cedricziel/aha-js/compare/v1.0.1...v1.0.2) (2025-07-17)
 
 
