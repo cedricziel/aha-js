@@ -5,10 +5,10 @@ All URIs are relative to *https://mycompany.aha.io/api/v1*
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
 |[**ideasCreate**](#ideascreate) | **POST** /products/{product_id}/ideas | Create an idea|
-|[**ideasCreateProxyVote**](#ideascreateproxyvote) | **POST** /ideas/{id}/proxy_votes | Create a proxy vote|
+|[**ideasCreateEndorsement**](#ideascreateendorsement) | **POST** /ideas/{id}/endorsements | Create an endorsement (proxy vote)|
 |[**ideasDelete**](#ideasdelete) | **DELETE** /ideas/{id} | Delete an idea|
 |[**ideasGetById**](#ideasgetbyid) | **GET** /ideas/{id} | Get a specific idea|
-|[**ideasGetProxyVotes**](#ideasgetproxyvotes) | **GET** /ideas/{id}/proxy_votes | Get proxy votes for an idea|
+|[**ideasGetEndorsements**](#ideasgetendorsements) | **GET** /ideas/{id}/endorsements | Get endorsements for an idea|
 |[**ideasGetVotes**](#ideasgetvotes) | **GET** /ideas/{id}/votes | Get votes for an idea|
 |[**ideasGetWatchers**](#ideasgetwatchers) | **GET** /ideas/{id}/watchers | Get idea watchers|
 |[**ideasIdeaIdCommentsGet**](#ideasideaidcommentsget) | **GET** /ideas/{idea_id}/comments | List comments on an idea|
@@ -79,10 +79,10 @@ const { status, data } = await apiInstance.ideasCreate(
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **ideasCreateProxyVote**
-> IdeasCreateProxyVote201Response ideasCreateProxyVote(ideaProxyVoteRequest)
+# **ideasCreateEndorsement**
+> IdeasCreateEndorsement201Response ideasCreateEndorsement(ideaEndorsementRequest)
 
-Creates a proxy vote on an idea on behalf of another user.
+Creates an endorsement (proxy vote) on an idea on behalf of another user.
 
 ### Example
 
@@ -90,18 +90,18 @@ Creates a proxy vote on an idea on behalf of another user.
 import {
     IdeasApi,
     Configuration,
-    IdeaProxyVoteRequest
+    IdeaEndorsementRequest
 } from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new IdeasApi(configuration);
 
 let id: string; //Numeric ID or key of the idea (default to undefined)
-let ideaProxyVoteRequest: IdeaProxyVoteRequest; //
+let ideaEndorsementRequest: IdeaEndorsementRequest; //
 
-const { status, data } = await apiInstance.ideasCreateProxyVote(
+const { status, data } = await apiInstance.ideasCreateEndorsement(
     id,
-    ideaProxyVoteRequest
+    ideaEndorsementRequest
 );
 ```
 
@@ -109,13 +109,13 @@ const { status, data } = await apiInstance.ideasCreateProxyVote(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **ideaProxyVoteRequest** | **IdeaProxyVoteRequest**|  | |
+| **ideaEndorsementRequest** | **IdeaEndorsementRequest**|  | |
 | **id** | [**string**] | Numeric ID or key of the idea | defaults to undefined|
 
 
 ### Return type
 
-**IdeasCreateProxyVote201Response**
+**IdeasCreateEndorsement201Response**
 
 ### Authorization
 
@@ -130,7 +130,7 @@ const { status, data } = await apiInstance.ideasCreateProxyVote(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**201** | Proxy vote created successfully |  -  |
+|**201** | Endorsement created successfully |  -  |
 |**400** | Bad request |  -  |
 |**401** | Unauthorized |  -  |
 |**403** | Forbidden |  -  |
@@ -247,10 +247,10 @@ const { status, data } = await apiInstance.ideasGetById(
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **ideasGetProxyVotes**
-> IdeasGetProxyVotes200Response ideasGetProxyVotes()
+# **ideasGetEndorsements**
+> IdeasGetEndorsements200Response ideasGetEndorsements()
 
-Retrieves all proxy votes for a specific idea.
+Retrieves all endorsements for a specific idea.
 
 ### Example
 
@@ -265,9 +265,9 @@ const apiInstance = new IdeasApi(configuration);
 
 let id: string; //Numeric ID or key of the idea (default to undefined)
 let page: number; //Page number for pagination (optional) (default to 1)
-let perPage: number; //Number of proxy votes per page (optional) (default to 20)
+let perPage: number; //Number of endorsements per page (optional) (default to 20)
 
-const { status, data } = await apiInstance.ideasGetProxyVotes(
+const { status, data } = await apiInstance.ideasGetEndorsements(
     id,
     page,
     perPage
@@ -280,12 +280,12 @@ const { status, data } = await apiInstance.ideasGetProxyVotes(
 |------------- | ------------- | ------------- | -------------|
 | **id** | [**string**] | Numeric ID or key of the idea | defaults to undefined|
 | **page** | [**number**] | Page number for pagination | (optional) defaults to 1|
-| **perPage** | [**number**] | Number of proxy votes per page | (optional) defaults to 20|
+| **perPage** | [**number**] | Number of endorsements per page | (optional) defaults to 20|
 
 
 ### Return type
 
-**IdeasGetProxyVotes200Response**
+**IdeasGetEndorsements200Response**
 
 ### Authorization
 

@@ -1,20 +1,20 @@
-# IdeasGetProxyVotes200Response
+# IdeasGetEndorsements200Response
 
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**proxyVotes** | [**Array&lt;IdeasGetProxyVotes200ResponseProxyVotesInner&gt;**](IdeasGetProxyVotes200ResponseProxyVotesInner.md) |  | [optional] [default to undefined]
+**endorsements** | [**Array&lt;IdeasGetEndorsements200ResponseEndorsementsInner&gt;**](IdeasGetEndorsements200ResponseEndorsementsInner.md) |  | [optional] [default to undefined]
 **pagination** | [**IdeasGetVotes200ResponsePagination**](IdeasGetVotes200ResponsePagination.md) |  | [optional] [default to undefined]
 
 ## Example
 
 ```typescript
-import { IdeasGetProxyVotes200Response } from '@cedricziel/aha-js';
+import { IdeasGetEndorsements200Response } from '@cedricziel/aha-js';
 
-const instance: IdeasGetProxyVotes200Response = {
-    proxyVotes,
+const instance: IdeasGetEndorsements200Response = {
+    endorsements,
     pagination,
 };
 ```

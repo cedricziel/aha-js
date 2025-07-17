@@ -17,26 +17,26 @@
 /**
  * 
  * @export
- * @interface IdeasCreateProxyVote201ResponseIdea
+ * @interface IdeasCreateEndorsement201ResponseIdea
  */
-export interface IdeasCreateProxyVote201ResponseIdea {
+export interface IdeasCreateEndorsement201ResponseIdea {
     /**
      * 
      * @type {string}
-     * @memberof IdeasCreateProxyVote201ResponseIdea
+     * @memberof IdeasCreateEndorsement201ResponseIdea
      */
     'id'?: string;
     /**
-     * Updated total vote count
+     * Updated total endorsement count
      * @type {number}
-     * @memberof IdeasCreateProxyVote201ResponseIdea
+     * @memberof IdeasCreateEndorsement201ResponseIdea
      */
-    'votes_count'?: number;
+    'endorsements_count'?: number;
     /**
-     * Updated proxy vote count
+     * Updated total endorsement value
      * @type {number}
-     * @memberof IdeasCreateProxyVote201ResponseIdea
+     * @memberof IdeasCreateEndorsement201ResponseIdea
      */
-    'proxy_votes_count'?: number;
+    'endorsements_value'?: number;
 }
 

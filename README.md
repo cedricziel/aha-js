@@ -101,11 +101,16 @@ Class | Method | HTTP request | Description
 *GoalsApi* | [**goalsList**](docs/GoalsApi.md#goalslist) | **GET** /goals | List goals
 *GoalsApi* | [**goalsUpdate**](docs/GoalsApi.md#goalsupdate) | **PUT** /goals/{id} | Update a goal
 *GoalsApi* | [**goalsUpdateProgress**](docs/GoalsApi.md#goalsupdateprogress) | **PUT** /goals/{id}/progress | Update goal progress
+*IdeaOrganizationsApi* | [**ideaOrganizationsCreate**](docs/IdeaOrganizationsApi.md#ideaorganizationscreate) | **POST** /idea_organizations | Create an idea organization
+*IdeaOrganizationsApi* | [**ideaOrganizationsDelete**](docs/IdeaOrganizationsApi.md#ideaorganizationsdelete) | **DELETE** /idea_organizations/{id} | Delete an idea organization
+*IdeaOrganizationsApi* | [**ideaOrganizationsGet**](docs/IdeaOrganizationsApi.md#ideaorganizationsget) | **GET** /idea_organizations/{id} | Get an idea organization
+*IdeaOrganizationsApi* | [**ideaOrganizationsList**](docs/IdeaOrganizationsApi.md#ideaorganizationslist) | **GET** /idea_organizations | List idea organizations
+*IdeaOrganizationsApi* | [**ideaOrganizationsUpdate**](docs/IdeaOrganizationsApi.md#ideaorganizationsupdate) | **PUT** /idea_organizations/{id} | Update an idea organization
 *IdeasApi* | [**ideasCreate**](docs/IdeasApi.md#ideascreate) | **POST** /products/{product_id}/ideas | Create an idea
-*IdeasApi* | [**ideasCreateProxyVote**](docs/IdeasApi.md#ideascreateproxyvote) | **POST** /ideas/{id}/proxy_votes | Create a proxy vote
+*IdeasApi* | [**ideasCreateEndorsement**](docs/IdeasApi.md#ideascreateendorsement) | **POST** /ideas/{id}/endorsements | Create an endorsement (proxy vote)
 *IdeasApi* | [**ideasDelete**](docs/IdeasApi.md#ideasdelete) | **DELETE** /ideas/{id} | Delete an idea
 *IdeasApi* | [**ideasGetById**](docs/IdeasApi.md#ideasgetbyid) | **GET** /ideas/{id} | Get a specific idea
-*IdeasApi* | [**ideasGetProxyVotes**](docs/IdeasApi.md#ideasgetproxyvotes) | **GET** /ideas/{id}/proxy_votes | Get proxy votes for an idea
+*IdeasApi* | [**ideasGetEndorsements**](docs/IdeasApi.md#ideasgetendorsements) | **GET** /ideas/{id}/endorsements | Get endorsements for an idea
 *IdeasApi* | [**ideasGetVotes**](docs/IdeasApi.md#ideasgetvotes) | **GET** /ideas/{id}/votes | Get votes for an idea
 *IdeasApi* | [**ideasGetWatchers**](docs/IdeasApi.md#ideasgetwatchers) | **GET** /ideas/{id}/watchers | Get idea watchers
 *IdeasApi* | [**ideasIdeaIdCommentsGet**](docs/IdeasApi.md#ideasideaidcommentsget) | **GET** /ideas/{idea_id}/comments | List comments on an idea
@@ -125,6 +130,9 @@ Class | Method | HTTP request | Description
 *InitiativesApi* | [**initiativesInitiativeIdCommentsGet**](docs/InitiativesApi.md#initiativesinitiativeidcommentsget) | **GET** /initiatives/{initiative_id}/comments | List comments on an initiative
 *InitiativesApi* | [**initiativesInitiativeIdEpicsGet**](docs/InitiativesApi.md#initiativesinitiativeidepicsget) | **GET** /initiatives/{initiative_id}/epics | List epics associated with an initiative
 *InitiativesApi* | [**initiativesList**](docs/InitiativesApi.md#initiativeslist) | **GET** /initiatives | List initiatives
+*MeApi* | [**meGetAssignedRecords**](docs/MeApi.md#megetassignedrecords) | **GET** /me/assigned | Get records assigned to current user
+*MeApi* | [**meGetPendingTasks**](docs/MeApi.md#megetpendingtasks) | **GET** /me/tasks | Get pending tasks assigned to current user
+*MeApi* | [**meGetProfile**](docs/MeApi.md#megetprofile) | **GET** /me | Get current user profile
 *ProductsApi* | [**productsList**](docs/ProductsApi.md#productslist) | **GET** /products | List products in the account
 *ProductsApi* | [**productsProductIdCommentsGet**](docs/ProductsApi.md#productsproductidcommentsget) | **GET** /products/{product_id}/comments | List comments in a product
 *ReleasePhasesApi* | [**releasePhasesReleasePhaseIdCommentsGet**](docs/ReleasePhasesApi.md#releasephasesreleasephaseidcommentsget) | **GET** /release_phases/{release_phase_id}/comments | List comments on a release phase
@@ -215,8 +223,14 @@ Class | Method | HTTP request | Description
  - [IdeaCreateByPortalUserRequestIdeaCreatedByPortalUser](docs/IdeaCreateByPortalUserRequestIdeaCreatedByPortalUser.md)
  - [IdeaCreateRequest](docs/IdeaCreateRequest.md)
  - [IdeaCreateRequestIdea](docs/IdeaCreateRequestIdea.md)
+ - [IdeaEndorsementRequest](docs/IdeaEndorsementRequest.md)
+ - [IdeaOrganization](docs/IdeaOrganization.md)
+ - [IdeaOrganizationCreateRequest](docs/IdeaOrganizationCreateRequest.md)
+ - [IdeaOrganizationGetResponse](docs/IdeaOrganizationGetResponse.md)
+ - [IdeaOrganizationUpdateRequest](docs/IdeaOrganizationUpdateRequest.md)
+ - [IdeaOrganizationsListResponse](docs/IdeaOrganizationsListResponse.md)
+ - [IdeaOrganizationsListResponsePagination](docs/IdeaOrganizationsListResponsePagination.md)
  - [IdeaPromoteRequest](docs/IdeaPromoteRequest.md)
- - [IdeaProxyVoteRequest](docs/IdeaProxyVoteRequest.md)
  - [IdeaResponse](docs/IdeaResponse.md)
  - [IdeaResponseIdea](docs/IdeaResponseIdea.md)
  - [IdeaResponseIdeaAssignedToUser](docs/IdeaResponseIdeaAssignedToUser.md)
@@ -228,13 +242,12 @@ Class | Method | HTTP request | Description
  - [IdeaVoteRequest](docs/IdeaVoteRequest.md)
  - [IdeaWatchersRequest](docs/IdeaWatchersRequest.md)
  - [IdeaWatchersRequestWatchersInner](docs/IdeaWatchersRequestWatchersInner.md)
- - [IdeasCreateProxyVote201Response](docs/IdeasCreateProxyVote201Response.md)
- - [IdeasCreateProxyVote201ResponseIdea](docs/IdeasCreateProxyVote201ResponseIdea.md)
- - [IdeasCreateProxyVote201ResponseProxyVote](docs/IdeasCreateProxyVote201ResponseProxyVote.md)
- - [IdeasGetProxyVotes200Response](docs/IdeasGetProxyVotes200Response.md)
- - [IdeasGetProxyVotes200ResponseProxyVotesInner](docs/IdeasGetProxyVotes200ResponseProxyVotesInner.md)
- - [IdeasGetProxyVotes200ResponseProxyVotesInnerCreatedByUser](docs/IdeasGetProxyVotes200ResponseProxyVotesInnerCreatedByUser.md)
- - [IdeasGetProxyVotes200ResponseProxyVotesInnerProxyUser](docs/IdeasGetProxyVotes200ResponseProxyVotesInnerProxyUser.md)
+ - [IdeasCreateEndorsement201Response](docs/IdeasCreateEndorsement201Response.md)
+ - [IdeasCreateEndorsement201ResponseEndorsement](docs/IdeasCreateEndorsement201ResponseEndorsement.md)
+ - [IdeasCreateEndorsement201ResponseIdea](docs/IdeasCreateEndorsement201ResponseIdea.md)
+ - [IdeasGetEndorsements200Response](docs/IdeasGetEndorsements200Response.md)
+ - [IdeasGetEndorsements200ResponseEndorsementsInner](docs/IdeasGetEndorsements200ResponseEndorsementsInner.md)
+ - [IdeasGetEndorsements200ResponseEndorsementsInnerCreatedByUser](docs/IdeasGetEndorsements200ResponseEndorsementsInnerCreatedByUser.md)
  - [IdeasGetVotes200Response](docs/IdeasGetVotes200Response.md)
  - [IdeasGetVotes200ResponsePagination](docs/IdeasGetVotes200ResponsePagination.md)
  - [IdeasGetVotes200ResponseVotesInner](docs/IdeasGetVotes200ResponseVotesInner.md)
@@ -267,6 +280,17 @@ Class | Method | HTTP request | Description
  - [InitiativesListResponseInitiativesInnerAssignedToUser](docs/InitiativesListResponseInitiativesInnerAssignedToUser.md)
  - [InitiativesListResponseInitiativesInnerCreatedByUser](docs/InitiativesListResponseInitiativesInnerCreatedByUser.md)
  - [InitiativesListResponseInitiativesInnerTimeFrame](docs/InitiativesListResponseInitiativesInnerTimeFrame.md)
+ - [MeAssignedRecordsResponse](docs/MeAssignedRecordsResponse.md)
+ - [MeAssignedRecordsResponsePagination](docs/MeAssignedRecordsResponsePagination.md)
+ - [MeAssignedRecordsResponseRecordsInner](docs/MeAssignedRecordsResponseRecordsInner.md)
+ - [MeAssignedRecordsResponseRecordsInnerAssignedToUser](docs/MeAssignedRecordsResponseRecordsInnerAssignedToUser.md)
+ - [MeAssignedRecordsResponseRecordsInnerWorkflowStatus](docs/MeAssignedRecordsResponseRecordsInnerWorkflowStatus.md)
+ - [MePendingTasksResponse](docs/MePendingTasksResponse.md)
+ - [MePendingTasksResponsePagination](docs/MePendingTasksResponsePagination.md)
+ - [MePendingTasksResponseTasksInner](docs/MePendingTasksResponseTasksInner.md)
+ - [MePendingTasksResponseTasksInnerAssignedByUser](docs/MePendingTasksResponseTasksInnerAssignedByUser.md)
+ - [MeProfileResponse](docs/MeProfileResponse.md)
+ - [MeProfileResponseUser](docs/MeProfileResponseUser.md)
  - [ProductsListResponse](docs/ProductsListResponse.md)
  - [ProductsListResponseProductsInner](docs/ProductsListResponseProductsInner.md)
  - [ProductsProductIdCompetitorsGet200Response](docs/ProductsProductIdCompetitorsGet200Response.md)

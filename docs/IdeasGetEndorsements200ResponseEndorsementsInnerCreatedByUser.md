@@ -1,4 +1,4 @@
-# IdeasGetProxyVotes200ResponseProxyVotesInnerCreatedByUser
+# IdeasGetEndorsements200ResponseEndorsementsInnerCreatedByUser
 
 
 ## Properties
@@ -12,9 +12,9 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { IdeasGetProxyVotes200ResponseProxyVotesInnerCreatedByUser } from '@cedricziel/aha-js';
+import { IdeasGetEndorsements200ResponseEndorsementsInnerCreatedByUser } from '@cedricziel/aha-js';
 
-const instance: IdeasGetProxyVotes200ResponseProxyVotesInnerCreatedByUser = {
+const instance: IdeasGetEndorsements200ResponseEndorsementsInnerCreatedByUser = {
     id,
     name,
     email,

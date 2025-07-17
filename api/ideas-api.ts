@@ -28,9 +28,9 @@ import type { IdeaCreateByPortalUserRequest } from '../model';
 // @ts-ignore
 import type { IdeaCreateRequest } from '../model';
 // @ts-ignore
-import type { IdeaPromoteRequest } from '../model';
+import type { IdeaEndorsementRequest } from '../model';
 // @ts-ignore
-import type { IdeaProxyVoteRequest } from '../model';
+import type { IdeaPromoteRequest } from '../model';
 // @ts-ignore
 import type { IdeaResponse } from '../model';
 // @ts-ignore
@@ -40,9 +40,9 @@ import type { IdeaVoteRequest } from '../model';
 // @ts-ignore
 import type { IdeaWatchersRequest } from '../model';
 // @ts-ignore
-import type { IdeasCreateProxyVote201Response } from '../model';
+import type { IdeasCreateEndorsement201Response } from '../model';
 // @ts-ignore
-import type { IdeasGetProxyVotes200Response } from '../model';
+import type { IdeasGetEndorsements200Response } from '../model';
 // @ts-ignore
 import type { IdeasGetVotes200Response } from '../model';
 // @ts-ignore
@@ -108,19 +108,19 @@ export const IdeasApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Creates a proxy vote on an idea on behalf of another user.
-         * @summary Create a proxy vote
+         * Creates an endorsement (proxy vote) on an idea on behalf of another user.
+         * @summary Create an endorsement (proxy vote)
          * @param {string} id Numeric ID or key of the idea
-         * @param {IdeaProxyVoteRequest} ideaProxyVoteRequest 
+         * @param {IdeaEndorsementRequest} ideaEndorsementRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        ideasCreateProxyVote: async (id: string, ideaProxyVoteRequest: IdeaProxyVoteRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        ideasCreateEndorsement: async (id: string, ideaEndorsementRequest: IdeaEndorsementRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('ideasCreateProxyVote', 'id', id)
-            // verify required parameter 'ideaProxyVoteRequest' is not null or undefined
-            assertParamExists('ideasCreateProxyVote', 'ideaProxyVoteRequest', ideaProxyVoteRequest)
-            const localVarPath = `/ideas/{id}/proxy_votes`
+            assertParamExists('ideasCreateEndorsement', 'id', id)
+            // verify required parameter 'ideaEndorsementRequest' is not null or undefined
+            assertParamExists('ideasCreateEndorsement', 'ideaEndorsementRequest', ideaEndorsementRequest)
+            const localVarPath = `/ideas/{id}/endorsements`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -148,7 +148,7 @@ export const IdeasApiAxiosParamCreator = function (configuration?: Configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(ideaProxyVoteRequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(ideaEndorsementRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -240,18 +240,18 @@ export const IdeasApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Retrieves all proxy votes for a specific idea.
-         * @summary Get proxy votes for an idea
+         * Retrieves all endorsements for a specific idea.
+         * @summary Get endorsements for an idea
          * @param {string} id Numeric ID or key of the idea
          * @param {number} [page] Page number for pagination
-         * @param {number} [perPage] Number of proxy votes per page
+         * @param {number} [perPage] Number of endorsements per page
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        ideasGetProxyVotes: async (id: string, page?: number, perPage?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        ideasGetEndorsements: async (id: string, page?: number, perPage?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('ideasGetProxyVotes', 'id', id)
-            const localVarPath = `/ideas/{id}/proxy_votes`
+            assertParamExists('ideasGetEndorsements', 'id', id)
+            const localVarPath = `/ideas/{id}/endorsements`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1099,17 +1099,17 @@ export const IdeasApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Creates a proxy vote on an idea on behalf of another user.
-         * @summary Create a proxy vote
+         * Creates an endorsement (proxy vote) on an idea on behalf of another user.
+         * @summary Create an endorsement (proxy vote)
          * @param {string} id Numeric ID or key of the idea
-         * @param {IdeaProxyVoteRequest} ideaProxyVoteRequest 
+         * @param {IdeaEndorsementRequest} ideaEndorsementRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async ideasCreateProxyVote(id: string, ideaProxyVoteRequest: IdeaProxyVoteRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdeasCreateProxyVote201Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.ideasCreateProxyVote(id, ideaProxyVoteRequest, options);
+        async ideasCreateEndorsement(id: string, ideaEndorsementRequest: IdeaEndorsementRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdeasCreateEndorsement201Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.ideasCreateEndorsement(id, ideaEndorsementRequest, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IdeasApi.ideasCreateProxyVote']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IdeasApi.ideasCreateEndorsement']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1139,18 +1139,18 @@ export const IdeasApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Retrieves all proxy votes for a specific idea.
-         * @summary Get proxy votes for an idea
+         * Retrieves all endorsements for a specific idea.
+         * @summary Get endorsements for an idea
          * @param {string} id Numeric ID or key of the idea
          * @param {number} [page] Page number for pagination
-         * @param {number} [perPage] Number of proxy votes per page
+         * @param {number} [perPage] Number of endorsements per page
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async ideasGetProxyVotes(id: string, page?: number, perPage?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdeasGetProxyVotes200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.ideasGetProxyVotes(id, page, perPage, options);
+        async ideasGetEndorsements(id: string, page?: number, perPage?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdeasGetEndorsements200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.ideasGetEndorsements(id, page, perPage, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IdeasApi.ideasGetProxyVotes']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IdeasApi.ideasGetEndorsements']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1391,14 +1391,14 @@ export const IdeasApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.ideasCreate(requestParameters.productId, requestParameters.ideaCreateRequest, options).then((request) => request(axios, basePath));
         },
         /**
-         * Creates a proxy vote on an idea on behalf of another user.
-         * @summary Create a proxy vote
-         * @param {IdeasApiIdeasCreateProxyVoteRequest} requestParameters Request parameters.
+         * Creates an endorsement (proxy vote) on an idea on behalf of another user.
+         * @summary Create an endorsement (proxy vote)
+         * @param {IdeasApiIdeasCreateEndorsementRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        ideasCreateProxyVote(requestParameters: IdeasApiIdeasCreateProxyVoteRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasCreateProxyVote201Response> {
-            return localVarFp.ideasCreateProxyVote(requestParameters.id, requestParameters.ideaProxyVoteRequest, options).then((request) => request(axios, basePath));
+        ideasCreateEndorsement(requestParameters: IdeasApiIdeasCreateEndorsementRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasCreateEndorsement201Response> {
+            return localVarFp.ideasCreateEndorsement(requestParameters.id, requestParameters.ideaEndorsementRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * Deletes the specified idea.
@@ -1421,14 +1421,14 @@ export const IdeasApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.ideasGetById(requestParameters.id, options).then((request) => request(axios, basePath));
         },
         /**
-         * Retrieves all proxy votes for a specific idea.
-         * @summary Get proxy votes for an idea
-         * @param {IdeasApiIdeasGetProxyVotesRequest} requestParameters Request parameters.
+         * Retrieves all endorsements for a specific idea.
+         * @summary Get endorsements for an idea
+         * @param {IdeasApiIdeasGetEndorsementsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        ideasGetProxyVotes(requestParameters: IdeasApiIdeasGetProxyVotesRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasGetProxyVotes200Response> {
-            return localVarFp.ideasGetProxyVotes(requestParameters.id, requestParameters.page, requestParameters.perPage, options).then((request) => request(axios, basePath));
+        ideasGetEndorsements(requestParameters: IdeasApiIdeasGetEndorsementsRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasGetEndorsements200Response> {
+            return localVarFp.ideasGetEndorsements(requestParameters.id, requestParameters.page, requestParameters.perPage, options).then((request) => request(axios, basePath));
         },
         /**
          * Retrieves all votes for a specific idea.
@@ -1590,14 +1590,14 @@ export interface IdeasApiInterface {
     ideasCreate(requestParameters: IdeasApiIdeasCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaResponse>;
 
     /**
-     * Creates a proxy vote on an idea on behalf of another user.
-     * @summary Create a proxy vote
-     * @param {IdeasApiIdeasCreateProxyVoteRequest} requestParameters Request parameters.
+     * Creates an endorsement (proxy vote) on an idea on behalf of another user.
+     * @summary Create an endorsement (proxy vote)
+     * @param {IdeasApiIdeasCreateEndorsementRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IdeasApiInterface
      */
-    ideasCreateProxyVote(requestParameters: IdeasApiIdeasCreateProxyVoteRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasCreateProxyVote201Response>;
+    ideasCreateEndorsement(requestParameters: IdeasApiIdeasCreateEndorsementRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasCreateEndorsement201Response>;
 
     /**
      * Deletes the specified idea.
@@ -1620,14 +1620,14 @@ export interface IdeasApiInterface {
     ideasGetById(requestParameters: IdeasApiIdeasGetByIdRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaResponse>;
 
     /**
-     * Retrieves all proxy votes for a specific idea.
-     * @summary Get proxy votes for an idea
-     * @param {IdeasApiIdeasGetProxyVotesRequest} requestParameters Request parameters.
+     * Retrieves all endorsements for a specific idea.
+     * @summary Get endorsements for an idea
+     * @param {IdeasApiIdeasGetEndorsementsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IdeasApiInterface
      */
-    ideasGetProxyVotes(requestParameters: IdeasApiIdeasGetProxyVotesRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasGetProxyVotes200Response>;
+    ideasGetEndorsements(requestParameters: IdeasApiIdeasGetEndorsementsRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasGetEndorsements200Response>;
 
     /**
      * Retrieves all votes for a specific idea.
@@ -1793,24 +1793,24 @@ export interface IdeasApiIdeasCreateRequest {
 }
 
 /**
- * Request parameters for ideasCreateProxyVote operation in IdeasApi.
+ * Request parameters for ideasCreateEndorsement operation in IdeasApi.
  * @export
- * @interface IdeasApiIdeasCreateProxyVoteRequest
+ * @interface IdeasApiIdeasCreateEndorsementRequest
  */
-export interface IdeasApiIdeasCreateProxyVoteRequest {
+export interface IdeasApiIdeasCreateEndorsementRequest {
     /**
      * Numeric ID or key of the idea
      * @type {string}
-     * @memberof IdeasApiIdeasCreateProxyVote
+     * @memberof IdeasApiIdeasCreateEndorsement
      */
     readonly id: string
 
     /**
      * 
-     * @type {IdeaProxyVoteRequest}
-     * @memberof IdeasApiIdeasCreateProxyVote
+     * @type {IdeaEndorsementRequest}
+     * @memberof IdeasApiIdeasCreateEndorsement
      */
-    readonly ideaProxyVoteRequest: IdeaProxyVoteRequest
+    readonly ideaEndorsementRequest: IdeaEndorsementRequest
 }
 
 /**
@@ -1842,29 +1842,29 @@ export interface IdeasApiIdeasGetByIdRequest {
 }
 
 /**
- * Request parameters for ideasGetProxyVotes operation in IdeasApi.
+ * Request parameters for ideasGetEndorsements operation in IdeasApi.
  * @export
- * @interface IdeasApiIdeasGetProxyVotesRequest
+ * @interface IdeasApiIdeasGetEndorsementsRequest
  */
-export interface IdeasApiIdeasGetProxyVotesRequest {
+export interface IdeasApiIdeasGetEndorsementsRequest {
     /**
      * Numeric ID or key of the idea
      * @type {string}
-     * @memberof IdeasApiIdeasGetProxyVotes
+     * @memberof IdeasApiIdeasGetEndorsements
      */
     readonly id: string
 
     /**
      * Page number for pagination
      * @type {number}
-     * @memberof IdeasApiIdeasGetProxyVotes
+     * @memberof IdeasApiIdeasGetEndorsements
      */
     readonly page?: number
 
     /**
-     * Number of proxy votes per page
+     * Number of endorsements per page
      * @type {number}
-     * @memberof IdeasApiIdeasGetProxyVotes
+     * @memberof IdeasApiIdeasGetEndorsements
      */
     readonly perPage?: number
 }
@@ -2330,15 +2330,15 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
     }
 
     /**
-     * Creates a proxy vote on an idea on behalf of another user.
-     * @summary Create a proxy vote
-     * @param {IdeasApiIdeasCreateProxyVoteRequest} requestParameters Request parameters.
+     * Creates an endorsement (proxy vote) on an idea on behalf of another user.
+     * @summary Create an endorsement (proxy vote)
+     * @param {IdeasApiIdeasCreateEndorsementRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IdeasApi
      */
-    public ideasCreateProxyVote(requestParameters: IdeasApiIdeasCreateProxyVoteRequest, options?: RawAxiosRequestConfig) {
-        return IdeasApiFp(this.configuration).ideasCreateProxyVote(requestParameters.id, requestParameters.ideaProxyVoteRequest, options).then((request) => request(this.axios, this.basePath));
+    public ideasCreateEndorsement(requestParameters: IdeasApiIdeasCreateEndorsementRequest, options?: RawAxiosRequestConfig) {
+        return IdeasApiFp(this.configuration).ideasCreateEndorsement(requestParameters.id, requestParameters.ideaEndorsementRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2366,15 +2366,15 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
     }
 
     /**
-     * Retrieves all proxy votes for a specific idea.
-     * @summary Get proxy votes for an idea
-     * @param {IdeasApiIdeasGetProxyVotesRequest} requestParameters Request parameters.
+     * Retrieves all endorsements for a specific idea.
+     * @summary Get endorsements for an idea
+     * @param {IdeasApiIdeasGetEndorsementsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IdeasApi
      */
-    public ideasGetProxyVotes(requestParameters: IdeasApiIdeasGetProxyVotesRequest, options?: RawAxiosRequestConfig) {
-        return IdeasApiFp(this.configuration).ideasGetProxyVotes(requestParameters.id, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
+    public ideasGetEndorsements(requestParameters: IdeasApiIdeasGetEndorsementsRequest, options?: RawAxiosRequestConfig) {
+        return IdeasApiFp(this.configuration).ideasGetEndorsements(requestParameters.id, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { IdeasGetProxyVotes200ResponseProxyVotesInner } from './ideas-get-proxy-votes200-response-proxy-votes-inner';
+import type { IdeasGetEndorsements200ResponseEndorsementsInner } from './ideas-get-endorsements200-response-endorsements-inner';
 // May contain unused imports in some cases
 // @ts-ignore
 import type { IdeasGetVotes200ResponsePagination } from './ideas-get-votes200-response-pagination';
@@ -23,19 +23,19 @@ import type { IdeasGetVotes200ResponsePagination } from './ideas-get-votes200-re
 /**
  * 
  * @export
- * @interface IdeasGetProxyVotes200Response
+ * @interface IdeasGetEndorsements200Response
  */
-export interface IdeasGetProxyVotes200Response {
+export interface IdeasGetEndorsements200Response {
     /**
      * 
-     * @type {Array<IdeasGetProxyVotes200ResponseProxyVotesInner>}
-     * @memberof IdeasGetProxyVotes200Response
+     * @type {Array<IdeasGetEndorsements200ResponseEndorsementsInner>}
+     * @memberof IdeasGetEndorsements200Response
      */
-    'proxy_votes'?: Array<IdeasGetProxyVotes200ResponseProxyVotesInner>;
+    'endorsements'?: Array<IdeasGetEndorsements200ResponseEndorsementsInner>;
     /**
      * 
      * @type {IdeasGetVotes200ResponsePagination}
-     * @memberof IdeasGetProxyVotes200Response
+     * @memberof IdeasGetEndorsements200Response
      */
     'pagination'?: IdeasGetVotes200ResponsePagination;
 }

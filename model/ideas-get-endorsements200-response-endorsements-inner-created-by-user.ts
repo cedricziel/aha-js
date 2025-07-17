@@ -17,25 +17,25 @@
 /**
  * 
  * @export
- * @interface IdeasGetProxyVotes200ResponseProxyVotesInnerCreatedByUser
+ * @interface IdeasGetEndorsements200ResponseEndorsementsInnerCreatedByUser
  */
-export interface IdeasGetProxyVotes200ResponseProxyVotesInnerCreatedByUser {
+export interface IdeasGetEndorsements200ResponseEndorsementsInnerCreatedByUser {
     /**
      * 
      * @type {string}
-     * @memberof IdeasGetProxyVotes200ResponseProxyVotesInnerCreatedByUser
+     * @memberof IdeasGetEndorsements200ResponseEndorsementsInnerCreatedByUser
      */
     'id'?: string;
     /**
      * 
      * @type {string}
-     * @memberof IdeasGetProxyVotes200ResponseProxyVotesInnerCreatedByUser
+     * @memberof IdeasGetEndorsements200ResponseEndorsementsInnerCreatedByUser
      */
     'name'?: string;
     /**
      * 
      * @type {string}
-     * @memberof IdeasGetProxyVotes200ResponseProxyVotesInnerCreatedByUser
+     * @memberof IdeasGetEndorsements200ResponseEndorsementsInnerCreatedByUser
      */
     'email'?: string;
 }
