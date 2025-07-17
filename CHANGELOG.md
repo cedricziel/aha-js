@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/cedricziel/aha-js/compare/v1.0.1...v1.0.2) (2025-07-17)
+
+
+### Bug Fixes
+
+* remove test ([cb0e12a](https://github.com/cedricziel/aha-js/commit/cb0e12a70fc378e79b46511ea317cadd928f2a76))
+
 ## [1.0.1](https://github.com/cedricziel/aha-js/compare/v1.0.0...v1.0.1) (2025-07-17)
 
 
