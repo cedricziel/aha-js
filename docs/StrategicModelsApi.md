@@ -4,14 +4,178 @@ All URIs are relative to *https://mycompany.aha.io/api/v1*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|[**strategicModelsGet**](#strategicmodelsget) | **GET** /strategic_models | List strategic models|
-|[**strategicModelsIdDelete**](#strategicmodelsiddelete) | **DELETE** /strategic_models/{id} | Delete a strategic model|
-|[**strategicModelsIdGet**](#strategicmodelsidget) | **GET** /strategic_models/{id} | Get a strategic model|
-|[**strategicModelsIdPut**](#strategicmodelsidput) | **PUT** /strategic_models/{id} | Update a strategic model|
-|[**strategicModelsPost**](#strategicmodelspost) | **POST** /strategic_models | Create a strategic model|
+|[**strategicModelsCreate**](#strategicmodelscreate) | **POST** /strategic_models | Create a strategic model|
+|[**strategicModelsDelete**](#strategicmodelsdelete) | **DELETE** /strategic_models/{id} | Delete a strategic model|
+|[**strategicModelsGet**](#strategicmodelsget) | **GET** /strategic_models/{id} | Get a strategic model|
+|[**strategicModelsList**](#strategicmodelslist) | **GET** /strategic_models | List strategic models|
+|[**strategicModelsUpdate**](#strategicmodelsupdate) | **PUT** /strategic_models/{id} | Update a strategic model|
+
+# **strategicModelsCreate**
+> StrategicModelGetResponse strategicModelsCreate(strategicModelCreateRequest)
+
+Creates a new strategic model in the account.
+
+### Example
+
+```typescript
+import {
+    StrategicModelsApi,
+    Configuration,
+    StrategicModelCreateRequest
+} from '@cedricziel/aha-js';
+
+const configuration = new Configuration();
+const apiInstance = new StrategicModelsApi(configuration);
+
+let strategicModelCreateRequest: StrategicModelCreateRequest; //
+
+const { status, data } = await apiInstance.strategicModelsCreate(
+    strategicModelCreateRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **strategicModelCreateRequest** | **StrategicModelCreateRequest**|  | |
+
+
+### Return type
+
+**StrategicModelGetResponse**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**201** | Strategic model created |  -  |
+|**400** | Bad request |  -  |
+|**401** | Unauthorized |  -  |
+|**403** | Forbidden |  -  |
+|**422** | Unprocessable entity |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **strategicModelsDelete**
+> strategicModelsDelete()
+
+Deletes a specific strategic model by its ID.
+
+### Example
+
+```typescript
+import {
+    StrategicModelsApi,
+    Configuration
+} from '@cedricziel/aha-js';
+
+const configuration = new Configuration();
+const apiInstance = new StrategicModelsApi(configuration);
+
+let id: string; //Numeric ID of the strategic model (default to undefined)
+
+const { status, data } = await apiInstance.strategicModelsDelete(
+    id
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**string**] | Numeric ID of the strategic model | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**204** | Strategic model deleted |  -  |
+|**401** | Unauthorized |  -  |
+|**403** | Forbidden |  -  |
+|**404** | Strategic model not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **strategicModelsGet**
-> StrategicModelsListResponse strategicModelsGet()
+> StrategicModelGetResponse strategicModelsGet()
+
+Retrieves a specific strategic model by its ID.
+
+### Example
+
+```typescript
+import {
+    StrategicModelsApi,
+    Configuration
+} from '@cedricziel/aha-js';
+
+const configuration = new Configuration();
+const apiInstance = new StrategicModelsApi(configuration);
+
+let id: string; //Numeric ID of the strategic model (default to undefined)
+
+const { status, data } = await apiInstance.strategicModelsGet(
+    id
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**string**] | Numeric ID of the strategic model | defaults to undefined|
+
+
+### Return type
+
+**StrategicModelGetResponse**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+|**401** | Unauthorized |  -  |
+|**403** | Forbidden |  -  |
+|**404** | Strategic model not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **strategicModelsList**
+> StrategicModelsListResponse strategicModelsList()
 
 Retrieves a list of all strategic models in the account.
 
@@ -32,7 +196,7 @@ let updatedSince: string; //UTC timestamp (in ISO8601 format). If provided, only
 let page: number; //Page number for pagination. (optional) (default to 1)
 let perPage: number; //Number of strategic models per page. (optional) (default to 20)
 
-const { status, data } = await apiInstance.strategicModelsGet(
+const { status, data } = await apiInstance.strategicModelsList(
     q,
     type,
     updatedSince,
@@ -75,116 +239,8 @@ const { status, data } = await apiInstance.strategicModelsGet(
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **strategicModelsIdDelete**
-> strategicModelsIdDelete()
-
-Deletes a specific strategic model by its ID.
-
-### Example
-
-```typescript
-import {
-    StrategicModelsApi,
-    Configuration
-} from '@cedricziel/aha-js';
-
-const configuration = new Configuration();
-const apiInstance = new StrategicModelsApi(configuration);
-
-let id: string; //Numeric ID of the strategic model (default to undefined)
-
-const { status, data } = await apiInstance.strategicModelsIdDelete(
-    id
-);
-```
-
-### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **id** | [**string**] | Numeric ID of the strategic model | defaults to undefined|
-
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-|**204** | Strategic model deleted |  -  |
-|**401** | Unauthorized |  -  |
-|**403** | Forbidden |  -  |
-|**404** | Strategic model not found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **strategicModelsIdGet**
-> StrategicModelGetResponse strategicModelsIdGet()
-
-Retrieves a specific strategic model by its ID.
-
-### Example
-
-```typescript
-import {
-    StrategicModelsApi,
-    Configuration
-} from '@cedricziel/aha-js';
-
-const configuration = new Configuration();
-const apiInstance = new StrategicModelsApi(configuration);
-
-let id: string; //Numeric ID of the strategic model (default to undefined)
-
-const { status, data } = await apiInstance.strategicModelsIdGet(
-    id
-);
-```
-
-### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **id** | [**string**] | Numeric ID of the strategic model | defaults to undefined|
-
-
-### Return type
-
-**StrategicModelGetResponse**
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-|**200** | OK |  -  |
-|**401** | Unauthorized |  -  |
-|**403** | Forbidden |  -  |
-|**404** | Strategic model not found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **strategicModelsIdPut**
-> StrategicModelGetResponse strategicModelsIdPut(strategicModelUpdateRequest)
+# **strategicModelsUpdate**
+> StrategicModelGetResponse strategicModelsUpdate(strategicModelUpdateRequest)
 
 Updates a specific strategic model by its ID.
 
@@ -203,7 +259,7 @@ const apiInstance = new StrategicModelsApi(configuration);
 let id: string; //Numeric ID of the strategic model (default to undefined)
 let strategicModelUpdateRequest: StrategicModelUpdateRequest; //
 
-const { status, data } = await apiInstance.strategicModelsIdPut(
+const { status, data } = await apiInstance.strategicModelsUpdate(
     id,
     strategicModelUpdateRequest
 );
@@ -239,62 +295,6 @@ const { status, data } = await apiInstance.strategicModelsIdPut(
 |**401** | Unauthorized |  -  |
 |**403** | Forbidden |  -  |
 |**404** | Strategic model not found |  -  |
-|**422** | Unprocessable entity |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **strategicModelsPost**
-> StrategicModelGetResponse strategicModelsPost(strategicModelCreateRequest)
-
-Creates a new strategic model in the account.
-
-### Example
-
-```typescript
-import {
-    StrategicModelsApi,
-    Configuration,
-    StrategicModelCreateRequest
-} from '@cedricziel/aha-js';
-
-const configuration = new Configuration();
-const apiInstance = new StrategicModelsApi(configuration);
-
-let strategicModelCreateRequest: StrategicModelCreateRequest; //
-
-const { status, data } = await apiInstance.strategicModelsPost(
-    strategicModelCreateRequest
-);
-```
-
-### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **strategicModelCreateRequest** | **StrategicModelCreateRequest**|  | |
-
-
-### Return type
-
-**StrategicModelGetResponse**
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-|**201** | Strategic model created |  -  |
-|**400** | Bad request |  -  |
-|**401** | Unauthorized |  -  |
-|**403** | Forbidden |  -  |
 |**422** | Unprocessable entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

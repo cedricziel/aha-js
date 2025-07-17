@@ -4,16 +4,16 @@ All URIs are relative to *https://mycompany.aha.io/api/v1*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|[**productsProductIdReleasesGet**](#productsproductidreleasesget) | **GET** /products/{product_id}/releases | List releases for a product|
-|[**productsProductIdReleasesPost**](#productsproductidreleasespost) | **POST** /products/{product_id}/releases | Create a release|
-|[**releasesGet**](#releasesget) | **GET** /releases | List releases|
-|[**releasesIdDelete**](#releasesiddelete) | **DELETE** /releases/{id} | Delete a release|
-|[**releasesIdGet**](#releasesidget) | **GET** /releases/{id} | Get a release|
-|[**releasesIdPut**](#releasesidput) | **PUT** /releases/{id} | Update a release|
+|[**productReleasesList**](#productreleaseslist) | **GET** /products/{product_id}/releases | List releases for a product|
+|[**releasesCreate**](#releasescreate) | **POST** /products/{product_id}/releases | Create a release|
+|[**releasesDelete**](#releasesdelete) | **DELETE** /releases/{id} | Delete a release|
+|[**releasesGet**](#releasesget) | **GET** /releases/{id} | Get a release|
+|[**releasesList**](#releaseslist) | **GET** /releases | List releases|
 |[**releasesReleaseIdCommentsGet**](#releasesreleaseidcommentsget) | **GET** /releases/{release_id}/comments | List comments on a release|
+|[**releasesUpdate**](#releasesupdate) | **PUT** /releases/{id} | Update a release|
 
-# **productsProductIdReleasesGet**
-> ReleasesListResponse productsProductIdReleasesGet()
+# **productReleasesList**
+> ReleasesListResponse productReleasesList()
 
 Retrieves a list of all releases for a specific product.
 
@@ -36,7 +36,7 @@ let parkingLot: boolean; //When true, returns only parking lot releases. (option
 let page: number; //Page number for pagination. (optional) (default to 1)
 let perPage: number; //Number of releases per page. (optional) (default to 20)
 
-const { status, data } = await apiInstance.productsProductIdReleasesGet(
+const { status, data } = await apiInstance.productReleasesList(
     productId,
     q,
     updatedSince,
@@ -84,8 +84,8 @@ const { status, data } = await apiInstance.productsProductIdReleasesGet(
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **productsProductIdReleasesPost**
-> ReleaseGetResponse productsProductIdReleasesPost(releaseCreateRequest)
+# **releasesCreate**
+> ReleaseGetResponse releasesCreate(releaseCreateRequest)
 
 Creates a new release for the specified product.
 
@@ -104,7 +104,7 @@ const apiInstance = new ReleasesApi(configuration);
 let productId: string; //Numeric ID or key of the product (default to undefined)
 let releaseCreateRequest: ReleaseCreateRequest; //
 
-const { status, data } = await apiInstance.productsProductIdReleasesPost(
+const { status, data } = await apiInstance.releasesCreate(
     productId,
     releaseCreateRequest
 );
@@ -143,8 +143,116 @@ const { status, data } = await apiInstance.productsProductIdReleasesPost(
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **releasesDelete**
+> releasesDelete()
+
+Deletes a specific release by its ID or reference number.
+
+### Example
+
+```typescript
+import {
+    ReleasesApi,
+    Configuration
+} from '@cedricziel/aha-js';
+
+const configuration = new Configuration();
+const apiInstance = new ReleasesApi(configuration);
+
+let id: string; //Numeric ID or reference number of the release (default to undefined)
+
+const { status, data } = await apiInstance.releasesDelete(
+    id
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**string**] | Numeric ID or reference number of the release | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**204** | Release deleted |  -  |
+|**401** | Unauthorized |  -  |
+|**403** | Forbidden |  -  |
+|**404** | Release not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **releasesGet**
-> ReleasesListResponse releasesGet()
+> ReleaseGetResponse releasesGet()
+
+Retrieves a specific release by its ID or reference number.
+
+### Example
+
+```typescript
+import {
+    ReleasesApi,
+    Configuration
+} from '@cedricziel/aha-js';
+
+const configuration = new Configuration();
+const apiInstance = new ReleasesApi(configuration);
+
+let id: string; //Numeric ID or reference number of the release (default to undefined)
+
+const { status, data } = await apiInstance.releasesGet(
+    id
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**string**] | Numeric ID or reference number of the release | defaults to undefined|
+
+
+### Return type
+
+**ReleaseGetResponse**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+|**401** | Unauthorized |  -  |
+|**403** | Forbidden |  -  |
+|**404** | Release not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **releasesList**
+> ReleasesListResponse releasesList()
 
 Retrieves a list of all releases in the account.
 
@@ -167,7 +275,7 @@ let parkingLot: boolean; //When true, returns only parking lot releases. (option
 let page: number; //Page number for pagination. (optional) (default to 1)
 let perPage: number; //Number of releases per page. (optional) (default to 20)
 
-const { status, data } = await apiInstance.releasesGet(
+const { status, data } = await apiInstance.releasesList(
     q,
     updatedSince,
     assignedToUser,
@@ -211,173 +319,6 @@ const { status, data } = await apiInstance.releasesGet(
 |**200** | OK |  -  |
 |**401** | Unauthorized |  -  |
 |**403** | Forbidden |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **releasesIdDelete**
-> releasesIdDelete()
-
-Deletes a specific release by its ID or reference number.
-
-### Example
-
-```typescript
-import {
-    ReleasesApi,
-    Configuration
-} from '@cedricziel/aha-js';
-
-const configuration = new Configuration();
-const apiInstance = new ReleasesApi(configuration);
-
-let id: string; //Numeric ID or reference number of the release (default to undefined)
-
-const { status, data } = await apiInstance.releasesIdDelete(
-    id
-);
-```
-
-### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **id** | [**string**] | Numeric ID or reference number of the release | defaults to undefined|
-
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-|**204** | Release deleted |  -  |
-|**401** | Unauthorized |  -  |
-|**403** | Forbidden |  -  |
-|**404** | Release not found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **releasesIdGet**
-> ReleaseGetResponse releasesIdGet()
-
-Retrieves a specific release by its ID or reference number.
-
-### Example
-
-```typescript
-import {
-    ReleasesApi,
-    Configuration
-} from '@cedricziel/aha-js';
-
-const configuration = new Configuration();
-const apiInstance = new ReleasesApi(configuration);
-
-let id: string; //Numeric ID or reference number of the release (default to undefined)
-
-const { status, data } = await apiInstance.releasesIdGet(
-    id
-);
-```
-
-### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **id** | [**string**] | Numeric ID or reference number of the release | defaults to undefined|
-
-
-### Return type
-
-**ReleaseGetResponse**
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-|**200** | OK |  -  |
-|**401** | Unauthorized |  -  |
-|**403** | Forbidden |  -  |
-|**404** | Release not found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **releasesIdPut**
-> ReleaseGetResponse releasesIdPut(releaseUpdateRequest)
-
-Updates a specific release by its ID or reference number.
-
-### Example
-
-```typescript
-import {
-    ReleasesApi,
-    Configuration,
-    ReleaseUpdateRequest
-} from '@cedricziel/aha-js';
-
-const configuration = new Configuration();
-const apiInstance = new ReleasesApi(configuration);
-
-let id: string; //Numeric ID or reference number of the release (default to undefined)
-let releaseUpdateRequest: ReleaseUpdateRequest; //
-
-const { status, data } = await apiInstance.releasesIdPut(
-    id,
-    releaseUpdateRequest
-);
-```
-
-### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **releaseUpdateRequest** | **ReleaseUpdateRequest**|  | |
-| **id** | [**string**] | Numeric ID or reference number of the release | defaults to undefined|
-
-
-### Return type
-
-**ReleaseGetResponse**
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-|**200** | Release updated |  -  |
-|**401** | Unauthorized |  -  |
-|**403** | Forbidden |  -  |
-|**404** | Release not found |  -  |
-|**422** | Unprocessable entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -429,6 +370,65 @@ const { status, data } = await apiInstance.releasesReleaseIdCommentsGet(
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | A list of comments |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **releasesUpdate**
+> ReleaseGetResponse releasesUpdate(releaseUpdateRequest)
+
+Updates a specific release by its ID or reference number.
+
+### Example
+
+```typescript
+import {
+    ReleasesApi,
+    Configuration,
+    ReleaseUpdateRequest
+} from '@cedricziel/aha-js';
+
+const configuration = new Configuration();
+const apiInstance = new ReleasesApi(configuration);
+
+let id: string; //Numeric ID or reference number of the release (default to undefined)
+let releaseUpdateRequest: ReleaseUpdateRequest; //
+
+const { status, data } = await apiInstance.releasesUpdate(
+    id,
+    releaseUpdateRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **releaseUpdateRequest** | **ReleaseUpdateRequest**|  | |
+| **id** | [**string**] | Numeric ID or reference number of the release | defaults to undefined|
+
+
+### Return type
+
+**ReleaseGetResponse**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Release updated |  -  |
+|**401** | Unauthorized |  -  |
+|**403** | Forbidden |  -  |
+|**404** | Release not found |  -  |
+|**422** | Unprocessable entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

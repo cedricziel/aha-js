@@ -4,11 +4,11 @@ All URIs are relative to *https://mycompany.aha.io/api/v1*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|[**productsGet**](#productsget) | **GET** /products | List products in the account|
+|[**productsList**](#productslist) | **GET** /products | List products in the account|
 |[**productsProductIdCommentsGet**](#productsproductidcommentsget) | **GET** /products/{product_id}/comments | List comments in a product|
 
-# **productsGet**
-> ProductsListResponse productsGet()
+# **productsList**
+> ProductsListResponse productsList()
 
 Retrieves a list of all products in the account.
 
@@ -25,7 +25,7 @@ const apiInstance = new ProductsApi(configuration);
 
 let updatedSince: string; //UTC timestamp (in ISO8601 format). If provided, only products updated after the timestamp will be returned. (optional) (default to undefined)
 
-const { status, data } = await apiInstance.productsGet(
+const { status, data } = await apiInstance.productsList(
     updatedSince
 );
 ```

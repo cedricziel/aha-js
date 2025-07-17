@@ -93,43 +93,54 @@ Class | Method | HTTP request | Description
 *FeaturesApi* | [**featuresIdReleasePut**](docs/FeaturesApi.md#featuresidreleaseput) | **PUT** /features/{id}/release | Update a feature\&#39;s release
 *FeaturesApi* | [**featuresIdScorePut**](docs/FeaturesApi.md#featuresidscoreput) | **PUT** /features/{id}/score | Update a feature\&#39;s score
 *FeaturesApi* | [**featuresIdTagsPut**](docs/FeaturesApi.md#featuresidtagsput) | **PUT** /features/{id}/tags | Update a feature\&#39;s tags with an array
-*GoalsApi* | [**goalsGet**](docs/GoalsApi.md#goalsget) | **GET** /goals | List goals
+*GoalsApi* | [**goalsCreate**](docs/GoalsApi.md#goalscreate) | **POST** /goals | Create a goal
+*GoalsApi* | [**goalsDelete**](docs/GoalsApi.md#goalsdelete) | **DELETE** /goals/{id} | Delete a goal
+*GoalsApi* | [**goalsGet**](docs/GoalsApi.md#goalsget) | **GET** /goals/{id} | Get a goal
 *GoalsApi* | [**goalsGoalIdCommentsGet**](docs/GoalsApi.md#goalsgoalidcommentsget) | **GET** /goals/{goal_id}/comments | List comments on a goal
 *GoalsApi* | [**goalsGoalIdEpicsGet**](docs/GoalsApi.md#goalsgoalidepicsget) | **GET** /goals/{goal_id}/epics | List epics associated with a goal
-*GoalsApi* | [**goalsIdDelete**](docs/GoalsApi.md#goalsiddelete) | **DELETE** /goals/{id} | Delete a goal
-*GoalsApi* | [**goalsIdGet**](docs/GoalsApi.md#goalsidget) | **GET** /goals/{id} | Get a goal
-*GoalsApi* | [**goalsIdProgressPut**](docs/GoalsApi.md#goalsidprogressput) | **PUT** /goals/{id}/progress | Update goal progress
-*GoalsApi* | [**goalsIdPut**](docs/GoalsApi.md#goalsidput) | **PUT** /goals/{id} | Update a goal
-*GoalsApi* | [**goalsPost**](docs/GoalsApi.md#goalspost) | **POST** /goals | Create a goal
-*IdeasApi* | [**ideasIdDelete**](docs/IdeasApi.md#ideasiddelete) | **DELETE** /ideas/{id} | Delete an idea
-*IdeasApi* | [**ideasIdGet**](docs/IdeasApi.md#ideasidget) | **GET** /ideas/{id} | Get a specific idea
+*GoalsApi* | [**goalsList**](docs/GoalsApi.md#goalslist) | **GET** /goals | List goals
+*GoalsApi* | [**goalsUpdate**](docs/GoalsApi.md#goalsupdate) | **PUT** /goals/{id} | Update a goal
+*GoalsApi* | [**goalsUpdateProgress**](docs/GoalsApi.md#goalsupdateprogress) | **PUT** /goals/{id}/progress | Update goal progress
+*IdeasApi* | [**ideasCreate**](docs/IdeasApi.md#ideascreate) | **POST** /products/{product_id}/ideas | Create an idea
+*IdeasApi* | [**ideasCreateProxyVote**](docs/IdeasApi.md#ideascreateproxyvote) | **POST** /ideas/{id}/proxy_votes | Create a proxy vote
+*IdeasApi* | [**ideasDelete**](docs/IdeasApi.md#ideasdelete) | **DELETE** /ideas/{id} | Delete an idea
+*IdeasApi* | [**ideasGetById**](docs/IdeasApi.md#ideasgetbyid) | **GET** /ideas/{id} | Get a specific idea
+*IdeasApi* | [**ideasGetProxyVotes**](docs/IdeasApi.md#ideasgetproxyvotes) | **GET** /ideas/{id}/proxy_votes | Get proxy votes for an idea
+*IdeasApi* | [**ideasGetVotes**](docs/IdeasApi.md#ideasgetvotes) | **GET** /ideas/{id}/votes | Get votes for an idea
+*IdeasApi* | [**ideasGetWatchers**](docs/IdeasApi.md#ideasgetwatchers) | **GET** /ideas/{id}/watchers | Get idea watchers
 *IdeasApi* | [**ideasIdeaIdCommentsGet**](docs/IdeasApi.md#ideasideaidcommentsget) | **GET** /ideas/{idea_id}/comments | List comments on an idea
+*IdeasApi* | [**ideasList**](docs/IdeasApi.md#ideaslist) | **GET** /ideas | List ideas
+*IdeasApi* | [**ideasMarkSpam**](docs/IdeasApi.md#ideasmarkspam) | **POST** /ideas/{id}/spam | Mark idea as spam
+*IdeasApi* | [**ideasPromote**](docs/IdeasApi.md#ideaspromote) | **POST** /ideas/{id}/promote | Promote an idea
+*IdeasApi* | [**ideasUnmarkSpam**](docs/IdeasApi.md#ideasunmarkspam) | **DELETE** /ideas/{id}/spam | Unmark idea as spam
+*IdeasApi* | [**ideasUpdate**](docs/IdeasApi.md#ideasupdate) | **PUT** /ideas/{id} | Update an idea
+*IdeasApi* | [**ideasUpdateWatchers**](docs/IdeasApi.md#ideasupdatewatchers) | **PUT** /ideas/{id}/watchers | Update idea watchers
+*IdeasApi* | [**ideasVote**](docs/IdeasApi.md#ideasvote) | **POST** /ideas/{id}/votes | Vote on an idea
 *IdeasApi* | [**productsProductIdIdeasGet**](docs/IdeasApi.md#productsproductidideasget) | **GET** /products/{product_id}/ideas | List ideas for a product
 *IdeasApi* | [**productsProductIdIdeasPortalUserPost**](docs/IdeasApi.md#productsproductidideasportaluserpost) | **POST** /products/{product_id}/ideas/portal_user | Create an idea created by a ideas portal user
-*IdeasApi* | [**productsProductIdIdeasPost**](docs/IdeasApi.md#productsproductidideaspost) | **POST** /products/{product_id}/ideas | Create an idea
 *IdeasApi* | [**productsProductIdIdeasWithCategoryPost**](docs/IdeasApi.md#productsproductidideaswithcategorypost) | **POST** /products/{product_id}/ideas/with_category | Create an idea with a category
 *IdeasApi* | [**productsProductIdIdeasWithScorePost**](docs/IdeasApi.md#productsproductidideaswithscorepost) | **POST** /products/{product_id}/ideas/with_score | Create an idea with a score
-*InitiativesApi* | [**initiativesGet**](docs/InitiativesApi.md#initiativesget) | **GET** /initiatives | List initiatives
-*InitiativesApi* | [**initiativesIdGet**](docs/InitiativesApi.md#initiativesidget) | **GET** /initiatives/{id} | Get a specific initiative
+*InitiativesApi* | [**initiativesCreate**](docs/InitiativesApi.md#initiativescreate) | **POST** /products/{product_id}/initiatives | Create an initiative
+*InitiativesApi* | [**initiativesGet**](docs/InitiativesApi.md#initiativesget) | **GET** /initiatives/{id} | Get a specific initiative
 *InitiativesApi* | [**initiativesInitiativeIdCommentsGet**](docs/InitiativesApi.md#initiativesinitiativeidcommentsget) | **GET** /initiatives/{initiative_id}/comments | List comments on an initiative
 *InitiativesApi* | [**initiativesInitiativeIdEpicsGet**](docs/InitiativesApi.md#initiativesinitiativeidepicsget) | **GET** /initiatives/{initiative_id}/epics | List epics associated with an initiative
-*InitiativesApi* | [**productsProductIdInitiativesPost**](docs/InitiativesApi.md#productsproductidinitiativespost) | **POST** /products/{product_id}/initiatives | Create an initiative
-*ProductsApi* | [**productsGet**](docs/ProductsApi.md#productsget) | **GET** /products | List products in the account
+*InitiativesApi* | [**initiativesList**](docs/InitiativesApi.md#initiativeslist) | **GET** /initiatives | List initiatives
+*ProductsApi* | [**productsList**](docs/ProductsApi.md#productslist) | **GET** /products | List products in the account
 *ProductsApi* | [**productsProductIdCommentsGet**](docs/ProductsApi.md#productsproductidcommentsget) | **GET** /products/{product_id}/comments | List comments in a product
 *ReleasePhasesApi* | [**releasePhasesReleasePhaseIdCommentsGet**](docs/ReleasePhasesApi.md#releasephasesreleasephaseidcommentsget) | **GET** /release_phases/{release_phase_id}/comments | List comments on a release phase
-*ReleasesApi* | [**productsProductIdReleasesGet**](docs/ReleasesApi.md#productsproductidreleasesget) | **GET** /products/{product_id}/releases | List releases for a product
-*ReleasesApi* | [**productsProductIdReleasesPost**](docs/ReleasesApi.md#productsproductidreleasespost) | **POST** /products/{product_id}/releases | Create a release
-*ReleasesApi* | [**releasesGet**](docs/ReleasesApi.md#releasesget) | **GET** /releases | List releases
-*ReleasesApi* | [**releasesIdDelete**](docs/ReleasesApi.md#releasesiddelete) | **DELETE** /releases/{id} | Delete a release
-*ReleasesApi* | [**releasesIdGet**](docs/ReleasesApi.md#releasesidget) | **GET** /releases/{id} | Get a release
-*ReleasesApi* | [**releasesIdPut**](docs/ReleasesApi.md#releasesidput) | **PUT** /releases/{id} | Update a release
+*ReleasesApi* | [**productReleasesList**](docs/ReleasesApi.md#productreleaseslist) | **GET** /products/{product_id}/releases | List releases for a product
+*ReleasesApi* | [**releasesCreate**](docs/ReleasesApi.md#releasescreate) | **POST** /products/{product_id}/releases | Create a release
+*ReleasesApi* | [**releasesDelete**](docs/ReleasesApi.md#releasesdelete) | **DELETE** /releases/{id} | Delete a release
+*ReleasesApi* | [**releasesGet**](docs/ReleasesApi.md#releasesget) | **GET** /releases/{id} | Get a release
+*ReleasesApi* | [**releasesList**](docs/ReleasesApi.md#releaseslist) | **GET** /releases | List releases
 *ReleasesApi* | [**releasesReleaseIdCommentsGet**](docs/ReleasesApi.md#releasesreleaseidcommentsget) | **GET** /releases/{release_id}/comments | List comments on a release
+*ReleasesApi* | [**releasesUpdate**](docs/ReleasesApi.md#releasesupdate) | **PUT** /releases/{id} | Update a release
 *RequirementsApi* | [**requirementsRequirementIdCommentsGet**](docs/RequirementsApi.md#requirementsrequirementidcommentsget) | **GET** /requirements/{requirement_id}/comments | List comments on a requirement
-*StrategicModelsApi* | [**strategicModelsGet**](docs/StrategicModelsApi.md#strategicmodelsget) | **GET** /strategic_models | List strategic models
-*StrategicModelsApi* | [**strategicModelsIdDelete**](docs/StrategicModelsApi.md#strategicmodelsiddelete) | **DELETE** /strategic_models/{id} | Delete a strategic model
-*StrategicModelsApi* | [**strategicModelsIdGet**](docs/StrategicModelsApi.md#strategicmodelsidget) | **GET** /strategic_models/{id} | Get a strategic model
-*StrategicModelsApi* | [**strategicModelsIdPut**](docs/StrategicModelsApi.md#strategicmodelsidput) | **PUT** /strategic_models/{id} | Update a strategic model
-*StrategicModelsApi* | [**strategicModelsPost**](docs/StrategicModelsApi.md#strategicmodelspost) | **POST** /strategic_models | Create a strategic model
+*StrategicModelsApi* | [**strategicModelsCreate**](docs/StrategicModelsApi.md#strategicmodelscreate) | **POST** /strategic_models | Create a strategic model
+*StrategicModelsApi* | [**strategicModelsDelete**](docs/StrategicModelsApi.md#strategicmodelsdelete) | **DELETE** /strategic_models/{id} | Delete a strategic model
+*StrategicModelsApi* | [**strategicModelsGet**](docs/StrategicModelsApi.md#strategicmodelsget) | **GET** /strategic_models/{id} | Get a strategic model
+*StrategicModelsApi* | [**strategicModelsList**](docs/StrategicModelsApi.md#strategicmodelslist) | **GET** /strategic_models | List strategic models
+*StrategicModelsApi* | [**strategicModelsUpdate**](docs/StrategicModelsApi.md#strategicmodelsupdate) | **PUT** /strategic_models/{id} | Update a strategic model
 *ToDosApi* | [**todosTodoIdCommentsGet**](docs/ToDosApi.md#todostodoidcommentsget) | **GET** /todos/{todo_id}/comments | List comments on a to-do
 *UsersApi* | [**usersGet**](docs/UsersApi.md#usersget) | **GET** /users | List users
 *UsersApi* | [**usersIdGet**](docs/UsersApi.md#usersidget) | **GET** /users/{id} | Get a specific user
@@ -204,17 +215,42 @@ Class | Method | HTTP request | Description
  - [IdeaCreateByPortalUserRequestIdeaCreatedByPortalUser](docs/IdeaCreateByPortalUserRequestIdeaCreatedByPortalUser.md)
  - [IdeaCreateRequest](docs/IdeaCreateRequest.md)
  - [IdeaCreateRequestIdea](docs/IdeaCreateRequestIdea.md)
+ - [IdeaPromoteRequest](docs/IdeaPromoteRequest.md)
+ - [IdeaProxyVoteRequest](docs/IdeaProxyVoteRequest.md)
  - [IdeaResponse](docs/IdeaResponse.md)
  - [IdeaResponseIdea](docs/IdeaResponseIdea.md)
  - [IdeaResponseIdeaAssignedToUser](docs/IdeaResponseIdeaAssignedToUser.md)
  - [IdeaResponseIdeaCreatedByPortalUser](docs/IdeaResponseIdeaCreatedByPortalUser.md)
  - [IdeaResponseIdeaCreatedByUser](docs/IdeaResponseIdeaCreatedByUser.md)
  - [IdeaResponseIdeaWorkflowStatusTimesInner](docs/IdeaResponseIdeaWorkflowStatusTimesInner.md)
+ - [IdeaUpdateRequest](docs/IdeaUpdateRequest.md)
+ - [IdeaUpdateRequestScoreFactsInner](docs/IdeaUpdateRequestScoreFactsInner.md)
+ - [IdeaVoteRequest](docs/IdeaVoteRequest.md)
+ - [IdeaWatchersRequest](docs/IdeaWatchersRequest.md)
+ - [IdeaWatchersRequestWatchersInner](docs/IdeaWatchersRequestWatchersInner.md)
+ - [IdeasCreateProxyVote201Response](docs/IdeasCreateProxyVote201Response.md)
+ - [IdeasCreateProxyVote201ResponseIdea](docs/IdeasCreateProxyVote201ResponseIdea.md)
+ - [IdeasCreateProxyVote201ResponseProxyVote](docs/IdeasCreateProxyVote201ResponseProxyVote.md)
+ - [IdeasGetProxyVotes200Response](docs/IdeasGetProxyVotes200Response.md)
+ - [IdeasGetProxyVotes200ResponseProxyVotesInner](docs/IdeasGetProxyVotes200ResponseProxyVotesInner.md)
+ - [IdeasGetProxyVotes200ResponseProxyVotesInnerCreatedByUser](docs/IdeasGetProxyVotes200ResponseProxyVotesInnerCreatedByUser.md)
+ - [IdeasGetProxyVotes200ResponseProxyVotesInnerProxyUser](docs/IdeasGetProxyVotes200ResponseProxyVotesInnerProxyUser.md)
+ - [IdeasGetVotes200Response](docs/IdeasGetVotes200Response.md)
+ - [IdeasGetVotes200ResponsePagination](docs/IdeasGetVotes200ResponsePagination.md)
+ - [IdeasGetVotes200ResponseVotesInner](docs/IdeasGetVotes200ResponseVotesInner.md)
+ - [IdeasGetVotes200ResponseVotesInnerUser](docs/IdeasGetVotes200ResponseVotesInnerUser.md)
+ - [IdeasGetWatchers200Response](docs/IdeasGetWatchers200Response.md)
+ - [IdeasGetWatchers200ResponseWatchersInner](docs/IdeasGetWatchers200ResponseWatchersInner.md)
  - [IdeasListResponse](docs/IdeasListResponse.md)
  - [IdeasListResponseIdeasInner](docs/IdeasListResponseIdeasInner.md)
  - [IdeasListResponseIdeasInnerDescription](docs/IdeasListResponseIdeasInnerDescription.md)
  - [IdeasListResponseIdeasInnerWorkflowStatus](docs/IdeasListResponseIdeasInnerWorkflowStatus.md)
  - [IdeasListResponsePagination](docs/IdeasListResponsePagination.md)
+ - [IdeasPromote200Response](docs/IdeasPromote200Response.md)
+ - [IdeasPromote200ResponsePromotedRecord](docs/IdeasPromote200ResponsePromotedRecord.md)
+ - [IdeasVote200Response](docs/IdeasVote200Response.md)
+ - [IdeasVote200ResponseIdea](docs/IdeasVote200ResponseIdea.md)
+ - [IdeasVote200ResponseVote](docs/IdeasVote200ResponseVote.md)
  - [InitiativeCreateRequest](docs/InitiativeCreateRequest.md)
  - [InitiativeCreateRequestInitiative](docs/InitiativeCreateRequestInitiative.md)
  - [InitiativeCreateRequestInitiativeTimeFrame](docs/InitiativeCreateRequestInitiativeTimeFrame.md)

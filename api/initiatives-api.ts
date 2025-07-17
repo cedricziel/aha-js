@@ -38,17 +38,20 @@ import type { ProductsProductIdEpicsGet200Response } from '../model';
 export const InitiativesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Retrieves a list of all initiatives in the account.
-         * @summary List initiatives
-         * @param {string} [q] Search term to match against initiative name.
-         * @param {string} [updatedSince] UTC timestamp (in ISO8601 format). If provided, only initiatives updated after the timestamp will be returned.
-         * @param {string} [assignedToUser] ID or email address of a user. If provided, returns only initiatives assigned to that user.
-         * @param {boolean} [onlyActive] When true, returns only active initiatives.
+         * Creates a new initiative for the specified product.
+         * @summary Create an initiative
+         * @param {string} productId Numeric ID or key of the product
+         * @param {InitiativeCreateRequest} initiativeCreateRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        initiativesGet: async (q?: string, updatedSince?: string, assignedToUser?: string, onlyActive?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/initiatives`;
+        initiativesCreate: async (productId: string, initiativeCreateRequest: InitiativeCreateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'productId' is not null or undefined
+            assertParamExists('initiativesCreate', 'productId', productId)
+            // verify required parameter 'initiativeCreateRequest' is not null or undefined
+            assertParamExists('initiativesCreate', 'initiativeCreateRequest', initiativeCreateRequest)
+            const localVarPath = `/products/{product_id}/initiatives`
+                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -56,7 +59,7 @@ export const InitiativesApiAxiosParamCreator = function (configuration?: Configu
                 baseOptions = configuration.baseOptions;
             }
 
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -68,29 +71,14 @@ export const InitiativesApiAxiosParamCreator = function (configuration?: Configu
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-            if (q !== undefined) {
-                localVarQueryParameter['q'] = q;
-            }
-
-            if (updatedSince !== undefined) {
-                localVarQueryParameter['updated_since'] = (updatedSince as any instanceof Date) ?
-                    (updatedSince as any).toISOString() :
-                    updatedSince;
-            }
-
-            if (assignedToUser !== undefined) {
-                localVarQueryParameter['assigned_to_user'] = assignedToUser;
-            }
-
-            if (onlyActive !== undefined) {
-                localVarQueryParameter['only_active'] = onlyActive;
-            }
-
 
     
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(initiativeCreateRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -104,9 +92,9 @@ export const InitiativesApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        initiativesIdGet: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        initiativesGet: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('initiativesIdGet', 'id', id)
+            assertParamExists('initiativesGet', 'id', id)
             const localVarPath = `/initiatives/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -224,20 +212,17 @@ export const InitiativesApiAxiosParamCreator = function (configuration?: Configu
             };
         },
         /**
-         * Creates a new initiative for the specified product.
-         * @summary Create an initiative
-         * @param {string} productId Numeric ID or key of the product
-         * @param {InitiativeCreateRequest} initiativeCreateRequest 
+         * Retrieves a list of all initiatives in the account.
+         * @summary List initiatives
+         * @param {string} [q] Search term to match against initiative name.
+         * @param {string} [updatedSince] UTC timestamp (in ISO8601 format). If provided, only initiatives updated after the timestamp will be returned.
+         * @param {string} [assignedToUser] ID or email address of a user. If provided, returns only initiatives assigned to that user.
+         * @param {boolean} [onlyActive] When true, returns only active initiatives.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productsProductIdInitiativesPost: async (productId: string, initiativeCreateRequest: InitiativeCreateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'productId' is not null or undefined
-            assertParamExists('productsProductIdInitiativesPost', 'productId', productId)
-            // verify required parameter 'initiativeCreateRequest' is not null or undefined
-            assertParamExists('productsProductIdInitiativesPost', 'initiativeCreateRequest', initiativeCreateRequest)
-            const localVarPath = `/products/{product_id}/initiatives`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+        initiativesList: async (q?: string, updatedSince?: string, assignedToUser?: string, onlyActive?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/initiatives`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -245,7 +230,7 @@ export const InitiativesApiAxiosParamCreator = function (configuration?: Configu
                 baseOptions = configuration.baseOptions;
             }
 
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -257,14 +242,29 @@ export const InitiativesApiAxiosParamCreator = function (configuration?: Configu
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            if (q !== undefined) {
+                localVarQueryParameter['q'] = q;
+            }
+
+            if (updatedSince !== undefined) {
+                localVarQueryParameter['updated_since'] = (updatedSince as any instanceof Date) ?
+                    (updatedSince as any).toISOString() :
+                    updatedSince;
+            }
+
+            if (assignedToUser !== undefined) {
+                localVarQueryParameter['assigned_to_user'] = assignedToUser;
+            }
+
+            if (onlyActive !== undefined) {
+                localVarQueryParameter['only_active'] = onlyActive;
+            }
+
 
     
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(initiativeCreateRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -282,19 +282,17 @@ export const InitiativesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = InitiativesApiAxiosParamCreator(configuration)
     return {
         /**
-         * Retrieves a list of all initiatives in the account.
-         * @summary List initiatives
-         * @param {string} [q] Search term to match against initiative name.
-         * @param {string} [updatedSince] UTC timestamp (in ISO8601 format). If provided, only initiatives updated after the timestamp will be returned.
-         * @param {string} [assignedToUser] ID or email address of a user. If provided, returns only initiatives assigned to that user.
-         * @param {boolean} [onlyActive] When true, returns only active initiatives.
+         * Creates a new initiative for the specified product.
+         * @summary Create an initiative
+         * @param {string} productId Numeric ID or key of the product
+         * @param {InitiativeCreateRequest} initiativeCreateRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async initiativesGet(q?: string, updatedSince?: string, assignedToUser?: string, onlyActive?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InitiativesListResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.initiativesGet(q, updatedSince, assignedToUser, onlyActive, options);
+        async initiativesCreate(productId: string, initiativeCreateRequest: InitiativeCreateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InitiativeResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.initiativesCreate(productId, initiativeCreateRequest, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['InitiativesApi.initiativesGet']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['InitiativesApi.initiativesCreate']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -304,10 +302,10 @@ export const InitiativesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async initiativesIdGet(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InitiativeResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.initiativesIdGet(id, options);
+        async initiativesGet(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InitiativeResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.initiativesGet(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['InitiativesApi.initiativesIdGet']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['InitiativesApi.initiativesGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -337,17 +335,19 @@ export const InitiativesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Creates a new initiative for the specified product.
-         * @summary Create an initiative
-         * @param {string} productId Numeric ID or key of the product
-         * @param {InitiativeCreateRequest} initiativeCreateRequest 
+         * Retrieves a list of all initiatives in the account.
+         * @summary List initiatives
+         * @param {string} [q] Search term to match against initiative name.
+         * @param {string} [updatedSince] UTC timestamp (in ISO8601 format). If provided, only initiatives updated after the timestamp will be returned.
+         * @param {string} [assignedToUser] ID or email address of a user. If provided, returns only initiatives assigned to that user.
+         * @param {boolean} [onlyActive] When true, returns only active initiatives.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async productsProductIdInitiativesPost(productId: string, initiativeCreateRequest: InitiativeCreateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InitiativeResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.productsProductIdInitiativesPost(productId, initiativeCreateRequest, options);
+        async initiativesList(q?: string, updatedSince?: string, assignedToUser?: string, onlyActive?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InitiativesListResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.initiativesList(q, updatedSince, assignedToUser, onlyActive, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['InitiativesApi.productsProductIdInitiativesPost']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['InitiativesApi.initiativesList']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
@@ -361,24 +361,24 @@ export const InitiativesApiFactory = function (configuration?: Configuration, ba
     const localVarFp = InitiativesApiFp(configuration)
     return {
         /**
-         * Retrieves a list of all initiatives in the account.
-         * @summary List initiatives
-         * @param {InitiativesApiInitiativesGetRequest} requestParameters Request parameters.
+         * Creates a new initiative for the specified product.
+         * @summary Create an initiative
+         * @param {InitiativesApiInitiativesCreateRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        initiativesGet(requestParameters: InitiativesApiInitiativesGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<InitiativesListResponse> {
-            return localVarFp.initiativesGet(requestParameters.q, requestParameters.updatedSince, requestParameters.assignedToUser, requestParameters.onlyActive, options).then((request) => request(axios, basePath));
+        initiativesCreate(requestParameters: InitiativesApiInitiativesCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<InitiativeResponse> {
+            return localVarFp.initiativesCreate(requestParameters.productId, requestParameters.initiativeCreateRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * Retrieves the details of a specific initiative.
          * @summary Get a specific initiative
-         * @param {InitiativesApiInitiativesIdGetRequest} requestParameters Request parameters.
+         * @param {InitiativesApiInitiativesGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        initiativesIdGet(requestParameters: InitiativesApiInitiativesIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<InitiativeResponse> {
-            return localVarFp.initiativesIdGet(requestParameters.id, options).then((request) => request(axios, basePath));
+        initiativesGet(requestParameters: InitiativesApiInitiativesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<InitiativeResponse> {
+            return localVarFp.initiativesGet(requestParameters.id, options).then((request) => request(axios, basePath));
         },
         /**
          * Retrieves a list of comments associated with the specified initiative.
@@ -401,14 +401,14 @@ export const InitiativesApiFactory = function (configuration?: Configuration, ba
             return localVarFp.initiativesInitiativeIdEpicsGet(requestParameters.initiativeId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Creates a new initiative for the specified product.
-         * @summary Create an initiative
-         * @param {InitiativesApiProductsProductIdInitiativesPostRequest} requestParameters Request parameters.
+         * Retrieves a list of all initiatives in the account.
+         * @summary List initiatives
+         * @param {InitiativesApiInitiativesListRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productsProductIdInitiativesPost(requestParameters: InitiativesApiProductsProductIdInitiativesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<InitiativeResponse> {
-            return localVarFp.productsProductIdInitiativesPost(requestParameters.productId, requestParameters.initiativeCreateRequest, options).then((request) => request(axios, basePath));
+        initiativesList(requestParameters: InitiativesApiInitiativesListRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<InitiativesListResponse> {
+            return localVarFp.initiativesList(requestParameters.q, requestParameters.updatedSince, requestParameters.assignedToUser, requestParameters.onlyActive, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -420,24 +420,24 @@ export const InitiativesApiFactory = function (configuration?: Configuration, ba
  */
 export interface InitiativesApiInterface {
     /**
-     * Retrieves a list of all initiatives in the account.
-     * @summary List initiatives
+     * Creates a new initiative for the specified product.
+     * @summary Create an initiative
+     * @param {InitiativesApiInitiativesCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InitiativesApiInterface
+     */
+    initiativesCreate(requestParameters: InitiativesApiInitiativesCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<InitiativeResponse>;
+
+    /**
+     * Retrieves the details of a specific initiative.
+     * @summary Get a specific initiative
      * @param {InitiativesApiInitiativesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InitiativesApiInterface
      */
-    initiativesGet(requestParameters?: InitiativesApiInitiativesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<InitiativesListResponse>;
-
-    /**
-     * Retrieves the details of a specific initiative.
-     * @summary Get a specific initiative
-     * @param {InitiativesApiInitiativesIdGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof InitiativesApiInterface
-     */
-    initiativesIdGet(requestParameters: InitiativesApiInitiativesIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<InitiativeResponse>;
+    initiativesGet(requestParameters: InitiativesApiInitiativesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<InitiativeResponse>;
 
     /**
      * Retrieves a list of comments associated with the specified initiative.
@@ -460,15 +460,36 @@ export interface InitiativesApiInterface {
     initiativesInitiativeIdEpicsGet(requestParameters: InitiativesApiInitiativesInitiativeIdEpicsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ProductsProductIdEpicsGet200Response>;
 
     /**
-     * Creates a new initiative for the specified product.
-     * @summary Create an initiative
-     * @param {InitiativesApiProductsProductIdInitiativesPostRequest} requestParameters Request parameters.
+     * Retrieves a list of all initiatives in the account.
+     * @summary List initiatives
+     * @param {InitiativesApiInitiativesListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InitiativesApiInterface
      */
-    productsProductIdInitiativesPost(requestParameters: InitiativesApiProductsProductIdInitiativesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<InitiativeResponse>;
+    initiativesList(requestParameters?: InitiativesApiInitiativesListRequest, options?: RawAxiosRequestConfig): AxiosPromise<InitiativesListResponse>;
 
+}
+
+/**
+ * Request parameters for initiativesCreate operation in InitiativesApi.
+ * @export
+ * @interface InitiativesApiInitiativesCreateRequest
+ */
+export interface InitiativesApiInitiativesCreateRequest {
+    /**
+     * Numeric ID or key of the product
+     * @type {string}
+     * @memberof InitiativesApiInitiativesCreate
+     */
+    readonly productId: string
+
+    /**
+     * 
+     * @type {InitiativeCreateRequest}
+     * @memberof InitiativesApiInitiativesCreate
+     */
+    readonly initiativeCreateRequest: InitiativeCreateRequest
 }
 
 /**
@@ -478,44 +499,9 @@ export interface InitiativesApiInterface {
  */
 export interface InitiativesApiInitiativesGetRequest {
     /**
-     * Search term to match against initiative name.
-     * @type {string}
-     * @memberof InitiativesApiInitiativesGet
-     */
-    readonly q?: string
-
-    /**
-     * UTC timestamp (in ISO8601 format). If provided, only initiatives updated after the timestamp will be returned.
-     * @type {string}
-     * @memberof InitiativesApiInitiativesGet
-     */
-    readonly updatedSince?: string
-
-    /**
-     * ID or email address of a user. If provided, returns only initiatives assigned to that user.
-     * @type {string}
-     * @memberof InitiativesApiInitiativesGet
-     */
-    readonly assignedToUser?: string
-
-    /**
-     * When true, returns only active initiatives.
-     * @type {boolean}
-     * @memberof InitiativesApiInitiativesGet
-     */
-    readonly onlyActive?: boolean
-}
-
-/**
- * Request parameters for initiativesIdGet operation in InitiativesApi.
- * @export
- * @interface InitiativesApiInitiativesIdGetRequest
- */
-export interface InitiativesApiInitiativesIdGetRequest {
-    /**
      * Numeric ID of the initiative
      * @type {string}
-     * @memberof InitiativesApiInitiativesIdGet
+     * @memberof InitiativesApiInitiativesGet
      */
     readonly id: string
 }
@@ -549,24 +535,38 @@ export interface InitiativesApiInitiativesInitiativeIdEpicsGetRequest {
 }
 
 /**
- * Request parameters for productsProductIdInitiativesPost operation in InitiativesApi.
+ * Request parameters for initiativesList operation in InitiativesApi.
  * @export
- * @interface InitiativesApiProductsProductIdInitiativesPostRequest
+ * @interface InitiativesApiInitiativesListRequest
  */
-export interface InitiativesApiProductsProductIdInitiativesPostRequest {
+export interface InitiativesApiInitiativesListRequest {
     /**
-     * Numeric ID or key of the product
+     * Search term to match against initiative name.
      * @type {string}
-     * @memberof InitiativesApiProductsProductIdInitiativesPost
+     * @memberof InitiativesApiInitiativesList
      */
-    readonly productId: string
+    readonly q?: string
 
     /**
-     * 
-     * @type {InitiativeCreateRequest}
-     * @memberof InitiativesApiProductsProductIdInitiativesPost
+     * UTC timestamp (in ISO8601 format). If provided, only initiatives updated after the timestamp will be returned.
+     * @type {string}
+     * @memberof InitiativesApiInitiativesList
      */
-    readonly initiativeCreateRequest: InitiativeCreateRequest
+    readonly updatedSince?: string
+
+    /**
+     * ID or email address of a user. If provided, returns only initiatives assigned to that user.
+     * @type {string}
+     * @memberof InitiativesApiInitiativesList
+     */
+    readonly assignedToUser?: string
+
+    /**
+     * When true, returns only active initiatives.
+     * @type {boolean}
+     * @memberof InitiativesApiInitiativesList
+     */
+    readonly onlyActive?: boolean
 }
 
 /**
@@ -577,27 +577,27 @@ export interface InitiativesApiProductsProductIdInitiativesPostRequest {
  */
 export class InitiativesApi extends BaseAPI implements InitiativesApiInterface {
     /**
-     * Retrieves a list of all initiatives in the account.
-     * @summary List initiatives
-     * @param {InitiativesApiInitiativesGetRequest} requestParameters Request parameters.
+     * Creates a new initiative for the specified product.
+     * @summary Create an initiative
+     * @param {InitiativesApiInitiativesCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InitiativesApi
      */
-    public initiativesGet(requestParameters: InitiativesApiInitiativesGetRequest = {}, options?: RawAxiosRequestConfig) {
-        return InitiativesApiFp(this.configuration).initiativesGet(requestParameters.q, requestParameters.updatedSince, requestParameters.assignedToUser, requestParameters.onlyActive, options).then((request) => request(this.axios, this.basePath));
+    public initiativesCreate(requestParameters: InitiativesApiInitiativesCreateRequest, options?: RawAxiosRequestConfig) {
+        return InitiativesApiFp(this.configuration).initiativesCreate(requestParameters.productId, requestParameters.initiativeCreateRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Retrieves the details of a specific initiative.
      * @summary Get a specific initiative
-     * @param {InitiativesApiInitiativesIdGetRequest} requestParameters Request parameters.
+     * @param {InitiativesApiInitiativesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InitiativesApi
      */
-    public initiativesIdGet(requestParameters: InitiativesApiInitiativesIdGetRequest, options?: RawAxiosRequestConfig) {
-        return InitiativesApiFp(this.configuration).initiativesIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public initiativesGet(requestParameters: InitiativesApiInitiativesGetRequest, options?: RawAxiosRequestConfig) {
+        return InitiativesApiFp(this.configuration).initiativesGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -625,15 +625,15 @@ export class InitiativesApi extends BaseAPI implements InitiativesApiInterface {
     }
 
     /**
-     * Creates a new initiative for the specified product.
-     * @summary Create an initiative
-     * @param {InitiativesApiProductsProductIdInitiativesPostRequest} requestParameters Request parameters.
+     * Retrieves a list of all initiatives in the account.
+     * @summary List initiatives
+     * @param {InitiativesApiInitiativesListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InitiativesApi
      */
-    public productsProductIdInitiativesPost(requestParameters: InitiativesApiProductsProductIdInitiativesPostRequest, options?: RawAxiosRequestConfig) {
-        return InitiativesApiFp(this.configuration).productsProductIdInitiativesPost(requestParameters.productId, requestParameters.initiativeCreateRequest, options).then((request) => request(this.axios, this.basePath));
+    public initiativesList(requestParameters: InitiativesApiInitiativesListRequest = {}, options?: RawAxiosRequestConfig) {
+        return InitiativesApiFp(this.configuration).initiativesList(requestParameters.q, requestParameters.updatedSince, requestParameters.assignedToUser, requestParameters.onlyActive, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

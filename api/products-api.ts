@@ -38,7 +38,7 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productsGet: async (updatedSince?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        productsList: async (updatedSince?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/products`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -135,10 +135,10 @@ export const ProductsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async productsGet(updatedSince?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProductsListResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.productsGet(updatedSince, options);
+        async productsList(updatedSince?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProductsListResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.productsList(updatedSince, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ProductsApi.productsGet']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ProductsApi.productsList']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -167,12 +167,12 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
         /**
          * Retrieves a list of all products in the account.
          * @summary List products in the account
-         * @param {ProductsApiProductsGetRequest} requestParameters Request parameters.
+         * @param {ProductsApiProductsListRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productsGet(requestParameters: ProductsApiProductsGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ProductsListResponse> {
-            return localVarFp.productsGet(requestParameters.updatedSince, options).then((request) => request(axios, basePath));
+        productsList(requestParameters: ProductsApiProductsListRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ProductsListResponse> {
+            return localVarFp.productsList(requestParameters.updatedSince, options).then((request) => request(axios, basePath));
         },
         /**
          * Retrieves a list of comments associated with the specified product.
@@ -196,12 +196,12 @@ export interface ProductsApiInterface {
     /**
      * Retrieves a list of all products in the account.
      * @summary List products in the account
-     * @param {ProductsApiProductsGetRequest} requestParameters Request parameters.
+     * @param {ProductsApiProductsListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProductsApiInterface
      */
-    productsGet(requestParameters?: ProductsApiProductsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ProductsListResponse>;
+    productsList(requestParameters?: ProductsApiProductsListRequest, options?: RawAxiosRequestConfig): AxiosPromise<ProductsListResponse>;
 
     /**
      * Retrieves a list of comments associated with the specified product.
@@ -216,15 +216,15 @@ export interface ProductsApiInterface {
 }
 
 /**
- * Request parameters for productsGet operation in ProductsApi.
+ * Request parameters for productsList operation in ProductsApi.
  * @export
- * @interface ProductsApiProductsGetRequest
+ * @interface ProductsApiProductsListRequest
  */
-export interface ProductsApiProductsGetRequest {
+export interface ProductsApiProductsListRequest {
     /**
      * UTC timestamp (in ISO8601 format). If provided, only products updated after the timestamp will be returned.
      * @type {string}
-     * @memberof ProductsApiProductsGet
+     * @memberof ProductsApiProductsList
      */
     readonly updatedSince?: string
 }
@@ -253,13 +253,13 @@ export class ProductsApi extends BaseAPI implements ProductsApiInterface {
     /**
      * Retrieves a list of all products in the account.
      * @summary List products in the account
-     * @param {ProductsApiProductsGetRequest} requestParameters Request parameters.
+     * @param {ProductsApiProductsListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProductsApi
      */
-    public productsGet(requestParameters: ProductsApiProductsGetRequest = {}, options?: RawAxiosRequestConfig) {
-        return ProductsApiFp(this.configuration).productsGet(requestParameters.updatedSince, options).then((request) => request(this.axios, this.basePath));
+    public productsList(requestParameters: ProductsApiProductsListRequest = {}, options?: RawAxiosRequestConfig) {
+        return ProductsApiFp(this.configuration).productsList(requestParameters.updatedSince, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

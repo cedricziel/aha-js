@@ -36,17 +36,145 @@ import type { StrategicModelsListResponse } from '../model';
 export const StrategicModelsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         * Creates a new strategic model in the account.
+         * @summary Create a strategic model
+         * @param {StrategicModelCreateRequest} strategicModelCreateRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        strategicModelsCreate: async (strategicModelCreateRequest: StrategicModelCreateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'strategicModelCreateRequest' is not null or undefined
+            assertParamExists('strategicModelsCreate', 'strategicModelCreateRequest', strategicModelCreateRequest)
+            const localVarPath = `/strategic_models`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(strategicModelCreateRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Deletes a specific strategic model by its ID.
+         * @summary Delete a strategic model
+         * @param {string} id Numeric ID of the strategic model
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        strategicModelsDelete: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('strategicModelsDelete', 'id', id)
+            const localVarPath = `/strategic_models/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieves a specific strategic model by its ID.
+         * @summary Get a strategic model
+         * @param {string} id Numeric ID of the strategic model
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        strategicModelsGet: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('strategicModelsGet', 'id', id)
+            const localVarPath = `/strategic_models/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Retrieves a list of all strategic models in the account.
          * @summary List strategic models
          * @param {string} [q] Search term to match against strategic model name.
-         * @param {StrategicModelsGetTypeEnum} [type] Filter by strategic model type.
+         * @param {StrategicModelsListTypeEnum} [type] Filter by strategic model type.
          * @param {string} [updatedSince] UTC timestamp (in ISO8601 format). If provided, only strategic models updated after the timestamp will be returned.
          * @param {number} [page] Page number for pagination.
          * @param {number} [perPage] Number of strategic models per page.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        strategicModelsGet: async (q?: string, type?: StrategicModelsGetTypeEnum, updatedSince?: string, page?: number, perPage?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        strategicModelsList: async (q?: string, type?: StrategicModelsListTypeEnum, updatedSince?: string, page?: number, perPage?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/strategic_models`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -101,90 +229,6 @@ export const StrategicModelsApiAxiosParamCreator = function (configuration?: Con
             };
         },
         /**
-         * Deletes a specific strategic model by its ID.
-         * @summary Delete a strategic model
-         * @param {string} id Numeric ID of the strategic model
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        strategicModelsIdDelete: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('strategicModelsIdDelete', 'id', id)
-            const localVarPath = `/strategic_models/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication OAuth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
-
-            // authentication BearerAuth required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Retrieves a specific strategic model by its ID.
-         * @summary Get a strategic model
-         * @param {string} id Numeric ID of the strategic model
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        strategicModelsIdGet: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('strategicModelsIdGet', 'id', id)
-            const localVarPath = `/strategic_models/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication OAuth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
-
-            // authentication BearerAuth required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Updates a specific strategic model by its ID.
          * @summary Update a strategic model
          * @param {string} id Numeric ID of the strategic model
@@ -192,11 +236,11 @@ export const StrategicModelsApiAxiosParamCreator = function (configuration?: Con
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        strategicModelsIdPut: async (id: string, strategicModelUpdateRequest: StrategicModelUpdateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        strategicModelsUpdate: async (id: string, strategicModelUpdateRequest: StrategicModelUpdateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('strategicModelsIdPut', 'id', id)
+            assertParamExists('strategicModelsUpdate', 'id', id)
             // verify required parameter 'strategicModelUpdateRequest' is not null or undefined
-            assertParamExists('strategicModelsIdPut', 'strategicModelUpdateRequest', strategicModelUpdateRequest)
+            assertParamExists('strategicModelsUpdate', 'strategicModelUpdateRequest', strategicModelUpdateRequest)
             const localVarPath = `/strategic_models/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -232,50 +276,6 @@ export const StrategicModelsApiAxiosParamCreator = function (configuration?: Con
                 options: localVarRequestOptions,
             };
         },
-        /**
-         * Creates a new strategic model in the account.
-         * @summary Create a strategic model
-         * @param {StrategicModelCreateRequest} strategicModelCreateRequest 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        strategicModelsPost: async (strategicModelCreateRequest: StrategicModelCreateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'strategicModelCreateRequest' is not null or undefined
-            assertParamExists('strategicModelsPost', 'strategicModelCreateRequest', strategicModelCreateRequest)
-            const localVarPath = `/strategic_models`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication OAuth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
-
-            // authentication BearerAuth required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(strategicModelCreateRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
     }
 };
 
@@ -287,20 +287,16 @@ export const StrategicModelsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = StrategicModelsApiAxiosParamCreator(configuration)
     return {
         /**
-         * Retrieves a list of all strategic models in the account.
-         * @summary List strategic models
-         * @param {string} [q] Search term to match against strategic model name.
-         * @param {StrategicModelsGetTypeEnum} [type] Filter by strategic model type.
-         * @param {string} [updatedSince] UTC timestamp (in ISO8601 format). If provided, only strategic models updated after the timestamp will be returned.
-         * @param {number} [page] Page number for pagination.
-         * @param {number} [perPage] Number of strategic models per page.
+         * Creates a new strategic model in the account.
+         * @summary Create a strategic model
+         * @param {StrategicModelCreateRequest} strategicModelCreateRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async strategicModelsGet(q?: string, type?: StrategicModelsGetTypeEnum, updatedSince?: string, page?: number, perPage?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StrategicModelsListResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.strategicModelsGet(q, type, updatedSince, page, perPage, options);
+        async strategicModelsCreate(strategicModelCreateRequest: StrategicModelCreateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StrategicModelGetResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.strategicModelsCreate(strategicModelCreateRequest, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['StrategicModelsApi.strategicModelsGet']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['StrategicModelsApi.strategicModelsCreate']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -310,10 +306,10 @@ export const StrategicModelsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async strategicModelsIdDelete(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.strategicModelsIdDelete(id, options);
+        async strategicModelsDelete(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.strategicModelsDelete(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['StrategicModelsApi.strategicModelsIdDelete']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['StrategicModelsApi.strategicModelsDelete']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -323,10 +319,27 @@ export const StrategicModelsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async strategicModelsIdGet(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StrategicModelGetResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.strategicModelsIdGet(id, options);
+        async strategicModelsGet(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StrategicModelGetResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.strategicModelsGet(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['StrategicModelsApi.strategicModelsIdGet']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['StrategicModelsApi.strategicModelsGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Retrieves a list of all strategic models in the account.
+         * @summary List strategic models
+         * @param {string} [q] Search term to match against strategic model name.
+         * @param {StrategicModelsListTypeEnum} [type] Filter by strategic model type.
+         * @param {string} [updatedSince] UTC timestamp (in ISO8601 format). If provided, only strategic models updated after the timestamp will be returned.
+         * @param {number} [page] Page number for pagination.
+         * @param {number} [perPage] Number of strategic models per page.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async strategicModelsList(q?: string, type?: StrategicModelsListTypeEnum, updatedSince?: string, page?: number, perPage?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StrategicModelsListResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.strategicModelsList(q, type, updatedSince, page, perPage, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['StrategicModelsApi.strategicModelsList']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -337,23 +350,10 @@ export const StrategicModelsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async strategicModelsIdPut(id: string, strategicModelUpdateRequest: StrategicModelUpdateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StrategicModelGetResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.strategicModelsIdPut(id, strategicModelUpdateRequest, options);
+        async strategicModelsUpdate(id: string, strategicModelUpdateRequest: StrategicModelUpdateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StrategicModelGetResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.strategicModelsUpdate(id, strategicModelUpdateRequest, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['StrategicModelsApi.strategicModelsIdPut']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * Creates a new strategic model in the account.
-         * @summary Create a strategic model
-         * @param {StrategicModelCreateRequest} strategicModelCreateRequest 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async strategicModelsPost(strategicModelCreateRequest: StrategicModelCreateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StrategicModelGetResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.strategicModelsPost(strategicModelCreateRequest, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['StrategicModelsApi.strategicModelsPost']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['StrategicModelsApi.strategicModelsUpdate']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
@@ -367,54 +367,54 @@ export const StrategicModelsApiFactory = function (configuration?: Configuration
     const localVarFp = StrategicModelsApiFp(configuration)
     return {
         /**
-         * Retrieves a list of all strategic models in the account.
-         * @summary List strategic models
-         * @param {StrategicModelsApiStrategicModelsGetRequest} requestParameters Request parameters.
+         * Creates a new strategic model in the account.
+         * @summary Create a strategic model
+         * @param {StrategicModelsApiStrategicModelsCreateRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        strategicModelsGet(requestParameters: StrategicModelsApiStrategicModelsGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<StrategicModelsListResponse> {
-            return localVarFp.strategicModelsGet(requestParameters.q, requestParameters.type, requestParameters.updatedSince, requestParameters.page, requestParameters.perPage, options).then((request) => request(axios, basePath));
+        strategicModelsCreate(requestParameters: StrategicModelsApiStrategicModelsCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<StrategicModelGetResponse> {
+            return localVarFp.strategicModelsCreate(requestParameters.strategicModelCreateRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * Deletes a specific strategic model by its ID.
          * @summary Delete a strategic model
-         * @param {StrategicModelsApiStrategicModelsIdDeleteRequest} requestParameters Request parameters.
+         * @param {StrategicModelsApiStrategicModelsDeleteRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        strategicModelsIdDelete(requestParameters: StrategicModelsApiStrategicModelsIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.strategicModelsIdDelete(requestParameters.id, options).then((request) => request(axios, basePath));
+        strategicModelsDelete(requestParameters: StrategicModelsApiStrategicModelsDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.strategicModelsDelete(requestParameters.id, options).then((request) => request(axios, basePath));
         },
         /**
          * Retrieves a specific strategic model by its ID.
          * @summary Get a strategic model
-         * @param {StrategicModelsApiStrategicModelsIdGetRequest} requestParameters Request parameters.
+         * @param {StrategicModelsApiStrategicModelsGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        strategicModelsIdGet(requestParameters: StrategicModelsApiStrategicModelsIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<StrategicModelGetResponse> {
-            return localVarFp.strategicModelsIdGet(requestParameters.id, options).then((request) => request(axios, basePath));
+        strategicModelsGet(requestParameters: StrategicModelsApiStrategicModelsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<StrategicModelGetResponse> {
+            return localVarFp.strategicModelsGet(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieves a list of all strategic models in the account.
+         * @summary List strategic models
+         * @param {StrategicModelsApiStrategicModelsListRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        strategicModelsList(requestParameters: StrategicModelsApiStrategicModelsListRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<StrategicModelsListResponse> {
+            return localVarFp.strategicModelsList(requestParameters.q, requestParameters.type, requestParameters.updatedSince, requestParameters.page, requestParameters.perPage, options).then((request) => request(axios, basePath));
         },
         /**
          * Updates a specific strategic model by its ID.
          * @summary Update a strategic model
-         * @param {StrategicModelsApiStrategicModelsIdPutRequest} requestParameters Request parameters.
+         * @param {StrategicModelsApiStrategicModelsUpdateRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        strategicModelsIdPut(requestParameters: StrategicModelsApiStrategicModelsIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<StrategicModelGetResponse> {
-            return localVarFp.strategicModelsIdPut(requestParameters.id, requestParameters.strategicModelUpdateRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Creates a new strategic model in the account.
-         * @summary Create a strategic model
-         * @param {StrategicModelsApiStrategicModelsPostRequest} requestParameters Request parameters.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        strategicModelsPost(requestParameters: StrategicModelsApiStrategicModelsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<StrategicModelGetResponse> {
-            return localVarFp.strategicModelsPost(requestParameters.strategicModelCreateRequest, options).then((request) => request(axios, basePath));
+        strategicModelsUpdate(requestParameters: StrategicModelsApiStrategicModelsUpdateRequest, options?: RawAxiosRequestConfig): AxiosPromise<StrategicModelGetResponse> {
+            return localVarFp.strategicModelsUpdate(requestParameters.id, requestParameters.strategicModelUpdateRequest, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -426,55 +426,83 @@ export const StrategicModelsApiFactory = function (configuration?: Configuration
  */
 export interface StrategicModelsApiInterface {
     /**
-     * Retrieves a list of all strategic models in the account.
-     * @summary List strategic models
+     * Creates a new strategic model in the account.
+     * @summary Create a strategic model
+     * @param {StrategicModelsApiStrategicModelsCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StrategicModelsApiInterface
+     */
+    strategicModelsCreate(requestParameters: StrategicModelsApiStrategicModelsCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<StrategicModelGetResponse>;
+
+    /**
+     * Deletes a specific strategic model by its ID.
+     * @summary Delete a strategic model
+     * @param {StrategicModelsApiStrategicModelsDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StrategicModelsApiInterface
+     */
+    strategicModelsDelete(requestParameters: StrategicModelsApiStrategicModelsDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+
+    /**
+     * Retrieves a specific strategic model by its ID.
+     * @summary Get a strategic model
      * @param {StrategicModelsApiStrategicModelsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StrategicModelsApiInterface
      */
-    strategicModelsGet(requestParameters?: StrategicModelsApiStrategicModelsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<StrategicModelsListResponse>;
+    strategicModelsGet(requestParameters: StrategicModelsApiStrategicModelsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<StrategicModelGetResponse>;
 
     /**
-     * Deletes a specific strategic model by its ID.
-     * @summary Delete a strategic model
-     * @param {StrategicModelsApiStrategicModelsIdDeleteRequest} requestParameters Request parameters.
+     * Retrieves a list of all strategic models in the account.
+     * @summary List strategic models
+     * @param {StrategicModelsApiStrategicModelsListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StrategicModelsApiInterface
      */
-    strategicModelsIdDelete(requestParameters: StrategicModelsApiStrategicModelsIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
-
-    /**
-     * Retrieves a specific strategic model by its ID.
-     * @summary Get a strategic model
-     * @param {StrategicModelsApiStrategicModelsIdGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StrategicModelsApiInterface
-     */
-    strategicModelsIdGet(requestParameters: StrategicModelsApiStrategicModelsIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<StrategicModelGetResponse>;
+    strategicModelsList(requestParameters?: StrategicModelsApiStrategicModelsListRequest, options?: RawAxiosRequestConfig): AxiosPromise<StrategicModelsListResponse>;
 
     /**
      * Updates a specific strategic model by its ID.
      * @summary Update a strategic model
-     * @param {StrategicModelsApiStrategicModelsIdPutRequest} requestParameters Request parameters.
+     * @param {StrategicModelsApiStrategicModelsUpdateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StrategicModelsApiInterface
      */
-    strategicModelsIdPut(requestParameters: StrategicModelsApiStrategicModelsIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<StrategicModelGetResponse>;
+    strategicModelsUpdate(requestParameters: StrategicModelsApiStrategicModelsUpdateRequest, options?: RawAxiosRequestConfig): AxiosPromise<StrategicModelGetResponse>;
 
+}
+
+/**
+ * Request parameters for strategicModelsCreate operation in StrategicModelsApi.
+ * @export
+ * @interface StrategicModelsApiStrategicModelsCreateRequest
+ */
+export interface StrategicModelsApiStrategicModelsCreateRequest {
     /**
-     * Creates a new strategic model in the account.
-     * @summary Create a strategic model
-     * @param {StrategicModelsApiStrategicModelsPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StrategicModelsApiInterface
+     * 
+     * @type {StrategicModelCreateRequest}
+     * @memberof StrategicModelsApiStrategicModelsCreate
      */
-    strategicModelsPost(requestParameters: StrategicModelsApiStrategicModelsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<StrategicModelGetResponse>;
+    readonly strategicModelCreateRequest: StrategicModelCreateRequest
+}
 
+/**
+ * Request parameters for strategicModelsDelete operation in StrategicModelsApi.
+ * @export
+ * @interface StrategicModelsApiStrategicModelsDeleteRequest
+ */
+export interface StrategicModelsApiStrategicModelsDeleteRequest {
+    /**
+     * Numeric ID of the strategic model
+     * @type {string}
+     * @memberof StrategicModelsApiStrategicModelsDelete
+     */
+    readonly id: string
 }
 
 /**
@@ -484,102 +512,74 @@ export interface StrategicModelsApiInterface {
  */
 export interface StrategicModelsApiStrategicModelsGetRequest {
     /**
-     * Search term to match against strategic model name.
+     * Numeric ID of the strategic model
      * @type {string}
      * @memberof StrategicModelsApiStrategicModelsGet
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for strategicModelsList operation in StrategicModelsApi.
+ * @export
+ * @interface StrategicModelsApiStrategicModelsListRequest
+ */
+export interface StrategicModelsApiStrategicModelsListRequest {
+    /**
+     * Search term to match against strategic model name.
+     * @type {string}
+     * @memberof StrategicModelsApiStrategicModelsList
      */
     readonly q?: string
 
     /**
      * Filter by strategic model type.
      * @type {'swot' | 'porter_five_forces' | 'ansoff_matrix' | 'value_proposition_canvas' | 'business_model_canvas' | 'lean_canvas' | 'custom'}
-     * @memberof StrategicModelsApiStrategicModelsGet
+     * @memberof StrategicModelsApiStrategicModelsList
      */
-    readonly type?: StrategicModelsGetTypeEnum
+    readonly type?: StrategicModelsListTypeEnum
 
     /**
      * UTC timestamp (in ISO8601 format). If provided, only strategic models updated after the timestamp will be returned.
      * @type {string}
-     * @memberof StrategicModelsApiStrategicModelsGet
+     * @memberof StrategicModelsApiStrategicModelsList
      */
     readonly updatedSince?: string
 
     /**
      * Page number for pagination.
      * @type {number}
-     * @memberof StrategicModelsApiStrategicModelsGet
+     * @memberof StrategicModelsApiStrategicModelsList
      */
     readonly page?: number
 
     /**
      * Number of strategic models per page.
      * @type {number}
-     * @memberof StrategicModelsApiStrategicModelsGet
+     * @memberof StrategicModelsApiStrategicModelsList
      */
     readonly perPage?: number
 }
 
 /**
- * Request parameters for strategicModelsIdDelete operation in StrategicModelsApi.
+ * Request parameters for strategicModelsUpdate operation in StrategicModelsApi.
  * @export
- * @interface StrategicModelsApiStrategicModelsIdDeleteRequest
+ * @interface StrategicModelsApiStrategicModelsUpdateRequest
  */
-export interface StrategicModelsApiStrategicModelsIdDeleteRequest {
+export interface StrategicModelsApiStrategicModelsUpdateRequest {
     /**
      * Numeric ID of the strategic model
      * @type {string}
-     * @memberof StrategicModelsApiStrategicModelsIdDelete
-     */
-    readonly id: string
-}
-
-/**
- * Request parameters for strategicModelsIdGet operation in StrategicModelsApi.
- * @export
- * @interface StrategicModelsApiStrategicModelsIdGetRequest
- */
-export interface StrategicModelsApiStrategicModelsIdGetRequest {
-    /**
-     * Numeric ID of the strategic model
-     * @type {string}
-     * @memberof StrategicModelsApiStrategicModelsIdGet
-     */
-    readonly id: string
-}
-
-/**
- * Request parameters for strategicModelsIdPut operation in StrategicModelsApi.
- * @export
- * @interface StrategicModelsApiStrategicModelsIdPutRequest
- */
-export interface StrategicModelsApiStrategicModelsIdPutRequest {
-    /**
-     * Numeric ID of the strategic model
-     * @type {string}
-     * @memberof StrategicModelsApiStrategicModelsIdPut
+     * @memberof StrategicModelsApiStrategicModelsUpdate
      */
     readonly id: string
 
     /**
      * 
      * @type {StrategicModelUpdateRequest}
-     * @memberof StrategicModelsApiStrategicModelsIdPut
+     * @memberof StrategicModelsApiStrategicModelsUpdate
      */
     readonly strategicModelUpdateRequest: StrategicModelUpdateRequest
-}
-
-/**
- * Request parameters for strategicModelsPost operation in StrategicModelsApi.
- * @export
- * @interface StrategicModelsApiStrategicModelsPostRequest
- */
-export interface StrategicModelsApiStrategicModelsPostRequest {
-    /**
-     * 
-     * @type {StrategicModelCreateRequest}
-     * @memberof StrategicModelsApiStrategicModelsPost
-     */
-    readonly strategicModelCreateRequest: StrategicModelCreateRequest
 }
 
 /**
@@ -590,70 +590,70 @@ export interface StrategicModelsApiStrategicModelsPostRequest {
  */
 export class StrategicModelsApi extends BaseAPI implements StrategicModelsApiInterface {
     /**
-     * Retrieves a list of all strategic models in the account.
-     * @summary List strategic models
-     * @param {StrategicModelsApiStrategicModelsGetRequest} requestParameters Request parameters.
+     * Creates a new strategic model in the account.
+     * @summary Create a strategic model
+     * @param {StrategicModelsApiStrategicModelsCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StrategicModelsApi
      */
-    public strategicModelsGet(requestParameters: StrategicModelsApiStrategicModelsGetRequest = {}, options?: RawAxiosRequestConfig) {
-        return StrategicModelsApiFp(this.configuration).strategicModelsGet(requestParameters.q, requestParameters.type, requestParameters.updatedSince, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
+    public strategicModelsCreate(requestParameters: StrategicModelsApiStrategicModelsCreateRequest, options?: RawAxiosRequestConfig) {
+        return StrategicModelsApiFp(this.configuration).strategicModelsCreate(requestParameters.strategicModelCreateRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Deletes a specific strategic model by its ID.
      * @summary Delete a strategic model
-     * @param {StrategicModelsApiStrategicModelsIdDeleteRequest} requestParameters Request parameters.
+     * @param {StrategicModelsApiStrategicModelsDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StrategicModelsApi
      */
-    public strategicModelsIdDelete(requestParameters: StrategicModelsApiStrategicModelsIdDeleteRequest, options?: RawAxiosRequestConfig) {
-        return StrategicModelsApiFp(this.configuration).strategicModelsIdDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public strategicModelsDelete(requestParameters: StrategicModelsApiStrategicModelsDeleteRequest, options?: RawAxiosRequestConfig) {
+        return StrategicModelsApiFp(this.configuration).strategicModelsDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Retrieves a specific strategic model by its ID.
      * @summary Get a strategic model
-     * @param {StrategicModelsApiStrategicModelsIdGetRequest} requestParameters Request parameters.
+     * @param {StrategicModelsApiStrategicModelsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StrategicModelsApi
      */
-    public strategicModelsIdGet(requestParameters: StrategicModelsApiStrategicModelsIdGetRequest, options?: RawAxiosRequestConfig) {
-        return StrategicModelsApiFp(this.configuration).strategicModelsIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public strategicModelsGet(requestParameters: StrategicModelsApiStrategicModelsGetRequest, options?: RawAxiosRequestConfig) {
+        return StrategicModelsApiFp(this.configuration).strategicModelsGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieves a list of all strategic models in the account.
+     * @summary List strategic models
+     * @param {StrategicModelsApiStrategicModelsListRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StrategicModelsApi
+     */
+    public strategicModelsList(requestParameters: StrategicModelsApiStrategicModelsListRequest = {}, options?: RawAxiosRequestConfig) {
+        return StrategicModelsApiFp(this.configuration).strategicModelsList(requestParameters.q, requestParameters.type, requestParameters.updatedSince, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Updates a specific strategic model by its ID.
      * @summary Update a strategic model
-     * @param {StrategicModelsApiStrategicModelsIdPutRequest} requestParameters Request parameters.
+     * @param {StrategicModelsApiStrategicModelsUpdateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StrategicModelsApi
      */
-    public strategicModelsIdPut(requestParameters: StrategicModelsApiStrategicModelsIdPutRequest, options?: RawAxiosRequestConfig) {
-        return StrategicModelsApiFp(this.configuration).strategicModelsIdPut(requestParameters.id, requestParameters.strategicModelUpdateRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Creates a new strategic model in the account.
-     * @summary Create a strategic model
-     * @param {StrategicModelsApiStrategicModelsPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StrategicModelsApi
-     */
-    public strategicModelsPost(requestParameters: StrategicModelsApiStrategicModelsPostRequest, options?: RawAxiosRequestConfig) {
-        return StrategicModelsApiFp(this.configuration).strategicModelsPost(requestParameters.strategicModelCreateRequest, options).then((request) => request(this.axios, this.basePath));
+    public strategicModelsUpdate(requestParameters: StrategicModelsApiStrategicModelsUpdateRequest, options?: RawAxiosRequestConfig) {
+        return StrategicModelsApiFp(this.configuration).strategicModelsUpdate(requestParameters.id, requestParameters.strategicModelUpdateRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
 /**
  * @export
  */
-export const StrategicModelsGetTypeEnum = {
+export const StrategicModelsListTypeEnum = {
     SWOT: 'swot',
     PORTER_FIVE_FORCES: 'porter_five_forces',
     ANSOFF_MATRIX: 'ansoff_matrix',
@@ -662,4 +662,4 @@ export const StrategicModelsGetTypeEnum = {
     LEAN_CANVAS: 'lean_canvas',
     CUSTOM: 'custom'
 } as const;
-export type StrategicModelsGetTypeEnum = typeof StrategicModelsGetTypeEnum[keyof typeof StrategicModelsGetTypeEnum];
+export type StrategicModelsListTypeEnum = typeof StrategicModelsListTypeEnum[keyof typeof StrategicModelsListTypeEnum];

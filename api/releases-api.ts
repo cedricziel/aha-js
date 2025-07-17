@@ -50,9 +50,9 @@ export const ReleasesApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productsProductIdReleasesGet: async (productId: string, q?: string, updatedSince?: string, status?: string, parkingLot?: boolean, page?: number, perPage?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        productReleasesList: async (productId: string, q?: string, updatedSince?: string, status?: string, parkingLot?: boolean, page?: number, perPage?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'productId' is not null or undefined
-            assertParamExists('productsProductIdReleasesGet', 'productId', productId)
+            assertParamExists('productReleasesList', 'productId', productId)
             const localVarPath = `/products/{product_id}/releases`
                 .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -119,11 +119,11 @@ export const ReleasesApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productsProductIdReleasesPost: async (productId: string, releaseCreateRequest: ReleaseCreateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        releasesCreate: async (productId: string, releaseCreateRequest: ReleaseCreateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'productId' is not null or undefined
-            assertParamExists('productsProductIdReleasesPost', 'productId', productId)
+            assertParamExists('releasesCreate', 'productId', productId)
             // verify required parameter 'releaseCreateRequest' is not null or undefined
-            assertParamExists('productsProductIdReleasesPost', 'releaseCreateRequest', releaseCreateRequest)
+            assertParamExists('releasesCreate', 'releaseCreateRequest', releaseCreateRequest)
             const localVarPath = `/products/{product_id}/releases`
                 .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -160,6 +160,90 @@ export const ReleasesApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
+         * Deletes a specific release by its ID or reference number.
+         * @summary Delete a release
+         * @param {string} id Numeric ID or reference number of the release
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        releasesDelete: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('releasesDelete', 'id', id)
+            const localVarPath = `/releases/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieves a specific release by its ID or reference number.
+         * @summary Get a release
+         * @param {string} id Numeric ID or reference number of the release
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        releasesGet: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('releasesGet', 'id', id)
+            const localVarPath = `/releases/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Retrieves a list of all releases in the account.
          * @summary List releases
          * @param {string} [q] Search term to match against release name.
@@ -172,7 +256,7 @@ export const ReleasesApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        releasesGet: async (q?: string, updatedSince?: string, assignedToUser?: string, status?: string, parkingLot?: boolean, page?: number, perPage?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        releasesList: async (q?: string, updatedSince?: string, assignedToUser?: string, status?: string, parkingLot?: boolean, page?: number, perPage?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/releases`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -235,138 +319,6 @@ export const ReleasesApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Deletes a specific release by its ID or reference number.
-         * @summary Delete a release
-         * @param {string} id Numeric ID or reference number of the release
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        releasesIdDelete: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('releasesIdDelete', 'id', id)
-            const localVarPath = `/releases/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication OAuth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
-
-            // authentication BearerAuth required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Retrieves a specific release by its ID or reference number.
-         * @summary Get a release
-         * @param {string} id Numeric ID or reference number of the release
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        releasesIdGet: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('releasesIdGet', 'id', id)
-            const localVarPath = `/releases/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication OAuth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
-
-            // authentication BearerAuth required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Updates a specific release by its ID or reference number.
-         * @summary Update a release
-         * @param {string} id Numeric ID or reference number of the release
-         * @param {ReleaseUpdateRequest} releaseUpdateRequest 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        releasesIdPut: async (id: string, releaseUpdateRequest: ReleaseUpdateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('releasesIdPut', 'id', id)
-            // verify required parameter 'releaseUpdateRequest' is not null or undefined
-            assertParamExists('releasesIdPut', 'releaseUpdateRequest', releaseUpdateRequest)
-            const localVarPath = `/releases/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication OAuth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
-
-            // authentication BearerAuth required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(releaseUpdateRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Retrieves a list of comments associated with the specified release.
          * @summary List comments on a release
          * @param {string} releaseId 
@@ -408,6 +360,54 @@ export const ReleasesApiAxiosParamCreator = function (configuration?: Configurat
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * Updates a specific release by its ID or reference number.
+         * @summary Update a release
+         * @param {string} id Numeric ID or reference number of the release
+         * @param {ReleaseUpdateRequest} releaseUpdateRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        releasesUpdate: async (id: string, releaseUpdateRequest: ReleaseUpdateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('releasesUpdate', 'id', id)
+            // verify required parameter 'releaseUpdateRequest' is not null or undefined
+            assertParamExists('releasesUpdate', 'releaseUpdateRequest', releaseUpdateRequest)
+            const localVarPath = `/releases/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(releaseUpdateRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -431,10 +431,10 @@ export const ReleasesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async productsProductIdReleasesGet(productId: string, q?: string, updatedSince?: string, status?: string, parkingLot?: boolean, page?: number, perPage?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReleasesListResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.productsProductIdReleasesGet(productId, q, updatedSince, status, parkingLot, page, perPage, options);
+        async productReleasesList(productId: string, q?: string, updatedSince?: string, status?: string, parkingLot?: boolean, page?: number, perPage?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReleasesListResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.productReleasesList(productId, q, updatedSince, status, parkingLot, page, perPage, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ReleasesApi.productsProductIdReleasesGet']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ReleasesApi.productReleasesList']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -445,10 +445,36 @@ export const ReleasesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async productsProductIdReleasesPost(productId: string, releaseCreateRequest: ReleaseCreateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReleaseGetResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.productsProductIdReleasesPost(productId, releaseCreateRequest, options);
+        async releasesCreate(productId: string, releaseCreateRequest: ReleaseCreateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReleaseGetResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.releasesCreate(productId, releaseCreateRequest, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ReleasesApi.productsProductIdReleasesPost']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ReleasesApi.releasesCreate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Deletes a specific release by its ID or reference number.
+         * @summary Delete a release
+         * @param {string} id Numeric ID or reference number of the release
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async releasesDelete(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.releasesDelete(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ReleasesApi.releasesDelete']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Retrieves a specific release by its ID or reference number.
+         * @summary Get a release
+         * @param {string} id Numeric ID or reference number of the release
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async releasesGet(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReleaseGetResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.releasesGet(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ReleasesApi.releasesGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -464,50 +490,10 @@ export const ReleasesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async releasesGet(q?: string, updatedSince?: string, assignedToUser?: string, status?: string, parkingLot?: boolean, page?: number, perPage?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReleasesListResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.releasesGet(q, updatedSince, assignedToUser, status, parkingLot, page, perPage, options);
+        async releasesList(q?: string, updatedSince?: string, assignedToUser?: string, status?: string, parkingLot?: boolean, page?: number, perPage?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReleasesListResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.releasesList(q, updatedSince, assignedToUser, status, parkingLot, page, perPage, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ReleasesApi.releasesGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * Deletes a specific release by its ID or reference number.
-         * @summary Delete a release
-         * @param {string} id Numeric ID or reference number of the release
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async releasesIdDelete(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.releasesIdDelete(id, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ReleasesApi.releasesIdDelete']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * Retrieves a specific release by its ID or reference number.
-         * @summary Get a release
-         * @param {string} id Numeric ID or reference number of the release
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async releasesIdGet(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReleaseGetResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.releasesIdGet(id, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ReleasesApi.releasesIdGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * Updates a specific release by its ID or reference number.
-         * @summary Update a release
-         * @param {string} id Numeric ID or reference number of the release
-         * @param {ReleaseUpdateRequest} releaseUpdateRequest 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async releasesIdPut(id: string, releaseUpdateRequest: ReleaseUpdateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReleaseGetResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.releasesIdPut(id, releaseUpdateRequest, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ReleasesApi.releasesIdPut']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ReleasesApi.releasesList']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -523,6 +509,20 @@ export const ReleasesApiFp = function(configuration?: Configuration) {
             const localVarOperationServerBasePath = operationServerMap['ReleasesApi.releasesReleaseIdCommentsGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         * Updates a specific release by its ID or reference number.
+         * @summary Update a release
+         * @param {string} id Numeric ID or reference number of the release
+         * @param {ReleaseUpdateRequest} releaseUpdateRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async releasesUpdate(id: string, releaseUpdateRequest: ReleaseUpdateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReleaseGetResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.releasesUpdate(id, releaseUpdateRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ReleasesApi.releasesUpdate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     }
 };
 
@@ -536,62 +536,52 @@ export const ReleasesApiFactory = function (configuration?: Configuration, baseP
         /**
          * Retrieves a list of all releases for a specific product.
          * @summary List releases for a product
-         * @param {ReleasesApiProductsProductIdReleasesGetRequest} requestParameters Request parameters.
+         * @param {ReleasesApiProductReleasesListRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productsProductIdReleasesGet(requestParameters: ReleasesApiProductsProductIdReleasesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleasesListResponse> {
-            return localVarFp.productsProductIdReleasesGet(requestParameters.productId, requestParameters.q, requestParameters.updatedSince, requestParameters.status, requestParameters.parkingLot, requestParameters.page, requestParameters.perPage, options).then((request) => request(axios, basePath));
+        productReleasesList(requestParameters: ReleasesApiProductReleasesListRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleasesListResponse> {
+            return localVarFp.productReleasesList(requestParameters.productId, requestParameters.q, requestParameters.updatedSince, requestParameters.status, requestParameters.parkingLot, requestParameters.page, requestParameters.perPage, options).then((request) => request(axios, basePath));
         },
         /**
          * Creates a new release for the specified product.
          * @summary Create a release
-         * @param {ReleasesApiProductsProductIdReleasesPostRequest} requestParameters Request parameters.
+         * @param {ReleasesApiReleasesCreateRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productsProductIdReleasesPost(requestParameters: ReleasesApiProductsProductIdReleasesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleaseGetResponse> {
-            return localVarFp.productsProductIdReleasesPost(requestParameters.productId, requestParameters.releaseCreateRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Retrieves a list of all releases in the account.
-         * @summary List releases
-         * @param {ReleasesApiReleasesGetRequest} requestParameters Request parameters.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        releasesGet(requestParameters: ReleasesApiReleasesGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ReleasesListResponse> {
-            return localVarFp.releasesGet(requestParameters.q, requestParameters.updatedSince, requestParameters.assignedToUser, requestParameters.status, requestParameters.parkingLot, requestParameters.page, requestParameters.perPage, options).then((request) => request(axios, basePath));
+        releasesCreate(requestParameters: ReleasesApiReleasesCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleaseGetResponse> {
+            return localVarFp.releasesCreate(requestParameters.productId, requestParameters.releaseCreateRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * Deletes a specific release by its ID or reference number.
          * @summary Delete a release
-         * @param {ReleasesApiReleasesIdDeleteRequest} requestParameters Request parameters.
+         * @param {ReleasesApiReleasesDeleteRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        releasesIdDelete(requestParameters: ReleasesApiReleasesIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.releasesIdDelete(requestParameters.id, options).then((request) => request(axios, basePath));
+        releasesDelete(requestParameters: ReleasesApiReleasesDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.releasesDelete(requestParameters.id, options).then((request) => request(axios, basePath));
         },
         /**
          * Retrieves a specific release by its ID or reference number.
          * @summary Get a release
-         * @param {ReleasesApiReleasesIdGetRequest} requestParameters Request parameters.
+         * @param {ReleasesApiReleasesGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        releasesIdGet(requestParameters: ReleasesApiReleasesIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleaseGetResponse> {
-            return localVarFp.releasesIdGet(requestParameters.id, options).then((request) => request(axios, basePath));
+        releasesGet(requestParameters: ReleasesApiReleasesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleaseGetResponse> {
+            return localVarFp.releasesGet(requestParameters.id, options).then((request) => request(axios, basePath));
         },
         /**
-         * Updates a specific release by its ID or reference number.
-         * @summary Update a release
-         * @param {ReleasesApiReleasesIdPutRequest} requestParameters Request parameters.
+         * Retrieves a list of all releases in the account.
+         * @summary List releases
+         * @param {ReleasesApiReleasesListRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        releasesIdPut(requestParameters: ReleasesApiReleasesIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleaseGetResponse> {
-            return localVarFp.releasesIdPut(requestParameters.id, requestParameters.releaseUpdateRequest, options).then((request) => request(axios, basePath));
+        releasesList(requestParameters: ReleasesApiReleasesListRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ReleasesListResponse> {
+            return localVarFp.releasesList(requestParameters.q, requestParameters.updatedSince, requestParameters.assignedToUser, requestParameters.status, requestParameters.parkingLot, requestParameters.page, requestParameters.perPage, options).then((request) => request(axios, basePath));
         },
         /**
          * Retrieves a list of comments associated with the specified release.
@@ -602,6 +592,16 @@ export const ReleasesApiFactory = function (configuration?: Configuration, baseP
          */
         releasesReleaseIdCommentsGet(requestParameters: ReleasesApiReleasesReleaseIdCommentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsEpicIdCommentsGet200Response> {
             return localVarFp.releasesReleaseIdCommentsGet(requestParameters.releaseId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Updates a specific release by its ID or reference number.
+         * @summary Update a release
+         * @param {ReleasesApiReleasesUpdateRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        releasesUpdate(requestParameters: ReleasesApiReleasesUpdateRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleaseGetResponse> {
+            return localVarFp.releasesUpdate(requestParameters.id, requestParameters.releaseUpdateRequest, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -615,62 +615,52 @@ export interface ReleasesApiInterface {
     /**
      * Retrieves a list of all releases for a specific product.
      * @summary List releases for a product
-     * @param {ReleasesApiProductsProductIdReleasesGetRequest} requestParameters Request parameters.
+     * @param {ReleasesApiProductReleasesListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ReleasesApiInterface
      */
-    productsProductIdReleasesGet(requestParameters: ReleasesApiProductsProductIdReleasesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleasesListResponse>;
+    productReleasesList(requestParameters: ReleasesApiProductReleasesListRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleasesListResponse>;
 
     /**
      * Creates a new release for the specified product.
      * @summary Create a release
-     * @param {ReleasesApiProductsProductIdReleasesPostRequest} requestParameters Request parameters.
+     * @param {ReleasesApiReleasesCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ReleasesApiInterface
      */
-    productsProductIdReleasesPost(requestParameters: ReleasesApiProductsProductIdReleasesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleaseGetResponse>;
+    releasesCreate(requestParameters: ReleasesApiReleasesCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleaseGetResponse>;
 
     /**
-     * Retrieves a list of all releases in the account.
-     * @summary List releases
+     * Deletes a specific release by its ID or reference number.
+     * @summary Delete a release
+     * @param {ReleasesApiReleasesDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ReleasesApiInterface
+     */
+    releasesDelete(requestParameters: ReleasesApiReleasesDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+
+    /**
+     * Retrieves a specific release by its ID or reference number.
+     * @summary Get a release
      * @param {ReleasesApiReleasesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ReleasesApiInterface
      */
-    releasesGet(requestParameters?: ReleasesApiReleasesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleasesListResponse>;
+    releasesGet(requestParameters: ReleasesApiReleasesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleaseGetResponse>;
 
     /**
-     * Deletes a specific release by its ID or reference number.
-     * @summary Delete a release
-     * @param {ReleasesApiReleasesIdDeleteRequest} requestParameters Request parameters.
+     * Retrieves a list of all releases in the account.
+     * @summary List releases
+     * @param {ReleasesApiReleasesListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ReleasesApiInterface
      */
-    releasesIdDelete(requestParameters: ReleasesApiReleasesIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
-
-    /**
-     * Retrieves a specific release by its ID or reference number.
-     * @summary Get a release
-     * @param {ReleasesApiReleasesIdGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ReleasesApiInterface
-     */
-    releasesIdGet(requestParameters: ReleasesApiReleasesIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleaseGetResponse>;
-
-    /**
-     * Updates a specific release by its ID or reference number.
-     * @summary Update a release
-     * @param {ReleasesApiReleasesIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ReleasesApiInterface
-     */
-    releasesIdPut(requestParameters: ReleasesApiReleasesIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleaseGetResponse>;
+    releasesList(requestParameters?: ReleasesApiReleasesListRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleasesListResponse>;
 
     /**
      * Retrieves a list of comments associated with the specified release.
@@ -682,83 +672,107 @@ export interface ReleasesApiInterface {
      */
     releasesReleaseIdCommentsGet(requestParameters: ReleasesApiReleasesReleaseIdCommentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsEpicIdCommentsGet200Response>;
 
+    /**
+     * Updates a specific release by its ID or reference number.
+     * @summary Update a release
+     * @param {ReleasesApiReleasesUpdateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ReleasesApiInterface
+     */
+    releasesUpdate(requestParameters: ReleasesApiReleasesUpdateRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleaseGetResponse>;
+
 }
 
 /**
- * Request parameters for productsProductIdReleasesGet operation in ReleasesApi.
+ * Request parameters for productReleasesList operation in ReleasesApi.
  * @export
- * @interface ReleasesApiProductsProductIdReleasesGetRequest
+ * @interface ReleasesApiProductReleasesListRequest
  */
-export interface ReleasesApiProductsProductIdReleasesGetRequest {
+export interface ReleasesApiProductReleasesListRequest {
     /**
      * Numeric ID or key of the product
      * @type {string}
-     * @memberof ReleasesApiProductsProductIdReleasesGet
+     * @memberof ReleasesApiProductReleasesList
      */
     readonly productId: string
 
     /**
      * Search term to match against release name.
      * @type {string}
-     * @memberof ReleasesApiProductsProductIdReleasesGet
+     * @memberof ReleasesApiProductReleasesList
      */
     readonly q?: string
 
     /**
      * UTC timestamp (in ISO8601 format). If provided, only releases updated after the timestamp will be returned.
      * @type {string}
-     * @memberof ReleasesApiProductsProductIdReleasesGet
+     * @memberof ReleasesApiProductReleasesList
      */
     readonly updatedSince?: string
 
     /**
      * Status filter for releases.
      * @type {string}
-     * @memberof ReleasesApiProductsProductIdReleasesGet
+     * @memberof ReleasesApiProductReleasesList
      */
     readonly status?: string
 
     /**
      * When true, returns only parking lot releases.
      * @type {boolean}
-     * @memberof ReleasesApiProductsProductIdReleasesGet
+     * @memberof ReleasesApiProductReleasesList
      */
     readonly parkingLot?: boolean
 
     /**
      * Page number for pagination.
      * @type {number}
-     * @memberof ReleasesApiProductsProductIdReleasesGet
+     * @memberof ReleasesApiProductReleasesList
      */
     readonly page?: number
 
     /**
      * Number of releases per page.
      * @type {number}
-     * @memberof ReleasesApiProductsProductIdReleasesGet
+     * @memberof ReleasesApiProductReleasesList
      */
     readonly perPage?: number
 }
 
 /**
- * Request parameters for productsProductIdReleasesPost operation in ReleasesApi.
+ * Request parameters for releasesCreate operation in ReleasesApi.
  * @export
- * @interface ReleasesApiProductsProductIdReleasesPostRequest
+ * @interface ReleasesApiReleasesCreateRequest
  */
-export interface ReleasesApiProductsProductIdReleasesPostRequest {
+export interface ReleasesApiReleasesCreateRequest {
     /**
      * Numeric ID or key of the product
      * @type {string}
-     * @memberof ReleasesApiProductsProductIdReleasesPost
+     * @memberof ReleasesApiReleasesCreate
      */
     readonly productId: string
 
     /**
      * 
      * @type {ReleaseCreateRequest}
-     * @memberof ReleasesApiProductsProductIdReleasesPost
+     * @memberof ReleasesApiReleasesCreate
      */
     readonly releaseCreateRequest: ReleaseCreateRequest
+}
+
+/**
+ * Request parameters for releasesDelete operation in ReleasesApi.
+ * @export
+ * @interface ReleasesApiReleasesDeleteRequest
+ */
+export interface ReleasesApiReleasesDeleteRequest {
+    /**
+     * Numeric ID or reference number of the release
+     * @type {string}
+     * @memberof ReleasesApiReleasesDelete
+     */
+    readonly id: string
 }
 
 /**
@@ -768,102 +782,67 @@ export interface ReleasesApiProductsProductIdReleasesPostRequest {
  */
 export interface ReleasesApiReleasesGetRequest {
     /**
-     * Search term to match against release name.
+     * Numeric ID or reference number of the release
      * @type {string}
      * @memberof ReleasesApiReleasesGet
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for releasesList operation in ReleasesApi.
+ * @export
+ * @interface ReleasesApiReleasesListRequest
+ */
+export interface ReleasesApiReleasesListRequest {
+    /**
+     * Search term to match against release name.
+     * @type {string}
+     * @memberof ReleasesApiReleasesList
      */
     readonly q?: string
 
     /**
      * UTC timestamp (in ISO8601 format). If provided, only releases updated after the timestamp will be returned.
      * @type {string}
-     * @memberof ReleasesApiReleasesGet
+     * @memberof ReleasesApiReleasesList
      */
     readonly updatedSince?: string
 
     /**
      * ID or email address of a user. If provided, returns only releases assigned to that user.
      * @type {string}
-     * @memberof ReleasesApiReleasesGet
+     * @memberof ReleasesApiReleasesList
      */
     readonly assignedToUser?: string
 
     /**
      * Status filter for releases.
      * @type {string}
-     * @memberof ReleasesApiReleasesGet
+     * @memberof ReleasesApiReleasesList
      */
     readonly status?: string
 
     /**
      * When true, returns only parking lot releases.
      * @type {boolean}
-     * @memberof ReleasesApiReleasesGet
+     * @memberof ReleasesApiReleasesList
      */
     readonly parkingLot?: boolean
 
     /**
      * Page number for pagination.
      * @type {number}
-     * @memberof ReleasesApiReleasesGet
+     * @memberof ReleasesApiReleasesList
      */
     readonly page?: number
 
     /**
      * Number of releases per page.
      * @type {number}
-     * @memberof ReleasesApiReleasesGet
+     * @memberof ReleasesApiReleasesList
      */
     readonly perPage?: number
-}
-
-/**
- * Request parameters for releasesIdDelete operation in ReleasesApi.
- * @export
- * @interface ReleasesApiReleasesIdDeleteRequest
- */
-export interface ReleasesApiReleasesIdDeleteRequest {
-    /**
-     * Numeric ID or reference number of the release
-     * @type {string}
-     * @memberof ReleasesApiReleasesIdDelete
-     */
-    readonly id: string
-}
-
-/**
- * Request parameters for releasesIdGet operation in ReleasesApi.
- * @export
- * @interface ReleasesApiReleasesIdGetRequest
- */
-export interface ReleasesApiReleasesIdGetRequest {
-    /**
-     * Numeric ID or reference number of the release
-     * @type {string}
-     * @memberof ReleasesApiReleasesIdGet
-     */
-    readonly id: string
-}
-
-/**
- * Request parameters for releasesIdPut operation in ReleasesApi.
- * @export
- * @interface ReleasesApiReleasesIdPutRequest
- */
-export interface ReleasesApiReleasesIdPutRequest {
-    /**
-     * Numeric ID or reference number of the release
-     * @type {string}
-     * @memberof ReleasesApiReleasesIdPut
-     */
-    readonly id: string
-
-    /**
-     * 
-     * @type {ReleaseUpdateRequest}
-     * @memberof ReleasesApiReleasesIdPut
-     */
-    readonly releaseUpdateRequest: ReleaseUpdateRequest
 }
 
 /**
@@ -881,6 +860,27 @@ export interface ReleasesApiReleasesReleaseIdCommentsGetRequest {
 }
 
 /**
+ * Request parameters for releasesUpdate operation in ReleasesApi.
+ * @export
+ * @interface ReleasesApiReleasesUpdateRequest
+ */
+export interface ReleasesApiReleasesUpdateRequest {
+    /**
+     * Numeric ID or reference number of the release
+     * @type {string}
+     * @memberof ReleasesApiReleasesUpdate
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {ReleaseUpdateRequest}
+     * @memberof ReleasesApiReleasesUpdate
+     */
+    readonly releaseUpdateRequest: ReleaseUpdateRequest
+}
+
+/**
  * ReleasesApi - object-oriented interface
  * @export
  * @class ReleasesApi
@@ -890,73 +890,61 @@ export class ReleasesApi extends BaseAPI implements ReleasesApiInterface {
     /**
      * Retrieves a list of all releases for a specific product.
      * @summary List releases for a product
-     * @param {ReleasesApiProductsProductIdReleasesGetRequest} requestParameters Request parameters.
+     * @param {ReleasesApiProductReleasesListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ReleasesApi
      */
-    public productsProductIdReleasesGet(requestParameters: ReleasesApiProductsProductIdReleasesGetRequest, options?: RawAxiosRequestConfig) {
-        return ReleasesApiFp(this.configuration).productsProductIdReleasesGet(requestParameters.productId, requestParameters.q, requestParameters.updatedSince, requestParameters.status, requestParameters.parkingLot, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
+    public productReleasesList(requestParameters: ReleasesApiProductReleasesListRequest, options?: RawAxiosRequestConfig) {
+        return ReleasesApiFp(this.configuration).productReleasesList(requestParameters.productId, requestParameters.q, requestParameters.updatedSince, requestParameters.status, requestParameters.parkingLot, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Creates a new release for the specified product.
      * @summary Create a release
-     * @param {ReleasesApiProductsProductIdReleasesPostRequest} requestParameters Request parameters.
+     * @param {ReleasesApiReleasesCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ReleasesApi
      */
-    public productsProductIdReleasesPost(requestParameters: ReleasesApiProductsProductIdReleasesPostRequest, options?: RawAxiosRequestConfig) {
-        return ReleasesApiFp(this.configuration).productsProductIdReleasesPost(requestParameters.productId, requestParameters.releaseCreateRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Retrieves a list of all releases in the account.
-     * @summary List releases
-     * @param {ReleasesApiReleasesGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ReleasesApi
-     */
-    public releasesGet(requestParameters: ReleasesApiReleasesGetRequest = {}, options?: RawAxiosRequestConfig) {
-        return ReleasesApiFp(this.configuration).releasesGet(requestParameters.q, requestParameters.updatedSince, requestParameters.assignedToUser, requestParameters.status, requestParameters.parkingLot, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
+    public releasesCreate(requestParameters: ReleasesApiReleasesCreateRequest, options?: RawAxiosRequestConfig) {
+        return ReleasesApiFp(this.configuration).releasesCreate(requestParameters.productId, requestParameters.releaseCreateRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Deletes a specific release by its ID or reference number.
      * @summary Delete a release
-     * @param {ReleasesApiReleasesIdDeleteRequest} requestParameters Request parameters.
+     * @param {ReleasesApiReleasesDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ReleasesApi
      */
-    public releasesIdDelete(requestParameters: ReleasesApiReleasesIdDeleteRequest, options?: RawAxiosRequestConfig) {
-        return ReleasesApiFp(this.configuration).releasesIdDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public releasesDelete(requestParameters: ReleasesApiReleasesDeleteRequest, options?: RawAxiosRequestConfig) {
+        return ReleasesApiFp(this.configuration).releasesDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Retrieves a specific release by its ID or reference number.
      * @summary Get a release
-     * @param {ReleasesApiReleasesIdGetRequest} requestParameters Request parameters.
+     * @param {ReleasesApiReleasesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ReleasesApi
      */
-    public releasesIdGet(requestParameters: ReleasesApiReleasesIdGetRequest, options?: RawAxiosRequestConfig) {
-        return ReleasesApiFp(this.configuration).releasesIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public releasesGet(requestParameters: ReleasesApiReleasesGetRequest, options?: RawAxiosRequestConfig) {
+        return ReleasesApiFp(this.configuration).releasesGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Updates a specific release by its ID or reference number.
-     * @summary Update a release
-     * @param {ReleasesApiReleasesIdPutRequest} requestParameters Request parameters.
+     * Retrieves a list of all releases in the account.
+     * @summary List releases
+     * @param {ReleasesApiReleasesListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ReleasesApi
      */
-    public releasesIdPut(requestParameters: ReleasesApiReleasesIdPutRequest, options?: RawAxiosRequestConfig) {
-        return ReleasesApiFp(this.configuration).releasesIdPut(requestParameters.id, requestParameters.releaseUpdateRequest, options).then((request) => request(this.axios, this.basePath));
+    public releasesList(requestParameters: ReleasesApiReleasesListRequest = {}, options?: RawAxiosRequestConfig) {
+        return ReleasesApiFp(this.configuration).releasesList(requestParameters.q, requestParameters.updatedSince, requestParameters.assignedToUser, requestParameters.status, requestParameters.parkingLot, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -969,6 +957,18 @@ export class ReleasesApi extends BaseAPI implements ReleasesApiInterface {
      */
     public releasesReleaseIdCommentsGet(requestParameters: ReleasesApiReleasesReleaseIdCommentsGetRequest, options?: RawAxiosRequestConfig) {
         return ReleasesApiFp(this.configuration).releasesReleaseIdCommentsGet(requestParameters.releaseId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Updates a specific release by its ID or reference number.
+     * @summary Update a release
+     * @param {ReleasesApiReleasesUpdateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ReleasesApi
+     */
+    public releasesUpdate(requestParameters: ReleasesApiReleasesUpdateRequest, options?: RawAxiosRequestConfig) {
+        return ReleasesApiFp(this.configuration).releasesUpdate(requestParameters.id, requestParameters.releaseUpdateRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
