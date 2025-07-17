@@ -111,6 +111,12 @@ Class | Method | HTTP request | Description
 *ProductsApi* | [**productsGet**](docs/ProductsApi.md#productsget) | **GET** /products | List products in the account
 *ProductsApi* | [**productsProductIdCommentsGet**](docs/ProductsApi.md#productsproductidcommentsget) | **GET** /products/{product_id}/comments | List comments in a product
 *ReleasePhasesApi* | [**releasePhasesReleasePhaseIdCommentsGet**](docs/ReleasePhasesApi.md#releasephasesreleasephaseidcommentsget) | **GET** /release_phases/{release_phase_id}/comments | List comments on a release phase
+*ReleasesApi* | [**productsProductIdReleasesGet**](docs/ReleasesApi.md#productsproductidreleasesget) | **GET** /products/{product_id}/releases | List releases for a product
+*ReleasesApi* | [**productsProductIdReleasesPost**](docs/ReleasesApi.md#productsproductidreleasespost) | **POST** /products/{product_id}/releases | Create a release
+*ReleasesApi* | [**releasesGet**](docs/ReleasesApi.md#releasesget) | **GET** /releases | List releases
+*ReleasesApi* | [**releasesIdDelete**](docs/ReleasesApi.md#releasesiddelete) | **DELETE** /releases/{id} | Delete a release
+*ReleasesApi* | [**releasesIdGet**](docs/ReleasesApi.md#releasesidget) | **GET** /releases/{id} | Get a release
+*ReleasesApi* | [**releasesIdPut**](docs/ReleasesApi.md#releasesidput) | **PUT** /releases/{id} | Update a release
 *ReleasesApi* | [**releasesReleaseIdCommentsGet**](docs/ReleasesApi.md#releasesreleaseidcommentsget) | **GET** /releases/{release_id}/comments | List comments on a release
 *RequirementsApi* | [**requirementsRequirementIdCommentsGet**](docs/RequirementsApi.md#requirementsrequirementidcommentsget) | **GET** /requirements/{requirement_id}/comments | List comments on a requirement
 *ToDosApi* | [**todosTodoIdCommentsGet**](docs/ToDosApi.md#todostodoidcommentsget) | **GET** /todos/{todo_id}/comments | List comments on a to-do
@@ -206,6 +212,14 @@ Class | Method | HTTP request | Description
  - [ProductsListResponseProductsInner](docs/ProductsListResponseProductsInner.md)
  - [ProductsProductIdCompetitorsGet200Response](docs/ProductsProductIdCompetitorsGet200Response.md)
  - [ProductsProductIdEpicsGet200Response](docs/ProductsProductIdEpicsGet200Response.md)
+ - [Release](docs/Release.md)
+ - [ReleaseCreateRequest](docs/ReleaseCreateRequest.md)
+ - [ReleaseGetResponse](docs/ReleaseGetResponse.md)
+ - [ReleasePhasesInner](docs/ReleasePhasesInner.md)
+ - [ReleaseUpdateRequest](docs/ReleaseUpdateRequest.md)
+ - [ReleaseWorkflowStatusTimesInner](docs/ReleaseWorkflowStatusTimesInner.md)
+ - [ReleasesListResponse](docs/ReleasesListResponse.md)
+ - [ReleasesListResponsePagination](docs/ReleasesListResponsePagination.md)
  - [User](docs/User.md)
 
 
