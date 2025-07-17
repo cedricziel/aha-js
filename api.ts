@@ -26,6 +26,7 @@ export * from './api/products-api';
 export * from './api/release-phases-api';
 export * from './api/releases-api';
 export * from './api/requirements-api';
+export * from './api/strategic-models-api';
 export * from './api/to-dos-api';
 export * from './api/users-api';
 

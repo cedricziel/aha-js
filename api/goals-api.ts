@@ -24,6 +24,16 @@ import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError
 // @ts-ignore
 import type { EpicsEpicIdCommentsGet200Response } from '../model';
 // @ts-ignore
+import type { GoalCreateRequest } from '../model';
+// @ts-ignore
+import type { GoalGetResponse } from '../model';
+// @ts-ignore
+import type { GoalProgressUpdateRequest } from '../model';
+// @ts-ignore
+import type { GoalUpdateRequest } from '../model';
+// @ts-ignore
+import type { GoalsListResponse } from '../model';
+// @ts-ignore
 import type { ProductsProductIdEpicsGet200Response } from '../model';
 /**
  * GoalsApi - axios parameter creator
@@ -31,6 +41,100 @@ import type { ProductsProductIdEpicsGet200Response } from '../model';
  */
 export const GoalsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
+        /**
+         * Retrieves a list of all goals in the account.
+         * @summary List goals
+         * @param {string} [q] Search term to match against goal name.
+         * @param {string} [updatedSince] UTC timestamp (in ISO8601 format). If provided, only goals updated after the timestamp will be returned.
+         * @param {string} [assignedToUser] ID or email address of a user. If provided, returns only goals assigned to that user.
+         * @param {string} [status] Status filter for goals.
+         * @param {string} [startDateAfter] Filter goals with start date after this date.
+         * @param {string} [endDateBefore] Filter goals with end date before this date.
+         * @param {number} [progressMin] Filter goals with progress greater than or equal to this value.
+         * @param {number} [progressMax] Filter goals with progress less than or equal to this value.
+         * @param {number} [page] Page number for pagination.
+         * @param {number} [perPage] Number of goals per page.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        goalsGet: async (q?: string, updatedSince?: string, assignedToUser?: string, status?: string, startDateAfter?: string, endDateBefore?: string, progressMin?: number, progressMax?: number, page?: number, perPage?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/goals`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (q !== undefined) {
+                localVarQueryParameter['q'] = q;
+            }
+
+            if (updatedSince !== undefined) {
+                localVarQueryParameter['updated_since'] = (updatedSince as any instanceof Date) ?
+                    (updatedSince as any).toISOString() :
+                    updatedSince;
+            }
+
+            if (assignedToUser !== undefined) {
+                localVarQueryParameter['assigned_to_user'] = assignedToUser;
+            }
+
+            if (status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+
+            if (startDateAfter !== undefined) {
+                localVarQueryParameter['start_date_after'] = (startDateAfter as any instanceof Date) ?
+                    (startDateAfter as any).toISOString().substring(0,10) :
+                    startDateAfter;
+            }
+
+            if (endDateBefore !== undefined) {
+                localVarQueryParameter['end_date_before'] = (endDateBefore as any instanceof Date) ?
+                    (endDateBefore as any).toISOString().substring(0,10) :
+                    endDateBefore;
+            }
+
+            if (progressMin !== undefined) {
+                localVarQueryParameter['progress_min'] = progressMin;
+            }
+
+            if (progressMax !== undefined) {
+                localVarQueryParameter['progress_max'] = progressMax;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (perPage !== undefined) {
+                localVarQueryParameter['per_page'] = perPage;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
         /**
          * Retrieves a list of comments associated with the specified goal.
          * @summary List comments on a goal
@@ -115,6 +219,230 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * Deletes a specific goal by its ID or reference number.
+         * @summary Delete a goal
+         * @param {string} id Numeric ID or reference number of the goal
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        goalsIdDelete: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('goalsIdDelete', 'id', id)
+            const localVarPath = `/goals/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieves a specific goal by its ID or reference number.
+         * @summary Get a goal
+         * @param {string} id Numeric ID or reference number of the goal
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        goalsIdGet: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('goalsIdGet', 'id', id)
+            const localVarPath = `/goals/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Updates the progress of a specific goal and its key results.
+         * @summary Update goal progress
+         * @param {string} id Numeric ID or reference number of the goal
+         * @param {GoalProgressUpdateRequest} goalProgressUpdateRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        goalsIdProgressPut: async (id: string, goalProgressUpdateRequest: GoalProgressUpdateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('goalsIdProgressPut', 'id', id)
+            // verify required parameter 'goalProgressUpdateRequest' is not null or undefined
+            assertParamExists('goalsIdProgressPut', 'goalProgressUpdateRequest', goalProgressUpdateRequest)
+            const localVarPath = `/goals/{id}/progress`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(goalProgressUpdateRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Updates a specific goal by its ID or reference number.
+         * @summary Update a goal
+         * @param {string} id Numeric ID or reference number of the goal
+         * @param {GoalUpdateRequest} goalUpdateRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        goalsIdPut: async (id: string, goalUpdateRequest: GoalUpdateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('goalsIdPut', 'id', id)
+            // verify required parameter 'goalUpdateRequest' is not null or undefined
+            assertParamExists('goalsIdPut', 'goalUpdateRequest', goalUpdateRequest)
+            const localVarPath = `/goals/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(goalUpdateRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Creates a new goal in the account.
+         * @summary Create a goal
+         * @param {GoalCreateRequest} goalCreateRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        goalsPost: async (goalCreateRequest: GoalCreateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'goalCreateRequest' is not null or undefined
+            assertParamExists('goalsPost', 'goalCreateRequest', goalCreateRequest)
+            const localVarPath = `/goals`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(goalCreateRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -125,6 +453,28 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
 export const GoalsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = GoalsApiAxiosParamCreator(configuration)
     return {
+        /**
+         * Retrieves a list of all goals in the account.
+         * @summary List goals
+         * @param {string} [q] Search term to match against goal name.
+         * @param {string} [updatedSince] UTC timestamp (in ISO8601 format). If provided, only goals updated after the timestamp will be returned.
+         * @param {string} [assignedToUser] ID or email address of a user. If provided, returns only goals assigned to that user.
+         * @param {string} [status] Status filter for goals.
+         * @param {string} [startDateAfter] Filter goals with start date after this date.
+         * @param {string} [endDateBefore] Filter goals with end date before this date.
+         * @param {number} [progressMin] Filter goals with progress greater than or equal to this value.
+         * @param {number} [progressMax] Filter goals with progress less than or equal to this value.
+         * @param {number} [page] Page number for pagination.
+         * @param {number} [perPage] Number of goals per page.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async goalsGet(q?: string, updatedSince?: string, assignedToUser?: string, status?: string, startDateAfter?: string, endDateBefore?: string, progressMin?: number, progressMax?: number, page?: number, perPage?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GoalsListResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.goalsGet(q, updatedSince, assignedToUser, status, startDateAfter, endDateBefore, progressMin, progressMax, page, perPage, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['GoalsApi.goalsGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
         /**
          * Retrieves a list of comments associated with the specified goal.
          * @summary List comments on a goal
@@ -151,6 +501,73 @@ export const GoalsApiFp = function(configuration?: Configuration) {
             const localVarOperationServerBasePath = operationServerMap['GoalsApi.goalsGoalIdEpicsGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         * Deletes a specific goal by its ID or reference number.
+         * @summary Delete a goal
+         * @param {string} id Numeric ID or reference number of the goal
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async goalsIdDelete(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.goalsIdDelete(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['GoalsApi.goalsIdDelete']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Retrieves a specific goal by its ID or reference number.
+         * @summary Get a goal
+         * @param {string} id Numeric ID or reference number of the goal
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async goalsIdGet(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GoalGetResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.goalsIdGet(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['GoalsApi.goalsIdGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Updates the progress of a specific goal and its key results.
+         * @summary Update goal progress
+         * @param {string} id Numeric ID or reference number of the goal
+         * @param {GoalProgressUpdateRequest} goalProgressUpdateRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async goalsIdProgressPut(id: string, goalProgressUpdateRequest: GoalProgressUpdateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GoalGetResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.goalsIdProgressPut(id, goalProgressUpdateRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['GoalsApi.goalsIdProgressPut']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Updates a specific goal by its ID or reference number.
+         * @summary Update a goal
+         * @param {string} id Numeric ID or reference number of the goal
+         * @param {GoalUpdateRequest} goalUpdateRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async goalsIdPut(id: string, goalUpdateRequest: GoalUpdateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GoalGetResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.goalsIdPut(id, goalUpdateRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['GoalsApi.goalsIdPut']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Creates a new goal in the account.
+         * @summary Create a goal
+         * @param {GoalCreateRequest} goalCreateRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async goalsPost(goalCreateRequest: GoalCreateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GoalGetResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.goalsPost(goalCreateRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['GoalsApi.goalsPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     }
 };
 
@@ -161,6 +578,16 @@ export const GoalsApiFp = function(configuration?: Configuration) {
 export const GoalsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = GoalsApiFp(configuration)
     return {
+        /**
+         * Retrieves a list of all goals in the account.
+         * @summary List goals
+         * @param {GoalsApiGoalsGetRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        goalsGet(requestParameters: GoalsApiGoalsGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<GoalsListResponse> {
+            return localVarFp.goalsGet(requestParameters.q, requestParameters.updatedSince, requestParameters.assignedToUser, requestParameters.status, requestParameters.startDateAfter, requestParameters.endDateBefore, requestParameters.progressMin, requestParameters.progressMax, requestParameters.page, requestParameters.perPage, options).then((request) => request(axios, basePath));
+        },
         /**
          * Retrieves a list of comments associated with the specified goal.
          * @summary List comments on a goal
@@ -181,6 +608,56 @@ export const GoalsApiFactory = function (configuration?: Configuration, basePath
         goalsGoalIdEpicsGet(requestParameters: GoalsApiGoalsGoalIdEpicsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ProductsProductIdEpicsGet200Response> {
             return localVarFp.goalsGoalIdEpicsGet(requestParameters.goalId, options).then((request) => request(axios, basePath));
         },
+        /**
+         * Deletes a specific goal by its ID or reference number.
+         * @summary Delete a goal
+         * @param {GoalsApiGoalsIdDeleteRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        goalsIdDelete(requestParameters: GoalsApiGoalsIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.goalsIdDelete(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieves a specific goal by its ID or reference number.
+         * @summary Get a goal
+         * @param {GoalsApiGoalsIdGetRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        goalsIdGet(requestParameters: GoalsApiGoalsIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<GoalGetResponse> {
+            return localVarFp.goalsIdGet(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Updates the progress of a specific goal and its key results.
+         * @summary Update goal progress
+         * @param {GoalsApiGoalsIdProgressPutRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        goalsIdProgressPut(requestParameters: GoalsApiGoalsIdProgressPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<GoalGetResponse> {
+            return localVarFp.goalsIdProgressPut(requestParameters.id, requestParameters.goalProgressUpdateRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Updates a specific goal by its ID or reference number.
+         * @summary Update a goal
+         * @param {GoalsApiGoalsIdPutRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        goalsIdPut(requestParameters: GoalsApiGoalsIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<GoalGetResponse> {
+            return localVarFp.goalsIdPut(requestParameters.id, requestParameters.goalUpdateRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Creates a new goal in the account.
+         * @summary Create a goal
+         * @param {GoalsApiGoalsPostRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        goalsPost(requestParameters: GoalsApiGoalsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<GoalGetResponse> {
+            return localVarFp.goalsPost(requestParameters.goalCreateRequest, options).then((request) => request(axios, basePath));
+        },
     };
 };
 
@@ -190,6 +667,16 @@ export const GoalsApiFactory = function (configuration?: Configuration, basePath
  * @interface GoalsApi
  */
 export interface GoalsApiInterface {
+    /**
+     * Retrieves a list of all goals in the account.
+     * @summary List goals
+     * @param {GoalsApiGoalsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GoalsApiInterface
+     */
+    goalsGet(requestParameters?: GoalsApiGoalsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<GoalsListResponse>;
+
     /**
      * Retrieves a list of comments associated with the specified goal.
      * @summary List comments on a goal
@@ -210,6 +697,133 @@ export interface GoalsApiInterface {
      */
     goalsGoalIdEpicsGet(requestParameters: GoalsApiGoalsGoalIdEpicsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ProductsProductIdEpicsGet200Response>;
 
+    /**
+     * Deletes a specific goal by its ID or reference number.
+     * @summary Delete a goal
+     * @param {GoalsApiGoalsIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GoalsApiInterface
+     */
+    goalsIdDelete(requestParameters: GoalsApiGoalsIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+
+    /**
+     * Retrieves a specific goal by its ID or reference number.
+     * @summary Get a goal
+     * @param {GoalsApiGoalsIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GoalsApiInterface
+     */
+    goalsIdGet(requestParameters: GoalsApiGoalsIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<GoalGetResponse>;
+
+    /**
+     * Updates the progress of a specific goal and its key results.
+     * @summary Update goal progress
+     * @param {GoalsApiGoalsIdProgressPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GoalsApiInterface
+     */
+    goalsIdProgressPut(requestParameters: GoalsApiGoalsIdProgressPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<GoalGetResponse>;
+
+    /**
+     * Updates a specific goal by its ID or reference number.
+     * @summary Update a goal
+     * @param {GoalsApiGoalsIdPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GoalsApiInterface
+     */
+    goalsIdPut(requestParameters: GoalsApiGoalsIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<GoalGetResponse>;
+
+    /**
+     * Creates a new goal in the account.
+     * @summary Create a goal
+     * @param {GoalsApiGoalsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GoalsApiInterface
+     */
+    goalsPost(requestParameters: GoalsApiGoalsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<GoalGetResponse>;
+
+}
+
+/**
+ * Request parameters for goalsGet operation in GoalsApi.
+ * @export
+ * @interface GoalsApiGoalsGetRequest
+ */
+export interface GoalsApiGoalsGetRequest {
+    /**
+     * Search term to match against goal name.
+     * @type {string}
+     * @memberof GoalsApiGoalsGet
+     */
+    readonly q?: string
+
+    /**
+     * UTC timestamp (in ISO8601 format). If provided, only goals updated after the timestamp will be returned.
+     * @type {string}
+     * @memberof GoalsApiGoalsGet
+     */
+    readonly updatedSince?: string
+
+    /**
+     * ID or email address of a user. If provided, returns only goals assigned to that user.
+     * @type {string}
+     * @memberof GoalsApiGoalsGet
+     */
+    readonly assignedToUser?: string
+
+    /**
+     * Status filter for goals.
+     * @type {string}
+     * @memberof GoalsApiGoalsGet
+     */
+    readonly status?: string
+
+    /**
+     * Filter goals with start date after this date.
+     * @type {string}
+     * @memberof GoalsApiGoalsGet
+     */
+    readonly startDateAfter?: string
+
+    /**
+     * Filter goals with end date before this date.
+     * @type {string}
+     * @memberof GoalsApiGoalsGet
+     */
+    readonly endDateBefore?: string
+
+    /**
+     * Filter goals with progress greater than or equal to this value.
+     * @type {number}
+     * @memberof GoalsApiGoalsGet
+     */
+    readonly progressMin?: number
+
+    /**
+     * Filter goals with progress less than or equal to this value.
+     * @type {number}
+     * @memberof GoalsApiGoalsGet
+     */
+    readonly progressMax?: number
+
+    /**
+     * Page number for pagination.
+     * @type {number}
+     * @memberof GoalsApiGoalsGet
+     */
+    readonly page?: number
+
+    /**
+     * Number of goals per page.
+     * @type {number}
+     * @memberof GoalsApiGoalsGet
+     */
+    readonly perPage?: number
 }
 
 /**
@@ -241,12 +855,108 @@ export interface GoalsApiGoalsGoalIdEpicsGetRequest {
 }
 
 /**
+ * Request parameters for goalsIdDelete operation in GoalsApi.
+ * @export
+ * @interface GoalsApiGoalsIdDeleteRequest
+ */
+export interface GoalsApiGoalsIdDeleteRequest {
+    /**
+     * Numeric ID or reference number of the goal
+     * @type {string}
+     * @memberof GoalsApiGoalsIdDelete
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for goalsIdGet operation in GoalsApi.
+ * @export
+ * @interface GoalsApiGoalsIdGetRequest
+ */
+export interface GoalsApiGoalsIdGetRequest {
+    /**
+     * Numeric ID or reference number of the goal
+     * @type {string}
+     * @memberof GoalsApiGoalsIdGet
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for goalsIdProgressPut operation in GoalsApi.
+ * @export
+ * @interface GoalsApiGoalsIdProgressPutRequest
+ */
+export interface GoalsApiGoalsIdProgressPutRequest {
+    /**
+     * Numeric ID or reference number of the goal
+     * @type {string}
+     * @memberof GoalsApiGoalsIdProgressPut
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {GoalProgressUpdateRequest}
+     * @memberof GoalsApiGoalsIdProgressPut
+     */
+    readonly goalProgressUpdateRequest: GoalProgressUpdateRequest
+}
+
+/**
+ * Request parameters for goalsIdPut operation in GoalsApi.
+ * @export
+ * @interface GoalsApiGoalsIdPutRequest
+ */
+export interface GoalsApiGoalsIdPutRequest {
+    /**
+     * Numeric ID or reference number of the goal
+     * @type {string}
+     * @memberof GoalsApiGoalsIdPut
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {GoalUpdateRequest}
+     * @memberof GoalsApiGoalsIdPut
+     */
+    readonly goalUpdateRequest: GoalUpdateRequest
+}
+
+/**
+ * Request parameters for goalsPost operation in GoalsApi.
+ * @export
+ * @interface GoalsApiGoalsPostRequest
+ */
+export interface GoalsApiGoalsPostRequest {
+    /**
+     * 
+     * @type {GoalCreateRequest}
+     * @memberof GoalsApiGoalsPost
+     */
+    readonly goalCreateRequest: GoalCreateRequest
+}
+
+/**
  * GoalsApi - object-oriented interface
  * @export
  * @class GoalsApi
  * @extends {BaseAPI}
  */
 export class GoalsApi extends BaseAPI implements GoalsApiInterface {
+    /**
+     * Retrieves a list of all goals in the account.
+     * @summary List goals
+     * @param {GoalsApiGoalsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GoalsApi
+     */
+    public goalsGet(requestParameters: GoalsApiGoalsGetRequest = {}, options?: RawAxiosRequestConfig) {
+        return GoalsApiFp(this.configuration).goalsGet(requestParameters.q, requestParameters.updatedSince, requestParameters.assignedToUser, requestParameters.status, requestParameters.startDateAfter, requestParameters.endDateBefore, requestParameters.progressMin, requestParameters.progressMax, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * Retrieves a list of comments associated with the specified goal.
      * @summary List comments on a goal
@@ -269,6 +979,66 @@ export class GoalsApi extends BaseAPI implements GoalsApiInterface {
      */
     public goalsGoalIdEpicsGet(requestParameters: GoalsApiGoalsGoalIdEpicsGetRequest, options?: RawAxiosRequestConfig) {
         return GoalsApiFp(this.configuration).goalsGoalIdEpicsGet(requestParameters.goalId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Deletes a specific goal by its ID or reference number.
+     * @summary Delete a goal
+     * @param {GoalsApiGoalsIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GoalsApi
+     */
+    public goalsIdDelete(requestParameters: GoalsApiGoalsIdDeleteRequest, options?: RawAxiosRequestConfig) {
+        return GoalsApiFp(this.configuration).goalsIdDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieves a specific goal by its ID or reference number.
+     * @summary Get a goal
+     * @param {GoalsApiGoalsIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GoalsApi
+     */
+    public goalsIdGet(requestParameters: GoalsApiGoalsIdGetRequest, options?: RawAxiosRequestConfig) {
+        return GoalsApiFp(this.configuration).goalsIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Updates the progress of a specific goal and its key results.
+     * @summary Update goal progress
+     * @param {GoalsApiGoalsIdProgressPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GoalsApi
+     */
+    public goalsIdProgressPut(requestParameters: GoalsApiGoalsIdProgressPutRequest, options?: RawAxiosRequestConfig) {
+        return GoalsApiFp(this.configuration).goalsIdProgressPut(requestParameters.id, requestParameters.goalProgressUpdateRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Updates a specific goal by its ID or reference number.
+     * @summary Update a goal
+     * @param {GoalsApiGoalsIdPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GoalsApi
+     */
+    public goalsIdPut(requestParameters: GoalsApiGoalsIdPutRequest, options?: RawAxiosRequestConfig) {
+        return GoalsApiFp(this.configuration).goalsIdPut(requestParameters.id, requestParameters.goalUpdateRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Creates a new goal in the account.
+     * @summary Create a goal
+     * @param {GoalsApiGoalsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GoalsApi
+     */
+    public goalsPost(requestParameters: GoalsApiGoalsPostRequest, options?: RawAxiosRequestConfig) {
+        return GoalsApiFp(this.configuration).goalsPost(requestParameters.goalCreateRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

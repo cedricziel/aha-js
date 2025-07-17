@@ -93,8 +93,14 @@ Class | Method | HTTP request | Description
 *FeaturesApi* | [**featuresIdReleasePut**](docs/FeaturesApi.md#featuresidreleaseput) | **PUT** /features/{id}/release | Update a feature\&#39;s release
 *FeaturesApi* | [**featuresIdScorePut**](docs/FeaturesApi.md#featuresidscoreput) | **PUT** /features/{id}/score | Update a feature\&#39;s score
 *FeaturesApi* | [**featuresIdTagsPut**](docs/FeaturesApi.md#featuresidtagsput) | **PUT** /features/{id}/tags | Update a feature\&#39;s tags with an array
+*GoalsApi* | [**goalsGet**](docs/GoalsApi.md#goalsget) | **GET** /goals | List goals
 *GoalsApi* | [**goalsGoalIdCommentsGet**](docs/GoalsApi.md#goalsgoalidcommentsget) | **GET** /goals/{goal_id}/comments | List comments on a goal
 *GoalsApi* | [**goalsGoalIdEpicsGet**](docs/GoalsApi.md#goalsgoalidepicsget) | **GET** /goals/{goal_id}/epics | List epics associated with a goal
+*GoalsApi* | [**goalsIdDelete**](docs/GoalsApi.md#goalsiddelete) | **DELETE** /goals/{id} | Delete a goal
+*GoalsApi* | [**goalsIdGet**](docs/GoalsApi.md#goalsidget) | **GET** /goals/{id} | Get a goal
+*GoalsApi* | [**goalsIdProgressPut**](docs/GoalsApi.md#goalsidprogressput) | **PUT** /goals/{id}/progress | Update goal progress
+*GoalsApi* | [**goalsIdPut**](docs/GoalsApi.md#goalsidput) | **PUT** /goals/{id} | Update a goal
+*GoalsApi* | [**goalsPost**](docs/GoalsApi.md#goalspost) | **POST** /goals | Create a goal
 *IdeasApi* | [**ideasIdDelete**](docs/IdeasApi.md#ideasiddelete) | **DELETE** /ideas/{id} | Delete an idea
 *IdeasApi* | [**ideasIdGet**](docs/IdeasApi.md#ideasidget) | **GET** /ideas/{id} | Get a specific idea
 *IdeasApi* | [**ideasIdeaIdCommentsGet**](docs/IdeasApi.md#ideasideaidcommentsget) | **GET** /ideas/{idea_id}/comments | List comments on an idea
@@ -119,6 +125,11 @@ Class | Method | HTTP request | Description
 *ReleasesApi* | [**releasesIdPut**](docs/ReleasesApi.md#releasesidput) | **PUT** /releases/{id} | Update a release
 *ReleasesApi* | [**releasesReleaseIdCommentsGet**](docs/ReleasesApi.md#releasesreleaseidcommentsget) | **GET** /releases/{release_id}/comments | List comments on a release
 *RequirementsApi* | [**requirementsRequirementIdCommentsGet**](docs/RequirementsApi.md#requirementsrequirementidcommentsget) | **GET** /requirements/{requirement_id}/comments | List comments on a requirement
+*StrategicModelsApi* | [**strategicModelsGet**](docs/StrategicModelsApi.md#strategicmodelsget) | **GET** /strategic_models | List strategic models
+*StrategicModelsApi* | [**strategicModelsIdDelete**](docs/StrategicModelsApi.md#strategicmodelsiddelete) | **DELETE** /strategic_models/{id} | Delete a strategic model
+*StrategicModelsApi* | [**strategicModelsIdGet**](docs/StrategicModelsApi.md#strategicmodelsidget) | **GET** /strategic_models/{id} | Get a strategic model
+*StrategicModelsApi* | [**strategicModelsIdPut**](docs/StrategicModelsApi.md#strategicmodelsidput) | **PUT** /strategic_models/{id} | Update a strategic model
+*StrategicModelsApi* | [**strategicModelsPost**](docs/StrategicModelsApi.md#strategicmodelspost) | **POST** /strategic_models | Create a strategic model
 *ToDosApi* | [**todosTodoIdCommentsGet**](docs/ToDosApi.md#todostodoidcommentsget) | **GET** /todos/{todo_id}/comments | List comments on a to-do
 *UsersApi* | [**usersGet**](docs/UsersApi.md#usersget) | **GET** /users | List users
 *UsersApi* | [**usersIdGet**](docs/UsersApi.md#usersidget) | **GET** /users/{id} | Get a specific user
@@ -176,6 +187,18 @@ Class | Method | HTTP request | Description
  - [FeaturesListResponse](docs/FeaturesListResponse.md)
  - [FeaturesListResponseFeaturesInner](docs/FeaturesListResponseFeaturesInner.md)
  - [FeaturesListResponsePagination](docs/FeaturesListResponsePagination.md)
+ - [Goal](docs/Goal.md)
+ - [GoalCreateRequest](docs/GoalCreateRequest.md)
+ - [GoalCreateRequestKeyResultsInner](docs/GoalCreateRequestKeyResultsInner.md)
+ - [GoalGetResponse](docs/GoalGetResponse.md)
+ - [GoalInitiativesInner](docs/GoalInitiativesInner.md)
+ - [GoalKeyResultsInner](docs/GoalKeyResultsInner.md)
+ - [GoalProgressUpdateRequest](docs/GoalProgressUpdateRequest.md)
+ - [GoalProgressUpdateRequestKeyResultsInner](docs/GoalProgressUpdateRequestKeyResultsInner.md)
+ - [GoalUpdateRequest](docs/GoalUpdateRequest.md)
+ - [GoalUpdateRequestKeyResultsInner](docs/GoalUpdateRequestKeyResultsInner.md)
+ - [GoalsListResponse](docs/GoalsListResponse.md)
+ - [GoalsListResponsePagination](docs/GoalsListResponsePagination.md)
  - [IdeaCreateByPortalUserRequest](docs/IdeaCreateByPortalUserRequest.md)
  - [IdeaCreateByPortalUserRequestIdea](docs/IdeaCreateByPortalUserRequestIdea.md)
  - [IdeaCreateByPortalUserRequestIdeaCreatedByPortalUser](docs/IdeaCreateByPortalUserRequestIdeaCreatedByPortalUser.md)
@@ -220,6 +243,12 @@ Class | Method | HTTP request | Description
  - [ReleaseWorkflowStatusTimesInner](docs/ReleaseWorkflowStatusTimesInner.md)
  - [ReleasesListResponse](docs/ReleasesListResponse.md)
  - [ReleasesListResponsePagination](docs/ReleasesListResponsePagination.md)
+ - [StrategicModel](docs/StrategicModel.md)
+ - [StrategicModelCreateRequest](docs/StrategicModelCreateRequest.md)
+ - [StrategicModelGetResponse](docs/StrategicModelGetResponse.md)
+ - [StrategicModelUpdateRequest](docs/StrategicModelUpdateRequest.md)
+ - [StrategicModelsListResponse](docs/StrategicModelsListResponse.md)
+ - [StrategicModelsListResponsePagination](docs/StrategicModelsListResponsePagination.md)
  - [User](docs/User.md)
 
 
