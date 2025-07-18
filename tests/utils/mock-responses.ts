@@ -68,39 +68,39 @@ export const MockResponses = {
  */
 export const MockRequests = {
   /**
-   * GET request patterns
+   * GET request patterns with full URLs
    */
   get: {
-    features: '/features',
-    featuresWithId: (id: string) => `/features/${id}`,
-    products: '/products',
-    productsWithId: (id: string) => `/products/${id}`,
-    meProfile: '/me',
-    meAssigned: '/me/assigned',
-    meTasks: '/me/tasks'
+    features: 'https://test.aha.io/api/v1/features',
+    featuresWithId: (id: string) => `https://test.aha.io/api/v1/features/${id}`,
+    products: 'https://test.aha.io/api/v1/products',
+    productsWithId: (id: string) => `https://test.aha.io/api/v1/products/${id}`,
+    meProfile: 'https://test.aha.io/api/v1/me',
+    meAssigned: 'https://test.aha.io/api/v1/me/assigned',
+    meTasks: 'https://test.aha.io/api/v1/me/tasks'
   },
 
   /**
-   * POST request patterns
+   * POST request patterns with full URLs
    */
   post: {
-    features: '/features',
-    comments: (resourceType: string, id: string) => `/${resourceType}/${id}/comments`
+    features: 'https://test.aha.io/api/v1/features',
+    comments: (resourceType: string, id: string) => `https://test.aha.io/api/v1/${resourceType}/${id}/comments`
   },
 
   /**
-   * PUT request patterns
+   * PUT request patterns with full URLs
    */
   put: {
-    featuresWithId: (id: string) => `/features/${id}`,
-    productsWithId: (id: string) => `/products/${id}`
+    featuresWithId: (id: string) => `https://test.aha.io/api/v1/features/${id}`,
+    productsWithId: (id: string) => `https://test.aha.io/api/v1/products/${id}`
   },
 
   /**
-   * DELETE request patterns
+   * DELETE request patterns with full URLs
    */
   delete: {
-    featuresWithId: (id: string) => `/features/${id}`,
-    productsWithId: (id: string) => `/products/${id}`
+    featuresWithId: (id: string) => `https://test.aha.io/api/v1/features/${id}`,
+    productsWithId: (id: string) => `https://test.aha.io/api/v1/products/${id}`
   }
 };

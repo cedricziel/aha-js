@@ -87,7 +87,7 @@ describe('ProductsApi', () => {
       const customApi = new ProductsApi(customConfig);
 
       mockAdapter
-        .onGet(MockRequests.get.products)
+        .onGet('https://custom.aha.io/api/v1/products')
         .reply(200, MockResponses.products.list);
 
       await customApi.productsList();

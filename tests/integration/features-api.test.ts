@@ -39,24 +39,24 @@ describe('FeaturesApi', () => {
 
     it('should handle search query parameter', async () => {
       mockAdapter
-        .onGet(MockRequests.get.features)
+        .onGet(/https:\/\/test\.aha\.io\/api\/v1\/features/)
         .reply(200, MockResponses.features.list);
 
       await api.featuresList({ q: 'test feature' });
 
       const request = mockAdapter.history.get[0];
-      expect(request.params).toEqual({ q: 'test feature' });
+      expect(request.url).toContain('q=test+feature');
     });
 
     it('should handle tag filter', async () => {
       mockAdapter
-        .onGet(MockRequests.get.features)
+        .onGet(/https:\/\/test\.aha\.io\/api\/v1\/features/)
         .reply(200, MockResponses.features.list);
 
       await api.featuresList({ tag: 'high-priority' });
 
       const request = mockAdapter.history.get[0];
-      expect(request.params).toEqual({ tag: 'high-priority' });
+      expect(request.url).toContain('tag=high-priority');
     });
 
     it('should handle 401 unauthorized error', async () => {

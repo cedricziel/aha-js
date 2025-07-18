@@ -1,4 +1,5 @@
 import MockAdapter from 'axios-mock-adapter';
+import axios from 'axios';
 import { Configuration } from '../../configuration';
 import { BASE_PATH } from '../../base';
 
@@ -17,7 +18,7 @@ export function createTestConfig(overrides: Partial<Configuration> = {}): Config
  * Create a mock adapter for axios requests
  */
 export function createMockAdapter(): any {
-  return new MockAdapter(require('axios'));
+  return new MockAdapter(axios);
 }
 
 /**
@@ -81,8 +82,8 @@ export const TestUtils = {
   /**
    * Assert that a request was made to the correct URL
    */
-  assertCorrectUrl(url: string, expectedPath: string, basePath: string = 'https://test.aha.io/api/v1') {
-    expect(url).toBe(`${basePath}${expectedPath}`);
+  assertCorrectUrl(url: string, expectedUrl: string) {
+    expect(url).toBe(expectedUrl);
   },
 
   /**
