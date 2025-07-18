@@ -311,6 +311,9 @@ import {
 const configuration = new Configuration();
 const apiInstance = new GoalsApi(configuration);
 
+let page: number; //Page number for pagination (starts at 1) (optional) (default to 1)
+let perPage: number; //Number of items per page (max 200) (optional) (default to 30)
+let fields: string; //Comma-separated list of fields to include in response for customization (optional) (default to undefined)
 let q: string; //Search term to match against goal name. (optional) (default to undefined)
 let updatedSince: string; //UTC timestamp (in ISO8601 format). If provided, only goals updated after the timestamp will be returned. (optional) (default to undefined)
 let assignedToUser: string; //ID or email address of a user. If provided, returns only goals assigned to that user. (optional) (default to undefined)
@@ -319,10 +322,11 @@ let startDateAfter: string; //Filter goals with start date after this date. (opt
 let endDateBefore: string; //Filter goals with end date before this date. (optional) (default to undefined)
 let progressMin: number; //Filter goals with progress greater than or equal to this value. (optional) (default to undefined)
 let progressMax: number; //Filter goals with progress less than or equal to this value. (optional) (default to undefined)
-let page: number; //Page number for pagination. (optional) (default to 1)
-let perPage: number; //Number of goals per page. (optional) (default to 20)
 
 const { status, data } = await apiInstance.goalsList(
+    page,
+    perPage,
+    fields,
     q,
     updatedSince,
     assignedToUser,
@@ -330,9 +334,7 @@ const { status, data } = await apiInstance.goalsList(
     startDateAfter,
     endDateBefore,
     progressMin,
-    progressMax,
-    page,
-    perPage
+    progressMax
 );
 ```
 
@@ -340,6 +342,9 @@ const { status, data } = await apiInstance.goalsList(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
+| **page** | [**number**] | Page number for pagination (starts at 1) | (optional) defaults to 1|
+| **perPage** | [**number**] | Number of items per page (max 200) | (optional) defaults to 30|
+| **fields** | [**string**] | Comma-separated list of fields to include in response for customization | (optional) defaults to undefined|
 | **q** | [**string**] | Search term to match against goal name. | (optional) defaults to undefined|
 | **updatedSince** | [**string**] | UTC timestamp (in ISO8601 format). If provided, only goals updated after the timestamp will be returned. | (optional) defaults to undefined|
 | **assignedToUser** | [**string**] | ID or email address of a user. If provided, returns only goals assigned to that user. | (optional) defaults to undefined|
@@ -348,8 +353,6 @@ const { status, data } = await apiInstance.goalsList(
 | **endDateBefore** | [**string**] | Filter goals with end date before this date. | (optional) defaults to undefined|
 | **progressMin** | [**number**] | Filter goals with progress greater than or equal to this value. | (optional) defaults to undefined|
 | **progressMax** | [**number**] | Filter goals with progress less than or equal to this value. | (optional) defaults to undefined|
-| **page** | [**number**] | Page number for pagination. | (optional) defaults to 1|
-| **perPage** | [**number**] | Number of goals per page. | (optional) defaults to 20|
 
 
 ### Return type

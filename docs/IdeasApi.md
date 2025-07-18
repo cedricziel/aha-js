@@ -737,6 +737,9 @@ import {
 const configuration = new Configuration();
 const apiInstance = new IdeasApi(configuration);
 
+let page: number; //Page number for pagination (starts at 1) (optional) (default to 1)
+let perPage: number; //Number of items per page (max 200) (optional) (default to 30)
+let fields: string; //Comma-separated list of fields to include in response for customization (optional) (default to undefined)
 let q: string; //Search term to match against idea name. (optional) (default to undefined)
 let updatedSince: string; //UTC timestamp (in ISO8601 format). If provided, only ideas updated after the timestamp will be returned. (optional) (default to undefined)
 let assignedToUser: string; //ID or email address of a user. If provided, returns only ideas assigned to that user. (optional) (default to undefined)
@@ -752,10 +755,11 @@ let createdSince: string; //UTC timestamp (in ISO8601 format). If provided, only
 let tag: string; //String tag value. If provided, only ideas with the associated tag will be returned. (optional) (default to undefined)
 let userId: string; //ID of a user. If provided, only ideas created by that user will be returned. (optional) (default to undefined)
 let ideaUserId: string; //ID of an idea user. If provided, only ideas created by that idea user will be returned. (optional) (default to undefined)
-let page: number; //Page number for pagination. (optional) (default to 1)
-let perPage: number; //Number of ideas per page. (optional) (default to 20)
 
 const { status, data } = await apiInstance.ideasList(
+    page,
+    perPage,
+    fields,
     q,
     updatedSince,
     assignedToUser,
@@ -770,9 +774,7 @@ const { status, data } = await apiInstance.ideasList(
     createdSince,
     tag,
     userId,
-    ideaUserId,
-    page,
-    perPage
+    ideaUserId
 );
 ```
 
@@ -780,6 +782,9 @@ const { status, data } = await apiInstance.ideasList(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
+| **page** | [**number**] | Page number for pagination (starts at 1) | (optional) defaults to 1|
+| **perPage** | [**number**] | Number of items per page (max 200) | (optional) defaults to 30|
+| **fields** | [**string**] | Comma-separated list of fields to include in response for customization | (optional) defaults to undefined|
 | **q** | [**string**] | Search term to match against idea name. | (optional) defaults to undefined|
 | **updatedSince** | [**string**] | UTC timestamp (in ISO8601 format). If provided, only ideas updated after the timestamp will be returned. | (optional) defaults to undefined|
 | **assignedToUser** | [**string**] | ID or email address of a user. If provided, returns only ideas assigned to that user. | (optional) defaults to undefined|
@@ -795,8 +800,6 @@ const { status, data } = await apiInstance.ideasList(
 | **tag** | [**string**] | String tag value. If provided, only ideas with the associated tag will be returned. | (optional) defaults to undefined|
 | **userId** | [**string**] | ID of a user. If provided, only ideas created by that user will be returned. | (optional) defaults to undefined|
 | **ideaUserId** | [**string**] | ID of an idea user. If provided, only ideas created by that idea user will be returned. | (optional) defaults to undefined|
-| **page** | [**number**] | Page number for pagination. | (optional) defaults to 1|
-| **perPage** | [**number**] | Number of ideas per page. | (optional) defaults to 20|
 
 
 ### Return type

@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **features** | [**Array&lt;Feature&gt;**](Feature.md) |  | [optional] [default to undefined]
-**pagination** | [**FeaturesListResponsePagination**](FeaturesListResponsePagination.md) |  | [optional] [default to undefined]
+**meta** | [**PaginationMeta**](PaginationMeta.md) |  | [optional] [default to undefined]
 
 ## Example
 
@@ -15,7 +15,7 @@ import { FeaturesListResponse } from '@cedricziel/aha-js';
 
 const instance: FeaturesListResponse = {
     features,
-    pagination,
+    meta,
 };
 ```
 

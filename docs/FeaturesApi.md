@@ -119,7 +119,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -129,6 +129,8 @@ void (empty response body)
 |**401** | Unauthorized - Invalid or missing authentication |  -  |
 |**403** | Forbidden - Insufficient permissions |  -  |
 |**404** | Feature not found |  -  |
+|**429** | Rate limit exceeded - Too many requests |  -  |
+|**504** | Gateway timeout - Request timed out |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -183,6 +185,8 @@ const { status, data } = await apiInstance.featuresGet(
 |**401** | Unauthorized - Invalid or missing authentication |  -  |
 |**403** | Forbidden - Insufficient permissions |  -  |
 |**404** | Feature not found |  -  |
+|**429** | Rate limit exceeded - Too many requests |  -  |
+|**504** | Gateway timeout - Request timed out |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -666,12 +670,18 @@ import {
 const configuration = new Configuration();
 const apiInstance = new FeaturesApi(configuration);
 
+let page: number; //Page number for pagination (starts at 1) (optional) (default to 1)
+let perPage: number; //Number of items per page (max 200) (optional) (default to 30)
+let fields: string; //Comma-separated list of fields to include in response for customization (optional) (default to undefined)
 let q: string; //Search term to match against feature name (optional) (default to undefined)
 let updatedSince: string; //UTC timestamp (in ISO8601 format). If provided, only features updated after the timestamp will be returned (optional) (default to undefined)
 let tag: string; //String tag value. If provided, only features with the associated tag will be returned (optional) (default to undefined)
 let assignedToUser: string; //ID or email address of a user. If provided, only features assigned to that user will be returned (optional) (default to undefined)
 
 const { status, data } = await apiInstance.featuresList(
+    page,
+    perPage,
+    fields,
     q,
     updatedSince,
     tag,
@@ -683,6 +693,9 @@ const { status, data } = await apiInstance.featuresList(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
+| **page** | [**number**] | Page number for pagination (starts at 1) | (optional) defaults to 1|
+| **perPage** | [**number**] | Number of items per page (max 200) | (optional) defaults to 30|
+| **fields** | [**string**] | Comma-separated list of fields to include in response for customization | (optional) defaults to undefined|
 | **q** | [**string**] | Search term to match against feature name | (optional) defaults to undefined|
 | **updatedSince** | [**string**] | UTC timestamp (in ISO8601 format). If provided, only features updated after the timestamp will be returned | (optional) defaults to undefined|
 | **tag** | [**string**] | String tag value. If provided, only features with the associated tag will be returned | (optional) defaults to undefined|
@@ -709,6 +722,8 @@ const { status, data } = await apiInstance.featuresList(
 |**200** | A list of features |  -  |
 |**401** | Unauthorized |  -  |
 |**403** | Forbidden |  -  |
+|**429** | Rate limit exceeded - Too many requests |  -  |
+|**504** | Gateway timeout - Request timed out |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -769,6 +784,8 @@ const { status, data } = await apiInstance.featuresUpdate(
 |**403** | Forbidden - Insufficient permissions |  -  |
 |**404** | Feature not found |  -  |
 |**422** | Unprocessable entity - Validation errors |  -  |
+|**429** | Rate limit exceeded - Too many requests |  -  |
+|**504** | Gateway timeout - Request timed out |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

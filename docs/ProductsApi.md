@@ -132,9 +132,15 @@ import {
 const configuration = new Configuration();
 const apiInstance = new ProductsApi(configuration);
 
+let page: number; //Page number for pagination (starts at 1) (optional) (default to 1)
+let perPage: number; //Number of items per page (max 200) (optional) (default to 30)
+let fields: string; //Comma-separated list of fields to include in response for customization (optional) (default to undefined)
 let updatedSince: string; //UTC timestamp (in ISO8601 format). If provided, only products updated after the timestamp will be returned. (optional) (default to undefined)
 
 const { status, data } = await apiInstance.productsList(
+    page,
+    perPage,
+    fields,
     updatedSince
 );
 ```
@@ -143,6 +149,9 @@ const { status, data } = await apiInstance.productsList(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
+| **page** | [**number**] | Page number for pagination (starts at 1) | (optional) defaults to 1|
+| **perPage** | [**number**] | Number of items per page (max 200) | (optional) defaults to 30|
+| **fields** | [**string**] | Comma-separated list of fields to include in response for customization | (optional) defaults to undefined|
 | **updatedSince** | [**string**] | UTC timestamp (in ISO8601 format). If provided, only products updated after the timestamp will be returned. | (optional) defaults to undefined|
 
 
@@ -166,6 +175,8 @@ const { status, data } = await apiInstance.productsList(
 |**200** | OK |  -  |
 |**401** | Unauthorized |  -  |
 |**403** | Forbidden |  -  |
+|**429** | Rate limit exceeded - Too many requests |  -  |
+|**504** | Gateway timeout - Request timed out |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

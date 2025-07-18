@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **products** | [**Array&lt;Product&gt;**](Product.md) | List of products | [optional] [default to undefined]
-**pagination** | [**IdeasListResponsePagination**](IdeasListResponsePagination.md) |  | [optional] [default to undefined]
+**meta** | [**PaginationMeta**](PaginationMeta.md) |  | [optional] [default to undefined]
 
 ## Example
 
@@ -15,7 +15,7 @@ import { ProductsListResponse } from '@cedricziel/aha-js';
 
 const instance: ProductsListResponse = {
     products,
-    pagination,
+    meta,
 };
 ```
 
