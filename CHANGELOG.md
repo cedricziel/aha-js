@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/cedricziel/aha-js/compare/v1.1.1...v1.2.0) (2025-07-18)
+
+
+### Features
+
+* Add comprehensive test suite for API client ([#10](https://github.com/cedricziel/aha-js/issues/10)) ([0512eaa](https://github.com/cedricziel/aha-js/commit/0512eaa458a04012f75cbdc29b918040dac745af))
+
 ## [1.1.1](https://github.com/cedricziel/aha-js/compare/v1.1.0...v1.1.1) (2025-07-18)
 
 
