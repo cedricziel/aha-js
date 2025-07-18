@@ -45,8 +45,27 @@ jobs:
 
       - name: Commit and Push Changes
         run: |
-          git config --local user.email "mail@cedric-ziel.com"
+          git config --local user.email "cedricziel@users.noreply.github.com"
           git config --local user.name "Cedric Ziel"
           git add .
-          git commit -m "fix: Update API client from latest spec" || echo "No changes to commit"
-          git push
+
+          # Get the latest commit hash from the spec repository
+          SPEC_COMMIT=$(cd spec && git rev-parse --short HEAD)
+          SPEC_DATE=$(cd spec && git log -1 --format=%cd --date=short)
+
+          # Check if there are any changes to commit
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            # Get summary of changes
+            CHANGED_FILES=$(git diff --staged --name-only | wc -l | tr -d ' ')
+            CHANGED_LIST=$(git diff --staged --name-only | sed 's/^/- /')
+
+            # Create descriptive commit message with change summary
+            git commit -m "fix: Update API client from spec ${SPEC_COMMIT} (${SPEC_DATE})
+
+            Updated ${CHANGED_FILES} files from latest OpenAPI specification:
+
+            ${CHANGED_LIST}"
+            git push
+          fi
