@@ -1,2 +1,6 @@
 package.json
 package.lock
+package-lock.json
+jest.config.js
+tests/
+coverage/
