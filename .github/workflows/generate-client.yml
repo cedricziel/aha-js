@@ -34,7 +34,12 @@ jobs:
       - name: Move Generated Files
         run: |
           rm -rf api docs model
-          mv generated/* .
+          # Move only the directories we want, not package.json or other root files
+          mv generated/api .
+          mv generated/model .
+          mv generated/docs .
+          # Move TypeScript files but preserve our package.json
+          find generated -name "*.ts" -maxdepth 1 -exec mv {} . \;
           rm -rf generated
 
       - name: Install Dependencies
