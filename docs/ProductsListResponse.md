@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**products** | [**Array&lt;ProductsListResponseProductsInner&gt;**](ProductsListResponseProductsInner.md) | List of products | [optional] [default to undefined]
+**products** | [**Array&lt;Product&gt;**](Product.md) | List of products | [optional] [default to undefined]
 **pagination** | [**IdeasListResponsePagination**](IdeasListResponsePagination.md) |  | [optional] [default to undefined]
 
 ## Example

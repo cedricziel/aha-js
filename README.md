@@ -144,8 +144,14 @@ Class | Method | HTTP request | Description
 *MeApi* | [**meGetPendingTasks**](docs/MeApi.md#megetpendingtasks) | **GET** /me/tasks | Get pending tasks assigned to current user
 *MeApi* | [**meGetProfile**](docs/MeApi.md#megetprofile) | **GET** /me | Get current user profile
 *ProductsApi* | [**commentsGetProduct**](docs/ProductsApi.md#commentsgetproduct) | **GET** /products/{product_id}/comments | List comments in a product
+*ProductsApi* | [**productsGet**](docs/ProductsApi.md#productsget) | **GET** /products/{id} | Get a specific product
 *ProductsApi* | [**productsList**](docs/ProductsApi.md#productslist) | **GET** /products | List products in the account
 *ReleasePhasesApi* | [**commentsGetReleasePhase**](docs/ReleasePhasesApi.md#commentsgetreleasephase) | **GET** /release_phases/{release_phase_id}/comments | List comments on a release phase
+*ReleasePhasesApi* | [**releasePhasesCreate**](docs/ReleasePhasesApi.md#releasephasescreate) | **POST** /release_phases | Create a release phase
+*ReleasePhasesApi* | [**releasePhasesDelete**](docs/ReleasePhasesApi.md#releasephasesdelete) | **DELETE** /release_phases/{id} | Delete a release phase
+*ReleasePhasesApi* | [**releasePhasesGet**](docs/ReleasePhasesApi.md#releasephasesget) | **GET** /release_phases/{id} | Get a specific release phase
+*ReleasePhasesApi* | [**releasePhasesList**](docs/ReleasePhasesApi.md#releasephaseslist) | **GET** /release_phases | List release phases in the account
+*ReleasePhasesApi* | [**releasePhasesUpdate**](docs/ReleasePhasesApi.md#releasephasesupdate) | **PUT** /release_phases/{id} | Update a release phase
 *ReleasesApi* | [**commentsGetRelease**](docs/ReleasesApi.md#commentsgetrelease) | **GET** /releases/{release_id}/comments | List comments on a release
 *ReleasesApi* | [**productReleasesList**](docs/ReleasesApi.md#productreleaseslist) | **GET** /products/{product_id}/releases | List releases for a product
 *ReleasesApi* | [**releasesCreate**](docs/ReleasesApi.md#releasescreate) | **POST** /products/{product_id}/releases | Create a release
@@ -155,18 +161,27 @@ Class | Method | HTTP request | Description
 *ReleasesApi* | [**releasesUpdate**](docs/ReleasesApi.md#releasesupdate) | **PUT** /releases/{id} | Update a release
 *RequirementsApi* | [**commentsCreateRequirement**](docs/RequirementsApi.md#commentscreaterequirement) | **POST** /requirements/{requirement_id}/comments | Create a comment on a requirement
 *RequirementsApi* | [**commentsGetRequirement**](docs/RequirementsApi.md#commentsgetrequirement) | **GET** /requirements/{requirement_id}/comments | List comments on a requirement
+*RequirementsApi* | [**requirementsDelete**](docs/RequirementsApi.md#requirementsdelete) | **DELETE** /requirements/{id} | Delete a requirement
+*RequirementsApi* | [**requirementsGet**](docs/RequirementsApi.md#requirementsget) | **GET** /requirements/{id} | Get a specific requirement
+*RequirementsApi* | [**requirementsUpdate**](docs/RequirementsApi.md#requirementsupdate) | **PUT** /requirements/{id} | Update a requirement
 *StrategicModelsApi* | [**strategicModelsCreate**](docs/StrategicModelsApi.md#strategicmodelscreate) | **POST** /strategic_models | Create a strategic model
 *StrategicModelsApi* | [**strategicModelsDelete**](docs/StrategicModelsApi.md#strategicmodelsdelete) | **DELETE** /strategic_models/{id} | Delete a strategic model
 *StrategicModelsApi* | [**strategicModelsGet**](docs/StrategicModelsApi.md#strategicmodelsget) | **GET** /strategic_models/{id} | Get a strategic model
 *StrategicModelsApi* | [**strategicModelsList**](docs/StrategicModelsApi.md#strategicmodelslist) | **GET** /strategic_models | List strategic models
 *StrategicModelsApi* | [**strategicModelsUpdate**](docs/StrategicModelsApi.md#strategicmodelsupdate) | **PUT** /strategic_models/{id} | Update a strategic model
 *ToDosApi* | [**commentsGetTodo**](docs/ToDosApi.md#commentsgettodo) | **GET** /todos/{todo_id}/comments | List comments on a to-do
+*ToDosApi* | [**todosCreate**](docs/ToDosApi.md#todoscreate) | **POST** /todos | Create a to-do
+*ToDosApi* | [**todosDelete**](docs/ToDosApi.md#todosdelete) | **DELETE** /todos/{id} | Delete a to-do
+*ToDosApi* | [**todosGet**](docs/ToDosApi.md#todosget) | **GET** /todos/{id} | Get a specific to-do
+*ToDosApi* | [**todosList**](docs/ToDosApi.md#todoslist) | **GET** /todos | List to-dos
+*ToDosApi* | [**todosUpdate**](docs/ToDosApi.md#todosupdate) | **PUT** /todos/{id} | Update a to-do
 *UsersApi* | [**usersGet**](docs/UsersApi.md#usersget) | **GET** /users/{id} | Get a specific user
 *UsersApi* | [**usersList**](docs/UsersApi.md#userslist) | **GET** /users | List users
 
 
 ### Documentation For Models
 
+ - [Attachment](docs/Attachment.md)
  - [Comment](docs/Comment.md)
  - [CommentCreateRequest](docs/CommentCreateRequest.md)
  - [CommentsGetEpic200Response](docs/CommentsGetEpic200Response.md)
@@ -176,6 +191,8 @@ Class | Method | HTTP request | Description
  - [CompetitorUpdateRequest](docs/CompetitorUpdateRequest.md)
  - [CompetitorUpdateRequestCompetitor](docs/CompetitorUpdateRequestCompetitor.md)
  - [CompetitorsListProduct200Response](docs/CompetitorsListProduct200Response.md)
+ - [CustomField](docs/CustomField.md)
+ - [CustomFieldValue](docs/CustomFieldValue.md)
  - [Epic](docs/Epic.md)
  - [EpicCreateRequest](docs/EpicCreateRequest.md)
  - [EpicCreateRequestEpic](docs/EpicCreateRequestEpic.md)
@@ -190,11 +207,15 @@ Class | Method | HTTP request | Description
  - [FeatureCreateRequestFeatureAssignedToUserOneOf](docs/FeatureCreateRequestFeatureAssignedToUserOneOf.md)
  - [FeatureCreateRequestFeatureScoreFactsInner](docs/FeatureCreateRequestFeatureScoreFactsInner.md)
  - [FeatureCreateRequestFeatureWorkflowStatus](docs/FeatureCreateRequestFeatureWorkflowStatus.md)
+ - [FeatureCreateResponse](docs/FeatureCreateResponse.md)
  - [FeatureDescription](docs/FeatureDescription.md)
  - [FeatureGetResponse](docs/FeatureGetResponse.md)
  - [FeatureIntegrationFieldsInner](docs/FeatureIntegrationFieldsInner.md)
  - [FeatureProject](docs/FeatureProject.md)
  - [FeatureRelease](docs/FeatureRelease.md)
+ - [FeatureUpdateRequest](docs/FeatureUpdateRequest.md)
+ - [FeatureUpdateRequestFeature](docs/FeatureUpdateRequestFeature.md)
+ - [FeatureUpdateResponse](docs/FeatureUpdateResponse.md)
  - [FeatureWorkflowKind](docs/FeatureWorkflowKind.md)
  - [FeatureWorkflowStatus](docs/FeatureWorkflowStatus.md)
  - [FeatureWorkflowStatusTimesInner](docs/FeatureWorkflowStatusTimesInner.md)
@@ -217,7 +238,6 @@ Class | Method | HTTP request | Description
  - [FeaturesIdTagsPutRequest](docs/FeaturesIdTagsPutRequest.md)
  - [FeaturesIdTagsPutRequestFeature](docs/FeaturesIdTagsPutRequestFeature.md)
  - [FeaturesListResponse](docs/FeaturesListResponse.md)
- - [FeaturesListResponseFeaturesInner](docs/FeaturesListResponseFeaturesInner.md)
  - [FeaturesListResponsePagination](docs/FeaturesListResponsePagination.md)
  - [Goal](docs/Goal.md)
  - [GoalCreateRequest](docs/GoalCreateRequest.md)
@@ -295,6 +315,8 @@ Class | Method | HTTP request | Description
  - [InitiativesListResponseInitiativesInnerAssignedToUser](docs/InitiativesListResponseInitiativesInnerAssignedToUser.md)
  - [InitiativesListResponseInitiativesInnerCreatedByUser](docs/InitiativesListResponseInitiativesInnerCreatedByUser.md)
  - [InitiativesListResponseInitiativesInnerTimeFrame](docs/InitiativesListResponseInitiativesInnerTimeFrame.md)
+ - [IntegrationField](docs/IntegrationField.md)
+ - [IntegrationFieldIntegratable](docs/IntegrationFieldIntegratable.md)
  - [MeAssignedRecordsResponse](docs/MeAssignedRecordsResponse.md)
  - [MeAssignedRecordsResponsePagination](docs/MeAssignedRecordsResponsePagination.md)
  - [MeAssignedRecordsResponseRecordsInner](docs/MeAssignedRecordsResponseRecordsInner.md)
@@ -306,22 +328,52 @@ Class | Method | HTTP request | Description
  - [MePendingTasksResponseTasksInnerAssignedByUser](docs/MePendingTasksResponseTasksInnerAssignedByUser.md)
  - [MeProfileResponse](docs/MeProfileResponse.md)
  - [MeProfileResponseUser](docs/MeProfileResponseUser.md)
+ - [Product](docs/Product.md)
+ - [ProductGetResponse](docs/ProductGetResponse.md)
  - [ProductsListResponse](docs/ProductsListResponse.md)
- - [ProductsListResponseProductsInner](docs/ProductsListResponseProductsInner.md)
  - [Release](docs/Release.md)
  - [ReleaseCreateRequest](docs/ReleaseCreateRequest.md)
  - [ReleaseGetResponse](docs/ReleaseGetResponse.md)
+ - [ReleasePhase](docs/ReleasePhase.md)
+ - [ReleasePhaseCreateRequest](docs/ReleasePhaseCreateRequest.md)
+ - [ReleasePhaseCreateRequestReleasePhase](docs/ReleasePhaseCreateRequestReleasePhase.md)
+ - [ReleasePhaseDescription](docs/ReleasePhaseDescription.md)
+ - [ReleasePhaseRelease](docs/ReleasePhaseRelease.md)
+ - [ReleasePhaseUpdateRequest](docs/ReleasePhaseUpdateRequest.md)
+ - [ReleasePhaseUpdateRequestReleasePhase](docs/ReleasePhaseUpdateRequestReleasePhase.md)
+ - [ReleasePhasesCreate201Response](docs/ReleasePhasesCreate201Response.md)
  - [ReleasePhasesInner](docs/ReleasePhasesInner.md)
+ - [ReleasePhasesList200Response](docs/ReleasePhasesList200Response.md)
  - [ReleaseUpdateRequest](docs/ReleaseUpdateRequest.md)
  - [ReleaseWorkflowStatusTimesInner](docs/ReleaseWorkflowStatusTimesInner.md)
  - [ReleasesListResponse](docs/ReleasesListResponse.md)
  - [ReleasesListResponsePagination](docs/ReleasesListResponsePagination.md)
+ - [Requirement](docs/Requirement.md)
+ - [RequirementAssignedToUser](docs/RequirementAssignedToUser.md)
+ - [RequirementDescription](docs/RequirementDescription.md)
+ - [RequirementFeature](docs/RequirementFeature.md)
+ - [RequirementFullTagsInner](docs/RequirementFullTagsInner.md)
+ - [RequirementUpdateRequest](docs/RequirementUpdateRequest.md)
+ - [RequirementUpdateRequestRequirement](docs/RequirementUpdateRequestRequirement.md)
+ - [RequirementUpdateRequestRequirementAssignedToUser](docs/RequirementUpdateRequestRequirementAssignedToUser.md)
+ - [RequirementUpdateRequestRequirementWorkflowStatus](docs/RequirementUpdateRequestRequirementWorkflowStatus.md)
+ - [RequirementWorkflowStatus](docs/RequirementWorkflowStatus.md)
+ - [RequirementWorkflowStatusTimesInner](docs/RequirementWorkflowStatusTimesInner.md)
+ - [RequirementsGet200Response](docs/RequirementsGet200Response.md)
  - [StrategicModel](docs/StrategicModel.md)
  - [StrategicModelCreateRequest](docs/StrategicModelCreateRequest.md)
  - [StrategicModelGetResponse](docs/StrategicModelGetResponse.md)
  - [StrategicModelUpdateRequest](docs/StrategicModelUpdateRequest.md)
  - [StrategicModelsListResponse](docs/StrategicModelsListResponse.md)
  - [StrategicModelsListResponsePagination](docs/StrategicModelsListResponsePagination.md)
+ - [Todo](docs/Todo.md)
+ - [TodoCreateRequest](docs/TodoCreateRequest.md)
+ - [TodoCreateRequestTask](docs/TodoCreateRequestTask.md)
+ - [TodoTaskable](docs/TodoTaskable.md)
+ - [TodoUpdateRequest](docs/TodoUpdateRequest.md)
+ - [TodoUpdateRequestTask](docs/TodoUpdateRequestTask.md)
+ - [TodosCreate201Response](docs/TodosCreate201Response.md)
+ - [TodosList200Response](docs/TodosList200Response.md)
  - [User](docs/User.md)
 
 

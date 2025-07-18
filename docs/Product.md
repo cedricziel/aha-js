@@ -1,4 +1,4 @@
-# ProductsListResponseProductsInner
+# Product
 
 
 ## Properties
@@ -16,9 +16,9 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { ProductsListResponseProductsInner } from '@cedricziel/aha-js';
+import { Product } from '@cedricziel/aha-js';
 
-const instance: ProductsListResponseProductsInner = {
+const instance: Product = {
     id,
     referencePrefix,
     name,

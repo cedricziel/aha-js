@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**features** | [**Array&lt;FeaturesListResponseFeaturesInner&gt;**](FeaturesListResponseFeaturesInner.md) |  | [optional] [default to undefined]
+**features** | [**Array&lt;Feature&gt;**](Feature.md) |  | [optional] [default to undefined]
 **pagination** | [**FeaturesListResponsePagination**](FeaturesListResponsePagination.md) |  | [optional] [default to undefined]
 
 ## Example
