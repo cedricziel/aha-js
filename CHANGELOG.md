@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/cedricziel/aha-js/compare/v1.0.6...v1.1.0) (2025-07-18)
+
+
+### Features
+
+* enhance API client update commit messages ([b7aee00](https://github.com/cedricziel/aha-js/commit/b7aee002231393446bc53e41fa708f8e0056d1c8))
+
 ## [1.0.6](https://github.com/cedricziel/aha-js/compare/v1.0.5...v1.0.6) (2025-07-18)
 
 
