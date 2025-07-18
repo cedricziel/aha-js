@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/cedricziel/aha-js/compare/v1.1.0...v1.1.1) (2025-07-18)
+
+
+### Bug Fixes
+
+* Update API client from spec 6db6cb9 (2025-07-18) ([21fb6aa](https://github.com/cedricziel/aha-js/commit/21fb6aa80d52ac809433637b9c61c3d8e701032a))
+
 ## [1.1.0](https://github.com/cedricziel/aha-js/compare/v1.0.6...v1.1.0) (2025-07-18)
 
 
