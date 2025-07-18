@@ -1,2 +1,7 @@
 package.json
 package.lock
+package-lock.json
+jest.config.js
+tests/
+coverage/
+.github/workflows/ci.yml

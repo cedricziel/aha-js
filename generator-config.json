@@ -10,6 +10,8 @@
   "typescriptThreePlus": true,
   "useSingleRequestParameter": true,
   "outputDir": "src/generated",
+  "apiTests": true,
+  "modelTests": true,
   "additionalProperties": {
     "npmVersion": "1.0.0",
     "supportsES6": true,
