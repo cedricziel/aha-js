@@ -1,18 +1,15 @@
 import { FeaturesApi } from '../../api/features-api';
-import { DefaultApi } from '../../api/default-api';
 import { createTestConfig, createMockAdapter, TestUtils } from '../utils/test-helpers';
 import { MockResponses, MockRequests } from '../utils/mock-responses';
 import MockAdapter from 'axios-mock-adapter';
 
 describe('FeaturesApi', () => {
   let api: FeaturesApi;
-  let defaultApi: DefaultApi;
   let mockAdapter: any;
 
   beforeEach(() => {
     const config = createTestConfig();
     api = new FeaturesApi(config);
-    defaultApi = new DefaultApi(config);
     mockAdapter = createMockAdapter();
   });
 
@@ -76,7 +73,7 @@ describe('FeaturesApi', () => {
     });
   });
 
-  describe('DefaultApi CRUD operations', () => {
+  describe('FeaturesApi CRUD operations', () => {
     const featureId = 'FEAT-123';
 
     it('should fetch a specific feature successfully', async () => {
@@ -84,7 +81,7 @@ describe('FeaturesApi', () => {
         .onGet(MockRequests.get.featuresWithId(featureId))
         .reply(200, MockResponses.features.get);
 
-      const response = await defaultApi.featuresIdGet({ id: featureId });
+      const response = await api.featuresGet({ id: featureId });
 
       expect(response.status).toBe(200);
       expect(response.data).toEqual(MockResponses.features.get);
@@ -100,7 +97,7 @@ describe('FeaturesApi', () => {
         .onGet(MockRequests.get.featuresWithId(featureId))
         .reply(404, MockResponses.errors[404]);
 
-      await expect(defaultApi.featuresIdGet({ id: featureId })).rejects.toThrow();
+      await expect(api.featuresGet({ id: featureId })).rejects.toThrow();
     });
 
     it('should delete a feature successfully', async () => {
@@ -108,7 +105,7 @@ describe('FeaturesApi', () => {
         .onDelete(MockRequests.delete.featuresWithId(featureId))
         .reply(204);
 
-      const response = await defaultApi.featuresIdDelete({ id: featureId });
+      const response = await api.featuresDelete({ id: featureId });
 
       expect(response.status).toBe(204);
       
