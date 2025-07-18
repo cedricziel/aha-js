@@ -4,8 +4,7 @@ All URIs are relative to *https://mycompany.aha.io/api/v1*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|[**featuresFeatureIdCommentsPost**](#featuresfeatureidcommentspost) | **POST** /features/{feature_id}/comments | Create a comment on a feature|
-|[**featuresGet**](#featuresget) | **GET** /features | List features|
+|[**commentsCreateFeature**](#commentscreatefeature) | **POST** /features/{feature_id}/comments | Create a comment on a feature|
 |[**featuresIdCustomFieldsWorksheetPut**](#featuresidcustomfieldsworksheetput) | **PUT** /features/{id}/custom_fields/worksheet | Update a feature\&#39;s custom worksheet fields|
 |[**featuresIdEpicPut**](#featuresidepicput) | **PUT** /features/{id}/epic | Update a feature\&#39;s epic|
 |[**featuresIdGoalsPut**](#featuresidgoalsput) | **PUT** /features/{id}/goals | Update a feature\&#39;s goals|
@@ -14,9 +13,10 @@ All URIs are relative to *https://mycompany.aha.io/api/v1*
 |[**featuresIdReleasePut**](#featuresidreleaseput) | **PUT** /features/{id}/release | Update a feature\&#39;s release|
 |[**featuresIdScorePut**](#featuresidscoreput) | **PUT** /features/{id}/score | Update a feature\&#39;s score|
 |[**featuresIdTagsPut**](#featuresidtagsput) | **PUT** /features/{id}/tags | Update a feature\&#39;s tags with an array|
+|[**featuresList**](#featureslist) | **GET** /features | List features|
 
-# **featuresFeatureIdCommentsPost**
-> Comment featuresFeatureIdCommentsPost(commentCreateRequest)
+# **commentsCreateFeature**
+> Comment commentsCreateFeature(commentCreateRequest)
 
 Adds a new comment to the specified feature.
 
@@ -35,7 +35,7 @@ const apiInstance = new FeaturesApi(configuration);
 let featureId: string; // (default to undefined)
 let commentCreateRequest: CommentCreateRequest; //
 
-const { status, data } = await apiInstance.featuresFeatureIdCommentsPost(
+const { status, data } = await apiInstance.commentsCreateFeature(
     featureId,
     commentCreateRequest
 );
@@ -67,68 +67,11 @@ const { status, data } = await apiInstance.featuresFeatureIdCommentsPost(
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**201** | Comment created |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **featuresGet**
-> FeaturesListResponse featuresGet()
-
-Returns a list of features. You can filter by various criteria like name, modification date, tag, or assignee. Features belong to releases, so they are scoped to a release. 
-
-### Example
-
-```typescript
-import {
-    FeaturesApi,
-    Configuration
-} from '@cedricziel/aha-js';
-
-const configuration = new Configuration();
-const apiInstance = new FeaturesApi(configuration);
-
-let q: string; //Search term to match against feature name (optional) (default to undefined)
-let updatedSince: string; //UTC timestamp (in ISO8601 format). If provided, only features updated after the timestamp will be returned (optional) (default to undefined)
-let tag: string; //String tag value. If provided, only features with the associated tag will be returned (optional) (default to undefined)
-let assignedToUser: string; //ID or email address of a user. If provided, only features assigned to that user will be returned (optional) (default to undefined)
-
-const { status, data } = await apiInstance.featuresGet(
-    q,
-    updatedSince,
-    tag,
-    assignedToUser
-);
-```
-
-### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **q** | [**string**] | Search term to match against feature name | (optional) defaults to undefined|
-| **updatedSince** | [**string**] | UTC timestamp (in ISO8601 format). If provided, only features updated after the timestamp will be returned | (optional) defaults to undefined|
-| **tag** | [**string**] | String tag value. If provided, only features with the associated tag will be returned | (optional) defaults to undefined|
-| **assignedToUser** | [**string**] | ID or email address of a user. If provided, only features assigned to that user will be returned | (optional) defaults to undefined|
-
-
-### Return type
-
-**FeaturesListResponse**
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-|**200** | A list of features |  -  |
+|**400** | Bad request |  -  |
 |**401** | Unauthorized |  -  |
 |**403** | Forbidden |  -  |
+|**404** | Feature not found |  -  |
+|**422** | Unprocessable entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -593,6 +536,68 @@ const { status, data } = await apiInstance.featuresIdTagsPut(
 |**401** | Unauthorized |  -  |
 |**403** | Forbidden |  -  |
 |**404** | Feature not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **featuresList**
+> FeaturesListResponse featuresList()
+
+Returns a list of features. You can filter by various criteria like name, modification date, tag, or assignee. Features belong to releases, so they are scoped to a release. 
+
+### Example
+
+```typescript
+import {
+    FeaturesApi,
+    Configuration
+} from '@cedricziel/aha-js';
+
+const configuration = new Configuration();
+const apiInstance = new FeaturesApi(configuration);
+
+let q: string; //Search term to match against feature name (optional) (default to undefined)
+let updatedSince: string; //UTC timestamp (in ISO8601 format). If provided, only features updated after the timestamp will be returned (optional) (default to undefined)
+let tag: string; //String tag value. If provided, only features with the associated tag will be returned (optional) (default to undefined)
+let assignedToUser: string; //ID or email address of a user. If provided, only features assigned to that user will be returned (optional) (default to undefined)
+
+const { status, data } = await apiInstance.featuresList(
+    q,
+    updatedSince,
+    tag,
+    assignedToUser
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **q** | [**string**] | Search term to match against feature name | (optional) defaults to undefined|
+| **updatedSince** | [**string**] | UTC timestamp (in ISO8601 format). If provided, only features updated after the timestamp will be returned | (optional) defaults to undefined|
+| **tag** | [**string**] | String tag value. If provided, only features with the associated tag will be returned | (optional) defaults to undefined|
+| **assignedToUser** | [**string**] | ID or email address of a user. If provided, only features assigned to that user will be returned | (optional) defaults to undefined|
+
+
+### Return type
+
+**FeaturesListResponse**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | A list of features |  -  |
+|**401** | Unauthorized |  -  |
+|**403** | Forbidden |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

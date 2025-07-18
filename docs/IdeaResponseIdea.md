@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **assignedToUser** | [**IdeaResponseIdeaAssignedToUser**](IdeaResponseIdeaAssignedToUser.md) |  | [optional] [default to undefined]
 **endorsementsCount** | **number** |  | [optional] [default to undefined]
 **commentsCount** | **number** |  | [optional] [default to undefined]
-**scoreFacts** | **Array&lt;object&gt;** |  | [optional] [default to undefined]
+**scoreFacts** | [**Array&lt;IdeaResponseIdeaScoreFactsInner&gt;**](IdeaResponseIdeaScoreFactsInner.md) | Score facts for the idea | [optional] [default to undefined]
 **tags** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
 **fullTags** | **Array&lt;object&gt;** |  | [optional] [default to undefined]
 **categories** | **Array&lt;object&gt;** |  | [optional] [default to undefined]

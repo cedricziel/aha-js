@@ -1,19 +1,19 @@
-# EpicsEpicIdCommentsGet200Response
+# CompetitorsListProduct200Response
 
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**comments** | [**Array&lt;Comment&gt;**](Comment.md) |  | [optional] [default to undefined]
+**competitors** | [**Array&lt;Competitor&gt;**](Competitor.md) |  | [optional] [default to undefined]
 
 ## Example
 
 ```typescript
-import { EpicsEpicIdCommentsGet200Response } from '@cedricziel/aha-js';
+import { CompetitorsListProduct200Response } from '@cedricziel/aha-js';
 
-const instance: EpicsEpicIdCommentsGet200Response = {
-    comments,
+const instance: CompetitorsListProduct200Response = {
+    competitors,
 };
 ```
 

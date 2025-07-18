@@ -1,19 +1,19 @@
-# ProductsProductIdEpicsGet200Response
+# CommentsGetEpic200Response
 
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**epics** | [**Array&lt;Epic&gt;**](Epic.md) |  | [optional] [default to undefined]
+**comments** | [**Array&lt;Comment&gt;**](Comment.md) |  | [optional] [default to undefined]
 
 ## Example
 
 ```typescript
-import { ProductsProductIdEpicsGet200Response } from '@cedricziel/aha-js';
+import { CommentsGetEpic200Response } from '@cedricziel/aha-js';
 
-const instance: ProductsProductIdEpicsGet200Response = {
-    epics,
+const instance: CommentsGetEpic200Response = {
+    comments,
 };
 ```
 

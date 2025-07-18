@@ -4,11 +4,187 @@ All URIs are relative to *https://mycompany.aha.io/api/v1*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
+|[**commentsCreateInitiative**](#commentscreateinitiative) | **POST** /initiatives/{initiative_id}/comments | Create a comment on an initiative|
+|[**commentsGetInitiative**](#commentsgetinitiative) | **GET** /initiatives/{initiative_id}/comments | List comments on an initiative|
+|[**epicsListByInitiative**](#epicslistbyinitiative) | **GET** /initiatives/{initiative_id}/epics | List epics associated with an initiative|
 |[**initiativesCreate**](#initiativescreate) | **POST** /products/{product_id}/initiatives | Create an initiative|
 |[**initiativesGet**](#initiativesget) | **GET** /initiatives/{id} | Get a specific initiative|
-|[**initiativesInitiativeIdCommentsGet**](#initiativesinitiativeidcommentsget) | **GET** /initiatives/{initiative_id}/comments | List comments on an initiative|
-|[**initiativesInitiativeIdEpicsGet**](#initiativesinitiativeidepicsget) | **GET** /initiatives/{initiative_id}/epics | List epics associated with an initiative|
 |[**initiativesList**](#initiativeslist) | **GET** /initiatives | List initiatives|
+
+# **commentsCreateInitiative**
+> Comment commentsCreateInitiative(commentCreateRequest)
+
+Adds a new comment to the specified initiative.
+
+### Example
+
+```typescript
+import {
+    InitiativesApi,
+    Configuration,
+    CommentCreateRequest
+} from '@cedricziel/aha-js';
+
+const configuration = new Configuration();
+const apiInstance = new InitiativesApi(configuration);
+
+let initiativeId: string; // (default to undefined)
+let commentCreateRequest: CommentCreateRequest; //
+
+const { status, data } = await apiInstance.commentsCreateInitiative(
+    initiativeId,
+    commentCreateRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **commentCreateRequest** | **CommentCreateRequest**|  | |
+| **initiativeId** | [**string**] |  | defaults to undefined|
+
+
+### Return type
+
+**Comment**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**201** | Comment created |  -  |
+|**400** | Invalid input |  -  |
+|**404** | Initiative not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **commentsGetInitiative**
+> CommentsGetEpic200Response commentsGetInitiative()
+
+Retrieves a list of comments associated with the specified initiative.
+
+### Example
+
+```typescript
+import {
+    InitiativesApi,
+    Configuration
+} from '@cedricziel/aha-js';
+
+const configuration = new Configuration();
+const apiInstance = new InitiativesApi(configuration);
+
+let initiativeId: string; // (default to undefined)
+
+const { status, data } = await apiInstance.commentsGetInitiative(
+    initiativeId
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **initiativeId** | [**string**] |  | defaults to undefined|
+
+
+### Return type
+
+**CommentsGetEpic200Response**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | A list of comments |  -  |
+|**401** | Unauthorized |  -  |
+|**403** | Forbidden |  -  |
+|**404** | Initiative not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **epicsListByInitiative**
+> EpicsList200Response epicsListByInitiative()
+
+Retrieves a list of epics associated with the specified initiative.
+
+### Example
+
+```typescript
+import {
+    InitiativesApi,
+    Configuration
+} from '@cedricziel/aha-js';
+
+const configuration = new Configuration();
+const apiInstance = new InitiativesApi(configuration);
+
+let initiativeId: string; //Numeric ID or key of the initiative (default to undefined)
+let q: string; //Search term to match against epic name (optional) (default to undefined)
+let updatedSince: string; //UTC timestamp for filtering recently updated epics (optional) (default to undefined)
+let tag: string; //String tag to filter epics (optional) (default to undefined)
+let assignedToUser: string; //User ID or email to filter by assignee (optional) (default to undefined)
+
+const { status, data } = await apiInstance.epicsListByInitiative(
+    initiativeId,
+    q,
+    updatedSince,
+    tag,
+    assignedToUser
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **initiativeId** | [**string**] | Numeric ID or key of the initiative | defaults to undefined|
+| **q** | [**string**] | Search term to match against epic name | (optional) defaults to undefined|
+| **updatedSince** | [**string**] | UTC timestamp for filtering recently updated epics | (optional) defaults to undefined|
+| **tag** | [**string**] | String tag to filter epics | (optional) defaults to undefined|
+| **assignedToUser** | [**string**] | User ID or email to filter by assignee | (optional) defaults to undefined|
+
+
+### Return type
+
+**EpicsList200Response**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | A list of epics |  -  |
+|**404** | Initiative not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **initiativesCreate**
 > InitiativeResponse initiativesCreate(initiativeCreateRequest)
@@ -119,109 +295,6 @@ const { status, data } = await apiInstance.initiativesGet(
 |**200** | OK |  -  |
 |**401** | Unauthorized |  -  |
 |**403** | Forbidden |  -  |
-|**404** | Initiative not found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **initiativesInitiativeIdCommentsGet**
-> EpicsEpicIdCommentsGet200Response initiativesInitiativeIdCommentsGet()
-
-Retrieves a list of comments associated with the specified initiative.
-
-### Example
-
-```typescript
-import {
-    InitiativesApi,
-    Configuration
-} from '@cedricziel/aha-js';
-
-const configuration = new Configuration();
-const apiInstance = new InitiativesApi(configuration);
-
-let initiativeId: string; // (default to undefined)
-
-const { status, data } = await apiInstance.initiativesInitiativeIdCommentsGet(
-    initiativeId
-);
-```
-
-### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **initiativeId** | [**string**] |  | defaults to undefined|
-
-
-### Return type
-
-**EpicsEpicIdCommentsGet200Response**
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-|**200** | A list of comments |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **initiativesInitiativeIdEpicsGet**
-> ProductsProductIdEpicsGet200Response initiativesInitiativeIdEpicsGet()
-
-Retrieves a list of epics associated with the specified initiative.
-
-### Example
-
-```typescript
-import {
-    InitiativesApi,
-    Configuration
-} from '@cedricziel/aha-js';
-
-const configuration = new Configuration();
-const apiInstance = new InitiativesApi(configuration);
-
-let initiativeId: string; //Numeric ID or key of the initiative (default to undefined)
-
-const { status, data } = await apiInstance.initiativesInitiativeIdEpicsGet(
-    initiativeId
-);
-```
-
-### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **initiativeId** | [**string**] | Numeric ID or key of the initiative | defaults to undefined|
-
-
-### Return type
-
-**ProductsProductIdEpicsGet200Response**
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-|**200** | A list of epics |  -  |
 |**404** | Initiative not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

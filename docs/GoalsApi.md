@@ -4,14 +4,132 @@ All URIs are relative to *https://mycompany.aha.io/api/v1*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
+|[**commentsGetGoal**](#commentsgetgoal) | **GET** /goals/{goal_id}/comments | List comments on a goal|
+|[**epicsListByGoal**](#epicslistbygoal) | **GET** /goals/{goal_id}/epics | List epics associated with a goal|
 |[**goalsCreate**](#goalscreate) | **POST** /goals | Create a goal|
 |[**goalsDelete**](#goalsdelete) | **DELETE** /goals/{id} | Delete a goal|
 |[**goalsGet**](#goalsget) | **GET** /goals/{id} | Get a goal|
-|[**goalsGoalIdCommentsGet**](#goalsgoalidcommentsget) | **GET** /goals/{goal_id}/comments | List comments on a goal|
-|[**goalsGoalIdEpicsGet**](#goalsgoalidepicsget) | **GET** /goals/{goal_id}/epics | List epics associated with a goal|
 |[**goalsList**](#goalslist) | **GET** /goals | List goals|
 |[**goalsUpdate**](#goalsupdate) | **PUT** /goals/{id} | Update a goal|
 |[**goalsUpdateProgress**](#goalsupdateprogress) | **PUT** /goals/{id}/progress | Update goal progress|
+
+# **commentsGetGoal**
+> CommentsGetEpic200Response commentsGetGoal()
+
+Retrieves a list of comments associated with the specified goal.
+
+### Example
+
+```typescript
+import {
+    GoalsApi,
+    Configuration
+} from '@cedricziel/aha-js';
+
+const configuration = new Configuration();
+const apiInstance = new GoalsApi(configuration);
+
+let goalId: string; // (default to undefined)
+
+const { status, data } = await apiInstance.commentsGetGoal(
+    goalId
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **goalId** | [**string**] |  | defaults to undefined|
+
+
+### Return type
+
+**CommentsGetEpic200Response**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | A list of comments |  -  |
+|**401** | Unauthorized |  -  |
+|**403** | Forbidden |  -  |
+|**404** | Goal not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **epicsListByGoal**
+> EpicsList200Response epicsListByGoal()
+
+Retrieves a list of epics associated with the specified goal.
+
+### Example
+
+```typescript
+import {
+    GoalsApi,
+    Configuration
+} from '@cedricziel/aha-js';
+
+const configuration = new Configuration();
+const apiInstance = new GoalsApi(configuration);
+
+let goalId: string; //Numeric ID or key of the goal (default to undefined)
+let q: string; //Search term to match against epic name (optional) (default to undefined)
+let updatedSince: string; //UTC timestamp for filtering recently updated epics (optional) (default to undefined)
+let tag: string; //String tag to filter epics (optional) (default to undefined)
+let assignedToUser: string; //User ID or email to filter by assignee (optional) (default to undefined)
+
+const { status, data } = await apiInstance.epicsListByGoal(
+    goalId,
+    q,
+    updatedSince,
+    tag,
+    assignedToUser
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **goalId** | [**string**] | Numeric ID or key of the goal | defaults to undefined|
+| **q** | [**string**] | Search term to match against epic name | (optional) defaults to undefined|
+| **updatedSince** | [**string**] | UTC timestamp for filtering recently updated epics | (optional) defaults to undefined|
+| **tag** | [**string**] | String tag to filter epics | (optional) defaults to undefined|
+| **assignedToUser** | [**string**] | User ID or email to filter by assignee | (optional) defaults to undefined|
+
+
+### Return type
+
+**EpicsList200Response**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | A list of epics |  -  |
+|**404** | Goal not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **goalsCreate**
 > GoalGetResponse goalsCreate(goalCreateRequest)
@@ -173,109 +291,6 @@ const { status, data } = await apiInstance.goalsGet(
 |**200** | OK |  -  |
 |**401** | Unauthorized |  -  |
 |**403** | Forbidden |  -  |
-|**404** | Goal not found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **goalsGoalIdCommentsGet**
-> EpicsEpicIdCommentsGet200Response goalsGoalIdCommentsGet()
-
-Retrieves a list of comments associated with the specified goal.
-
-### Example
-
-```typescript
-import {
-    GoalsApi,
-    Configuration
-} from '@cedricziel/aha-js';
-
-const configuration = new Configuration();
-const apiInstance = new GoalsApi(configuration);
-
-let goalId: string; // (default to undefined)
-
-const { status, data } = await apiInstance.goalsGoalIdCommentsGet(
-    goalId
-);
-```
-
-### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **goalId** | [**string**] |  | defaults to undefined|
-
-
-### Return type
-
-**EpicsEpicIdCommentsGet200Response**
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-|**200** | A list of comments |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **goalsGoalIdEpicsGet**
-> ProductsProductIdEpicsGet200Response goalsGoalIdEpicsGet()
-
-Retrieves a list of epics associated with the specified goal.
-
-### Example
-
-```typescript
-import {
-    GoalsApi,
-    Configuration
-} from '@cedricziel/aha-js';
-
-const configuration = new Configuration();
-const apiInstance = new GoalsApi(configuration);
-
-let goalId: string; //Numeric ID or key of the goal (default to undefined)
-
-const { status, data } = await apiInstance.goalsGoalIdEpicsGet(
-    goalId
-);
-```
-
-### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **goalId** | [**string**] | Numeric ID or key of the goal | defaults to undefined|
-
-
-### Return type
-
-**ProductsProductIdEpicsGet200Response**
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-|**200** | A list of epics |  -  |
 |**404** | Goal not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

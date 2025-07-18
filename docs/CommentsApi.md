@@ -4,37 +4,44 @@ All URIs are relative to *https://mycompany.aha.io/api/v1*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|[**epicsEpicIdCommentsGet**](#epicsepicidcommentsget) | **GET** /epics/{epic_id}/comments | List comments on an epic|
-|[**featuresFeatureIdCommentsPost**](#featuresfeatureidcommentspost) | **POST** /features/{feature_id}/comments | Create a comment on a feature|
-|[**goalsGoalIdCommentsGet**](#goalsgoalidcommentsget) | **GET** /goals/{goal_id}/comments | List comments on a goal|
-|[**ideasIdeaIdCommentsGet**](#ideasideaidcommentsget) | **GET** /ideas/{idea_id}/comments | List comments on an idea|
-|[**initiativesInitiativeIdCommentsGet**](#initiativesinitiativeidcommentsget) | **GET** /initiatives/{initiative_id}/comments | List comments on an initiative|
-|[**productsProductIdCommentsGet**](#productsproductidcommentsget) | **GET** /products/{product_id}/comments | List comments in a product|
-|[**releasePhasesReleasePhaseIdCommentsGet**](#releasephasesreleasephaseidcommentsget) | **GET** /release_phases/{release_phase_id}/comments | List comments on a release phase|
-|[**releasesReleaseIdCommentsGet**](#releasesreleaseidcommentsget) | **GET** /releases/{release_id}/comments | List comments on a release|
-|[**requirementsRequirementIdCommentsGet**](#requirementsrequirementidcommentsget) | **GET** /requirements/{requirement_id}/comments | List comments on a requirement|
-|[**todosTodoIdCommentsGet**](#todostodoidcommentsget) | **GET** /todos/{todo_id}/comments | List comments on a to-do|
+|[**commentsCreateEpic**](#commentscreateepic) | **POST** /epics/{epic_id}/comments | Create a comment on an epic|
+|[**commentsCreateFeature**](#commentscreatefeature) | **POST** /features/{feature_id}/comments | Create a comment on a feature|
+|[**commentsCreateIdea**](#commentscreateidea) | **POST** /ideas/{idea_id}/comments | Create a comment on an idea|
+|[**commentsCreateInitiative**](#commentscreateinitiative) | **POST** /initiatives/{initiative_id}/comments | Create a comment on an initiative|
+|[**commentsCreateRequirement**](#commentscreaterequirement) | **POST** /requirements/{requirement_id}/comments | Create a comment on a requirement|
+|[**commentsGetEpic**](#commentsgetepic) | **GET** /epics/{epic_id}/comments | List comments on an epic|
+|[**commentsGetGoal**](#commentsgetgoal) | **GET** /goals/{goal_id}/comments | List comments on a goal|
+|[**commentsGetIdea**](#commentsgetidea) | **GET** /ideas/{idea_id}/comments | List comments on an idea|
+|[**commentsGetInitiative**](#commentsgetinitiative) | **GET** /initiatives/{initiative_id}/comments | List comments on an initiative|
+|[**commentsGetProduct**](#commentsgetproduct) | **GET** /products/{product_id}/comments | List comments in a product|
+|[**commentsGetRelease**](#commentsgetrelease) | **GET** /releases/{release_id}/comments | List comments on a release|
+|[**commentsGetReleasePhase**](#commentsgetreleasephase) | **GET** /release_phases/{release_phase_id}/comments | List comments on a release phase|
+|[**commentsGetRequirement**](#commentsgetrequirement) | **GET** /requirements/{requirement_id}/comments | List comments on a requirement|
+|[**commentsGetTodo**](#commentsgettodo) | **GET** /todos/{todo_id}/comments | List comments on a to-do|
 
-# **epicsEpicIdCommentsGet**
-> EpicsEpicIdCommentsGet200Response epicsEpicIdCommentsGet()
+# **commentsCreateEpic**
+> Comment commentsCreateEpic(commentCreateRequest)
 
-Retrieves a list of comments associated with the specified epic.
+Adds a new comment to the specified epic.
 
 ### Example
 
 ```typescript
 import {
     CommentsApi,
-    Configuration
+    Configuration,
+    CommentCreateRequest
 } from '@cedricziel/aha-js';
 
 const configuration = new Configuration();
 const apiInstance = new CommentsApi(configuration);
 
 let epicId: string; // (default to undefined)
+let commentCreateRequest: CommentCreateRequest; //
 
-const { status, data } = await apiInstance.epicsEpicIdCommentsGet(
-    epicId
+const { status, data } = await apiInstance.commentsCreateEpic(
+    epicId,
+    commentCreateRequest
 );
 ```
 
@@ -42,12 +49,13 @@ const { status, data } = await apiInstance.epicsEpicIdCommentsGet(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
+| **commentCreateRequest** | **CommentCreateRequest**|  | |
 | **epicId** | [**string**] |  | defaults to undefined|
 
 
 ### Return type
 
-**EpicsEpicIdCommentsGet200Response**
+**Comment**
 
 ### Authorization
 
@@ -55,21 +63,21 @@ const { status, data } = await apiInstance.epicsEpicIdCommentsGet(
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | A list of comments |  -  |
+|**201** | Comment created |  -  |
 |**400** | Invalid input |  -  |
 |**404** | Epic not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **featuresFeatureIdCommentsPost**
-> Comment featuresFeatureIdCommentsPost(commentCreateRequest)
+# **commentsCreateFeature**
+> Comment commentsCreateFeature(commentCreateRequest)
 
 Adds a new comment to the specified feature.
 
@@ -88,7 +96,7 @@ const apiInstance = new CommentsApi(configuration);
 let featureId: string; // (default to undefined)
 let commentCreateRequest: CommentCreateRequest; //
 
-const { status, data } = await apiInstance.featuresFeatureIdCommentsPost(
+const { status, data } = await apiInstance.commentsCreateFeature(
     featureId,
     commentCreateRequest
 );
@@ -120,11 +128,240 @@ const { status, data } = await apiInstance.featuresFeatureIdCommentsPost(
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**201** | Comment created |  -  |
+|**400** | Bad request |  -  |
+|**401** | Unauthorized |  -  |
+|**403** | Forbidden |  -  |
+|**404** | Feature not found |  -  |
+|**422** | Unprocessable entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **goalsGoalIdCommentsGet**
-> EpicsEpicIdCommentsGet200Response goalsGoalIdCommentsGet()
+# **commentsCreateIdea**
+> Comment commentsCreateIdea(commentCreateRequest)
+
+Adds a new comment to the specified idea.
+
+### Example
+
+```typescript
+import {
+    CommentsApi,
+    Configuration,
+    CommentCreateRequest
+} from '@cedricziel/aha-js';
+
+const configuration = new Configuration();
+const apiInstance = new CommentsApi(configuration);
+
+let ideaId: string; // (default to undefined)
+let commentCreateRequest: CommentCreateRequest; //
+
+const { status, data } = await apiInstance.commentsCreateIdea(
+    ideaId,
+    commentCreateRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **commentCreateRequest** | **CommentCreateRequest**|  | |
+| **ideaId** | [**string**] |  | defaults to undefined|
+
+
+### Return type
+
+**Comment**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**201** | Comment created |  -  |
+|**400** | Invalid input |  -  |
+|**404** | Idea not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **commentsCreateInitiative**
+> Comment commentsCreateInitiative(commentCreateRequest)
+
+Adds a new comment to the specified initiative.
+
+### Example
+
+```typescript
+import {
+    CommentsApi,
+    Configuration,
+    CommentCreateRequest
+} from '@cedricziel/aha-js';
+
+const configuration = new Configuration();
+const apiInstance = new CommentsApi(configuration);
+
+let initiativeId: string; // (default to undefined)
+let commentCreateRequest: CommentCreateRequest; //
+
+const { status, data } = await apiInstance.commentsCreateInitiative(
+    initiativeId,
+    commentCreateRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **commentCreateRequest** | **CommentCreateRequest**|  | |
+| **initiativeId** | [**string**] |  | defaults to undefined|
+
+
+### Return type
+
+**Comment**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**201** | Comment created |  -  |
+|**400** | Invalid input |  -  |
+|**404** | Initiative not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **commentsCreateRequirement**
+> Comment commentsCreateRequirement(commentCreateRequest)
+
+Adds a new comment to the specified requirement.
+
+### Example
+
+```typescript
+import {
+    CommentsApi,
+    Configuration,
+    CommentCreateRequest
+} from '@cedricziel/aha-js';
+
+const configuration = new Configuration();
+const apiInstance = new CommentsApi(configuration);
+
+let requirementId: string; // (default to undefined)
+let commentCreateRequest: CommentCreateRequest; //
+
+const { status, data } = await apiInstance.commentsCreateRequirement(
+    requirementId,
+    commentCreateRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **commentCreateRequest** | **CommentCreateRequest**|  | |
+| **requirementId** | [**string**] |  | defaults to undefined|
+
+
+### Return type
+
+**Comment**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**201** | Comment created |  -  |
+|**400** | Invalid input |  -  |
+|**404** | Requirement not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **commentsGetEpic**
+> CommentsGetEpic200Response commentsGetEpic()
+
+Retrieves a list of comments associated with the specified epic.
+
+### Example
+
+```typescript
+import {
+    CommentsApi,
+    Configuration
+} from '@cedricziel/aha-js';
+
+const configuration = new Configuration();
+const apiInstance = new CommentsApi(configuration);
+
+let epicId: string; // (default to undefined)
+
+const { status, data } = await apiInstance.commentsGetEpic(
+    epicId
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **epicId** | [**string**] |  | defaults to undefined|
+
+
+### Return type
+
+**CommentsGetEpic200Response**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | A list of comments |  -  |
+|**400** | Invalid input |  -  |
+|**404** | Epic not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **commentsGetGoal**
+> CommentsGetEpic200Response commentsGetGoal()
 
 Retrieves a list of comments associated with the specified goal.
 
@@ -141,7 +378,7 @@ const apiInstance = new CommentsApi(configuration);
 
 let goalId: string; // (default to undefined)
 
-const { status, data } = await apiInstance.goalsGoalIdCommentsGet(
+const { status, data } = await apiInstance.commentsGetGoal(
     goalId
 );
 ```
@@ -155,7 +392,7 @@ const { status, data } = await apiInstance.goalsGoalIdCommentsGet(
 
 ### Return type
 
-**EpicsEpicIdCommentsGet200Response**
+**CommentsGetEpic200Response**
 
 ### Authorization
 
@@ -171,11 +408,14 @@ const { status, data } = await apiInstance.goalsGoalIdCommentsGet(
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | A list of comments |  -  |
+|**401** | Unauthorized |  -  |
+|**403** | Forbidden |  -  |
+|**404** | Goal not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **ideasIdeaIdCommentsGet**
-> EpicsEpicIdCommentsGet200Response ideasIdeaIdCommentsGet()
+# **commentsGetIdea**
+> CommentsGetEpic200Response commentsGetIdea()
 
 Retrieves a list of comments associated with the specified idea.
 
@@ -192,7 +432,7 @@ const apiInstance = new CommentsApi(configuration);
 
 let ideaId: string; // (default to undefined)
 
-const { status, data } = await apiInstance.ideasIdeaIdCommentsGet(
+const { status, data } = await apiInstance.commentsGetIdea(
     ideaId
 );
 ```
@@ -206,7 +446,7 @@ const { status, data } = await apiInstance.ideasIdeaIdCommentsGet(
 
 ### Return type
 
-**EpicsEpicIdCommentsGet200Response**
+**CommentsGetEpic200Response**
 
 ### Authorization
 
@@ -222,11 +462,14 @@ const { status, data } = await apiInstance.ideasIdeaIdCommentsGet(
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | A list of comments |  -  |
+|**401** | Unauthorized |  -  |
+|**403** | Forbidden |  -  |
+|**404** | Idea not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **initiativesInitiativeIdCommentsGet**
-> EpicsEpicIdCommentsGet200Response initiativesInitiativeIdCommentsGet()
+# **commentsGetInitiative**
+> CommentsGetEpic200Response commentsGetInitiative()
 
 Retrieves a list of comments associated with the specified initiative.
 
@@ -243,7 +486,7 @@ const apiInstance = new CommentsApi(configuration);
 
 let initiativeId: string; // (default to undefined)
 
-const { status, data } = await apiInstance.initiativesInitiativeIdCommentsGet(
+const { status, data } = await apiInstance.commentsGetInitiative(
     initiativeId
 );
 ```
@@ -257,7 +500,7 @@ const { status, data } = await apiInstance.initiativesInitiativeIdCommentsGet(
 
 ### Return type
 
-**EpicsEpicIdCommentsGet200Response**
+**CommentsGetEpic200Response**
 
 ### Authorization
 
@@ -273,11 +516,14 @@ const { status, data } = await apiInstance.initiativesInitiativeIdCommentsGet(
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | A list of comments |  -  |
+|**401** | Unauthorized |  -  |
+|**403** | Forbidden |  -  |
+|**404** | Initiative not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **productsProductIdCommentsGet**
-> EpicsEpicIdCommentsGet200Response productsProductIdCommentsGet()
+# **commentsGetProduct**
+> CommentsGetEpic200Response commentsGetProduct()
 
 Retrieves a list of comments associated with the specified product.
 
@@ -294,7 +540,7 @@ const apiInstance = new CommentsApi(configuration);
 
 let productId: string; // (default to undefined)
 
-const { status, data } = await apiInstance.productsProductIdCommentsGet(
+const { status, data } = await apiInstance.commentsGetProduct(
     productId
 );
 ```
@@ -308,7 +554,7 @@ const { status, data } = await apiInstance.productsProductIdCommentsGet(
 
 ### Return type
 
-**EpicsEpicIdCommentsGet200Response**
+**CommentsGetEpic200Response**
 
 ### Authorization
 
@@ -324,62 +570,14 @@ const { status, data } = await apiInstance.productsProductIdCommentsGet(
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | A list of comments |  -  |
+|**401** | Unauthorized |  -  |
+|**403** | Forbidden |  -  |
+|**404** | Product not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **releasePhasesReleasePhaseIdCommentsGet**
-> EpicsEpicIdCommentsGet200Response releasePhasesReleasePhaseIdCommentsGet()
-
-Retrieves a list of comments associated with the specified release phase.
-
-### Example
-
-```typescript
-import {
-    CommentsApi,
-    Configuration
-} from '@cedricziel/aha-js';
-
-const configuration = new Configuration();
-const apiInstance = new CommentsApi(configuration);
-
-let releasePhaseId: string; // (default to undefined)
-
-const { status, data } = await apiInstance.releasePhasesReleasePhaseIdCommentsGet(
-    releasePhaseId
-);
-```
-
-### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **releasePhaseId** | [**string**] |  | defaults to undefined|
-
-
-### Return type
-
-**EpicsEpicIdCommentsGet200Response**
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-|**200** | A list of comments |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **releasesReleaseIdCommentsGet**
-> EpicsEpicIdCommentsGet200Response releasesReleaseIdCommentsGet()
+# **commentsGetRelease**
+> CommentsGetEpic200Response commentsGetRelease()
 
 Retrieves a list of comments associated with the specified release.
 
@@ -396,7 +594,7 @@ const apiInstance = new CommentsApi(configuration);
 
 let releaseId: string; // (default to undefined)
 
-const { status, data } = await apiInstance.releasesReleaseIdCommentsGet(
+const { status, data } = await apiInstance.commentsGetRelease(
     releaseId
 );
 ```
@@ -410,7 +608,7 @@ const { status, data } = await apiInstance.releasesReleaseIdCommentsGet(
 
 ### Return type
 
-**EpicsEpicIdCommentsGet200Response**
+**CommentsGetEpic200Response**
 
 ### Authorization
 
@@ -426,11 +624,68 @@ const { status, data } = await apiInstance.releasesReleaseIdCommentsGet(
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | A list of comments |  -  |
+|**401** | Unauthorized |  -  |
+|**403** | Forbidden |  -  |
+|**404** | Release not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **requirementsRequirementIdCommentsGet**
-> EpicsEpicIdCommentsGet200Response requirementsRequirementIdCommentsGet()
+# **commentsGetReleasePhase**
+> CommentsGetEpic200Response commentsGetReleasePhase()
+
+Retrieves a list of comments associated with the specified release phase.
+
+### Example
+
+```typescript
+import {
+    CommentsApi,
+    Configuration
+} from '@cedricziel/aha-js';
+
+const configuration = new Configuration();
+const apiInstance = new CommentsApi(configuration);
+
+let releasePhaseId: string; // (default to undefined)
+
+const { status, data } = await apiInstance.commentsGetReleasePhase(
+    releasePhaseId
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **releasePhaseId** | [**string**] |  | defaults to undefined|
+
+
+### Return type
+
+**CommentsGetEpic200Response**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | A list of comments |  -  |
+|**401** | Unauthorized |  -  |
+|**403** | Forbidden |  -  |
+|**404** | Release phase not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **commentsGetRequirement**
+> CommentsGetEpic200Response commentsGetRequirement()
 
 Retrieves a list of comments associated with the specified requirement.
 
@@ -447,7 +702,7 @@ const apiInstance = new CommentsApi(configuration);
 
 let requirementId: string; // (default to undefined)
 
-const { status, data } = await apiInstance.requirementsRequirementIdCommentsGet(
+const { status, data } = await apiInstance.commentsGetRequirement(
     requirementId
 );
 ```
@@ -461,7 +716,7 @@ const { status, data } = await apiInstance.requirementsRequirementIdCommentsGet(
 
 ### Return type
 
-**EpicsEpicIdCommentsGet200Response**
+**CommentsGetEpic200Response**
 
 ### Authorization
 
@@ -482,8 +737,8 @@ const { status, data } = await apiInstance.requirementsRequirementIdCommentsGet(
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **todosTodoIdCommentsGet**
-> EpicsEpicIdCommentsGet200Response todosTodoIdCommentsGet()
+# **commentsGetTodo**
+> CommentsGetEpic200Response commentsGetTodo()
 
 Retrieves a list of comments associated with the specified to-do.
 
@@ -500,7 +755,7 @@ const apiInstance = new CommentsApi(configuration);
 
 let todoId: string; // (default to undefined)
 
-const { status, data } = await apiInstance.todosTodoIdCommentsGet(
+const { status, data } = await apiInstance.commentsGetTodo(
     todoId
 );
 ```
@@ -514,7 +769,7 @@ const { status, data } = await apiInstance.todosTodoIdCommentsGet(
 
 ### Return type
 
-**EpicsEpicIdCommentsGet200Response**
+**CommentsGetEpic200Response**
 
 ### Authorization
 
@@ -530,6 +785,9 @@ const { status, data } = await apiInstance.todosTodoIdCommentsGet(
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | A list of comments |  -  |
+|**401** | Unauthorized |  -  |
+|**403** | Forbidden |  -  |
+|**404** | To-do not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

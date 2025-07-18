@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **spam** | **boolean** | Whether the idea is considered spam. Must be \&#39;true\&#39; or \&#39;false\&#39; | [optional] [default to undefined]
 **submittedIdeaPortalId** | **string** | Numeric ID of the ideas portal. We strongly suggest you set this if the creator is an idea user.  | [optional] [default to undefined]
 **skipPortal** | **boolean** | If true, the idea will not be submitted to any portal. Default is false.  | [optional] [default to undefined]
+**scoreFacts** | [**Array&lt;IdeaCreateRequestIdeaScoreFactsInner&gt;**](IdeaCreateRequestIdeaScoreFactsInner.md) | Score facts for the idea | [optional] [default to undefined]
 
 ## Example
 
@@ -46,6 +47,7 @@ const instance: IdeaCreateRequestIdea = {
     spam,
     submittedIdeaPortalId,
     skipPortal,
+    scoreFacts,
 };
 ```
 

@@ -4,55 +4,11 @@ All URIs are relative to *https://mycompany.aha.io/api/v1*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|[**usersGet**](#usersget) | **GET** /users | List users|
-|[**usersIdGet**](#usersidget) | **GET** /users/{id} | Get a specific user|
+|[**usersGet**](#usersget) | **GET** /users/{id} | Get a specific user|
+|[**usersList**](#userslist) | **GET** /users | List users|
 
 # **usersGet**
-> Array<User> usersGet()
-
-Fetches a list of users associated with the Aha! account.
-
-### Example
-
-```typescript
-import {
-    UsersApi,
-    Configuration
-} from '@cedricziel/aha-js';
-
-const configuration = new Configuration();
-const apiInstance = new UsersApi(configuration);
-
-const { status, data } = await apiInstance.usersGet();
-```
-
-### Parameters
-This endpoint does not have any parameters.
-
-
-### Return type
-
-**Array<User>**
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-|**200** | A list of users |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **usersIdGet**
-> User usersIdGet()
+> User usersGet()
 
 Retrieves details of a specific user by their ID.
 
@@ -69,7 +25,7 @@ const apiInstance = new UsersApi(configuration);
 
 let id: string; // (default to undefined)
 
-const { status, data } = await apiInstance.usersIdGet(
+const { status, data } = await apiInstance.usersGet(
     id
 );
 ```
@@ -99,6 +55,55 @@ const { status, data } = await apiInstance.usersIdGet(
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | A single user |  -  |
+|**401** | Unauthorized |  -  |
+|**403** | Forbidden |  -  |
+|**404** | User not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **usersList**
+> Array<User> usersList()
+
+Fetches a list of users associated with the Aha! account.
+
+### Example
+
+```typescript
+import {
+    UsersApi,
+    Configuration
+} from '@cedricziel/aha-js';
+
+const configuration = new Configuration();
+const apiInstance = new UsersApi(configuration);
+
+const { status, data } = await apiInstance.usersList();
+```
+
+### Parameters
+This endpoint does not have any parameters.
+
+
+### Return type
+
+**Array<User>**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | A list of users |  -  |
+|**401** | Unauthorized |  -  |
+|**403** | Forbidden |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
