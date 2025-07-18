@@ -5,6 +5,8 @@ All URIs are relative to *https://mycompany.aha.io/api/v1*
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
 |[**commentsCreateFeature**](#commentscreatefeature) | **POST** /features/{feature_id}/comments | Create a comment on a feature|
+|[**featuresDelete**](#featuresdelete) | **DELETE** /features/{id} | Delete a feature|
+|[**featuresGet**](#featuresget) | **GET** /features/{id} | Get a specific feature|
 |[**featuresIdCustomFieldsWorksheetPut**](#featuresidcustomfieldsworksheetput) | **PUT** /features/{id}/custom_fields/worksheet | Update a feature\&#39;s custom worksheet fields|
 |[**featuresIdEpicPut**](#featuresidepicput) | **PUT** /features/{id}/epic | Update a feature\&#39;s epic|
 |[**featuresIdGoalsPut**](#featuresidgoalsput) | **PUT** /features/{id}/goals | Update a feature\&#39;s goals|
@@ -14,6 +16,7 @@ All URIs are relative to *https://mycompany.aha.io/api/v1*
 |[**featuresIdScorePut**](#featuresidscoreput) | **PUT** /features/{id}/score | Update a feature\&#39;s score|
 |[**featuresIdTagsPut**](#featuresidtagsput) | **PUT** /features/{id}/tags | Update a feature\&#39;s tags with an array|
 |[**featuresList**](#featureslist) | **GET** /features | List features|
+|[**featuresUpdate**](#featuresupdate) | **PUT** /features/{id} | Update a feature|
 
 # **commentsCreateFeature**
 > Comment commentsCreateFeature(commentCreateRequest)
@@ -72,6 +75,114 @@ const { status, data } = await apiInstance.commentsCreateFeature(
 |**403** | Forbidden |  -  |
 |**404** | Feature not found |  -  |
 |**422** | Unprocessable entity |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **featuresDelete**
+> featuresDelete()
+
+Deletes the specified feature.
+
+### Example
+
+```typescript
+import {
+    FeaturesApi,
+    Configuration
+} from '@cedricziel/aha-js';
+
+const configuration = new Configuration();
+const apiInstance = new FeaturesApi(configuration);
+
+let id: string; //Numeric ID or key of the feature (default to undefined)
+
+const { status, data } = await apiInstance.featuresDelete(
+    id
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**string**] | Numeric ID or key of the feature | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**204** | Feature deleted successfully |  -  |
+|**401** | Unauthorized - Invalid or missing authentication |  -  |
+|**403** | Forbidden - Insufficient permissions |  -  |
+|**404** | Feature not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **featuresGet**
+> FeatureGetResponse featuresGet()
+
+Retrieves the details of a specific feature.
+
+### Example
+
+```typescript
+import {
+    FeaturesApi,
+    Configuration
+} from '@cedricziel/aha-js';
+
+const configuration = new Configuration();
+const apiInstance = new FeaturesApi(configuration);
+
+let id: string; //Numeric ID or key of the feature (default to undefined)
+
+const { status, data } = await apiInstance.featuresGet(
+    id
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**string**] | Numeric ID or key of the feature | defaults to undefined|
+
+
+### Return type
+
+**FeatureGetResponse**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Feature details |  -  |
+|**401** | Unauthorized - Invalid or missing authentication |  -  |
+|**403** | Forbidden - Insufficient permissions |  -  |
+|**404** | Feature not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -598,6 +709,66 @@ const { status, data } = await apiInstance.featuresList(
 |**200** | A list of features |  -  |
 |**401** | Unauthorized |  -  |
 |**403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **featuresUpdate**
+> FeatureUpdateResponse featuresUpdate(featureUpdateRequest)
+
+Updates an existing feature with the provided attributes.
+
+### Example
+
+```typescript
+import {
+    FeaturesApi,
+    Configuration,
+    FeatureUpdateRequest
+} from '@cedricziel/aha-js';
+
+const configuration = new Configuration();
+const apiInstance = new FeaturesApi(configuration);
+
+let id: string; //Numeric ID or key of the feature (default to undefined)
+let featureUpdateRequest: FeatureUpdateRequest; //
+
+const { status, data } = await apiInstance.featuresUpdate(
+    id,
+    featureUpdateRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **featureUpdateRequest** | **FeatureUpdateRequest**|  | |
+| **id** | [**string**] | Numeric ID or key of the feature | defaults to undefined|
+
+
+### Return type
+
+**FeatureUpdateResponse**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Feature updated |  -  |
+|**400** | Bad request - Invalid request format or parameters |  -  |
+|**401** | Unauthorized - Invalid or missing authentication |  -  |
+|**403** | Forbidden - Insufficient permissions |  -  |
+|**404** | Feature not found |  -  |
+|**422** | Unprocessable entity - Validation errors |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
