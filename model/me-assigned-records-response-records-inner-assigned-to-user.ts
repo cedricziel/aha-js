@@ -14,28 +14,17 @@
 
 
 
-/**
- * 
- * @export
- * @interface MeAssignedRecordsResponseRecordsInnerAssignedToUser
- */
 export interface MeAssignedRecordsResponseRecordsInnerAssignedToUser {
     /**
      * User ID
-     * @type {string}
-     * @memberof MeAssignedRecordsResponseRecordsInnerAssignedToUser
      */
     'id': string;
     /**
      * User name
-     * @type {string}
-     * @memberof MeAssignedRecordsResponseRecordsInnerAssignedToUser
      */
     'name': string;
     /**
      * User email
-     * @type {string}
-     * @memberof MeAssignedRecordsResponseRecordsInnerAssignedToUser
      */
     'email': string;
 }

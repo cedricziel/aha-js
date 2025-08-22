@@ -14,70 +14,45 @@
 
 
 
-/**
- * 
- * @export
- * @interface ReleaseCreateRequest
- */
 export interface ReleaseCreateRequest {
     /**
      * Name of the release
-     * @type {string}
-     * @memberof ReleaseCreateRequest
      */
     'name': string;
     /**
      * Theme or focus of the release
-     * @type {string}
-     * @memberof ReleaseCreateRequest
      */
     'theme'?: string;
     /**
      * Planned start date of the release
-     * @type {string}
-     * @memberof ReleaseCreateRequest
      */
     'start_date'?: string;
     /**
      * Planned release date
-     * @type {string}
-     * @memberof ReleaseCreateRequest
      */
     'release_date'?: string;
     /**
      * External release date visible to customers
-     * @type {string}
-     * @memberof ReleaseCreateRequest
      */
     'external_release_date'?: string;
     /**
      * Whether this release is a parking lot
-     * @type {boolean}
-     * @memberof ReleaseCreateRequest
      */
     'parking_lot'?: boolean;
     /**
      * ID of the user assigned to the release
-     * @type {string}
-     * @memberof ReleaseCreateRequest
      */
     'assigned_to_user_id'?: string;
     /**
      * Description of the release
-     * @type {string}
-     * @memberof ReleaseCreateRequest
      */
     'description'?: string;
     /**
      * Custom field values for the release
-     * @type {{ [key: string]: any; }}
-     * @memberof ReleaseCreateRequest
      */
     'custom_fields'?: { [key: string]: any; };
     /**
      * Tags to associate with the release
-     * @type {Array<string>}
-     * @memberof ReleaseCreateRequest
      */
     'tags'?: Array<string>;
 }

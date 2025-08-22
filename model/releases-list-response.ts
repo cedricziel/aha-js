@@ -20,23 +20,8 @@ import type { Release } from './release';
 // @ts-ignore
 import type { ReleasesListResponsePagination } from './releases-list-response-pagination';
 
-/**
- * 
- * @export
- * @interface ReleasesListResponse
- */
 export interface ReleasesListResponse {
-    /**
-     * 
-     * @type {Array<Release>}
-     * @memberof ReleasesListResponse
-     */
     'releases'?: Array<Release>;
-    /**
-     * 
-     * @type {ReleasesListResponsePagination}
-     * @memberof ReleasesListResponse
-     */
     'pagination'?: ReleasesListResponsePagination;
 }
 

@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { FeaturesIdCustomFieldsWorksheetPutRequestFeatureCustomFields } from './features-id-custom-fields-worksheet-put-request-feature-custom-fields';
 
-/**
- * 
- * @export
- * @interface FeaturesIdCustomFieldsWorksheetPutRequestFeature
- */
 export interface FeaturesIdCustomFieldsWorksheetPutRequestFeature {
-    /**
-     * 
-     * @type {FeaturesIdCustomFieldsWorksheetPutRequestFeatureCustomFields}
-     * @memberof FeaturesIdCustomFieldsWorksheetPutRequestFeature
-     */
     'custom_fields'?: FeaturesIdCustomFieldsWorksheetPutRequestFeatureCustomFields;
 }
 

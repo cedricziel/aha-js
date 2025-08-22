@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { FeaturesIdReleasePutRequestFeature } from './features-id-release-put-request-feature';
 
-/**
- * 
- * @export
- * @interface FeaturesIdReleasePutRequest
- */
 export interface FeaturesIdReleasePutRequest {
-    /**
-     * 
-     * @type {FeaturesIdReleasePutRequestFeature}
-     * @memberof FeaturesIdReleasePutRequest
-     */
     'feature'?: FeaturesIdReleasePutRequestFeature;
 }
 

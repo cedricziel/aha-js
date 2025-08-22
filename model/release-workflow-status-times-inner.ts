@@ -14,34 +14,21 @@
 
 
 
-/**
- * 
- * @export
- * @interface ReleaseWorkflowStatusTimesInner
- */
 export interface ReleaseWorkflowStatusTimesInner {
     /**
      * ID of the status
-     * @type {string}
-     * @memberof ReleaseWorkflowStatusTimesInner
      */
     'status_id'?: string;
     /**
      * Name of the status
-     * @type {string}
-     * @memberof ReleaseWorkflowStatusTimesInner
      */
     'status_name'?: string;
     /**
      * When the release entered this status
-     * @type {string}
-     * @memberof ReleaseWorkflowStatusTimesInner
      */
     'started_at'?: string;
     /**
      * When the release left this status
-     * @type {string}
-     * @memberof ReleaseWorkflowStatusTimesInner
      */
     'ended_at'?: string | null;
 }

@@ -37,7 +37,6 @@ import type { GoalUpdateRequest } from '../model';
 import type { GoalsListResponse } from '../model';
 /**
  * GoalsApi - axios parameter creator
- * @export
  */
 export const GoalsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -475,7 +474,6 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
 
 /**
  * GoalsApi - functional programming interface
- * @export
  */
 export const GoalsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = GoalsApiAxiosParamCreator(configuration)
@@ -605,7 +603,6 @@ export const GoalsApiFp = function(configuration?: Configuration) {
 
 /**
  * GoalsApi - factory interface
- * @export
  */
 export const GoalsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = GoalsApiFp(configuration)
@@ -695,8 +692,6 @@ export const GoalsApiFactory = function (configuration?: Configuration, basePath
 
 /**
  * GoalsApi - interface
- * @export
- * @interface GoalsApi
  */
 export interface GoalsApiInterface {
     /**
@@ -705,7 +700,6 @@ export interface GoalsApiInterface {
      * @param {GoalsApiCommentsGetGoalRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GoalsApiInterface
      */
     commentsGetGoal(requestParameters: GoalsApiCommentsGetGoalRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsGetEpic200Response>;
 
@@ -715,7 +709,6 @@ export interface GoalsApiInterface {
      * @param {GoalsApiEpicsListByGoalRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GoalsApiInterface
      */
     epicsListByGoal(requestParameters: GoalsApiEpicsListByGoalRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsList200Response>;
 
@@ -725,7 +718,6 @@ export interface GoalsApiInterface {
      * @param {GoalsApiGoalsCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GoalsApiInterface
      */
     goalsCreate(requestParameters: GoalsApiGoalsCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<GoalGetResponse>;
 
@@ -735,7 +727,6 @@ export interface GoalsApiInterface {
      * @param {GoalsApiGoalsDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GoalsApiInterface
      */
     goalsDelete(requestParameters: GoalsApiGoalsDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -745,7 +736,6 @@ export interface GoalsApiInterface {
      * @param {GoalsApiGoalsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GoalsApiInterface
      */
     goalsGet(requestParameters: GoalsApiGoalsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<GoalGetResponse>;
 
@@ -755,7 +745,6 @@ export interface GoalsApiInterface {
      * @param {GoalsApiGoalsListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GoalsApiInterface
      */
     goalsList(requestParameters?: GoalsApiGoalsListRequest, options?: RawAxiosRequestConfig): AxiosPromise<GoalsListResponse>;
 
@@ -765,7 +754,6 @@ export interface GoalsApiInterface {
      * @param {GoalsApiGoalsUpdateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GoalsApiInterface
      */
     goalsUpdate(requestParameters: GoalsApiGoalsUpdateRequest, options?: RawAxiosRequestConfig): AxiosPromise<GoalGetResponse>;
 
@@ -775,7 +763,6 @@ export interface GoalsApiInterface {
      * @param {GoalsApiGoalsUpdateProgressRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GoalsApiInterface
      */
     goalsUpdateProgress(requestParameters: GoalsApiGoalsUpdateProgressRequest, options?: RawAxiosRequestConfig): AxiosPromise<GoalGetResponse>;
 
@@ -783,233 +770,154 @@ export interface GoalsApiInterface {
 
 /**
  * Request parameters for commentsGetGoal operation in GoalsApi.
- * @export
- * @interface GoalsApiCommentsGetGoalRequest
  */
 export interface GoalsApiCommentsGetGoalRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsApiCommentsGetGoal
-     */
     readonly goalId: string
 }
 
 /**
  * Request parameters for epicsListByGoal operation in GoalsApi.
- * @export
- * @interface GoalsApiEpicsListByGoalRequest
  */
 export interface GoalsApiEpicsListByGoalRequest {
     /**
      * Numeric ID or key of the goal
-     * @type {string}
-     * @memberof GoalsApiEpicsListByGoal
      */
     readonly goalId: string
 
     /**
      * Search term to match against epic name
-     * @type {string}
-     * @memberof GoalsApiEpicsListByGoal
      */
     readonly q?: string
 
     /**
      * UTC timestamp for filtering recently updated epics
-     * @type {string}
-     * @memberof GoalsApiEpicsListByGoal
      */
     readonly updatedSince?: string
 
     /**
      * String tag to filter epics
-     * @type {string}
-     * @memberof GoalsApiEpicsListByGoal
      */
     readonly tag?: string
 
     /**
      * User ID or email to filter by assignee
-     * @type {string}
-     * @memberof GoalsApiEpicsListByGoal
      */
     readonly assignedToUser?: string
 }
 
 /**
  * Request parameters for goalsCreate operation in GoalsApi.
- * @export
- * @interface GoalsApiGoalsCreateRequest
  */
 export interface GoalsApiGoalsCreateRequest {
-    /**
-     * 
-     * @type {GoalCreateRequest}
-     * @memberof GoalsApiGoalsCreate
-     */
     readonly goalCreateRequest: GoalCreateRequest
 }
 
 /**
  * Request parameters for goalsDelete operation in GoalsApi.
- * @export
- * @interface GoalsApiGoalsDeleteRequest
  */
 export interface GoalsApiGoalsDeleteRequest {
     /**
      * Numeric ID or reference number of the goal
-     * @type {string}
-     * @memberof GoalsApiGoalsDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for goalsGet operation in GoalsApi.
- * @export
- * @interface GoalsApiGoalsGetRequest
  */
 export interface GoalsApiGoalsGetRequest {
     /**
      * Numeric ID or reference number of the goal
-     * @type {string}
-     * @memberof GoalsApiGoalsGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for goalsList operation in GoalsApi.
- * @export
- * @interface GoalsApiGoalsListRequest
  */
 export interface GoalsApiGoalsListRequest {
     /**
      * Page number for pagination (starts at 1)
-     * @type {number}
-     * @memberof GoalsApiGoalsList
      */
     readonly page?: number
 
     /**
      * Number of items per page (max 200)
-     * @type {number}
-     * @memberof GoalsApiGoalsList
      */
     readonly perPage?: number
 
     /**
      * Comma-separated list of fields to include in response for customization
-     * @type {string}
-     * @memberof GoalsApiGoalsList
      */
     readonly fields?: string
 
     /**
      * Search term to match against goal name.
-     * @type {string}
-     * @memberof GoalsApiGoalsList
      */
     readonly q?: string
 
     /**
      * UTC timestamp (in ISO8601 format). If provided, only goals updated after the timestamp will be returned.
-     * @type {string}
-     * @memberof GoalsApiGoalsList
      */
     readonly updatedSince?: string
 
     /**
      * ID or email address of a user. If provided, returns only goals assigned to that user.
-     * @type {string}
-     * @memberof GoalsApiGoalsList
      */
     readonly assignedToUser?: string
 
     /**
      * Status filter for goals.
-     * @type {string}
-     * @memberof GoalsApiGoalsList
      */
     readonly status?: string
 
     /**
      * Filter goals with start date after this date.
-     * @type {string}
-     * @memberof GoalsApiGoalsList
      */
     readonly startDateAfter?: string
 
     /**
      * Filter goals with end date before this date.
-     * @type {string}
-     * @memberof GoalsApiGoalsList
      */
     readonly endDateBefore?: string
 
     /**
      * Filter goals with progress greater than or equal to this value.
-     * @type {number}
-     * @memberof GoalsApiGoalsList
      */
     readonly progressMin?: number
 
     /**
      * Filter goals with progress less than or equal to this value.
-     * @type {number}
-     * @memberof GoalsApiGoalsList
      */
     readonly progressMax?: number
 }
 
 /**
  * Request parameters for goalsUpdate operation in GoalsApi.
- * @export
- * @interface GoalsApiGoalsUpdateRequest
  */
 export interface GoalsApiGoalsUpdateRequest {
     /**
      * Numeric ID or reference number of the goal
-     * @type {string}
-     * @memberof GoalsApiGoalsUpdate
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {GoalUpdateRequest}
-     * @memberof GoalsApiGoalsUpdate
-     */
     readonly goalUpdateRequest: GoalUpdateRequest
 }
 
 /**
  * Request parameters for goalsUpdateProgress operation in GoalsApi.
- * @export
- * @interface GoalsApiGoalsUpdateProgressRequest
  */
 export interface GoalsApiGoalsUpdateProgressRequest {
     /**
      * Numeric ID or reference number of the goal
-     * @type {string}
-     * @memberof GoalsApiGoalsUpdateProgress
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {GoalProgressUpdateRequest}
-     * @memberof GoalsApiGoalsUpdateProgress
-     */
     readonly goalProgressUpdateRequest: GoalProgressUpdateRequest
 }
 
 /**
  * GoalsApi - object-oriented interface
- * @export
- * @class GoalsApi
- * @extends {BaseAPI}
  */
 export class GoalsApi extends BaseAPI implements GoalsApiInterface {
     /**
@@ -1018,7 +926,6 @@ export class GoalsApi extends BaseAPI implements GoalsApiInterface {
      * @param {GoalsApiCommentsGetGoalRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GoalsApi
      */
     public commentsGetGoal(requestParameters: GoalsApiCommentsGetGoalRequest, options?: RawAxiosRequestConfig) {
         return GoalsApiFp(this.configuration).commentsGetGoal(requestParameters.goalId, options).then((request) => request(this.axios, this.basePath));
@@ -1030,7 +937,6 @@ export class GoalsApi extends BaseAPI implements GoalsApiInterface {
      * @param {GoalsApiEpicsListByGoalRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GoalsApi
      */
     public epicsListByGoal(requestParameters: GoalsApiEpicsListByGoalRequest, options?: RawAxiosRequestConfig) {
         return GoalsApiFp(this.configuration).epicsListByGoal(requestParameters.goalId, requestParameters.q, requestParameters.updatedSince, requestParameters.tag, requestParameters.assignedToUser, options).then((request) => request(this.axios, this.basePath));
@@ -1042,7 +948,6 @@ export class GoalsApi extends BaseAPI implements GoalsApiInterface {
      * @param {GoalsApiGoalsCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GoalsApi
      */
     public goalsCreate(requestParameters: GoalsApiGoalsCreateRequest, options?: RawAxiosRequestConfig) {
         return GoalsApiFp(this.configuration).goalsCreate(requestParameters.goalCreateRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1054,7 +959,6 @@ export class GoalsApi extends BaseAPI implements GoalsApiInterface {
      * @param {GoalsApiGoalsDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GoalsApi
      */
     public goalsDelete(requestParameters: GoalsApiGoalsDeleteRequest, options?: RawAxiosRequestConfig) {
         return GoalsApiFp(this.configuration).goalsDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -1066,7 +970,6 @@ export class GoalsApi extends BaseAPI implements GoalsApiInterface {
      * @param {GoalsApiGoalsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GoalsApi
      */
     public goalsGet(requestParameters: GoalsApiGoalsGetRequest, options?: RawAxiosRequestConfig) {
         return GoalsApiFp(this.configuration).goalsGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -1078,7 +981,6 @@ export class GoalsApi extends BaseAPI implements GoalsApiInterface {
      * @param {GoalsApiGoalsListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GoalsApi
      */
     public goalsList(requestParameters: GoalsApiGoalsListRequest = {}, options?: RawAxiosRequestConfig) {
         return GoalsApiFp(this.configuration).goalsList(requestParameters.page, requestParameters.perPage, requestParameters.fields, requestParameters.q, requestParameters.updatedSince, requestParameters.assignedToUser, requestParameters.status, requestParameters.startDateAfter, requestParameters.endDateBefore, requestParameters.progressMin, requestParameters.progressMax, options).then((request) => request(this.axios, this.basePath));
@@ -1090,7 +992,6 @@ export class GoalsApi extends BaseAPI implements GoalsApiInterface {
      * @param {GoalsApiGoalsUpdateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GoalsApi
      */
     public goalsUpdate(requestParameters: GoalsApiGoalsUpdateRequest, options?: RawAxiosRequestConfig) {
         return GoalsApiFp(this.configuration).goalsUpdate(requestParameters.id, requestParameters.goalUpdateRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1102,7 +1003,6 @@ export class GoalsApi extends BaseAPI implements GoalsApiInterface {
      * @param {GoalsApiGoalsUpdateProgressRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GoalsApi
      */
     public goalsUpdateProgress(requestParameters: GoalsApiGoalsUpdateProgressRequest, options?: RawAxiosRequestConfig) {
         return GoalsApiFp(this.configuration).goalsUpdateProgress(requestParameters.id, requestParameters.goalProgressUpdateRequest, options).then((request) => request(this.axios, this.basePath));

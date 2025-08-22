@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { PaginationMetaPagination } from './pagination-meta-pagination';
 
-/**
- * 
- * @export
- * @interface PaginationMeta
- */
 export interface PaginationMeta {
-    /**
-     * 
-     * @type {PaginationMetaPagination}
-     * @memberof PaginationMeta
-     */
     'pagination'?: PaginationMetaPagination;
 }
 

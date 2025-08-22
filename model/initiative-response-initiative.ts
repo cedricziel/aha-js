@@ -35,209 +35,120 @@ import type { InitiativeResponseInitiativeTimeFrame } from './initiative-respons
 // @ts-ignore
 import type { InitiativeResponseInitiativeWorkflowStatusTimesInner } from './initiative-response-initiative-workflow-status-times-inner';
 
-/**
- * 
- * @export
- * @interface InitiativeResponseInitiative
- */
 export interface InitiativeResponseInitiative {
     /**
      * Unique identifier of the initiative
-     * @type {string}
-     * @memberof InitiativeResponseInitiative
      */
     'id'?: string;
     /**
      * Name of the initiative
-     * @type {string}
-     * @memberof InitiativeResponseInitiative
      */
     'name'?: string;
     /**
      * Reference number of the initiative
-     * @type {string}
-     * @memberof InitiativeResponseInitiative
      */
     'reference_num'?: string;
     /**
      * Status code of the initiative
-     * @type {string}
-     * @memberof InitiativeResponseInitiative
      */
     'status'?: string;
     /**
      * Effort required for the initiative
-     * @type {number}
-     * @memberof InitiativeResponseInitiative
      */
     'effort'?: number;
     /**
      * Value the initiative brings to the business
-     * @type {number}
-     * @memberof InitiativeResponseInitiative
      */
     'value'?: number;
     /**
      * Whether this initiative is shown on charts
-     * @type {boolean}
-     * @memberof InitiativeResponseInitiative
      */
     'presented'?: boolean;
     /**
      * Color of the initiative
-     * @type {string}
-     * @memberof InitiativeResponseInitiative
      */
     'color'?: string;
     /**
      * Start date for the initiative
-     * @type {string}
-     * @memberof InitiativeResponseInitiative
      */
     'start_date'?: string | null;
     /**
      * End date for the initiative
-     * @type {string}
-     * @memberof InitiativeResponseInitiative
      */
     'end_date'?: string | null;
     /**
      * Position for sorting initiatives
-     * @type {number}
-     * @memberof InitiativeResponseInitiative
      */
     'position'?: number;
     /**
      * Score of the initiative
-     * @type {number}
-     * @memberof InitiativeResponseInitiative
      */
     'score'?: number;
     /**
      * Creation date of the initiative
-     * @type {string}
-     * @memberof InitiativeResponseInitiative
      */
     'created_at'?: string;
     /**
      * Last update date of the initiative
-     * @type {string}
-     * @memberof InitiativeResponseInitiative
      */
     'updated_at'?: string;
     /**
      * ID of the product the initiative belongs to
-     * @type {string}
-     * @memberof InitiativeResponseInitiative
      */
     'product_id'?: string;
     /**
      * Progress completed on the initiative
-     * @type {number}
-     * @memberof InitiativeResponseInitiative
      */
     'progress'?: number;
     /**
      * Source for calculating progress on the initiative
-     * @type {string}
-     * @memberof InitiativeResponseInitiative
      */
     'progress_source'?: string;
     /**
      * Source for calculating start and end dates
-     * @type {string}
-     * @memberof InitiativeResponseInitiative
      */
     'duration_source'?: string;
     /**
      * URL to view the initiative in the Aha! web application
-     * @type {string}
-     * @memberof InitiativeResponseInitiative
      */
     'url'?: string;
     /**
      * API resource URL for the initiative
-     * @type {string}
-     * @memberof InitiativeResponseInitiative
      */
     'resource'?: string;
-    /**
-     * 
-     * @type {InitiativeResponseInitiativeProject}
-     * @memberof InitiativeResponseInitiative
-     */
     'project'?: InitiativeResponseInitiativeProject;
-    /**
-     * 
-     * @type {IdeasListResponseIdeasInnerWorkflowStatus}
-     * @memberof InitiativeResponseInitiative
-     */
     'workflow_status'?: IdeasListResponseIdeasInnerWorkflowStatus;
-    /**
-     * 
-     * @type {IdeasListResponseIdeasInnerDescription}
-     * @memberof InitiativeResponseInitiative
-     */
     'description'?: IdeasListResponseIdeasInnerDescription;
     /**
      * Attachments to the initiative
-     * @type {Array<object>}
-     * @memberof InitiativeResponseInitiative
      */
     'attachments'?: Array<object>;
-    /**
-     * 
-     * @type {InitiativeResponseInitiativeAssignedToUser}
-     * @memberof InitiativeResponseInitiative
-     */
     'assigned_to_user'?: InitiativeResponseInitiativeAssignedToUser;
-    /**
-     * 
-     * @type {InitiativeResponseInitiativeTimeFrame}
-     * @memberof InitiativeResponseInitiative
-     */
     'time_frame'?: InitiativeResponseInitiativeTimeFrame;
     /**
      * Number of comments on the initiative
-     * @type {number}
-     * @memberof InitiativeResponseInitiative
      */
     'comments_count'?: number;
     /**
      * Goals associated with the initiative
-     * @type {Array<object>}
-     * @memberof InitiativeResponseInitiative
      */
     'goals'?: Array<object>;
     /**
      * Key results associated with the initiative
-     * @type {Array<object>}
-     * @memberof InitiativeResponseInitiative
      */
     'key_results'?: Array<object>;
     /**
      * Score facts for the initiative
-     * @type {Array<object>}
-     * @memberof InitiativeResponseInitiative
      */
     'score_facts'?: Array<object>;
     /**
      * Integration fields for the initiative
-     * @type {Array<object>}
-     * @memberof InitiativeResponseInitiative
      */
     'integration_fields'?: Array<object>;
     /**
      * Workflow status times for the initiative
-     * @type {Array<InitiativeResponseInitiativeWorkflowStatusTimesInner>}
-     * @memberof InitiativeResponseInitiative
      */
     'workflow_status_times'?: Array<InitiativeResponseInitiativeWorkflowStatusTimesInner>;
-    /**
-     * 
-     * @type {InitiativeResponseInitiativeCreatedByUser}
-     * @memberof InitiativeResponseInitiative
-     */
     'created_by_user'?: InitiativeResponseInitiativeCreatedByUser;
 }
 

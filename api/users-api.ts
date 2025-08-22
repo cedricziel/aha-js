@@ -25,7 +25,6 @@ import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError
 import type { User } from '../model';
 /**
  * UsersApi - axios parameter creator
- * @export
  */
 export const UsersApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -114,7 +113,6 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
 
 /**
  * UsersApi - functional programming interface
- * @export
  */
 export const UsersApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = UsersApiAxiosParamCreator(configuration)
@@ -149,7 +147,6 @@ export const UsersApiFp = function(configuration?: Configuration) {
 
 /**
  * UsersApi - factory interface
- * @export
  */
 export const UsersApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = UsersApiFp(configuration)
@@ -178,8 +175,6 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
 
 /**
  * UsersApi - interface
- * @export
- * @interface UsersApi
  */
 export interface UsersApiInterface {
     /**
@@ -188,7 +183,6 @@ export interface UsersApiInterface {
      * @param {UsersApiUsersGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApiInterface
      */
     usersGet(requestParameters: UsersApiUsersGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<User>;
 
@@ -197,7 +191,6 @@ export interface UsersApiInterface {
      * @summary List users
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApiInterface
      */
     usersList(options?: RawAxiosRequestConfig): AxiosPromise<Array<User>>;
 
@@ -205,23 +198,13 @@ export interface UsersApiInterface {
 
 /**
  * Request parameters for usersGet operation in UsersApi.
- * @export
- * @interface UsersApiUsersGetRequest
  */
 export interface UsersApiUsersGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersApiUsersGet
-     */
     readonly id: string
 }
 
 /**
  * UsersApi - object-oriented interface
- * @export
- * @class UsersApi
- * @extends {BaseAPI}
  */
 export class UsersApi extends BaseAPI implements UsersApiInterface {
     /**
@@ -230,7 +213,6 @@ export class UsersApi extends BaseAPI implements UsersApiInterface {
      * @param {UsersApiUsersGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public usersGet(requestParameters: UsersApiUsersGetRequest, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).usersGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -241,7 +223,6 @@ export class UsersApi extends BaseAPI implements UsersApiInterface {
      * @summary List users
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public usersList(options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).usersList(options).then((request) => request(this.axios, this.basePath));

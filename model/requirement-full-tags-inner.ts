@@ -14,22 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface RequirementFullTagsInner
- */
 export interface RequirementFullTagsInner {
     /**
      * ID of the tag
-     * @type {string}
-     * @memberof RequirementFullTagsInner
      */
     'id'?: string;
     /**
      * Name of the tag
-     * @type {string}
-     * @memberof RequirementFullTagsInner
      */
     'name'?: string;
 }

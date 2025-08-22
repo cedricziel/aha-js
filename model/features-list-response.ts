@@ -20,23 +20,8 @@ import type { Feature } from './feature';
 // @ts-ignore
 import type { PaginationMeta } from './pagination-meta';
 
-/**
- * 
- * @export
- * @interface FeaturesListResponse
- */
 export interface FeaturesListResponse {
-    /**
-     * 
-     * @type {Array<Feature>}
-     * @memberof FeaturesListResponse
-     */
     'features'?: Array<Feature>;
-    /**
-     * 
-     * @type {PaginationMeta}
-     * @memberof FeaturesListResponse
-     */
     'meta'?: PaginationMeta;
 }
 

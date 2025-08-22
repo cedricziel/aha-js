@@ -16,14 +16,10 @@
 
 /**
  * Workflow status to update to
- * @export
- * @interface RequirementUpdateRequestRequirementWorkflowStatus
  */
 export interface RequirementUpdateRequestRequirementWorkflowStatus {
     /**
      * Name of the workflow status
-     * @type {string}
-     * @memberof RequirementUpdateRequestRequirementWorkflowStatus
      */
     'name'?: string;
 }

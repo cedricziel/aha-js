@@ -17,59 +17,35 @@
 // @ts-ignore
 import type { IdeasGetEndorsements200ResponseEndorsementsInnerCreatedByUser } from './ideas-get-endorsements200-response-endorsements-inner-created-by-user';
 
-/**
- * 
- * @export
- * @interface IdeasCreateEndorsement201ResponseEndorsement
- */
 export interface IdeasCreateEndorsement201ResponseEndorsement {
     /**
      * ID of the endorsement
-     * @type {string}
-     * @memberof IdeasCreateEndorsement201ResponseEndorsement
      */
     'id'?: string;
     /**
      * Email of the portal user
-     * @type {string}
-     * @memberof IdeasCreateEndorsement201ResponseEndorsement
      */
     'email'?: string;
     /**
      * Organization ID
-     * @type {string}
-     * @memberof IdeasCreateEndorsement201ResponseEndorsement
      */
     'idea_organization_id'?: string;
     /**
      * Dollar value of the endorsement
-     * @type {number}
-     * @memberof IdeasCreateEndorsement201ResponseEndorsement
      */
     'value'?: number;
     /**
      * Associated URL
-     * @type {string}
-     * @memberof IdeasCreateEndorsement201ResponseEndorsement
      */
     'link'?: string;
     /**
      * Endorsement description
-     * @type {string}
-     * @memberof IdeasCreateEndorsement201ResponseEndorsement
      */
     'description'?: string;
     /**
      * When the endorsement was created
-     * @type {string}
-     * @memberof IdeasCreateEndorsement201ResponseEndorsement
      */
     'created_at'?: string;
-    /**
-     * 
-     * @type {IdeasGetEndorsements200ResponseEndorsementsInnerCreatedByUser}
-     * @memberof IdeasCreateEndorsement201ResponseEndorsement
-     */
     'created_by_user'?: IdeasGetEndorsements200ResponseEndorsementsInnerCreatedByUser;
 }
 

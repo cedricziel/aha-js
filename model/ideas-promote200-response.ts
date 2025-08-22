@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { IdeasPromote200ResponsePromotedRecord } from './ideas-promote200-response-promoted-record';
 
-/**
- * 
- * @export
- * @interface IdeasPromote200Response
- */
 export interface IdeasPromote200Response {
-    /**
-     * 
-     * @type {IdeasPromote200ResponsePromotedRecord}
-     * @memberof IdeasPromote200Response
-     */
     'promoted_record'?: IdeasPromote200ResponsePromotedRecord;
 }
 

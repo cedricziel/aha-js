@@ -50,14 +50,13 @@ import type { FeaturesIdScorePutRequest } from '../model';
 // @ts-ignore
 import type { FeaturesIdTagsPutRequest } from '../model';
 // @ts-ignore
+import type { FeaturesList429Response } from '../model';
+// @ts-ignore
+import type { FeaturesList504Response } from '../model';
+// @ts-ignore
 import type { FeaturesListResponse } from '../model';
-// @ts-ignore
-import type { InlineObject } from '../model';
-// @ts-ignore
-import type { InlineObject1 } from '../model';
 /**
  * FeaturesApi - axios parameter creator
- * @export
  */
 export const FeaturesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -705,7 +704,6 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
 
 /**
  * FeaturesApi - functional programming interface
- * @export
  */
 export const FeaturesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = FeaturesApiAxiosParamCreator(configuration)
@@ -900,7 +898,6 @@ export const FeaturesApiFp = function(configuration?: Configuration) {
 
 /**
  * FeaturesApi - factory interface
- * @export
  */
 export const FeaturesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = FeaturesApiFp(configuration)
@@ -1040,8 +1037,6 @@ export const FeaturesApiFactory = function (configuration?: Configuration, baseP
 
 /**
  * FeaturesApi - interface
- * @export
- * @interface FeaturesApi
  */
 export interface FeaturesApiInterface {
     /**
@@ -1050,7 +1045,6 @@ export interface FeaturesApiInterface {
      * @param {FeaturesApiCommentsCreateFeatureRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApiInterface
      */
     commentsCreateFeature(requestParameters: FeaturesApiCommentsCreateFeatureRequest, options?: RawAxiosRequestConfig): AxiosPromise<Comment>;
 
@@ -1060,7 +1054,6 @@ export interface FeaturesApiInterface {
      * @param {FeaturesApiFeaturesDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApiInterface
      */
     featuresDelete(requestParameters: FeaturesApiFeaturesDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -1070,7 +1063,6 @@ export interface FeaturesApiInterface {
      * @param {FeaturesApiFeaturesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApiInterface
      */
     featuresGet(requestParameters: FeaturesApiFeaturesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<FeatureGetResponse>;
 
@@ -1080,7 +1072,6 @@ export interface FeaturesApiInterface {
      * @param {FeaturesApiFeaturesIdCustomFieldsWorksheetPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApiInterface
      */
     featuresIdCustomFieldsWorksheetPut(requestParameters: FeaturesApiFeaturesIdCustomFieldsWorksheetPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<Feature>;
 
@@ -1090,7 +1081,6 @@ export interface FeaturesApiInterface {
      * @param {FeaturesApiFeaturesIdEpicPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApiInterface
      */
     featuresIdEpicPut(requestParameters: FeaturesApiFeaturesIdEpicPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<Feature>;
 
@@ -1100,7 +1090,6 @@ export interface FeaturesApiInterface {
      * @param {FeaturesApiFeaturesIdGoalsPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApiInterface
      */
     featuresIdGoalsPut(requestParameters: FeaturesApiFeaturesIdGoalsPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<Feature>;
 
@@ -1110,7 +1099,6 @@ export interface FeaturesApiInterface {
      * @param {FeaturesApiFeaturesIdProgressPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApiInterface
      */
     featuresIdProgressPut(requestParameters: FeaturesApiFeaturesIdProgressPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<Feature>;
 
@@ -1120,7 +1108,6 @@ export interface FeaturesApiInterface {
      * @param {FeaturesApiFeaturesIdProgressSourcePutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApiInterface
      */
     featuresIdProgressSourcePut(requestParameters: FeaturesApiFeaturesIdProgressSourcePutRequest, options?: RawAxiosRequestConfig): AxiosPromise<Feature>;
 
@@ -1130,7 +1117,6 @@ export interface FeaturesApiInterface {
      * @param {FeaturesApiFeaturesIdReleasePutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApiInterface
      */
     featuresIdReleasePut(requestParameters: FeaturesApiFeaturesIdReleasePutRequest, options?: RawAxiosRequestConfig): AxiosPromise<Feature>;
 
@@ -1140,7 +1126,6 @@ export interface FeaturesApiInterface {
      * @param {FeaturesApiFeaturesIdScorePutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApiInterface
      */
     featuresIdScorePut(requestParameters: FeaturesApiFeaturesIdScorePutRequest, options?: RawAxiosRequestConfig): AxiosPromise<Feature>;
 
@@ -1150,7 +1135,6 @@ export interface FeaturesApiInterface {
      * @param {FeaturesApiFeaturesIdTagsPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApiInterface
      */
     featuresIdTagsPut(requestParameters: FeaturesApiFeaturesIdTagsPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<Feature>;
 
@@ -1160,7 +1144,6 @@ export interface FeaturesApiInterface {
      * @param {FeaturesApiFeaturesListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApiInterface
      */
     featuresList(requestParameters?: FeaturesApiFeaturesListRequest, options?: RawAxiosRequestConfig): AxiosPromise<FeaturesListResponse>;
 
@@ -1170,7 +1153,6 @@ export interface FeaturesApiInterface {
      * @param {FeaturesApiFeaturesUpdateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApiInterface
      */
     featuresUpdate(requestParameters: FeaturesApiFeaturesUpdateRequest, options?: RawAxiosRequestConfig): AxiosPromise<FeatureUpdateResponse>;
 
@@ -1178,303 +1160,183 @@ export interface FeaturesApiInterface {
 
 /**
  * Request parameters for commentsCreateFeature operation in FeaturesApi.
- * @export
- * @interface FeaturesApiCommentsCreateFeatureRequest
  */
 export interface FeaturesApiCommentsCreateFeatureRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesApiCommentsCreateFeature
-     */
     readonly featureId: string
 
-    /**
-     * 
-     * @type {CommentCreateRequest}
-     * @memberof FeaturesApiCommentsCreateFeature
-     */
     readonly commentCreateRequest: CommentCreateRequest
 }
 
 /**
  * Request parameters for featuresDelete operation in FeaturesApi.
- * @export
- * @interface FeaturesApiFeaturesDeleteRequest
  */
 export interface FeaturesApiFeaturesDeleteRequest {
     /**
      * Numeric ID or key of the feature
-     * @type {string}
-     * @memberof FeaturesApiFeaturesDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for featuresGet operation in FeaturesApi.
- * @export
- * @interface FeaturesApiFeaturesGetRequest
  */
 export interface FeaturesApiFeaturesGetRequest {
     /**
      * Numeric ID or key of the feature
-     * @type {string}
-     * @memberof FeaturesApiFeaturesGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for featuresIdCustomFieldsWorksheetPut operation in FeaturesApi.
- * @export
- * @interface FeaturesApiFeaturesIdCustomFieldsWorksheetPutRequest
  */
 export interface FeaturesApiFeaturesIdCustomFieldsWorksheetPutRequest {
     /**
      * Numeric ID or key of the feature
-     * @type {string}
-     * @memberof FeaturesApiFeaturesIdCustomFieldsWorksheetPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {FeaturesIdCustomFieldsWorksheetPutRequest}
-     * @memberof FeaturesApiFeaturesIdCustomFieldsWorksheetPut
-     */
     readonly featuresIdCustomFieldsWorksheetPutRequest: FeaturesIdCustomFieldsWorksheetPutRequest
 }
 
 /**
  * Request parameters for featuresIdEpicPut operation in FeaturesApi.
- * @export
- * @interface FeaturesApiFeaturesIdEpicPutRequest
  */
 export interface FeaturesApiFeaturesIdEpicPutRequest {
     /**
      * Numeric ID or key of the feature
-     * @type {string}
-     * @memberof FeaturesApiFeaturesIdEpicPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {FeaturesIdEpicPutRequest}
-     * @memberof FeaturesApiFeaturesIdEpicPut
-     */
     readonly featuresIdEpicPutRequest: FeaturesIdEpicPutRequest
 }
 
 /**
  * Request parameters for featuresIdGoalsPut operation in FeaturesApi.
- * @export
- * @interface FeaturesApiFeaturesIdGoalsPutRequest
  */
 export interface FeaturesApiFeaturesIdGoalsPutRequest {
     /**
      * Numeric ID or key of the feature
-     * @type {string}
-     * @memberof FeaturesApiFeaturesIdGoalsPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {FeaturesIdGoalsPutRequest}
-     * @memberof FeaturesApiFeaturesIdGoalsPut
-     */
     readonly featuresIdGoalsPutRequest: FeaturesIdGoalsPutRequest
 }
 
 /**
  * Request parameters for featuresIdProgressPut operation in FeaturesApi.
- * @export
- * @interface FeaturesApiFeaturesIdProgressPutRequest
  */
 export interface FeaturesApiFeaturesIdProgressPutRequest {
     /**
      * Numeric ID or key of the feature
-     * @type {string}
-     * @memberof FeaturesApiFeaturesIdProgressPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {FeaturesIdProgressPutRequest}
-     * @memberof FeaturesApiFeaturesIdProgressPut
-     */
     readonly featuresIdProgressPutRequest: FeaturesIdProgressPutRequest
 }
 
 /**
  * Request parameters for featuresIdProgressSourcePut operation in FeaturesApi.
- * @export
- * @interface FeaturesApiFeaturesIdProgressSourcePutRequest
  */
 export interface FeaturesApiFeaturesIdProgressSourcePutRequest {
     /**
      * Numeric ID or key of the feature
-     * @type {string}
-     * @memberof FeaturesApiFeaturesIdProgressSourcePut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {FeaturesIdProgressSourcePutRequest}
-     * @memberof FeaturesApiFeaturesIdProgressSourcePut
-     */
     readonly featuresIdProgressSourcePutRequest: FeaturesIdProgressSourcePutRequest
 }
 
 /**
  * Request parameters for featuresIdReleasePut operation in FeaturesApi.
- * @export
- * @interface FeaturesApiFeaturesIdReleasePutRequest
  */
 export interface FeaturesApiFeaturesIdReleasePutRequest {
     /**
      * Numeric ID or key of the feature
-     * @type {string}
-     * @memberof FeaturesApiFeaturesIdReleasePut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {FeaturesIdReleasePutRequest}
-     * @memberof FeaturesApiFeaturesIdReleasePut
-     */
     readonly featuresIdReleasePutRequest: FeaturesIdReleasePutRequest
 }
 
 /**
  * Request parameters for featuresIdScorePut operation in FeaturesApi.
- * @export
- * @interface FeaturesApiFeaturesIdScorePutRequest
  */
 export interface FeaturesApiFeaturesIdScorePutRequest {
     /**
      * Numeric ID or key of the feature
-     * @type {string}
-     * @memberof FeaturesApiFeaturesIdScorePut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {FeaturesIdScorePutRequest}
-     * @memberof FeaturesApiFeaturesIdScorePut
-     */
     readonly featuresIdScorePutRequest: FeaturesIdScorePutRequest
 }
 
 /**
  * Request parameters for featuresIdTagsPut operation in FeaturesApi.
- * @export
- * @interface FeaturesApiFeaturesIdTagsPutRequest
  */
 export interface FeaturesApiFeaturesIdTagsPutRequest {
     /**
      * Numeric ID or key of the feature
-     * @type {string}
-     * @memberof FeaturesApiFeaturesIdTagsPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {FeaturesIdTagsPutRequest}
-     * @memberof FeaturesApiFeaturesIdTagsPut
-     */
     readonly featuresIdTagsPutRequest: FeaturesIdTagsPutRequest
 }
 
 /**
  * Request parameters for featuresList operation in FeaturesApi.
- * @export
- * @interface FeaturesApiFeaturesListRequest
  */
 export interface FeaturesApiFeaturesListRequest {
     /**
      * Page number for pagination (starts at 1)
-     * @type {number}
-     * @memberof FeaturesApiFeaturesList
      */
     readonly page?: number
 
     /**
      * Number of items per page (max 200)
-     * @type {number}
-     * @memberof FeaturesApiFeaturesList
      */
     readonly perPage?: number
 
     /**
      * Comma-separated list of fields to include in response for customization
-     * @type {string}
-     * @memberof FeaturesApiFeaturesList
      */
     readonly fields?: string
 
     /**
      * Search term to match against feature name
-     * @type {string}
-     * @memberof FeaturesApiFeaturesList
      */
     readonly q?: string
 
     /**
      * UTC timestamp (in ISO8601 format). If provided, only features updated after the timestamp will be returned
-     * @type {string}
-     * @memberof FeaturesApiFeaturesList
      */
     readonly updatedSince?: string
 
     /**
      * String tag value. If provided, only features with the associated tag will be returned
-     * @type {string}
-     * @memberof FeaturesApiFeaturesList
      */
     readonly tag?: string
 
     /**
      * ID or email address of a user. If provided, only features assigned to that user will be returned
-     * @type {string}
-     * @memberof FeaturesApiFeaturesList
      */
     readonly assignedToUser?: string
 }
 
 /**
  * Request parameters for featuresUpdate operation in FeaturesApi.
- * @export
- * @interface FeaturesApiFeaturesUpdateRequest
  */
 export interface FeaturesApiFeaturesUpdateRequest {
     /**
      * Numeric ID or key of the feature
-     * @type {string}
-     * @memberof FeaturesApiFeaturesUpdate
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {FeatureUpdateRequest}
-     * @memberof FeaturesApiFeaturesUpdate
-     */
     readonly featureUpdateRequest: FeatureUpdateRequest
 }
 
 /**
  * FeaturesApi - object-oriented interface
- * @export
- * @class FeaturesApi
- * @extends {BaseAPI}
  */
 export class FeaturesApi extends BaseAPI implements FeaturesApiInterface {
     /**
@@ -1483,7 +1345,6 @@ export class FeaturesApi extends BaseAPI implements FeaturesApiInterface {
      * @param {FeaturesApiCommentsCreateFeatureRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApi
      */
     public commentsCreateFeature(requestParameters: FeaturesApiCommentsCreateFeatureRequest, options?: RawAxiosRequestConfig) {
         return FeaturesApiFp(this.configuration).commentsCreateFeature(requestParameters.featureId, requestParameters.commentCreateRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1495,7 +1356,6 @@ export class FeaturesApi extends BaseAPI implements FeaturesApiInterface {
      * @param {FeaturesApiFeaturesDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApi
      */
     public featuresDelete(requestParameters: FeaturesApiFeaturesDeleteRequest, options?: RawAxiosRequestConfig) {
         return FeaturesApiFp(this.configuration).featuresDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -1507,7 +1367,6 @@ export class FeaturesApi extends BaseAPI implements FeaturesApiInterface {
      * @param {FeaturesApiFeaturesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApi
      */
     public featuresGet(requestParameters: FeaturesApiFeaturesGetRequest, options?: RawAxiosRequestConfig) {
         return FeaturesApiFp(this.configuration).featuresGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -1519,7 +1378,6 @@ export class FeaturesApi extends BaseAPI implements FeaturesApiInterface {
      * @param {FeaturesApiFeaturesIdCustomFieldsWorksheetPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApi
      */
     public featuresIdCustomFieldsWorksheetPut(requestParameters: FeaturesApiFeaturesIdCustomFieldsWorksheetPutRequest, options?: RawAxiosRequestConfig) {
         return FeaturesApiFp(this.configuration).featuresIdCustomFieldsWorksheetPut(requestParameters.id, requestParameters.featuresIdCustomFieldsWorksheetPutRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1531,7 +1389,6 @@ export class FeaturesApi extends BaseAPI implements FeaturesApiInterface {
      * @param {FeaturesApiFeaturesIdEpicPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApi
      */
     public featuresIdEpicPut(requestParameters: FeaturesApiFeaturesIdEpicPutRequest, options?: RawAxiosRequestConfig) {
         return FeaturesApiFp(this.configuration).featuresIdEpicPut(requestParameters.id, requestParameters.featuresIdEpicPutRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1543,7 +1400,6 @@ export class FeaturesApi extends BaseAPI implements FeaturesApiInterface {
      * @param {FeaturesApiFeaturesIdGoalsPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApi
      */
     public featuresIdGoalsPut(requestParameters: FeaturesApiFeaturesIdGoalsPutRequest, options?: RawAxiosRequestConfig) {
         return FeaturesApiFp(this.configuration).featuresIdGoalsPut(requestParameters.id, requestParameters.featuresIdGoalsPutRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1555,7 +1411,6 @@ export class FeaturesApi extends BaseAPI implements FeaturesApiInterface {
      * @param {FeaturesApiFeaturesIdProgressPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApi
      */
     public featuresIdProgressPut(requestParameters: FeaturesApiFeaturesIdProgressPutRequest, options?: RawAxiosRequestConfig) {
         return FeaturesApiFp(this.configuration).featuresIdProgressPut(requestParameters.id, requestParameters.featuresIdProgressPutRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1567,7 +1422,6 @@ export class FeaturesApi extends BaseAPI implements FeaturesApiInterface {
      * @param {FeaturesApiFeaturesIdProgressSourcePutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApi
      */
     public featuresIdProgressSourcePut(requestParameters: FeaturesApiFeaturesIdProgressSourcePutRequest, options?: RawAxiosRequestConfig) {
         return FeaturesApiFp(this.configuration).featuresIdProgressSourcePut(requestParameters.id, requestParameters.featuresIdProgressSourcePutRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1579,7 +1433,6 @@ export class FeaturesApi extends BaseAPI implements FeaturesApiInterface {
      * @param {FeaturesApiFeaturesIdReleasePutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApi
      */
     public featuresIdReleasePut(requestParameters: FeaturesApiFeaturesIdReleasePutRequest, options?: RawAxiosRequestConfig) {
         return FeaturesApiFp(this.configuration).featuresIdReleasePut(requestParameters.id, requestParameters.featuresIdReleasePutRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1591,7 +1444,6 @@ export class FeaturesApi extends BaseAPI implements FeaturesApiInterface {
      * @param {FeaturesApiFeaturesIdScorePutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApi
      */
     public featuresIdScorePut(requestParameters: FeaturesApiFeaturesIdScorePutRequest, options?: RawAxiosRequestConfig) {
         return FeaturesApiFp(this.configuration).featuresIdScorePut(requestParameters.id, requestParameters.featuresIdScorePutRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1603,7 +1455,6 @@ export class FeaturesApi extends BaseAPI implements FeaturesApiInterface {
      * @param {FeaturesApiFeaturesIdTagsPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApi
      */
     public featuresIdTagsPut(requestParameters: FeaturesApiFeaturesIdTagsPutRequest, options?: RawAxiosRequestConfig) {
         return FeaturesApiFp(this.configuration).featuresIdTagsPut(requestParameters.id, requestParameters.featuresIdTagsPutRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1615,7 +1466,6 @@ export class FeaturesApi extends BaseAPI implements FeaturesApiInterface {
      * @param {FeaturesApiFeaturesListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApi
      */
     public featuresList(requestParameters: FeaturesApiFeaturesListRequest = {}, options?: RawAxiosRequestConfig) {
         return FeaturesApiFp(this.configuration).featuresList(requestParameters.page, requestParameters.perPage, requestParameters.fields, requestParameters.q, requestParameters.updatedSince, requestParameters.tag, requestParameters.assignedToUser, options).then((request) => request(this.axios, this.basePath));
@@ -1627,7 +1477,6 @@ export class FeaturesApi extends BaseAPI implements FeaturesApiInterface {
      * @param {FeaturesApiFeaturesUpdateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApi
      */
     public featuresUpdate(requestParameters: FeaturesApiFeaturesUpdateRequest, options?: RawAxiosRequestConfig) {
         return FeaturesApiFp(this.configuration).featuresUpdate(requestParameters.id, requestParameters.featureUpdateRequest, options).then((request) => request(this.axios, this.basePath));

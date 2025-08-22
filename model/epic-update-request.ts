@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { EpicUpdateRequestEpic } from './epic-update-request-epic';
 
-/**
- * 
- * @export
- * @interface EpicUpdateRequest
- */
 export interface EpicUpdateRequest {
-    /**
-     * 
-     * @type {EpicUpdateRequestEpic}
-     * @memberof EpicUpdateRequest
-     */
     'epic'?: EpicUpdateRequestEpic;
 }
 

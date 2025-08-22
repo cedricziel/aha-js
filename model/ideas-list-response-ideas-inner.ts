@@ -20,64 +20,35 @@ import type { IdeasListResponseIdeasInnerDescription } from './ideas-list-respon
 // @ts-ignore
 import type { IdeasListResponseIdeasInnerWorkflowStatus } from './ideas-list-response-ideas-inner-workflow-status';
 
-/**
- * 
- * @export
- * @interface IdeasListResponseIdeasInner
- */
 export interface IdeasListResponseIdeasInner {
     /**
      * Unique identifier of the idea
-     * @type {string}
-     * @memberof IdeasListResponseIdeasInner
      */
     'id'?: string;
     /**
      * Reference number of the idea
-     * @type {string}
-     * @memberof IdeasListResponseIdeasInner
      */
     'reference_num'?: string;
     /**
      * Name of the idea
-     * @type {string}
-     * @memberof IdeasListResponseIdeasInner
      */
     'name'?: string;
     /**
      * Creation date of the idea
-     * @type {string}
-     * @memberof IdeasListResponseIdeasInner
      */
     'created_at'?: string;
     /**
      * Last update date of the idea
-     * @type {string}
-     * @memberof IdeasListResponseIdeasInner
      */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {IdeasListResponseIdeasInnerWorkflowStatus}
-     * @memberof IdeasListResponseIdeasInner
-     */
     'workflow_status'?: IdeasListResponseIdeasInnerWorkflowStatus;
-    /**
-     * 
-     * @type {IdeasListResponseIdeasInnerDescription}
-     * @memberof IdeasListResponseIdeasInner
-     */
     'description'?: IdeasListResponseIdeasInnerDescription;
     /**
      * URL to view the idea in the Aha! web application
-     * @type {string}
-     * @memberof IdeasListResponseIdeasInner
      */
     'url'?: string;
     /**
      * API resource URL for the idea
-     * @type {string}
-     * @memberof IdeasListResponseIdeasInner
      */
     'resource'?: string;
 }

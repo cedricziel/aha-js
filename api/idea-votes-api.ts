@@ -29,7 +29,6 @@ import type { IdeasCreateEndorsement201Response } from '../model';
 import type { IdeasGetEndorsements200Response } from '../model';
 /**
  * IdeaVotesApi - axios parameter creator
- * @export
  */
 export const IdeaVotesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -143,7 +142,6 @@ export const IdeaVotesApiAxiosParamCreator = function (configuration?: Configura
 
 /**
  * IdeaVotesApi - functional programming interface
- * @export
  */
 export const IdeaVotesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = IdeaVotesApiAxiosParamCreator(configuration)
@@ -183,7 +181,6 @@ export const IdeaVotesApiFp = function(configuration?: Configuration) {
 
 /**
  * IdeaVotesApi - factory interface
- * @export
  */
 export const IdeaVotesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = IdeaVotesApiFp(configuration)
@@ -213,8 +210,6 @@ export const IdeaVotesApiFactory = function (configuration?: Configuration, base
 
 /**
  * IdeaVotesApi - interface
- * @export
- * @interface IdeaVotesApi
  */
 export interface IdeaVotesApiInterface {
     /**
@@ -223,7 +218,6 @@ export interface IdeaVotesApiInterface {
      * @param {IdeaVotesApiIdeasCreateEndorsementRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaVotesApiInterface
      */
     ideasCreateEndorsement(requestParameters: IdeaVotesApiIdeasCreateEndorsementRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasCreateEndorsement201Response>;
 
@@ -233,7 +227,6 @@ export interface IdeaVotesApiInterface {
      * @param {IdeaVotesApiIdeasGetEndorsementsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaVotesApiInterface
      */
     ideasGetEndorsements(requestParameters: IdeaVotesApiIdeasGetEndorsementsRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasGetEndorsements200Response>;
 
@@ -241,65 +234,43 @@ export interface IdeaVotesApiInterface {
 
 /**
  * Request parameters for ideasCreateEndorsement operation in IdeaVotesApi.
- * @export
- * @interface IdeaVotesApiIdeasCreateEndorsementRequest
  */
 export interface IdeaVotesApiIdeasCreateEndorsementRequest {
     /**
      * Numeric ID or key of the idea
-     * @type {string}
-     * @memberof IdeaVotesApiIdeasCreateEndorsement
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {IdeaEndorsementRequest}
-     * @memberof IdeaVotesApiIdeasCreateEndorsement
-     */
     readonly ideaEndorsementRequest: IdeaEndorsementRequest
 }
 
 /**
  * Request parameters for ideasGetEndorsements operation in IdeaVotesApi.
- * @export
- * @interface IdeaVotesApiIdeasGetEndorsementsRequest
  */
 export interface IdeaVotesApiIdeasGetEndorsementsRequest {
     /**
      * Numeric ID or key of the idea
-     * @type {string}
-     * @memberof IdeaVotesApiIdeasGetEndorsements
      */
     readonly id: string
 
     /**
      * If set to true, only returns proxy votes (votes with an associated organization)
-     * @type {boolean}
-     * @memberof IdeaVotesApiIdeasGetEndorsements
      */
     readonly proxy?: boolean
 
     /**
      * Page number for pagination
-     * @type {number}
-     * @memberof IdeaVotesApiIdeasGetEndorsements
      */
     readonly page?: number
 
     /**
      * Number of endorsements per page
-     * @type {number}
-     * @memberof IdeaVotesApiIdeasGetEndorsements
      */
     readonly perPage?: number
 }
 
 /**
  * IdeaVotesApi - object-oriented interface
- * @export
- * @class IdeaVotesApi
- * @extends {BaseAPI}
  */
 export class IdeaVotesApi extends BaseAPI implements IdeaVotesApiInterface {
     /**
@@ -308,7 +279,6 @@ export class IdeaVotesApi extends BaseAPI implements IdeaVotesApiInterface {
      * @param {IdeaVotesApiIdeasCreateEndorsementRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaVotesApi
      */
     public ideasCreateEndorsement(requestParameters: IdeaVotesApiIdeasCreateEndorsementRequest, options?: RawAxiosRequestConfig) {
         return IdeaVotesApiFp(this.configuration).ideasCreateEndorsement(requestParameters.id, requestParameters.ideaEndorsementRequest, options).then((request) => request(this.axios, this.basePath));
@@ -320,7 +290,6 @@ export class IdeaVotesApi extends BaseAPI implements IdeaVotesApiInterface {
      * @param {IdeaVotesApiIdeasGetEndorsementsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaVotesApi
      */
     public ideasGetEndorsements(requestParameters: IdeaVotesApiIdeasGetEndorsementsRequest, options?: RawAxiosRequestConfig) {
         return IdeaVotesApiFp(this.configuration).ideasGetEndorsements(requestParameters.id, requestParameters.proxy, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));

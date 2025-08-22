@@ -17,59 +17,14 @@
 // @ts-ignore
 import type { IdeasGetEndorsements200ResponseEndorsementsInnerCreatedByUser } from './ideas-get-endorsements200-response-endorsements-inner-created-by-user';
 
-/**
- * 
- * @export
- * @interface IdeasGetEndorsements200ResponseEndorsementsInner
- */
 export interface IdeasGetEndorsements200ResponseEndorsementsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasGetEndorsements200ResponseEndorsementsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasGetEndorsements200ResponseEndorsementsInner
-     */
     'email'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasGetEndorsements200ResponseEndorsementsInner
-     */
     'idea_organization_id'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeasGetEndorsements200ResponseEndorsementsInner
-     */
     'value'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasGetEndorsements200ResponseEndorsementsInner
-     */
     'link'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasGetEndorsements200ResponseEndorsementsInner
-     */
     'description'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasGetEndorsements200ResponseEndorsementsInner
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {IdeasGetEndorsements200ResponseEndorsementsInnerCreatedByUser}
-     * @memberof IdeasGetEndorsements200ResponseEndorsementsInner
-     */
     'created_by_user'?: IdeasGetEndorsements200ResponseEndorsementsInnerCreatedByUser;
 }
 

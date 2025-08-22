@@ -20,94 +20,55 @@ import type { InitiativeCreateRequestInitiativeTimeFrame } from './initiative-cr
 // @ts-ignore
 import type { InitiativeCreateRequestInitiativeWorkflowStatus } from './initiative-create-request-initiative-workflow-status';
 
-/**
- * 
- * @export
- * @interface InitiativeCreateRequestInitiative
- */
 export interface InitiativeCreateRequestInitiative {
     /**
      * Name of the initiative
-     * @type {string}
-     * @memberof InitiativeCreateRequestInitiative
      */
     'name': string;
-    /**
-     * 
-     * @type {InitiativeCreateRequestInitiativeWorkflowStatus}
-     * @memberof InitiativeCreateRequestInitiative
-     */
     'workflow_status': InitiativeCreateRequestInitiativeWorkflowStatus;
     /**
      * Description of the initiative — may include HTML formatting
-     * @type {string}
-     * @memberof InitiativeCreateRequestInitiative
      */
     'description'?: string;
     /**
      * Effort required for the initiative
-     * @type {number}
-     * @memberof InitiativeCreateRequestInitiative
      */
     'effort'?: number;
     /**
      * Value the initiative brings to the business
-     * @type {number}
-     * @memberof InitiativeCreateRequestInitiative
      */
     'value'?: number;
     /**
      * ID of an initiative to roll up to in the parent line
-     * @type {string}
-     * @memberof InitiativeCreateRequestInitiative
      */
     'parent_id'?: string;
     /**
      * Used to sort initiatives
-     * @type {number}
-     * @memberof InitiativeCreateRequestInitiative
      */
     'position'?: number;
     /**
      * Whether this initiative is shown on charts
-     * @type {boolean}
-     * @memberof InitiativeCreateRequestInitiative
      */
     'presented'?: boolean;
     /**
      * Start date for the initiative in format YYYY-MM-DD
-     * @type {string}
-     * @memberof InitiativeCreateRequestInitiative
      */
     'start_date'?: string;
     /**
      * End date for the initiative in format YYYY-MM-DD
-     * @type {string}
-     * @memberof InitiativeCreateRequestInitiative
      */
     'end_date'?: string;
-    /**
-     * 
-     * @type {InitiativeCreateRequestInitiativeTimeFrame}
-     * @memberof InitiativeCreateRequestInitiative
-     */
     'time_frame'?: InitiativeCreateRequestInitiativeTimeFrame;
     /**
      * Source for calculating progress on the initiative
-     * @type {string}
-     * @memberof InitiativeCreateRequestInitiative
      */
     'progress_source'?: InitiativeCreateRequestInitiativeProgressSourceEnum;
     /**
      * Progress completed on the initiative. May only be set when the progress_source is manual.
-     * @type {number}
-     * @memberof InitiativeCreateRequestInitiative
      */
     'progress'?: number;
     /**
      * Source for automatically calculating start and end dates
-     * @type {string}
-     * @memberof InitiativeCreateRequestInitiative
      */
     'duration_source'?: InitiativeCreateRequestInitiativeDurationSourceEnum;
 }

@@ -17,76 +17,49 @@
 // @ts-ignore
 import type { IdeaUpdateRequestScoreFactsInner } from './idea-update-request-score-facts-inner';
 
-/**
- * 
- * @export
- * @interface IdeaUpdateRequest
- */
 export interface IdeaUpdateRequest {
     /**
      * Name of the idea
-     * @type {string}
-     * @memberof IdeaUpdateRequest
      */
     'name'?: string;
     /**
      * Description of the idea
-     * @type {string}
-     * @memberof IdeaUpdateRequest
      */
     'description'?: string;
     /**
      * ID of the workflow status
-     * @type {string}
-     * @memberof IdeaUpdateRequest
      */
     'workflow_status_id'?: string;
     /**
      * ID of the user to assign the idea to
-     * @type {string}
-     * @memberof IdeaUpdateRequest
      */
     'assigned_to_user_id'?: string;
     /**
      * Visibility setting for the idea
-     * @type {string}
-     * @memberof IdeaUpdateRequest
      */
     'visibility'?: IdeaUpdateRequestVisibilityEnum;
     /**
      * Administrator response to the idea
-     * @type {string}
-     * @memberof IdeaUpdateRequest
      */
     'admin_response'?: string;
     /**
      * Tags to associate with the idea
-     * @type {Array<string>}
-     * @memberof IdeaUpdateRequest
      */
     'tags'?: Array<string>;
     /**
      * Categories for the idea
-     * @type {Array<string>}
-     * @memberof IdeaUpdateRequest
      */
     'categories'?: Array<string>;
     /**
      * Custom field values for the idea
-     * @type {{ [key: string]: any; }}
-     * @memberof IdeaUpdateRequest
      */
     'custom_fields'?: { [key: string]: any; };
     /**
      * User IDs to watch this idea
-     * @type {Array<string>}
-     * @memberof IdeaUpdateRequest
      */
     'watchers'?: Array<string>;
     /**
      * Score facts for the idea
-     * @type {Array<IdeaUpdateRequestScoreFactsInner>}
-     * @memberof IdeaUpdateRequest
      */
     'score_facts'?: Array<IdeaUpdateRequestScoreFactsInner>;
 }

@@ -14,58 +14,37 @@
 
 
 
-/**
- * 
- * @export
- * @interface GoalKeyResultsInner
- */
 export interface GoalKeyResultsInner {
     /**
      * Unique identifier of the key result
-     * @type {string}
-     * @memberof GoalKeyResultsInner
      */
     'id'?: string;
     /**
      * Name of the key result
-     * @type {string}
-     * @memberof GoalKeyResultsInner
      */
     'name'?: string;
     /**
      * Target value for the key result
-     * @type {number}
-     * @memberof GoalKeyResultsInner
      */
     'target_value'?: number;
     /**
      * Current value of the key result
-     * @type {number}
-     * @memberof GoalKeyResultsInner
      */
     'current_value'?: number;
     /**
      * Unit of measurement for the key result
-     * @type {string}
-     * @memberof GoalKeyResultsInner
      */
     'unit'?: string;
     /**
      * Progress percentage towards key result completion
-     * @type {number}
-     * @memberof GoalKeyResultsInner
      */
     'progress'?: number;
     /**
      * Creation date of the key result
-     * @type {string}
-     * @memberof GoalKeyResultsInner
      */
     'created_at'?: string;
     /**
      * Last update date of the key result
-     * @type {string}
-     * @memberof GoalKeyResultsInner
      */
     'updated_at'?: string;
 }

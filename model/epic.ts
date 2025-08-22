@@ -23,113 +23,23 @@ import type { FeatureWorkflowStatus } from './feature-workflow-status';
 // @ts-ignore
 import type { User } from './user';
 
-/**
- * 
- * @export
- * @interface Epic
- */
 export interface Epic {
-    /**
-     * 
-     * @type {string}
-     * @memberof Epic
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Epic
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Epic
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Epic
-     */
     'initiative_reference_num'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof Epic
-     */
     'position'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof Epic
-     */
     'score'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof Epic
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Epic
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Epic
-     */
     'start_date'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Epic
-     */
     'due_date'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Epic
-     */
     'product_id'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof Epic
-     */
     'progress'?: number;
-    /**
-     * 
-     * @type {User}
-     * @memberof Epic
-     */
     'created_by'?: User;
-    /**
-     * 
-     * @type {FeatureWorkflowStatus}
-     * @memberof Epic
-     */
     'workflow_status'?: FeatureWorkflowStatus;
-    /**
-     * 
-     * @type {EpicDescription}
-     * @memberof Epic
-     */
     'description'?: EpicDescription;
-    /**
-     * 
-     * @type {string}
-     * @memberof Epic
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Epic
-     */
     'resource'?: string;
 }
 

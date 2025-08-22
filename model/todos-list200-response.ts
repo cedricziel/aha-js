@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { Todo } from './todo';
 
-/**
- * 
- * @export
- * @interface TodosList200Response
- */
 export interface TodosList200Response {
-    /**
-     * 
-     * @type {Array<Todo>}
-     * @memberof TodosList200Response
-     */
     'tasks'?: Array<Todo>;
 }
 

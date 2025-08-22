@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface FeatureWorkflowStatus
- */
 export interface FeatureWorkflowStatus {
-    /**
-     * 
-     * @type {string}
-     * @memberof FeatureWorkflowStatus
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeatureWorkflowStatus
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof FeatureWorkflowStatus
-     */
     'position'?: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof FeatureWorkflowStatus
-     */
     'complete'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeatureWorkflowStatus
-     */
     'color'?: string;
 }
 

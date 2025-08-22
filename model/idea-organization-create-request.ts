@@ -14,34 +14,21 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeaOrganizationCreateRequest
- */
 export interface IdeaOrganizationCreateRequest {
     /**
      * Name of the idea organization
-     * @type {string}
-     * @memberof IdeaOrganizationCreateRequest
      */
     'name': string;
     /**
      * Email domains associated with the organization
-     * @type {Array<string>}
-     * @memberof IdeaOrganizationCreateRequest
      */
     'email_domains'?: Array<string>;
     /**
      * Revenue value for the organization
-     * @type {number}
-     * @memberof IdeaOrganizationCreateRequest
      */
     'revenue'?: number;
     /**
      * Custom fields for the organization
-     * @type {{ [key: string]: any; }}
-     * @memberof IdeaOrganizationCreateRequest
      */
     'custom_fields'?: { [key: string]: any; };
 }

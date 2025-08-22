@@ -17,94 +17,61 @@
 // @ts-ignore
 import type { GoalUpdateRequestKeyResultsInner } from './goal-update-request-key-results-inner';
 
-/**
- * 
- * @export
- * @interface GoalUpdateRequest
- */
 export interface GoalUpdateRequest {
     /**
      * Name of the goal
-     * @type {string}
-     * @memberof GoalUpdateRequest
      */
     'name'?: string;
     /**
      * Description of the goal
-     * @type {string}
-     * @memberof GoalUpdateRequest
      */
     'description'?: string;
     /**
      * Start date of the goal
-     * @type {string}
-     * @memberof GoalUpdateRequest
      */
     'start_date'?: string;
     /**
      * End date of the goal
-     * @type {string}
-     * @memberof GoalUpdateRequest
      */
     'end_date'?: string;
     /**
      * Progress percentage towards goal completion
-     * @type {number}
-     * @memberof GoalUpdateRequest
      */
     'progress'?: number;
     /**
      * Source for calculating progress
-     * @type {string}
-     * @memberof GoalUpdateRequest
      */
     'progress_source'?: GoalUpdateRequestProgressSourceEnum;
     /**
      * ID of the user assigned to the goal
-     * @type {string}
-     * @memberof GoalUpdateRequest
      */
     'assigned_to_user_id'?: string;
     /**
      * ID of the workflow status
-     * @type {string}
-     * @memberof GoalUpdateRequest
      */
     'workflow_status_id'?: string;
     /**
      * Key results to update for the goal
-     * @type {Array<GoalUpdateRequestKeyResultsInner>}
-     * @memberof GoalUpdateRequest
      */
     'key_results'?: Array<GoalUpdateRequestKeyResultsInner>;
     /**
      * IDs of initiatives to associate with the goal
-     * @type {Array<string>}
-     * @memberof GoalUpdateRequest
      */
     'initiative_ids'?: Array<string>;
     /**
      * IDs of features to associate with the goal
-     * @type {Array<string>}
-     * @memberof GoalUpdateRequest
      */
     'feature_ids'?: Array<string>;
     /**
      * IDs of releases to associate with the goal
-     * @type {Array<string>}
-     * @memberof GoalUpdateRequest
      */
     'release_ids'?: Array<string>;
     /**
      * Custom field values for the goal
-     * @type {{ [key: string]: any; }}
-     * @memberof GoalUpdateRequest
      */
     'custom_fields'?: { [key: string]: any; };
     /**
      * Tags to associate with the goal
-     * @type {Array<string>}
-     * @memberof GoalUpdateRequest
      */
     'tags'?: Array<string>;
 }

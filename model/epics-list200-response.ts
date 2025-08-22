@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { Epic } from './epic';
 
-/**
- * 
- * @export
- * @interface EpicsList200Response
- */
 export interface EpicsList200Response {
-    /**
-     * 
-     * @type {Array<Epic>}
-     * @memberof EpicsList200Response
-     */
     'epics'?: Array<Epic>;
 }
 

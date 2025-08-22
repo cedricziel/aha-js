@@ -14,22 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeaCreateRequestIdeaScoreFactsInner
- */
 export interface IdeaCreateRequestIdeaScoreFactsInner {
     /**
      * Name of the score fact (e.g., Benefit, Effort)
-     * @type {string}
-     * @memberof IdeaCreateRequestIdeaScoreFactsInner
      */
     'name': string;
     /**
      * Numeric value of the score fact
-     * @type {number}
-     * @memberof IdeaCreateRequestIdeaScoreFactsInner
      */
     'value': number;
 }

@@ -14,52 +14,33 @@
 
 
 
-/**
- * 
- * @export
- * @interface Product
- */
 export interface Product {
     /**
      * Unique identifier of the product
-     * @type {string}
-     * @memberof Product
      */
     'id'?: string;
     /**
      * Reference prefix of the product
-     * @type {string}
-     * @memberof Product
      */
     'reference_prefix'?: string;
     /**
      * Name of the product
-     * @type {string}
-     * @memberof Product
      */
     'name'?: string;
     /**
      * Whether the product is a product line
-     * @type {boolean}
-     * @memberof Product
      */
     'product_line'?: boolean;
     /**
      * Creation date of the product
-     * @type {string}
-     * @memberof Product
      */
     'created_at'?: string;
     /**
      * Type of workspace (product_workspace, marketing_workspace, etc.)
-     * @type {string}
-     * @memberof Product
      */
     'workspace_type'?: string;
     /**
      * URL to view the product in the Aha! web application
-     * @type {string}
-     * @memberof Product
      */
     'url'?: string;
 }

@@ -16,16 +16,12 @@
 
 /**
  * Object containing custom field key-value pairs
- * @export
- * @interface FeaturesIdCustomFieldsWorksheetPutRequestFeatureCustomFields
  */
 export interface FeaturesIdCustomFieldsWorksheetPutRequestFeatureCustomFields {
     [key: string]: any;
 
     /**
      * Object containing worksheet field values where keys are cell IDs and values are the cell values
-     * @type {{ [key: string]: any; }}
-     * @memberof FeaturesIdCustomFieldsWorksheetPutRequestFeatureCustomFields
      */
     'equation_custom_field'?: { [key: string]: any; };
 }

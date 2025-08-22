@@ -14,34 +14,21 @@
 
 
 
-/**
- * 
- * @export
- * @interface GoalsListResponsePagination
- */
 export interface GoalsListResponsePagination {
     /**
      * Total number of goals
-     * @type {number}
-     * @memberof GoalsListResponsePagination
      */
     'total_records'?: number;
     /**
      * Total number of pages
-     * @type {number}
-     * @memberof GoalsListResponsePagination
      */
     'total_pages'?: number;
     /**
      * Current page number
-     * @type {number}
-     * @memberof GoalsListResponsePagination
      */
     'current_page'?: number;
     /**
      * Number of goals per page
-     * @type {number}
-     * @memberof GoalsListResponsePagination
      */
     'per_page'?: number;
 }

@@ -33,7 +33,6 @@ import type { TodosCreate201Response } from '../model';
 import type { TodosList200Response } from '../model';
 /**
  * ToDosApi - axios parameter creator
- * @export
  */
 export const ToDosApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -298,7 +297,6 @@ export const ToDosApiAxiosParamCreator = function (configuration?: Configuration
 
 /**
  * ToDosApi - functional programming interface
- * @export
  */
 export const ToDosApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ToDosApiAxiosParamCreator(configuration)
@@ -386,7 +384,6 @@ export const ToDosApiFp = function(configuration?: Configuration) {
 
 /**
  * ToDosApi - factory interface
- * @export
  */
 export const ToDosApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ToDosApiFp(configuration)
@@ -455,8 +452,6 @@ export const ToDosApiFactory = function (configuration?: Configuration, basePath
 
 /**
  * ToDosApi - interface
- * @export
- * @interface ToDosApi
  */
 export interface ToDosApiInterface {
     /**
@@ -465,7 +460,6 @@ export interface ToDosApiInterface {
      * @param {ToDosApiCommentsGetTodoRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApiInterface
      */
     commentsGetTodo(requestParameters: ToDosApiCommentsGetTodoRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsGetEpic200Response>;
 
@@ -475,7 +469,6 @@ export interface ToDosApiInterface {
      * @param {ToDosApiTodosCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApiInterface
      */
     todosCreate(requestParameters: ToDosApiTodosCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<TodosCreate201Response>;
 
@@ -485,7 +478,6 @@ export interface ToDosApiInterface {
      * @param {ToDosApiTodosDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApiInterface
      */
     todosDelete(requestParameters: ToDosApiTodosDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -495,7 +487,6 @@ export interface ToDosApiInterface {
      * @param {ToDosApiTodosGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApiInterface
      */
     todosGet(requestParameters: ToDosApiTodosGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<TodosCreate201Response>;
 
@@ -504,7 +495,6 @@ export interface ToDosApiInterface {
      * @summary List to-dos
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApiInterface
      */
     todosList(options?: RawAxiosRequestConfig): AxiosPromise<TodosList200Response>;
 
@@ -514,7 +504,6 @@ export interface ToDosApiInterface {
      * @param {ToDosApiTodosUpdateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApiInterface
      */
     todosUpdate(requestParameters: ToDosApiTodosUpdateRequest, options?: RawAxiosRequestConfig): AxiosPromise<TodosCreate201Response>;
 
@@ -522,86 +511,52 @@ export interface ToDosApiInterface {
 
 /**
  * Request parameters for commentsGetTodo operation in ToDosApi.
- * @export
- * @interface ToDosApiCommentsGetTodoRequest
  */
 export interface ToDosApiCommentsGetTodoRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosApiCommentsGetTodo
-     */
     readonly todoId: string
 }
 
 /**
  * Request parameters for todosCreate operation in ToDosApi.
- * @export
- * @interface ToDosApiTodosCreateRequest
  */
 export interface ToDosApiTodosCreateRequest {
-    /**
-     * 
-     * @type {TodoCreateRequest}
-     * @memberof ToDosApiTodosCreate
-     */
     readonly todoCreateRequest: TodoCreateRequest
 }
 
 /**
  * Request parameters for todosDelete operation in ToDosApi.
- * @export
- * @interface ToDosApiTodosDeleteRequest
  */
 export interface ToDosApiTodosDeleteRequest {
     /**
      * Numeric ID of the to-do
-     * @type {string}
-     * @memberof ToDosApiTodosDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for todosGet operation in ToDosApi.
- * @export
- * @interface ToDosApiTodosGetRequest
  */
 export interface ToDosApiTodosGetRequest {
     /**
      * Numeric ID of the to-do
-     * @type {string}
-     * @memberof ToDosApiTodosGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for todosUpdate operation in ToDosApi.
- * @export
- * @interface ToDosApiTodosUpdateRequest
  */
 export interface ToDosApiTodosUpdateRequest {
     /**
      * Numeric ID of the to-do
-     * @type {string}
-     * @memberof ToDosApiTodosUpdate
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {TodoUpdateRequest}
-     * @memberof ToDosApiTodosUpdate
-     */
     readonly todoUpdateRequest: TodoUpdateRequest
 }
 
 /**
  * ToDosApi - object-oriented interface
- * @export
- * @class ToDosApi
- * @extends {BaseAPI}
  */
 export class ToDosApi extends BaseAPI implements ToDosApiInterface {
     /**
@@ -610,7 +565,6 @@ export class ToDosApi extends BaseAPI implements ToDosApiInterface {
      * @param {ToDosApiCommentsGetTodoRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApi
      */
     public commentsGetTodo(requestParameters: ToDosApiCommentsGetTodoRequest, options?: RawAxiosRequestConfig) {
         return ToDosApiFp(this.configuration).commentsGetTodo(requestParameters.todoId, options).then((request) => request(this.axios, this.basePath));
@@ -622,7 +576,6 @@ export class ToDosApi extends BaseAPI implements ToDosApiInterface {
      * @param {ToDosApiTodosCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApi
      */
     public todosCreate(requestParameters: ToDosApiTodosCreateRequest, options?: RawAxiosRequestConfig) {
         return ToDosApiFp(this.configuration).todosCreate(requestParameters.todoCreateRequest, options).then((request) => request(this.axios, this.basePath));
@@ -634,7 +587,6 @@ export class ToDosApi extends BaseAPI implements ToDosApiInterface {
      * @param {ToDosApiTodosDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApi
      */
     public todosDelete(requestParameters: ToDosApiTodosDeleteRequest, options?: RawAxiosRequestConfig) {
         return ToDosApiFp(this.configuration).todosDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -646,7 +598,6 @@ export class ToDosApi extends BaseAPI implements ToDosApiInterface {
      * @param {ToDosApiTodosGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApi
      */
     public todosGet(requestParameters: ToDosApiTodosGetRequest, options?: RawAxiosRequestConfig) {
         return ToDosApiFp(this.configuration).todosGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -657,7 +608,6 @@ export class ToDosApi extends BaseAPI implements ToDosApiInterface {
      * @summary List to-dos
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApi
      */
     public todosList(options?: RawAxiosRequestConfig) {
         return ToDosApiFp(this.configuration).todosList(options).then((request) => request(this.axios, this.basePath));
@@ -669,7 +619,6 @@ export class ToDosApi extends BaseAPI implements ToDosApiInterface {
      * @param {ToDosApiTodosUpdateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApi
      */
     public todosUpdate(requestParameters: ToDosApiTodosUpdateRequest, options?: RawAxiosRequestConfig) {
         return ToDosApiFp(this.configuration).todosUpdate(requestParameters.id, requestParameters.todoUpdateRequest, options).then((request) => request(this.axios, this.basePath));

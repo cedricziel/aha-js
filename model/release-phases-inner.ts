@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface ReleasePhasesInner
- */
 export interface ReleasePhasesInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasePhasesInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasePhasesInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasePhasesInner
-     */
     'start_date'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasePhasesInner
-     */
     'end_date'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof ReleasePhasesInner
-     */
     'position'?: number;
 }
 

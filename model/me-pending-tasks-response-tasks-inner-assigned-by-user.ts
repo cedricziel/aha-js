@@ -14,28 +14,17 @@
 
 
 
-/**
- * 
- * @export
- * @interface MePendingTasksResponseTasksInnerAssignedByUser
- */
 export interface MePendingTasksResponseTasksInnerAssignedByUser {
     /**
      * User ID
-     * @type {string}
-     * @memberof MePendingTasksResponseTasksInnerAssignedByUser
      */
     'id': string;
     /**
      * User name
-     * @type {string}
-     * @memberof MePendingTasksResponseTasksInnerAssignedByUser
      */
     'name': string;
     /**
      * User email
-     * @type {string}
-     * @memberof MePendingTasksResponseTasksInnerAssignedByUser
      */
     'email': string;
 }

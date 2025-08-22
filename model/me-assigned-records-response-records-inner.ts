@@ -20,70 +20,39 @@ import type { MeAssignedRecordsResponseRecordsInnerAssignedToUser } from './me-a
 // @ts-ignore
 import type { MeAssignedRecordsResponseRecordsInnerWorkflowStatus } from './me-assigned-records-response-records-inner-workflow-status';
 
-/**
- * 
- * @export
- * @interface MeAssignedRecordsResponseRecordsInner
- */
 export interface MeAssignedRecordsResponseRecordsInner {
     /**
      * Record ID
-     * @type {string}
-     * @memberof MeAssignedRecordsResponseRecordsInner
      */
     'id': string;
     /**
      * Type of record
-     * @type {string}
-     * @memberof MeAssignedRecordsResponseRecordsInner
      */
     'type': MeAssignedRecordsResponseRecordsInnerTypeEnum;
     /**
      * Name of the record
-     * @type {string}
-     * @memberof MeAssignedRecordsResponseRecordsInner
      */
     'name': string;
     /**
      * Reference number for the record
-     * @type {string}
-     * @memberof MeAssignedRecordsResponseRecordsInner
      */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {MeAssignedRecordsResponseRecordsInnerWorkflowStatus}
-     * @memberof MeAssignedRecordsResponseRecordsInner
-     */
     'workflow_status'?: MeAssignedRecordsResponseRecordsInnerWorkflowStatus;
-    /**
-     * 
-     * @type {MeAssignedRecordsResponseRecordsInnerAssignedToUser}
-     * @memberof MeAssignedRecordsResponseRecordsInner
-     */
     'assigned_to_user'?: MeAssignedRecordsResponseRecordsInnerAssignedToUser;
     /**
      * When the record was created
-     * @type {string}
-     * @memberof MeAssignedRecordsResponseRecordsInner
      */
     'created_at': string;
     /**
      * When the record was last updated
-     * @type {string}
-     * @memberof MeAssignedRecordsResponseRecordsInner
      */
     'updated_at': string;
     /**
      * URL to the record\'s page
-     * @type {string}
-     * @memberof MeAssignedRecordsResponseRecordsInner
      */
     'url'?: string;
     /**
      * URL to the record\'s API resource
-     * @type {string}
-     * @memberof MeAssignedRecordsResponseRecordsInner
      */
     'resource'?: string;
 }

@@ -20,23 +20,11 @@ import type { PaginationMeta } from './pagination-meta';
 // @ts-ignore
 import type { Product } from './product';
 
-/**
- * 
- * @export
- * @interface ProductsListResponse
- */
 export interface ProductsListResponse {
     /**
      * List of products
-     * @type {Array<Product>}
-     * @memberof ProductsListResponse
      */
     'products'?: Array<Product>;
-    /**
-     * 
-     * @type {PaginationMeta}
-     * @memberof ProductsListResponse
-     */
     'meta'?: PaginationMeta;
 }
 

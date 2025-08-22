@@ -16,44 +16,30 @@
 
 /**
  * The resource this integration field is associated with
- * @export
- * @interface IntegrationFieldIntegratable
  */
 export interface IntegrationFieldIntegratable {
     /**
      * Type of the parent resource (e.g., Feature, Epic, Initiative)
-     * @type {string}
-     * @memberof IntegrationFieldIntegratable
      */
     'type'?: string;
     /**
      * ID of the parent resource
-     * @type {string}
-     * @memberof IntegrationFieldIntegratable
      */
     'id'?: string;
     /**
      * Name of the parent resource
-     * @type {string}
-     * @memberof IntegrationFieldIntegratable
      */
     'name'?: string;
     /**
      * Reference number of the parent resource
-     * @type {string}
-     * @memberof IntegrationFieldIntegratable
      */
     'reference_num'?: string;
     /**
      * URL to view the parent resource in the web interface
-     * @type {string}
-     * @memberof IntegrationFieldIntegratable
      */
     'url'?: string;
     /**
      * API URL for the parent resource
-     * @type {string}
-     * @memberof IntegrationFieldIntegratable
      */
     'resource'?: string;
 }

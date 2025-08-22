@@ -20,23 +20,8 @@ import type { IdeasCreateEndorsement201ResponseEndorsement } from './ideas-creat
 // @ts-ignore
 import type { IdeasCreateEndorsement201ResponseIdea } from './ideas-create-endorsement201-response-idea';
 
-/**
- * 
- * @export
- * @interface IdeasCreateEndorsement201Response
- */
 export interface IdeasCreateEndorsement201Response {
-    /**
-     * 
-     * @type {IdeasCreateEndorsement201ResponseEndorsement}
-     * @memberof IdeasCreateEndorsement201Response
-     */
     'endorsement'?: IdeasCreateEndorsement201ResponseEndorsement;
-    /**
-     * 
-     * @type {IdeasCreateEndorsement201ResponseIdea}
-     * @memberof IdeasCreateEndorsement201Response
-     */
     'idea'?: IdeasCreateEndorsement201ResponseIdea;
 }
 

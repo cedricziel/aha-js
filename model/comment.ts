@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { User } from './user';
 
-/**
- * 
- * @export
- * @interface Comment
- */
 export interface Comment {
-    /**
-     * 
-     * @type {string}
-     * @memberof Comment
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Comment
-     */
     'body'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Comment
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {User}
-     * @memberof Comment
-     */
     'user'?: User;
 }
 

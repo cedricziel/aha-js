@@ -17,112 +17,70 @@
 // @ts-ignore
 import type { IdeaCreateByPortalUserRequestIdeaCreatedByPortalUser } from './idea-create-by-portal-user-request-idea-created-by-portal-user';
 
-/**
- * 
- * @export
- * @interface IdeaCreateByPortalUserRequestIdea
- */
 export interface IdeaCreateByPortalUserRequestIdea {
     /**
      * Name of the idea
-     * @type {string}
-     * @memberof IdeaCreateByPortalUserRequestIdea
      */
     'name': string;
     /**
      * Description of the idea — may include HTML formatting.
-     * @type {string}
-     * @memberof IdeaCreateByPortalUserRequestIdea
      */
     'description'?: string;
     /**
      * Status of the idea — must be a valid status for the selected product. 
-     * @type {string}
-     * @memberof IdeaCreateByPortalUserRequestIdea
      */
     'workflow_status'?: string;
     /**
      * Tags to add to the idea. Multiple tags must be separated by commas. 
-     * @type {string}
-     * @memberof IdeaCreateByPortalUserRequestIdea
      */
     'tags'?: string;
     /**
      * Names of any existing categories the idea should be assigned to. Multiple categories must be separated by commas. 
-     * @type {string}
-     * @memberof IdeaCreateByPortalUserRequestIdea
      */
     'categories'?: string;
-    /**
-     * 
-     * @type {IdeaCreateByPortalUserRequestIdeaCreatedByPortalUser}
-     * @memberof IdeaCreateByPortalUserRequestIdea
-     */
     'created_by_portal_user': IdeaCreateByPortalUserRequestIdeaCreatedByPortalUser;
     /**
      * Email address of user that is assigned the idea.
-     * @type {string}
-     * @memberof IdeaCreateByPortalUserRequestIdea
      */
     'assigned_to_user'?: string;
     /**
      * Name or ID of the feature that the idea was promoted to
-     * @type {string}
-     * @memberof IdeaCreateByPortalUserRequestIdea
      */
     'feature'?: string;
     /**
      * Name or ID of the initiative that the idea was promoted to
-     * @type {string}
-     * @memberof IdeaCreateByPortalUserRequestIdea
      */
     'initiative'?: string;
     /**
      * Name or ID of the epic that the idea was promoted to
-     * @type {string}
-     * @memberof IdeaCreateByPortalUserRequestIdea
      */
     'epic'?: string;
     /**
      * Idea ID or key for an idea which this idea duplicates. Setting this value will merge this idea into the provided idea ID; setting it to a null or blank value will unmerge this idea. Note that in the API response, this attribute is called duplicate_of. 
-     * @type {string}
-     * @memberof IdeaCreateByPortalUserRequestIdea
      */
     'duplicate_idea'?: string;
     /**
      * Number of votes to seed the vote count with when importing from other systems 
-     * @type {number}
-     * @memberof IdeaCreateByPortalUserRequestIdea
      */
     'initial_votes'?: number;
     /**
      * Initial visibility of the idea (aha, creator, employee, employee_or_creator, creator_organization, or public - aha is the default) 
-     * @type {string}
-     * @memberof IdeaCreateByPortalUserRequestIdea
      */
     'visibility'?: string;
     /**
      * Date of idea creation. In UTC timezone with format YYYY-MM-DD or YYYY-MM-DD HH:MM:SS. 
-     * @type {string}
-     * @memberof IdeaCreateByPortalUserRequestIdea
      */
     'created_at'?: string;
     /**
      * Whether the idea is considered spam. Must be \'true\' or \'false\'
-     * @type {boolean}
-     * @memberof IdeaCreateByPortalUserRequestIdea
      */
     'spam'?: boolean;
     /**
      * Numeric ID of the ideas portal. We strongly suggest you set this if the creator is an idea user. 
-     * @type {string}
-     * @memberof IdeaCreateByPortalUserRequestIdea
      */
     'submitted_idea_portal_id'?: string;
     /**
      * If true, the idea will not be submitted to any portal. Default is false. 
-     * @type {boolean}
-     * @memberof IdeaCreateByPortalUserRequestIdea
      */
     'skip_portal'?: boolean;
 }

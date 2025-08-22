@@ -14,28 +14,17 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeasListResponsePagination
- */
 export interface IdeasListResponsePagination {
     /**
      * Total number of records
-     * @type {number}
-     * @memberof IdeasListResponsePagination
      */
     'total_records'?: number;
     /**
      * Total number of pages
-     * @type {number}
-     * @memberof IdeasListResponsePagination
      */
     'total_pages'?: number;
     /**
      * Current page number
-     * @type {number}
-     * @memberof IdeasListResponsePagination
      */
     'current_page'?: number;
 }

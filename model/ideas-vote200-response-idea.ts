@@ -14,28 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeasVote200ResponseIdea
- */
 export interface IdeasVote200ResponseIdea {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasVote200ResponseIdea
-     */
     'id'?: string;
     /**
      * Updated vote count
-     * @type {number}
-     * @memberof IdeasVote200ResponseIdea
      */
     'votes_count'?: number;
     /**
      * Net votes (up - down)
-     * @type {number}
-     * @memberof IdeasVote200ResponseIdea
      */
     'votes'?: number;
 }

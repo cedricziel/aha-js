@@ -23,7 +23,6 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 /**
  * DefaultApi - axios parameter creator
- * @export
  */
 export const DefaultApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -196,7 +195,6 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
 
 /**
  * DefaultApi - functional programming interface
- * @export
  */
 export const DefaultApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = DefaultApiAxiosParamCreator(configuration)
@@ -254,7 +252,6 @@ export const DefaultApiFp = function(configuration?: Configuration) {
 
 /**
  * DefaultApi - factory interface
- * @export
  */
 export const DefaultApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = DefaultApiFp(configuration)
@@ -300,8 +297,6 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
 
 /**
  * DefaultApi - interface
- * @export
- * @interface DefaultApi
  */
 export interface DefaultApiInterface {
     /**
@@ -309,7 +304,6 @@ export interface DefaultApiInterface {
      * @param {DefaultApiFeaturesIdCustomFieldsPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DefaultApiInterface
      */
     featuresIdCustomFieldsPut(requestParameters: DefaultApiFeaturesIdCustomFieldsPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -318,7 +312,6 @@ export interface DefaultApiInterface {
      * @param {DefaultApiFeaturesIdCustomFieldsTagPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DefaultApiInterface
      */
     featuresIdCustomFieldsTagPut(requestParameters: DefaultApiFeaturesIdCustomFieldsTagPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -327,7 +320,6 @@ export interface DefaultApiInterface {
      * @param {DefaultApiReleasesReleaseIdFeaturesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DefaultApiInterface
      */
     releasesReleaseIdFeaturesGet(requestParameters: DefaultApiReleasesReleaseIdFeaturesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -336,7 +328,6 @@ export interface DefaultApiInterface {
      * @param {DefaultApiReleasesReleaseIdFeaturesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DefaultApiInterface
      */
     releasesReleaseIdFeaturesPost(requestParameters: DefaultApiReleasesReleaseIdFeaturesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -344,65 +335,46 @@ export interface DefaultApiInterface {
 
 /**
  * Request parameters for featuresIdCustomFieldsPut operation in DefaultApi.
- * @export
- * @interface DefaultApiFeaturesIdCustomFieldsPutRequest
  */
 export interface DefaultApiFeaturesIdCustomFieldsPutRequest {
     /**
      * Numeric ID or key of the feature
-     * @type {string}
-     * @memberof DefaultApiFeaturesIdCustomFieldsPut
      */
     readonly id: string
 }
 
 /**
  * Request parameters for featuresIdCustomFieldsTagPut operation in DefaultApi.
- * @export
- * @interface DefaultApiFeaturesIdCustomFieldsTagPutRequest
  */
 export interface DefaultApiFeaturesIdCustomFieldsTagPutRequest {
     /**
      * Numeric ID or key of the feature
-     * @type {string}
-     * @memberof DefaultApiFeaturesIdCustomFieldsTagPut
      */
     readonly id: string
 }
 
 /**
  * Request parameters for releasesReleaseIdFeaturesGet operation in DefaultApi.
- * @export
- * @interface DefaultApiReleasesReleaseIdFeaturesGetRequest
  */
 export interface DefaultApiReleasesReleaseIdFeaturesGetRequest {
     /**
      * Numeric ID or key of the release
-     * @type {string}
-     * @memberof DefaultApiReleasesReleaseIdFeaturesGet
      */
     readonly releaseId: string
 }
 
 /**
  * Request parameters for releasesReleaseIdFeaturesPost operation in DefaultApi.
- * @export
- * @interface DefaultApiReleasesReleaseIdFeaturesPostRequest
  */
 export interface DefaultApiReleasesReleaseIdFeaturesPostRequest {
     /**
      * Numeric ID or key of the release
-     * @type {string}
-     * @memberof DefaultApiReleasesReleaseIdFeaturesPost
      */
     readonly releaseId: string
 }
 
 /**
  * DefaultApi - object-oriented interface
- * @export
- * @class DefaultApi
- * @extends {BaseAPI}
  */
 export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     /**
@@ -410,7 +382,6 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
      * @param {DefaultApiFeaturesIdCustomFieldsPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DefaultApi
      */
     public featuresIdCustomFieldsPut(requestParameters: DefaultApiFeaturesIdCustomFieldsPutRequest, options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).featuresIdCustomFieldsPut(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -421,7 +392,6 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
      * @param {DefaultApiFeaturesIdCustomFieldsTagPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DefaultApi
      */
     public featuresIdCustomFieldsTagPut(requestParameters: DefaultApiFeaturesIdCustomFieldsTagPutRequest, options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).featuresIdCustomFieldsTagPut(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -432,7 +402,6 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
      * @param {DefaultApiReleasesReleaseIdFeaturesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DefaultApi
      */
     public releasesReleaseIdFeaturesGet(requestParameters: DefaultApiReleasesReleaseIdFeaturesGetRequest, options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).releasesReleaseIdFeaturesGet(requestParameters.releaseId, options).then((request) => request(this.axios, this.basePath));
@@ -443,7 +412,6 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
      * @param {DefaultApiReleasesReleaseIdFeaturesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DefaultApi
      */
     public releasesReleaseIdFeaturesPost(requestParameters: DefaultApiReleasesReleaseIdFeaturesPostRequest, options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).releasesReleaseIdFeaturesPost(requestParameters.releaseId, options).then((request) => request(this.axios, this.basePath));

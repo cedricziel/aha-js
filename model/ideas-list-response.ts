@@ -20,23 +20,11 @@ import type { IdeasListResponseIdeasInner } from './ideas-list-response-ideas-in
 // @ts-ignore
 import type { IdeasListResponsePagination } from './ideas-list-response-pagination';
 
-/**
- * 
- * @export
- * @interface IdeasListResponse
- */
 export interface IdeasListResponse {
     /**
      * List of ideas
-     * @type {Array<IdeasListResponseIdeasInner>}
-     * @memberof IdeasListResponse
      */
     'ideas'?: Array<IdeasListResponseIdeasInner>;
-    /**
-     * 
-     * @type {IdeasListResponsePagination}
-     * @memberof IdeasListResponse
-     */
     'pagination'?: IdeasListResponsePagination;
 }
 

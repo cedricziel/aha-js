@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface GoalInitiativesInner
- */
 export interface GoalInitiativesInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalInitiativesInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalInitiativesInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalInitiativesInner
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalInitiativesInner
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalInitiativesInner
-     */
     'resource'?: string;
 }
 

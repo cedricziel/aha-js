@@ -16,14 +16,10 @@
 
 /**
  * User to assign the requirement to
- * @export
- * @interface RequirementUpdateRequestRequirementAssignedToUser
  */
 export interface RequirementUpdateRequestRequirementAssignedToUser {
     /**
      * Email of the user to assign
-     * @type {string}
-     * @memberof RequirementUpdateRequestRequirementAssignedToUser
      */
     'email'?: string;
 }

@@ -14,28 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface InlineObject
- */
-export interface InlineObject {
-    /**
-     * 
-     * @type {string}
-     * @memberof InlineObject
-     */
+export interface FeaturesList429Response {
     'error'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InlineObject
-     */
     'message'?: string;
     /**
      * Number of seconds to wait before retrying
-     * @type {number}
-     * @memberof InlineObject
      */
     'retry_after'?: number;
 }

@@ -14,16 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface FeaturesIdProgressSourcePutRequestFeature
- */
 export interface FeaturesIdProgressSourcePutRequestFeature {
     /**
      * Source for calculating progress on the feature
-     * @type {string}
-     * @memberof FeaturesIdProgressSourcePutRequestFeature
      */
     'progress_source'?: FeaturesIdProgressSourcePutRequestFeatureProgressSourceEnum;
 }

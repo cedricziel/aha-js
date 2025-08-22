@@ -14,40 +14,25 @@
 
 
 
-/**
- * 
- * @export
- * @interface TodoUpdateRequestTask
- */
 export interface TodoUpdateRequestTask {
     /**
      * Name of the to-do
-     * @type {string}
-     * @memberof TodoUpdateRequestTask
      */
     'name'?: string;
     /**
      * Description of the to-do
-     * @type {string}
-     * @memberof TodoUpdateRequestTask
      */
     'body'?: string;
     /**
      * Status of the to-do
-     * @type {string}
-     * @memberof TodoUpdateRequestTask
      */
     'status'?: TodoUpdateRequestTaskStatusEnum;
     /**
      * Email addresses of assigned users
-     * @type {Array<string>}
-     * @memberof TodoUpdateRequestTask
      */
     'assigned_to_users'?: Array<string>;
     /**
      * Due date of the to-do
-     * @type {string}
-     * @memberof TodoUpdateRequestTask
      */
     'due_date'?: string;
 }

@@ -38,251 +38,46 @@ import type { FeatureWorkflowStatusTimesInner } from './feature-workflow-status-
 // @ts-ignore
 import type { User } from './user';
 
-/**
- * 
- * @export
- * @interface Feature
- */
 export interface Feature {
-    /**
-     * 
-     * @type {string}
-     * @memberof Feature
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Feature
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Feature
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Feature
-     */
     'initiative_reference_num'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Feature
-     */
     'release_reference_num'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Feature
-     */
     'epic_reference_num'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof Feature
-     */
     'position'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof Feature
-     */
     'score'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof Feature
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Feature
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Feature
-     */
     'start_date'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Feature
-     */
     'due_date'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Feature
-     */
     'product_id'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof Feature
-     */
     'progress'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof Feature
-     */
     'progress_source'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Feature
-     */
     'status_changed_on'?: string;
-    /**
-     * 
-     * @type {User}
-     * @memberof Feature
-     */
     'created_by_user'?: User;
-    /**
-     * 
-     * @type {FeatureWorkflowKind}
-     * @memberof Feature
-     */
     'workflow_kind'?: FeatureWorkflowKind;
-    /**
-     * 
-     * @type {FeatureWorkflowStatus}
-     * @memberof Feature
-     */
     'workflow_status'?: FeatureWorkflowStatus;
-    /**
-     * 
-     * @type {FeatureProject}
-     * @memberof Feature
-     */
     'project'?: FeatureProject;
-    /**
-     * 
-     * @type {FeatureDescription}
-     * @memberof Feature
-     */
     'description'?: FeatureDescription;
-    /**
-     * 
-     * @type {Array<object>}
-     * @memberof Feature
-     */
     'attachments'?: Array<object>;
-    /**
-     * 
-     * @type {Array<FeatureIntegrationFieldsInner>}
-     * @memberof Feature
-     */
     'integration_fields'?: Array<FeatureIntegrationFieldsInner>;
-    /**
-     * 
-     * @type {string}
-     * @memberof Feature
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Feature
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {FeatureRelease}
-     * @memberof Feature
-     */
     'release'?: FeatureRelease;
-    /**
-     * 
-     * @type {User}
-     * @memberof Feature
-     */
     'assigned_to_user'?: User;
-    /**
-     * 
-     * @type {Array<object>}
-     * @memberof Feature
-     */
     'requirements'?: Array<object>;
-    /**
-     * 
-     * @type {Array<object>}
-     * @memberof Feature
-     */
     'goals'?: Array<object>;
-    /**
-     * 
-     * @type {Array<object>}
-     * @memberof Feature
-     */
     'key_results'?: Array<object>;
-    /**
-     * 
-     * @type {number}
-     * @memberof Feature
-     */
     'comments_count'?: number;
-    /**
-     * 
-     * @type {Array<object>}
-     * @memberof Feature
-     */
     'score_facts'?: Array<object>;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof Feature
-     */
     'tags'?: Array<string>;
-    /**
-     * 
-     * @type {Array<object>}
-     * @memberof Feature
-     */
     'full_tags'?: Array<object>;
-    /**
-     * 
-     * @type {Array<object>}
-     * @memberof Feature
-     */
     'custom_fields'?: Array<object>;
-    /**
-     * 
-     * @type {Array<object>}
-     * @memberof Feature
-     */
     'feature_links'?: Array<object>;
-    /**
-     * 
-     * @type {Array<FeatureWorkflowStatusTimesInner>}
-     * @memberof Feature
-     */
     'workflow_status_times'?: Array<FeatureWorkflowStatusTimesInner>;
-    /**
-     * 
-     * @type {number}
-     * @memberof Feature
-     */
     'feature_only_original_estimate'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof Feature
-     */
     'feature_only_remaining_estimate'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof Feature
-     */
     'feature_only_work_done'?: number;
 }
 

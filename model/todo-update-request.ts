@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { TodoUpdateRequestTask } from './todo-update-request-task';
 
-/**
- * 
- * @export
- * @interface TodoUpdateRequest
- */
 export interface TodoUpdateRequest {
-    /**
-     * 
-     * @type {TodoUpdateRequestTask}
-     * @memberof TodoUpdateRequest
-     */
     'task': TodoUpdateRequestTask;
 }
 

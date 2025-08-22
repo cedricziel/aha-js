@@ -14,28 +14,17 @@
 
 
 
-/**
- * 
- * @export
- * @interface GoalProgressUpdateRequestKeyResultsInner
- */
 export interface GoalProgressUpdateRequestKeyResultsInner {
     /**
      * ID of the key result
-     * @type {string}
-     * @memberof GoalProgressUpdateRequestKeyResultsInner
      */
     'id': string;
     /**
      * Current value of the key result
-     * @type {number}
-     * @memberof GoalProgressUpdateRequestKeyResultsInner
      */
     'current_value': number;
     /**
      * Updated target value (optional)
-     * @type {number}
-     * @memberof GoalProgressUpdateRequestKeyResultsInner
      */
     'target_value'?: number;
 }

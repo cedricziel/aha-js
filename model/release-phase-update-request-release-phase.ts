@@ -14,58 +14,37 @@
 
 
 
-/**
- * 
- * @export
- * @interface ReleasePhaseUpdateRequestReleasePhase
- */
 export interface ReleasePhaseUpdateRequestReleasePhase {
     /**
      * Name of the release phase
-     * @type {string}
-     * @memberof ReleasePhaseUpdateRequestReleasePhase
      */
     'name'?: string;
     /**
      * Start date of the release phase
-     * @type {string}
-     * @memberof ReleasePhaseUpdateRequestReleasePhase
      */
     'start_on'?: string;
     /**
      * End date of the release phase
-     * @type {string}
-     * @memberof ReleasePhaseUpdateRequestReleasePhase
      */
     'end_on'?: string;
     /**
      * HTML description of the release phase
-     * @type {string}
-     * @memberof ReleasePhaseUpdateRequestReleasePhase
      */
     'description'?: string;
     /**
      * Source for calculating progress
-     * @type {string}
-     * @memberof ReleasePhaseUpdateRequestReleasePhase
      */
     'progress_source'?: ReleasePhaseUpdateRequestReleasePhaseProgressSourceEnum;
     /**
      * Progress percentage (only when progress_source is manual)
-     * @type {number}
-     * @memberof ReleasePhaseUpdateRequestReleasePhase
      */
     'progress'?: number;
     /**
      * Source for calculating duration
-     * @type {string}
-     * @memberof ReleasePhaseUpdateRequestReleasePhase
      */
     'duration_source'?: ReleasePhaseUpdateRequestReleasePhaseDurationSourceEnum;
     /**
      * Custom field values
-     * @type {{ [key: string]: any; }}
-     * @memberof ReleasePhaseUpdateRequestReleasePhase
      */
     'custom_fields'?: { [key: string]: any; };
 }

@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { IdeasGetVotes200ResponseVotesInnerUser } from './ideas-get-votes200-response-votes-inner-user';
 
-/**
- * 
- * @export
- * @interface IdeasGetVotes200ResponseVotesInner
- */
 export interface IdeasGetVotes200ResponseVotesInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasGetVotes200ResponseVotesInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasGetVotes200ResponseVotesInner
-     */
     'vote_type'?: IdeasGetVotes200ResponseVotesInnerVoteTypeEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasGetVotes200ResponseVotesInner
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {IdeasGetVotes200ResponseVotesInnerUser}
-     * @memberof IdeasGetVotes200ResponseVotesInner
-     */
     'user'?: IdeasGetVotes200ResponseVotesInnerUser;
 }
 

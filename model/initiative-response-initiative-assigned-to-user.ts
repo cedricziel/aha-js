@@ -14,46 +14,29 @@
 
 
 
-/**
- * 
- * @export
- * @interface InitiativeResponseInitiativeAssignedToUser
- */
 export interface InitiativeResponseInitiativeAssignedToUser {
     /**
      * Unique identifier of the assigned user
-     * @type {string}
-     * @memberof InitiativeResponseInitiativeAssignedToUser
      */
     'id'?: string;
     /**
      * Name of the assigned user
-     * @type {string}
-     * @memberof InitiativeResponseInitiativeAssignedToUser
      */
     'name'?: string;
     /**
      * Email of the assigned user
-     * @type {string}
-     * @memberof InitiativeResponseInitiativeAssignedToUser
      */
     'email'?: string;
     /**
      * Creation date of the user
-     * @type {string}
-     * @memberof InitiativeResponseInitiativeAssignedToUser
      */
     'created_at'?: string;
     /**
      * Last update date of the user
-     * @type {string}
-     * @memberof InitiativeResponseInitiativeAssignedToUser
      */
     'updated_at'?: string;
     /**
      * Whether this user is the default assignee
-     * @type {boolean}
-     * @memberof InitiativeResponseInitiativeAssignedToUser
      */
     'default_assignee'?: boolean;
 }

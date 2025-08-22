@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { TodoCreateRequestTask } from './todo-create-request-task';
 
-/**
- * 
- * @export
- * @interface TodoCreateRequest
- */
 export interface TodoCreateRequest {
-    /**
-     * 
-     * @type {TodoCreateRequestTask}
-     * @memberof TodoCreateRequest
-     */
     'task': TodoCreateRequestTask;
 }
 

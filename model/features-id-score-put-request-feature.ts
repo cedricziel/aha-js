@@ -17,16 +17,9 @@
 // @ts-ignore
 import type { FeaturesIdScorePutRequestFeatureScoreFactsInner } from './features-id-score-put-request-feature-score-facts-inner';
 
-/**
- * 
- * @export
- * @interface FeaturesIdScorePutRequestFeature
- */
 export interface FeaturesIdScorePutRequestFeature {
     /**
      * Array of score facts to update
-     * @type {Array<FeaturesIdScorePutRequestFeatureScoreFactsInner>}
-     * @memberof FeaturesIdScorePutRequestFeature
      */
     'score_facts'?: Array<FeaturesIdScorePutRequestFeatureScoreFactsInner>;
 }

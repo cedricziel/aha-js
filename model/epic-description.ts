@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface EpicDescription
- */
 export interface EpicDescription {
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicDescription
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicDescription
-     */
     'body'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicDescription
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicDescription
-     */
     'updated_at'?: string;
 }
 

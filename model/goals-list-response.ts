@@ -20,23 +20,8 @@ import type { Goal } from './goal';
 // @ts-ignore
 import type { GoalsListResponsePagination } from './goals-list-response-pagination';
 
-/**
- * 
- * @export
- * @interface GoalsListResponse
- */
 export interface GoalsListResponse {
-    /**
-     * 
-     * @type {Array<Goal>}
-     * @memberof GoalsListResponse
-     */
     'goals'?: Array<Goal>;
-    /**
-     * 
-     * @type {GoalsListResponsePagination}
-     * @memberof GoalsListResponse
-     */
     'pagination'?: GoalsListResponsePagination;
 }
 

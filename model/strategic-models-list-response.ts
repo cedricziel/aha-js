@@ -20,23 +20,8 @@ import type { StrategicModel } from './strategic-model';
 // @ts-ignore
 import type { StrategicModelsListResponsePagination } from './strategic-models-list-response-pagination';
 
-/**
- * 
- * @export
- * @interface StrategicModelsListResponse
- */
 export interface StrategicModelsListResponse {
-    /**
-     * 
-     * @type {Array<StrategicModel>}
-     * @memberof StrategicModelsListResponse
-     */
     'strategic_models'?: Array<StrategicModel>;
-    /**
-     * 
-     * @type {StrategicModelsListResponsePagination}
-     * @memberof StrategicModelsListResponse
-     */
     'pagination'?: StrategicModelsListResponsePagination;
 }
 

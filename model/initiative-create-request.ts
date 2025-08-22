@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { InitiativeCreateRequestInitiative } from './initiative-create-request-initiative';
 
-/**
- * 
- * @export
- * @interface InitiativeCreateRequest
- */
 export interface InitiativeCreateRequest {
-    /**
-     * 
-     * @type {InitiativeCreateRequestInitiative}
-     * @memberof InitiativeCreateRequest
-     */
     'initiative'?: InitiativeCreateRequestInitiative;
 }
 

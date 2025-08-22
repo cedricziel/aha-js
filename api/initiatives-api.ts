@@ -37,7 +37,6 @@ import type { InitiativeResponse } from '../model';
 import type { InitiativesListResponse } from '../model';
 /**
  * InitiativesApi - axios parameter creator
- * @export
  */
 export const InitiativesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -365,7 +364,6 @@ export const InitiativesApiAxiosParamCreator = function (configuration?: Configu
 
 /**
  * InitiativesApi - functional programming interface
- * @export
  */
 export const InitiativesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = InitiativesApiAxiosParamCreator(configuration)
@@ -465,7 +463,6 @@ export const InitiativesApiFp = function(configuration?: Configuration) {
 
 /**
  * InitiativesApi - factory interface
- * @export
  */
 export const InitiativesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = InitiativesApiFp(configuration)
@@ -535,8 +532,6 @@ export const InitiativesApiFactory = function (configuration?: Configuration, ba
 
 /**
  * InitiativesApi - interface
- * @export
- * @interface InitiativesApi
  */
 export interface InitiativesApiInterface {
     /**
@@ -545,7 +540,6 @@ export interface InitiativesApiInterface {
      * @param {InitiativesApiCommentsCreateInitiativeRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InitiativesApiInterface
      */
     commentsCreateInitiative(requestParameters: InitiativesApiCommentsCreateInitiativeRequest, options?: RawAxiosRequestConfig): AxiosPromise<Comment>;
 
@@ -555,7 +549,6 @@ export interface InitiativesApiInterface {
      * @param {InitiativesApiCommentsGetInitiativeRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InitiativesApiInterface
      */
     commentsGetInitiative(requestParameters: InitiativesApiCommentsGetInitiativeRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsGetEpic200Response>;
 
@@ -565,7 +558,6 @@ export interface InitiativesApiInterface {
      * @param {InitiativesApiEpicsListByInitiativeRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InitiativesApiInterface
      */
     epicsListByInitiative(requestParameters: InitiativesApiEpicsListByInitiativeRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsList200Response>;
 
@@ -575,7 +567,6 @@ export interface InitiativesApiInterface {
      * @param {InitiativesApiInitiativesCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InitiativesApiInterface
      */
     initiativesCreate(requestParameters: InitiativesApiInitiativesCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<InitiativeResponse>;
 
@@ -585,7 +576,6 @@ export interface InitiativesApiInterface {
      * @param {InitiativesApiInitiativesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InitiativesApiInterface
      */
     initiativesGet(requestParameters: InitiativesApiInitiativesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<InitiativeResponse>;
 
@@ -595,7 +585,6 @@ export interface InitiativesApiInterface {
      * @param {InitiativesApiInitiativesListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InitiativesApiInterface
      */
     initiativesList(requestParameters?: InitiativesApiInitiativesListRequest, options?: RawAxiosRequestConfig): AxiosPromise<InitiativesListResponse>;
 
@@ -603,177 +592,114 @@ export interface InitiativesApiInterface {
 
 /**
  * Request parameters for commentsCreateInitiative operation in InitiativesApi.
- * @export
- * @interface InitiativesApiCommentsCreateInitiativeRequest
  */
 export interface InitiativesApiCommentsCreateInitiativeRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesApiCommentsCreateInitiative
-     */
     readonly initiativeId: string
 
-    /**
-     * 
-     * @type {CommentCreateRequest}
-     * @memberof InitiativesApiCommentsCreateInitiative
-     */
     readonly commentCreateRequest: CommentCreateRequest
 }
 
 /**
  * Request parameters for commentsGetInitiative operation in InitiativesApi.
- * @export
- * @interface InitiativesApiCommentsGetInitiativeRequest
  */
 export interface InitiativesApiCommentsGetInitiativeRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesApiCommentsGetInitiative
-     */
     readonly initiativeId: string
 }
 
 /**
  * Request parameters for epicsListByInitiative operation in InitiativesApi.
- * @export
- * @interface InitiativesApiEpicsListByInitiativeRequest
  */
 export interface InitiativesApiEpicsListByInitiativeRequest {
     /**
      * Numeric ID or key of the initiative
-     * @type {string}
-     * @memberof InitiativesApiEpicsListByInitiative
      */
     readonly initiativeId: string
 
     /**
      * Search term to match against epic name
-     * @type {string}
-     * @memberof InitiativesApiEpicsListByInitiative
      */
     readonly q?: string
 
     /**
      * UTC timestamp for filtering recently updated epics
-     * @type {string}
-     * @memberof InitiativesApiEpicsListByInitiative
      */
     readonly updatedSince?: string
 
     /**
      * String tag to filter epics
-     * @type {string}
-     * @memberof InitiativesApiEpicsListByInitiative
      */
     readonly tag?: string
 
     /**
      * User ID or email to filter by assignee
-     * @type {string}
-     * @memberof InitiativesApiEpicsListByInitiative
      */
     readonly assignedToUser?: string
 }
 
 /**
  * Request parameters for initiativesCreate operation in InitiativesApi.
- * @export
- * @interface InitiativesApiInitiativesCreateRequest
  */
 export interface InitiativesApiInitiativesCreateRequest {
     /**
      * Numeric ID or key of the product
-     * @type {string}
-     * @memberof InitiativesApiInitiativesCreate
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {InitiativeCreateRequest}
-     * @memberof InitiativesApiInitiativesCreate
-     */
     readonly initiativeCreateRequest: InitiativeCreateRequest
 }
 
 /**
  * Request parameters for initiativesGet operation in InitiativesApi.
- * @export
- * @interface InitiativesApiInitiativesGetRequest
  */
 export interface InitiativesApiInitiativesGetRequest {
     /**
      * Numeric ID of the initiative
-     * @type {string}
-     * @memberof InitiativesApiInitiativesGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for initiativesList operation in InitiativesApi.
- * @export
- * @interface InitiativesApiInitiativesListRequest
  */
 export interface InitiativesApiInitiativesListRequest {
     /**
      * Page number for pagination (starts at 1)
-     * @type {number}
-     * @memberof InitiativesApiInitiativesList
      */
     readonly page?: number
 
     /**
      * Number of items per page (max 200)
-     * @type {number}
-     * @memberof InitiativesApiInitiativesList
      */
     readonly perPage?: number
 
     /**
      * Comma-separated list of fields to include in response for customization
-     * @type {string}
-     * @memberof InitiativesApiInitiativesList
      */
     readonly fields?: string
 
     /**
      * Search term to match against initiative name.
-     * @type {string}
-     * @memberof InitiativesApiInitiativesList
      */
     readonly q?: string
 
     /**
      * UTC timestamp (in ISO8601 format). If provided, only initiatives updated after the timestamp will be returned.
-     * @type {string}
-     * @memberof InitiativesApiInitiativesList
      */
     readonly updatedSince?: string
 
     /**
      * ID or email address of a user. If provided, returns only initiatives assigned to that user.
-     * @type {string}
-     * @memberof InitiativesApiInitiativesList
      */
     readonly assignedToUser?: string
 
     /**
      * When true, returns only active initiatives.
-     * @type {boolean}
-     * @memberof InitiativesApiInitiativesList
      */
     readonly onlyActive?: boolean
 }
 
 /**
  * InitiativesApi - object-oriented interface
- * @export
- * @class InitiativesApi
- * @extends {BaseAPI}
  */
 export class InitiativesApi extends BaseAPI implements InitiativesApiInterface {
     /**
@@ -782,7 +708,6 @@ export class InitiativesApi extends BaseAPI implements InitiativesApiInterface {
      * @param {InitiativesApiCommentsCreateInitiativeRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InitiativesApi
      */
     public commentsCreateInitiative(requestParameters: InitiativesApiCommentsCreateInitiativeRequest, options?: RawAxiosRequestConfig) {
         return InitiativesApiFp(this.configuration).commentsCreateInitiative(requestParameters.initiativeId, requestParameters.commentCreateRequest, options).then((request) => request(this.axios, this.basePath));
@@ -794,7 +719,6 @@ export class InitiativesApi extends BaseAPI implements InitiativesApiInterface {
      * @param {InitiativesApiCommentsGetInitiativeRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InitiativesApi
      */
     public commentsGetInitiative(requestParameters: InitiativesApiCommentsGetInitiativeRequest, options?: RawAxiosRequestConfig) {
         return InitiativesApiFp(this.configuration).commentsGetInitiative(requestParameters.initiativeId, options).then((request) => request(this.axios, this.basePath));
@@ -806,7 +730,6 @@ export class InitiativesApi extends BaseAPI implements InitiativesApiInterface {
      * @param {InitiativesApiEpicsListByInitiativeRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InitiativesApi
      */
     public epicsListByInitiative(requestParameters: InitiativesApiEpicsListByInitiativeRequest, options?: RawAxiosRequestConfig) {
         return InitiativesApiFp(this.configuration).epicsListByInitiative(requestParameters.initiativeId, requestParameters.q, requestParameters.updatedSince, requestParameters.tag, requestParameters.assignedToUser, options).then((request) => request(this.axios, this.basePath));
@@ -818,7 +741,6 @@ export class InitiativesApi extends BaseAPI implements InitiativesApiInterface {
      * @param {InitiativesApiInitiativesCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InitiativesApi
      */
     public initiativesCreate(requestParameters: InitiativesApiInitiativesCreateRequest, options?: RawAxiosRequestConfig) {
         return InitiativesApiFp(this.configuration).initiativesCreate(requestParameters.productId, requestParameters.initiativeCreateRequest, options).then((request) => request(this.axios, this.basePath));
@@ -830,7 +752,6 @@ export class InitiativesApi extends BaseAPI implements InitiativesApiInterface {
      * @param {InitiativesApiInitiativesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InitiativesApi
      */
     public initiativesGet(requestParameters: InitiativesApiInitiativesGetRequest, options?: RawAxiosRequestConfig) {
         return InitiativesApiFp(this.configuration).initiativesGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -842,7 +763,6 @@ export class InitiativesApi extends BaseAPI implements InitiativesApiInterface {
      * @param {InitiativesApiInitiativesListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InitiativesApi
      */
     public initiativesList(requestParameters: InitiativesApiInitiativesListRequest = {}, options?: RawAxiosRequestConfig) {
         return InitiativesApiFp(this.configuration).initiativesList(requestParameters.page, requestParameters.perPage, requestParameters.fields, requestParameters.q, requestParameters.updatedSince, requestParameters.assignedToUser, requestParameters.onlyActive, options).then((request) => request(this.axios, this.basePath));

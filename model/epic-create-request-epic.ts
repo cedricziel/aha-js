@@ -14,130 +14,85 @@
 
 
 
-/**
- * 
- * @export
- * @interface EpicCreateRequestEpic
- */
 export interface EpicCreateRequestEpic {
     /**
      * Name of the epic
-     * @type {string}
-     * @memberof EpicCreateRequestEpic
      */
     'name': string;
     /**
      * Description of the epic - may include HTML formatting
-     * @type {string}
-     * @memberof EpicCreateRequestEpic
      */
     'description'?: string;
     /**
      * Status of the epic - must be a valid status for the selected product
-     * @type {string}
-     * @memberof EpicCreateRequestEpic
      */
     'workflow_status'?: string;
     /**
      * Email address of the user who created the epic
-     * @type {string}
-     * @memberof EpicCreateRequestEpic
      */
     'created_by'?: string;
     /**
      * Email address of user that is assigned the epic
-     * @type {string}
-     * @memberof EpicCreateRequestEpic
      */
     'assigned_to_user'?: string;
     /**
      * Tags to add to the epic. Multiple tags must be separated by commas
-     * @type {string}
-     * @memberof EpicCreateRequestEpic
      */
     'tags'?: string;
     /**
      * The detailed estimated effort in time or story points for this epic
-     * @type {string}
-     * @memberof EpicCreateRequestEpic
      */
     'detailed_estimate_text'?: string;
     /**
      * The remaining estimated effort in time or story points for this epic
-     * @type {string}
-     * @memberof EpicCreateRequestEpic
      */
     'remaining_estimate_text'?: string;
     /**
      * Set the initial estimated effort in minutes or story points
-     * @type {number}
-     * @memberof EpicCreateRequestEpic
      */
     'initial_estimate'?: number;
     /**
      * Set the detailed estimated effort in minutes or story points
-     * @type {number}
-     * @memberof EpicCreateRequestEpic
      */
     'detailed_estimate'?: number;
     /**
      * Set the remaining estimated effort in minutes or story points
-     * @type {number}
-     * @memberof EpicCreateRequestEpic
      */
     'remaining_estimate'?: number;
     /**
      * Date that work will start on the epic in format YYYY-MM-DD
-     * @type {string}
-     * @memberof EpicCreateRequestEpic
      */
     'start_date'?: string;
     /**
      * Date that work is due to be completed on the epic in format YYYY-MM-DD
-     * @type {string}
-     * @memberof EpicCreateRequestEpic
      */
     'due_date'?: string;
     /**
      * Name or id of initiative which the epic belongs to
-     * @type {string}
-     * @memberof EpicCreateRequestEpic
      */
     'initiative'?: string;
     /**
      * Progress completed on the epic. May only be set when the progress_source is manual
-     * @type {number}
-     * @memberof EpicCreateRequestEpic
      */
     'progress'?: number;
     /**
      * Source for automatically calculating start and due dates
-     * @type {string}
-     * @memberof EpicCreateRequestEpic
      */
     'duration_source'?: EpicCreateRequestEpicDurationSourceEnum;
     /**
      * Numeric ID or key of the Develop team to assign the epic to
-     * @type {string}
-     * @memberof EpicCreateRequestEpic
      */
     'team'?: string;
     /**
      * Team status of the epic - must be a valid status for the selected team
-     * @type {string}
-     * @memberof EpicCreateRequestEpic
      */
     'team_workflow_status'?: string;
     /**
      * ID of sprint to assign the epic to, must belong to the selected team
-     * @type {string}
-     * @memberof EpicCreateRequestEpic
      */
     'iteration'?: string;
     /**
      * Numeric ID or key of the PI to assign the epic to
-     * @type {string}
-     * @memberof EpicCreateRequestEpic
      */
     'program_increment'?: string;
 }

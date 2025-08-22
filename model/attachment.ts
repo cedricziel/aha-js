@@ -14,58 +14,37 @@
 
 
 
-/**
- * 
- * @export
- * @interface Attachment
- */
 export interface Attachment {
     /**
      * Unique identifier for the attachment
-     * @type {string}
-     * @memberof Attachment
      */
     'id': string;
     /**
      * URL to download the attachment
-     * @type {string}
-     * @memberof Attachment
      */
     'download_url': string;
     /**
      * When the attachment was created
-     * @type {string}
-     * @memberof Attachment
      */
     'created_at': string;
     /**
      * When the attachment was last updated
-     * @type {string}
-     * @memberof Attachment
      */
     'updated_at': string;
     /**
      * Size of the original file in bytes
-     * @type {number}
-     * @memberof Attachment
      */
     'original_file_size'?: number;
     /**
      * MIME type of the file
-     * @type {string}
-     * @memberof Attachment
      */
     'content_type': string;
     /**
      * Name of the file
-     * @type {string}
-     * @memberof Attachment
      */
     'file_name': string;
     /**
      * Size of the file in bytes
-     * @type {number}
-     * @memberof Attachment
      */
     'file_size': number;
 }

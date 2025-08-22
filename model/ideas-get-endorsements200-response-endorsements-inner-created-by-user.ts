@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeasGetEndorsements200ResponseEndorsementsInnerCreatedByUser
- */
 export interface IdeasGetEndorsements200ResponseEndorsementsInnerCreatedByUser {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasGetEndorsements200ResponseEndorsementsInnerCreatedByUser
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasGetEndorsements200ResponseEndorsementsInnerCreatedByUser
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasGetEndorsements200ResponseEndorsementsInnerCreatedByUser
-     */
     'email'?: string;
 }
 

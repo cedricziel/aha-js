@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { IdeasGetWatchers200ResponseWatchersInner } from './ideas-get-watchers200-response-watchers-inner';
 
-/**
- * 
- * @export
- * @interface IdeasGetWatchers200Response
- */
 export interface IdeasGetWatchers200Response {
-    /**
-     * 
-     * @type {Array<IdeasGetWatchers200ResponseWatchersInner>}
-     * @memberof IdeasGetWatchers200Response
-     */
     'watchers'?: Array<IdeasGetWatchers200ResponseWatchersInner>;
 }
 

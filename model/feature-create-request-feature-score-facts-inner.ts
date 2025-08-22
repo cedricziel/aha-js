@@ -14,22 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface FeatureCreateRequestFeatureScoreFactsInner
- */
 export interface FeatureCreateRequestFeatureScoreFactsInner {
     /**
      * Name of the score fact (e.g., \"Benefit\", \"Effort\")
-     * @type {string}
-     * @memberof FeatureCreateRequestFeatureScoreFactsInner
      */
     'name'?: string;
     /**
      * Numeric value for the score fact
-     * @type {number}
-     * @memberof FeatureCreateRequestFeatureScoreFactsInner
      */
     'value'?: number;
 }

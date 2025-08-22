@@ -16,20 +16,14 @@
 
 /**
  * Status of the initiative
- * @export
- * @interface InitiativeCreateRequestInitiativeWorkflowStatus
  */
 export interface InitiativeCreateRequestInitiativeWorkflowStatus {
     /**
      * Name of the workflow status
-     * @type {string}
-     * @memberof InitiativeCreateRequestInitiativeWorkflowStatus
      */
     'name'?: string;
     /**
      * ID of the workflow status
-     * @type {string}
-     * @memberof InitiativeCreateRequestInitiativeWorkflowStatus
      */
     'id'?: string;
 }

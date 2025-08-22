@@ -14,28 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeasCreateEndorsement201ResponseIdea
- */
 export interface IdeasCreateEndorsement201ResponseIdea {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasCreateEndorsement201ResponseIdea
-     */
     'id'?: string;
     /**
      * Updated total endorsement count
-     * @type {number}
-     * @memberof IdeasCreateEndorsement201ResponseIdea
      */
     'endorsements_count'?: number;
     /**
      * Updated total endorsement value
-     * @type {number}
-     * @memberof IdeasCreateEndorsement201ResponseIdea
      */
     'endorsements_value'?: number;
 }

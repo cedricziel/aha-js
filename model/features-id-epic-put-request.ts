@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { FeaturesIdEpicPutRequestFeature } from './features-id-epic-put-request-feature';
 
-/**
- * 
- * @export
- * @interface FeaturesIdEpicPutRequest
- */
 export interface FeaturesIdEpicPutRequest {
-    /**
-     * 
-     * @type {FeaturesIdEpicPutRequestFeature}
-     * @memberof FeaturesIdEpicPutRequest
-     */
     'feature'?: FeaturesIdEpicPutRequestFeature;
 }
 

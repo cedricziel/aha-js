@@ -20,46 +20,23 @@ import type { RequirementUpdateRequestRequirementAssignedToUser } from './requir
 // @ts-ignore
 import type { RequirementUpdateRequestRequirementWorkflowStatus } from './requirement-update-request-requirement-workflow-status';
 
-/**
- * 
- * @export
- * @interface RequirementUpdateRequestRequirement
- */
 export interface RequirementUpdateRequestRequirement {
     /**
      * Name of the requirement
-     * @type {string}
-     * @memberof RequirementUpdateRequestRequirement
      */
     'name'?: string;
-    /**
-     * 
-     * @type {RequirementUpdateRequestRequirementWorkflowStatus}
-     * @memberof RequirementUpdateRequestRequirement
-     */
     'workflow_status'?: RequirementUpdateRequestRequirementWorkflowStatus;
     /**
      * HTML description of the requirement
-     * @type {string}
-     * @memberof RequirementUpdateRequestRequirement
      */
     'description'?: string;
-    /**
-     * 
-     * @type {RequirementUpdateRequestRequirementAssignedToUser}
-     * @memberof RequirementUpdateRequestRequirement
-     */
     'assigned_to_user'?: RequirementUpdateRequestRequirementAssignedToUser;
     /**
      * Tags to associate with the requirement
-     * @type {Array<string>}
-     * @memberof RequirementUpdateRequestRequirement
      */
     'tags'?: Array<string>;
     /**
      * Custom field values
-     * @type {{ [key: string]: any; }}
-     * @memberof RequirementUpdateRequestRequirement
      */
     'custom_fields'?: { [key: string]: any; };
 }

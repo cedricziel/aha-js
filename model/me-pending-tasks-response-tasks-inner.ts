@@ -20,82 +20,47 @@ import type { MeAssignedRecordsResponseRecordsInnerAssignedToUser } from './me-a
 // @ts-ignore
 import type { MePendingTasksResponseTasksInnerAssignedByUser } from './me-pending-tasks-response-tasks-inner-assigned-by-user';
 
-/**
- * 
- * @export
- * @interface MePendingTasksResponseTasksInner
- */
 export interface MePendingTasksResponseTasksInner {
     /**
      * Task ID
-     * @type {string}
-     * @memberof MePendingTasksResponseTasksInner
      */
     'id': string;
     /**
      * Task name
-     * @type {string}
-     * @memberof MePendingTasksResponseTasksInner
      */
     'name': string;
     /**
      * Task description
-     * @type {string}
-     * @memberof MePendingTasksResponseTasksInner
      */
     'description'?: string;
     /**
      * Task due date
-     * @type {string}
-     * @memberof MePendingTasksResponseTasksInner
      */
     'due_date'?: string;
     /**
      * Task priority level
-     * @type {string}
-     * @memberof MePendingTasksResponseTasksInner
      */
     'priority'?: MePendingTasksResponseTasksInnerPriorityEnum;
     /**
      * Task status
-     * @type {string}
-     * @memberof MePendingTasksResponseTasksInner
      */
     'status': MePendingTasksResponseTasksInnerStatusEnum;
-    /**
-     * 
-     * @type {MeAssignedRecordsResponseRecordsInnerAssignedToUser}
-     * @memberof MePendingTasksResponseTasksInner
-     */
     'assigned_to_user': MeAssignedRecordsResponseRecordsInnerAssignedToUser;
-    /**
-     * 
-     * @type {MePendingTasksResponseTasksInnerAssignedByUser}
-     * @memberof MePendingTasksResponseTasksInner
-     */
     'assigned_by_user'?: MePendingTasksResponseTasksInnerAssignedByUser;
     /**
      * When the task was created
-     * @type {string}
-     * @memberof MePendingTasksResponseTasksInner
      */
     'created_at': string;
     /**
      * When the task was last updated
-     * @type {string}
-     * @memberof MePendingTasksResponseTasksInner
      */
     'updated_at': string;
     /**
      * URL to the task\'s page
-     * @type {string}
-     * @memberof MePendingTasksResponseTasksInner
      */
     'url'?: string;
     /**
      * URL to the task\'s API resource
-     * @type {string}
-     * @memberof MePendingTasksResponseTasksInner
      */
     'resource'?: string;
 }

@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { FeaturesIdTagsPutRequestFeature } from './features-id-tags-put-request-feature';
 
-/**
- * 
- * @export
- * @interface FeaturesIdTagsPutRequest
- */
 export interface FeaturesIdTagsPutRequest {
-    /**
-     * 
-     * @type {FeaturesIdTagsPutRequestFeature}
-     * @memberof FeaturesIdTagsPutRequest
-     */
     'feature'?: FeaturesIdTagsPutRequestFeature;
 }
 

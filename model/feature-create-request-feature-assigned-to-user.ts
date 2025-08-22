@@ -20,7 +20,6 @@ import type { FeatureCreateRequestFeatureAssignedToUserOneOf } from './feature-c
 /**
  * @type FeatureCreateRequestFeatureAssignedToUser
  * Email address of user that is assigned the feature. Can be specified as a string or as an object with an email property.
- * @export
  */
 export type FeatureCreateRequestFeatureAssignedToUser = FeatureCreateRequestFeatureAssignedToUserOneOf | string;
 

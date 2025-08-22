@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface Competitor
- */
 export interface Competitor {
-    /**
-     * 
-     * @type {string}
-     * @memberof Competitor
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Competitor
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Competitor
-     */
     'description'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Competitor
-     */
     'strengths'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Competitor
-     */
     'weaknesses'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Competitor
-     */
     'website'?: string;
 }
 

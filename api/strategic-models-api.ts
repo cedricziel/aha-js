@@ -31,7 +31,6 @@ import type { StrategicModelUpdateRequest } from '../model';
 import type { StrategicModelsListResponse } from '../model';
 /**
  * StrategicModelsApi - axios parameter creator
- * @export
  */
 export const StrategicModelsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -281,7 +280,6 @@ export const StrategicModelsApiAxiosParamCreator = function (configuration?: Con
 
 /**
  * StrategicModelsApi - functional programming interface
- * @export
  */
 export const StrategicModelsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = StrategicModelsApiAxiosParamCreator(configuration)
@@ -361,7 +359,6 @@ export const StrategicModelsApiFp = function(configuration?: Configuration) {
 
 /**
  * StrategicModelsApi - factory interface
- * @export
  */
 export const StrategicModelsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = StrategicModelsApiFp(configuration)
@@ -421,8 +418,6 @@ export const StrategicModelsApiFactory = function (configuration?: Configuration
 
 /**
  * StrategicModelsApi - interface
- * @export
- * @interface StrategicModelsApi
  */
 export interface StrategicModelsApiInterface {
     /**
@@ -431,7 +426,6 @@ export interface StrategicModelsApiInterface {
      * @param {StrategicModelsApiStrategicModelsCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StrategicModelsApiInterface
      */
     strategicModelsCreate(requestParameters: StrategicModelsApiStrategicModelsCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<StrategicModelGetResponse>;
 
@@ -441,7 +435,6 @@ export interface StrategicModelsApiInterface {
      * @param {StrategicModelsApiStrategicModelsDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StrategicModelsApiInterface
      */
     strategicModelsDelete(requestParameters: StrategicModelsApiStrategicModelsDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -451,7 +444,6 @@ export interface StrategicModelsApiInterface {
      * @param {StrategicModelsApiStrategicModelsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StrategicModelsApiInterface
      */
     strategicModelsGet(requestParameters: StrategicModelsApiStrategicModelsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<StrategicModelGetResponse>;
 
@@ -461,7 +453,6 @@ export interface StrategicModelsApiInterface {
      * @param {StrategicModelsApiStrategicModelsListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StrategicModelsApiInterface
      */
     strategicModelsList(requestParameters?: StrategicModelsApiStrategicModelsListRequest, options?: RawAxiosRequestConfig): AxiosPromise<StrategicModelsListResponse>;
 
@@ -471,7 +462,6 @@ export interface StrategicModelsApiInterface {
      * @param {StrategicModelsApiStrategicModelsUpdateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StrategicModelsApiInterface
      */
     strategicModelsUpdate(requestParameters: StrategicModelsApiStrategicModelsUpdateRequest, options?: RawAxiosRequestConfig): AxiosPromise<StrategicModelGetResponse>;
 
@@ -479,114 +469,75 @@ export interface StrategicModelsApiInterface {
 
 /**
  * Request parameters for strategicModelsCreate operation in StrategicModelsApi.
- * @export
- * @interface StrategicModelsApiStrategicModelsCreateRequest
  */
 export interface StrategicModelsApiStrategicModelsCreateRequest {
-    /**
-     * 
-     * @type {StrategicModelCreateRequest}
-     * @memberof StrategicModelsApiStrategicModelsCreate
-     */
     readonly strategicModelCreateRequest: StrategicModelCreateRequest
 }
 
 /**
  * Request parameters for strategicModelsDelete operation in StrategicModelsApi.
- * @export
- * @interface StrategicModelsApiStrategicModelsDeleteRequest
  */
 export interface StrategicModelsApiStrategicModelsDeleteRequest {
     /**
      * Numeric ID of the strategic model
-     * @type {string}
-     * @memberof StrategicModelsApiStrategicModelsDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for strategicModelsGet operation in StrategicModelsApi.
- * @export
- * @interface StrategicModelsApiStrategicModelsGetRequest
  */
 export interface StrategicModelsApiStrategicModelsGetRequest {
     /**
      * Numeric ID of the strategic model
-     * @type {string}
-     * @memberof StrategicModelsApiStrategicModelsGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for strategicModelsList operation in StrategicModelsApi.
- * @export
- * @interface StrategicModelsApiStrategicModelsListRequest
  */
 export interface StrategicModelsApiStrategicModelsListRequest {
     /**
      * Search term to match against strategic model name.
-     * @type {string}
-     * @memberof StrategicModelsApiStrategicModelsList
      */
     readonly q?: string
 
     /**
      * Filter by strategic model type.
-     * @type {'swot' | 'porter_five_forces' | 'ansoff_matrix' | 'value_proposition_canvas' | 'business_model_canvas' | 'lean_canvas' | 'custom'}
-     * @memberof StrategicModelsApiStrategicModelsList
      */
     readonly type?: StrategicModelsListTypeEnum
 
     /**
      * UTC timestamp (in ISO8601 format). If provided, only strategic models updated after the timestamp will be returned.
-     * @type {string}
-     * @memberof StrategicModelsApiStrategicModelsList
      */
     readonly updatedSince?: string
 
     /**
      * Page number for pagination.
-     * @type {number}
-     * @memberof StrategicModelsApiStrategicModelsList
      */
     readonly page?: number
 
     /**
      * Number of strategic models per page.
-     * @type {number}
-     * @memberof StrategicModelsApiStrategicModelsList
      */
     readonly perPage?: number
 }
 
 /**
  * Request parameters for strategicModelsUpdate operation in StrategicModelsApi.
- * @export
- * @interface StrategicModelsApiStrategicModelsUpdateRequest
  */
 export interface StrategicModelsApiStrategicModelsUpdateRequest {
     /**
      * Numeric ID of the strategic model
-     * @type {string}
-     * @memberof StrategicModelsApiStrategicModelsUpdate
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {StrategicModelUpdateRequest}
-     * @memberof StrategicModelsApiStrategicModelsUpdate
-     */
     readonly strategicModelUpdateRequest: StrategicModelUpdateRequest
 }
 
 /**
  * StrategicModelsApi - object-oriented interface
- * @export
- * @class StrategicModelsApi
- * @extends {BaseAPI}
  */
 export class StrategicModelsApi extends BaseAPI implements StrategicModelsApiInterface {
     /**
@@ -595,7 +546,6 @@ export class StrategicModelsApi extends BaseAPI implements StrategicModelsApiInt
      * @param {StrategicModelsApiStrategicModelsCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StrategicModelsApi
      */
     public strategicModelsCreate(requestParameters: StrategicModelsApiStrategicModelsCreateRequest, options?: RawAxiosRequestConfig) {
         return StrategicModelsApiFp(this.configuration).strategicModelsCreate(requestParameters.strategicModelCreateRequest, options).then((request) => request(this.axios, this.basePath));
@@ -607,7 +557,6 @@ export class StrategicModelsApi extends BaseAPI implements StrategicModelsApiInt
      * @param {StrategicModelsApiStrategicModelsDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StrategicModelsApi
      */
     public strategicModelsDelete(requestParameters: StrategicModelsApiStrategicModelsDeleteRequest, options?: RawAxiosRequestConfig) {
         return StrategicModelsApiFp(this.configuration).strategicModelsDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -619,7 +568,6 @@ export class StrategicModelsApi extends BaseAPI implements StrategicModelsApiInt
      * @param {StrategicModelsApiStrategicModelsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StrategicModelsApi
      */
     public strategicModelsGet(requestParameters: StrategicModelsApiStrategicModelsGetRequest, options?: RawAxiosRequestConfig) {
         return StrategicModelsApiFp(this.configuration).strategicModelsGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -631,7 +579,6 @@ export class StrategicModelsApi extends BaseAPI implements StrategicModelsApiInt
      * @param {StrategicModelsApiStrategicModelsListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StrategicModelsApi
      */
     public strategicModelsList(requestParameters: StrategicModelsApiStrategicModelsListRequest = {}, options?: RawAxiosRequestConfig) {
         return StrategicModelsApiFp(this.configuration).strategicModelsList(requestParameters.q, requestParameters.type, requestParameters.updatedSince, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -643,16 +590,12 @@ export class StrategicModelsApi extends BaseAPI implements StrategicModelsApiInt
      * @param {StrategicModelsApiStrategicModelsUpdateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StrategicModelsApi
      */
     public strategicModelsUpdate(requestParameters: StrategicModelsApiStrategicModelsUpdateRequest, options?: RawAxiosRequestConfig) {
         return StrategicModelsApiFp(this.configuration).strategicModelsUpdate(requestParameters.id, requestParameters.strategicModelUpdateRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
-/**
- * @export
- */
 export const StrategicModelsListTypeEnum = {
     SWOT: 'swot',
     PORTER_FIVE_FORCES: 'porter_five_forces',

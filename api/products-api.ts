@@ -24,16 +24,15 @@ import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError
 // @ts-ignore
 import type { CommentsGetEpic200Response } from '../model';
 // @ts-ignore
-import type { InlineObject } from '../model';
+import type { FeaturesList429Response } from '../model';
 // @ts-ignore
-import type { InlineObject1 } from '../model';
+import type { FeaturesList504Response } from '../model';
 // @ts-ignore
 import type { ProductGetResponse } from '../model';
 // @ts-ignore
 import type { ProductsListResponse } from '../model';
 /**
  * ProductsApi - axios parameter creator
- * @export
  */
 export const ProductsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -186,7 +185,6 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
 
 /**
  * ProductsApi - functional programming interface
- * @export
  */
 export const ProductsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ProductsApiAxiosParamCreator(configuration)
@@ -238,7 +236,6 @@ export const ProductsApiFp = function(configuration?: Configuration) {
 
 /**
  * ProductsApi - factory interface
- * @export
  */
 export const ProductsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ProductsApiFp(configuration)
@@ -278,8 +275,6 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
 
 /**
  * ProductsApi - interface
- * @export
- * @interface ProductsApi
  */
 export interface ProductsApiInterface {
     /**
@@ -288,7 +283,6 @@ export interface ProductsApiInterface {
      * @param {ProductsApiCommentsGetProductRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ProductsApiInterface
      */
     commentsGetProduct(requestParameters: ProductsApiCommentsGetProductRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsGetEpic200Response>;
 
@@ -298,7 +292,6 @@ export interface ProductsApiInterface {
      * @param {ProductsApiProductsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ProductsApiInterface
      */
     productsGet(requestParameters: ProductsApiProductsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ProductGetResponse>;
 
@@ -308,7 +301,6 @@ export interface ProductsApiInterface {
      * @param {ProductsApiProductsListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ProductsApiInterface
      */
     productsList(requestParameters?: ProductsApiProductsListRequest, options?: RawAxiosRequestConfig): AxiosPromise<ProductsListResponse>;
 
@@ -316,72 +308,48 @@ export interface ProductsApiInterface {
 
 /**
  * Request parameters for commentsGetProduct operation in ProductsApi.
- * @export
- * @interface ProductsApiCommentsGetProductRequest
  */
 export interface ProductsApiCommentsGetProductRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsApiCommentsGetProduct
-     */
     readonly productId: string
 }
 
 /**
  * Request parameters for productsGet operation in ProductsApi.
- * @export
- * @interface ProductsApiProductsGetRequest
  */
 export interface ProductsApiProductsGetRequest {
     /**
      * Numeric ID or key of the product
-     * @type {string}
-     * @memberof ProductsApiProductsGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for productsList operation in ProductsApi.
- * @export
- * @interface ProductsApiProductsListRequest
  */
 export interface ProductsApiProductsListRequest {
     /**
      * Page number for pagination (starts at 1)
-     * @type {number}
-     * @memberof ProductsApiProductsList
      */
     readonly page?: number
 
     /**
      * Number of items per page (max 200)
-     * @type {number}
-     * @memberof ProductsApiProductsList
      */
     readonly perPage?: number
 
     /**
      * Comma-separated list of fields to include in response for customization
-     * @type {string}
-     * @memberof ProductsApiProductsList
      */
     readonly fields?: string
 
     /**
      * UTC timestamp (in ISO8601 format). If provided, only products updated after the timestamp will be returned.
-     * @type {string}
-     * @memberof ProductsApiProductsList
      */
     readonly updatedSince?: string
 }
 
 /**
  * ProductsApi - object-oriented interface
- * @export
- * @class ProductsApi
- * @extends {BaseAPI}
  */
 export class ProductsApi extends BaseAPI implements ProductsApiInterface {
     /**
@@ -390,7 +358,6 @@ export class ProductsApi extends BaseAPI implements ProductsApiInterface {
      * @param {ProductsApiCommentsGetProductRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ProductsApi
      */
     public commentsGetProduct(requestParameters: ProductsApiCommentsGetProductRequest, options?: RawAxiosRequestConfig) {
         return ProductsApiFp(this.configuration).commentsGetProduct(requestParameters.productId, options).then((request) => request(this.axios, this.basePath));
@@ -402,7 +369,6 @@ export class ProductsApi extends BaseAPI implements ProductsApiInterface {
      * @param {ProductsApiProductsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ProductsApi
      */
     public productsGet(requestParameters: ProductsApiProductsGetRequest, options?: RawAxiosRequestConfig) {
         return ProductsApiFp(this.configuration).productsGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -414,7 +380,6 @@ export class ProductsApi extends BaseAPI implements ProductsApiInterface {
      * @param {ProductsApiProductsListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ProductsApi
      */
     public productsList(requestParameters: ProductsApiProductsListRequest = {}, options?: RawAxiosRequestConfig) {
         return ProductsApiFp(this.configuration).productsList(requestParameters.page, requestParameters.perPage, requestParameters.fields, requestParameters.updatedSince, options).then((request) => request(this.axios, this.basePath));

@@ -14,22 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface InitiativeResponseInitiativeTimeFrame
- */
 export interface InitiativeResponseInitiativeTimeFrame {
     /**
      * Unique identifier of the time frame
-     * @type {number}
-     * @memberof InitiativeResponseInitiativeTimeFrame
      */
     'id'?: number;
     /**
      * Name of the time frame
-     * @type {string}
-     * @memberof InitiativeResponseInitiativeTimeFrame
      */
     'name'?: string;
 }

@@ -17,35 +17,19 @@
 // @ts-ignore
 import type { IdeasGetVotes200ResponseVotesInnerUser } from './ideas-get-votes200-response-votes-inner-user';
 
-/**
- * 
- * @export
- * @interface IdeasVote200ResponseVote
- */
 export interface IdeasVote200ResponseVote {
     /**
      * ID of the vote
-     * @type {string}
-     * @memberof IdeasVote200ResponseVote
      */
     'id'?: string;
     /**
      * Type of vote
-     * @type {string}
-     * @memberof IdeasVote200ResponseVote
      */
     'vote_type'?: IdeasVote200ResponseVoteVoteTypeEnum;
     /**
      * When the vote was created
-     * @type {string}
-     * @memberof IdeasVote200ResponseVote
      */
     'created_at'?: string;
-    /**
-     * 
-     * @type {IdeasGetVotes200ResponseVotesInnerUser}
-     * @memberof IdeasVote200ResponseVote
-     */
     'user'?: IdeasGetVotes200ResponseVotesInnerUser;
 }
 

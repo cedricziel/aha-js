@@ -14,22 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface FeaturesIdScorePutRequestFeatureScoreFactsInner
- */
 export interface FeaturesIdScorePutRequestFeatureScoreFactsInner {
     /**
      * Name of the score fact
-     * @type {string}
-     * @memberof FeaturesIdScorePutRequestFeatureScoreFactsInner
      */
     'name'?: string;
     /**
      * Value of the score fact
-     * @type {number}
-     * @memberof FeaturesIdScorePutRequestFeatureScoreFactsInner
      */
     'value'?: number;
 }

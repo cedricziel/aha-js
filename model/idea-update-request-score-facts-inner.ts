@@ -14,22 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeaUpdateRequestScoreFactsInner
- */
 export interface IdeaUpdateRequestScoreFactsInner {
     /**
      * Name of the score fact
-     * @type {string}
-     * @memberof IdeaUpdateRequestScoreFactsInner
      */
     'name'?: string;
     /**
      * Value of the score fact
-     * @type {number}
-     * @memberof IdeaUpdateRequestScoreFactsInner
      */
     'value'?: number;
 }

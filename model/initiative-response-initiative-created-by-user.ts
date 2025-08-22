@@ -14,40 +14,25 @@
 
 
 
-/**
- * 
- * @export
- * @interface InitiativeResponseInitiativeCreatedByUser
- */
 export interface InitiativeResponseInitiativeCreatedByUser {
     /**
      * Unique identifier of the creator
-     * @type {string}
-     * @memberof InitiativeResponseInitiativeCreatedByUser
      */
     'id'?: string;
     /**
      * Name of the creator
-     * @type {string}
-     * @memberof InitiativeResponseInitiativeCreatedByUser
      */
     'name'?: string;
     /**
      * Email of the creator
-     * @type {string}
-     * @memberof InitiativeResponseInitiativeCreatedByUser
      */
     'email'?: string;
     /**
      * Creation date of the user
-     * @type {string}
-     * @memberof InitiativeResponseInitiativeCreatedByUser
      */
     'created_at'?: string;
     /**
      * Last update date of the user
-     * @type {string}
-     * @memberof InitiativeResponseInitiativeCreatedByUser
      */
     'updated_at'?: string;
 }

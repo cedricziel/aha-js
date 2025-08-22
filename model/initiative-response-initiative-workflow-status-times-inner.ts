@@ -14,34 +14,21 @@
 
 
 
-/**
- * 
- * @export
- * @interface InitiativeResponseInitiativeWorkflowStatusTimesInner
- */
 export interface InitiativeResponseInitiativeWorkflowStatusTimesInner {
     /**
      * ID of the status
-     * @type {string}
-     * @memberof InitiativeResponseInitiativeWorkflowStatusTimesInner
      */
     'status_id'?: string;
     /**
      * Name of the status
-     * @type {string}
-     * @memberof InitiativeResponseInitiativeWorkflowStatusTimesInner
      */
     'status_name'?: string;
     /**
      * When the initiative entered this status
-     * @type {string}
-     * @memberof InitiativeResponseInitiativeWorkflowStatusTimesInner
      */
     'started_at'?: string;
     /**
      * When the initiative left this status
-     * @type {string}
-     * @memberof InitiativeResponseInitiativeWorkflowStatusTimesInner
      */
     'ended_at'?: string | null;
 }

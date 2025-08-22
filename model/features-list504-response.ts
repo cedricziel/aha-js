@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface InlineObject1
- */
-export interface InlineObject1 {
-    /**
-     * 
-     * @type {string}
-     * @memberof InlineObject1
-     */
+export interface FeaturesList504Response {
     'error'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InlineObject1
-     */
     'message'?: string;
 }
 

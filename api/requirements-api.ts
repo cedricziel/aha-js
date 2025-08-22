@@ -33,7 +33,6 @@ import type { RequirementUpdateRequest } from '../model';
 import type { RequirementsGet200Response } from '../model';
 /**
  * RequirementsApi - axios parameter creator
- * @export
  */
 export const RequirementsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -264,7 +263,6 @@ export const RequirementsApiAxiosParamCreator = function (configuration?: Config
 
 /**
  * RequirementsApi - functional programming interface
- * @export
  */
 export const RequirementsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = RequirementsApiAxiosParamCreator(configuration)
@@ -341,7 +339,6 @@ export const RequirementsApiFp = function(configuration?: Configuration) {
 
 /**
  * RequirementsApi - factory interface
- * @export
  */
 export const RequirementsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = RequirementsApiFp(configuration)
@@ -401,8 +398,6 @@ export const RequirementsApiFactory = function (configuration?: Configuration, b
 
 /**
  * RequirementsApi - interface
- * @export
- * @interface RequirementsApi
  */
 export interface RequirementsApiInterface {
     /**
@@ -411,7 +406,6 @@ export interface RequirementsApiInterface {
      * @param {RequirementsApiCommentsCreateRequirementRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RequirementsApiInterface
      */
     commentsCreateRequirement(requestParameters: RequirementsApiCommentsCreateRequirementRequest, options?: RawAxiosRequestConfig): AxiosPromise<Comment>;
 
@@ -421,7 +415,6 @@ export interface RequirementsApiInterface {
      * @param {RequirementsApiCommentsGetRequirementRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RequirementsApiInterface
      */
     commentsGetRequirement(requestParameters: RequirementsApiCommentsGetRequirementRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsGetEpic200Response>;
 
@@ -431,7 +424,6 @@ export interface RequirementsApiInterface {
      * @param {RequirementsApiRequirementsDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RequirementsApiInterface
      */
     requirementsDelete(requestParameters: RequirementsApiRequirementsDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -441,7 +433,6 @@ export interface RequirementsApiInterface {
      * @param {RequirementsApiRequirementsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RequirementsApiInterface
      */
     requirementsGet(requestParameters: RequirementsApiRequirementsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<RequirementsGet200Response>;
 
@@ -451,7 +442,6 @@ export interface RequirementsApiInterface {
      * @param {RequirementsApiRequirementsUpdateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RequirementsApiInterface
      */
     requirementsUpdate(requestParameters: RequirementsApiRequirementsUpdateRequest, options?: RawAxiosRequestConfig): AxiosPromise<RequirementsGet200Response>;
 
@@ -459,93 +449,54 @@ export interface RequirementsApiInterface {
 
 /**
  * Request parameters for commentsCreateRequirement operation in RequirementsApi.
- * @export
- * @interface RequirementsApiCommentsCreateRequirementRequest
  */
 export interface RequirementsApiCommentsCreateRequirementRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsApiCommentsCreateRequirement
-     */
     readonly requirementId: string
 
-    /**
-     * 
-     * @type {CommentCreateRequest}
-     * @memberof RequirementsApiCommentsCreateRequirement
-     */
     readonly commentCreateRequest: CommentCreateRequest
 }
 
 /**
  * Request parameters for commentsGetRequirement operation in RequirementsApi.
- * @export
- * @interface RequirementsApiCommentsGetRequirementRequest
  */
 export interface RequirementsApiCommentsGetRequirementRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsApiCommentsGetRequirement
-     */
     readonly requirementId: string
 }
 
 /**
  * Request parameters for requirementsDelete operation in RequirementsApi.
- * @export
- * @interface RequirementsApiRequirementsDeleteRequest
  */
 export interface RequirementsApiRequirementsDeleteRequest {
     /**
      * Numeric ID or key of the requirement
-     * @type {string}
-     * @memberof RequirementsApiRequirementsDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for requirementsGet operation in RequirementsApi.
- * @export
- * @interface RequirementsApiRequirementsGetRequest
  */
 export interface RequirementsApiRequirementsGetRequest {
     /**
      * Numeric ID or key of the requirement
-     * @type {string}
-     * @memberof RequirementsApiRequirementsGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for requirementsUpdate operation in RequirementsApi.
- * @export
- * @interface RequirementsApiRequirementsUpdateRequest
  */
 export interface RequirementsApiRequirementsUpdateRequest {
     /**
      * Numeric ID or key of the requirement
-     * @type {string}
-     * @memberof RequirementsApiRequirementsUpdate
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {RequirementUpdateRequest}
-     * @memberof RequirementsApiRequirementsUpdate
-     */
     readonly requirementUpdateRequest: RequirementUpdateRequest
 }
 
 /**
  * RequirementsApi - object-oriented interface
- * @export
- * @class RequirementsApi
- * @extends {BaseAPI}
  */
 export class RequirementsApi extends BaseAPI implements RequirementsApiInterface {
     /**
@@ -554,7 +505,6 @@ export class RequirementsApi extends BaseAPI implements RequirementsApiInterface
      * @param {RequirementsApiCommentsCreateRequirementRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RequirementsApi
      */
     public commentsCreateRequirement(requestParameters: RequirementsApiCommentsCreateRequirementRequest, options?: RawAxiosRequestConfig) {
         return RequirementsApiFp(this.configuration).commentsCreateRequirement(requestParameters.requirementId, requestParameters.commentCreateRequest, options).then((request) => request(this.axios, this.basePath));
@@ -566,7 +516,6 @@ export class RequirementsApi extends BaseAPI implements RequirementsApiInterface
      * @param {RequirementsApiCommentsGetRequirementRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RequirementsApi
      */
     public commentsGetRequirement(requestParameters: RequirementsApiCommentsGetRequirementRequest, options?: RawAxiosRequestConfig) {
         return RequirementsApiFp(this.configuration).commentsGetRequirement(requestParameters.requirementId, options).then((request) => request(this.axios, this.basePath));
@@ -578,7 +527,6 @@ export class RequirementsApi extends BaseAPI implements RequirementsApiInterface
      * @param {RequirementsApiRequirementsDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RequirementsApi
      */
     public requirementsDelete(requestParameters: RequirementsApiRequirementsDeleteRequest, options?: RawAxiosRequestConfig) {
         return RequirementsApiFp(this.configuration).requirementsDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -590,7 +538,6 @@ export class RequirementsApi extends BaseAPI implements RequirementsApiInterface
      * @param {RequirementsApiRequirementsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RequirementsApi
      */
     public requirementsGet(requestParameters: RequirementsApiRequirementsGetRequest, options?: RawAxiosRequestConfig) {
         return RequirementsApiFp(this.configuration).requirementsGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -602,7 +549,6 @@ export class RequirementsApi extends BaseAPI implements RequirementsApiInterface
      * @param {RequirementsApiRequirementsUpdateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RequirementsApi
      */
     public requirementsUpdate(requestParameters: RequirementsApiRequirementsUpdateRequest, options?: RawAxiosRequestConfig) {
         return RequirementsApiFp(this.configuration).requirementsUpdate(requestParameters.id, requestParameters.requirementUpdateRequest, options).then((request) => request(this.axios, this.basePath));

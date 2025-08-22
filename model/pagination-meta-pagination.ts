@@ -14,46 +14,29 @@
 
 
 
-/**
- * 
- * @export
- * @interface PaginationMetaPagination
- */
 export interface PaginationMetaPagination {
     /**
      * Current page number (1-based)
-     * @type {number}
-     * @memberof PaginationMetaPagination
      */
     'current_page'?: number;
     /**
      * Number of items per page
-     * @type {number}
-     * @memberof PaginationMetaPagination
      */
     'per_page'?: number;
     /**
      * Total number of pages
-     * @type {number}
-     * @memberof PaginationMetaPagination
      */
     'total_pages'?: number;
     /**
      * Total number of records across all pages
-     * @type {number}
-     * @memberof PaginationMetaPagination
      */
     'total_records'?: number;
     /**
      * Next page number (null if no next page)
-     * @type {number}
-     * @memberof PaginationMetaPagination
      */
     'next_page'?: number | null;
     /**
      * Previous page number (null if no previous page)
-     * @type {number}
-     * @memberof PaginationMetaPagination
      */
     'prev_page'?: number | null;
 }

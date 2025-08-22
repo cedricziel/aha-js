@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { FeaturesIdProgressPutRequestFeature } from './features-id-progress-put-request-feature';
 
-/**
- * 
- * @export
- * @interface FeaturesIdProgressPutRequest
- */
 export interface FeaturesIdProgressPutRequest {
-    /**
-     * 
-     * @type {FeaturesIdProgressPutRequestFeature}
-     * @memberof FeaturesIdProgressPutRequest
-     */
     'feature'?: FeaturesIdProgressPutRequestFeature;
 }
 

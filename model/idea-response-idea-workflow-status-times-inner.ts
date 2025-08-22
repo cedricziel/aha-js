@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeaResponseIdeaWorkflowStatusTimesInner
- */
 export interface IdeaResponseIdeaWorkflowStatusTimesInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaResponseIdeaWorkflowStatusTimesInner
-     */
     'status_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaResponseIdeaWorkflowStatusTimesInner
-     */
     'status_name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaResponseIdeaWorkflowStatusTimesInner
-     */
     'started_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaResponseIdeaWorkflowStatusTimesInner
-     */
     'ended_at'?: string | null;
 }
 

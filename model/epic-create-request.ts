@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { EpicCreateRequestEpic } from './epic-create-request-epic';
 
-/**
- * 
- * @export
- * @interface EpicCreateRequest
- */
 export interface EpicCreateRequest {
-    /**
-     * 
-     * @type {EpicCreateRequestEpic}
-     * @memberof EpicCreateRequest
-     */
     'epic'?: EpicCreateRequestEpic;
 }
 

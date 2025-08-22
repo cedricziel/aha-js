@@ -14,34 +14,21 @@
 
 
 
-/**
- * 
- * @export
- * @interface MeAssignedRecordsResponsePagination
- */
 export interface MeAssignedRecordsResponsePagination {
     /**
      * Total number of records
-     * @type {number}
-     * @memberof MeAssignedRecordsResponsePagination
      */
     'total_records': number;
     /**
      * Total number of pages
-     * @type {number}
-     * @memberof MeAssignedRecordsResponsePagination
      */
     'total_pages': number;
     /**
      * Current page number
-     * @type {number}
-     * @memberof MeAssignedRecordsResponsePagination
      */
     'current_page': number;
     /**
      * Number of records per page
-     * @type {number}
-     * @memberof MeAssignedRecordsResponsePagination
      */
     'per_page': number;
 }

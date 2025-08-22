@@ -20,23 +20,8 @@ import type { MeAssignedRecordsResponsePagination } from './me-assigned-records-
 // @ts-ignore
 import type { MeAssignedRecordsResponseRecordsInner } from './me-assigned-records-response-records-inner';
 
-/**
- * 
- * @export
- * @interface MeAssignedRecordsResponse
- */
 export interface MeAssignedRecordsResponse {
-    /**
-     * 
-     * @type {Array<MeAssignedRecordsResponseRecordsInner>}
-     * @memberof MeAssignedRecordsResponse
-     */
     'records': Array<MeAssignedRecordsResponseRecordsInner>;
-    /**
-     * 
-     * @type {MeAssignedRecordsResponsePagination}
-     * @memberof MeAssignedRecordsResponse
-     */
     'pagination': MeAssignedRecordsResponsePagination;
 }
 

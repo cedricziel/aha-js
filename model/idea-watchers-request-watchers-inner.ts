@@ -14,22 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeaWatchersRequestWatchersInner
- */
 export interface IdeaWatchersRequestWatchersInner {
     /**
      * ID of the user to watch the idea
-     * @type {string}
-     * @memberof IdeaWatchersRequestWatchersInner
      */
     'user_id': string;
     /**
      * Email of the user to watch the idea
-     * @type {string}
-     * @memberof IdeaWatchersRequestWatchersInner
      */
     'email': string;
 }

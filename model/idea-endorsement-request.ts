@@ -14,40 +14,25 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeaEndorsementRequest
- */
 export interface IdeaEndorsementRequest {
     /**
      * Email address of the portal user on whose behalf the endorsement is being created
-     * @type {string}
-     * @memberof IdeaEndorsementRequest
      */
     'email': string;
     /**
      * Numeric ID of the organization associated with the endorsement
-     * @type {string}
-     * @memberof IdeaEndorsementRequest
      */
     'idea_organization_id'?: string;
     /**
      * Dollar value representing the importance/weight of the endorsement
-     * @type {number}
-     * @memberof IdeaEndorsementRequest
      */
     'value'?: number;
     /**
      * Optional URL associated with the endorsement (e.g., feedback source)
-     * @type {string}
-     * @memberof IdeaEndorsementRequest
      */
     'link'?: string;
     /**
      * Optional description of the endorsement (HTML supported)
-     * @type {string}
-     * @memberof IdeaEndorsementRequest
      */
     'description'?: string;
 }

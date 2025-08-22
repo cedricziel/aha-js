@@ -14,16 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface FeatureCreateRequestFeatureAssignedToUserOneOf
- */
 export interface FeatureCreateRequestFeatureAssignedToUserOneOf {
     /**
      * Email address of user that is assigned the feature
-     * @type {string}
-     * @memberof FeatureCreateRequestFeatureAssignedToUserOneOf
      */
     'email'?: string;
 }

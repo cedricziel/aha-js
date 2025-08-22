@@ -14,16 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface FeaturesIdProgressPutRequestFeature
- */
 export interface FeaturesIdProgressPutRequestFeature {
     /**
      * Progress completed on the feature (0-100)
-     * @type {number}
-     * @memberof FeaturesIdProgressPutRequestFeature
      */
     'progress'?: number;
 }

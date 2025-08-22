@@ -17,7 +17,6 @@
 /**
  * @type CustomFieldValue
  * Value of the custom field
- * @export
  */
 export type CustomFieldValue = Array<string> | boolean | number | object | string;
 

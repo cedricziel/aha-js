@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { Requirement } from './requirement';
 
-/**
- * 
- * @export
- * @interface RequirementsGet200Response
- */
 export interface RequirementsGet200Response {
-    /**
-     * 
-     * @type {Requirement}
-     * @memberof RequirementsGet200Response
-     */
     'requirement'?: Requirement;
 }
 

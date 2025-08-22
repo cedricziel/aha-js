@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { Release } from './release';
 
-/**
- * 
- * @export
- * @interface ReleaseGetResponse
- */
 export interface ReleaseGetResponse {
-    /**
-     * 
-     * @type {Release}
-     * @memberof ReleaseGetResponse
-     */
     'release'?: Release;
 }
 

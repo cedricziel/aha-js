@@ -14,16 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface FeaturesIdEpicPutRequestFeature
- */
 export interface FeaturesIdEpicPutRequestFeature {
     /**
      * Name or id of epic which the feature belongs to
-     * @type {string}
-     * @memberof FeaturesIdEpicPutRequestFeature
      */
     'epic'?: string;
 }

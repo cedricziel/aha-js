@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { MeProfileResponseUser } from './me-profile-response-user';
 
-/**
- * 
- * @export
- * @interface MeProfileResponse
- */
 export interface MeProfileResponse {
-    /**
-     * 
-     * @type {MeProfileResponseUser}
-     * @memberof MeProfileResponse
-     */
     'user': MeProfileResponseUser;
 }
 

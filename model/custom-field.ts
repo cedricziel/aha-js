@@ -17,46 +17,26 @@
 // @ts-ignore
 import type { CustomFieldValue } from './custom-field-value';
 
-/**
- * 
- * @export
- * @interface CustomField
- */
 export interface CustomField {
     /**
      * Unique identifier for the custom field value
-     * @type {string}
-     * @memberof CustomField
      */
     'id': string;
     /**
      * API key for the custom field
-     * @type {string}
-     * @memberof CustomField
      */
     'key': string;
     /**
      * Name of the custom field
-     * @type {string}
-     * @memberof CustomField
      */
     'name': string;
-    /**
-     * 
-     * @type {CustomFieldValue}
-     * @memberof CustomField
-     */
     'value'?: CustomFieldValue;
     /**
      * Type of the custom field value
-     * @type {string}
-     * @memberof CustomField
      */
     'type': string;
     /**
      * When the custom field value was last updated
-     * @type {string}
-     * @memberof CustomField
      */
     'updated_at'?: string;
 }

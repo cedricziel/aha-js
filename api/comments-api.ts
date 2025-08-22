@@ -29,7 +29,6 @@ import type { CommentCreateRequest } from '../model';
 import type { CommentsGetEpic200Response } from '../model';
 /**
  * CommentsApi - axios parameter creator
- * @export
  */
 export const CommentsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -656,7 +655,6 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
 
 /**
  * CommentsApi - functional programming interface
- * @export
  */
 export const CommentsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = CommentsApiAxiosParamCreator(configuration)
@@ -853,7 +851,6 @@ export const CommentsApiFp = function(configuration?: Configuration) {
 
 /**
  * CommentsApi - factory interface
- * @export
  */
 export const CommentsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = CommentsApiFp(configuration)
@@ -1003,8 +1000,6 @@ export const CommentsApiFactory = function (configuration?: Configuration, baseP
 
 /**
  * CommentsApi - interface
- * @export
- * @interface CommentsApi
  */
 export interface CommentsApiInterface {
     /**
@@ -1013,7 +1008,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiCommentsCreateEpicRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     commentsCreateEpic(requestParameters: CommentsApiCommentsCreateEpicRequest, options?: RawAxiosRequestConfig): AxiosPromise<Comment>;
 
@@ -1023,7 +1017,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiCommentsCreateFeatureRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     commentsCreateFeature(requestParameters: CommentsApiCommentsCreateFeatureRequest, options?: RawAxiosRequestConfig): AxiosPromise<Comment>;
 
@@ -1033,7 +1026,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiCommentsCreateIdeaRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     commentsCreateIdea(requestParameters: CommentsApiCommentsCreateIdeaRequest, options?: RawAxiosRequestConfig): AxiosPromise<Comment>;
 
@@ -1043,7 +1035,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiCommentsCreateInitiativeRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     commentsCreateInitiative(requestParameters: CommentsApiCommentsCreateInitiativeRequest, options?: RawAxiosRequestConfig): AxiosPromise<Comment>;
 
@@ -1053,7 +1044,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiCommentsCreateRequirementRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     commentsCreateRequirement(requestParameters: CommentsApiCommentsCreateRequirementRequest, options?: RawAxiosRequestConfig): AxiosPromise<Comment>;
 
@@ -1063,7 +1053,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiCommentsGetEpicRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     commentsGetEpic(requestParameters: CommentsApiCommentsGetEpicRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsGetEpic200Response>;
 
@@ -1073,7 +1062,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiCommentsGetGoalRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     commentsGetGoal(requestParameters: CommentsApiCommentsGetGoalRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsGetEpic200Response>;
 
@@ -1083,7 +1071,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiCommentsGetIdeaRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     commentsGetIdea(requestParameters: CommentsApiCommentsGetIdeaRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsGetEpic200Response>;
 
@@ -1093,7 +1080,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiCommentsGetInitiativeRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     commentsGetInitiative(requestParameters: CommentsApiCommentsGetInitiativeRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsGetEpic200Response>;
 
@@ -1103,7 +1089,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiCommentsGetProductRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     commentsGetProduct(requestParameters: CommentsApiCommentsGetProductRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsGetEpic200Response>;
 
@@ -1113,7 +1098,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiCommentsGetReleaseRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     commentsGetRelease(requestParameters: CommentsApiCommentsGetReleaseRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsGetEpic200Response>;
 
@@ -1123,7 +1107,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiCommentsGetReleasePhaseRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     commentsGetReleasePhase(requestParameters: CommentsApiCommentsGetReleasePhaseRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsGetEpic200Response>;
 
@@ -1133,7 +1116,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiCommentsGetRequirementRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     commentsGetRequirement(requestParameters: CommentsApiCommentsGetRequirementRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsGetEpic200Response>;
 
@@ -1143,7 +1125,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiCommentsGetTodoRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     commentsGetTodo(requestParameters: CommentsApiCommentsGetTodoRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsGetEpic200Response>;
 
@@ -1151,240 +1132,114 @@ export interface CommentsApiInterface {
 
 /**
  * Request parameters for commentsCreateEpic operation in CommentsApi.
- * @export
- * @interface CommentsApiCommentsCreateEpicRequest
  */
 export interface CommentsApiCommentsCreateEpicRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiCommentsCreateEpic
-     */
     readonly epicId: string
 
-    /**
-     * 
-     * @type {CommentCreateRequest}
-     * @memberof CommentsApiCommentsCreateEpic
-     */
     readonly commentCreateRequest: CommentCreateRequest
 }
 
 /**
  * Request parameters for commentsCreateFeature operation in CommentsApi.
- * @export
- * @interface CommentsApiCommentsCreateFeatureRequest
  */
 export interface CommentsApiCommentsCreateFeatureRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiCommentsCreateFeature
-     */
     readonly featureId: string
 
-    /**
-     * 
-     * @type {CommentCreateRequest}
-     * @memberof CommentsApiCommentsCreateFeature
-     */
     readonly commentCreateRequest: CommentCreateRequest
 }
 
 /**
  * Request parameters for commentsCreateIdea operation in CommentsApi.
- * @export
- * @interface CommentsApiCommentsCreateIdeaRequest
  */
 export interface CommentsApiCommentsCreateIdeaRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiCommentsCreateIdea
-     */
     readonly ideaId: string
 
-    /**
-     * 
-     * @type {CommentCreateRequest}
-     * @memberof CommentsApiCommentsCreateIdea
-     */
     readonly commentCreateRequest: CommentCreateRequest
 }
 
 /**
  * Request parameters for commentsCreateInitiative operation in CommentsApi.
- * @export
- * @interface CommentsApiCommentsCreateInitiativeRequest
  */
 export interface CommentsApiCommentsCreateInitiativeRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiCommentsCreateInitiative
-     */
     readonly initiativeId: string
 
-    /**
-     * 
-     * @type {CommentCreateRequest}
-     * @memberof CommentsApiCommentsCreateInitiative
-     */
     readonly commentCreateRequest: CommentCreateRequest
 }
 
 /**
  * Request parameters for commentsCreateRequirement operation in CommentsApi.
- * @export
- * @interface CommentsApiCommentsCreateRequirementRequest
  */
 export interface CommentsApiCommentsCreateRequirementRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiCommentsCreateRequirement
-     */
     readonly requirementId: string
 
-    /**
-     * 
-     * @type {CommentCreateRequest}
-     * @memberof CommentsApiCommentsCreateRequirement
-     */
     readonly commentCreateRequest: CommentCreateRequest
 }
 
 /**
  * Request parameters for commentsGetEpic operation in CommentsApi.
- * @export
- * @interface CommentsApiCommentsGetEpicRequest
  */
 export interface CommentsApiCommentsGetEpicRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiCommentsGetEpic
-     */
     readonly epicId: string
 }
 
 /**
  * Request parameters for commentsGetGoal operation in CommentsApi.
- * @export
- * @interface CommentsApiCommentsGetGoalRequest
  */
 export interface CommentsApiCommentsGetGoalRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiCommentsGetGoal
-     */
     readonly goalId: string
 }
 
 /**
  * Request parameters for commentsGetIdea operation in CommentsApi.
- * @export
- * @interface CommentsApiCommentsGetIdeaRequest
  */
 export interface CommentsApiCommentsGetIdeaRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiCommentsGetIdea
-     */
     readonly ideaId: string
 }
 
 /**
  * Request parameters for commentsGetInitiative operation in CommentsApi.
- * @export
- * @interface CommentsApiCommentsGetInitiativeRequest
  */
 export interface CommentsApiCommentsGetInitiativeRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiCommentsGetInitiative
-     */
     readonly initiativeId: string
 }
 
 /**
  * Request parameters for commentsGetProduct operation in CommentsApi.
- * @export
- * @interface CommentsApiCommentsGetProductRequest
  */
 export interface CommentsApiCommentsGetProductRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiCommentsGetProduct
-     */
     readonly productId: string
 }
 
 /**
  * Request parameters for commentsGetRelease operation in CommentsApi.
- * @export
- * @interface CommentsApiCommentsGetReleaseRequest
  */
 export interface CommentsApiCommentsGetReleaseRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiCommentsGetRelease
-     */
     readonly releaseId: string
 }
 
 /**
  * Request parameters for commentsGetReleasePhase operation in CommentsApi.
- * @export
- * @interface CommentsApiCommentsGetReleasePhaseRequest
  */
 export interface CommentsApiCommentsGetReleasePhaseRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiCommentsGetReleasePhase
-     */
     readonly releasePhaseId: string
 }
 
 /**
  * Request parameters for commentsGetRequirement operation in CommentsApi.
- * @export
- * @interface CommentsApiCommentsGetRequirementRequest
  */
 export interface CommentsApiCommentsGetRequirementRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiCommentsGetRequirement
-     */
     readonly requirementId: string
 }
 
 /**
  * Request parameters for commentsGetTodo operation in CommentsApi.
- * @export
- * @interface CommentsApiCommentsGetTodoRequest
  */
 export interface CommentsApiCommentsGetTodoRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiCommentsGetTodo
-     */
     readonly todoId: string
 }
 
 /**
  * CommentsApi - object-oriented interface
- * @export
- * @class CommentsApi
- * @extends {BaseAPI}
  */
 export class CommentsApi extends BaseAPI implements CommentsApiInterface {
     /**
@@ -1393,7 +1248,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiCommentsCreateEpicRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public commentsCreateEpic(requestParameters: CommentsApiCommentsCreateEpicRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).commentsCreateEpic(requestParameters.epicId, requestParameters.commentCreateRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1405,7 +1259,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiCommentsCreateFeatureRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public commentsCreateFeature(requestParameters: CommentsApiCommentsCreateFeatureRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).commentsCreateFeature(requestParameters.featureId, requestParameters.commentCreateRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1417,7 +1270,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiCommentsCreateIdeaRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public commentsCreateIdea(requestParameters: CommentsApiCommentsCreateIdeaRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).commentsCreateIdea(requestParameters.ideaId, requestParameters.commentCreateRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1429,7 +1281,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiCommentsCreateInitiativeRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public commentsCreateInitiative(requestParameters: CommentsApiCommentsCreateInitiativeRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).commentsCreateInitiative(requestParameters.initiativeId, requestParameters.commentCreateRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1441,7 +1292,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiCommentsCreateRequirementRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public commentsCreateRequirement(requestParameters: CommentsApiCommentsCreateRequirementRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).commentsCreateRequirement(requestParameters.requirementId, requestParameters.commentCreateRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1453,7 +1303,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiCommentsGetEpicRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public commentsGetEpic(requestParameters: CommentsApiCommentsGetEpicRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).commentsGetEpic(requestParameters.epicId, options).then((request) => request(this.axios, this.basePath));
@@ -1465,7 +1314,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiCommentsGetGoalRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public commentsGetGoal(requestParameters: CommentsApiCommentsGetGoalRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).commentsGetGoal(requestParameters.goalId, options).then((request) => request(this.axios, this.basePath));
@@ -1477,7 +1325,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiCommentsGetIdeaRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public commentsGetIdea(requestParameters: CommentsApiCommentsGetIdeaRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).commentsGetIdea(requestParameters.ideaId, options).then((request) => request(this.axios, this.basePath));
@@ -1489,7 +1336,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiCommentsGetInitiativeRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public commentsGetInitiative(requestParameters: CommentsApiCommentsGetInitiativeRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).commentsGetInitiative(requestParameters.initiativeId, options).then((request) => request(this.axios, this.basePath));
@@ -1501,7 +1347,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiCommentsGetProductRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public commentsGetProduct(requestParameters: CommentsApiCommentsGetProductRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).commentsGetProduct(requestParameters.productId, options).then((request) => request(this.axios, this.basePath));
@@ -1513,7 +1358,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiCommentsGetReleaseRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public commentsGetRelease(requestParameters: CommentsApiCommentsGetReleaseRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).commentsGetRelease(requestParameters.releaseId, options).then((request) => request(this.axios, this.basePath));
@@ -1525,7 +1369,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiCommentsGetReleasePhaseRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public commentsGetReleasePhase(requestParameters: CommentsApiCommentsGetReleasePhaseRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).commentsGetReleasePhase(requestParameters.releasePhaseId, options).then((request) => request(this.axios, this.basePath));
@@ -1537,7 +1380,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiCommentsGetRequirementRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public commentsGetRequirement(requestParameters: CommentsApiCommentsGetRequirementRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).commentsGetRequirement(requestParameters.requirementId, options).then((request) => request(this.axios, this.basePath));
@@ -1549,7 +1391,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiCommentsGetTodoRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public commentsGetTodo(requestParameters: CommentsApiCommentsGetTodoRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).commentsGetTodo(requestParameters.todoId, options).then((request) => request(this.axios, this.basePath));

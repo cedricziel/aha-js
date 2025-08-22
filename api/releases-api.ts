@@ -33,7 +33,6 @@ import type { ReleaseUpdateRequest } from '../model';
 import type { ReleasesListResponse } from '../model';
 /**
  * ReleasesApi - axios parameter creator
- * @export
  */
 export const ReleasesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -418,7 +417,6 @@ export const ReleasesApiAxiosParamCreator = function (configuration?: Configurat
 
 /**
  * ReleasesApi - functional programming interface
- * @export
  */
 export const ReleasesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ReleasesApiAxiosParamCreator(configuration)
@@ -534,7 +532,6 @@ export const ReleasesApiFp = function(configuration?: Configuration) {
 
 /**
  * ReleasesApi - factory interface
- * @export
  */
 export const ReleasesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ReleasesApiFp(configuration)
@@ -614,8 +611,6 @@ export const ReleasesApiFactory = function (configuration?: Configuration, baseP
 
 /**
  * ReleasesApi - interface
- * @export
- * @interface ReleasesApi
  */
 export interface ReleasesApiInterface {
     /**
@@ -624,7 +619,6 @@ export interface ReleasesApiInterface {
      * @param {ReleasesApiCommentsGetReleaseRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApiInterface
      */
     commentsGetRelease(requestParameters: ReleasesApiCommentsGetReleaseRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsGetEpic200Response>;
 
@@ -634,7 +628,6 @@ export interface ReleasesApiInterface {
      * @param {ReleasesApiProductReleasesListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApiInterface
      */
     productReleasesList(requestParameters: ReleasesApiProductReleasesListRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleasesListResponse>;
 
@@ -644,7 +637,6 @@ export interface ReleasesApiInterface {
      * @param {ReleasesApiReleasesCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApiInterface
      */
     releasesCreate(requestParameters: ReleasesApiReleasesCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleaseGetResponse>;
 
@@ -654,7 +646,6 @@ export interface ReleasesApiInterface {
      * @param {ReleasesApiReleasesDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApiInterface
      */
     releasesDelete(requestParameters: ReleasesApiReleasesDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -664,7 +655,6 @@ export interface ReleasesApiInterface {
      * @param {ReleasesApiReleasesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApiInterface
      */
     releasesGet(requestParameters: ReleasesApiReleasesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleaseGetResponse>;
 
@@ -674,7 +664,6 @@ export interface ReleasesApiInterface {
      * @param {ReleasesApiReleasesListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApiInterface
      */
     releasesList(requestParameters?: ReleasesApiReleasesListRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleasesListResponse>;
 
@@ -684,7 +673,6 @@ export interface ReleasesApiInterface {
      * @param {ReleasesApiReleasesUpdateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApiInterface
      */
     releasesUpdate(requestParameters: ReleasesApiReleasesUpdateRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleaseGetResponse>;
 
@@ -692,212 +680,142 @@ export interface ReleasesApiInterface {
 
 /**
  * Request parameters for commentsGetRelease operation in ReleasesApi.
- * @export
- * @interface ReleasesApiCommentsGetReleaseRequest
  */
 export interface ReleasesApiCommentsGetReleaseRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesApiCommentsGetRelease
-     */
     readonly releaseId: string
 }
 
 /**
  * Request parameters for productReleasesList operation in ReleasesApi.
- * @export
- * @interface ReleasesApiProductReleasesListRequest
  */
 export interface ReleasesApiProductReleasesListRequest {
     /**
      * Numeric ID or key of the product
-     * @type {string}
-     * @memberof ReleasesApiProductReleasesList
      */
     readonly productId: string
 
     /**
      * Search term to match against release name.
-     * @type {string}
-     * @memberof ReleasesApiProductReleasesList
      */
     readonly q?: string
 
     /**
      * UTC timestamp (in ISO8601 format). If provided, only releases updated after the timestamp will be returned.
-     * @type {string}
-     * @memberof ReleasesApiProductReleasesList
      */
     readonly updatedSince?: string
 
     /**
      * Status filter for releases.
-     * @type {string}
-     * @memberof ReleasesApiProductReleasesList
      */
     readonly status?: string
 
     /**
      * When true, returns only parking lot releases.
-     * @type {boolean}
-     * @memberof ReleasesApiProductReleasesList
      */
     readonly parkingLot?: boolean
 
     /**
      * Page number for pagination.
-     * @type {number}
-     * @memberof ReleasesApiProductReleasesList
      */
     readonly page?: number
 
     /**
      * Number of releases per page.
-     * @type {number}
-     * @memberof ReleasesApiProductReleasesList
      */
     readonly perPage?: number
 }
 
 /**
  * Request parameters for releasesCreate operation in ReleasesApi.
- * @export
- * @interface ReleasesApiReleasesCreateRequest
  */
 export interface ReleasesApiReleasesCreateRequest {
     /**
      * Numeric ID or key of the product
-     * @type {string}
-     * @memberof ReleasesApiReleasesCreate
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {ReleaseCreateRequest}
-     * @memberof ReleasesApiReleasesCreate
-     */
     readonly releaseCreateRequest: ReleaseCreateRequest
 }
 
 /**
  * Request parameters for releasesDelete operation in ReleasesApi.
- * @export
- * @interface ReleasesApiReleasesDeleteRequest
  */
 export interface ReleasesApiReleasesDeleteRequest {
     /**
      * Numeric ID or reference number of the release
-     * @type {string}
-     * @memberof ReleasesApiReleasesDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for releasesGet operation in ReleasesApi.
- * @export
- * @interface ReleasesApiReleasesGetRequest
  */
 export interface ReleasesApiReleasesGetRequest {
     /**
      * Numeric ID or reference number of the release
-     * @type {string}
-     * @memberof ReleasesApiReleasesGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for releasesList operation in ReleasesApi.
- * @export
- * @interface ReleasesApiReleasesListRequest
  */
 export interface ReleasesApiReleasesListRequest {
     /**
      * Page number for pagination (starts at 1)
-     * @type {number}
-     * @memberof ReleasesApiReleasesList
      */
     readonly page?: number
 
     /**
      * Number of items per page (max 200)
-     * @type {number}
-     * @memberof ReleasesApiReleasesList
      */
     readonly perPage?: number
 
     /**
      * Comma-separated list of fields to include in response for customization
-     * @type {string}
-     * @memberof ReleasesApiReleasesList
      */
     readonly fields?: string
 
     /**
      * Search term to match against release name.
-     * @type {string}
-     * @memberof ReleasesApiReleasesList
      */
     readonly q?: string
 
     /**
      * UTC timestamp (in ISO8601 format). If provided, only releases updated after the timestamp will be returned.
-     * @type {string}
-     * @memberof ReleasesApiReleasesList
      */
     readonly updatedSince?: string
 
     /**
      * ID or email address of a user. If provided, returns only releases assigned to that user.
-     * @type {string}
-     * @memberof ReleasesApiReleasesList
      */
     readonly assignedToUser?: string
 
     /**
      * Status filter for releases.
-     * @type {string}
-     * @memberof ReleasesApiReleasesList
      */
     readonly status?: string
 
     /**
      * When true, returns only parking lot releases.
-     * @type {boolean}
-     * @memberof ReleasesApiReleasesList
      */
     readonly parkingLot?: boolean
 }
 
 /**
  * Request parameters for releasesUpdate operation in ReleasesApi.
- * @export
- * @interface ReleasesApiReleasesUpdateRequest
  */
 export interface ReleasesApiReleasesUpdateRequest {
     /**
      * Numeric ID or reference number of the release
-     * @type {string}
-     * @memberof ReleasesApiReleasesUpdate
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {ReleaseUpdateRequest}
-     * @memberof ReleasesApiReleasesUpdate
-     */
     readonly releaseUpdateRequest: ReleaseUpdateRequest
 }
 
 /**
  * ReleasesApi - object-oriented interface
- * @export
- * @class ReleasesApi
- * @extends {BaseAPI}
  */
 export class ReleasesApi extends BaseAPI implements ReleasesApiInterface {
     /**
@@ -906,7 +824,6 @@ export class ReleasesApi extends BaseAPI implements ReleasesApiInterface {
      * @param {ReleasesApiCommentsGetReleaseRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApi
      */
     public commentsGetRelease(requestParameters: ReleasesApiCommentsGetReleaseRequest, options?: RawAxiosRequestConfig) {
         return ReleasesApiFp(this.configuration).commentsGetRelease(requestParameters.releaseId, options).then((request) => request(this.axios, this.basePath));
@@ -918,7 +835,6 @@ export class ReleasesApi extends BaseAPI implements ReleasesApiInterface {
      * @param {ReleasesApiProductReleasesListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApi
      */
     public productReleasesList(requestParameters: ReleasesApiProductReleasesListRequest, options?: RawAxiosRequestConfig) {
         return ReleasesApiFp(this.configuration).productReleasesList(requestParameters.productId, requestParameters.q, requestParameters.updatedSince, requestParameters.status, requestParameters.parkingLot, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -930,7 +846,6 @@ export class ReleasesApi extends BaseAPI implements ReleasesApiInterface {
      * @param {ReleasesApiReleasesCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApi
      */
     public releasesCreate(requestParameters: ReleasesApiReleasesCreateRequest, options?: RawAxiosRequestConfig) {
         return ReleasesApiFp(this.configuration).releasesCreate(requestParameters.productId, requestParameters.releaseCreateRequest, options).then((request) => request(this.axios, this.basePath));
@@ -942,7 +857,6 @@ export class ReleasesApi extends BaseAPI implements ReleasesApiInterface {
      * @param {ReleasesApiReleasesDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApi
      */
     public releasesDelete(requestParameters: ReleasesApiReleasesDeleteRequest, options?: RawAxiosRequestConfig) {
         return ReleasesApiFp(this.configuration).releasesDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -954,7 +868,6 @@ export class ReleasesApi extends BaseAPI implements ReleasesApiInterface {
      * @param {ReleasesApiReleasesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApi
      */
     public releasesGet(requestParameters: ReleasesApiReleasesGetRequest, options?: RawAxiosRequestConfig) {
         return ReleasesApiFp(this.configuration).releasesGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -966,7 +879,6 @@ export class ReleasesApi extends BaseAPI implements ReleasesApiInterface {
      * @param {ReleasesApiReleasesListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApi
      */
     public releasesList(requestParameters: ReleasesApiReleasesListRequest = {}, options?: RawAxiosRequestConfig) {
         return ReleasesApiFp(this.configuration).releasesList(requestParameters.page, requestParameters.perPage, requestParameters.fields, requestParameters.q, requestParameters.updatedSince, requestParameters.assignedToUser, requestParameters.status, requestParameters.parkingLot, options).then((request) => request(this.axios, this.basePath));
@@ -978,7 +890,6 @@ export class ReleasesApi extends BaseAPI implements ReleasesApiInterface {
      * @param {ReleasesApiReleasesUpdateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApi
      */
     public releasesUpdate(requestParameters: ReleasesApiReleasesUpdateRequest, options?: RawAxiosRequestConfig) {
         return ReleasesApiFp(this.configuration).releasesUpdate(requestParameters.id, requestParameters.releaseUpdateRequest, options).then((request) => request(this.axios, this.basePath));

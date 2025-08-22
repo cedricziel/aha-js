@@ -14,46 +14,29 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeasPromote200ResponsePromotedRecord
- */
 export interface IdeasPromote200ResponsePromotedRecord {
     /**
      * ID of the newly created feature/epic/initiative
-     * @type {string}
-     * @memberof IdeasPromote200ResponsePromotedRecord
      */
     'id'?: string;
     /**
      * Type of the promoted record
-     * @type {string}
-     * @memberof IdeasPromote200ResponsePromotedRecord
      */
     'type'?: IdeasPromote200ResponsePromotedRecordTypeEnum;
     /**
      * Reference number of the promoted record
-     * @type {string}
-     * @memberof IdeasPromote200ResponsePromotedRecord
      */
     'reference_num'?: string;
     /**
      * Name of the promoted record
-     * @type {string}
-     * @memberof IdeasPromote200ResponsePromotedRecord
      */
     'name'?: string;
     /**
      * URL to view the promoted record
-     * @type {string}
-     * @memberof IdeasPromote200ResponsePromotedRecord
      */
     'url'?: string;
     /**
      * API resource URL for the promoted record
-     * @type {string}
-     * @memberof IdeasPromote200ResponsePromotedRecord
      */
     'resource'?: string;
 }

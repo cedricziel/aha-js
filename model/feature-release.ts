@@ -20,89 +20,19 @@ import type { FeatureProject } from './feature-project';
 // @ts-ignore
 import type { User } from './user';
 
-/**
- * 
- * @export
- * @interface FeatureRelease
- */
 export interface FeatureRelease {
-    /**
-     * 
-     * @type {string}
-     * @memberof FeatureRelease
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeatureRelease
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeatureRelease
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeatureRelease
-     */
     'start_date'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeatureRelease
-     */
     'release_date'?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof FeatureRelease
-     */
     'parking_lot'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeatureRelease
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeatureRelease
-     */
     'product_id'?: string;
-    /**
-     * 
-     * @type {Array<object>}
-     * @memberof FeatureRelease
-     */
     'integration_fields'?: Array<object>;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeatureRelease
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeatureRelease
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {User}
-     * @memberof FeatureRelease
-     */
     'owner'?: User;
-    /**
-     * 
-     * @type {FeatureProject}
-     * @memberof FeatureRelease
-     */
     'project'?: FeatureProject;
 }
 

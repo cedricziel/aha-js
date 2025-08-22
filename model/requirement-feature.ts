@@ -16,50 +16,34 @@
 
 /**
  * The feature this requirement belongs to
- * @export
- * @interface RequirementFeature
  */
 export interface RequirementFeature {
     /**
      * ID of the feature
-     * @type {string}
-     * @memberof RequirementFeature
      */
     'id'?: string;
     /**
      * Reference number of the feature
-     * @type {string}
-     * @memberof RequirementFeature
      */
     'reference_num'?: string;
     /**
      * Name of the feature
-     * @type {string}
-     * @memberof RequirementFeature
      */
     'name'?: string;
     /**
      * When the feature was created
-     * @type {string}
-     * @memberof RequirementFeature
      */
     'created_at'?: string;
     /**
      * URL to view the feature in the web interface
-     * @type {string}
-     * @memberof RequirementFeature
      */
     'url'?: string;
     /**
      * API URL for the feature
-     * @type {string}
-     * @memberof RequirementFeature
      */
     'resource'?: string;
     /**
      * ID of the product
-     * @type {string}
-     * @memberof RequirementFeature
      */
     'product_id'?: string;
 }

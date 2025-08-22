@@ -29,7 +29,6 @@ import type { MePendingTasksResponse } from '../model';
 import type { MeProfileResponse } from '../model';
 /**
  * MeApi - axios parameter creator
- * @export
  */
 export const MeApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -196,7 +195,6 @@ export const MeApiAxiosParamCreator = function (configuration?: Configuration) {
 
 /**
  * MeApi - functional programming interface
- * @export
  */
 export const MeApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = MeApiAxiosParamCreator(configuration)
@@ -250,7 +248,6 @@ export const MeApiFp = function(configuration?: Configuration) {
 
 /**
  * MeApi - factory interface
- * @export
  */
 export const MeApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = MeApiFp(configuration)
@@ -289,8 +286,6 @@ export const MeApiFactory = function (configuration?: Configuration, basePath?: 
 
 /**
  * MeApi - interface
- * @export
- * @interface MeApi
  */
 export interface MeApiInterface {
     /**
@@ -299,7 +294,6 @@ export interface MeApiInterface {
      * @param {MeApiMeGetAssignedRecordsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MeApiInterface
      */
     meGetAssignedRecords(requestParameters?: MeApiMeGetAssignedRecordsRequest, options?: RawAxiosRequestConfig): AxiosPromise<MeAssignedRecordsResponse>;
 
@@ -309,7 +303,6 @@ export interface MeApiInterface {
      * @param {MeApiMeGetPendingTasksRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MeApiInterface
      */
     meGetPendingTasks(requestParameters?: MeApiMeGetPendingTasksRequest, options?: RawAxiosRequestConfig): AxiosPromise<MePendingTasksResponse>;
 
@@ -318,7 +311,6 @@ export interface MeApiInterface {
      * @summary Get current user profile
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MeApiInterface
      */
     meGetProfile(options?: RawAxiosRequestConfig): AxiosPromise<MeProfileResponse>;
 
@@ -326,79 +318,56 @@ export interface MeApiInterface {
 
 /**
  * Request parameters for meGetAssignedRecords operation in MeApi.
- * @export
- * @interface MeApiMeGetAssignedRecordsRequest
  */
 export interface MeApiMeGetAssignedRecordsRequest {
     /**
      * Page number for pagination
-     * @type {number}
-     * @memberof MeApiMeGetAssignedRecords
      */
     readonly page?: number
 
     /**
      * Number of records per page
-     * @type {number}
-     * @memberof MeApiMeGetAssignedRecords
      */
     readonly perPage?: number
 
     /**
      * Filter records by type
-     * @type {'feature' | 'epic' | 'requirement' | 'idea' | 'initiative' | 'goal' | 'release' | 'todo'}
-     * @memberof MeApiMeGetAssignedRecords
      */
     readonly type?: MeGetAssignedRecordsTypeEnum
 }
 
 /**
  * Request parameters for meGetPendingTasks operation in MeApi.
- * @export
- * @interface MeApiMeGetPendingTasksRequest
  */
 export interface MeApiMeGetPendingTasksRequest {
     /**
      * Page number for pagination
-     * @type {number}
-     * @memberof MeApiMeGetPendingTasks
      */
     readonly page?: number
 
     /**
      * Number of tasks per page
-     * @type {number}
-     * @memberof MeApiMeGetPendingTasks
      */
     readonly perPage?: number
 
     /**
      * Filter tasks due on or after this date
-     * @type {string}
-     * @memberof MeApiMeGetPendingTasks
      */
     readonly dueDateStart?: string
 
     /**
      * Filter tasks due on or before this date
-     * @type {string}
-     * @memberof MeApiMeGetPendingTasks
      */
     readonly dueDateEnd?: string
 
     /**
      * Filter tasks by priority level
-     * @type {'low' | 'medium' | 'high' | 'urgent'}
-     * @memberof MeApiMeGetPendingTasks
      */
     readonly priority?: MeGetPendingTasksPriorityEnum
 }
 
 /**
  * MeApi - object-oriented interface
- * @export
- * @class MeApi
- * @extends {BaseAPI}
  */
 export class MeApi extends BaseAPI implements MeApiInterface {
     /**
@@ -407,7 +376,6 @@ export class MeApi extends BaseAPI implements MeApiInterface {
      * @param {MeApiMeGetAssignedRecordsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MeApi
      */
     public meGetAssignedRecords(requestParameters: MeApiMeGetAssignedRecordsRequest = {}, options?: RawAxiosRequestConfig) {
         return MeApiFp(this.configuration).meGetAssignedRecords(requestParameters.page, requestParameters.perPage, requestParameters.type, options).then((request) => request(this.axios, this.basePath));
@@ -419,7 +387,6 @@ export class MeApi extends BaseAPI implements MeApiInterface {
      * @param {MeApiMeGetPendingTasksRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MeApi
      */
     public meGetPendingTasks(requestParameters: MeApiMeGetPendingTasksRequest = {}, options?: RawAxiosRequestConfig) {
         return MeApiFp(this.configuration).meGetPendingTasks(requestParameters.page, requestParameters.perPage, requestParameters.dueDateStart, requestParameters.dueDateEnd, requestParameters.priority, options).then((request) => request(this.axios, this.basePath));
@@ -430,16 +397,12 @@ export class MeApi extends BaseAPI implements MeApiInterface {
      * @summary Get current user profile
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MeApi
      */
     public meGetProfile(options?: RawAxiosRequestConfig) {
         return MeApiFp(this.configuration).meGetProfile(options).then((request) => request(this.axios, this.basePath));
     }
 }
 
-/**
- * @export
- */
 export const MeGetAssignedRecordsTypeEnum = {
     FEATURE: 'feature',
     EPIC: 'epic',
@@ -451,9 +414,6 @@ export const MeGetAssignedRecordsTypeEnum = {
     TODO: 'todo'
 } as const;
 export type MeGetAssignedRecordsTypeEnum = typeof MeGetAssignedRecordsTypeEnum[keyof typeof MeGetAssignedRecordsTypeEnum];
-/**
- * @export
- */
 export const MeGetPendingTasksPriorityEnum = {
     LOW: 'low',
     MEDIUM: 'medium',

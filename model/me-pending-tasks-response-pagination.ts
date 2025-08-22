@@ -14,34 +14,21 @@
 
 
 
-/**
- * 
- * @export
- * @interface MePendingTasksResponsePagination
- */
 export interface MePendingTasksResponsePagination {
     /**
      * Total number of tasks
-     * @type {number}
-     * @memberof MePendingTasksResponsePagination
      */
     'total_records': number;
     /**
      * Total number of pages
-     * @type {number}
-     * @memberof MePendingTasksResponsePagination
      */
     'total_pages': number;
     /**
      * Current page number
-     * @type {number}
-     * @memberof MePendingTasksResponsePagination
      */
     'current_page': number;
     /**
      * Number of tasks per page
-     * @type {number}
-     * @memberof MePendingTasksResponsePagination
      */
     'per_page': number;
 }

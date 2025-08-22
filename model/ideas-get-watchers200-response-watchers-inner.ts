@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeasGetWatchers200ResponseWatchersInner
- */
 export interface IdeasGetWatchers200ResponseWatchersInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasGetWatchers200ResponseWatchersInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasGetWatchers200ResponseWatchersInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasGetWatchers200ResponseWatchersInner
-     */
     'email'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasGetWatchers200ResponseWatchersInner
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasGetWatchers200ResponseWatchersInner
-     */
     'updated_at'?: string;
 }
 

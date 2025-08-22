@@ -23,112 +23,67 @@ import type { ReleasePhaseDescription } from './release-phase-description';
 // @ts-ignore
 import type { ReleasePhaseRelease } from './release-phase-release';
 
-/**
- * 
- * @export
- * @interface ReleasePhase
- */
 export interface ReleasePhase {
     /**
      * Unique identifier for the release phase
-     * @type {string}
-     * @memberof ReleasePhase
      */
     'id': string;
     /**
      * Name of the release phase
-     * @type {string}
-     * @memberof ReleasePhase
      */
     'name': string;
     /**
      * Start date of the release phase
-     * @type {string}
-     * @memberof ReleasePhase
      */
     'start_on': string;
     /**
      * End date of the release phase
-     * @type {string}
-     * @memberof ReleasePhase
      */
     'end_on': string;
     /**
      * Type of the release phase
-     * @type {string}
-     * @memberof ReleasePhase
      */
     'type': ReleasePhaseTypeEnum;
     /**
      * ID of the release this phase belongs to
-     * @type {number}
-     * @memberof ReleasePhase
      */
     'release_id': number;
     /**
      * When the release phase was created
-     * @type {string}
-     * @memberof ReleasePhase
      */
     'created_at': string;
     /**
      * When the release phase was last updated
-     * @type {string}
-     * @memberof ReleasePhase
      */
     'updated_at': string;
     /**
      * Progress percentage of the release phase
-     * @type {number}
-     * @memberof ReleasePhase
      */
     'progress': number;
     /**
      * Source for calculating progress
-     * @type {string}
-     * @memberof ReleasePhase
      */
     'progress_source': ReleasePhaseProgressSourceEnum;
     /**
      * Source for calculating duration
-     * @type {string}
-     * @memberof ReleasePhase
      */
     'duration_source': ReleasePhaseDurationSourceEnum;
-    /**
-     * 
-     * @type {ReleasePhaseDescription}
-     * @memberof ReleasePhase
-     */
     'description'?: ReleasePhaseDescription;
-    /**
-     * 
-     * @type {ReleasePhaseRelease}
-     * @memberof ReleasePhase
-     */
     'release'?: ReleasePhaseRelease;
     /**
      * URL to view the release phase in the web interface
-     * @type {string}
-     * @memberof ReleasePhase
      */
     'url'?: string;
     /**
      * API URL for this release phase
-     * @type {string}
-     * @memberof ReleasePhase
      */
     'resource'?: string;
     /**
      * Number of comments on this release phase
-     * @type {number}
-     * @memberof ReleasePhase
      */
     'comments_count'?: number;
     /**
      * Custom fields associated with this release phase
-     * @type {Array<CustomField>}
-     * @memberof ReleasePhase
      */
     'custom_fields'?: Array<CustomField>;
 }

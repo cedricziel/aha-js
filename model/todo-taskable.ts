@@ -16,44 +16,30 @@
 
 /**
  * The record this to-do is associated with
- * @export
- * @interface TodoTaskable
  */
 export interface TodoTaskable {
     /**
      * Type of the record this to-do belongs to
-     * @type {string}
-     * @memberof TodoTaskable
      */
     'type'?: string;
     /**
      * ID of the record this to-do belongs to
-     * @type {string}
-     * @memberof TodoTaskable
      */
     'id'?: string;
     /**
      * Reference number of the record
-     * @type {string}
-     * @memberof TodoTaskable
      */
     'reference_num'?: string;
     /**
      * Name of the record
-     * @type {string}
-     * @memberof TodoTaskable
      */
     'name'?: string;
     /**
      * URL to view the record in the web interface
-     * @type {string}
-     * @memberof TodoTaskable
      */
     'url'?: string;
     /**
      * API URL for the record
-     * @type {string}
-     * @memberof TodoTaskable
      */
     'resource'?: string;
 }

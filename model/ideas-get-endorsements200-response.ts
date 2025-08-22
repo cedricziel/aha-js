@@ -20,23 +20,8 @@ import type { IdeasGetEndorsements200ResponseEndorsementsInner } from './ideas-g
 // @ts-ignore
 import type { IdeasGetVotes200ResponsePagination } from './ideas-get-votes200-response-pagination';
 
-/**
- * 
- * @export
- * @interface IdeasGetEndorsements200Response
- */
 export interface IdeasGetEndorsements200Response {
-    /**
-     * 
-     * @type {Array<IdeasGetEndorsements200ResponseEndorsementsInner>}
-     * @memberof IdeasGetEndorsements200Response
-     */
     'endorsements'?: Array<IdeasGetEndorsements200ResponseEndorsementsInner>;
-    /**
-     * 
-     * @type {IdeasGetVotes200ResponsePagination}
-     * @memberof IdeasGetEndorsements200Response
-     */
     'pagination'?: IdeasGetVotes200ResponsePagination;
 }
 

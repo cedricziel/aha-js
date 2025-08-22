@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { IdeaCreateByPortalUserRequestIdea } from './idea-create-by-portal-user-request-idea';
 
-/**
- * 
- * @export
- * @interface IdeaCreateByPortalUserRequest
- */
 export interface IdeaCreateByPortalUserRequest {
-    /**
-     * 
-     * @type {IdeaCreateByPortalUserRequestIdea}
-     * @memberof IdeaCreateByPortalUserRequest
-     */
     'idea'?: IdeaCreateByPortalUserRequestIdea;
 }
 

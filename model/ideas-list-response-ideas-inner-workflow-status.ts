@@ -14,40 +14,25 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeasListResponseIdeasInnerWorkflowStatus
- */
 export interface IdeasListResponseIdeasInnerWorkflowStatus {
     /**
      * Unique identifier of the workflow status
-     * @type {string}
-     * @memberof IdeasListResponseIdeasInnerWorkflowStatus
      */
     'id'?: string;
     /**
      * Name of the workflow status
-     * @type {string}
-     * @memberof IdeasListResponseIdeasInnerWorkflowStatus
      */
     'name'?: string;
     /**
      * Position of the workflow status
-     * @type {number}
-     * @memberof IdeasListResponseIdeasInnerWorkflowStatus
      */
     'position'?: number;
     /**
      * Whether the workflow status is complete
-     * @type {boolean}
-     * @memberof IdeasListResponseIdeasInnerWorkflowStatus
      */
     'complete'?: boolean;
     /**
      * Color of the workflow status
-     * @type {string}
-     * @memberof IdeasListResponseIdeasInnerWorkflowStatus
      */
     'color'?: string;
 }

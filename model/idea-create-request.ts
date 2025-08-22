@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { IdeaCreateRequestIdea } from './idea-create-request-idea';
 
-/**
- * 
- * @export
- * @interface IdeaCreateRequest
- */
 export interface IdeaCreateRequest {
-    /**
-     * 
-     * @type {IdeaCreateRequestIdea}
-     * @memberof IdeaCreateRequest
-     */
     'idea'?: IdeaCreateRequestIdea;
 }
 

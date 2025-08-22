@@ -20,23 +20,8 @@ import type { IdeasGetVotes200ResponsePagination } from './ideas-get-votes200-re
 // @ts-ignore
 import type { IdeasGetVotes200ResponseVotesInner } from './ideas-get-votes200-response-votes-inner';
 
-/**
- * 
- * @export
- * @interface IdeasGetVotes200Response
- */
 export interface IdeasGetVotes200Response {
-    /**
-     * 
-     * @type {Array<IdeasGetVotes200ResponseVotesInner>}
-     * @memberof IdeasGetVotes200Response
-     */
     'votes'?: Array<IdeasGetVotes200ResponseVotesInner>;
-    /**
-     * 
-     * @type {IdeasGetVotes200ResponsePagination}
-     * @memberof IdeasGetVotes200Response
-     */
     'pagination'?: IdeasGetVotes200ResponsePagination;
 }
 

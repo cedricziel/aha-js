@@ -14,82 +14,53 @@
 
 
 
-/**
- * 
- * @export
- * @interface ReleaseUpdateRequest
- */
 export interface ReleaseUpdateRequest {
     /**
      * Name of the release
-     * @type {string}
-     * @memberof ReleaseUpdateRequest
      */
     'name'?: string;
     /**
      * Theme or focus of the release
-     * @type {string}
-     * @memberof ReleaseUpdateRequest
      */
     'theme'?: string;
     /**
      * Planned start date of the release
-     * @type {string}
-     * @memberof ReleaseUpdateRequest
      */
     'start_date'?: string;
     /**
      * Planned release date
-     * @type {string}
-     * @memberof ReleaseUpdateRequest
      */
     'release_date'?: string;
     /**
      * External release date visible to customers
-     * @type {string}
-     * @memberof ReleaseUpdateRequest
      */
     'external_release_date'?: string;
     /**
      * Date when development started
-     * @type {string}
-     * @memberof ReleaseUpdateRequest
      */
     'development_started_on'?: string;
     /**
      * Actual release date
-     * @type {string}
-     * @memberof ReleaseUpdateRequest
      */
     'released_on'?: string;
     /**
      * Whether this release is a parking lot
-     * @type {boolean}
-     * @memberof ReleaseUpdateRequest
      */
     'parking_lot'?: boolean;
     /**
      * ID of the user assigned to the release
-     * @type {string}
-     * @memberof ReleaseUpdateRequest
      */
     'assigned_to_user_id'?: string;
     /**
      * Description of the release
-     * @type {string}
-     * @memberof ReleaseUpdateRequest
      */
     'description'?: string;
     /**
      * Custom field values for the release
-     * @type {{ [key: string]: any; }}
-     * @memberof ReleaseUpdateRequest
      */
     'custom_fields'?: { [key: string]: any; };
     /**
      * Tags to associate with the release
-     * @type {Array<string>}
-     * @memberof ReleaseUpdateRequest
      */
     'tags'?: Array<string>;
 }

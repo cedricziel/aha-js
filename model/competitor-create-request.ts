@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { CompetitorCreateRequestCompetitor } from './competitor-create-request-competitor';
 
-/**
- * 
- * @export
- * @interface CompetitorCreateRequest
- */
 export interface CompetitorCreateRequest {
-    /**
-     * 
-     * @type {CompetitorCreateRequestCompetitor}
-     * @memberof CompetitorCreateRequest
-     */
     'competitor'?: CompetitorCreateRequestCompetitor;
 }
 

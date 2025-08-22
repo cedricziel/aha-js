@@ -59,7 +59,6 @@ import type { IdeasPromote200Response } from '../model';
 import type { IdeasVote200Response } from '../model';
 /**
  * IdeasApi - axios parameter creator
- * @export
  */
 export const IdeasApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -1141,7 +1140,6 @@ export const IdeasApiAxiosParamCreator = function (configuration?: Configuration
 
 /**
  * IdeasApi - functional programming interface
- * @export
  */
 export const IdeasApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = IdeasApiAxiosParamCreator(configuration)
@@ -1453,7 +1451,6 @@ export const IdeasApiFp = function(configuration?: Configuration) {
 
 /**
  * IdeasApi - factory interface
- * @export
  */
 export const IdeasApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = IdeasApiFp(configuration)
@@ -1663,8 +1660,6 @@ export const IdeasApiFactory = function (configuration?: Configuration, basePath
 
 /**
  * IdeasApi - interface
- * @export
- * @interface IdeasApi
  */
 export interface IdeasApiInterface {
     /**
@@ -1673,7 +1668,6 @@ export interface IdeasApiInterface {
      * @param {IdeasApiCommentsCreateIdeaRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApiInterface
      */
     commentsCreateIdea(requestParameters: IdeasApiCommentsCreateIdeaRequest, options?: RawAxiosRequestConfig): AxiosPromise<Comment>;
 
@@ -1683,7 +1677,6 @@ export interface IdeasApiInterface {
      * @param {IdeasApiCommentsGetIdeaRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApiInterface
      */
     commentsGetIdea(requestParameters: IdeasApiCommentsGetIdeaRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsGetEpic200Response>;
 
@@ -1693,7 +1686,6 @@ export interface IdeasApiInterface {
      * @param {IdeasApiIdeasCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApiInterface
      */
     ideasCreate(requestParameters: IdeasApiIdeasCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaResponse>;
 
@@ -1703,7 +1695,6 @@ export interface IdeasApiInterface {
      * @param {IdeasApiIdeasCreateByPortalUserRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApiInterface
      */
     ideasCreateByPortalUser(requestParameters: IdeasApiIdeasCreateByPortalUserRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaResponse>;
 
@@ -1713,7 +1704,6 @@ export interface IdeasApiInterface {
      * @param {IdeasApiIdeasCreateEndorsementRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApiInterface
      */
     ideasCreateEndorsement(requestParameters: IdeasApiIdeasCreateEndorsementRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasCreateEndorsement201Response>;
 
@@ -1723,7 +1713,6 @@ export interface IdeasApiInterface {
      * @param {IdeasApiIdeasCreateWithCategoryRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApiInterface
      */
     ideasCreateWithCategory(requestParameters: IdeasApiIdeasCreateWithCategoryRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaResponse>;
 
@@ -1733,7 +1722,6 @@ export interface IdeasApiInterface {
      * @param {IdeasApiIdeasCreateWithScoreRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApiInterface
      */
     ideasCreateWithScore(requestParameters: IdeasApiIdeasCreateWithScoreRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaResponse>;
 
@@ -1743,7 +1731,6 @@ export interface IdeasApiInterface {
      * @param {IdeasApiIdeasDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApiInterface
      */
     ideasDelete(requestParameters: IdeasApiIdeasDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -1753,7 +1740,6 @@ export interface IdeasApiInterface {
      * @param {IdeasApiIdeasGetByIdRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApiInterface
      */
     ideasGetById(requestParameters: IdeasApiIdeasGetByIdRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaResponse>;
 
@@ -1763,7 +1749,6 @@ export interface IdeasApiInterface {
      * @param {IdeasApiIdeasGetEndorsementsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApiInterface
      */
     ideasGetEndorsements(requestParameters: IdeasApiIdeasGetEndorsementsRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasGetEndorsements200Response>;
 
@@ -1773,7 +1758,6 @@ export interface IdeasApiInterface {
      * @param {IdeasApiIdeasGetVotesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApiInterface
      */
     ideasGetVotes(requestParameters: IdeasApiIdeasGetVotesRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasGetVotes200Response>;
 
@@ -1783,7 +1767,6 @@ export interface IdeasApiInterface {
      * @param {IdeasApiIdeasGetWatchersRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApiInterface
      */
     ideasGetWatchers(requestParameters: IdeasApiIdeasGetWatchersRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasGetWatchers200Response>;
 
@@ -1793,7 +1776,6 @@ export interface IdeasApiInterface {
      * @param {IdeasApiIdeasListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApiInterface
      */
     ideasList(requestParameters?: IdeasApiIdeasListRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasListResponse>;
 
@@ -1803,7 +1785,6 @@ export interface IdeasApiInterface {
      * @param {IdeasApiIdeasListProductRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApiInterface
      */
     ideasListProduct(requestParameters: IdeasApiIdeasListProductRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasListResponse>;
 
@@ -1813,7 +1794,6 @@ export interface IdeasApiInterface {
      * @param {IdeasApiIdeasMarkSpamRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApiInterface
      */
     ideasMarkSpam(requestParameters: IdeasApiIdeasMarkSpamRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaResponse>;
 
@@ -1823,7 +1803,6 @@ export interface IdeasApiInterface {
      * @param {IdeasApiIdeasPromoteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApiInterface
      */
     ideasPromote(requestParameters: IdeasApiIdeasPromoteRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasPromote200Response>;
 
@@ -1833,7 +1812,6 @@ export interface IdeasApiInterface {
      * @param {IdeasApiIdeasUnmarkSpamRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApiInterface
      */
     ideasUnmarkSpam(requestParameters: IdeasApiIdeasUnmarkSpamRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaResponse>;
 
@@ -1843,7 +1821,6 @@ export interface IdeasApiInterface {
      * @param {IdeasApiIdeasUpdateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApiInterface
      */
     ideasUpdate(requestParameters: IdeasApiIdeasUpdateRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaResponse>;
 
@@ -1853,7 +1830,6 @@ export interface IdeasApiInterface {
      * @param {IdeasApiIdeasUpdateWatchersRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApiInterface
      */
     ideasUpdateWatchers(requestParameters: IdeasApiIdeasUpdateWatchersRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaResponse>;
 
@@ -1863,7 +1839,6 @@ export interface IdeasApiInterface {
      * @param {IdeasApiIdeasVoteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApiInterface
      */
     ideasVote(requestParameters: IdeasApiIdeasVoteRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasVote200Response>;
 
@@ -1871,583 +1846,380 @@ export interface IdeasApiInterface {
 
 /**
  * Request parameters for commentsCreateIdea operation in IdeasApi.
- * @export
- * @interface IdeasApiCommentsCreateIdeaRequest
  */
 export interface IdeasApiCommentsCreateIdeaRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasApiCommentsCreateIdea
-     */
     readonly ideaId: string
 
-    /**
-     * 
-     * @type {CommentCreateRequest}
-     * @memberof IdeasApiCommentsCreateIdea
-     */
     readonly commentCreateRequest: CommentCreateRequest
 }
 
 /**
  * Request parameters for commentsGetIdea operation in IdeasApi.
- * @export
- * @interface IdeasApiCommentsGetIdeaRequest
  */
 export interface IdeasApiCommentsGetIdeaRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasApiCommentsGetIdea
-     */
     readonly ideaId: string
 }
 
 /**
  * Request parameters for ideasCreate operation in IdeasApi.
- * @export
- * @interface IdeasApiIdeasCreateRequest
  */
 export interface IdeasApiIdeasCreateRequest {
     /**
      * Numeric ID or key of the product
-     * @type {string}
-     * @memberof IdeasApiIdeasCreate
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {IdeaCreateRequest}
-     * @memberof IdeasApiIdeasCreate
-     */
     readonly ideaCreateRequest: IdeaCreateRequest
 }
 
 /**
  * Request parameters for ideasCreateByPortalUser operation in IdeasApi.
- * @export
- * @interface IdeasApiIdeasCreateByPortalUserRequest
  */
 export interface IdeasApiIdeasCreateByPortalUserRequest {
     /**
      * Numeric ID or key of the product
-     * @type {string}
-     * @memberof IdeasApiIdeasCreateByPortalUser
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {IdeaCreateByPortalUserRequest}
-     * @memberof IdeasApiIdeasCreateByPortalUser
-     */
     readonly ideaCreateByPortalUserRequest: IdeaCreateByPortalUserRequest
 }
 
 /**
  * Request parameters for ideasCreateEndorsement operation in IdeasApi.
- * @export
- * @interface IdeasApiIdeasCreateEndorsementRequest
  */
 export interface IdeasApiIdeasCreateEndorsementRequest {
     /**
      * Numeric ID or key of the idea
-     * @type {string}
-     * @memberof IdeasApiIdeasCreateEndorsement
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {IdeaEndorsementRequest}
-     * @memberof IdeasApiIdeasCreateEndorsement
-     */
     readonly ideaEndorsementRequest: IdeaEndorsementRequest
 }
 
 /**
  * Request parameters for ideasCreateWithCategory operation in IdeasApi.
- * @export
- * @interface IdeasApiIdeasCreateWithCategoryRequest
  */
 export interface IdeasApiIdeasCreateWithCategoryRequest {
     /**
      * Numeric ID or key of the product
-     * @type {string}
-     * @memberof IdeasApiIdeasCreateWithCategory
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {IdeaCreateRequest}
-     * @memberof IdeasApiIdeasCreateWithCategory
-     */
     readonly ideaCreateRequest: IdeaCreateRequest
 }
 
 /**
  * Request parameters for ideasCreateWithScore operation in IdeasApi.
- * @export
- * @interface IdeasApiIdeasCreateWithScoreRequest
  */
 export interface IdeasApiIdeasCreateWithScoreRequest {
     /**
      * Numeric ID or key of the product
-     * @type {string}
-     * @memberof IdeasApiIdeasCreateWithScore
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {IdeaCreateRequest}
-     * @memberof IdeasApiIdeasCreateWithScore
-     */
     readonly ideaCreateRequest: IdeaCreateRequest
 }
 
 /**
  * Request parameters for ideasDelete operation in IdeasApi.
- * @export
- * @interface IdeasApiIdeasDeleteRequest
  */
 export interface IdeasApiIdeasDeleteRequest {
     /**
      * Numeric ID or key of the idea
-     * @type {string}
-     * @memberof IdeasApiIdeasDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for ideasGetById operation in IdeasApi.
- * @export
- * @interface IdeasApiIdeasGetByIdRequest
  */
 export interface IdeasApiIdeasGetByIdRequest {
     /**
      * Numeric ID or key of the idea
-     * @type {string}
-     * @memberof IdeasApiIdeasGetById
      */
     readonly id: string
 }
 
 /**
  * Request parameters for ideasGetEndorsements operation in IdeasApi.
- * @export
- * @interface IdeasApiIdeasGetEndorsementsRequest
  */
 export interface IdeasApiIdeasGetEndorsementsRequest {
     /**
      * Numeric ID or key of the idea
-     * @type {string}
-     * @memberof IdeasApiIdeasGetEndorsements
      */
     readonly id: string
 
     /**
      * If set to true, only returns proxy votes (votes with an associated organization)
-     * @type {boolean}
-     * @memberof IdeasApiIdeasGetEndorsements
      */
     readonly proxy?: boolean
 
     /**
      * Page number for pagination
-     * @type {number}
-     * @memberof IdeasApiIdeasGetEndorsements
      */
     readonly page?: number
 
     /**
      * Number of endorsements per page
-     * @type {number}
-     * @memberof IdeasApiIdeasGetEndorsements
      */
     readonly perPage?: number
 }
 
 /**
  * Request parameters for ideasGetVotes operation in IdeasApi.
- * @export
- * @interface IdeasApiIdeasGetVotesRequest
  */
 export interface IdeasApiIdeasGetVotesRequest {
     /**
      * Numeric ID or key of the idea
-     * @type {string}
-     * @memberof IdeasApiIdeasGetVotes
      */
     readonly id: string
 
     /**
      * Page number for pagination
-     * @type {number}
-     * @memberof IdeasApiIdeasGetVotes
      */
     readonly page?: number
 
     /**
      * Number of votes per page
-     * @type {number}
-     * @memberof IdeasApiIdeasGetVotes
      */
     readonly perPage?: number
 }
 
 /**
  * Request parameters for ideasGetWatchers operation in IdeasApi.
- * @export
- * @interface IdeasApiIdeasGetWatchersRequest
  */
 export interface IdeasApiIdeasGetWatchersRequest {
     /**
      * Numeric ID or key of the idea
-     * @type {string}
-     * @memberof IdeasApiIdeasGetWatchers
      */
     readonly id: string
 }
 
 /**
  * Request parameters for ideasList operation in IdeasApi.
- * @export
- * @interface IdeasApiIdeasListRequest
  */
 export interface IdeasApiIdeasListRequest {
     /**
      * Page number for pagination (starts at 1)
-     * @type {number}
-     * @memberof IdeasApiIdeasList
      */
     readonly page?: number
 
     /**
      * Number of items per page (max 200)
-     * @type {number}
-     * @memberof IdeasApiIdeasList
      */
     readonly perPage?: number
 
     /**
      * Comma-separated list of fields to include in response for customization
-     * @type {string}
-     * @memberof IdeasApiIdeasList
      */
     readonly fields?: string
 
     /**
      * Search term to match against idea name.
-     * @type {string}
-     * @memberof IdeasApiIdeasList
      */
     readonly q?: string
 
     /**
      * UTC timestamp (in ISO8601 format). If provided, only ideas updated after the timestamp will be returned.
-     * @type {string}
-     * @memberof IdeasApiIdeasList
      */
     readonly updatedSince?: string
 
     /**
      * ID or email address of a user. If provided, returns only ideas assigned to that user.
-     * @type {string}
-     * @memberof IdeasApiIdeasList
      */
     readonly assignedToUser?: string
 
     /**
      * Status filter for ideas.
-     * @type {string}
-     * @memberof IdeasApiIdeasList
      */
     readonly status?: string
 
     /**
      * Filter ideas by category.
-     * @type {string}
-     * @memberof IdeasApiIdeasList
      */
     readonly category?: string
 
     /**
      * Filter ideas by product ID.
-     * @type {string}
-     * @memberof IdeasApiIdeasList
      */
     readonly productId?: string
 
     /**
      * Filter ideas by idea portal ID.
-     * @type {string}
-     * @memberof IdeasApiIdeasList
      */
     readonly ideaPortalId?: string
 
     /**
      * When true, shows ideas that have been marked as spam. By default, no spam ideas will be shown.
-     * @type {boolean}
-     * @memberof IdeasApiIdeasList
      */
     readonly spam?: boolean
 
     /**
      * When present, filters to ideas with the provided workflow status ID or name.
-     * @type {string}
-     * @memberof IdeasApiIdeasList
      */
     readonly workflowStatus?: string
 
     /**
      * Sorting of the list of ideas. Accepted values are recent, trending, or popular.
-     * @type {'recent' | 'trending' | 'popular'}
-     * @memberof IdeasApiIdeasList
      */
     readonly sort?: IdeasListSortEnum
 
     /**
      * UTC timestamp (in ISO8601 format). If provided, only ideas created before the timestamp will be returned.
-     * @type {string}
-     * @memberof IdeasApiIdeasList
      */
     readonly createdBefore?: string
 
     /**
      * UTC timestamp (in ISO8601 format). If provided, only ideas created after the timestamp will be returned.
-     * @type {string}
-     * @memberof IdeasApiIdeasList
      */
     readonly createdSince?: string
 
     /**
      * String tag value. If provided, only ideas with the associated tag will be returned.
-     * @type {string}
-     * @memberof IdeasApiIdeasList
      */
     readonly tag?: string
 
     /**
      * ID of a user. If provided, only ideas created by that user will be returned.
-     * @type {string}
-     * @memberof IdeasApiIdeasList
      */
     readonly userId?: string
 
     /**
      * ID of an idea user. If provided, only ideas created by that idea user will be returned.
-     * @type {string}
-     * @memberof IdeasApiIdeasList
      */
     readonly ideaUserId?: string
 }
 
 /**
  * Request parameters for ideasListProduct operation in IdeasApi.
- * @export
- * @interface IdeasApiIdeasListProductRequest
  */
 export interface IdeasApiIdeasListProductRequest {
     /**
      * Numeric ID or key of the product
-     * @type {string}
-     * @memberof IdeasApiIdeasListProduct
      */
     readonly productId: string
 
     /**
      * Search term to match against the idea name
-     * @type {string}
-     * @memberof IdeasApiIdeasListProduct
      */
     readonly q?: string
 
     /**
      * When true, shows ideas that have been marked as spam. By default, no spam ideas will be shown.
-     * @type {boolean}
-     * @memberof IdeasApiIdeasListProduct
      */
     readonly spam?: boolean
 
     /**
      * When present, filters to ideas with the provided workflow status ID or name.
-     * @type {string}
-     * @memberof IdeasApiIdeasListProduct
      */
     readonly workflowStatus?: string
 
     /**
      * Sorting of the list of ideas. Accepted values are recent, trending, or popular.
-     * @type {'recent' | 'trending' | 'popular'}
-     * @memberof IdeasApiIdeasListProduct
      */
     readonly sort?: IdeasListProductSortEnum
 
     /**
      * UTC timestamp (in ISO8601 format). If provided, only ideas created before the timestamp will be returned.
-     * @type {string}
-     * @memberof IdeasApiIdeasListProduct
      */
     readonly createdBefore?: string
 
     /**
      * UTC timestamp (in ISO8601 format). If provided, only ideas created after the timestamp will be returned.
-     * @type {string}
-     * @memberof IdeasApiIdeasListProduct
      */
     readonly createdSince?: string
 
     /**
      * UTC timestamp (in ISO8601 format). If provided, only ideas updated or created after the timestamp will be returned.
-     * @type {string}
-     * @memberof IdeasApiIdeasListProduct
      */
     readonly updatedSince?: string
 
     /**
      * String tag value. If provided, only ideas with the associated tag will be returned.
-     * @type {string}
-     * @memberof IdeasApiIdeasListProduct
      */
     readonly tag?: string
 
     /**
      * ID of a user. If provided, only ideas created by that user will be returned.
-     * @type {string}
-     * @memberof IdeasApiIdeasListProduct
      */
     readonly userId?: string
 
     /**
      * ID of an idea user. If provided, only ideas created by that idea user will be returned.
-     * @type {string}
-     * @memberof IdeasApiIdeasListProduct
      */
     readonly ideaUserId?: string
 }
 
 /**
  * Request parameters for ideasMarkSpam operation in IdeasApi.
- * @export
- * @interface IdeasApiIdeasMarkSpamRequest
  */
 export interface IdeasApiIdeasMarkSpamRequest {
     /**
      * Numeric ID or key of the idea
-     * @type {string}
-     * @memberof IdeasApiIdeasMarkSpam
      */
     readonly id: string
 }
 
 /**
  * Request parameters for ideasPromote operation in IdeasApi.
- * @export
- * @interface IdeasApiIdeasPromoteRequest
  */
 export interface IdeasApiIdeasPromoteRequest {
     /**
      * Numeric ID or key of the idea
-     * @type {string}
-     * @memberof IdeasApiIdeasPromote
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {IdeaPromoteRequest}
-     * @memberof IdeasApiIdeasPromote
-     */
     readonly ideaPromoteRequest: IdeaPromoteRequest
 }
 
 /**
  * Request parameters for ideasUnmarkSpam operation in IdeasApi.
- * @export
- * @interface IdeasApiIdeasUnmarkSpamRequest
  */
 export interface IdeasApiIdeasUnmarkSpamRequest {
     /**
      * Numeric ID or key of the idea
-     * @type {string}
-     * @memberof IdeasApiIdeasUnmarkSpam
      */
     readonly id: string
 }
 
 /**
  * Request parameters for ideasUpdate operation in IdeasApi.
- * @export
- * @interface IdeasApiIdeasUpdateRequest
  */
 export interface IdeasApiIdeasUpdateRequest {
     /**
      * Numeric ID or key of the idea
-     * @type {string}
-     * @memberof IdeasApiIdeasUpdate
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {IdeaUpdateRequest}
-     * @memberof IdeasApiIdeasUpdate
-     */
     readonly ideaUpdateRequest: IdeaUpdateRequest
 }
 
 /**
  * Request parameters for ideasUpdateWatchers operation in IdeasApi.
- * @export
- * @interface IdeasApiIdeasUpdateWatchersRequest
  */
 export interface IdeasApiIdeasUpdateWatchersRequest {
     /**
      * Numeric ID or key of the idea
-     * @type {string}
-     * @memberof IdeasApiIdeasUpdateWatchers
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {IdeaWatchersRequest}
-     * @memberof IdeasApiIdeasUpdateWatchers
-     */
     readonly ideaWatchersRequest: IdeaWatchersRequest
 }
 
 /**
  * Request parameters for ideasVote operation in IdeasApi.
- * @export
- * @interface IdeasApiIdeasVoteRequest
  */
 export interface IdeasApiIdeasVoteRequest {
     /**
      * Numeric ID or key of the idea
-     * @type {string}
-     * @memberof IdeasApiIdeasVote
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {IdeaVoteRequest}
-     * @memberof IdeasApiIdeasVote
-     */
     readonly ideaVoteRequest: IdeaVoteRequest
 }
 
 /**
  * IdeasApi - object-oriented interface
- * @export
- * @class IdeasApi
- * @extends {BaseAPI}
  */
 export class IdeasApi extends BaseAPI implements IdeasApiInterface {
     /**
@@ -2456,7 +2228,6 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
      * @param {IdeasApiCommentsCreateIdeaRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApi
      */
     public commentsCreateIdea(requestParameters: IdeasApiCommentsCreateIdeaRequest, options?: RawAxiosRequestConfig) {
         return IdeasApiFp(this.configuration).commentsCreateIdea(requestParameters.ideaId, requestParameters.commentCreateRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2468,7 +2239,6 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
      * @param {IdeasApiCommentsGetIdeaRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApi
      */
     public commentsGetIdea(requestParameters: IdeasApiCommentsGetIdeaRequest, options?: RawAxiosRequestConfig) {
         return IdeasApiFp(this.configuration).commentsGetIdea(requestParameters.ideaId, options).then((request) => request(this.axios, this.basePath));
@@ -2480,7 +2250,6 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
      * @param {IdeasApiIdeasCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApi
      */
     public ideasCreate(requestParameters: IdeasApiIdeasCreateRequest, options?: RawAxiosRequestConfig) {
         return IdeasApiFp(this.configuration).ideasCreate(requestParameters.productId, requestParameters.ideaCreateRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2492,7 +2261,6 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
      * @param {IdeasApiIdeasCreateByPortalUserRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApi
      */
     public ideasCreateByPortalUser(requestParameters: IdeasApiIdeasCreateByPortalUserRequest, options?: RawAxiosRequestConfig) {
         return IdeasApiFp(this.configuration).ideasCreateByPortalUser(requestParameters.productId, requestParameters.ideaCreateByPortalUserRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2504,7 +2272,6 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
      * @param {IdeasApiIdeasCreateEndorsementRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApi
      */
     public ideasCreateEndorsement(requestParameters: IdeasApiIdeasCreateEndorsementRequest, options?: RawAxiosRequestConfig) {
         return IdeasApiFp(this.configuration).ideasCreateEndorsement(requestParameters.id, requestParameters.ideaEndorsementRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2516,7 +2283,6 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
      * @param {IdeasApiIdeasCreateWithCategoryRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApi
      */
     public ideasCreateWithCategory(requestParameters: IdeasApiIdeasCreateWithCategoryRequest, options?: RawAxiosRequestConfig) {
         return IdeasApiFp(this.configuration).ideasCreateWithCategory(requestParameters.productId, requestParameters.ideaCreateRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2528,7 +2294,6 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
      * @param {IdeasApiIdeasCreateWithScoreRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApi
      */
     public ideasCreateWithScore(requestParameters: IdeasApiIdeasCreateWithScoreRequest, options?: RawAxiosRequestConfig) {
         return IdeasApiFp(this.configuration).ideasCreateWithScore(requestParameters.productId, requestParameters.ideaCreateRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2540,7 +2305,6 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
      * @param {IdeasApiIdeasDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApi
      */
     public ideasDelete(requestParameters: IdeasApiIdeasDeleteRequest, options?: RawAxiosRequestConfig) {
         return IdeasApiFp(this.configuration).ideasDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -2552,7 +2316,6 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
      * @param {IdeasApiIdeasGetByIdRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApi
      */
     public ideasGetById(requestParameters: IdeasApiIdeasGetByIdRequest, options?: RawAxiosRequestConfig) {
         return IdeasApiFp(this.configuration).ideasGetById(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -2564,7 +2327,6 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
      * @param {IdeasApiIdeasGetEndorsementsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApi
      */
     public ideasGetEndorsements(requestParameters: IdeasApiIdeasGetEndorsementsRequest, options?: RawAxiosRequestConfig) {
         return IdeasApiFp(this.configuration).ideasGetEndorsements(requestParameters.id, requestParameters.proxy, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -2576,7 +2338,6 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
      * @param {IdeasApiIdeasGetVotesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApi
      */
     public ideasGetVotes(requestParameters: IdeasApiIdeasGetVotesRequest, options?: RawAxiosRequestConfig) {
         return IdeasApiFp(this.configuration).ideasGetVotes(requestParameters.id, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -2588,7 +2349,6 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
      * @param {IdeasApiIdeasGetWatchersRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApi
      */
     public ideasGetWatchers(requestParameters: IdeasApiIdeasGetWatchersRequest, options?: RawAxiosRequestConfig) {
         return IdeasApiFp(this.configuration).ideasGetWatchers(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -2600,7 +2360,6 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
      * @param {IdeasApiIdeasListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApi
      */
     public ideasList(requestParameters: IdeasApiIdeasListRequest = {}, options?: RawAxiosRequestConfig) {
         return IdeasApiFp(this.configuration).ideasList(requestParameters.page, requestParameters.perPage, requestParameters.fields, requestParameters.q, requestParameters.updatedSince, requestParameters.assignedToUser, requestParameters.status, requestParameters.category, requestParameters.productId, requestParameters.ideaPortalId, requestParameters.spam, requestParameters.workflowStatus, requestParameters.sort, requestParameters.createdBefore, requestParameters.createdSince, requestParameters.tag, requestParameters.userId, requestParameters.ideaUserId, options).then((request) => request(this.axios, this.basePath));
@@ -2612,7 +2371,6 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
      * @param {IdeasApiIdeasListProductRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApi
      */
     public ideasListProduct(requestParameters: IdeasApiIdeasListProductRequest, options?: RawAxiosRequestConfig) {
         return IdeasApiFp(this.configuration).ideasListProduct(requestParameters.productId, requestParameters.q, requestParameters.spam, requestParameters.workflowStatus, requestParameters.sort, requestParameters.createdBefore, requestParameters.createdSince, requestParameters.updatedSince, requestParameters.tag, requestParameters.userId, requestParameters.ideaUserId, options).then((request) => request(this.axios, this.basePath));
@@ -2624,7 +2382,6 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
      * @param {IdeasApiIdeasMarkSpamRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApi
      */
     public ideasMarkSpam(requestParameters: IdeasApiIdeasMarkSpamRequest, options?: RawAxiosRequestConfig) {
         return IdeasApiFp(this.configuration).ideasMarkSpam(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -2636,7 +2393,6 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
      * @param {IdeasApiIdeasPromoteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApi
      */
     public ideasPromote(requestParameters: IdeasApiIdeasPromoteRequest, options?: RawAxiosRequestConfig) {
         return IdeasApiFp(this.configuration).ideasPromote(requestParameters.id, requestParameters.ideaPromoteRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2648,7 +2404,6 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
      * @param {IdeasApiIdeasUnmarkSpamRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApi
      */
     public ideasUnmarkSpam(requestParameters: IdeasApiIdeasUnmarkSpamRequest, options?: RawAxiosRequestConfig) {
         return IdeasApiFp(this.configuration).ideasUnmarkSpam(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -2660,7 +2415,6 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
      * @param {IdeasApiIdeasUpdateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApi
      */
     public ideasUpdate(requestParameters: IdeasApiIdeasUpdateRequest, options?: RawAxiosRequestConfig) {
         return IdeasApiFp(this.configuration).ideasUpdate(requestParameters.id, requestParameters.ideaUpdateRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2672,7 +2426,6 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
      * @param {IdeasApiIdeasUpdateWatchersRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApi
      */
     public ideasUpdateWatchers(requestParameters: IdeasApiIdeasUpdateWatchersRequest, options?: RawAxiosRequestConfig) {
         return IdeasApiFp(this.configuration).ideasUpdateWatchers(requestParameters.id, requestParameters.ideaWatchersRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2684,25 +2437,18 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
      * @param {IdeasApiIdeasVoteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApi
      */
     public ideasVote(requestParameters: IdeasApiIdeasVoteRequest, options?: RawAxiosRequestConfig) {
         return IdeasApiFp(this.configuration).ideasVote(requestParameters.id, requestParameters.ideaVoteRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
-/**
- * @export
- */
 export const IdeasListSortEnum = {
     RECENT: 'recent',
     TRENDING: 'trending',
     POPULAR: 'popular'
 } as const;
 export type IdeasListSortEnum = typeof IdeasListSortEnum[keyof typeof IdeasListSortEnum];
-/**
- * @export
- */
 export const IdeasListProductSortEnum = {
     RECENT: 'recent',
     TRENDING: 'trending',

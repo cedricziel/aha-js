@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { Comment } from './comment';
 
-/**
- * 
- * @export
- * @interface CommentsGetEpic200Response
- */
 export interface CommentsGetEpic200Response {
-    /**
-     * 
-     * @type {Array<Comment>}
-     * @memberof CommentsGetEpic200Response
-     */
     'comments'?: Array<Comment>;
 }
 

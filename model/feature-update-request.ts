@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { FeatureUpdateRequestFeature } from './feature-update-request-feature';
 
-/**
- * 
- * @export
- * @interface FeatureUpdateRequest
- */
 export interface FeatureUpdateRequest {
-    /**
-     * 
-     * @type {FeatureUpdateRequestFeature}
-     * @memberof FeatureUpdateRequest
-     */
     'feature'?: FeatureUpdateRequestFeature;
 }
 

@@ -23,178 +23,111 @@ import type { FeatureCreateRequestFeatureScoreFactsInner } from './feature-creat
 // @ts-ignore
 import type { FeatureCreateRequestFeatureWorkflowStatus } from './feature-create-request-feature-workflow-status';
 
-/**
- * 
- * @export
- * @interface FeatureCreateRequestFeature
- */
 export interface FeatureCreateRequestFeature {
     /**
      * Name of the feature
-     * @type {string}
-     * @memberof FeatureCreateRequestFeature
      */
     'name': string;
     /**
      * Type of feature
-     * @type {string}
-     * @memberof FeatureCreateRequestFeature
      */
     'workflow_kind'?: string;
-    /**
-     * 
-     * @type {FeatureCreateRequestFeatureWorkflowStatus}
-     * @memberof FeatureCreateRequestFeature
-     */
     'workflow_status'?: FeatureCreateRequestFeatureWorkflowStatus;
     /**
      * Numeric ID or key of the release the feature should be created in
-     * @type {string}
-     * @memberof FeatureCreateRequestFeature
      */
     'release'?: string;
     /**
      * Description of the feature — may include HTML formatting
-     * @type {string}
-     * @memberof FeatureCreateRequestFeature
      */
     'description'?: string;
     /**
      * Email address of the user who created the feature
-     * @type {string}
-     * @memberof FeatureCreateRequestFeature
      */
     'created_by'?: string;
-    /**
-     * 
-     * @type {FeatureCreateRequestFeatureAssignedToUser}
-     * @memberof FeatureCreateRequestFeature
-     */
     'assigned_to_user'?: FeatureCreateRequestFeatureAssignedToUser;
     /**
      * Tags to add to the feature. Multiple tags must be separated by commas
-     * @type {string}
-     * @memberof FeatureCreateRequestFeature
      */
     'tags'?: string;
     /**
      * The initial estimated effort in time or story points for this feature, depending on the capacity units configured
-     * @type {string}
-     * @memberof FeatureCreateRequestFeature
      */
     'initial_estimate_text'?: string;
     /**
      * The detailed estimated effort in time or story points for this feature, depending on the capacity units configured
-     * @type {string}
-     * @memberof FeatureCreateRequestFeature
      */
     'detailed_estimate_text'?: string;
     /**
      * The remaining estimated effort in time or story points for this feature, depending on the capacity units configured
-     * @type {string}
-     * @memberof FeatureCreateRequestFeature
      */
     'remaining_estimate_text'?: string;
     /**
      * Set the initial estimated effort in minutes or story points, depending on the capacity units configured
-     * @type {number}
-     * @memberof FeatureCreateRequestFeature
      */
     'initial_estimate'?: number;
     /**
      * Set the detailed estimated effort in minutes or story points, depending on the capacity units configured
-     * @type {number}
-     * @memberof FeatureCreateRequestFeature
      */
     'detailed_estimate'?: number;
     /**
      * Set the remaining estimated effort in minutes or story points, depending on the capacity units configured
-     * @type {number}
-     * @memberof FeatureCreateRequestFeature
      */
     'remaining_estimate'?: number;
     /**
      * Date that work will start on the feature in format YYYY-MM-DD
-     * @type {string}
-     * @memberof FeatureCreateRequestFeature
      */
     'start_date'?: string;
     /**
      * Date that work is due to be completed on the feature in format YYYY-MM-DD
-     * @type {string}
-     * @memberof FeatureCreateRequestFeature
      */
     'due_date'?: string;
     /**
      * Name or id of release phase which the feature belongs to
-     * @type {string}
-     * @memberof FeatureCreateRequestFeature
      */
     'release_phase'?: string;
     /**
      * Name or id of initiative which the feature belongs to
-     * @type {string}
-     * @memberof FeatureCreateRequestFeature
      */
     'initiative'?: string;
     /**
      * Name or id of epic which the feature belongs to
-     * @type {string}
-     * @memberof FeatureCreateRequestFeature
      */
     'epic'?: string;
     /**
      * Source for calculating progress on the feature
-     * @type {string}
-     * @memberof FeatureCreateRequestFeature
      */
     'progress_source'?: FeatureCreateRequestFeatureProgressSourceEnum;
     /**
      * Progress completed on the feature. May only be set when the progress_source is manual
-     * @type {number}
-     * @memberof FeatureCreateRequestFeature
      */
     'progress'?: number;
     /**
      * Numeric ID or key of the Develop team to assign the feature to
-     * @type {string}
-     * @memberof FeatureCreateRequestFeature
      */
     'team'?: string;
     /**
      * Team status of the feature — must be a valid status for the selected team
-     * @type {string}
-     * @memberof FeatureCreateRequestFeature
      */
     'team_workflow_status'?: string;
     /**
      * ID of sprint to assign the feature to, must belong to the selected team
-     * @type {string}
-     * @memberof FeatureCreateRequestFeature
      */
     'iteration'?: string;
     /**
      * Numeric ID or key of the PI to assign the feature to, must belong to the selected team
-     * @type {string}
-     * @memberof FeatureCreateRequestFeature
      */
     'program_increment'?: string;
     /**
      * Score facts to add to the feature (e.g., Benefit, Effort)
-     * @type {Array<FeatureCreateRequestFeatureScoreFactsInner>}
-     * @memberof FeatureCreateRequestFeature
      */
     'score_facts'?: Array<FeatureCreateRequestFeatureScoreFactsInner>;
     /**
      * Comma-separated list of goal IDs to associate with the feature
-     * @type {string}
-     * @memberof FeatureCreateRequestFeature
      */
     'goals'?: string;
     /**
      * Comma-separated list of user IDs to add as watchers to the feature
-     * @type {string}
-     * @memberof FeatureCreateRequestFeature
      */
     'watchers'?: string;
 }

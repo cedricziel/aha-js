@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface FeatureDescription
- */
 export interface FeatureDescription {
-    /**
-     * 
-     * @type {string}
-     * @memberof FeatureDescription
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeatureDescription
-     */
     'body'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeatureDescription
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeatureDescription
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {Array<object>}
-     * @memberof FeatureDescription
-     */
     'attachments'?: Array<object>;
 }
 

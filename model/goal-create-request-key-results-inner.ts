@@ -14,34 +14,21 @@
 
 
 
-/**
- * 
- * @export
- * @interface GoalCreateRequestKeyResultsInner
- */
 export interface GoalCreateRequestKeyResultsInner {
     /**
      * Name of the key result
-     * @type {string}
-     * @memberof GoalCreateRequestKeyResultsInner
      */
     'name': string;
     /**
      * Target value for the key result
-     * @type {number}
-     * @memberof GoalCreateRequestKeyResultsInner
      */
     'target_value': number;
     /**
      * Current value of the key result
-     * @type {number}
-     * @memberof GoalCreateRequestKeyResultsInner
      */
     'current_value'?: number;
     /**
      * Unit of measurement
-     * @type {string}
-     * @memberof GoalCreateRequestKeyResultsInner
      */
     'unit'?: string;
 }

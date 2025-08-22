@@ -14,70 +14,45 @@
 
 
 
-/**
- * 
- * @export
- * @interface ReleasePhaseCreateRequestReleasePhase
- */
 export interface ReleasePhaseCreateRequestReleasePhase {
     /**
      * Name of the release phase
-     * @type {string}
-     * @memberof ReleasePhaseCreateRequestReleasePhase
      */
     'name': string;
     /**
      * ID of the release to which the new release phase belongs
-     * @type {number}
-     * @memberof ReleasePhaseCreateRequestReleasePhase
      */
     'release_id': number;
     /**
      * Type of phase
-     * @type {string}
-     * @memberof ReleasePhaseCreateRequestReleasePhase
      */
     'phase_type': ReleasePhaseCreateRequestReleasePhasePhaseTypeEnum;
     /**
      * Start date of the release phase
-     * @type {string}
-     * @memberof ReleasePhaseCreateRequestReleasePhase
      */
     'start_on'?: string;
     /**
      * End date of the release phase
-     * @type {string}
-     * @memberof ReleasePhaseCreateRequestReleasePhase
      */
     'end_on'?: string;
     /**
      * HTML description of the release phase
-     * @type {string}
-     * @memberof ReleasePhaseCreateRequestReleasePhase
      */
     'description'?: string;
     /**
      * Source for calculating progress
-     * @type {string}
-     * @memberof ReleasePhaseCreateRequestReleasePhase
      */
     'progress_source'?: ReleasePhaseCreateRequestReleasePhaseProgressSourceEnum;
     /**
      * Progress percentage (only when progress_source is manual)
-     * @type {number}
-     * @memberof ReleasePhaseCreateRequestReleasePhase
      */
     'progress'?: number;
     /**
      * Source for calculating duration
-     * @type {string}
-     * @memberof ReleasePhaseCreateRequestReleasePhase
      */
     'duration_source'?: ReleasePhaseCreateRequestReleasePhaseDurationSourceEnum;
     /**
      * Custom field values
-     * @type {{ [key: string]: any; }}
-     * @memberof ReleasePhaseCreateRequestReleasePhase
      */
     'custom_fields'?: { [key: string]: any; };
 }

@@ -14,40 +14,25 @@
 
 
 
-/**
- * 
- * @export
- * @interface StrategicModelCreateRequest
- */
 export interface StrategicModelCreateRequest {
     /**
      * Name of the strategic model
-     * @type {string}
-     * @memberof StrategicModelCreateRequest
      */
     'name': string;
     /**
      * Description of the strategic model
-     * @type {string}
-     * @memberof StrategicModelCreateRequest
      */
     'description'?: string;
     /**
      * Type of strategic model
-     * @type {string}
-     * @memberof StrategicModelCreateRequest
      */
     'type': StrategicModelCreateRequestTypeEnum;
     /**
      * Strategic model data structure (varies by type)
-     * @type {object}
-     * @memberof StrategicModelCreateRequest
      */
     'data'?: object;
     /**
      * Tags to associate with the strategic model
-     * @type {Array<string>}
-     * @memberof StrategicModelCreateRequest
      */
     'tags'?: Array<string>;
 }

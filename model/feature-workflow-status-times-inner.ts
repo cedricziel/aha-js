@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface FeatureWorkflowStatusTimesInner
- */
 export interface FeatureWorkflowStatusTimesInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof FeatureWorkflowStatusTimesInner
-     */
     'status_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeatureWorkflowStatusTimesInner
-     */
     'status_name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeatureWorkflowStatusTimesInner
-     */
     'started_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeatureWorkflowStatusTimesInner
-     */
     'ended_at'?: string;
 }
 

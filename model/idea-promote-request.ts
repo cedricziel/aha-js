@@ -14,64 +14,41 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeaPromoteRequest
- */
 export interface IdeaPromoteRequest {
     /**
      * Type of record to promote the idea to
-     * @type {string}
-     * @memberof IdeaPromoteRequest
      */
     'promote_to': IdeaPromoteRequestPromoteToEnum;
     /**
      * ID of the user to assign the promoted record to
-     * @type {string}
-     * @memberof IdeaPromoteRequest
      */
     'assignee_id'?: string;
     /**
      * ID of the release to associate with the promoted record (for features)
-     * @type {string}
-     * @memberof IdeaPromoteRequest
      */
     'release_id'?: string;
     /**
      * ID of the epic to associate with the promoted record (for features)
-     * @type {string}
-     * @memberof IdeaPromoteRequest
      */
     'epic_id'?: string;
     /**
      * ID of the initiative to associate with the promoted record
-     * @type {string}
-     * @memberof IdeaPromoteRequest
      */
     'initiative_id'?: string;
     /**
      * Whether to copy tags from the idea to the promoted record
-     * @type {boolean}
-     * @memberof IdeaPromoteRequest
      */
     'copy_tags'?: boolean;
     /**
      * Whether to copy custom fields from the idea to the promoted record
-     * @type {boolean}
-     * @memberof IdeaPromoteRequest
      */
     'copy_custom_fields'?: boolean;
     /**
      * Whether to copy the description from the idea to the promoted record
-     * @type {boolean}
-     * @memberof IdeaPromoteRequest
      */
     'copy_description'?: boolean;
     /**
      * Whether to copy attachments from the idea to the promoted record
-     * @type {boolean}
-     * @memberof IdeaPromoteRequest
      */
     'copy_attachments'?: boolean;
 }

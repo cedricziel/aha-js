@@ -20,94 +20,55 @@ import type { InitiativeResponseInitiativeProject } from './initiative-response-
 // @ts-ignore
 import type { User } from './user';
 
-/**
- * 
- * @export
- * @interface StrategicModel
- */
 export interface StrategicModel {
     /**
      * Unique identifier of the strategic model
-     * @type {string}
-     * @memberof StrategicModel
      */
     'id'?: string;
     /**
      * Name of the strategic model
-     * @type {string}
-     * @memberof StrategicModel
      */
     'name'?: string;
     /**
      * Description of the strategic model
-     * @type {string}
-     * @memberof StrategicModel
      */
     'description'?: string;
     /**
      * Type of strategic model
-     * @type {string}
-     * @memberof StrategicModel
      */
     'type'?: StrategicModelTypeEnum;
     /**
      * Creation date of the strategic model
-     * @type {string}
-     * @memberof StrategicModel
      */
     'created_at'?: string;
     /**
      * Last update date of the strategic model
-     * @type {string}
-     * @memberof StrategicModel
      */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {User}
-     * @memberof StrategicModel
-     */
     'created_by_user'?: User;
     /**
      * URL to view the strategic model in the Aha! web application
-     * @type {string}
-     * @memberof StrategicModel
      */
     'url'?: string;
     /**
      * API resource URL for the strategic model
-     * @type {string}
-     * @memberof StrategicModel
      */
     'resource'?: string;
-    /**
-     * 
-     * @type {InitiativeResponseInitiativeProject}
-     * @memberof StrategicModel
-     */
     'project'?: InitiativeResponseInitiativeProject;
     /**
      * Strategic model data structure (varies by type)
-     * @type {{ [key: string]: any; }}
-     * @memberof StrategicModel
      */
     'data'?: { [key: string]: any; };
     /**
      * Attachments to the strategic model
-     * @type {Array<object>}
-     * @memberof StrategicModel
      */
     'attachments'?: Array<object>;
     /**
      * Tags associated with the strategic model
-     * @type {Array<string>}
-     * @memberof StrategicModel
      */
     'tags'?: Array<string>;
     /**
      * Full tag objects with metadata
-     * @type {Array<object>}
-     * @memberof StrategicModel
      */
     'full_tags'?: Array<object>;
 }

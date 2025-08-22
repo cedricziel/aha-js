@@ -33,7 +33,6 @@ import type { ReleasePhasesCreate201Response } from '../model';
 import type { ReleasePhasesList200Response } from '../model';
 /**
  * ReleasePhasesApi - axios parameter creator
- * @export
  */
 export const ReleasePhasesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -298,7 +297,6 @@ export const ReleasePhasesApiAxiosParamCreator = function (configuration?: Confi
 
 /**
  * ReleasePhasesApi - functional programming interface
- * @export
  */
 export const ReleasePhasesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ReleasePhasesApiAxiosParamCreator(configuration)
@@ -386,7 +384,6 @@ export const ReleasePhasesApiFp = function(configuration?: Configuration) {
 
 /**
  * ReleasePhasesApi - factory interface
- * @export
  */
 export const ReleasePhasesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ReleasePhasesApiFp(configuration)
@@ -455,8 +452,6 @@ export const ReleasePhasesApiFactory = function (configuration?: Configuration, 
 
 /**
  * ReleasePhasesApi - interface
- * @export
- * @interface ReleasePhasesApi
  */
 export interface ReleasePhasesApiInterface {
     /**
@@ -465,7 +460,6 @@ export interface ReleasePhasesApiInterface {
      * @param {ReleasePhasesApiCommentsGetReleasePhaseRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasePhasesApiInterface
      */
     commentsGetReleasePhase(requestParameters: ReleasePhasesApiCommentsGetReleasePhaseRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsGetEpic200Response>;
 
@@ -475,7 +469,6 @@ export interface ReleasePhasesApiInterface {
      * @param {ReleasePhasesApiReleasePhasesCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasePhasesApiInterface
      */
     releasePhasesCreate(requestParameters: ReleasePhasesApiReleasePhasesCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleasePhasesCreate201Response>;
 
@@ -485,7 +478,6 @@ export interface ReleasePhasesApiInterface {
      * @param {ReleasePhasesApiReleasePhasesDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasePhasesApiInterface
      */
     releasePhasesDelete(requestParameters: ReleasePhasesApiReleasePhasesDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -495,7 +487,6 @@ export interface ReleasePhasesApiInterface {
      * @param {ReleasePhasesApiReleasePhasesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasePhasesApiInterface
      */
     releasePhasesGet(requestParameters: ReleasePhasesApiReleasePhasesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleasePhasesCreate201Response>;
 
@@ -504,7 +495,6 @@ export interface ReleasePhasesApiInterface {
      * @summary List release phases in the account
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasePhasesApiInterface
      */
     releasePhasesList(options?: RawAxiosRequestConfig): AxiosPromise<ReleasePhasesList200Response>;
 
@@ -514,7 +504,6 @@ export interface ReleasePhasesApiInterface {
      * @param {ReleasePhasesApiReleasePhasesUpdateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasePhasesApiInterface
      */
     releasePhasesUpdate(requestParameters: ReleasePhasesApiReleasePhasesUpdateRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleasePhasesCreate201Response>;
 
@@ -522,86 +511,52 @@ export interface ReleasePhasesApiInterface {
 
 /**
  * Request parameters for commentsGetReleasePhase operation in ReleasePhasesApi.
- * @export
- * @interface ReleasePhasesApiCommentsGetReleasePhaseRequest
  */
 export interface ReleasePhasesApiCommentsGetReleasePhaseRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasePhasesApiCommentsGetReleasePhase
-     */
     readonly releasePhaseId: string
 }
 
 /**
  * Request parameters for releasePhasesCreate operation in ReleasePhasesApi.
- * @export
- * @interface ReleasePhasesApiReleasePhasesCreateRequest
  */
 export interface ReleasePhasesApiReleasePhasesCreateRequest {
-    /**
-     * 
-     * @type {ReleasePhaseCreateRequest}
-     * @memberof ReleasePhasesApiReleasePhasesCreate
-     */
     readonly releasePhaseCreateRequest: ReleasePhaseCreateRequest
 }
 
 /**
  * Request parameters for releasePhasesDelete operation in ReleasePhasesApi.
- * @export
- * @interface ReleasePhasesApiReleasePhasesDeleteRequest
  */
 export interface ReleasePhasesApiReleasePhasesDeleteRequest {
     /**
      * Numeric ID of the release phase
-     * @type {string}
-     * @memberof ReleasePhasesApiReleasePhasesDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for releasePhasesGet operation in ReleasePhasesApi.
- * @export
- * @interface ReleasePhasesApiReleasePhasesGetRequest
  */
 export interface ReleasePhasesApiReleasePhasesGetRequest {
     /**
      * Numeric ID of the release phase
-     * @type {string}
-     * @memberof ReleasePhasesApiReleasePhasesGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for releasePhasesUpdate operation in ReleasePhasesApi.
- * @export
- * @interface ReleasePhasesApiReleasePhasesUpdateRequest
  */
 export interface ReleasePhasesApiReleasePhasesUpdateRequest {
     /**
      * Numeric ID of the release phase
-     * @type {string}
-     * @memberof ReleasePhasesApiReleasePhasesUpdate
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {ReleasePhaseUpdateRequest}
-     * @memberof ReleasePhasesApiReleasePhasesUpdate
-     */
     readonly releasePhaseUpdateRequest: ReleasePhaseUpdateRequest
 }
 
 /**
  * ReleasePhasesApi - object-oriented interface
- * @export
- * @class ReleasePhasesApi
- * @extends {BaseAPI}
  */
 export class ReleasePhasesApi extends BaseAPI implements ReleasePhasesApiInterface {
     /**
@@ -610,7 +565,6 @@ export class ReleasePhasesApi extends BaseAPI implements ReleasePhasesApiInterfa
      * @param {ReleasePhasesApiCommentsGetReleasePhaseRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasePhasesApi
      */
     public commentsGetReleasePhase(requestParameters: ReleasePhasesApiCommentsGetReleasePhaseRequest, options?: RawAxiosRequestConfig) {
         return ReleasePhasesApiFp(this.configuration).commentsGetReleasePhase(requestParameters.releasePhaseId, options).then((request) => request(this.axios, this.basePath));
@@ -622,7 +576,6 @@ export class ReleasePhasesApi extends BaseAPI implements ReleasePhasesApiInterfa
      * @param {ReleasePhasesApiReleasePhasesCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasePhasesApi
      */
     public releasePhasesCreate(requestParameters: ReleasePhasesApiReleasePhasesCreateRequest, options?: RawAxiosRequestConfig) {
         return ReleasePhasesApiFp(this.configuration).releasePhasesCreate(requestParameters.releasePhaseCreateRequest, options).then((request) => request(this.axios, this.basePath));
@@ -634,7 +587,6 @@ export class ReleasePhasesApi extends BaseAPI implements ReleasePhasesApiInterfa
      * @param {ReleasePhasesApiReleasePhasesDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasePhasesApi
      */
     public releasePhasesDelete(requestParameters: ReleasePhasesApiReleasePhasesDeleteRequest, options?: RawAxiosRequestConfig) {
         return ReleasePhasesApiFp(this.configuration).releasePhasesDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -646,7 +598,6 @@ export class ReleasePhasesApi extends BaseAPI implements ReleasePhasesApiInterfa
      * @param {ReleasePhasesApiReleasePhasesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasePhasesApi
      */
     public releasePhasesGet(requestParameters: ReleasePhasesApiReleasePhasesGetRequest, options?: RawAxiosRequestConfig) {
         return ReleasePhasesApiFp(this.configuration).releasePhasesGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -657,7 +608,6 @@ export class ReleasePhasesApi extends BaseAPI implements ReleasePhasesApiInterfa
      * @summary List release phases in the account
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasePhasesApi
      */
     public releasePhasesList(options?: RawAxiosRequestConfig) {
         return ReleasePhasesApiFp(this.configuration).releasePhasesList(options).then((request) => request(this.axios, this.basePath));
@@ -669,7 +619,6 @@ export class ReleasePhasesApi extends BaseAPI implements ReleasePhasesApiInterfa
      * @param {ReleasePhasesApiReleasePhasesUpdateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasePhasesApi
      */
     public releasePhasesUpdate(requestParameters: ReleasePhasesApiReleasePhasesUpdateRequest, options?: RawAxiosRequestConfig) {
         return ReleasePhasesApiFp(this.configuration).releasePhasesUpdate(requestParameters.id, requestParameters.releasePhaseUpdateRequest, options).then((request) => request(this.axios, this.basePath));

@@ -20,23 +20,8 @@ import type { IdeaOrganization } from './idea-organization';
 // @ts-ignore
 import type { IdeaOrganizationsListResponsePagination } from './idea-organizations-list-response-pagination';
 
-/**
- * 
- * @export
- * @interface IdeaOrganizationsListResponse
- */
 export interface IdeaOrganizationsListResponse {
-    /**
-     * 
-     * @type {Array<IdeaOrganization>}
-     * @memberof IdeaOrganizationsListResponse
-     */
     'idea_organizations': Array<IdeaOrganization>;
-    /**
-     * 
-     * @type {IdeaOrganizationsListResponsePagination}
-     * @memberof IdeaOrganizationsListResponse
-     */
     'pagination': IdeaOrganizationsListResponsePagination;
 }
 

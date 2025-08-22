@@ -38,191 +38,39 @@ import type { IdeaResponseIdeaScoreFactsInner } from './idea-response-idea-score
 // @ts-ignore
 import type { IdeaResponseIdeaWorkflowStatusTimesInner } from './idea-response-idea-workflow-status-times-inner';
 
-/**
- * 
- * @export
- * @interface IdeaResponseIdea
- */
 export interface IdeaResponseIdea {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaResponseIdea
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaResponseIdea
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaResponseIdea
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeaResponseIdea
-     */
     'score'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaResponseIdea
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaResponseIdea
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaResponseIdea
-     */
     'product_id'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeaResponseIdea
-     */
     'votes'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeaResponseIdea
-     */
     'initial_votes'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaResponseIdea
-     */
     'status_changed_at'?: string;
-    /**
-     * 
-     * @type {FeatureWorkflowStatus}
-     * @memberof IdeaResponseIdea
-     */
     'workflow_status'?: FeatureWorkflowStatus;
-    /**
-     * 
-     * @type {FeatureDescription}
-     * @memberof IdeaResponseIdea
-     */
     'description'?: FeatureDescription;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaResponseIdea
-     */
     'visibility'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaResponseIdea
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaResponseIdea
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {FeatureProject}
-     * @memberof IdeaResponseIdea
-     */
     'product'?: FeatureProject;
-    /**
-     * 
-     * @type {IdeaResponseIdeaCreatedByUser}
-     * @memberof IdeaResponseIdea
-     */
     'created_by_user'?: IdeaResponseIdeaCreatedByUser;
-    /**
-     * 
-     * @type {IdeaResponseIdeaCreatedByPortalUser}
-     * @memberof IdeaResponseIdea
-     */
     'created_by_portal_user'?: IdeaResponseIdeaCreatedByPortalUser;
-    /**
-     * 
-     * @type {IdeaResponseIdeaCreatedByPortalUser}
-     * @memberof IdeaResponseIdea
-     */
     'created_by_idea_user'?: IdeaResponseIdeaCreatedByPortalUser;
-    /**
-     * 
-     * @type {IdeaResponseIdeaAssignedToUser}
-     * @memberof IdeaResponseIdea
-     */
     'assigned_to_user'?: IdeaResponseIdeaAssignedToUser | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeaResponseIdea
-     */
     'endorsements_count'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeaResponseIdea
-     */
     'comments_count'?: number;
     /**
      * Score facts for the idea
-     * @type {Array<IdeaResponseIdeaScoreFactsInner>}
-     * @memberof IdeaResponseIdea
      */
     'score_facts'?: Array<IdeaResponseIdeaScoreFactsInner>;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof IdeaResponseIdea
-     */
     'tags'?: Array<string>;
-    /**
-     * 
-     * @type {Array<object>}
-     * @memberof IdeaResponseIdea
-     */
     'full_tags'?: Array<object>;
-    /**
-     * 
-     * @type {Array<object>}
-     * @memberof IdeaResponseIdea
-     */
     'categories'?: Array<object>;
-    /**
-     * 
-     * @type {Array<object>}
-     * @memberof IdeaResponseIdea
-     */
     'custom_fields'?: Array<object>;
-    /**
-     * 
-     * @type {Array<IdeaResponseIdeaWorkflowStatusTimesInner>}
-     * @memberof IdeaResponseIdea
-     */
     'workflow_status_times'?: Array<IdeaResponseIdeaWorkflowStatusTimesInner>;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaResponseIdea
-     */
     'submitted_idea_portal_record_url'?: string;
-    /**
-     * 
-     * @type {Array<object>}
-     * @memberof IdeaResponseIdea
-     */
     'integration_fields'?: Array<object>;
 }
 

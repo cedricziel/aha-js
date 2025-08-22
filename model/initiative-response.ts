@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { InitiativeResponseInitiative } from './initiative-response-initiative';
 
-/**
- * 
- * @export
- * @interface InitiativeResponse
- */
 export interface InitiativeResponse {
-    /**
-     * 
-     * @type {InitiativeResponseInitiative}
-     * @memberof InitiativeResponse
-     */
     'initiative'?: InitiativeResponseInitiative;
 }
 

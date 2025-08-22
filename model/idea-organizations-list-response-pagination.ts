@@ -14,34 +14,21 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeaOrganizationsListResponsePagination
- */
 export interface IdeaOrganizationsListResponsePagination {
     /**
      * Total number of idea organizations
-     * @type {number}
-     * @memberof IdeaOrganizationsListResponsePagination
      */
     'total_records': number;
     /**
      * Total number of pages
-     * @type {number}
-     * @memberof IdeaOrganizationsListResponsePagination
      */
     'total_pages': number;
     /**
      * Current page number
-     * @type {number}
-     * @memberof IdeaOrganizationsListResponsePagination
      */
     'current_page': number;
     /**
      * Number of organizations per page
-     * @type {number}
-     * @memberof IdeaOrganizationsListResponsePagination
      */
     'per_page': number;
 }

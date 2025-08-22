@@ -14,52 +14,33 @@
 
 
 
-/**
- * 
- * @export
- * @interface InitiativeResponseInitiativeProject
- */
 export interface InitiativeResponseInitiativeProject {
     /**
      * Unique identifier of the project
-     * @type {string}
-     * @memberof InitiativeResponseInitiativeProject
      */
     'id'?: string;
     /**
      * Reference prefix of the project
-     * @type {string}
-     * @memberof InitiativeResponseInitiativeProject
      */
     'reference_prefix'?: string;
     /**
      * Name of the project
-     * @type {string}
-     * @memberof InitiativeResponseInitiativeProject
      */
     'name'?: string;
     /**
      * Whether the project is a product line
-     * @type {boolean}
-     * @memberof InitiativeResponseInitiativeProject
      */
     'product_line'?: boolean;
     /**
      * Creation date of the project
-     * @type {string}
-     * @memberof InitiativeResponseInitiativeProject
      */
     'created_at'?: string;
     /**
      * Type of workspace
-     * @type {string}
-     * @memberof InitiativeResponseInitiativeProject
      */
     'workspace_type'?: string;
     /**
      * URL to view the project in the Aha! web application
-     * @type {string}
-     * @memberof InitiativeResponseInitiativeProject
      */
     'url'?: string;
 }

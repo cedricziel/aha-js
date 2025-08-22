@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface FeatureWorkflowKind
- */
 export interface FeatureWorkflowKind {
-    /**
-     * 
-     * @type {string}
-     * @memberof FeatureWorkflowKind
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeatureWorkflowKind
-     */
     'name'?: string;
 }
 

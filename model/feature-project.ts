@@ -14,53 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface FeatureProject
- */
 export interface FeatureProject {
-    /**
-     * 
-     * @type {string}
-     * @memberof FeatureProject
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeatureProject
-     */
     'reference_prefix'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeatureProject
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof FeatureProject
-     */
     'product_line'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeatureProject
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeatureProject
-     */
     'workspace_type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeatureProject
-     */
     'url'?: string;
 }
 

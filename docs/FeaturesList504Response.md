@@ -1,4 +1,4 @@
-# InlineObject
+# FeaturesList504Response
 
 
 ## Properties
@@ -7,17 +7,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **error** | **string** |  | [optional] [default to undefined]
 **message** | **string** |  | [optional] [default to undefined]
-**retryAfter** | **number** | Number of seconds to wait before retrying | [optional] [default to undefined]
 
 ## Example
 
 ```typescript
-import { InlineObject } from '@cedricziel/aha-js';
+import { FeaturesList504Response } from '@cedricziel/aha-js';
 
-const instance: InlineObject = {
+const instance: FeaturesList504Response = {
     error,
     message,
-    retryAfter,
 };
 ```
 

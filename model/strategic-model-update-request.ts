@@ -14,34 +14,21 @@
 
 
 
-/**
- * 
- * @export
- * @interface StrategicModelUpdateRequest
- */
 export interface StrategicModelUpdateRequest {
     /**
      * Name of the strategic model
-     * @type {string}
-     * @memberof StrategicModelUpdateRequest
      */
     'name'?: string;
     /**
      * Description of the strategic model
-     * @type {string}
-     * @memberof StrategicModelUpdateRequest
      */
     'description'?: string;
     /**
      * Strategic model data structure (varies by type)
-     * @type {object}
-     * @memberof StrategicModelUpdateRequest
      */
     'data'?: object;
     /**
      * Tags to associate with the strategic model
-     * @type {Array<string>}
-     * @memberof StrategicModelUpdateRequest
      */
     'tags'?: Array<string>;
 }

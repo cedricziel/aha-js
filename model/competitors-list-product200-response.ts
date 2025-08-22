@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { Competitor } from './competitor';
 
-/**
- * 
- * @export
- * @interface CompetitorsListProduct200Response
- */
 export interface CompetitorsListProduct200Response {
-    /**
-     * 
-     * @type {Array<Competitor>}
-     * @memberof CompetitorsListProduct200Response
-     */
     'competitors'?: Array<Competitor>;
 }
 

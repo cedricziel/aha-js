@@ -19,38 +19,26 @@ import type { Attachment } from './attachment';
 
 /**
  * Description of the requirement
- * @export
- * @interface RequirementDescription
  */
 export interface RequirementDescription {
     /**
      * ID of the description
-     * @type {string}
-     * @memberof RequirementDescription
      */
     'id'?: string;
     /**
      * HTML content of the description
-     * @type {string}
-     * @memberof RequirementDescription
      */
     'body'?: string;
     /**
      * When the description was created
-     * @type {string}
-     * @memberof RequirementDescription
      */
     'created_at'?: string;
     /**
      * When the description was last updated
-     * @type {string}
-     * @memberof RequirementDescription
      */
     'updated_at'?: string;
     /**
      * Attachments in the description
-     * @type {Array<Attachment>}
-     * @memberof RequirementDescription
      */
     'attachments'?: Array<Attachment>;
 }

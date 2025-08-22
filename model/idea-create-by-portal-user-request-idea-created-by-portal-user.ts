@@ -14,22 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeaCreateByPortalUserRequestIdeaCreatedByPortalUser
- */
 export interface IdeaCreateByPortalUserRequestIdeaCreatedByPortalUser {
     /**
      * ID of the portal user who created the idea
-     * @type {number}
-     * @memberof IdeaCreateByPortalUserRequestIdeaCreatedByPortalUser
      */
     'id': number;
     /**
      * Name of the portal user who created the idea
-     * @type {string}
-     * @memberof IdeaCreateByPortalUserRequestIdeaCreatedByPortalUser
      */
     'name': string;
 }

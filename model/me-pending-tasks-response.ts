@@ -20,23 +20,8 @@ import type { MePendingTasksResponsePagination } from './me-pending-tasks-respon
 // @ts-ignore
 import type { MePendingTasksResponseTasksInner } from './me-pending-tasks-response-tasks-inner';
 
-/**
- * 
- * @export
- * @interface MePendingTasksResponse
- */
 export interface MePendingTasksResponse {
-    /**
-     * 
-     * @type {Array<MePendingTasksResponseTasksInner>}
-     * @memberof MePendingTasksResponse
-     */
     'tasks': Array<MePendingTasksResponseTasksInner>;
-    /**
-     * 
-     * @type {MePendingTasksResponsePagination}
-     * @memberof MePendingTasksResponse
-     */
     'pagination': MePendingTasksResponsePagination;
 }
 

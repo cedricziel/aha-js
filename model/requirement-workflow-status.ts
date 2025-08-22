@@ -16,38 +16,26 @@
 
 /**
  * Current workflow status of the requirement
- * @export
- * @interface RequirementWorkflowStatus
  */
 export interface RequirementWorkflowStatus {
     /**
      * ID of the workflow status
-     * @type {string}
-     * @memberof RequirementWorkflowStatus
      */
     'id'?: string;
     /**
      * Name of the workflow status
-     * @type {string}
-     * @memberof RequirementWorkflowStatus
      */
     'name'?: string;
     /**
      * Position of the status in the workflow
-     * @type {number}
-     * @memberof RequirementWorkflowStatus
      */
     'position'?: number;
     /**
      * Whether this status indicates completion
-     * @type {boolean}
-     * @memberof RequirementWorkflowStatus
      */
     'complete'?: boolean;
     /**
      * Color associated with this status
-     * @type {string}
-     * @memberof RequirementWorkflowStatus
      */
     'color'?: string;
 }

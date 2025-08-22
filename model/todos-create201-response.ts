@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { Todo } from './todo';
 
-/**
- * 
- * @export
- * @interface TodosCreate201Response
- */
 export interface TodosCreate201Response {
-    /**
-     * 
-     * @type {Todo}
-     * @memberof TodosCreate201Response
-     */
     'task'?: Todo;
 }
 

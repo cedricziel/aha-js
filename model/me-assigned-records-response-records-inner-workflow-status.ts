@@ -14,28 +14,17 @@
 
 
 
-/**
- * 
- * @export
- * @interface MeAssignedRecordsResponseRecordsInnerWorkflowStatus
- */
 export interface MeAssignedRecordsResponseRecordsInnerWorkflowStatus {
     /**
      * Status ID
-     * @type {string}
-     * @memberof MeAssignedRecordsResponseRecordsInnerWorkflowStatus
      */
     'id': string;
     /**
      * Status name
-     * @type {string}
-     * @memberof MeAssignedRecordsResponseRecordsInnerWorkflowStatus
      */
     'name': string;
     /**
      * Color code for the status
-     * @type {string}
-     * @memberof MeAssignedRecordsResponseRecordsInnerWorkflowStatus
      */
     'color'?: string;
 }

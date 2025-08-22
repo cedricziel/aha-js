@@ -31,7 +31,6 @@ import type { CompetitorUpdateRequest } from '../model';
 import type { CompetitorsListProduct200Response } from '../model';
 /**
  * CompetitorsApi - axios parameter creator
- * @export
  */
 export const CompetitorsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -262,7 +261,6 @@ export const CompetitorsApiAxiosParamCreator = function (configuration?: Configu
 
 /**
  * CompetitorsApi - functional programming interface
- * @export
  */
 export const CompetitorsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = CompetitorsApiAxiosParamCreator(configuration)
@@ -339,7 +337,6 @@ export const CompetitorsApiFp = function(configuration?: Configuration) {
 
 /**
  * CompetitorsApi - factory interface
- * @export
  */
 export const CompetitorsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = CompetitorsApiFp(configuration)
@@ -399,8 +396,6 @@ export const CompetitorsApiFactory = function (configuration?: Configuration, ba
 
 /**
  * CompetitorsApi - interface
- * @export
- * @interface CompetitorsApi
  */
 export interface CompetitorsApiInterface {
     /**
@@ -409,7 +404,6 @@ export interface CompetitorsApiInterface {
      * @param {CompetitorsApiCompetitorsCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CompetitorsApiInterface
      */
     competitorsCreate(requestParameters: CompetitorsApiCompetitorsCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<Competitor>;
 
@@ -419,7 +413,6 @@ export interface CompetitorsApiInterface {
      * @param {CompetitorsApiCompetitorsDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CompetitorsApiInterface
      */
     competitorsDelete(requestParameters: CompetitorsApiCompetitorsDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -429,7 +422,6 @@ export interface CompetitorsApiInterface {
      * @param {CompetitorsApiCompetitorsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CompetitorsApiInterface
      */
     competitorsGet(requestParameters: CompetitorsApiCompetitorsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<Competitor>;
 
@@ -439,7 +431,6 @@ export interface CompetitorsApiInterface {
      * @param {CompetitorsApiCompetitorsListProductRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CompetitorsApiInterface
      */
     competitorsListProduct(requestParameters: CompetitorsApiCompetitorsListProductRequest, options?: RawAxiosRequestConfig): AxiosPromise<CompetitorsListProduct200Response>;
 
@@ -449,7 +440,6 @@ export interface CompetitorsApiInterface {
      * @param {CompetitorsApiCompetitorsUpdateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CompetitorsApiInterface
      */
     competitorsUpdate(requestParameters: CompetitorsApiCompetitorsUpdateRequest, options?: RawAxiosRequestConfig): AxiosPromise<Competitor>;
 
@@ -457,93 +447,45 @@ export interface CompetitorsApiInterface {
 
 /**
  * Request parameters for competitorsCreate operation in CompetitorsApi.
- * @export
- * @interface CompetitorsApiCompetitorsCreateRequest
  */
 export interface CompetitorsApiCompetitorsCreateRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof CompetitorsApiCompetitorsCreate
-     */
     readonly productId: string
 
-    /**
-     * 
-     * @type {CompetitorCreateRequest}
-     * @memberof CompetitorsApiCompetitorsCreate
-     */
     readonly competitorCreateRequest: CompetitorCreateRequest
 }
 
 /**
  * Request parameters for competitorsDelete operation in CompetitorsApi.
- * @export
- * @interface CompetitorsApiCompetitorsDeleteRequest
  */
 export interface CompetitorsApiCompetitorsDeleteRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof CompetitorsApiCompetitorsDelete
-     */
     readonly competitorId: string
 }
 
 /**
  * Request parameters for competitorsGet operation in CompetitorsApi.
- * @export
- * @interface CompetitorsApiCompetitorsGetRequest
  */
 export interface CompetitorsApiCompetitorsGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof CompetitorsApiCompetitorsGet
-     */
     readonly competitorId: string
 }
 
 /**
  * Request parameters for competitorsListProduct operation in CompetitorsApi.
- * @export
- * @interface CompetitorsApiCompetitorsListProductRequest
  */
 export interface CompetitorsApiCompetitorsListProductRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof CompetitorsApiCompetitorsListProduct
-     */
     readonly productId: string
 }
 
 /**
  * Request parameters for competitorsUpdate operation in CompetitorsApi.
- * @export
- * @interface CompetitorsApiCompetitorsUpdateRequest
  */
 export interface CompetitorsApiCompetitorsUpdateRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof CompetitorsApiCompetitorsUpdate
-     */
     readonly competitorId: string
 
-    /**
-     * 
-     * @type {CompetitorUpdateRequest}
-     * @memberof CompetitorsApiCompetitorsUpdate
-     */
     readonly competitorUpdateRequest: CompetitorUpdateRequest
 }
 
 /**
  * CompetitorsApi - object-oriented interface
- * @export
- * @class CompetitorsApi
- * @extends {BaseAPI}
  */
 export class CompetitorsApi extends BaseAPI implements CompetitorsApiInterface {
     /**
@@ -552,7 +494,6 @@ export class CompetitorsApi extends BaseAPI implements CompetitorsApiInterface {
      * @param {CompetitorsApiCompetitorsCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CompetitorsApi
      */
     public competitorsCreate(requestParameters: CompetitorsApiCompetitorsCreateRequest, options?: RawAxiosRequestConfig) {
         return CompetitorsApiFp(this.configuration).competitorsCreate(requestParameters.productId, requestParameters.competitorCreateRequest, options).then((request) => request(this.axios, this.basePath));
@@ -564,7 +505,6 @@ export class CompetitorsApi extends BaseAPI implements CompetitorsApiInterface {
      * @param {CompetitorsApiCompetitorsDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CompetitorsApi
      */
     public competitorsDelete(requestParameters: CompetitorsApiCompetitorsDeleteRequest, options?: RawAxiosRequestConfig) {
         return CompetitorsApiFp(this.configuration).competitorsDelete(requestParameters.competitorId, options).then((request) => request(this.axios, this.basePath));
@@ -576,7 +516,6 @@ export class CompetitorsApi extends BaseAPI implements CompetitorsApiInterface {
      * @param {CompetitorsApiCompetitorsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CompetitorsApi
      */
     public competitorsGet(requestParameters: CompetitorsApiCompetitorsGetRequest, options?: RawAxiosRequestConfig) {
         return CompetitorsApiFp(this.configuration).competitorsGet(requestParameters.competitorId, options).then((request) => request(this.axios, this.basePath));
@@ -588,7 +527,6 @@ export class CompetitorsApi extends BaseAPI implements CompetitorsApiInterface {
      * @param {CompetitorsApiCompetitorsListProductRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CompetitorsApi
      */
     public competitorsListProduct(requestParameters: CompetitorsApiCompetitorsListProductRequest, options?: RawAxiosRequestConfig) {
         return CompetitorsApiFp(this.configuration).competitorsListProduct(requestParameters.productId, options).then((request) => request(this.axios, this.basePath));
@@ -600,7 +538,6 @@ export class CompetitorsApi extends BaseAPI implements CompetitorsApiInterface {
      * @param {CompetitorsApiCompetitorsUpdateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CompetitorsApi
      */
     public competitorsUpdate(requestParameters: CompetitorsApiCompetitorsUpdateRequest, options?: RawAxiosRequestConfig) {
         return CompetitorsApiFp(this.configuration).competitorsUpdate(requestParameters.competitorId, requestParameters.competitorUpdateRequest, options).then((request) => request(this.axios, this.basePath));

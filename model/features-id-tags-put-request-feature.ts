@@ -14,16 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface FeaturesIdTagsPutRequestFeature
- */
 export interface FeaturesIdTagsPutRequestFeature {
     /**
      * Array of tags to set on the feature
-     * @type {Array<string>}
-     * @memberof FeaturesIdTagsPutRequestFeature
      */
     'tags'?: Array<string>;
 }

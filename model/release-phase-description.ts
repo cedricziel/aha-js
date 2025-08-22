@@ -19,38 +19,26 @@ import type { Attachment } from './attachment';
 
 /**
  * Description of the release phase
- * @export
- * @interface ReleasePhaseDescription
  */
 export interface ReleasePhaseDescription {
     /**
      * ID of the description
-     * @type {string}
-     * @memberof ReleasePhaseDescription
      */
     'id'?: string;
     /**
      * HTML content of the description
-     * @type {string}
-     * @memberof ReleasePhaseDescription
      */
     'body'?: string;
     /**
      * When the description was created
-     * @type {string}
-     * @memberof ReleasePhaseDescription
      */
     'created_at'?: string;
     /**
      * When the description was last updated
-     * @type {string}
-     * @memberof ReleasePhaseDescription
      */
     'updated_at'?: string;
     /**
      * Attachments in the description
-     * @type {Array<Attachment>}
-     * @memberof ReleasePhaseDescription
      */
     'attachments'?: Array<Attachment>;
 }

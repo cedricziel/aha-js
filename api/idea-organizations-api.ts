@@ -31,7 +31,6 @@ import type { IdeaOrganizationUpdateRequest } from '../model';
 import type { IdeaOrganizationsListResponse } from '../model';
 /**
  * IdeaOrganizationsApi - axios parameter creator
- * @export
  */
 export const IdeaOrganizationsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -279,7 +278,6 @@ export const IdeaOrganizationsApiAxiosParamCreator = function (configuration?: C
 
 /**
  * IdeaOrganizationsApi - functional programming interface
- * @export
  */
 export const IdeaOrganizationsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = IdeaOrganizationsApiAxiosParamCreator(configuration)
@@ -359,7 +357,6 @@ export const IdeaOrganizationsApiFp = function(configuration?: Configuration) {
 
 /**
  * IdeaOrganizationsApi - factory interface
- * @export
  */
 export const IdeaOrganizationsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = IdeaOrganizationsApiFp(configuration)
@@ -419,8 +416,6 @@ export const IdeaOrganizationsApiFactory = function (configuration?: Configurati
 
 /**
  * IdeaOrganizationsApi - interface
- * @export
- * @interface IdeaOrganizationsApi
  */
 export interface IdeaOrganizationsApiInterface {
     /**
@@ -429,7 +424,6 @@ export interface IdeaOrganizationsApiInterface {
      * @param {IdeaOrganizationsApiIdeaOrganizationsCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaOrganizationsApiInterface
      */
     ideaOrganizationsCreate(requestParameters: IdeaOrganizationsApiIdeaOrganizationsCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaOrganizationGetResponse>;
 
@@ -439,7 +433,6 @@ export interface IdeaOrganizationsApiInterface {
      * @param {IdeaOrganizationsApiIdeaOrganizationsDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaOrganizationsApiInterface
      */
     ideaOrganizationsDelete(requestParameters: IdeaOrganizationsApiIdeaOrganizationsDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -449,7 +442,6 @@ export interface IdeaOrganizationsApiInterface {
      * @param {IdeaOrganizationsApiIdeaOrganizationsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaOrganizationsApiInterface
      */
     ideaOrganizationsGet(requestParameters: IdeaOrganizationsApiIdeaOrganizationsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaOrganizationGetResponse>;
 
@@ -459,7 +451,6 @@ export interface IdeaOrganizationsApiInterface {
      * @param {IdeaOrganizationsApiIdeaOrganizationsListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaOrganizationsApiInterface
      */
     ideaOrganizationsList(requestParameters?: IdeaOrganizationsApiIdeaOrganizationsListRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaOrganizationsListResponse>;
 
@@ -469,7 +460,6 @@ export interface IdeaOrganizationsApiInterface {
      * @param {IdeaOrganizationsApiIdeaOrganizationsUpdateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaOrganizationsApiInterface
      */
     ideaOrganizationsUpdate(requestParameters: IdeaOrganizationsApiIdeaOrganizationsUpdateRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaOrganizationGetResponse>;
 
@@ -477,114 +467,75 @@ export interface IdeaOrganizationsApiInterface {
 
 /**
  * Request parameters for ideaOrganizationsCreate operation in IdeaOrganizationsApi.
- * @export
- * @interface IdeaOrganizationsApiIdeaOrganizationsCreateRequest
  */
 export interface IdeaOrganizationsApiIdeaOrganizationsCreateRequest {
-    /**
-     * 
-     * @type {IdeaOrganizationCreateRequest}
-     * @memberof IdeaOrganizationsApiIdeaOrganizationsCreate
-     */
     readonly ideaOrganizationCreateRequest: IdeaOrganizationCreateRequest
 }
 
 /**
  * Request parameters for ideaOrganizationsDelete operation in IdeaOrganizationsApi.
- * @export
- * @interface IdeaOrganizationsApiIdeaOrganizationsDeleteRequest
  */
 export interface IdeaOrganizationsApiIdeaOrganizationsDeleteRequest {
     /**
      * Numeric ID of the idea organization
-     * @type {string}
-     * @memberof IdeaOrganizationsApiIdeaOrganizationsDelete
      */
     readonly id: string
 
     /**
      * Delete the organization even if it has proxy votes
-     * @type {boolean}
-     * @memberof IdeaOrganizationsApiIdeaOrganizationsDelete
      */
     readonly deleteProxyVotes?: boolean
 }
 
 /**
  * Request parameters for ideaOrganizationsGet operation in IdeaOrganizationsApi.
- * @export
- * @interface IdeaOrganizationsApiIdeaOrganizationsGetRequest
  */
 export interface IdeaOrganizationsApiIdeaOrganizationsGetRequest {
     /**
      * Numeric ID of the idea organization
-     * @type {string}
-     * @memberof IdeaOrganizationsApiIdeaOrganizationsGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for ideaOrganizationsList operation in IdeaOrganizationsApi.
- * @export
- * @interface IdeaOrganizationsApiIdeaOrganizationsListRequest
  */
 export interface IdeaOrganizationsApiIdeaOrganizationsListRequest {
     /**
      * Search term to match against organization name
-     * @type {string}
-     * @memberof IdeaOrganizationsApiIdeaOrganizationsList
      */
     readonly q?: string
 
     /**
      * Returns organizations with matching email domain
-     * @type {string}
-     * @memberof IdeaOrganizationsApiIdeaOrganizationsList
      */
     readonly emailDomain?: string
 
     /**
      * Page number for pagination
-     * @type {number}
-     * @memberof IdeaOrganizationsApiIdeaOrganizationsList
      */
     readonly page?: number
 
     /**
      * Number of organizations per page
-     * @type {number}
-     * @memberof IdeaOrganizationsApiIdeaOrganizationsList
      */
     readonly perPage?: number
 }
 
 /**
  * Request parameters for ideaOrganizationsUpdate operation in IdeaOrganizationsApi.
- * @export
- * @interface IdeaOrganizationsApiIdeaOrganizationsUpdateRequest
  */
 export interface IdeaOrganizationsApiIdeaOrganizationsUpdateRequest {
     /**
      * Numeric ID of the idea organization
-     * @type {string}
-     * @memberof IdeaOrganizationsApiIdeaOrganizationsUpdate
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {IdeaOrganizationUpdateRequest}
-     * @memberof IdeaOrganizationsApiIdeaOrganizationsUpdate
-     */
     readonly ideaOrganizationUpdateRequest: IdeaOrganizationUpdateRequest
 }
 
 /**
  * IdeaOrganizationsApi - object-oriented interface
- * @export
- * @class IdeaOrganizationsApi
- * @extends {BaseAPI}
  */
 export class IdeaOrganizationsApi extends BaseAPI implements IdeaOrganizationsApiInterface {
     /**
@@ -593,7 +544,6 @@ export class IdeaOrganizationsApi extends BaseAPI implements IdeaOrganizationsAp
      * @param {IdeaOrganizationsApiIdeaOrganizationsCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaOrganizationsApi
      */
     public ideaOrganizationsCreate(requestParameters: IdeaOrganizationsApiIdeaOrganizationsCreateRequest, options?: RawAxiosRequestConfig) {
         return IdeaOrganizationsApiFp(this.configuration).ideaOrganizationsCreate(requestParameters.ideaOrganizationCreateRequest, options).then((request) => request(this.axios, this.basePath));
@@ -605,7 +555,6 @@ export class IdeaOrganizationsApi extends BaseAPI implements IdeaOrganizationsAp
      * @param {IdeaOrganizationsApiIdeaOrganizationsDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaOrganizationsApi
      */
     public ideaOrganizationsDelete(requestParameters: IdeaOrganizationsApiIdeaOrganizationsDeleteRequest, options?: RawAxiosRequestConfig) {
         return IdeaOrganizationsApiFp(this.configuration).ideaOrganizationsDelete(requestParameters.id, requestParameters.deleteProxyVotes, options).then((request) => request(this.axios, this.basePath));
@@ -617,7 +566,6 @@ export class IdeaOrganizationsApi extends BaseAPI implements IdeaOrganizationsAp
      * @param {IdeaOrganizationsApiIdeaOrganizationsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaOrganizationsApi
      */
     public ideaOrganizationsGet(requestParameters: IdeaOrganizationsApiIdeaOrganizationsGetRequest, options?: RawAxiosRequestConfig) {
         return IdeaOrganizationsApiFp(this.configuration).ideaOrganizationsGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -629,7 +577,6 @@ export class IdeaOrganizationsApi extends BaseAPI implements IdeaOrganizationsAp
      * @param {IdeaOrganizationsApiIdeaOrganizationsListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaOrganizationsApi
      */
     public ideaOrganizationsList(requestParameters: IdeaOrganizationsApiIdeaOrganizationsListRequest = {}, options?: RawAxiosRequestConfig) {
         return IdeaOrganizationsApiFp(this.configuration).ideaOrganizationsList(requestParameters.q, requestParameters.emailDomain, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -641,7 +588,6 @@ export class IdeaOrganizationsApi extends BaseAPI implements IdeaOrganizationsAp
      * @param {IdeaOrganizationsApiIdeaOrganizationsUpdateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaOrganizationsApi
      */
     public ideaOrganizationsUpdate(requestParameters: IdeaOrganizationsApiIdeaOrganizationsUpdateRequest, options?: RawAxiosRequestConfig) {
         return IdeaOrganizationsApiFp(this.configuration).ideaOrganizationsUpdate(requestParameters.id, requestParameters.ideaOrganizationUpdateRequest, options).then((request) => request(this.axios, this.basePath));

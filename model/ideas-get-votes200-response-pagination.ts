@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeasGetVotes200ResponsePagination
- */
 export interface IdeasGetVotes200ResponsePagination {
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeasGetVotes200ResponsePagination
-     */
     'total_records'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeasGetVotes200ResponsePagination
-     */
     'total_pages'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeasGetVotes200ResponsePagination
-     */
     'current_page'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeasGetVotes200ResponsePagination
-     */
     'per_page'?: number;
 }
 

@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { RequirementUpdateRequestRequirement } from './requirement-update-request-requirement';
 
-/**
- * 
- * @export
- * @interface RequirementUpdateRequest
- */
 export interface RequirementUpdateRequest {
-    /**
-     * 
-     * @type {RequirementUpdateRequestRequirement}
-     * @memberof RequirementUpdateRequest
-     */
     'requirement': RequirementUpdateRequestRequirement;
 }
 

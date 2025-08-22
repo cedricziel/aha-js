@@ -14,28 +14,17 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeaResponseIdeaScoreFactsInner
- */
 export interface IdeaResponseIdeaScoreFactsInner {
     /**
      * Unique identifier for the score fact
-     * @type {string}
-     * @memberof IdeaResponseIdeaScoreFactsInner
      */
     'id': string;
     /**
      * Name of the score fact (e.g., Benefit, Effort)
-     * @type {string}
-     * @memberof IdeaResponseIdeaScoreFactsInner
      */
     'name': string;
     /**
      * Numeric value of the score fact
-     * @type {number}
-     * @memberof IdeaResponseIdeaScoreFactsInner
      */
     'value': number;
 }

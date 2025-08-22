@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeaResponseIdeaAssignedToUser
- */
 export interface IdeaResponseIdeaAssignedToUser {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaResponseIdeaAssignedToUser
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaResponseIdeaAssignedToUser
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaResponseIdeaAssignedToUser
-     */
     'email'?: string;
 }
 

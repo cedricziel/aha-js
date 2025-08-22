@@ -44,136 +44,74 @@ import type { RequirementWorkflowStatusTimesInner } from './requirement-workflow
 // @ts-ignore
 import type { User } from './user';
 
-/**
- * 
- * @export
- * @interface Requirement
- */
 export interface Requirement {
     /**
      * Unique identifier for the requirement
-     * @type {string}
-     * @memberof Requirement
      */
     'id': string;
     /**
      * Name of the requirement
-     * @type {string}
-     * @memberof Requirement
      */
     'name': string;
     /**
      * Reference number of the requirement
-     * @type {string}
-     * @memberof Requirement
      */
     'reference_num': string;
     /**
      * Position of the requirement in the list
-     * @type {number}
-     * @memberof Requirement
      */
     'position'?: number;
     /**
      * When the requirement was created
-     * @type {string}
-     * @memberof Requirement
      */
     'created_at': string;
     /**
      * When the requirement was last updated
-     * @type {string}
-     * @memberof Requirement
      */
     'updated_at': string;
     /**
      * ID of the release this requirement belongs to
-     * @type {number}
-     * @memberof Requirement
      */
     'release_id'?: number;
-    /**
-     * 
-     * @type {User}
-     * @memberof Requirement
-     */
     'created_by_user'?: User;
-    /**
-     * 
-     * @type {RequirementWorkflowStatus}
-     * @memberof Requirement
-     */
     'workflow_status': RequirementWorkflowStatus;
     /**
      * URL to view the requirement in the web interface
-     * @type {string}
-     * @memberof Requirement
      */
     'url': string;
     /**
      * API URL for this requirement
-     * @type {string}
-     * @memberof Requirement
      */
     'resource': string;
-    /**
-     * 
-     * @type {RequirementDescription}
-     * @memberof Requirement
-     */
     'description'?: RequirementDescription;
-    /**
-     * 
-     * @type {RequirementFeature}
-     * @memberof Requirement
-     */
     'feature': RequirementFeature;
-    /**
-     * 
-     * @type {RequirementAssignedToUser}
-     * @memberof Requirement
-     */
     'assigned_to_user'?: RequirementAssignedToUser;
     /**
      * Attachments associated with this requirement
-     * @type {Array<Attachment>}
-     * @memberof Requirement
      */
     'attachments'?: Array<Attachment>;
     /**
      * Tags associated with this requirement
-     * @type {Array<string>}
-     * @memberof Requirement
      */
     'tags'?: Array<string>;
     /**
      * Full tag objects with IDs and names
-     * @type {Array<RequirementFullTagsInner>}
-     * @memberof Requirement
      */
     'full_tags'?: Array<RequirementFullTagsInner>;
     /**
      * Custom fields associated with this requirement
-     * @type {Array<CustomField>}
-     * @memberof Requirement
      */
     'custom_fields'?: Array<CustomField>;
     /**
      * Integration fields associated with this requirement
-     * @type {Array<IntegrationField>}
-     * @memberof Requirement
      */
     'integration_fields'?: Array<IntegrationField>;
     /**
      * Number of comments on this requirement
-     * @type {number}
-     * @memberof Requirement
      */
     'comments_count'?: number;
     /**
      * History of workflow status changes
-     * @type {Array<RequirementWorkflowStatusTimesInner>}
-     * @memberof Requirement
      */
     'workflow_status_times'?: Array<RequirementWorkflowStatusTimesInner>;
 }

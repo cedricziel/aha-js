@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { CompetitorUpdateRequestCompetitor } from './competitor-update-request-competitor';
 
-/**
- * 
- * @export
- * @interface CompetitorUpdateRequest
- */
 export interface CompetitorUpdateRequest {
-    /**
-     * 
-     * @type {CompetitorUpdateRequestCompetitor}
-     * @memberof CompetitorUpdateRequest
-     */
     'competitor'?: CompetitorUpdateRequestCompetitor;
 }
 

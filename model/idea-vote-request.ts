@@ -14,34 +14,21 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeaVoteRequest
- */
 export interface IdeaVoteRequest {
     /**
      * Type of vote
-     * @type {string}
-     * @memberof IdeaVoteRequest
      */
     'vote_type': IdeaVoteRequestVoteTypeEnum;
     /**
      * ID of the proxy user (if voting on behalf of someone else)
-     * @type {string}
-     * @memberof IdeaVoteRequest
      */
     'proxy_user_id'?: string;
     /**
      * Name of the proxy user (if voting on behalf of someone else)
-     * @type {string}
-     * @memberof IdeaVoteRequest
      */
     'proxy_user_name'?: string;
     /**
      * Email of the proxy user (if voting on behalf of someone else)
-     * @type {string}
-     * @memberof IdeaVoteRequest
      */
     'proxy_user_email'?: string;
 }

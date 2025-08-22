@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { FeaturesIdGoalsPutRequestFeature } from './features-id-goals-put-request-feature';
 
-/**
- * 
- * @export
- * @interface FeaturesIdGoalsPutRequest
- */
 export interface FeaturesIdGoalsPutRequest {
-    /**
-     * 
-     * @type {FeaturesIdGoalsPutRequestFeature}
-     * @memberof FeaturesIdGoalsPutRequest
-     */
     'feature'?: FeaturesIdGoalsPutRequestFeature;
 }
 

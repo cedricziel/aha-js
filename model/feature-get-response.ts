@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { Feature } from './feature';
 
-/**
- * 
- * @export
- * @interface FeatureGetResponse
- */
 export interface FeatureGetResponse {
-    /**
-     * 
-     * @type {Feature}
-     * @memberof FeatureGetResponse
-     */
     'feature'?: Feature;
 }
 

@@ -16,44 +16,30 @@
 
 /**
  * User assigned to this requirement
- * @export
- * @interface RequirementAssignedToUser
  */
 export interface RequirementAssignedToUser {
     /**
      * ID of the assigned user
-     * @type {string}
-     * @memberof RequirementAssignedToUser
      */
     'id'?: string;
     /**
      * Name of the assigned user
-     * @type {string}
-     * @memberof RequirementAssignedToUser
      */
     'name'?: string;
     /**
      * Email of the assigned user
-     * @type {string}
-     * @memberof RequirementAssignedToUser
      */
     'email'?: string;
     /**
      * When the user was created
-     * @type {string}
-     * @memberof RequirementAssignedToUser
      */
     'created_at'?: string;
     /**
      * When the user was last updated
-     * @type {string}
-     * @memberof RequirementAssignedToUser
      */
     'updated_at'?: string;
     /**
      * Whether this user is the default assignee
-     * @type {boolean}
-     * @memberof RequirementAssignedToUser
      */
     'default_assignee'?: boolean;
 }

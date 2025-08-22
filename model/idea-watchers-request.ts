@@ -17,16 +17,9 @@
 // @ts-ignore
 import type { IdeaWatchersRequestWatchersInner } from './idea-watchers-request-watchers-inner';
 
-/**
- * 
- * @export
- * @interface IdeaWatchersRequest
- */
 export interface IdeaWatchersRequest {
     /**
      * List of watchers for the idea
-     * @type {Array<IdeaWatchersRequestWatchersInner>}
-     * @memberof IdeaWatchersRequest
      */
     'watchers': Array<IdeaWatchersRequestWatchersInner>;
 }

@@ -14,64 +14,41 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeaOrganization
- */
 export interface IdeaOrganization {
     /**
      * Unique identifier for the idea organization
-     * @type {string}
-     * @memberof IdeaOrganization
      */
     'id': string;
     /**
      * Name of the idea organization
-     * @type {string}
-     * @memberof IdeaOrganization
      */
     'name': string;
     /**
      * Email domains associated with the organization
-     * @type {Array<string>}
-     * @memberof IdeaOrganization
      */
     'email_domains'?: Array<string>;
     /**
      * Revenue value for the organization
-     * @type {number}
-     * @memberof IdeaOrganization
      */
     'revenue'?: number;
     /**
      * When the organization was created
-     * @type {string}
-     * @memberof IdeaOrganization
      */
     'created_at': string;
     /**
      * When the organization was last updated
-     * @type {string}
-     * @memberof IdeaOrganization
      */
     'updated_at': string;
     /**
      * Custom fields for the organization
-     * @type {{ [key: string]: any; }}
-     * @memberof IdeaOrganization
      */
     'custom_fields'?: { [key: string]: any; };
     /**
      * URL to the organization\'s page
-     * @type {string}
-     * @memberof IdeaOrganization
      */
     'url'?: string;
     /**
      * URL to the organization\'s API resource
-     * @type {string}
-     * @memberof IdeaOrganization
      */
     'resource'?: string;
 }

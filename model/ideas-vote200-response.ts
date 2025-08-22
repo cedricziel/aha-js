@@ -20,23 +20,8 @@ import type { IdeasVote200ResponseIdea } from './ideas-vote200-response-idea';
 // @ts-ignore
 import type { IdeasVote200ResponseVote } from './ideas-vote200-response-vote';
 
-/**
- * 
- * @export
- * @interface IdeasVote200Response
- */
 export interface IdeasVote200Response {
-    /**
-     * 
-     * @type {IdeasVote200ResponseVote}
-     * @memberof IdeasVote200Response
-     */
     'vote'?: IdeasVote200ResponseVote;
-    /**
-     * 
-     * @type {IdeasVote200ResponseIdea}
-     * @memberof IdeasVote200Response
-     */
     'idea'?: IdeasVote200ResponseIdea;
 }
 

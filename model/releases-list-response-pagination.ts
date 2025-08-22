@@ -14,34 +14,21 @@
 
 
 
-/**
- * 
- * @export
- * @interface ReleasesListResponsePagination
- */
 export interface ReleasesListResponsePagination {
     /**
      * Total number of releases
-     * @type {number}
-     * @memberof ReleasesListResponsePagination
      */
     'total_records'?: number;
     /**
      * Total number of pages
-     * @type {number}
-     * @memberof ReleasesListResponsePagination
      */
     'total_pages'?: number;
     /**
      * Current page number
-     * @type {number}
-     * @memberof ReleasesListResponsePagination
      */
     'current_page'?: number;
     /**
      * Number of releases per page
-     * @type {number}
-     * @memberof ReleasesListResponsePagination
      */
     'per_page'?: number;
 }

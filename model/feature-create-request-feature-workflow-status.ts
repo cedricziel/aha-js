@@ -16,15 +16,8 @@
 
 /**
  * Status of the feature — must be a valid status for the selected product
- * @export
- * @interface FeatureCreateRequestFeatureWorkflowStatus
  */
 export interface FeatureCreateRequestFeatureWorkflowStatus {
-    /**
-     * 
-     * @type {string}
-     * @memberof FeatureCreateRequestFeatureWorkflowStatus
-     */
     'name'?: string;
 }
 

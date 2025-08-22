@@ -14,40 +14,25 @@
 
 
 
-/**
- * 
- * @export
- * @interface GoalUpdateRequestKeyResultsInner
- */
 export interface GoalUpdateRequestKeyResultsInner {
     /**
      * ID of existing key result (omit for new key results)
-     * @type {string}
-     * @memberof GoalUpdateRequestKeyResultsInner
      */
     'id'?: string;
     /**
      * Name of the key result
-     * @type {string}
-     * @memberof GoalUpdateRequestKeyResultsInner
      */
     'name'?: string;
     /**
      * Target value for the key result
-     * @type {number}
-     * @memberof GoalUpdateRequestKeyResultsInner
      */
     'target_value'?: number;
     /**
      * Current value of the key result
-     * @type {number}
-     * @memberof GoalUpdateRequestKeyResultsInner
      */
     'current_value'?: number;
     /**
      * Unit of measurement
-     * @type {string}
-     * @memberof GoalUpdateRequestKeyResultsInner
      */
     'unit'?: string;
 }

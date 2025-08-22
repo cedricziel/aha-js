@@ -37,7 +37,6 @@ import type { EpicUpdateRequest } from '../model';
 import type { EpicsList200Response } from '../model';
 /**
  * EpicsApi - axios parameter creator
- * @export
  */
 export const EpicsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -680,7 +679,6 @@ export const EpicsApiAxiosParamCreator = function (configuration?: Configuration
 
 /**
  * EpicsApi - functional programming interface
- * @export
  */
 export const EpicsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = EpicsApiAxiosParamCreator(configuration)
@@ -869,7 +867,6 @@ export const EpicsApiFp = function(configuration?: Configuration) {
 
 /**
  * EpicsApi - factory interface
- * @export
  */
 export const EpicsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = EpicsApiFp(configuration)
@@ -999,8 +996,6 @@ export const EpicsApiFactory = function (configuration?: Configuration, basePath
 
 /**
  * EpicsApi - interface
- * @export
- * @interface EpicsApi
  */
 export interface EpicsApiInterface {
     /**
@@ -1009,7 +1004,6 @@ export interface EpicsApiInterface {
      * @param {EpicsApiCommentsCreateEpicRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApiInterface
      */
     commentsCreateEpic(requestParameters: EpicsApiCommentsCreateEpicRequest, options?: RawAxiosRequestConfig): AxiosPromise<Comment>;
 
@@ -1019,7 +1013,6 @@ export interface EpicsApiInterface {
      * @param {EpicsApiCommentsGetEpicRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApiInterface
      */
     commentsGetEpic(requestParameters: EpicsApiCommentsGetEpicRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsGetEpic200Response>;
 
@@ -1029,7 +1022,6 @@ export interface EpicsApiInterface {
      * @param {EpicsApiEpicsCreateInProductRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApiInterface
      */
     epicsCreateInProduct(requestParameters: EpicsApiEpicsCreateInProductRequest, options?: RawAxiosRequestConfig): AxiosPromise<Epic>;
 
@@ -1039,7 +1031,6 @@ export interface EpicsApiInterface {
      * @param {EpicsApiEpicsCreateInReleaseRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApiInterface
      */
     epicsCreateInRelease(requestParameters: EpicsApiEpicsCreateInReleaseRequest, options?: RawAxiosRequestConfig): AxiosPromise<Epic>;
 
@@ -1049,7 +1040,6 @@ export interface EpicsApiInterface {
      * @param {EpicsApiEpicsDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApiInterface
      */
     epicsDelete(requestParameters: EpicsApiEpicsDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -1059,7 +1049,6 @@ export interface EpicsApiInterface {
      * @param {EpicsApiEpicsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApiInterface
      */
     epicsGet(requestParameters: EpicsApiEpicsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<Epic>;
 
@@ -1069,7 +1058,6 @@ export interface EpicsApiInterface {
      * @param {EpicsApiEpicsListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApiInterface
      */
     epicsList(requestParameters?: EpicsApiEpicsListRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsList200Response>;
 
@@ -1079,7 +1067,6 @@ export interface EpicsApiInterface {
      * @param {EpicsApiEpicsListByGoalRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApiInterface
      */
     epicsListByGoal(requestParameters: EpicsApiEpicsListByGoalRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsList200Response>;
 
@@ -1089,7 +1076,6 @@ export interface EpicsApiInterface {
      * @param {EpicsApiEpicsListByInitiativeRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApiInterface
      */
     epicsListByInitiative(requestParameters: EpicsApiEpicsListByInitiativeRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsList200Response>;
 
@@ -1099,7 +1085,6 @@ export interface EpicsApiInterface {
      * @param {EpicsApiEpicsListInProductRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApiInterface
      */
     epicsListInProduct(requestParameters: EpicsApiEpicsListInProductRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsList200Response>;
 
@@ -1109,7 +1094,6 @@ export interface EpicsApiInterface {
      * @param {EpicsApiEpicsListInReleaseRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApiInterface
      */
     epicsListInRelease(requestParameters: EpicsApiEpicsListInReleaseRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsList200Response>;
 
@@ -1119,7 +1103,6 @@ export interface EpicsApiInterface {
      * @param {EpicsApiEpicsUpdateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApiInterface
      */
     epicsUpdate(requestParameters: EpicsApiEpicsUpdateRequest, options?: RawAxiosRequestConfig): AxiosPromise<Epic>;
 
@@ -1127,338 +1110,223 @@ export interface EpicsApiInterface {
 
 /**
  * Request parameters for commentsCreateEpic operation in EpicsApi.
- * @export
- * @interface EpicsApiCommentsCreateEpicRequest
  */
 export interface EpicsApiCommentsCreateEpicRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsApiCommentsCreateEpic
-     */
     readonly epicId: string
 
-    /**
-     * 
-     * @type {CommentCreateRequest}
-     * @memberof EpicsApiCommentsCreateEpic
-     */
     readonly commentCreateRequest: CommentCreateRequest
 }
 
 /**
  * Request parameters for commentsGetEpic operation in EpicsApi.
- * @export
- * @interface EpicsApiCommentsGetEpicRequest
  */
 export interface EpicsApiCommentsGetEpicRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsApiCommentsGetEpic
-     */
     readonly epicId: string
 }
 
 /**
  * Request parameters for epicsCreateInProduct operation in EpicsApi.
- * @export
- * @interface EpicsApiEpicsCreateInProductRequest
  */
 export interface EpicsApiEpicsCreateInProductRequest {
     /**
      * Numeric ID or key of the product the epic should be created in
-     * @type {string}
-     * @memberof EpicsApiEpicsCreateInProduct
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {EpicCreateRequest}
-     * @memberof EpicsApiEpicsCreateInProduct
-     */
     readonly epicCreateRequest: EpicCreateRequest
 }
 
 /**
  * Request parameters for epicsCreateInRelease operation in EpicsApi.
- * @export
- * @interface EpicsApiEpicsCreateInReleaseRequest
  */
 export interface EpicsApiEpicsCreateInReleaseRequest {
     /**
      * Numeric ID or key of the release the epic should be created in
-     * @type {string}
-     * @memberof EpicsApiEpicsCreateInRelease
      */
     readonly releaseId: string
 
-    /**
-     * 
-     * @type {EpicCreateRequest}
-     * @memberof EpicsApiEpicsCreateInRelease
-     */
     readonly epicCreateRequest: EpicCreateRequest
 }
 
 /**
  * Request parameters for epicsDelete operation in EpicsApi.
- * @export
- * @interface EpicsApiEpicsDeleteRequest
  */
 export interface EpicsApiEpicsDeleteRequest {
     /**
      * Numeric ID or key of the epic
-     * @type {string}
-     * @memberof EpicsApiEpicsDelete
      */
     readonly epicId: string
 }
 
 /**
  * Request parameters for epicsGet operation in EpicsApi.
- * @export
- * @interface EpicsApiEpicsGetRequest
  */
 export interface EpicsApiEpicsGetRequest {
     /**
      * Numeric ID or key of the epic
-     * @type {string}
-     * @memberof EpicsApiEpicsGet
      */
     readonly epicId: string
 }
 
 /**
  * Request parameters for epicsList operation in EpicsApi.
- * @export
- * @interface EpicsApiEpicsListRequest
  */
 export interface EpicsApiEpicsListRequest {
     /**
      * Search term to match against epic name
-     * @type {string}
-     * @memberof EpicsApiEpicsList
      */
     readonly q?: string
 
     /**
      * UTC timestamp for filtering recently updated epics
-     * @type {string}
-     * @memberof EpicsApiEpicsList
      */
     readonly updatedSince?: string
 
     /**
      * String tag to filter epics
-     * @type {string}
-     * @memberof EpicsApiEpicsList
      */
     readonly tag?: string
 
     /**
      * User ID or email to filter by assignee
-     * @type {string}
-     * @memberof EpicsApiEpicsList
      */
     readonly assignedToUser?: string
 }
 
 /**
  * Request parameters for epicsListByGoal operation in EpicsApi.
- * @export
- * @interface EpicsApiEpicsListByGoalRequest
  */
 export interface EpicsApiEpicsListByGoalRequest {
     /**
      * Numeric ID or key of the goal
-     * @type {string}
-     * @memberof EpicsApiEpicsListByGoal
      */
     readonly goalId: string
 
     /**
      * Search term to match against epic name
-     * @type {string}
-     * @memberof EpicsApiEpicsListByGoal
      */
     readonly q?: string
 
     /**
      * UTC timestamp for filtering recently updated epics
-     * @type {string}
-     * @memberof EpicsApiEpicsListByGoal
      */
     readonly updatedSince?: string
 
     /**
      * String tag to filter epics
-     * @type {string}
-     * @memberof EpicsApiEpicsListByGoal
      */
     readonly tag?: string
 
     /**
      * User ID or email to filter by assignee
-     * @type {string}
-     * @memberof EpicsApiEpicsListByGoal
      */
     readonly assignedToUser?: string
 }
 
 /**
  * Request parameters for epicsListByInitiative operation in EpicsApi.
- * @export
- * @interface EpicsApiEpicsListByInitiativeRequest
  */
 export interface EpicsApiEpicsListByInitiativeRequest {
     /**
      * Numeric ID or key of the initiative
-     * @type {string}
-     * @memberof EpicsApiEpicsListByInitiative
      */
     readonly initiativeId: string
 
     /**
      * Search term to match against epic name
-     * @type {string}
-     * @memberof EpicsApiEpicsListByInitiative
      */
     readonly q?: string
 
     /**
      * UTC timestamp for filtering recently updated epics
-     * @type {string}
-     * @memberof EpicsApiEpicsListByInitiative
      */
     readonly updatedSince?: string
 
     /**
      * String tag to filter epics
-     * @type {string}
-     * @memberof EpicsApiEpicsListByInitiative
      */
     readonly tag?: string
 
     /**
      * User ID or email to filter by assignee
-     * @type {string}
-     * @memberof EpicsApiEpicsListByInitiative
      */
     readonly assignedToUser?: string
 }
 
 /**
  * Request parameters for epicsListInProduct operation in EpicsApi.
- * @export
- * @interface EpicsApiEpicsListInProductRequest
  */
 export interface EpicsApiEpicsListInProductRequest {
     /**
      * Numeric ID or key of the product
-     * @type {string}
-     * @memberof EpicsApiEpicsListInProduct
      */
     readonly productId: string
 
     /**
      * Search term to match against epic name
-     * @type {string}
-     * @memberof EpicsApiEpicsListInProduct
      */
     readonly q?: string
 
     /**
      * UTC timestamp for filtering recently updated epics
-     * @type {string}
-     * @memberof EpicsApiEpicsListInProduct
      */
     readonly updatedSince?: string
 
     /**
      * String tag to filter epics
-     * @type {string}
-     * @memberof EpicsApiEpicsListInProduct
      */
     readonly tag?: string
 
     /**
      * User ID or email to filter by assignee
-     * @type {string}
-     * @memberof EpicsApiEpicsListInProduct
      */
     readonly assignedToUser?: string
 }
 
 /**
  * Request parameters for epicsListInRelease operation in EpicsApi.
- * @export
- * @interface EpicsApiEpicsListInReleaseRequest
  */
 export interface EpicsApiEpicsListInReleaseRequest {
     /**
      * Numeric ID or key of the release
-     * @type {string}
-     * @memberof EpicsApiEpicsListInRelease
      */
     readonly releaseId: string
 
     /**
      * Search term to match against epic name
-     * @type {string}
-     * @memberof EpicsApiEpicsListInRelease
      */
     readonly q?: string
 
     /**
      * UTC timestamp for filtering recently updated epics
-     * @type {string}
-     * @memberof EpicsApiEpicsListInRelease
      */
     readonly updatedSince?: string
 
     /**
      * String tag to filter epics
-     * @type {string}
-     * @memberof EpicsApiEpicsListInRelease
      */
     readonly tag?: string
 
     /**
      * User ID or email to filter by assignee
-     * @type {string}
-     * @memberof EpicsApiEpicsListInRelease
      */
     readonly assignedToUser?: string
 }
 
 /**
  * Request parameters for epicsUpdate operation in EpicsApi.
- * @export
- * @interface EpicsApiEpicsUpdateRequest
  */
 export interface EpicsApiEpicsUpdateRequest {
     /**
      * Numeric ID or key of the epic
-     * @type {string}
-     * @memberof EpicsApiEpicsUpdate
      */
     readonly epicId: string
 
-    /**
-     * 
-     * @type {EpicUpdateRequest}
-     * @memberof EpicsApiEpicsUpdate
-     */
     readonly epicUpdateRequest: EpicUpdateRequest
 }
 
 /**
  * EpicsApi - object-oriented interface
- * @export
- * @class EpicsApi
- * @extends {BaseAPI}
  */
 export class EpicsApi extends BaseAPI implements EpicsApiInterface {
     /**
@@ -1467,7 +1335,6 @@ export class EpicsApi extends BaseAPI implements EpicsApiInterface {
      * @param {EpicsApiCommentsCreateEpicRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApi
      */
     public commentsCreateEpic(requestParameters: EpicsApiCommentsCreateEpicRequest, options?: RawAxiosRequestConfig) {
         return EpicsApiFp(this.configuration).commentsCreateEpic(requestParameters.epicId, requestParameters.commentCreateRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1479,7 +1346,6 @@ export class EpicsApi extends BaseAPI implements EpicsApiInterface {
      * @param {EpicsApiCommentsGetEpicRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApi
      */
     public commentsGetEpic(requestParameters: EpicsApiCommentsGetEpicRequest, options?: RawAxiosRequestConfig) {
         return EpicsApiFp(this.configuration).commentsGetEpic(requestParameters.epicId, options).then((request) => request(this.axios, this.basePath));
@@ -1491,7 +1357,6 @@ export class EpicsApi extends BaseAPI implements EpicsApiInterface {
      * @param {EpicsApiEpicsCreateInProductRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApi
      */
     public epicsCreateInProduct(requestParameters: EpicsApiEpicsCreateInProductRequest, options?: RawAxiosRequestConfig) {
         return EpicsApiFp(this.configuration).epicsCreateInProduct(requestParameters.productId, requestParameters.epicCreateRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1503,7 +1368,6 @@ export class EpicsApi extends BaseAPI implements EpicsApiInterface {
      * @param {EpicsApiEpicsCreateInReleaseRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApi
      */
     public epicsCreateInRelease(requestParameters: EpicsApiEpicsCreateInReleaseRequest, options?: RawAxiosRequestConfig) {
         return EpicsApiFp(this.configuration).epicsCreateInRelease(requestParameters.releaseId, requestParameters.epicCreateRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1515,7 +1379,6 @@ export class EpicsApi extends BaseAPI implements EpicsApiInterface {
      * @param {EpicsApiEpicsDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApi
      */
     public epicsDelete(requestParameters: EpicsApiEpicsDeleteRequest, options?: RawAxiosRequestConfig) {
         return EpicsApiFp(this.configuration).epicsDelete(requestParameters.epicId, options).then((request) => request(this.axios, this.basePath));
@@ -1527,7 +1390,6 @@ export class EpicsApi extends BaseAPI implements EpicsApiInterface {
      * @param {EpicsApiEpicsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApi
      */
     public epicsGet(requestParameters: EpicsApiEpicsGetRequest, options?: RawAxiosRequestConfig) {
         return EpicsApiFp(this.configuration).epicsGet(requestParameters.epicId, options).then((request) => request(this.axios, this.basePath));
@@ -1539,7 +1401,6 @@ export class EpicsApi extends BaseAPI implements EpicsApiInterface {
      * @param {EpicsApiEpicsListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApi
      */
     public epicsList(requestParameters: EpicsApiEpicsListRequest = {}, options?: RawAxiosRequestConfig) {
         return EpicsApiFp(this.configuration).epicsList(requestParameters.q, requestParameters.updatedSince, requestParameters.tag, requestParameters.assignedToUser, options).then((request) => request(this.axios, this.basePath));
@@ -1551,7 +1412,6 @@ export class EpicsApi extends BaseAPI implements EpicsApiInterface {
      * @param {EpicsApiEpicsListByGoalRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApi
      */
     public epicsListByGoal(requestParameters: EpicsApiEpicsListByGoalRequest, options?: RawAxiosRequestConfig) {
         return EpicsApiFp(this.configuration).epicsListByGoal(requestParameters.goalId, requestParameters.q, requestParameters.updatedSince, requestParameters.tag, requestParameters.assignedToUser, options).then((request) => request(this.axios, this.basePath));
@@ -1563,7 +1423,6 @@ export class EpicsApi extends BaseAPI implements EpicsApiInterface {
      * @param {EpicsApiEpicsListByInitiativeRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApi
      */
     public epicsListByInitiative(requestParameters: EpicsApiEpicsListByInitiativeRequest, options?: RawAxiosRequestConfig) {
         return EpicsApiFp(this.configuration).epicsListByInitiative(requestParameters.initiativeId, requestParameters.q, requestParameters.updatedSince, requestParameters.tag, requestParameters.assignedToUser, options).then((request) => request(this.axios, this.basePath));
@@ -1575,7 +1434,6 @@ export class EpicsApi extends BaseAPI implements EpicsApiInterface {
      * @param {EpicsApiEpicsListInProductRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApi
      */
     public epicsListInProduct(requestParameters: EpicsApiEpicsListInProductRequest, options?: RawAxiosRequestConfig) {
         return EpicsApiFp(this.configuration).epicsListInProduct(requestParameters.productId, requestParameters.q, requestParameters.updatedSince, requestParameters.tag, requestParameters.assignedToUser, options).then((request) => request(this.axios, this.basePath));
@@ -1587,7 +1445,6 @@ export class EpicsApi extends BaseAPI implements EpicsApiInterface {
      * @param {EpicsApiEpicsListInReleaseRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApi
      */
     public epicsListInRelease(requestParameters: EpicsApiEpicsListInReleaseRequest, options?: RawAxiosRequestConfig) {
         return EpicsApiFp(this.configuration).epicsListInRelease(requestParameters.releaseId, requestParameters.q, requestParameters.updatedSince, requestParameters.tag, requestParameters.assignedToUser, options).then((request) => request(this.axios, this.basePath));
@@ -1599,7 +1456,6 @@ export class EpicsApi extends BaseAPI implements EpicsApiInterface {
      * @param {EpicsApiEpicsUpdateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApi
      */
     public epicsUpdate(requestParameters: EpicsApiEpicsUpdateRequest, options?: RawAxiosRequestConfig) {
         return EpicsApiFp(this.configuration).epicsUpdate(requestParameters.epicId, requestParameters.epicUpdateRequest, options).then((request) => request(this.axios, this.basePath));

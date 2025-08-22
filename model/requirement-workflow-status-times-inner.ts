@@ -14,34 +14,21 @@
 
 
 
-/**
- * 
- * @export
- * @interface RequirementWorkflowStatusTimesInner
- */
 export interface RequirementWorkflowStatusTimesInner {
     /**
      * ID of the workflow status
-     * @type {string}
-     * @memberof RequirementWorkflowStatusTimesInner
      */
     'status_id'?: string;
     /**
      * Name of the workflow status
-     * @type {string}
-     * @memberof RequirementWorkflowStatusTimesInner
      */
     'status_name'?: string;
     /**
      * When this status was started
-     * @type {string}
-     * @memberof RequirementWorkflowStatusTimesInner
      */
     'started_at'?: string;
     /**
      * When this status was ended
-     * @type {string}
-     * @memberof RequirementWorkflowStatusTimesInner
      */
     'ended_at'?: string | null;
 }

@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeaResponseIdeaCreatedByPortalUser
- */
 export interface IdeaResponseIdeaCreatedByPortalUser {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaResponseIdeaCreatedByPortalUser
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaResponseIdeaCreatedByPortalUser
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaResponseIdeaCreatedByPortalUser
-     */
     'email'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaResponseIdeaCreatedByPortalUser
-     */
     'created_at'?: string;
 }
 

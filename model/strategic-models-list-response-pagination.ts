@@ -14,34 +14,21 @@
 
 
 
-/**
- * 
- * @export
- * @interface StrategicModelsListResponsePagination
- */
 export interface StrategicModelsListResponsePagination {
     /**
      * Total number of strategic models
-     * @type {number}
-     * @memberof StrategicModelsListResponsePagination
      */
     'total_records'?: number;
     /**
      * Total number of pages
-     * @type {number}
-     * @memberof StrategicModelsListResponsePagination
      */
     'total_pages'?: number;
     /**
      * Current page number
-     * @type {number}
-     * @memberof StrategicModelsListResponsePagination
      */
     'current_page'?: number;
     /**
      * Number of strategic models per page
-     * @type {number}
-     * @memberof StrategicModelsListResponsePagination
      */
     'per_page'?: number;
 }

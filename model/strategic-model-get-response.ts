@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { StrategicModel } from './strategic-model';
 
-/**
- * 
- * @export
- * @interface StrategicModelGetResponse
- */
 export interface StrategicModelGetResponse {
-    /**
-     * 
-     * @type {StrategicModel}
-     * @memberof StrategicModelGetResponse
-     */
     'strategic_model'?: StrategicModel;
 }
 

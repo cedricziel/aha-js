@@ -16,20 +16,14 @@
 
 /**
  * Time frame for this initiative
- * @export
- * @interface InitiativeCreateRequestInitiativeTimeFrame
  */
 export interface InitiativeCreateRequestInitiativeTimeFrame {
     /**
      * ID of the time frame
-     * @type {number}
-     * @memberof InitiativeCreateRequestInitiativeTimeFrame
      */
     'id'?: number;
     /**
      * Name of the time frame
-     * @type {string}
-     * @memberof InitiativeCreateRequestInitiativeTimeFrame
      */
     'name'?: string;
 }

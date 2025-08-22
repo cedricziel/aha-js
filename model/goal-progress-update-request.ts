@@ -17,34 +17,21 @@
 // @ts-ignore
 import type { GoalProgressUpdateRequestKeyResultsInner } from './goal-progress-update-request-key-results-inner';
 
-/**
- * 
- * @export
- * @interface GoalProgressUpdateRequest
- */
 export interface GoalProgressUpdateRequest {
     /**
      * Progress percentage towards goal completion
-     * @type {number}
-     * @memberof GoalProgressUpdateRequest
      */
     'progress'?: number;
     /**
      * Source for calculating progress
-     * @type {string}
-     * @memberof GoalProgressUpdateRequest
      */
     'progress_source'?: GoalProgressUpdateRequestProgressSourceEnum;
     /**
      * Key results progress updates
-     * @type {Array<GoalProgressUpdateRequestKeyResultsInner>}
-     * @memberof GoalProgressUpdateRequest
      */
     'key_results'?: Array<GoalProgressUpdateRequestKeyResultsInner>;
     /**
      * Notes about the progress update
-     * @type {string}
-     * @memberof GoalProgressUpdateRequest
      */
     'notes'?: string;
 }

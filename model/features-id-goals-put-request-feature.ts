@@ -14,16 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface FeaturesIdGoalsPutRequestFeature
- */
 export interface FeaturesIdGoalsPutRequestFeature {
     /**
      * Array of goal IDs to associate with the feature
-     * @type {Array<number>}
-     * @memberof FeaturesIdGoalsPutRequestFeature
      */
     'goals'?: Array<number>;
 }

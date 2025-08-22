@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { ReleasePhase } from './release-phase';
 
-/**
- * 
- * @export
- * @interface ReleasePhasesCreate201Response
- */
 export interface ReleasePhasesCreate201Response {
-    /**
-     * 
-     * @type {ReleasePhase}
-     * @memberof ReleasePhasesCreate201Response
-     */
     'release_phase'?: ReleasePhase;
 }
 

@@ -14,52 +14,33 @@
 
 
 
-/**
- * 
- * @export
- * @interface TodoCreateRequestTask
- */
 export interface TodoCreateRequestTask {
     /**
      * Name of the to-do
-     * @type {string}
-     * @memberof TodoCreateRequestTask
      */
     'name': string;
     /**
      * Description of the to-do
-     * @type {string}
-     * @memberof TodoCreateRequestTask
      */
     'body': string;
     /**
      * Type of the record this to-do belongs to
-     * @type {string}
-     * @memberof TodoCreateRequestTask
      */
     'taskable_type'?: TodoCreateRequestTaskTaskableTypeEnum;
     /**
      * ID of the record this to-do belongs to
-     * @type {string}
-     * @memberof TodoCreateRequestTask
      */
     'taskable_id'?: string;
     /**
      * Type of the to-do
-     * @type {string}
-     * @memberof TodoCreateRequestTask
      */
     'type'?: TodoCreateRequestTaskTypeEnum;
     /**
      * Email addresses of assigned users
-     * @type {Array<string>}
-     * @memberof TodoCreateRequestTask
      */
     'assigned_to_users'?: Array<string>;
     /**
      * Due date of the to-do
-     * @type {string}
-     * @memberof TodoCreateRequestTask
      */
     'due_date'?: string;
 }

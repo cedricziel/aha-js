@@ -16,44 +16,30 @@
 
 /**
  * The release this phase belongs to
- * @export
- * @interface ReleasePhaseRelease
  */
 export interface ReleasePhaseRelease {
     /**
      * ID of the release
-     * @type {string}
-     * @memberof ReleasePhaseRelease
      */
     'id'?: string;
     /**
      * Name of the release
-     * @type {string}
-     * @memberof ReleasePhaseRelease
      */
     'name'?: string;
     /**
      * Reference number of the release
-     * @type {string}
-     * @memberof ReleasePhaseRelease
      */
     'reference_num'?: string;
     /**
      * URL to view the release in the web interface
-     * @type {string}
-     * @memberof ReleasePhaseRelease
      */
     'url'?: string;
     /**
      * API URL for the release
-     * @type {string}
-     * @memberof ReleasePhaseRelease
      */
     'resource'?: string;
     /**
      * ID of the product
-     * @type {string}
-     * @memberof ReleasePhaseRelease
      */
     'product_id'?: string;
 }

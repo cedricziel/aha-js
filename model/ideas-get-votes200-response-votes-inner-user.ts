@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeasGetVotes200ResponseVotesInnerUser
- */
 export interface IdeasGetVotes200ResponseVotesInnerUser {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasGetVotes200ResponseVotesInnerUser
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasGetVotes200ResponseVotesInnerUser
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasGetVotes200ResponseVotesInnerUser
-     */
     'email'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasGetVotes200ResponseVotesInnerUser
-     */
     'type'?: IdeasGetVotes200ResponseVotesInnerUserTypeEnum;
 }
 

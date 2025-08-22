@@ -14,16 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface FeaturesIdReleasePutRequestFeature
- */
 export interface FeaturesIdReleasePutRequestFeature {
     /**
      * Numeric ID or key of the release the feature should be moved to
-     * @type {string}
-     * @memberof FeaturesIdReleasePutRequestFeature
      */
     'release'?: string;
 }
