@@ -1,6 +1,6 @@
 {
   "name": "@cedricziel/aha-js",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "OpenAPI client for @cedricziel/aha-js",
   "author": "OpenAPI-Generator Contributors",
   "repository": {
