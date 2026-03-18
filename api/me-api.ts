@@ -411,13 +411,13 @@ export const MeGetAssignedRecordsTypeEnum = {
     INITIATIVE: 'initiative',
     GOAL: 'goal',
     RELEASE: 'release',
-    TODO: 'todo'
+    TODO: 'todo',
 } as const;
 export type MeGetAssignedRecordsTypeEnum = typeof MeGetAssignedRecordsTypeEnum[keyof typeof MeGetAssignedRecordsTypeEnum];
 export const MeGetPendingTasksPriorityEnum = {
     LOW: 'low',
     MEDIUM: 'medium',
     HIGH: 'high',
-    URGENT: 'urgent'
+    URGENT: 'urgent',
 } as const;
 export type MeGetPendingTasksPriorityEnum = typeof MeGetPendingTasksPriorityEnum[keyof typeof MeGetPendingTasksPriorityEnum];

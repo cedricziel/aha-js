@@ -67,7 +67,7 @@ export interface IdeaUpdateRequest {
 export const IdeaUpdateRequestVisibilityEnum = {
     VISIBLE_TO_ALL_IDEAS_PORTAL_USERS: 'Visible to all ideas portal users',
     VISIBLE_TO_ADMINISTRATORS_ONLY: 'Visible to administrators only',
-    HIDDEN: 'Hidden'
+    HIDDEN: 'Hidden',
 } as const;
 
 export type IdeaUpdateRequestVisibilityEnum = typeof IdeaUpdateRequestVisibilityEnum[keyof typeof IdeaUpdateRequestVisibilityEnum];

@@ -90,7 +90,7 @@ export interface ReleasePhase {
 
 export const ReleasePhaseTypeEnum = {
     PHASE: 'phase',
-    MILESTONE: 'milestone'
+    MILESTONE: 'milestone',
 } as const;
 
 export type ReleasePhaseTypeEnum = typeof ReleasePhaseTypeEnum[keyof typeof ReleasePhaseTypeEnum];
@@ -98,13 +98,13 @@ export const ReleasePhaseProgressSourceEnum = {
     PROGRESS_MANUAL: 'progress_manual',
     PROGRESS_FROM_FEATURES: 'progress_from_features',
     PROGRESS_FROM_TODOS: 'progress_from_todos',
-    PROGRESS_FROM_FEATURES_COMPLETED: 'progress_from_features_completed'
+    PROGRESS_FROM_FEATURES_COMPLETED: 'progress_from_features_completed',
 } as const;
 
 export type ReleasePhaseProgressSourceEnum = typeof ReleasePhaseProgressSourceEnum[keyof typeof ReleasePhaseProgressSourceEnum];
 export const ReleasePhaseDurationSourceEnum = {
     DURATION_MANUAL: 'duration_manual',
-    DURATION_FROM_FEATURES: 'duration_from_features'
+    DURATION_FROM_FEATURES: 'duration_from_features',
 } as const;
 
 export type ReleasePhaseDurationSourceEnum = typeof ReleasePhaseDurationSourceEnum[keyof typeof ReleasePhaseDurationSourceEnum];

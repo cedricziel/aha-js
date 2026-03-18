@@ -26,7 +26,7 @@ export interface IdeasGetVotes200ResponseVotesInner {
 
 export const IdeasGetVotes200ResponseVotesInnerVoteTypeEnum = {
     UP: 'up',
-    DOWN: 'down'
+    DOWN: 'down',
 } as const;
 
 export type IdeasGetVotes200ResponseVotesInnerVoteTypeEnum = typeof IdeasGetVotes200ResponseVotesInnerVoteTypeEnum[keyof typeof IdeasGetVotes200ResponseVotesInnerVoteTypeEnum];

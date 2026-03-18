@@ -65,7 +65,7 @@ export const MeAssignedRecordsResponseRecordsInnerTypeEnum = {
     INITIATIVE: 'initiative',
     GOAL: 'goal',
     RELEASE: 'release',
-    TODO: 'todo'
+    TODO: 'todo',
 } as const;
 
 export type MeAssignedRecordsResponseRecordsInnerTypeEnum = typeof MeAssignedRecordsResponseRecordsInnerTypeEnum[keyof typeof MeAssignedRecordsResponseRecordsInnerTypeEnum];

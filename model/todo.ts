@@ -87,7 +87,7 @@ export interface Todo {
 export const TodoStatusEnum = {
     PENDING: 'pending',
     IN_PROGRESS: 'in_progress',
-    COMPLETED: 'completed'
+    COMPLETED: 'completed',
 } as const;
 
 export type TodoStatusEnum = typeof TodoStatusEnum[keyof typeof TodoStatusEnum];

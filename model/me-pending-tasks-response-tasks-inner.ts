@@ -69,7 +69,7 @@ export const MePendingTasksResponseTasksInnerPriorityEnum = {
     LOW: 'low',
     MEDIUM: 'medium',
     HIGH: 'high',
-    URGENT: 'urgent'
+    URGENT: 'urgent',
 } as const;
 
 export type MePendingTasksResponseTasksInnerPriorityEnum = typeof MePendingTasksResponseTasksInnerPriorityEnum[keyof typeof MePendingTasksResponseTasksInnerPriorityEnum];
@@ -77,7 +77,7 @@ export const MePendingTasksResponseTasksInnerStatusEnum = {
     PENDING: 'pending',
     IN_PROGRESS: 'in_progress',
     COMPLETED: 'completed',
-    CANCELLED: 'cancelled'
+    CANCELLED: 'cancelled',
 } as const;
 
 export type MePendingTasksResponseTasksInnerStatusEnum = typeof MePendingTasksResponseTasksInnerStatusEnum[keyof typeof MePendingTasksResponseTasksInnerStatusEnum];

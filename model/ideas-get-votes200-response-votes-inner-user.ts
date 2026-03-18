@@ -23,7 +23,7 @@ export interface IdeasGetVotes200ResponseVotesInnerUser {
 
 export const IdeasGetVotes200ResponseVotesInnerUserTypeEnum = {
     USER: 'user',
-    PROXY_USER: 'proxy_user'
+    PROXY_USER: 'proxy_user',
 } as const;
 
 export type IdeasGetVotes200ResponseVotesInnerUserTypeEnum = typeof IdeasGetVotes200ResponseVotesInnerUserTypeEnum[keyof typeof IdeasGetVotes200ResponseVotesInnerUserTypeEnum];

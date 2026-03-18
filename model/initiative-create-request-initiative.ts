@@ -79,7 +79,7 @@ export const InitiativeCreateRequestInitiativeProgressSourceEnum = {
     PROGRESS_FROM_RELEASES: 'progress_from_releases',
     PROGRESS_FROM_CHILDREN: 'progress_from_children',
     PROGRESS_FROM_FEATURES_COMPLETED: 'progress_from_features_completed',
-    PROGRESS_FROM_EPICS: 'progress_from_epics'
+    PROGRESS_FROM_EPICS: 'progress_from_epics',
 } as const;
 
 export type InitiativeCreateRequestInitiativeProgressSourceEnum = typeof InitiativeCreateRequestInitiativeProgressSourceEnum[keyof typeof InitiativeCreateRequestInitiativeProgressSourceEnum];
@@ -87,7 +87,7 @@ export const InitiativeCreateRequestInitiativeDurationSourceEnum = {
     DURATION_MANUAL: 'duration_manual',
     DURATION_FROM_CHILDREN: 'duration_from_children',
     DURATION_FROM_RELEASES: 'duration_from_releases',
-    DURATION_FROM_FEATURES_EPICS: 'duration_from_features_epics'
+    DURATION_FROM_FEATURES_EPICS: 'duration_from_features_epics',
 } as const;
 
 export type InitiativeCreateRequestInitiativeDurationSourceEnum = typeof InitiativeCreateRequestInitiativeDurationSourceEnum[keyof typeof InitiativeCreateRequestInitiativeDurationSourceEnum];

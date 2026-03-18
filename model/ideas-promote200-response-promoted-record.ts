@@ -44,7 +44,7 @@ export interface IdeasPromote200ResponsePromotedRecord {
 export const IdeasPromote200ResponsePromotedRecordTypeEnum = {
     FEATURE: 'feature',
     EPIC: 'epic',
-    INITIATIVE: 'initiative'
+    INITIATIVE: 'initiative',
 } as const;
 
 export type IdeasPromote200ResponsePromotedRecordTypeEnum = typeof IdeasPromote200ResponsePromotedRecordTypeEnum[keyof typeof IdeasPromote200ResponsePromotedRecordTypeEnum];

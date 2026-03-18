@@ -67,14 +67,14 @@ export const TodoCreateRequestTaskTaskableTypeEnum = {
     RELEASE_PHASE: 'ReleasePhase',
     REQUIREMENT: 'Requirement',
     STRATEGIC_IMPERATIVE: 'StrategicImperative',
-    STRATEGIC_IMPERATIVE_BACKGROUND: 'StrategicImperativeBackground'
+    STRATEGIC_IMPERATIVE_BACKGROUND: 'StrategicImperativeBackground',
 } as const;
 
 export type TodoCreateRequestTaskTaskableTypeEnum = typeof TodoCreateRequestTaskTaskableTypeEnum[keyof typeof TodoCreateRequestTaskTaskableTypeEnum];
 export const TodoCreateRequestTaskTypeEnum = {
     TASK: 'Task',
     APPROVAL: 'Approval',
-    WORK_REQUEST: 'WorkRequest'
+    WORK_REQUEST: 'WorkRequest',
 } as const;
 
 export type TodoCreateRequestTaskTypeEnum = typeof TodoCreateRequestTaskTypeEnum[keyof typeof TodoCreateRequestTaskTypeEnum];

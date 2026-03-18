@@ -80,7 +80,7 @@ export const StrategicModelTypeEnum = {
     VALUE_PROPOSITION_CANVAS: 'value_proposition_canvas',
     BUSINESS_MODEL_CANVAS: 'business_model_canvas',
     LEAN_CANVAS: 'lean_canvas',
-    CUSTOM: 'custom'
+    CUSTOM: 'custom',
 } as const;
 
 export type StrategicModelTypeEnum = typeof StrategicModelTypeEnum[keyof typeof StrategicModelTypeEnum];

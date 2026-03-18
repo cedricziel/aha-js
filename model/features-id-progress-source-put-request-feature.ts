@@ -25,7 +25,7 @@ export const FeaturesIdProgressSourcePutRequestFeatureProgressSourceEnum = {
     PROGRESS_MANUAL: 'progress_manual',
     PROGRESS_FROM_REQUIREMENTS: 'progress_from_requirements',
     PROGRESS_FROM_REMAINING_ESTIMATE: 'progress_from_remaining_estimate',
-    PROGRESS_FROM_TODOS: 'progress_from_todos'
+    PROGRESS_FROM_TODOS: 'progress_from_todos',
 } as const;
 
 export type FeaturesIdProgressSourcePutRequestFeatureProgressSourceEnum = typeof FeaturesIdProgressSourcePutRequestFeatureProgressSourceEnum[keyof typeof FeaturesIdProgressSourcePutRequestFeatureProgressSourceEnum];

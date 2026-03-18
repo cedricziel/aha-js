@@ -2435,12 +2435,12 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
 export const IdeasListSortEnum = {
     RECENT: 'recent',
     TRENDING: 'trending',
-    POPULAR: 'popular'
+    POPULAR: 'popular',
 } as const;
 export type IdeasListSortEnum = typeof IdeasListSortEnum[keyof typeof IdeasListSortEnum];
 export const IdeasListProductSortEnum = {
     RECENT: 'recent',
     TRENDING: 'trending',
-    POPULAR: 'popular'
+    POPULAR: 'popular',
 } as const;
 export type IdeasListProductSortEnum = typeof IdeasListProductSortEnum[keyof typeof IdeasListProductSortEnum];

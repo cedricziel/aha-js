@@ -35,7 +35,7 @@ export interface IdeaVoteRequest {
 
 export const IdeaVoteRequestVoteTypeEnum = {
     UP: 'up',
-    DOWN: 'down'
+    DOWN: 'down',
 } as const;
 
 export type IdeaVoteRequestVoteTypeEnum = typeof IdeaVoteRequestVoteTypeEnum[keyof typeof IdeaVoteRequestVoteTypeEnum];

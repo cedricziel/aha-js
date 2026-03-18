@@ -78,7 +78,7 @@ export interface GoalUpdateRequest {
 
 export const GoalUpdateRequestProgressSourceEnum = {
     PROGRESS_MANUAL: 'progress_manual',
-    PROGRESS_ROLLUP: 'progress_rollup'
+    PROGRESS_ROLLUP: 'progress_rollup',
 } as const;
 
 export type GoalUpdateRequestProgressSourceEnum = typeof GoalUpdateRequestProgressSourceEnum[keyof typeof GoalUpdateRequestProgressSourceEnum];

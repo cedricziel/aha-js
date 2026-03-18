@@ -40,7 +40,7 @@ export interface TodoUpdateRequestTask {
 export const TodoUpdateRequestTaskStatusEnum = {
     PENDING: 'pending',
     IN_PROGRESS: 'in_progress',
-    COMPLETED: 'completed'
+    COMPLETED: 'completed',
 } as const;
 
 export type TodoUpdateRequestTaskStatusEnum = typeof TodoUpdateRequestTaskStatusEnum[keyof typeof TodoUpdateRequestTaskStatusEnum];

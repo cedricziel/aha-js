@@ -95,7 +95,7 @@ export interface EpicUpdateRequestEpic {
 
 export const EpicUpdateRequestEpicDurationSourceEnum = {
     DURATION_MANUAL: 'duration_manual',
-    DURATION_FROM_FEATURES: 'duration_from_features'
+    DURATION_FROM_FEATURES: 'duration_from_features',
 } as const;
 
 export type EpicUpdateRequestEpicDurationSourceEnum = typeof EpicUpdateRequestEpicDurationSourceEnum[keyof typeof EpicUpdateRequestEpicDurationSourceEnum];

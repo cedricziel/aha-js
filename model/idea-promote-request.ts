@@ -56,7 +56,7 @@ export interface IdeaPromoteRequest {
 export const IdeaPromoteRequestPromoteToEnum = {
     FEATURE: 'feature',
     EPIC: 'epic',
-    INITIATIVE: 'initiative'
+    INITIATIVE: 'initiative',
 } as const;
 
 export type IdeaPromoteRequestPromoteToEnum = typeof IdeaPromoteRequestPromoteToEnum[keyof typeof IdeaPromoteRequestPromoteToEnum];
