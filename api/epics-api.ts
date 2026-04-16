@@ -54,7 +54,7 @@ export const EpicsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'commentCreateRequest' is not null or undefined
             assertParamExists('commentsCreateEpic', 'commentCreateRequest', commentCreateRequest)
             const localVarPath = `/epics/{epic_id}/comments`
-                .replace(`{${"epic_id"}}`, encodeURIComponent(String(epicId)));
+                .replace('{epic_id}', encodeURIComponent(String(epicId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -98,7 +98,7 @@ export const EpicsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'epicId' is not null or undefined
             assertParamExists('commentsGetEpic', 'epicId', epicId)
             const localVarPath = `/epics/{epic_id}/comments`
-                .replace(`{${"epic_id"}}`, encodeURIComponent(String(epicId)));
+                .replace('{epic_id}', encodeURIComponent(String(epicId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -143,7 +143,7 @@ export const EpicsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'epicCreateRequest' is not null or undefined
             assertParamExists('epicsCreateInProduct', 'epicCreateRequest', epicCreateRequest)
             const localVarPath = `/products/{product_id}/epics`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -190,7 +190,7 @@ export const EpicsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'epicCreateRequest' is not null or undefined
             assertParamExists('epicsCreateInRelease', 'epicCreateRequest', epicCreateRequest)
             const localVarPath = `/releases/{release_id}/epics`
-                .replace(`{${"release_id"}}`, encodeURIComponent(String(releaseId)));
+                .replace('{release_id}', encodeURIComponent(String(releaseId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -234,7 +234,7 @@ export const EpicsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'epicId' is not null or undefined
             assertParamExists('epicsDelete', 'epicId', epicId)
             const localVarPath = `/epics/{epic_id}`
-                .replace(`{${"epic_id"}}`, encodeURIComponent(String(epicId)));
+                .replace('{epic_id}', encodeURIComponent(String(epicId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -276,7 +276,7 @@ export const EpicsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'epicId' is not null or undefined
             assertParamExists('epicsGet', 'epicId', epicId)
             const localVarPath = `/epics/{epic_id}`
-                .replace(`{${"epic_id"}}`, encodeURIComponent(String(epicId)));
+                .replace('{epic_id}', encodeURIComponent(String(epicId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -382,7 +382,7 @@ export const EpicsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'goalId' is not null or undefined
             assertParamExists('epicsListByGoal', 'goalId', goalId)
             const localVarPath = `/goals/{goal_id}/epics`
-                .replace(`{${"goal_id"}}`, encodeURIComponent(String(goalId)));
+                .replace('{goal_id}', encodeURIComponent(String(goalId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -446,7 +446,7 @@ export const EpicsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'initiativeId' is not null or undefined
             assertParamExists('epicsListByInitiative', 'initiativeId', initiativeId)
             const localVarPath = `/initiatives/{initiative_id}/epics`
-                .replace(`{${"initiative_id"}}`, encodeURIComponent(String(initiativeId)));
+                .replace('{initiative_id}', encodeURIComponent(String(initiativeId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -510,7 +510,7 @@ export const EpicsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'productId' is not null or undefined
             assertParamExists('epicsListInProduct', 'productId', productId)
             const localVarPath = `/products/{product_id}/epics`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -574,7 +574,7 @@ export const EpicsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'releaseId' is not null or undefined
             assertParamExists('epicsListInRelease', 'releaseId', releaseId)
             const localVarPath = `/releases/{release_id}/epics`
-                .replace(`{${"release_id"}}`, encodeURIComponent(String(releaseId)));
+                .replace('{release_id}', encodeURIComponent(String(releaseId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -637,7 +637,7 @@ export const EpicsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'epicUpdateRequest' is not null or undefined
             assertParamExists('epicsUpdate', 'epicUpdateRequest', epicUpdateRequest)
             const localVarPath = `/epics/{epic_id}`
-                .replace(`{${"epic_id"}}`, encodeURIComponent(String(epicId)));
+                .replace('{epic_id}', encodeURIComponent(String(epicId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;

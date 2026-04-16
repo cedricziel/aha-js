@@ -51,7 +51,7 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'goalId' is not null or undefined
             assertParamExists('commentsGetGoal', 'goalId', goalId)
             const localVarPath = `/goals/{goal_id}/comments`
-                .replace(`{${"goal_id"}}`, encodeURIComponent(String(goalId)));
+                .replace('{goal_id}', encodeURIComponent(String(goalId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -97,7 +97,7 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'goalId' is not null or undefined
             assertParamExists('epicsListByGoal', 'goalId', goalId)
             const localVarPath = `/goals/{goal_id}/epics`
-                .replace(`{${"goal_id"}}`, encodeURIComponent(String(goalId)));
+                .replace('{goal_id}', encodeURIComponent(String(goalId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -200,7 +200,7 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('goalsDelete', 'id', id)
             const localVarPath = `/goals/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -241,7 +241,7 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('goalsGet', 'id', id)
             const localVarPath = `/goals/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -385,7 +385,7 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'goalUpdateRequest' is not null or undefined
             assertParamExists('goalsUpdate', 'goalUpdateRequest', goalUpdateRequest)
             const localVarPath = `/goals/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -432,7 +432,7 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'goalProgressUpdateRequest' is not null or undefined
             assertParamExists('goalsUpdateProgress', 'goalProgressUpdateRequest', goalProgressUpdateRequest)
             const localVarPath = `/goals/{id}/progress`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;

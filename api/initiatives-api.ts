@@ -54,7 +54,7 @@ export const InitiativesApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'commentCreateRequest' is not null or undefined
             assertParamExists('commentsCreateInitiative', 'commentCreateRequest', commentCreateRequest)
             const localVarPath = `/initiatives/{initiative_id}/comments`
-                .replace(`{${"initiative_id"}}`, encodeURIComponent(String(initiativeId)));
+                .replace('{initiative_id}', encodeURIComponent(String(initiativeId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -98,7 +98,7 @@ export const InitiativesApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'initiativeId' is not null or undefined
             assertParamExists('commentsGetInitiative', 'initiativeId', initiativeId)
             const localVarPath = `/initiatives/{initiative_id}/comments`
-                .replace(`{${"initiative_id"}}`, encodeURIComponent(String(initiativeId)));
+                .replace('{initiative_id}', encodeURIComponent(String(initiativeId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -144,7 +144,7 @@ export const InitiativesApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'initiativeId' is not null or undefined
             assertParamExists('epicsListByInitiative', 'initiativeId', initiativeId)
             const localVarPath = `/initiatives/{initiative_id}/epics`
-                .replace(`{${"initiative_id"}}`, encodeURIComponent(String(initiativeId)));
+                .replace('{initiative_id}', encodeURIComponent(String(initiativeId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -207,7 +207,7 @@ export const InitiativesApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'initiativeCreateRequest' is not null or undefined
             assertParamExists('initiativesCreate', 'initiativeCreateRequest', initiativeCreateRequest)
             const localVarPath = `/products/{product_id}/initiatives`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -251,7 +251,7 @@ export const InitiativesApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'id' is not null or undefined
             assertParamExists('initiativesGet', 'id', id)
             const localVarPath = `/initiatives/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;

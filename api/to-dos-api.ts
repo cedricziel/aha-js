@@ -47,7 +47,7 @@ export const ToDosApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'todoId' is not null or undefined
             assertParamExists('commentsGetTodo', 'todoId', todoId)
             const localVarPath = `/todos/{todo_id}/comments`
-                .replace(`{${"todo_id"}}`, encodeURIComponent(String(todoId)));
+                .replace('{todo_id}', encodeURIComponent(String(todoId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -132,7 +132,7 @@ export const ToDosApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('todosDelete', 'id', id)
             const localVarPath = `/todos/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -173,7 +173,7 @@ export const ToDosApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('todosGet', 'id', id)
             const localVarPath = `/todos/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -256,7 +256,7 @@ export const ToDosApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'todoUpdateRequest' is not null or undefined
             assertParamExists('todosUpdate', 'todoUpdateRequest', todoUpdateRequest)
             const localVarPath = `/todos/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;

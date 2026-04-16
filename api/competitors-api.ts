@@ -48,7 +48,7 @@ export const CompetitorsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'competitorCreateRequest' is not null or undefined
             assertParamExists('competitorsCreate', 'competitorCreateRequest', competitorCreateRequest)
             const localVarPath = `/products/{product_id}/competitors`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -92,7 +92,7 @@ export const CompetitorsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'competitorId' is not null or undefined
             assertParamExists('competitorsDelete', 'competitorId', competitorId)
             const localVarPath = `/competitors/{competitor_id}`
-                .replace(`{${"competitor_id"}}`, encodeURIComponent(String(competitorId)));
+                .replace('{competitor_id}', encodeURIComponent(String(competitorId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -133,7 +133,7 @@ export const CompetitorsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'competitorId' is not null or undefined
             assertParamExists('competitorsGet', 'competitorId', competitorId)
             const localVarPath = `/competitors/{competitor_id}`
-                .replace(`{${"competitor_id"}}`, encodeURIComponent(String(competitorId)));
+                .replace('{competitor_id}', encodeURIComponent(String(competitorId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -175,7 +175,7 @@ export const CompetitorsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'productId' is not null or undefined
             assertParamExists('competitorsListProduct', 'productId', productId)
             const localVarPath = `/products/{product_id}/competitors`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -220,7 +220,7 @@ export const CompetitorsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'competitorUpdateRequest' is not null or undefined
             assertParamExists('competitorsUpdate', 'competitorUpdateRequest', competitorUpdateRequest)
             const localVarPath = `/competitors/{competitor_id}`
-                .replace(`{${"competitor_id"}}`, encodeURIComponent(String(competitorId)));
+                .replace('{competitor_id}', encodeURIComponent(String(competitorId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;

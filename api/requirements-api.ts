@@ -50,7 +50,7 @@ export const RequirementsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'commentCreateRequest' is not null or undefined
             assertParamExists('commentsCreateRequirement', 'commentCreateRequest', commentCreateRequest)
             const localVarPath = `/requirements/{requirement_id}/comments`
-                .replace(`{${"requirement_id"}}`, encodeURIComponent(String(requirementId)));
+                .replace('{requirement_id}', encodeURIComponent(String(requirementId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -94,7 +94,7 @@ export const RequirementsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'requirementId' is not null or undefined
             assertParamExists('commentsGetRequirement', 'requirementId', requirementId)
             const localVarPath = `/requirements/{requirement_id}/comments`
-                .replace(`{${"requirement_id"}}`, encodeURIComponent(String(requirementId)));
+                .replace('{requirement_id}', encodeURIComponent(String(requirementId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -136,7 +136,7 @@ export const RequirementsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'id' is not null or undefined
             assertParamExists('requirementsDelete', 'id', id)
             const localVarPath = `/requirements/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -177,7 +177,7 @@ export const RequirementsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'id' is not null or undefined
             assertParamExists('requirementsGet', 'id', id)
             const localVarPath = `/requirements/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -222,7 +222,7 @@ export const RequirementsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'requirementUpdateRequest' is not null or undefined
             assertParamExists('requirementsUpdate', 'requirementUpdateRequest', requirementUpdateRequest)
             const localVarPath = `/requirements/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;

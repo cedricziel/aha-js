@@ -36,7 +36,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'id' is not null or undefined
             assertParamExists('featuresIdCustomFieldsPut', 'id', id)
             const localVarPath = `/features/{id}/custom_fields`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -76,7 +76,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'id' is not null or undefined
             assertParamExists('featuresIdCustomFieldsTagPut', 'id', id)
             const localVarPath = `/features/{id}/custom_fields/tag`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -116,7 +116,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'releaseId' is not null or undefined
             assertParamExists('releasesReleaseIdFeaturesGet', 'releaseId', releaseId)
             const localVarPath = `/releases/{release_id}/features`
-                .replace(`{${"release_id"}}`, encodeURIComponent(String(releaseId)));
+                .replace('{release_id}', encodeURIComponent(String(releaseId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -156,7 +156,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'releaseId' is not null or undefined
             assertParamExists('releasesReleaseIdFeaturesPost', 'releaseId', releaseId)
             const localVarPath = `/releases/{release_id}/features`
-                .replace(`{${"release_id"}}`, encodeURIComponent(String(releaseId)));
+                .replace('{release_id}', encodeURIComponent(String(releaseId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;

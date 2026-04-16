@@ -89,7 +89,7 @@ export const IdeaOrganizationsApiAxiosParamCreator = function (configuration?: C
             // verify required parameter 'id' is not null or undefined
             assertParamExists('ideaOrganizationsDelete', 'id', id)
             const localVarPath = `/idea_organizations/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -134,7 +134,7 @@ export const IdeaOrganizationsApiAxiosParamCreator = function (configuration?: C
             // verify required parameter 'id' is not null or undefined
             assertParamExists('ideaOrganizationsGet', 'id', id)
             const localVarPath = `/idea_organizations/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -237,7 +237,7 @@ export const IdeaOrganizationsApiAxiosParamCreator = function (configuration?: C
             // verify required parameter 'ideaOrganizationUpdateRequest' is not null or undefined
             assertParamExists('ideaOrganizationsUpdate', 'ideaOrganizationUpdateRequest', ideaOrganizationUpdateRequest)
             const localVarPath = `/idea_organizations/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;

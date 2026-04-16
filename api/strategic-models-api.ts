@@ -88,7 +88,7 @@ export const StrategicModelsApiAxiosParamCreator = function (configuration?: Con
             // verify required parameter 'id' is not null or undefined
             assertParamExists('strategicModelsDelete', 'id', id)
             const localVarPath = `/strategic_models/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -129,7 +129,7 @@ export const StrategicModelsApiAxiosParamCreator = function (configuration?: Con
             // verify required parameter 'id' is not null or undefined
             assertParamExists('strategicModelsGet', 'id', id)
             const localVarPath = `/strategic_models/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -239,7 +239,7 @@ export const StrategicModelsApiAxiosParamCreator = function (configuration?: Con
             // verify required parameter 'strategicModelUpdateRequest' is not null or undefined
             assertParamExists('strategicModelsUpdate', 'strategicModelUpdateRequest', strategicModelUpdateRequest)
             const localVarPath = `/strategic_models/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;

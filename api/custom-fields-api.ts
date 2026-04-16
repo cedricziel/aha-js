@@ -48,7 +48,7 @@ export const CustomFieldsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'customFieldOptionCreateRequest' is not null or undefined
             assertParamExists('customFieldsCreateOption', 'customFieldOptionCreateRequest', customFieldOptionCreateRequest)
             const localVarPath = `/custom_field_definitions/{custom_field_definition_id}/options`
-                .replace(`{${"custom_field_definition_id"}}`, encodeURIComponent(String(customFieldDefinitionId)));
+                .replace('{custom_field_definition_id}', encodeURIComponent(String(customFieldDefinitionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -130,7 +130,7 @@ export const CustomFieldsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'customFieldDefinitionId' is not null or undefined
             assertParamExists('customFieldsListOptions', 'customFieldDefinitionId', customFieldDefinitionId)
             const localVarPath = `/custom_field_definitions/{custom_field_definition_id}/options`
-                .replace(`{${"custom_field_definition_id"}}`, encodeURIComponent(String(customFieldDefinitionId)));
+                .replace('{custom_field_definition_id}', encodeURIComponent(String(customFieldDefinitionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
