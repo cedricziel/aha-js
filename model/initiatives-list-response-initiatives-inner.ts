@@ -15,13 +15,13 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { IdeasListResponseIdeasInnerDescription } from './ideas-list-response-ideas-inner-description';
+import type { FeatureDescription } from './feature-description';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { IdeasListResponseIdeasInnerWorkflowStatus } from './ideas-list-response-ideas-inner-workflow-status';
+import type { FeatureProject } from './feature-project';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { InitiativeResponseInitiativeProject } from './initiative-response-initiative-project';
+import type { FeatureWorkflowStatus } from './feature-workflow-status';
 // May contain unused imports in some cases
 // @ts-ignore
 import type { InitiativesListResponseInitiativesInnerAssignedToUser } from './initiatives-list-response-initiatives-inner-assigned-to-user';
@@ -113,9 +113,9 @@ export interface InitiativesListResponseInitiativesInner {
      * API resource URL for the initiative
      */
     'resource'?: string;
-    'project'?: InitiativeResponseInitiativeProject;
-    'workflow_status'?: IdeasListResponseIdeasInnerWorkflowStatus;
-    'description'?: IdeasListResponseIdeasInnerDescription;
+    'project'?: FeatureProject;
+    'workflow_status'?: FeatureWorkflowStatus;
+    'description'?: FeatureDescription;
     /**
      * Attachments to the initiative
      */

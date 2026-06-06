@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { IdeasListResponseIdeasInnerDescription } from './ideas-list-response-ideas-inner-description';
+import type { FeatureDescription } from './feature-description';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { IdeasListResponseIdeasInnerWorkflowStatus } from './ideas-list-response-ideas-inner-workflow-status';
+import type { FeatureWorkflowStatus } from './feature-workflow-status';
 
 export interface IdeasListResponseIdeasInner {
     /**
@@ -41,8 +41,8 @@ export interface IdeasListResponseIdeasInner {
      * Last update date of the idea
      */
     'updated_at'?: string;
-    'workflow_status'?: IdeasListResponseIdeasInnerWorkflowStatus;
-    'description'?: IdeasListResponseIdeasInnerDescription;
+    'workflow_status'?: FeatureWorkflowStatus;
+    'description'?: FeatureDescription;
     /**
      * URL to view the idea in the Aha! web application
      */

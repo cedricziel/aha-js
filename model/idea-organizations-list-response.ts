@@ -18,10 +18,10 @@
 import type { IdeaOrganization } from './idea-organization';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { IdeaOrganizationsListResponsePagination } from './idea-organizations-list-response-pagination';
+import type { MeAssignedRecordsResponsePagination } from './me-assigned-records-response-pagination';
 
 export interface IdeaOrganizationsListResponse {
     'idea_organizations': Array<IdeaOrganization>;
-    'pagination': IdeaOrganizationsListResponsePagination;
+    'pagination': MeAssignedRecordsResponsePagination;
 }
 

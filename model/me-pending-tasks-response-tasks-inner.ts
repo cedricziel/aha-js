@@ -16,9 +16,6 @@
 // May contain unused imports in some cases
 // @ts-ignore
 import type { MeAssignedRecordsResponseRecordsInnerAssignedToUser } from './me-assigned-records-response-records-inner-assigned-to-user';
-// May contain unused imports in some cases
-// @ts-ignore
-import type { MePendingTasksResponseTasksInnerAssignedByUser } from './me-pending-tasks-response-tasks-inner-assigned-by-user';
 
 export interface MePendingTasksResponseTasksInner {
     /**
@@ -46,7 +43,7 @@ export interface MePendingTasksResponseTasksInner {
      */
     'status': MePendingTasksResponseTasksInnerStatusEnum;
     'assigned_to_user': MeAssignedRecordsResponseRecordsInnerAssignedToUser;
-    'assigned_by_user'?: MePendingTasksResponseTasksInnerAssignedByUser;
+    'assigned_by_user'?: MeAssignedRecordsResponseRecordsInnerAssignedToUser;
     /**
      * When the task was created
      */

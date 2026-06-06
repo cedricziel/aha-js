@@ -18,10 +18,10 @@
 import type { Goal } from './goal';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { GoalsListResponsePagination } from './goals-list-response-pagination';
+import type { ReleasesListResponsePagination } from './releases-list-response-pagination';
 
 export interface GoalsListResponse {
     'goals'?: Array<Goal>;
-    'pagination'?: GoalsListResponsePagination;
+    'pagination'?: ReleasesListResponsePagination;
 }
 

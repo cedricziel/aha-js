@@ -15,17 +15,17 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RequirementUpdateRequestRequirementAssignedToUser } from './requirement-update-request-requirement-assigned-to-user';
+import type { FeatureCreateRequestFeatureWorkflowStatus } from './feature-create-request-feature-workflow-status';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RequirementUpdateRequestRequirementWorkflowStatus } from './requirement-update-request-requirement-workflow-status';
+import type { RequirementUpdateRequestRequirementAssignedToUser } from './requirement-update-request-requirement-assigned-to-user';
 
 export interface RequirementUpdateRequestRequirement {
     /**
      * Name of the requirement
      */
     'name'?: string;
-    'workflow_status'?: RequirementUpdateRequestRequirementWorkflowStatus;
+    'workflow_status'?: FeatureCreateRequestFeatureWorkflowStatus;
     /**
      * HTML description of the requirement
      */

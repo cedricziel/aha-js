@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { InitiativeResponseInitiativeProject } from './initiative-response-initiative-project';
+import type { FeatureProject } from './feature-project';
 // May contain unused imports in some cases
 // @ts-ignore
 import type { User } from './user';
@@ -54,7 +54,7 @@ export interface StrategicModel {
      * API resource URL for the strategic model
      */
     'resource'?: string;
-    'project'?: InitiativeResponseInitiativeProject;
+    'project'?: FeatureProject;
     /**
      * Strategic model data structure (varies by type)
      */

@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **tasks** | [**Array&lt;MePendingTasksResponseTasksInner&gt;**](MePendingTasksResponseTasksInner.md) |  | [default to undefined]
-**pagination** | [**MePendingTasksResponsePagination**](MePendingTasksResponsePagination.md) |  | [default to undefined]
+**pagination** | [**MeAssignedRecordsResponsePagination**](MeAssignedRecordsResponsePagination.md) |  | [default to undefined]
 
 ## Example
 

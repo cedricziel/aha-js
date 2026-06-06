@@ -13,19 +13,19 @@ Name | Type | Description | Notes
 **updatedAt** | **string** | When the requirement was last updated | [default to undefined]
 **releaseId** | **number** | ID of the release this requirement belongs to | [optional] [default to undefined]
 **createdByUser** | [**User**](User.md) |  | [optional] [default to undefined]
-**workflowStatus** | [**RequirementWorkflowStatus**](RequirementWorkflowStatus.md) |  | [default to undefined]
+**workflowStatus** | [**FeatureWorkflowStatus**](FeatureWorkflowStatus.md) |  | [default to undefined]
 **url** | **string** | URL to view the requirement in the web interface | [default to undefined]
 **resource** | **string** | API URL for this requirement | [default to undefined]
 **description** | [**RequirementDescription**](RequirementDescription.md) |  | [optional] [default to undefined]
 **feature** | [**RequirementFeature**](RequirementFeature.md) |  | [default to undefined]
-**assignedToUser** | [**RequirementAssignedToUser**](RequirementAssignedToUser.md) |  | [optional] [default to undefined]
+**assignedToUser** | [**InitiativeResponseInitiativeAssignedToUser**](InitiativeResponseInitiativeAssignedToUser.md) |  | [optional] [default to undefined]
 **attachments** | [**Array&lt;Attachment&gt;**](Attachment.md) | Attachments associated with this requirement | [optional] [default to undefined]
 **tags** | **Array&lt;string&gt;** | Tags associated with this requirement | [optional] [default to undefined]
-**fullTags** | [**Array&lt;RequirementFullTagsInner&gt;**](RequirementFullTagsInner.md) | Full tag objects with IDs and names | [optional] [default to undefined]
+**fullTags** | [**Array&lt;FeatureWorkflowKind&gt;**](FeatureWorkflowKind.md) | Full tag objects with IDs and names | [optional] [default to undefined]
 **customFields** | [**Array&lt;CustomField&gt;**](CustomField.md) | Custom fields associated with this requirement | [optional] [default to undefined]
 **integrationFields** | [**Array&lt;IntegrationField&gt;**](IntegrationField.md) | Integration fields associated with this requirement | [optional] [default to undefined]
 **commentsCount** | **number** | Number of comments on this requirement | [optional] [default to undefined]
-**workflowStatusTimes** | [**Array&lt;RequirementWorkflowStatusTimesInner&gt;**](RequirementWorkflowStatusTimesInner.md) | History of workflow status changes | [optional] [default to undefined]
+**workflowStatusTimes** | [**Array&lt;IdeaResponseIdeaWorkflowStatusTimesInner&gt;**](IdeaResponseIdeaWorkflowStatusTimesInner.md) | History of workflow status changes | [optional] [default to undefined]
 
 ## Example
 

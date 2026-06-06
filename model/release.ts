@@ -15,22 +15,22 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
+import type { FeatureDescription } from './feature-description';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { FeatureIntegrationFieldsInner } from './feature-integration-fields-inner';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { IdeasListResponseIdeasInnerDescription } from './ideas-list-response-ideas-inner-description';
+import type { FeatureProject } from './feature-project';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { IdeasListResponseIdeasInnerWorkflowStatus } from './ideas-list-response-ideas-inner-workflow-status';
+import type { FeatureWorkflowStatus } from './feature-workflow-status';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { InitiativeResponseInitiativeProject } from './initiative-response-initiative-project';
+import type { IdeaResponseIdeaWorkflowStatusTimesInner } from './idea-response-idea-workflow-status-times-inner';
 // May contain unused imports in some cases
 // @ts-ignore
 import type { ReleasePhasesInner } from './release-phases-inner';
-// May contain unused imports in some cases
-// @ts-ignore
-import type { ReleaseWorkflowStatusTimesInner } from './release-workflow-status-times-inner';
 // May contain unused imports in some cases
 // @ts-ignore
 import type { User } from './user';
@@ -108,9 +108,9 @@ export interface Release {
      * API resource URL for the release
      */
     'resource'?: string;
-    'project'?: InitiativeResponseInitiativeProject;
-    'workflow_status'?: IdeasListResponseIdeasInnerWorkflowStatus;
-    'description'?: IdeasListResponseIdeasInnerDescription;
+    'project'?: FeatureProject;
+    'workflow_status'?: FeatureWorkflowStatus;
+    'description'?: FeatureDescription;
     /**
      * Attachments to the release
      */
@@ -133,7 +133,7 @@ export interface Release {
     /**
      * Workflow status times for the release
      */
-    'workflow_status_times'?: Array<ReleaseWorkflowStatusTimesInner>;
+    'workflow_status_times'?: Array<IdeaResponseIdeaWorkflowStatusTimesInner>;
     /**
      * Custom fields for the release
      */
