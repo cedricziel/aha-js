@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ideaOrganizations** | [**Array&lt;IdeaOrganization&gt;**](IdeaOrganization.md) |  | [default to undefined]
-**pagination** | [**MeAssignedRecordsResponsePagination**](MeAssignedRecordsResponsePagination.md) |  | [default to undefined]
+**pagination** | [**IdeaOrganizationsListResponsePagination**](IdeaOrganizationsListResponsePagination.md) |  | [default to undefined]
 
 ## Example
 

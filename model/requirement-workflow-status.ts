@@ -13,15 +13,30 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import type { MePendingTasksResponsePagination } from './me-pending-tasks-response-pagination';
-// May contain unused imports in some cases
-// @ts-ignore
-import type { MePendingTasksResponseTasksInner } from './me-pending-tasks-response-tasks-inner';
 
-export interface MePendingTasksResponse {
-    'tasks': Array<MePendingTasksResponseTasksInner>;
-    'pagination': MePendingTasksResponsePagination;
+/**
+ * Current workflow status of the requirement
+ */
+export interface RequirementWorkflowStatus {
+    /**
+     * ID of the workflow status
+     */
+    'id'?: string;
+    /**
+     * Name of the workflow status
+     */
+    'name'?: string;
+    /**
+     * Position of the status in the workflow
+     */
+    'position'?: number;
+    /**
+     * Whether this status indicates completion
+     */
+    'complete'?: boolean;
+    /**
+     * Color associated with this status
+     */
+    'color'?: string;
 }
 

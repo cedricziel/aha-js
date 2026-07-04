@@ -15,13 +15,13 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ReleasesListResponsePagination } from './releases-list-response-pagination';
+import type { StrategicModel } from './strategic-model';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { StrategicModel } from './strategic-model';
+import type { StrategicModelsListResponsePagination } from './strategic-models-list-response-pagination';
 
 export interface StrategicModelsListResponse {
     'strategic_models'?: Array<StrategicModel>;
-    'pagination'?: ReleasesListResponsePagination;
+    'pagination'?: StrategicModelsListResponsePagination;
 }
 

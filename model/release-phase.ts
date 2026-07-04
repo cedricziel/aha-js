@@ -18,10 +18,10 @@
 import type { CustomField } from './custom-field';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ReleasePhaseRelease } from './release-phase-release';
+import type { ReleasePhaseDescription } from './release-phase-description';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RequirementDescription } from './requirement-description';
+import type { ReleasePhaseRelease } from './release-phase-release';
 
 export interface ReleasePhase {
     /**
@@ -68,7 +68,7 @@ export interface ReleasePhase {
      * Source for calculating duration
      */
     'duration_source': ReleasePhaseDurationSourceEnum;
-    'description'?: RequirementDescription;
+    'description'?: ReleasePhaseDescription;
     'release'?: ReleasePhaseRelease;
     /**
      * URL to view the release phase in the web interface

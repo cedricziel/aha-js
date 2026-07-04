@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **goals** | [**Array&lt;Goal&gt;**](Goal.md) |  | [optional] [default to undefined]
-**pagination** | [**ReleasesListResponsePagination**](ReleasesListResponsePagination.md) |  | [optional] [default to undefined]
+**pagination** | [**GoalsListResponsePagination**](GoalsListResponsePagination.md) |  | [optional] [default to undefined]
 
 ## Example
 

@@ -15,25 +15,25 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { FeatureDescription } from './feature-description';
+import type { IdeasListResponseIdeasInnerDescription } from './ideas-list-response-ideas-inner-description';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { FeatureProject } from './feature-project';
-// May contain unused imports in some cases
-// @ts-ignore
-import type { FeatureWorkflowStatus } from './feature-workflow-status';
-// May contain unused imports in some cases
-// @ts-ignore
-import type { IdeaResponseIdeaWorkflowStatusTimesInner } from './idea-response-idea-workflow-status-times-inner';
-// May contain unused imports in some cases
-// @ts-ignore
-import type { InitiativeCreateRequestInitiativeTimeFrame } from './initiative-create-request-initiative-time-frame';
+import type { IdeasListResponseIdeasInnerWorkflowStatus } from './ideas-list-response-ideas-inner-workflow-status';
 // May contain unused imports in some cases
 // @ts-ignore
 import type { InitiativeResponseInitiativeAssignedToUser } from './initiative-response-initiative-assigned-to-user';
 // May contain unused imports in some cases
 // @ts-ignore
 import type { InitiativeResponseInitiativeCreatedByUser } from './initiative-response-initiative-created-by-user';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { InitiativeResponseInitiativeProject } from './initiative-response-initiative-project';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { InitiativeResponseInitiativeTimeFrame } from './initiative-response-initiative-time-frame';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { InitiativeResponseInitiativeWorkflowStatusTimesInner } from './initiative-response-initiative-workflow-status-times-inner';
 
 export interface InitiativeResponseInitiative {
     /**
@@ -116,15 +116,15 @@ export interface InitiativeResponseInitiative {
      * API resource URL for the initiative
      */
     'resource'?: string;
-    'project'?: FeatureProject;
-    'workflow_status'?: FeatureWorkflowStatus;
-    'description'?: FeatureDescription;
+    'project'?: InitiativeResponseInitiativeProject;
+    'workflow_status'?: IdeasListResponseIdeasInnerWorkflowStatus;
+    'description'?: IdeasListResponseIdeasInnerDescription;
     /**
      * Attachments to the initiative
      */
     'attachments'?: Array<object>;
     'assigned_to_user'?: InitiativeResponseInitiativeAssignedToUser;
-    'time_frame'?: InitiativeCreateRequestInitiativeTimeFrame;
+    'time_frame'?: InitiativeResponseInitiativeTimeFrame;
     /**
      * Number of comments on the initiative
      */
@@ -148,7 +148,7 @@ export interface InitiativeResponseInitiative {
     /**
      * Workflow status times for the initiative
      */
-    'workflow_status_times'?: Array<IdeaResponseIdeaWorkflowStatusTimesInner>;
+    'workflow_status_times'?: Array<InitiativeResponseInitiativeWorkflowStatusTimesInner>;
     'created_by_user'?: InitiativeResponseInitiativeCreatedByUser;
 }
 

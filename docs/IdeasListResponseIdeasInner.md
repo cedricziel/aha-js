@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **name** | **string** | Name of the idea | [optional] [default to undefined]
 **createdAt** | **string** | Creation date of the idea | [optional] [default to undefined]
 **updatedAt** | **string** | Last update date of the idea | [optional] [default to undefined]
-**workflowStatus** | [**FeatureWorkflowStatus**](FeatureWorkflowStatus.md) |  | [optional] [default to undefined]
-**description** | [**FeatureDescription**](FeatureDescription.md) |  | [optional] [default to undefined]
+**workflowStatus** | [**IdeasListResponseIdeasInnerWorkflowStatus**](IdeasListResponseIdeasInnerWorkflowStatus.md) |  | [optional] [default to undefined]
+**description** | [**IdeasListResponseIdeasInnerDescription**](IdeasListResponseIdeasInnerDescription.md) |  | [optional] [default to undefined]
 **url** | **string** | URL to view the idea in the Aha! web application | [optional] [default to undefined]
 **resource** | **string** | API resource URL for the idea | [optional] [default to undefined]
 

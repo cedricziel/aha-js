@@ -21,25 +21,25 @@ import type { Attachment } from './attachment';
 import type { CustomField } from './custom-field';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { FeatureWorkflowKind } from './feature-workflow-kind';
-// May contain unused imports in some cases
-// @ts-ignore
-import type { FeatureWorkflowStatus } from './feature-workflow-status';
-// May contain unused imports in some cases
-// @ts-ignore
-import type { IdeaResponseIdeaWorkflowStatusTimesInner } from './idea-response-idea-workflow-status-times-inner';
-// May contain unused imports in some cases
-// @ts-ignore
-import type { InitiativeResponseInitiativeAssignedToUser } from './initiative-response-initiative-assigned-to-user';
-// May contain unused imports in some cases
-// @ts-ignore
 import type { IntegrationField } from './integration-field';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { RequirementAssignedToUser } from './requirement-assigned-to-user';
 // May contain unused imports in some cases
 // @ts-ignore
 import type { RequirementDescription } from './requirement-description';
 // May contain unused imports in some cases
 // @ts-ignore
 import type { RequirementFeature } from './requirement-feature';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { RequirementFullTagsInner } from './requirement-full-tags-inner';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { RequirementWorkflowStatus } from './requirement-workflow-status';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { RequirementWorkflowStatusTimesInner } from './requirement-workflow-status-times-inner';
 // May contain unused imports in some cases
 // @ts-ignore
 import type { User } from './user';
@@ -74,7 +74,7 @@ export interface Requirement {
      */
     'release_id'?: number;
     'created_by_user'?: User;
-    'workflow_status': FeatureWorkflowStatus;
+    'workflow_status': RequirementWorkflowStatus;
     /**
      * URL to view the requirement in the web interface
      */
@@ -85,7 +85,7 @@ export interface Requirement {
     'resource': string;
     'description'?: RequirementDescription;
     'feature': RequirementFeature;
-    'assigned_to_user'?: InitiativeResponseInitiativeAssignedToUser;
+    'assigned_to_user'?: RequirementAssignedToUser;
     /**
      * Attachments associated with this requirement
      */
@@ -97,7 +97,7 @@ export interface Requirement {
     /**
      * Full tag objects with IDs and names
      */
-    'full_tags'?: Array<FeatureWorkflowKind>;
+    'full_tags'?: Array<RequirementFullTagsInner>;
     /**
      * Custom fields associated with this requirement
      */
@@ -113,6 +113,6 @@ export interface Requirement {
     /**
      * History of workflow status changes
      */
-    'workflow_status_times'?: Array<IdeaResponseIdeaWorkflowStatusTimesInner>;
+    'workflow_status_times'?: Array<RequirementWorkflowStatusTimesInner>;
 }
 

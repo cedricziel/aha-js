@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **string** | Name of the requirement | [optional] [default to undefined]
-**workflowStatus** | [**FeatureCreateRequestFeatureWorkflowStatus**](FeatureCreateRequestFeatureWorkflowStatus.md) |  | [optional] [default to undefined]
+**workflowStatus** | [**RequirementUpdateRequestRequirementWorkflowStatus**](RequirementUpdateRequestRequirementWorkflowStatus.md) |  | [optional] [default to undefined]
 **description** | **string** | HTML description of the requirement | [optional] [default to undefined]
 **assignedToUser** | [**RequirementUpdateRequestRequirementAssignedToUser**](RequirementUpdateRequestRequirementAssignedToUser.md) |  | [optional] [default to undefined]
 **tags** | **Array&lt;string&gt;** | Tags to associate with the requirement | [optional] [default to undefined]

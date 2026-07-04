@@ -13,15 +13,23 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import type { MePendingTasksResponsePagination } from './me-pending-tasks-response-pagination';
-// May contain unused imports in some cases
-// @ts-ignore
-import type { MePendingTasksResponseTasksInner } from './me-pending-tasks-response-tasks-inner';
 
-export interface MePendingTasksResponse {
-    'tasks': Array<MePendingTasksResponseTasksInner>;
-    'pagination': MePendingTasksResponsePagination;
+export interface InitiativeResponseInitiativeWorkflowStatusTimesInner {
+    /**
+     * ID of the status
+     */
+    'status_id'?: string;
+    /**
+     * Name of the status
+     */
+    'status_name'?: string;
+    /**
+     * When the initiative entered this status
+     */
+    'started_at'?: string;
+    /**
+     * When the initiative left this status
+     */
+    'ended_at'?: string | null;
 }
 

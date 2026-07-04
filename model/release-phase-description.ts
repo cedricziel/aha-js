@@ -15,13 +15,31 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { MePendingTasksResponsePagination } from './me-pending-tasks-response-pagination';
-// May contain unused imports in some cases
-// @ts-ignore
-import type { MePendingTasksResponseTasksInner } from './me-pending-tasks-response-tasks-inner';
+import type { Attachment } from './attachment';
 
-export interface MePendingTasksResponse {
-    'tasks': Array<MePendingTasksResponseTasksInner>;
-    'pagination': MePendingTasksResponsePagination;
+/**
+ * Description of the release phase
+ */
+export interface ReleasePhaseDescription {
+    /**
+     * ID of the description
+     */
+    'id'?: string;
+    /**
+     * HTML content of the description
+     */
+    'body'?: string;
+    /**
+     * When the description was created
+     */
+    'created_at'?: string;
+    /**
+     * When the description was last updated
+     */
+    'updated_at'?: string;
+    /**
+     * Attachments in the description
+     */
+    'attachments'?: Array<Attachment>;
 }
 

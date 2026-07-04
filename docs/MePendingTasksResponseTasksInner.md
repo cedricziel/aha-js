@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **priority** | **string** | Task priority level | [optional] [default to undefined]
 **status** | **string** | Task status | [default to undefined]
 **assignedToUser** | [**MeAssignedRecordsResponseRecordsInnerAssignedToUser**](MeAssignedRecordsResponseRecordsInnerAssignedToUser.md) |  | [default to undefined]
-**assignedByUser** | [**MeAssignedRecordsResponseRecordsInnerAssignedToUser**](MeAssignedRecordsResponseRecordsInnerAssignedToUser.md) |  | [optional] [default to undefined]
+**assignedByUser** | [**MePendingTasksResponseTasksInnerAssignedByUser**](MePendingTasksResponseTasksInnerAssignedByUser.md) |  | [optional] [default to undefined]
 **createdAt** | **string** | When the task was created | [default to undefined]
 **updatedAt** | **string** | When the task was last updated | [default to undefined]
 **url** | **string** | URL to the task\&#39;s page | [optional] [default to undefined]

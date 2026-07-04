@@ -13,15 +13,23 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import type { MePendingTasksResponsePagination } from './me-pending-tasks-response-pagination';
-// May contain unused imports in some cases
-// @ts-ignore
-import type { MePendingTasksResponseTasksInner } from './me-pending-tasks-response-tasks-inner';
 
-export interface MePendingTasksResponse {
-    'tasks': Array<MePendingTasksResponseTasksInner>;
-    'pagination': MePendingTasksResponsePagination;
+export interface MePendingTasksResponsePagination {
+    /**
+     * Total number of tasks
+     */
+    'total_records': number;
+    /**
+     * Total number of pages
+     */
+    'total_pages': number;
+    /**
+     * Current page number
+     */
+    'current_page': number;
+    /**
+     * Number of tasks per page
+     */
+    'per_page': number;
 }
 

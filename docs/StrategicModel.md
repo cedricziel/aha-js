@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **createdByUser** | [**User**](User.md) |  | [optional] [default to undefined]
 **url** | **string** | URL to view the strategic model in the Aha! web application | [optional] [default to undefined]
 **resource** | **string** | API resource URL for the strategic model | [optional] [default to undefined]
-**project** | [**FeatureProject**](FeatureProject.md) |  | [optional] [default to undefined]
+**project** | [**InitiativeResponseInitiativeProject**](InitiativeResponseInitiativeProject.md) |  | [optional] [default to undefined]
 **data** | **{ [key: string]: any; }** | Strategic model data structure (varies by type) | [optional] [default to undefined]
 **attachments** | **Array&lt;object&gt;** | Attachments to the strategic model | [optional] [default to undefined]
 **tags** | **Array&lt;string&gt;** | Tags associated with the strategic model | [optional] [default to undefined]

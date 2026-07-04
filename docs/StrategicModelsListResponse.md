@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **strategicModels** | [**Array&lt;StrategicModel&gt;**](StrategicModel.md) |  | [optional] [default to undefined]
-**pagination** | [**ReleasesListResponsePagination**](ReleasesListResponsePagination.md) |  | [optional] [default to undefined]
+**pagination** | [**StrategicModelsListResponsePagination**](StrategicModelsListResponsePagination.md) |  | [optional] [default to undefined]
 
 ## Example
 

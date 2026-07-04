@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **progress** | **number** | Progress percentage of the release phase | [default to undefined]
 **progressSource** | **string** | Source for calculating progress | [default to undefined]
 **durationSource** | **string** | Source for calculating duration | [default to undefined]
-**description** | [**RequirementDescription**](RequirementDescription.md) |  | [optional] [default to undefined]
+**description** | [**ReleasePhaseDescription**](ReleasePhaseDescription.md) |  | [optional] [default to undefined]
 **release** | [**ReleasePhaseRelease**](ReleasePhaseRelease.md) |  | [optional] [default to undefined]
 **url** | **string** | URL to view the release phase in the web interface | [optional] [default to undefined]
 **resource** | **string** | API URL for this release phase | [optional] [default to undefined]
