@@ -17,13 +17,13 @@ describe('MeApi', () => {
     mockAdapter.restore();
   });
 
-  describe('meGetProfile', () => {
+  describe('meGet', () => {
     it('should fetch user profile successfully', async () => {
       mockAdapter
         .onGet(MockRequests.get.meProfile)
         .reply(200, MockResponses.me.profile);
 
-      const response = await api.meGetProfile();
+      const response = await api.meGet();
 
       expect(response.status).toBe(200);
       expect(response.data).toEqual(MockResponses.me.profile);
@@ -39,7 +39,7 @@ describe('MeApi', () => {
         .onGet(MockRequests.get.meProfile)
         .reply(401, MockResponses.errors[401]);
 
-      await expect(api.meGetProfile()).rejects.toThrow();
+      await expect(api.meGet()).rejects.toThrow();
     });
 
     it('should handle 500 server error', async () => {
@@ -47,17 +47,17 @@ describe('MeApi', () => {
         .onGet(MockRequests.get.meProfile)
         .reply(500, MockResponses.errors[500]);
 
-      await expect(api.meGetProfile()).rejects.toThrow();
+      await expect(api.meGet()).rejects.toThrow();
     });
   });
 
-  describe('meGetAssignedRecords', () => {
+  describe('meAssignedGet', () => {
     it('should fetch assigned records successfully', async () => {
       mockAdapter
         .onGet(MockRequests.get.meAssigned)
         .reply(200, MockResponses.me.assignedRecords);
 
-      const response = await api.meGetAssignedRecords();
+      const response = await api.meAssignedGet();
 
       expect(response.status).toBe(200);
       expect(response.data).toEqual(MockResponses.me.assignedRecords);
@@ -73,17 +73,17 @@ describe('MeApi', () => {
         .onGet(MockRequests.get.meAssigned)
         .reply(401, MockResponses.errors[401]);
 
-      await expect(api.meGetAssignedRecords()).rejects.toThrow();
+      await expect(api.meAssignedGet()).rejects.toThrow();
     });
   });
 
-  describe('meGetPendingTasks', () => {
+  describe('meTasksGet', () => {
     it('should fetch pending tasks successfully', async () => {
       mockAdapter
         .onGet(MockRequests.get.meTasks)
         .reply(200, MockResponses.me.pendingTasks);
 
-      const response = await api.meGetPendingTasks();
+      const response = await api.meTasksGet();
 
       expect(response.status).toBe(200);
       expect(response.data).toEqual(MockResponses.me.pendingTasks);
@@ -99,7 +99,7 @@ describe('MeApi', () => {
         .onGet(MockRequests.get.meTasks)
         .reply(401, MockResponses.errors[401]);
 
-      await expect(api.meGetPendingTasks()).rejects.toThrow();
+      await expect(api.meTasksGet()).rejects.toThrow();
     });
   });
 
@@ -114,7 +114,7 @@ describe('MeApi', () => {
         .onGet(MockRequests.get.meProfile)
         .reply(200, MockResponses.me.profile);
 
-      await customApi.meGetProfile();
+      await customApi.meGet();
 
       const request = mockAdapter.history.get[0];
       expect(request.headers.Authorization).toBe('Bearer custom-token-123');
@@ -131,7 +131,7 @@ describe('MeApi', () => {
         .onGet(MockRequests.get.meProfile)
         .reply(200, MockResponses.me.profile);
 
-      await customApi.meGetProfile();
+      await customApi.meGet();
 
       const request = mockAdapter.history.get[0];
       expect(request.headers.Authorization).toBe('Bearer dynamic-token');
@@ -144,7 +144,7 @@ describe('MeApi', () => {
         .onGet(MockRequests.get.meProfile)
         .networkError();
 
-      await expect(api.meGetProfile()).rejects.toThrow();
+      await expect(api.meGet()).rejects.toThrow();
     });
 
     it('should handle timeout errors', async () => {
@@ -152,7 +152,7 @@ describe('MeApi', () => {
         .onGet(MockRequests.get.meProfile)
         .timeout();
 
-      await expect(api.meGetProfile()).rejects.toThrow();
+      await expect(api.meGet()).rejects.toThrow();
     });
 
     it('should handle rate limiting', async () => {
@@ -163,7 +163,7 @@ describe('MeApi', () => {
           message: 'Too many requests'
         });
 
-      await expect(api.meGetProfile()).rejects.toThrow();
+      await expect(api.meGet()).rejects.toThrow();
     });
   });
 });

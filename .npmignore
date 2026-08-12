@@ -1,0 +1,15 @@
+# Sources of the build, not part of it. npm falls back to .gitignore when this
+# file is absent, and openapi.json is intentionally tracked in git now, so it
+# has to be excluded here or it ships in the tarball.
+openapi.json
+scripts/
+tests/
+jest.config.js
+coverage/
+.github/
+tsconfig.json
+tsconfig.esm.json
+generator-config.json
+openapitools.json
+.openapi-generator/
+.openapi-generator-ignore
