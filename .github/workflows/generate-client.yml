@@ -15,31 +15,35 @@ jobs:
         with:
           token: ${{ secrets.MY_RELEASE_PLEASE_TOKEN }}
 
-      - name: Clone aha-spec Repository
-        run: |
-          git clone https://github.com/cedricziel/aha-spec.git spec
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
 
-      - name: Create Output Directory
-        run: |
-          mkdir -p src/generated
+      # openapi.json is committed alongside the client, so each run's diff shows
+      # exactly what Aha changed upstream - the traceability the old spec-repo
+      # commit SHA used to provide.
+      - name: Fetch Aha's OpenAPI Specification
+        run: node scripts/fetch-spec.mjs openapi.json
 
       - name: Generate TypeScript-Axios Client
         uses: openapi-generators/openapitools-generator-action@v1
         with:
+          # Aha publishes OpenAPI 3.1, which needs generator 7.x.
+          openapi-generator-version: '7.11.0'
           generator: typescript-axios
-          openapi-file: spec/api/openapi.yaml
+          openapi-file: openapi.json
           config-file: generator-config.json
           command-args: --output=generated
 
       - name: Move Generated Files
         run: |
-          rm -rf api docs model
+          rm -rf api model
           # Move only the directories we want, not package.json or other root files
           mv generated/api .
           mv generated/model .
-          mv generated/docs .
           # Move TypeScript files but preserve our package.json
           find generated -name "*.ts" -maxdepth 1 -exec mv {} . \;
+          mv generated/README.md .
           rm -rf generated
 
       - name: Install Dependencies
@@ -48,15 +52,18 @@ jobs:
       - name: Build Package
         run: npm run build
 
+      # The generated client is the whole package, so a regeneration that breaks
+      # the tests must not be pushed.
+      - name: Run Tests
+        run: npm test
+
       - name: Commit and Push Changes
         run: |
           git config --local user.email "cedricziel@users.noreply.github.com"
           git config --local user.name "Cedric Ziel"
           git add .
 
-          # Get the latest commit hash from the spec repository
-          SPEC_COMMIT=$(cd spec && git rev-parse --short HEAD)
-          SPEC_DATE=$(cd spec && git log -1 --format=%cd --date=short)
+          SPEC_DATE=$(date -u +%Y-%m-%d)
 
           # Check if there are any changes to commit
           if git diff --staged --quiet; then
@@ -67,7 +74,7 @@ jobs:
             CHANGED_LIST=$(git diff --staged --name-only | sed 's/^/- /')
 
             # Create descriptive commit message with change summary
-            git commit -m "fix: Update API client from spec ${SPEC_COMMIT} (${SPEC_DATE})
+            git commit -m "fix: Update API client from Aha's OpenAPI spec (${SPEC_DATE})
 
             Updated ${CHANGED_FILES} files from latest OpenAPI specification:
 

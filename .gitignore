@@ -43,5 +43,6 @@ yarn-error.log*
 ehthumbs.db
 Thumbs.db
 
-# OpenAPI Generator temporary files
-openapi.json
+# openapi.json is deliberately committed: it is the sanitized copy of Aha's
+# published spec that the client was generated from, so its diff records what
+# changed upstream on each regeneration.

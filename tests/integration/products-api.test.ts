@@ -17,17 +17,17 @@ describe('ProductsApi', () => {
     mockAdapter.restore();
   });
 
-  describe('productsList', () => {
+  describe('productsGet', () => {
     it('should fetch products list successfully', async () => {
       mockAdapter
         .onGet(MockRequests.get.products)
         .reply(200, MockResponses.products.list);
 
-      const response = await api.productsList();
+      const response = await api.productsGet();
 
       expect(response.status).toBe(200);
       expect(response.data).toEqual(MockResponses.products.list);
-      
+
       // Verify request was made correctly
       const request = mockAdapter.history.get[0];
       TestUtils.assertAuthHeaders(request.headers);
@@ -39,7 +39,7 @@ describe('ProductsApi', () => {
         .onGet(MockRequests.get.products)
         .reply(401, MockResponses.errors[401]);
 
-      await expect(api.productsList()).rejects.toThrow();
+      await expect(api.productsGet()).rejects.toThrow();
     });
 
     it('should handle 500 server error', async () => {
@@ -47,11 +47,11 @@ describe('ProductsApi', () => {
         .onGet(MockRequests.get.products)
         .reply(500, MockResponses.errors[500]);
 
-      await expect(api.productsList()).rejects.toThrow();
+      await expect(api.productsGet()).rejects.toThrow();
     });
   });
 
-  describe('productsGet', () => {
+  describe('productsByIdGet', () => {
     const productId = 'PROD-456';
 
     it('should fetch a specific product successfully', async () => {
@@ -59,11 +59,11 @@ describe('ProductsApi', () => {
         .onGet(MockRequests.get.productsWithId(productId))
         .reply(200, MockResponses.products.get);
 
-      const response = await api.productsGet({ id: productId });
+      const response = await api.productsByIdGet({ id: productId });
 
       expect(response.status).toBe(200);
       expect(response.data).toEqual(MockResponses.products.get);
-      
+
       // Verify request was made correctly
       const request = mockAdapter.history.get[0];
       TestUtils.assertAuthHeaders(request.headers);
@@ -75,7 +75,7 @@ describe('ProductsApi', () => {
         .onGet(MockRequests.get.productsWithId(productId))
         .reply(404, MockResponses.errors[404]);
 
-      await expect(api.productsGet({ id: productId })).rejects.toThrow();
+      await expect(api.productsByIdGet({ id: productId })).rejects.toThrow();
     });
   });
 
@@ -90,7 +90,7 @@ describe('ProductsApi', () => {
         .onGet('https://custom.aha.io/api/v1/products')
         .reply(200, MockResponses.products.list);
 
-      await customApi.productsList();
+      await customApi.productsGet();
 
       const request = mockAdapter.history.get[0];
       expect(request.url).toBe('https://custom.aha.io/api/v1/products');
@@ -110,7 +110,7 @@ describe('ProductsApi', () => {
         .onGet(MockRequests.get.products)
         .reply(200, MockResponses.products.list);
 
-      await customApi.productsList();
+      await customApi.productsGet();
 
       const request = mockAdapter.history.get[0];
       expect(request.headers['X-Custom-Header']).toBe('test-value');
