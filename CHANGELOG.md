@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/cedricziel/aha-js/compare/v1.2.12...v2.0.0) (2026-08-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* every generated method has been renamed, since the upstream spec carries no operationIds to preserve the old names.
+
+### Features
+
+* generate the client from Aha's published OpenAPI spec ([#26](https://github.com/cedricziel/aha-js/issues/26)) ([27163da](https://github.com/cedricziel/aha-js/commit/27163da269e2cc756aa23d41bfe3b161b0575093))
+
 ## [1.2.12](https://github.com/cedricziel/aha-js/compare/v1.2.11...v1.2.12) (2026-07-31)
 
 
