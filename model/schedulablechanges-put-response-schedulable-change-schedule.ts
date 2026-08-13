@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface SchedulablechangesPutResponseSchedulableChangeSchedule
- */
 export interface SchedulablechangesPutResponseSchedulableChangeSchedule {
-    /**
-     * 
-     * @type {string}
-     * @memberof SchedulablechangesPutResponseSchedulableChangeSchedule
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof SchedulablechangesPutResponseSchedulableChangeSchedule
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof SchedulablechangesPutResponseSchedulableChangeSchedule
-     */
     'hours_per_day'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof SchedulablechangesPutResponseSchedulableChangeSchedule
-     */
     'story_points_per_day'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof SchedulablechangesPutResponseSchedulableChangeSchedule
-     */
     'velocity'?: string;
 }
 

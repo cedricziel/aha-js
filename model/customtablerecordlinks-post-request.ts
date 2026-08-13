@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { CustomtablerecordlinksPostRequestRequirement } from './customtablerecordlinks-post-request-requirement';
 
-/**
- * 
- * @export
- * @interface CustomtablerecordlinksPostRequest
- */
 export interface CustomtablerecordlinksPostRequest {
-    /**
-     * 
-     * @type {CustomtablerecordlinksPostRequestRequirement}
-     * @memberof CustomtablerecordlinksPostRequest
-     */
     'requirement'?: CustomtablerecordlinksPostRequestRequirement;
 }
 

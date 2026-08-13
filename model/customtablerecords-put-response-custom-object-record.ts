@@ -23,65 +23,15 @@ import type { CustomtablerecordsPutResponseCustomObjectRecordCustomFieldsInner }
 // @ts-ignore
 import type { CustomtablerecordsPutResponseCustomObjectRecordLinkedRecordsInner } from './customtablerecords-put-response-custom-object-record-linked-records-inner';
 
-/**
- * 
- * @export
- * @interface CustomtablerecordsPutResponseCustomObjectRecord
- */
 export interface CustomtablerecordsPutResponseCustomObjectRecord {
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordsPutResponseCustomObjectRecord
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordsPutResponseCustomObjectRecord
-     */
     'product_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordsPutResponseCustomObjectRecord
-     */
     'key'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordsPutResponseCustomObjectRecord
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordsPutResponseCustomObjectRecord
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {Array<CustomtablerecordsPutResponseCustomObjectRecordCustomFieldsInner>}
-     * @memberof CustomtablerecordsPutResponseCustomObjectRecord
-     */
     'custom_fields'?: Array<CustomtablerecordsPutResponseCustomObjectRecordCustomFieldsInner>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof CustomtablerecordsPutResponseCustomObjectRecord
-     */
     'custom_object_links'?: Array<any>;
-    /**
-     * 
-     * @type {Array<CustomtablerecordsPutResponseCustomObjectRecordLinkedRecordsInner>}
-     * @memberof CustomtablerecordsPutResponseCustomObjectRecord
-     */
     'linked_records'?: Array<CustomtablerecordsPutResponseCustomObjectRecordLinkedRecordsInner>;
-    /**
-     * 
-     * @type {CommentsPostResponseCommentUser}
-     * @memberof CustomtablerecordsPutResponseCustomObjectRecord
-     */
     'created_by_user'?: CommentsPostResponseCommentUser;
 }
 

@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -27,7 +27,6 @@ import type { TeammembershipsGetResponse } from '../model';
 import type { TeammembershipsPostRequest } from '../model';
 /**
  * TeamMembershipsApi - axios parameter creator
- * @export
  */
 export const TeamMembershipsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -48,8 +47,8 @@ export const TeamMembershipsApiAxiosParamCreator = function (configuration?: Con
             // verify required parameter 'teammembershipsPostRequest' is not null or undefined
             assertParamExists('teamsByTeamTeamMembershipsByIdDelete', 'teammembershipsPostRequest', teammembershipsPostRequest)
             const localVarPath = `/teams/{team_id}/team_memberships/{id}`
-                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{team_id}', encodeURIComponent(String(teamId)))
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -71,8 +70,6 @@ export const TeamMembershipsApiAxiosParamCreator = function (configuration?: Con
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -99,7 +96,7 @@ export const TeamMembershipsApiAxiosParamCreator = function (configuration?: Con
             // verify required parameter 'teamId' is not null or undefined
             assertParamExists('teamsByTeamTeamMembershipsGet', 'teamId', teamId)
             const localVarPath = `/teams/{team_id}/team_memberships`
-                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+                .replace('{team_id}', encodeURIComponent(String(teamId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -133,8 +130,8 @@ export const TeamMembershipsApiAxiosParamCreator = function (configuration?: Con
                 localVarQueryParameter['fields'] = fields;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -158,7 +155,7 @@ export const TeamMembershipsApiAxiosParamCreator = function (configuration?: Con
             // verify required parameter 'teammembershipsPostRequest' is not null or undefined
             assertParamExists('teamsByTeamTeamMembershipsPost', 'teammembershipsPostRequest', teammembershipsPostRequest)
             const localVarPath = `/teams/{team_id}/team_memberships`
-                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+                .replace('{team_id}', encodeURIComponent(String(teamId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -180,8 +177,6 @@ export const TeamMembershipsApiAxiosParamCreator = function (configuration?: Con
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -199,7 +194,6 @@ export const TeamMembershipsApiAxiosParamCreator = function (configuration?: Con
 
 /**
  * TeamMembershipsApi - functional programming interface
- * @export
  */
 export const TeamMembershipsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = TeamMembershipsApiAxiosParamCreator(configuration)
@@ -254,7 +248,6 @@ export const TeamMembershipsApiFp = function(configuration?: Configuration) {
 
 /**
  * TeamMembershipsApi - factory interface
- * @export
  */
 export const TeamMembershipsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = TeamMembershipsApiFp(configuration)
@@ -294,8 +287,6 @@ export const TeamMembershipsApiFactory = function (configuration?: Configuration
 
 /**
  * TeamMembershipsApi - interface
- * @export
- * @interface TeamMembershipsApi
  */
 export interface TeamMembershipsApiInterface {
     /**
@@ -304,7 +295,6 @@ export interface TeamMembershipsApiInterface {
      * @param {TeamMembershipsApiTeamsByTeamTeamMembershipsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TeamMembershipsApiInterface
      */
     teamsByTeamTeamMembershipsByIdDelete(requestParameters: TeamMembershipsApiTeamsByTeamTeamMembershipsByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -314,7 +304,6 @@ export interface TeamMembershipsApiInterface {
      * @param {TeamMembershipsApiTeamsByTeamTeamMembershipsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TeamMembershipsApiInterface
      */
     teamsByTeamTeamMembershipsGet(requestParameters: TeamMembershipsApiTeamsByTeamTeamMembershipsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<TeammembershipsGetResponse>;
 
@@ -324,7 +313,6 @@ export interface TeamMembershipsApiInterface {
      * @param {TeamMembershipsApiTeamsByTeamTeamMembershipsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TeamMembershipsApiInterface
      */
     teamsByTeamTeamMembershipsPost(requestParameters: TeamMembershipsApiTeamsByTeamTeamMembershipsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -332,93 +320,51 @@ export interface TeamMembershipsApiInterface {
 
 /**
  * Request parameters for teamsByTeamTeamMembershipsByIdDelete operation in TeamMembershipsApi.
- * @export
- * @interface TeamMembershipsApiTeamsByTeamTeamMembershipsByIdDeleteRequest
  */
 export interface TeamMembershipsApiTeamsByTeamTeamMembershipsByIdDeleteRequest {
     /**
      * TeamId identifier
-     * @type {string}
-     * @memberof TeamMembershipsApiTeamsByTeamTeamMembershipsByIdDelete
      */
     readonly teamId: string
 
     /**
      * Id identifier
-     * @type {string}
-     * @memberof TeamMembershipsApiTeamsByTeamTeamMembershipsByIdDelete
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {TeammembershipsPostRequest}
-     * @memberof TeamMembershipsApiTeamsByTeamTeamMembershipsByIdDelete
-     */
     readonly teammembershipsPostRequest: TeammembershipsPostRequest
 }
 
 /**
  * Request parameters for teamsByTeamTeamMembershipsGet operation in TeamMembershipsApi.
- * @export
- * @interface TeamMembershipsApiTeamsByTeamTeamMembershipsGetRequest
  */
 export interface TeamMembershipsApiTeamsByTeamTeamMembershipsGetRequest {
     /**
      * TeamId identifier
-     * @type {string}
-     * @memberof TeamMembershipsApiTeamsByTeamTeamMembershipsGet
      */
     readonly teamId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof TeamMembershipsApiTeamsByTeamTeamMembershipsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof TeamMembershipsApiTeamsByTeamTeamMembershipsGet
-     */
     readonly perPage?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof TeamMembershipsApiTeamsByTeamTeamMembershipsGet
-     */
     readonly fields?: string
 }
 
 /**
  * Request parameters for teamsByTeamTeamMembershipsPost operation in TeamMembershipsApi.
- * @export
- * @interface TeamMembershipsApiTeamsByTeamTeamMembershipsPostRequest
  */
 export interface TeamMembershipsApiTeamsByTeamTeamMembershipsPostRequest {
     /**
      * TeamId identifier
-     * @type {string}
-     * @memberof TeamMembershipsApiTeamsByTeamTeamMembershipsPost
      */
     readonly teamId: string
 
-    /**
-     * 
-     * @type {TeammembershipsPostRequest}
-     * @memberof TeamMembershipsApiTeamsByTeamTeamMembershipsPost
-     */
     readonly teammembershipsPostRequest: TeammembershipsPostRequest
 }
 
 /**
  * TeamMembershipsApi - object-oriented interface
- * @export
- * @class TeamMembershipsApi
- * @extends {BaseAPI}
  */
 export class TeamMembershipsApi extends BaseAPI implements TeamMembershipsApiInterface {
     /**
@@ -427,7 +373,6 @@ export class TeamMembershipsApi extends BaseAPI implements TeamMembershipsApiInt
      * @param {TeamMembershipsApiTeamsByTeamTeamMembershipsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TeamMembershipsApi
      */
     public teamsByTeamTeamMembershipsByIdDelete(requestParameters: TeamMembershipsApiTeamsByTeamTeamMembershipsByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return TeamMembershipsApiFp(this.configuration).teamsByTeamTeamMembershipsByIdDelete(requestParameters.teamId, requestParameters.id, requestParameters.teammembershipsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -439,7 +384,6 @@ export class TeamMembershipsApi extends BaseAPI implements TeamMembershipsApiInt
      * @param {TeamMembershipsApiTeamsByTeamTeamMembershipsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TeamMembershipsApi
      */
     public teamsByTeamTeamMembershipsGet(requestParameters: TeamMembershipsApiTeamsByTeamTeamMembershipsGetRequest, options?: RawAxiosRequestConfig) {
         return TeamMembershipsApiFp(this.configuration).teamsByTeamTeamMembershipsGet(requestParameters.teamId, requestParameters.page, requestParameters.perPage, requestParameters.fields, options).then((request) => request(this.axios, this.basePath));
@@ -451,7 +395,6 @@ export class TeamMembershipsApi extends BaseAPI implements TeamMembershipsApiInt
      * @param {TeamMembershipsApiTeamsByTeamTeamMembershipsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TeamMembershipsApi
      */
     public teamsByTeamTeamMembershipsPost(requestParameters: TeamMembershipsApiTeamsByTeamTeamMembershipsPostRequest, options?: RawAxiosRequestConfig) {
         return TeamMembershipsApiFp(this.configuration).teamsByTeamTeamMembershipsPost(requestParameters.teamId, requestParameters.teammembershipsPostRequest, options).then((request) => request(this.axios, this.basePath));

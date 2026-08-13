@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { RecordlinksGetResponseRecordLink } from './recordlinks-get-response-record-link';
 
-/**
- * 
- * @export
- * @interface RecordlinksGetResponse
- */
 export interface RecordlinksGetResponse {
-    /**
-     * 
-     * @type {RecordlinksGetResponseRecordLink}
-     * @memberof RecordlinksGetResponse
-     */
     'record_link'?: RecordlinksGetResponseRecordLink;
 }
 

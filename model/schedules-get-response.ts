@@ -20,23 +20,8 @@ import type { CompetitorsGetResponsePagination } from './competitors-get-respons
 // @ts-ignore
 import type { SchedulablechangesPostResponseSchedulableChangeSchedule } from './schedulablechanges-post-response-schedulable-change-schedule';
 
-/**
- * 
- * @export
- * @interface SchedulesGetResponse
- */
 export interface SchedulesGetResponse {
-    /**
-     * 
-     * @type {Array<SchedulablechangesPostResponseSchedulableChangeSchedule>}
-     * @memberof SchedulesGetResponse
-     */
     'schedules'?: Array<SchedulablechangesPostResponseSchedulableChangeSchedule>;
-    /**
-     * 
-     * @type {CompetitorsGetResponsePagination}
-     * @memberof SchedulesGetResponse
-     */
     'pagination'?: CompetitorsGetResponsePagination;
 }
 

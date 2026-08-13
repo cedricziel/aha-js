@@ -17,23 +17,8 @@
 // @ts-ignore
 import type { AuditsGetResponsePagination } from './audits-get-response-pagination';
 
-/**
- * 
- * @export
- * @interface IntegrationfieldsGetResponse
- */
 export interface IntegrationfieldsGetResponse {
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof IntegrationfieldsGetResponse
-     */
     'records'?: Array<any>;
-    /**
-     * 
-     * @type {AuditsGetResponsePagination}
-     * @memberof IntegrationfieldsGetResponse
-     */
     'pagination'?: AuditsGetResponsePagination;
 }
 

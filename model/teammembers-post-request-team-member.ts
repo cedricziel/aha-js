@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface TeammembersPostRequestTeamMember
- */
 export interface TeammembersPostRequestTeamMember {
-    /**
-     * 
-     * @type {string}
-     * @memberof TeammembersPostRequestTeamMember
-     */
     'first_name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof TeammembersPostRequestTeamMember
-     */
     'last_name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof TeammembersPostRequestTeamMember
-     */
     'email'?: string;
 }
 

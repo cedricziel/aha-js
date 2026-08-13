@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { ToDosPutResponseTask } from './to-dos-put-response-task';
 
-/**
- * 
- * @export
- * @interface ToDosPutResponse
- */
 export interface ToDosPutResponse {
-    /**
-     * 
-     * @type {ToDosPutResponseTask}
-     * @memberof ToDosPutResponse
-     */
     'task'?: ToDosPutResponseTask;
 }
 

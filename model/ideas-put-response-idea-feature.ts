@@ -14,53 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeasPutResponseIdeaFeature
- */
 export interface IdeasPutResponseIdeaFeature {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaFeature
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaFeature
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaFeature
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaFeature
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaFeature
-     */
     'product_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaFeature
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaFeature
-     */
     'resource'?: string;
 }
 

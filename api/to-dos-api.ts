@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { ToDosPostResponse } from '../model';
 import type { ToDosPutResponse } from '../model';
 /**
  * ToDosApi - axios parameter creator
- * @export
  */
 export const ToDosApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -48,7 +47,7 @@ export const ToDosApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'epicId' is not null or undefined
             assertParamExists('epicsByEpicTasksGet', 'epicId', epicId)
             const localVarPath = `/epics/{epic_id}/tasks`
-                .replace(`{${"epic_id"}}`, encodeURIComponent(String(epicId)));
+                .replace('{epic_id}', encodeURIComponent(String(epicId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -78,8 +77,8 @@ export const ToDosApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -102,7 +101,7 @@ export const ToDosApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'featureId' is not null or undefined
             assertParamExists('featuresByFeatureTasksGet', 'featureId', featureId)
             const localVarPath = `/features/{feature_id}/tasks`
-                .replace(`{${"feature_id"}}`, encodeURIComponent(String(featureId)));
+                .replace('{feature_id}', encodeURIComponent(String(featureId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -132,8 +131,8 @@ export const ToDosApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -156,7 +155,7 @@ export const ToDosApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'ideaId' is not null or undefined
             assertParamExists('ideasByIdeaTasksGet', 'ideaId', ideaId)
             const localVarPath = `/ideas/{idea_id}/tasks`
-                .replace(`{${"idea_id"}}`, encodeURIComponent(String(ideaId)));
+                .replace('{idea_id}', encodeURIComponent(String(ideaId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -186,8 +185,8 @@ export const ToDosApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -210,7 +209,7 @@ export const ToDosApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'productId' is not null or undefined
             assertParamExists('productsByProductTasksGet', 'productId', productId)
             const localVarPath = `/products/{product_id}/tasks`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -240,8 +239,8 @@ export const ToDosApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -264,7 +263,7 @@ export const ToDosApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'releaseId' is not null or undefined
             assertParamExists('releasesByReleaseTasksGet', 'releaseId', releaseId)
             const localVarPath = `/releases/{release_id}/tasks`
-                .replace(`{${"release_id"}}`, encodeURIComponent(String(releaseId)));
+                .replace('{release_id}', encodeURIComponent(String(releaseId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -294,8 +293,8 @@ export const ToDosApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -318,7 +317,7 @@ export const ToDosApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'requirementId' is not null or undefined
             assertParamExists('requirementsByRequirementTasksGet', 'requirementId', requirementId)
             const localVarPath = `/requirements/{requirement_id}/tasks`
-                .replace(`{${"requirement_id"}}`, encodeURIComponent(String(requirementId)));
+                .replace('{requirement_id}', encodeURIComponent(String(requirementId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -348,8 +347,8 @@ export const ToDosApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -370,7 +369,7 @@ export const ToDosApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('tasksByIdDelete', 'id', id)
             const localVarPath = `/tasks/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -393,7 +392,6 @@ export const ToDosApiAxiosParamCreator = function (configuration?: Configuration
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -415,7 +413,7 @@ export const ToDosApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('tasksByIdGet', 'id', id)
             const localVarPath = `/tasks/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -441,8 +439,8 @@ export const ToDosApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['fields'] = fields;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -466,7 +464,7 @@ export const ToDosApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'toDosPostRequest' is not null or undefined
             assertParamExists('tasksByIdPut', 'toDosPostRequest', toDosPostRequest)
             const localVarPath = `/tasks/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -488,9 +486,8 @@ export const ToDosApiAxiosParamCreator = function (configuration?: Configuration
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -556,8 +553,8 @@ export const ToDosApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['fields'] = fields;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -599,9 +596,8 @@ export const ToDosApiAxiosParamCreator = function (configuration?: Configuration
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -626,7 +622,7 @@ export const ToDosApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('usersByUserTasksGet', 'userId', userId)
             const localVarPath = `/users/{user_id}/tasks`
-                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+                .replace('{user_id}', encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -656,8 +652,8 @@ export const ToDosApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -672,7 +668,6 @@ export const ToDosApiAxiosParamCreator = function (configuration?: Configuration
 
 /**
  * ToDosApi - functional programming interface
- * @export
  */
 export const ToDosApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ToDosApiAxiosParamCreator(configuration)
@@ -858,7 +853,6 @@ export const ToDosApiFp = function(configuration?: Configuration) {
 
 /**
  * ToDosApi - factory interface
- * @export
  */
 export const ToDosApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ToDosApiFp(configuration)
@@ -988,8 +982,6 @@ export const ToDosApiFactory = function (configuration?: Configuration, basePath
 
 /**
  * ToDosApi - interface
- * @export
- * @interface ToDosApi
  */
 export interface ToDosApiInterface {
     /**
@@ -998,7 +990,6 @@ export interface ToDosApiInterface {
      * @param {ToDosApiEpicsByEpicTasksGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApiInterface
      */
     epicsByEpicTasksGet(requestParameters: ToDosApiEpicsByEpicTasksGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ToDosGetResponse>;
 
@@ -1008,7 +999,6 @@ export interface ToDosApiInterface {
      * @param {ToDosApiFeaturesByFeatureTasksGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApiInterface
      */
     featuresByFeatureTasksGet(requestParameters: ToDosApiFeaturesByFeatureTasksGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ToDosGetResponse>;
 
@@ -1018,7 +1008,6 @@ export interface ToDosApiInterface {
      * @param {ToDosApiIdeasByIdeaTasksGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApiInterface
      */
     ideasByIdeaTasksGet(requestParameters: ToDosApiIdeasByIdeaTasksGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ToDosGetResponse>;
 
@@ -1028,7 +1017,6 @@ export interface ToDosApiInterface {
      * @param {ToDosApiProductsByProductTasksGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApiInterface
      */
     productsByProductTasksGet(requestParameters: ToDosApiProductsByProductTasksGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ToDosGetResponse>;
 
@@ -1038,7 +1026,6 @@ export interface ToDosApiInterface {
      * @param {ToDosApiReleasesByReleaseTasksGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApiInterface
      */
     releasesByReleaseTasksGet(requestParameters: ToDosApiReleasesByReleaseTasksGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ToDosGetResponse>;
 
@@ -1048,7 +1035,6 @@ export interface ToDosApiInterface {
      * @param {ToDosApiRequirementsByRequirementTasksGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApiInterface
      */
     requirementsByRequirementTasksGet(requestParameters: ToDosApiRequirementsByRequirementTasksGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ToDosGetResponse>;
 
@@ -1058,7 +1044,6 @@ export interface ToDosApiInterface {
      * @param {ToDosApiTasksByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApiInterface
      */
     tasksByIdDelete(requestParameters: ToDosApiTasksByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -1068,7 +1053,6 @@ export interface ToDosApiInterface {
      * @param {ToDosApiTasksByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApiInterface
      */
     tasksByIdGet(requestParameters: ToDosApiTasksByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ToDosGetResponse>;
 
@@ -1078,7 +1062,6 @@ export interface ToDosApiInterface {
      * @param {ToDosApiTasksByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApiInterface
      */
     tasksByIdPut(requestParameters: ToDosApiTasksByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<ToDosPutResponse>;
 
@@ -1088,7 +1071,6 @@ export interface ToDosApiInterface {
      * @param {ToDosApiTasksGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApiInterface
      */
     tasksGet(requestParameters?: ToDosApiTasksGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ToDosGetResponse>;
 
@@ -1098,7 +1080,6 @@ export interface ToDosApiInterface {
      * @param {ToDosApiTasksPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApiInterface
      */
     tasksPost(requestParameters: ToDosApiTasksPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<ToDosPostResponse>;
 
@@ -1108,7 +1089,6 @@ export interface ToDosApiInterface {
      * @param {ToDosApiUsersByUserTasksGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApiInterface
      */
     usersByUserTasksGet(requestParameters: ToDosApiUsersByUserTasksGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ToDosGetResponse>;
 
@@ -1116,317 +1096,160 @@ export interface ToDosApiInterface {
 
 /**
  * Request parameters for epicsByEpicTasksGet operation in ToDosApi.
- * @export
- * @interface ToDosApiEpicsByEpicTasksGetRequest
  */
 export interface ToDosApiEpicsByEpicTasksGetRequest {
     /**
      * EpicId identifier
-     * @type {string}
-     * @memberof ToDosApiEpicsByEpicTasksGet
      */
     readonly epicId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosApiEpicsByEpicTasksGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosApiEpicsByEpicTasksGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for featuresByFeatureTasksGet operation in ToDosApi.
- * @export
- * @interface ToDosApiFeaturesByFeatureTasksGetRequest
  */
 export interface ToDosApiFeaturesByFeatureTasksGetRequest {
     /**
      * FeatureId identifier
-     * @type {string}
-     * @memberof ToDosApiFeaturesByFeatureTasksGet
      */
     readonly featureId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosApiFeaturesByFeatureTasksGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosApiFeaturesByFeatureTasksGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for ideasByIdeaTasksGet operation in ToDosApi.
- * @export
- * @interface ToDosApiIdeasByIdeaTasksGetRequest
  */
 export interface ToDosApiIdeasByIdeaTasksGetRequest {
     /**
      * IdeaId identifier
-     * @type {string}
-     * @memberof ToDosApiIdeasByIdeaTasksGet
      */
     readonly ideaId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosApiIdeasByIdeaTasksGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosApiIdeasByIdeaTasksGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for productsByProductTasksGet operation in ToDosApi.
- * @export
- * @interface ToDosApiProductsByProductTasksGetRequest
  */
 export interface ToDosApiProductsByProductTasksGetRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof ToDosApiProductsByProductTasksGet
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosApiProductsByProductTasksGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosApiProductsByProductTasksGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for releasesByReleaseTasksGet operation in ToDosApi.
- * @export
- * @interface ToDosApiReleasesByReleaseTasksGetRequest
  */
 export interface ToDosApiReleasesByReleaseTasksGetRequest {
     /**
      * ReleaseId identifier
-     * @type {string}
-     * @memberof ToDosApiReleasesByReleaseTasksGet
      */
     readonly releaseId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosApiReleasesByReleaseTasksGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosApiReleasesByReleaseTasksGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for requirementsByRequirementTasksGet operation in ToDosApi.
- * @export
- * @interface ToDosApiRequirementsByRequirementTasksGetRequest
  */
 export interface ToDosApiRequirementsByRequirementTasksGetRequest {
     /**
      * RequirementId identifier
-     * @type {string}
-     * @memberof ToDosApiRequirementsByRequirementTasksGet
      */
     readonly requirementId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosApiRequirementsByRequirementTasksGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosApiRequirementsByRequirementTasksGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for tasksByIdDelete operation in ToDosApi.
- * @export
- * @interface ToDosApiTasksByIdDeleteRequest
  */
 export interface ToDosApiTasksByIdDeleteRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof ToDosApiTasksByIdDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for tasksByIdGet operation in ToDosApi.
- * @export
- * @interface ToDosApiTasksByIdGetRequest
  */
 export interface ToDosApiTasksByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof ToDosApiTasksByIdGet
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosApiTasksByIdGet
-     */
     readonly fields?: string
 }
 
 /**
  * Request parameters for tasksByIdPut operation in ToDosApi.
- * @export
- * @interface ToDosApiTasksByIdPutRequest
  */
 export interface ToDosApiTasksByIdPutRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof ToDosApiTasksByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {ToDosPostRequest}
-     * @memberof ToDosApiTasksByIdPut
-     */
     readonly toDosPostRequest: ToDosPostRequest
 }
 
 /**
  * Request parameters for tasksGet operation in ToDosApi.
- * @export
- * @interface ToDosApiTasksGetRequest
  */
 export interface ToDosApiTasksGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosApiTasksGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosApiTasksGet
-     */
     readonly perPage?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosApiTasksGet
-     */
     readonly updatedSince?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosApiTasksGet
-     */
     readonly type?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosApiTasksGet
-     */
     readonly fields?: string
 }
 
 /**
  * Request parameters for tasksPost operation in ToDosApi.
- * @export
- * @interface ToDosApiTasksPostRequest
  */
 export interface ToDosApiTasksPostRequest {
-    /**
-     * 
-     * @type {ToDosPostRequest}
-     * @memberof ToDosApiTasksPost
-     */
     readonly toDosPostRequest: ToDosPostRequest
 }
 
 /**
  * Request parameters for usersByUserTasksGet operation in ToDosApi.
- * @export
- * @interface ToDosApiUsersByUserTasksGetRequest
  */
 export interface ToDosApiUsersByUserTasksGetRequest {
     /**
      * UserId identifier
-     * @type {string}
-     * @memberof ToDosApiUsersByUserTasksGet
      */
     readonly userId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosApiUsersByUserTasksGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosApiUsersByUserTasksGet
-     */
     readonly perPage?: string
 }
 
 /**
  * ToDosApi - object-oriented interface
- * @export
- * @class ToDosApi
- * @extends {BaseAPI}
  */
 export class ToDosApi extends BaseAPI implements ToDosApiInterface {
     /**
@@ -1435,7 +1258,6 @@ export class ToDosApi extends BaseAPI implements ToDosApiInterface {
      * @param {ToDosApiEpicsByEpicTasksGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApi
      */
     public epicsByEpicTasksGet(requestParameters: ToDosApiEpicsByEpicTasksGetRequest, options?: RawAxiosRequestConfig) {
         return ToDosApiFp(this.configuration).epicsByEpicTasksGet(requestParameters.epicId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -1447,7 +1269,6 @@ export class ToDosApi extends BaseAPI implements ToDosApiInterface {
      * @param {ToDosApiFeaturesByFeatureTasksGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApi
      */
     public featuresByFeatureTasksGet(requestParameters: ToDosApiFeaturesByFeatureTasksGetRequest, options?: RawAxiosRequestConfig) {
         return ToDosApiFp(this.configuration).featuresByFeatureTasksGet(requestParameters.featureId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -1459,7 +1280,6 @@ export class ToDosApi extends BaseAPI implements ToDosApiInterface {
      * @param {ToDosApiIdeasByIdeaTasksGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApi
      */
     public ideasByIdeaTasksGet(requestParameters: ToDosApiIdeasByIdeaTasksGetRequest, options?: RawAxiosRequestConfig) {
         return ToDosApiFp(this.configuration).ideasByIdeaTasksGet(requestParameters.ideaId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -1471,7 +1291,6 @@ export class ToDosApi extends BaseAPI implements ToDosApiInterface {
      * @param {ToDosApiProductsByProductTasksGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApi
      */
     public productsByProductTasksGet(requestParameters: ToDosApiProductsByProductTasksGetRequest, options?: RawAxiosRequestConfig) {
         return ToDosApiFp(this.configuration).productsByProductTasksGet(requestParameters.productId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -1483,7 +1302,6 @@ export class ToDosApi extends BaseAPI implements ToDosApiInterface {
      * @param {ToDosApiReleasesByReleaseTasksGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApi
      */
     public releasesByReleaseTasksGet(requestParameters: ToDosApiReleasesByReleaseTasksGetRequest, options?: RawAxiosRequestConfig) {
         return ToDosApiFp(this.configuration).releasesByReleaseTasksGet(requestParameters.releaseId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -1495,7 +1313,6 @@ export class ToDosApi extends BaseAPI implements ToDosApiInterface {
      * @param {ToDosApiRequirementsByRequirementTasksGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApi
      */
     public requirementsByRequirementTasksGet(requestParameters: ToDosApiRequirementsByRequirementTasksGetRequest, options?: RawAxiosRequestConfig) {
         return ToDosApiFp(this.configuration).requirementsByRequirementTasksGet(requestParameters.requirementId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -1507,7 +1324,6 @@ export class ToDosApi extends BaseAPI implements ToDosApiInterface {
      * @param {ToDosApiTasksByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApi
      */
     public tasksByIdDelete(requestParameters: ToDosApiTasksByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return ToDosApiFp(this.configuration).tasksByIdDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -1519,7 +1335,6 @@ export class ToDosApi extends BaseAPI implements ToDosApiInterface {
      * @param {ToDosApiTasksByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApi
      */
     public tasksByIdGet(requestParameters: ToDosApiTasksByIdGetRequest, options?: RawAxiosRequestConfig) {
         return ToDosApiFp(this.configuration).tasksByIdGet(requestParameters.id, requestParameters.fields, options).then((request) => request(this.axios, this.basePath));
@@ -1531,7 +1346,6 @@ export class ToDosApi extends BaseAPI implements ToDosApiInterface {
      * @param {ToDosApiTasksByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApi
      */
     public tasksByIdPut(requestParameters: ToDosApiTasksByIdPutRequest, options?: RawAxiosRequestConfig) {
         return ToDosApiFp(this.configuration).tasksByIdPut(requestParameters.id, requestParameters.toDosPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1543,7 +1357,6 @@ export class ToDosApi extends BaseAPI implements ToDosApiInterface {
      * @param {ToDosApiTasksGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApi
      */
     public tasksGet(requestParameters: ToDosApiTasksGetRequest = {}, options?: RawAxiosRequestConfig) {
         return ToDosApiFp(this.configuration).tasksGet(requestParameters.page, requestParameters.perPage, requestParameters.updatedSince, requestParameters.type, requestParameters.fields, options).then((request) => request(this.axios, this.basePath));
@@ -1555,7 +1368,6 @@ export class ToDosApi extends BaseAPI implements ToDosApiInterface {
      * @param {ToDosApiTasksPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApi
      */
     public tasksPost(requestParameters: ToDosApiTasksPostRequest, options?: RawAxiosRequestConfig) {
         return ToDosApiFp(this.configuration).tasksPost(requestParameters.toDosPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1567,7 +1379,6 @@ export class ToDosApi extends BaseAPI implements ToDosApiInterface {
      * @param {ToDosApiUsersByUserTasksGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ToDosApi
      */
     public usersByUserTasksGet(requestParameters: ToDosApiUsersByUserTasksGetRequest, options?: RawAxiosRequestConfig) {
         return ToDosApiFp(this.configuration).usersByUserTasksGet(requestParameters.userId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));

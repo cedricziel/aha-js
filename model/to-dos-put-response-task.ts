@@ -23,113 +23,23 @@ import type { ToDosPutResponseTaskAssignedToUsersInner } from './to-dos-put-resp
 // @ts-ignore
 import type { ToDosPutResponseTaskTaskable } from './to-dos-put-response-task-taskable';
 
-/**
- * 
- * @export
- * @interface ToDosPutResponseTask
- */
 export interface ToDosPutResponseTask {
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosPutResponseTask
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosPutResponseTask
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosPutResponseTask
-     */
     'due_date'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosPutResponseTask
-     */
     'status'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosPutResponseTask
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosPutResponseTask
-     */
     'body'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof ToDosPutResponseTask
-     */
     'position'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosPutResponseTask
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosPutResponseTask
-     */
     'product_id'?: string;
-    /**
-     * 
-     * @type {Array<ToDosPutResponseTaskAssignedToUsersInner>}
-     * @memberof ToDosPutResponseTask
-     */
     'assigned_to_users'?: Array<ToDosPutResponseTaskAssignedToUsersInner>;
-    /**
-     * 
-     * @type {CommentsPostResponseCommentUser}
-     * @memberof ToDosPutResponseTask
-     */
     'created_by_user'?: CommentsPostResponseCommentUser;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof ToDosPutResponseTask
-     */
     'attachments'?: Array<any>;
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosPutResponseTask
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosPutResponseTask
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof ToDosPutResponseTask
-     */
     'comments_count'?: number;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof ToDosPutResponseTask
-     */
     'custom_fields'?: Array<any>;
-    /**
-     * 
-     * @type {ToDosPutResponseTaskTaskable}
-     * @memberof ToDosPutResponseTask
-     */
     'taskable'?: ToDosPutResponseTaskTaskable;
 }
 

@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -33,7 +33,6 @@ import type { CustomfieldoptionsPostResponse } from '../model';
 import type { CustomfieldoptionsPutResponse } from '../model';
 /**
  * CustomFieldOptionsApi - axios parameter creator
- * @export
  */
 export const CustomFieldOptionsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -54,8 +53,8 @@ export const CustomFieldOptionsApiAxiosParamCreator = function (configuration?: 
             // verify required parameter 'customfieldoptionsPostRequest' is not null or undefined
             assertParamExists('customFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsByIdDelete', 'customfieldoptionsPostRequest', customfieldoptionsPostRequest)
             const localVarPath = `/custom_field_definitions/{custom_field_definition_id}/custom_field_options/{id}`
-                .replace(`{${"custom_field_definition_id"}}`, encodeURIComponent(String(customFieldDefinitionId)))
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{custom_field_definition_id}', encodeURIComponent(String(customFieldDefinitionId)))
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -77,9 +76,8 @@ export const CustomFieldOptionsApiAxiosParamCreator = function (configuration?: 
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -108,8 +106,8 @@ export const CustomFieldOptionsApiAxiosParamCreator = function (configuration?: 
             // verify required parameter 'customfieldoptionsPostRequest' is not null or undefined
             assertParamExists('customFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsByIdPut', 'customfieldoptionsPostRequest', customfieldoptionsPostRequest)
             const localVarPath = `/custom_field_definitions/{custom_field_definition_id}/custom_field_options/{id}`
-                .replace(`{${"custom_field_definition_id"}}`, encodeURIComponent(String(customFieldDefinitionId)))
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{custom_field_definition_id}', encodeURIComponent(String(customFieldDefinitionId)))
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -131,9 +129,8 @@ export const CustomFieldOptionsApiAxiosParamCreator = function (configuration?: 
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -156,7 +153,7 @@ export const CustomFieldOptionsApiAxiosParamCreator = function (configuration?: 
             // verify required parameter 'customFieldDefinitionId' is not null or undefined
             assertParamExists('customFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsGet', 'customFieldDefinitionId', customFieldDefinitionId)
             const localVarPath = `/custom_field_definitions/{custom_field_definition_id}/custom_field_options`
-                .replace(`{${"custom_field_definition_id"}}`, encodeURIComponent(String(customFieldDefinitionId)));
+                .replace('{custom_field_definition_id}', encodeURIComponent(String(customFieldDefinitionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -178,8 +175,8 @@ export const CustomFieldOptionsApiAxiosParamCreator = function (configuration?: 
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -203,7 +200,7 @@ export const CustomFieldOptionsApiAxiosParamCreator = function (configuration?: 
             // verify required parameter 'customfieldoptionsPostRequest' is not null or undefined
             assertParamExists('customFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsPost', 'customfieldoptionsPostRequest', customfieldoptionsPostRequest)
             const localVarPath = `/custom_field_definitions/{custom_field_definition_id}/custom_field_options`
-                .replace(`{${"custom_field_definition_id"}}`, encodeURIComponent(String(customFieldDefinitionId)));
+                .replace('{custom_field_definition_id}', encodeURIComponent(String(customFieldDefinitionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -225,9 +222,8 @@ export const CustomFieldOptionsApiAxiosParamCreator = function (configuration?: 
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -244,7 +240,6 @@ export const CustomFieldOptionsApiAxiosParamCreator = function (configuration?: 
 
 /**
  * CustomFieldOptionsApi - functional programming interface
- * @export
  */
 export const CustomFieldOptionsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = CustomFieldOptionsApiAxiosParamCreator(configuration)
@@ -311,7 +306,6 @@ export const CustomFieldOptionsApiFp = function(configuration?: Configuration) {
 
 /**
  * CustomFieldOptionsApi - factory interface
- * @export
  */
 export const CustomFieldOptionsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = CustomFieldOptionsApiFp(configuration)
@@ -361,8 +355,6 @@ export const CustomFieldOptionsApiFactory = function (configuration?: Configurat
 
 /**
  * CustomFieldOptionsApi - interface
- * @export
- * @interface CustomFieldOptionsApi
  */
 export interface CustomFieldOptionsApiInterface {
     /**
@@ -371,7 +363,6 @@ export interface CustomFieldOptionsApiInterface {
      * @param {CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomFieldOptionsApiInterface
      */
     customFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsByIdDelete(requestParameters: CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<CustomfieldoptionsDeleteResponse>;
 
@@ -381,7 +372,6 @@ export interface CustomFieldOptionsApiInterface {
      * @param {CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomFieldOptionsApiInterface
      */
     customFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsByIdPut(requestParameters: CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<CustomfieldoptionsPutResponse>;
 
@@ -391,7 +381,6 @@ export interface CustomFieldOptionsApiInterface {
      * @param {CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomFieldOptionsApiInterface
      */
     customFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsGet(requestParameters: CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<CustomfieldoptionsGetResponse>;
 
@@ -401,7 +390,6 @@ export interface CustomFieldOptionsApiInterface {
      * @param {CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomFieldOptionsApiInterface
      */
     customFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsPost(requestParameters: CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<CustomfieldoptionsPostResponse>;
 
@@ -409,100 +397,62 @@ export interface CustomFieldOptionsApiInterface {
 
 /**
  * Request parameters for customFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsByIdDelete operation in CustomFieldOptionsApi.
- * @export
- * @interface CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsByIdDeleteRequest
  */
 export interface CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsByIdDeleteRequest {
     /**
      * CustomFieldDefinitionId identifier
-     * @type {string}
-     * @memberof CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsByIdDelete
      */
     readonly customFieldDefinitionId: string
 
     /**
      * Id identifier
-     * @type {string}
-     * @memberof CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsByIdDelete
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {CustomfieldoptionsPostRequest}
-     * @memberof CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsByIdDelete
-     */
     readonly customfieldoptionsPostRequest: CustomfieldoptionsPostRequest
 }
 
 /**
  * Request parameters for customFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsByIdPut operation in CustomFieldOptionsApi.
- * @export
- * @interface CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsByIdPutRequest
  */
 export interface CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsByIdPutRequest {
     /**
      * CustomFieldDefinitionId identifier
-     * @type {string}
-     * @memberof CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsByIdPut
      */
     readonly customFieldDefinitionId: string
 
     /**
      * Id identifier
-     * @type {string}
-     * @memberof CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {CustomfieldoptionsPostRequest}
-     * @memberof CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsByIdPut
-     */
     readonly customfieldoptionsPostRequest: CustomfieldoptionsPostRequest
 }
 
 /**
  * Request parameters for customFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsGet operation in CustomFieldOptionsApi.
- * @export
- * @interface CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsGetRequest
  */
 export interface CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsGetRequest {
     /**
      * CustomFieldDefinitionId identifier
-     * @type {string}
-     * @memberof CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsGet
      */
     readonly customFieldDefinitionId: string
 }
 
 /**
  * Request parameters for customFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsPost operation in CustomFieldOptionsApi.
- * @export
- * @interface CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsPostRequest
  */
 export interface CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsPostRequest {
     /**
      * CustomFieldDefinitionId identifier
-     * @type {string}
-     * @memberof CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsPost
      */
     readonly customFieldDefinitionId: string
 
-    /**
-     * 
-     * @type {CustomfieldoptionsPostRequest}
-     * @memberof CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsPost
-     */
     readonly customfieldoptionsPostRequest: CustomfieldoptionsPostRequest
 }
 
 /**
  * CustomFieldOptionsApi - object-oriented interface
- * @export
- * @class CustomFieldOptionsApi
- * @extends {BaseAPI}
  */
 export class CustomFieldOptionsApi extends BaseAPI implements CustomFieldOptionsApiInterface {
     /**
@@ -511,7 +461,6 @@ export class CustomFieldOptionsApi extends BaseAPI implements CustomFieldOptions
      * @param {CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomFieldOptionsApi
      */
     public customFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsByIdDelete(requestParameters: CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return CustomFieldOptionsApiFp(this.configuration).customFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsByIdDelete(requestParameters.customFieldDefinitionId, requestParameters.id, requestParameters.customfieldoptionsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -523,7 +472,6 @@ export class CustomFieldOptionsApi extends BaseAPI implements CustomFieldOptions
      * @param {CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomFieldOptionsApi
      */
     public customFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsByIdPut(requestParameters: CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsByIdPutRequest, options?: RawAxiosRequestConfig) {
         return CustomFieldOptionsApiFp(this.configuration).customFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsByIdPut(requestParameters.customFieldDefinitionId, requestParameters.id, requestParameters.customfieldoptionsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -535,7 +483,6 @@ export class CustomFieldOptionsApi extends BaseAPI implements CustomFieldOptions
      * @param {CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomFieldOptionsApi
      */
     public customFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsGet(requestParameters: CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsGetRequest, options?: RawAxiosRequestConfig) {
         return CustomFieldOptionsApiFp(this.configuration).customFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsGet(requestParameters.customFieldDefinitionId, options).then((request) => request(this.axios, this.basePath));
@@ -547,7 +494,6 @@ export class CustomFieldOptionsApi extends BaseAPI implements CustomFieldOptions
      * @param {CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomFieldOptionsApi
      */
     public customFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsPost(requestParameters: CustomFieldOptionsApiCustomFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsPostRequest, options?: RawAxiosRequestConfig) {
         return CustomFieldOptionsApiFp(this.configuration).customFieldDefinitionsByCustomFieldDefinitionCustomFieldOptionsPost(requestParameters.customFieldDefinitionId, requestParameters.customfieldoptionsPostRequest, options).then((request) => request(this.axios, this.basePath));

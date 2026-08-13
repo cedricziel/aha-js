@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { CapacityinvestmentsPutResponseCapacityInvestment } from './capacityinvestments-put-response-capacity-investment';
 
-/**
- * 
- * @export
- * @interface CapacityinvestmentsPutResponse
- */
 export interface CapacityinvestmentsPutResponse {
-    /**
-     * 
-     * @type {CapacityinvestmentsPutResponseCapacityInvestment}
-     * @memberof CapacityinvestmentsPutResponse
-     */
     'capacity_investment'?: CapacityinvestmentsPutResponseCapacityInvestment;
 }
 

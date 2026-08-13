@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeacommentsGetResponseIdeaCommentsInner
- */
 export interface IdeacommentsGetResponseIdeaCommentsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeacommentsGetResponseIdeaCommentsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeacommentsGetResponseIdeaCommentsInner
-     */
     'idea_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeacommentsGetResponseIdeaCommentsInner
-     */
     'body'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeacommentsGetResponseIdeaCommentsInner
-     */
     'visibility'?: string;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof IdeacommentsGetResponseIdeaCommentsInner
-     */
     'attachments'?: Array<any>;
 }
 

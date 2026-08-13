@@ -36,6 +36,9 @@ import type { EpicsPostResponseEpicWorkflowStatusTimesInner } from './epics-post
 import type { FeaturesPostResponseFeatureWorkflowKind } from './features-post-response-feature-workflow-kind';
 // May contain unused imports in some cases
 // @ts-ignore
+import type { Null } from './null';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { RequirementsPostResponseFeatureCustomFieldsInner } from './requirements-post-response-feature-custom-fields-inner';
 // May contain unused imports in some cases
 // @ts-ignore
@@ -44,245 +47,45 @@ import type { RequirementsPostResponseFeatureDescription } from './requirements-
 // @ts-ignore
 import type { RequirementsPostResponseFeatureFeatureLinksInner } from './requirements-post-response-feature-feature-links-inner';
 
-/**
- * 
- * @export
- * @interface RequirementsPostResponseFeature
- */
 export interface RequirementsPostResponseFeature {
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsPostResponseFeature
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsPostResponseFeature
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsPostResponseFeature
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof RequirementsPostResponseFeature
-     */
-    'initiative_reference_num'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsPostResponseFeature
-     */
+    'initiative_reference_num'?: Null;
     'release_reference_num'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof RequirementsPostResponseFeature
-     */
-    'epic_reference_num'?: any | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof RequirementsPostResponseFeature
-     */
+    'epic_reference_num'?: Null;
     'position'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof RequirementsPostResponseFeature
-     */
     'score'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsPostResponseFeature
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsPostResponseFeature
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof RequirementsPostResponseFeature
-     */
-    'start_date'?: any | null;
-    /**
-     * 
-     * @type {any}
-     * @memberof RequirementsPostResponseFeature
-     */
-    'due_date'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsPostResponseFeature
-     */
+    'start_date'?: Null;
+    'due_date'?: Null;
     'product_id'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof RequirementsPostResponseFeature
-     */
     'progress'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsPostResponseFeature
-     */
     'progress_source'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsPostResponseFeature
-     */
     'status_changed_on'?: string;
-    /**
-     * 
-     * @type {CommentsPostResponseCommentUser}
-     * @memberof RequirementsPostResponseFeature
-     */
     'created_by_user'?: CommentsPostResponseCommentUser;
-    /**
-     * 
-     * @type {FeaturesPostResponseFeatureWorkflowKind}
-     * @memberof RequirementsPostResponseFeature
-     */
     'workflow_kind'?: FeaturesPostResponseFeatureWorkflowKind;
-    /**
-     * 
-     * @type {CustomtablerecordlinksPutResponseRequirementWorkflowStatus}
-     * @memberof RequirementsPostResponseFeature
-     */
     'workflow_status'?: CustomtablerecordlinksPutResponseRequirementWorkflowStatus;
-    /**
-     * 
-     * @type {EpicsPostResponseEpicProject}
-     * @memberof RequirementsPostResponseFeature
-     */
     'project'?: EpicsPostResponseEpicProject;
-    /**
-     * 
-     * @type {RequirementsPostResponseFeatureDescription}
-     * @memberof RequirementsPostResponseFeature
-     */
     'description'?: RequirementsPostResponseFeatureDescription;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof RequirementsPostResponseFeature
-     */
     'attachments'?: Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof RequirementsPostResponseFeature
-     */
     'integration_fields'?: Array<any>;
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsPostResponseFeature
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsPostResponseFeature
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {EpicsPostResponseEpicRelease}
-     * @memberof RequirementsPostResponseFeature
-     */
     'release'?: EpicsPostResponseEpicRelease;
-    /**
-     * 
-     * @type {CustomtablerecordlinksPutResponseRequirementAssignedToUser}
-     * @memberof RequirementsPostResponseFeature
-     */
     'assigned_to_user'?: CustomtablerecordlinksPutResponseRequirementAssignedToUser;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof RequirementsPostResponseFeature
-     */
     'requirements'?: Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof RequirementsPostResponseFeature
-     */
     'goals'?: Array<any>;
-    /**
-     * 
-     * @type {number}
-     * @memberof RequirementsPostResponseFeature
-     */
     'comments_count'?: number;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof RequirementsPostResponseFeature
-     */
     'score_facts'?: Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof RequirementsPostResponseFeature
-     */
     'tags'?: Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof RequirementsPostResponseFeature
-     */
     'full_tags'?: Array<any>;
-    /**
-     * 
-     * @type {Array<RequirementsPostResponseFeatureCustomFieldsInner>}
-     * @memberof RequirementsPostResponseFeature
-     */
     'custom_fields'?: Array<RequirementsPostResponseFeatureCustomFieldsInner>;
-    /**
-     * 
-     * @type {Array<RequirementsPostResponseFeatureFeatureLinksInner>}
-     * @memberof RequirementsPostResponseFeature
-     */
     'feature_links'?: Array<RequirementsPostResponseFeatureFeatureLinksInner>;
-    /**
-     * 
-     * @type {Array<EpicsPostResponseEpicWorkflowStatusTimesInner>}
-     * @memberof RequirementsPostResponseFeature
-     */
     'workflow_status_times'?: Array<EpicsPostResponseEpicWorkflowStatusTimesInner>;
-    /**
-     * 
-     * @type {any}
-     * @memberof RequirementsPostResponseFeature
-     */
-    'feature_only_original_estimate'?: any | null;
-    /**
-     * 
-     * @type {any}
-     * @memberof RequirementsPostResponseFeature
-     */
-    'feature_only_remaining_estimate'?: any | null;
-    /**
-     * 
-     * @type {any}
-     * @memberof RequirementsPostResponseFeature
-     */
-    'feature_only_work_done'?: any | null;
+    'feature_only_original_estimate'?: Null;
+    'feature_only_remaining_estimate'?: Null;
+    'feature_only_work_done'?: Null;
 }
 

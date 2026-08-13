@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface FeaturesPostRequestFeatureAssignedToUser
- */
 export interface FeaturesPostRequestFeatureAssignedToUser {
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPostRequestFeatureAssignedToUser
-     */
     'email'?: string;
 }
 

@@ -17,23 +17,8 @@
 // @ts-ignore
 import type { CapacityestimatevaluesPutResponseUpdatedInner } from './capacityestimatevalues-put-response-updated-inner';
 
-/**
- * 
- * @export
- * @interface CapacityestimatevaluesPutResponse
- */
 export interface CapacityestimatevaluesPutResponse {
-    /**
-     * 
-     * @type {Array<CapacityestimatevaluesPutResponseUpdatedInner>}
-     * @memberof CapacityestimatevaluesPutResponse
-     */
     'updated'?: Array<CapacityestimatevaluesPutResponseUpdatedInner>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof CapacityestimatevaluesPutResponse
-     */
     'destroyed'?: Array<any>;
 }
 

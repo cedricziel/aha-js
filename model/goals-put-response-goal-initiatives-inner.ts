@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface GoalsPutResponseGoalInitiativesInner
- */
 export interface GoalsPutResponseGoalInitiativesInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoalInitiativesInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoalInitiativesInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoalInitiativesInner
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoalInitiativesInner
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoalInitiativesInner
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoalInitiativesInner
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoalInitiativesInner
-     */
     'description'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoalInitiativesInner
-     */
     'integration_fields'?: string;
 }
 

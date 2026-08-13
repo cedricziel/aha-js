@@ -37,150 +37,33 @@ import type { CustomtablerecordlinksPutResponseRequirementIntegrationFieldsInner
 // May contain unused imports in some cases
 // @ts-ignore
 import type { CustomtablerecordlinksPutResponseRequirementWorkflowStatus } from './customtablerecordlinks-put-response-requirement-workflow-status';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface CustomtablerecordlinksPutResponseRequirement
- */
 export interface CustomtablerecordlinksPutResponseRequirement {
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordlinksPutResponseRequirement
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordlinksPutResponseRequirement
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordlinksPutResponseRequirement
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof CustomtablerecordlinksPutResponseRequirement
-     */
     'position'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordlinksPutResponseRequirement
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordlinksPutResponseRequirement
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof CustomtablerecordlinksPutResponseRequirement
-     */
     'release_id'?: number;
-    /**
-     * 
-     * @type {any}
-     * @memberof CustomtablerecordlinksPutResponseRequirement
-     */
-    'start_date'?: any | null;
-    /**
-     * 
-     * @type {any}
-     * @memberof CustomtablerecordlinksPutResponseRequirement
-     */
-    'end_date'?: any | null;
-    /**
-     * 
-     * @type {CommentsPostResponseCommentUser}
-     * @memberof CustomtablerecordlinksPutResponseRequirement
-     */
+    'start_date'?: Null;
+    'end_date'?: Null;
     'created_by_user'?: CommentsPostResponseCommentUser;
-    /**
-     * 
-     * @type {CustomtablerecordlinksPutResponseRequirementWorkflowStatus}
-     * @memberof CustomtablerecordlinksPutResponseRequirement
-     */
     'workflow_status'?: CustomtablerecordlinksPutResponseRequirementWorkflowStatus;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordlinksPutResponseRequirement
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordlinksPutResponseRequirement
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {CustomtablerecordlinksPutResponseRequirementDescription}
-     * @memberof CustomtablerecordlinksPutResponseRequirement
-     */
     'description'?: CustomtablerecordlinksPutResponseRequirementDescription;
-    /**
-     * 
-     * @type {CustomtablerecordlinksPutResponseRequirementFeature}
-     * @memberof CustomtablerecordlinksPutResponseRequirement
-     */
     'feature'?: CustomtablerecordlinksPutResponseRequirementFeature;
-    /**
-     * 
-     * @type {CustomtablerecordlinksPutResponseRequirementAssignedToUser}
-     * @memberof CustomtablerecordlinksPutResponseRequirement
-     */
     'assigned_to_user'?: CustomtablerecordlinksPutResponseRequirementAssignedToUser;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof CustomtablerecordlinksPutResponseRequirement
-     */
     'attachments'?: Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof CustomtablerecordlinksPutResponseRequirement
-     */
     'tags'?: Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof CustomtablerecordlinksPutResponseRequirement
-     */
     'full_tags'?: Array<any>;
-    /**
-     * 
-     * @type {Array<CustomtablerecordlinksPutResponseRequirementCustomFieldsInner>}
-     * @memberof CustomtablerecordlinksPutResponseRequirement
-     */
     'custom_fields'?: Array<CustomtablerecordlinksPutResponseRequirementCustomFieldsInner>;
-    /**
-     * 
-     * @type {Array<CustomtablerecordlinksPutResponseRequirementCustomObjectLinksInner>}
-     * @memberof CustomtablerecordlinksPutResponseRequirement
-     */
     'custom_object_links'?: Array<CustomtablerecordlinksPutResponseRequirementCustomObjectLinksInner>;
-    /**
-     * 
-     * @type {Array<CustomtablerecordlinksPutResponseRequirementIntegrationFieldsInner>}
-     * @memberof CustomtablerecordlinksPutResponseRequirement
-     */
     'integration_fields'?: Array<CustomtablerecordlinksPutResponseRequirementIntegrationFieldsInner>;
-    /**
-     * 
-     * @type {number}
-     * @memberof CustomtablerecordlinksPutResponseRequirement
-     */
     'comments_count'?: number;
 }
 

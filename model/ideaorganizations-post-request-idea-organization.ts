@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeaorganizationsPostRequestIdeaOrganization
- */
 export interface IdeaorganizationsPostRequestIdeaOrganization {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsPostRequestIdeaOrganization
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsPostRequestIdeaOrganization
-     */
     'email_domains'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsPostRequestIdeaOrganization
-     */
     'revenue'?: string;
 }
 

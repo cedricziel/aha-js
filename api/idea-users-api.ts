@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { IdeausersPostResponse } from '../model';
 import type { IdeausersPutResponse } from '../model';
 /**
  * IdeaUsersApi - axios parameter creator
- * @export
  */
 export const IdeaUsersApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -46,7 +45,7 @@ export const IdeaUsersApiAxiosParamCreator = function (configuration?: Configura
             // verify required parameter 'id' is not null or undefined
             assertParamExists('ideaUsersByIdDelete', 'id', id)
             const localVarPath = `/idea_users/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -69,7 +68,6 @@ export const IdeaUsersApiAxiosParamCreator = function (configuration?: Configura
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -91,7 +89,7 @@ export const IdeaUsersApiAxiosParamCreator = function (configuration?: Configura
             // verify required parameter 'id' is not null or undefined
             assertParamExists('ideaUsersByIdGet', 'id', id)
             const localVarPath = `/idea_users/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -117,8 +115,8 @@ export const IdeaUsersApiAxiosParamCreator = function (configuration?: Configura
                 localVarQueryParameter['fields'] = fields;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -142,7 +140,7 @@ export const IdeaUsersApiAxiosParamCreator = function (configuration?: Configura
             // verify required parameter 'ideausersPostRequest' is not null or undefined
             assertParamExists('ideaUsersByIdPut', 'ideausersPostRequest', ideausersPostRequest)
             const localVarPath = `/idea_users/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -164,9 +162,8 @@ export const IdeaUsersApiAxiosParamCreator = function (configuration?: Configura
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -222,8 +219,8 @@ export const IdeaUsersApiAxiosParamCreator = function (configuration?: Configura
                 localVarQueryParameter['fields'] = fields;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -265,9 +262,8 @@ export const IdeaUsersApiAxiosParamCreator = function (configuration?: Configura
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -284,7 +280,6 @@ export const IdeaUsersApiAxiosParamCreator = function (configuration?: Configura
 
 /**
  * IdeaUsersApi - functional programming interface
- * @export
  */
 export const IdeaUsersApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = IdeaUsersApiAxiosParamCreator(configuration)
@@ -363,7 +358,6 @@ export const IdeaUsersApiFp = function(configuration?: Configuration) {
 
 /**
  * IdeaUsersApi - factory interface
- * @export
  */
 export const IdeaUsersApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = IdeaUsersApiFp(configuration)
@@ -423,8 +417,6 @@ export const IdeaUsersApiFactory = function (configuration?: Configuration, base
 
 /**
  * IdeaUsersApi - interface
- * @export
- * @interface IdeaUsersApi
  */
 export interface IdeaUsersApiInterface {
     /**
@@ -433,7 +425,6 @@ export interface IdeaUsersApiInterface {
      * @param {IdeaUsersApiIdeaUsersByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaUsersApiInterface
      */
     ideaUsersByIdDelete(requestParameters: IdeaUsersApiIdeaUsersByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -443,7 +434,6 @@ export interface IdeaUsersApiInterface {
      * @param {IdeaUsersApiIdeaUsersByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaUsersApiInterface
      */
     ideaUsersByIdGet(requestParameters: IdeaUsersApiIdeaUsersByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeausersGetResponse>;
 
@@ -453,7 +443,6 @@ export interface IdeaUsersApiInterface {
      * @param {IdeaUsersApiIdeaUsersByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaUsersApiInterface
      */
     ideaUsersByIdPut(requestParameters: IdeaUsersApiIdeaUsersByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeausersPutResponse>;
 
@@ -463,7 +452,6 @@ export interface IdeaUsersApiInterface {
      * @param {IdeaUsersApiIdeaUsersGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaUsersApiInterface
      */
     ideaUsersGet(requestParameters?: IdeaUsersApiIdeaUsersGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeausersGetResponse>;
 
@@ -473,7 +461,6 @@ export interface IdeaUsersApiInterface {
      * @param {IdeaUsersApiIdeaUsersPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaUsersApiInterface
      */
     ideaUsersPost(requestParameters: IdeaUsersApiIdeaUsersPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeausersPostResponse>;
 
@@ -481,107 +468,58 @@ export interface IdeaUsersApiInterface {
 
 /**
  * Request parameters for ideaUsersByIdDelete operation in IdeaUsersApi.
- * @export
- * @interface IdeaUsersApiIdeaUsersByIdDeleteRequest
  */
 export interface IdeaUsersApiIdeaUsersByIdDeleteRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof IdeaUsersApiIdeaUsersByIdDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for ideaUsersByIdGet operation in IdeaUsersApi.
- * @export
- * @interface IdeaUsersApiIdeaUsersByIdGetRequest
  */
 export interface IdeaUsersApiIdeaUsersByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof IdeaUsersApiIdeaUsersByIdGet
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaUsersApiIdeaUsersByIdGet
-     */
     readonly fields?: string
 }
 
 /**
  * Request parameters for ideaUsersByIdPut operation in IdeaUsersApi.
- * @export
- * @interface IdeaUsersApiIdeaUsersByIdPutRequest
  */
 export interface IdeaUsersApiIdeaUsersByIdPutRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof IdeaUsersApiIdeaUsersByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {IdeausersPostRequest}
-     * @memberof IdeaUsersApiIdeaUsersByIdPut
-     */
     readonly ideausersPostRequest: IdeausersPostRequest
 }
 
 /**
  * Request parameters for ideaUsersGet operation in IdeaUsersApi.
- * @export
- * @interface IdeaUsersApiIdeaUsersGetRequest
  */
 export interface IdeaUsersApiIdeaUsersGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaUsersApiIdeaUsersGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaUsersApiIdeaUsersGet
-     */
     readonly perPage?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaUsersApiIdeaUsersGet
-     */
     readonly fields?: string
 }
 
 /**
  * Request parameters for ideaUsersPost operation in IdeaUsersApi.
- * @export
- * @interface IdeaUsersApiIdeaUsersPostRequest
  */
 export interface IdeaUsersApiIdeaUsersPostRequest {
-    /**
-     * 
-     * @type {IdeausersPostRequest}
-     * @memberof IdeaUsersApiIdeaUsersPost
-     */
     readonly ideausersPostRequest: IdeausersPostRequest
 }
 
 /**
  * IdeaUsersApi - object-oriented interface
- * @export
- * @class IdeaUsersApi
- * @extends {BaseAPI}
  */
 export class IdeaUsersApi extends BaseAPI implements IdeaUsersApiInterface {
     /**
@@ -590,7 +528,6 @@ export class IdeaUsersApi extends BaseAPI implements IdeaUsersApiInterface {
      * @param {IdeaUsersApiIdeaUsersByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaUsersApi
      */
     public ideaUsersByIdDelete(requestParameters: IdeaUsersApiIdeaUsersByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return IdeaUsersApiFp(this.configuration).ideaUsersByIdDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -602,7 +539,6 @@ export class IdeaUsersApi extends BaseAPI implements IdeaUsersApiInterface {
      * @param {IdeaUsersApiIdeaUsersByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaUsersApi
      */
     public ideaUsersByIdGet(requestParameters: IdeaUsersApiIdeaUsersByIdGetRequest, options?: RawAxiosRequestConfig) {
         return IdeaUsersApiFp(this.configuration).ideaUsersByIdGet(requestParameters.id, requestParameters.fields, options).then((request) => request(this.axios, this.basePath));
@@ -614,7 +550,6 @@ export class IdeaUsersApi extends BaseAPI implements IdeaUsersApiInterface {
      * @param {IdeaUsersApiIdeaUsersByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaUsersApi
      */
     public ideaUsersByIdPut(requestParameters: IdeaUsersApiIdeaUsersByIdPutRequest, options?: RawAxiosRequestConfig) {
         return IdeaUsersApiFp(this.configuration).ideaUsersByIdPut(requestParameters.id, requestParameters.ideausersPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -626,7 +561,6 @@ export class IdeaUsersApi extends BaseAPI implements IdeaUsersApiInterface {
      * @param {IdeaUsersApiIdeaUsersGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaUsersApi
      */
     public ideaUsersGet(requestParameters: IdeaUsersApiIdeaUsersGetRequest = {}, options?: RawAxiosRequestConfig) {
         return IdeaUsersApiFp(this.configuration).ideaUsersGet(requestParameters.page, requestParameters.perPage, requestParameters.fields, options).then((request) => request(this.axios, this.basePath));
@@ -638,7 +572,6 @@ export class IdeaUsersApi extends BaseAPI implements IdeaUsersApiInterface {
      * @param {IdeaUsersApiIdeaUsersPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaUsersApi
      */
     public ideaUsersPost(requestParameters: IdeaUsersApiIdeaUsersPostRequest, options?: RawAxiosRequestConfig) {
         return IdeaUsersApiFp(this.configuration).ideaUsersPost(requestParameters.ideausersPostRequest, options).then((request) => request(this.axios, this.basePath));

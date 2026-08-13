@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface InitiativesGetResponseInitiativesInnerDescription
- */
 export interface InitiativesGetResponseInitiativesInnerDescription {
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesGetResponseInitiativesInnerDescription
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesGetResponseInitiativesInnerDescription
-     */
     'body'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesGetResponseInitiativesInnerDescription
-     */
     'notable_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesGetResponseInitiativesInnerDescription
-     */
     'notable_type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesGetResponseInitiativesInnerDescription
-     */
     'editor_version'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesGetResponseInitiativesInnerDescription
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesGetResponseInitiativesInnerDescription
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesGetResponseInitiativesInnerDescription
-     */
     'attachments'?: string;
 }
 

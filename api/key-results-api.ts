@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { KeyresultsPostResponse } from '../model';
 import type { KeyresultsPutResponse } from '../model';
 /**
  * KeyResultsApi - axios parameter creator
- * @export
  */
 export const KeyResultsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -48,7 +47,7 @@ export const KeyResultsApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'goalId' is not null or undefined
             assertParamExists('goalsByGoalKeyResultsGet', 'goalId', goalId)
             const localVarPath = `/goals/{goal_id}/key_results`
-                .replace(`{${"goal_id"}}`, encodeURIComponent(String(goalId)));
+                .replace('{goal_id}', encodeURIComponent(String(goalId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -78,8 +77,8 @@ export const KeyResultsApiAxiosParamCreator = function (configuration?: Configur
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -103,7 +102,7 @@ export const KeyResultsApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'keyresultsPostRequest' is not null or undefined
             assertParamExists('goalsByGoalKeyResultsPost', 'keyresultsPostRequest', keyresultsPostRequest)
             const localVarPath = `/goals/{goal_id}/key_results`
-                .replace(`{${"goal_id"}}`, encodeURIComponent(String(goalId)));
+                .replace('{goal_id}', encodeURIComponent(String(goalId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -125,9 +124,8 @@ export const KeyResultsApiAxiosParamCreator = function (configuration?: Configur
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -150,7 +148,7 @@ export const KeyResultsApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'id' is not null or undefined
             assertParamExists('keyResultsByIdDelete', 'id', id)
             const localVarPath = `/key_results/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -173,7 +171,6 @@ export const KeyResultsApiAxiosParamCreator = function (configuration?: Configur
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -194,7 +191,7 @@ export const KeyResultsApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'id' is not null or undefined
             assertParamExists('keyResultsByIdGet', 'id', id)
             const localVarPath = `/key_results/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -216,8 +213,8 @@ export const KeyResultsApiAxiosParamCreator = function (configuration?: Configur
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -241,7 +238,7 @@ export const KeyResultsApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'keyresultsPostRequest' is not null or undefined
             assertParamExists('keyResultsByIdPut', 'keyresultsPostRequest', keyresultsPostRequest)
             const localVarPath = `/key_results/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -263,9 +260,8 @@ export const KeyResultsApiAxiosParamCreator = function (configuration?: Configur
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -282,7 +278,6 @@ export const KeyResultsApiAxiosParamCreator = function (configuration?: Configur
 
 /**
  * KeyResultsApi - functional programming interface
- * @export
  */
 export const KeyResultsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = KeyResultsApiAxiosParamCreator(configuration)
@@ -361,7 +356,6 @@ export const KeyResultsApiFp = function(configuration?: Configuration) {
 
 /**
  * KeyResultsApi - factory interface
- * @export
  */
 export const KeyResultsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = KeyResultsApiFp(configuration)
@@ -421,8 +415,6 @@ export const KeyResultsApiFactory = function (configuration?: Configuration, bas
 
 /**
  * KeyResultsApi - interface
- * @export
- * @interface KeyResultsApi
  */
 export interface KeyResultsApiInterface {
     /**
@@ -431,7 +423,6 @@ export interface KeyResultsApiInterface {
      * @param {KeyResultsApiGoalsByGoalKeyResultsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof KeyResultsApiInterface
      */
     goalsByGoalKeyResultsGet(requestParameters: KeyResultsApiGoalsByGoalKeyResultsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<KeyresultsGetResponse>;
 
@@ -441,7 +432,6 @@ export interface KeyResultsApiInterface {
      * @param {KeyResultsApiGoalsByGoalKeyResultsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof KeyResultsApiInterface
      */
     goalsByGoalKeyResultsPost(requestParameters: KeyResultsApiGoalsByGoalKeyResultsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<KeyresultsPostResponse>;
 
@@ -451,7 +441,6 @@ export interface KeyResultsApiInterface {
      * @param {KeyResultsApiKeyResultsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof KeyResultsApiInterface
      */
     keyResultsByIdDelete(requestParameters: KeyResultsApiKeyResultsByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -461,7 +450,6 @@ export interface KeyResultsApiInterface {
      * @param {KeyResultsApiKeyResultsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof KeyResultsApiInterface
      */
     keyResultsByIdGet(requestParameters: KeyResultsApiKeyResultsByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<KeyresultsGetResponse>;
 
@@ -471,7 +459,6 @@ export interface KeyResultsApiInterface {
      * @param {KeyResultsApiKeyResultsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof KeyResultsApiInterface
      */
     keyResultsByIdPut(requestParameters: KeyResultsApiKeyResultsByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<KeyresultsPutResponse>;
 
@@ -479,107 +466,64 @@ export interface KeyResultsApiInterface {
 
 /**
  * Request parameters for goalsByGoalKeyResultsGet operation in KeyResultsApi.
- * @export
- * @interface KeyResultsApiGoalsByGoalKeyResultsGetRequest
  */
 export interface KeyResultsApiGoalsByGoalKeyResultsGetRequest {
     /**
      * GoalId identifier
-     * @type {string}
-     * @memberof KeyResultsApiGoalsByGoalKeyResultsGet
      */
     readonly goalId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof KeyResultsApiGoalsByGoalKeyResultsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof KeyResultsApiGoalsByGoalKeyResultsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for goalsByGoalKeyResultsPost operation in KeyResultsApi.
- * @export
- * @interface KeyResultsApiGoalsByGoalKeyResultsPostRequest
  */
 export interface KeyResultsApiGoalsByGoalKeyResultsPostRequest {
     /**
      * GoalId identifier
-     * @type {string}
-     * @memberof KeyResultsApiGoalsByGoalKeyResultsPost
      */
     readonly goalId: string
 
-    /**
-     * 
-     * @type {KeyresultsPostRequest}
-     * @memberof KeyResultsApiGoalsByGoalKeyResultsPost
-     */
     readonly keyresultsPostRequest: KeyresultsPostRequest
 }
 
 /**
  * Request parameters for keyResultsByIdDelete operation in KeyResultsApi.
- * @export
- * @interface KeyResultsApiKeyResultsByIdDeleteRequest
  */
 export interface KeyResultsApiKeyResultsByIdDeleteRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof KeyResultsApiKeyResultsByIdDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for keyResultsByIdGet operation in KeyResultsApi.
- * @export
- * @interface KeyResultsApiKeyResultsByIdGetRequest
  */
 export interface KeyResultsApiKeyResultsByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof KeyResultsApiKeyResultsByIdGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for keyResultsByIdPut operation in KeyResultsApi.
- * @export
- * @interface KeyResultsApiKeyResultsByIdPutRequest
  */
 export interface KeyResultsApiKeyResultsByIdPutRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof KeyResultsApiKeyResultsByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {KeyresultsPostRequest}
-     * @memberof KeyResultsApiKeyResultsByIdPut
-     */
     readonly keyresultsPostRequest: KeyresultsPostRequest
 }
 
 /**
  * KeyResultsApi - object-oriented interface
- * @export
- * @class KeyResultsApi
- * @extends {BaseAPI}
  */
 export class KeyResultsApi extends BaseAPI implements KeyResultsApiInterface {
     /**
@@ -588,7 +532,6 @@ export class KeyResultsApi extends BaseAPI implements KeyResultsApiInterface {
      * @param {KeyResultsApiGoalsByGoalKeyResultsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof KeyResultsApi
      */
     public goalsByGoalKeyResultsGet(requestParameters: KeyResultsApiGoalsByGoalKeyResultsGetRequest, options?: RawAxiosRequestConfig) {
         return KeyResultsApiFp(this.configuration).goalsByGoalKeyResultsGet(requestParameters.goalId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -600,7 +543,6 @@ export class KeyResultsApi extends BaseAPI implements KeyResultsApiInterface {
      * @param {KeyResultsApiGoalsByGoalKeyResultsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof KeyResultsApi
      */
     public goalsByGoalKeyResultsPost(requestParameters: KeyResultsApiGoalsByGoalKeyResultsPostRequest, options?: RawAxiosRequestConfig) {
         return KeyResultsApiFp(this.configuration).goalsByGoalKeyResultsPost(requestParameters.goalId, requestParameters.keyresultsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -612,7 +554,6 @@ export class KeyResultsApi extends BaseAPI implements KeyResultsApiInterface {
      * @param {KeyResultsApiKeyResultsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof KeyResultsApi
      */
     public keyResultsByIdDelete(requestParameters: KeyResultsApiKeyResultsByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return KeyResultsApiFp(this.configuration).keyResultsByIdDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -624,7 +565,6 @@ export class KeyResultsApi extends BaseAPI implements KeyResultsApiInterface {
      * @param {KeyResultsApiKeyResultsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof KeyResultsApi
      */
     public keyResultsByIdGet(requestParameters: KeyResultsApiKeyResultsByIdGetRequest, options?: RawAxiosRequestConfig) {
         return KeyResultsApiFp(this.configuration).keyResultsByIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -636,7 +576,6 @@ export class KeyResultsApi extends BaseAPI implements KeyResultsApiInterface {
      * @param {KeyResultsApiKeyResultsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof KeyResultsApi
      */
     public keyResultsByIdPut(requestParameters: KeyResultsApiKeyResultsByIdPutRequest, options?: RawAxiosRequestConfig) {
         return KeyResultsApiFp(this.configuration).keyResultsByIdPut(requestParameters.id, requestParameters.keyresultsPostRequest, options).then((request) => request(this.axios, this.basePath));

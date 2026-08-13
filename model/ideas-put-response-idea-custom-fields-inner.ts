@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeasPutResponseIdeaCustomFieldsInner
- */
 export interface IdeasPutResponseIdeaCustomFieldsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaCustomFieldsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaCustomFieldsInner
-     */
     'key'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaCustomFieldsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaCustomFieldsInner
-     */
     'updatedAt'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaCustomFieldsInner
-     */
     'type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaCustomFieldsInner
-     */
     'value'?: string;
 }
 

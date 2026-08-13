@@ -18,14 +18,13 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
 import type { CustomLayoutsGetResponse } from '../model';
 /**
  * CustomLayoutsApi - axios parameter creator
- * @export
  */
 export const CustomLayoutsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -40,7 +39,7 @@ export const CustomLayoutsApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'id' is not null or undefined
             assertParamExists('screenDefinitionsByIdGet', 'id', id)
             const localVarPath = `/screen_definitions/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -62,8 +61,8 @@ export const CustomLayoutsApiAxiosParamCreator = function (configuration?: Confi
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -112,8 +111,8 @@ export const CustomLayoutsApiAxiosParamCreator = function (configuration?: Confi
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -128,7 +127,6 @@ export const CustomLayoutsApiAxiosParamCreator = function (configuration?: Confi
 
 /**
  * CustomLayoutsApi - functional programming interface
- * @export
  */
 export const CustomLayoutsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = CustomLayoutsApiAxiosParamCreator(configuration)
@@ -165,7 +163,6 @@ export const CustomLayoutsApiFp = function(configuration?: Configuration) {
 
 /**
  * CustomLayoutsApi - factory interface
- * @export
  */
 export const CustomLayoutsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = CustomLayoutsApiFp(configuration)
@@ -195,8 +192,6 @@ export const CustomLayoutsApiFactory = function (configuration?: Configuration, 
 
 /**
  * CustomLayoutsApi - interface
- * @export
- * @interface CustomLayoutsApi
  */
 export interface CustomLayoutsApiInterface {
     /**
@@ -205,7 +200,6 @@ export interface CustomLayoutsApiInterface {
      * @param {CustomLayoutsApiScreenDefinitionsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomLayoutsApiInterface
      */
     screenDefinitionsByIdGet(requestParameters: CustomLayoutsApiScreenDefinitionsByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<CustomLayoutsGetResponse>;
 
@@ -215,7 +209,6 @@ export interface CustomLayoutsApiInterface {
      * @param {CustomLayoutsApiScreenDefinitionsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomLayoutsApiInterface
      */
     screenDefinitionsGet(requestParameters?: CustomLayoutsApiScreenDefinitionsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<CustomLayoutsGetResponse>;
 
@@ -223,44 +216,25 @@ export interface CustomLayoutsApiInterface {
 
 /**
  * Request parameters for screenDefinitionsByIdGet operation in CustomLayoutsApi.
- * @export
- * @interface CustomLayoutsApiScreenDefinitionsByIdGetRequest
  */
 export interface CustomLayoutsApiScreenDefinitionsByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof CustomLayoutsApiScreenDefinitionsByIdGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for screenDefinitionsGet operation in CustomLayoutsApi.
- * @export
- * @interface CustomLayoutsApiScreenDefinitionsGetRequest
  */
 export interface CustomLayoutsApiScreenDefinitionsGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomLayoutsApiScreenDefinitionsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomLayoutsApiScreenDefinitionsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * CustomLayoutsApi - object-oriented interface
- * @export
- * @class CustomLayoutsApi
- * @extends {BaseAPI}
  */
 export class CustomLayoutsApi extends BaseAPI implements CustomLayoutsApiInterface {
     /**
@@ -269,7 +243,6 @@ export class CustomLayoutsApi extends BaseAPI implements CustomLayoutsApiInterfa
      * @param {CustomLayoutsApiScreenDefinitionsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomLayoutsApi
      */
     public screenDefinitionsByIdGet(requestParameters: CustomLayoutsApiScreenDefinitionsByIdGetRequest, options?: RawAxiosRequestConfig) {
         return CustomLayoutsApiFp(this.configuration).screenDefinitionsByIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -281,7 +254,6 @@ export class CustomLayoutsApi extends BaseAPI implements CustomLayoutsApiInterfa
      * @param {CustomLayoutsApiScreenDefinitionsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomLayoutsApi
      */
     public screenDefinitionsGet(requestParameters: CustomLayoutsApiScreenDefinitionsGetRequest = {}, options?: RawAxiosRequestConfig) {
         return CustomLayoutsApiFp(this.configuration).screenDefinitionsGet(requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));

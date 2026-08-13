@@ -14,53 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface ReleasesGetResponseReleasesInnerProject
- */
 export interface ReleasesGetResponseReleasesInnerProject {
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesGetResponseReleasesInnerProject
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesGetResponseReleasesInnerProject
-     */
     'reference_prefix'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesGetResponseReleasesInnerProject
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesGetResponseReleasesInnerProject
-     */
     'product_line'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesGetResponseReleasesInnerProject
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesGetResponseReleasesInnerProject
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesGetResponseReleasesInnerProject
-     */
     'workspace_type'?: string;
 }
 

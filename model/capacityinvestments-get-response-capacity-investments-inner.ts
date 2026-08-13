@@ -13,30 +13,13 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface CapacityinvestmentsGetResponseCapacityInvestmentsInner
- */
 export interface CapacityinvestmentsGetResponseCapacityInvestmentsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityinvestmentsGetResponseCapacityInvestmentsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityinvestmentsGetResponseCapacityInvestmentsInner
-     */
     'capacity_scenario_id'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof CapacityinvestmentsGetResponseCapacityInvestmentsInner
-     */
-    'total'?: any | null;
+    'total'?: Null;
 }
 

@@ -20,23 +20,8 @@ import type { AssistantusageGetResponsePagination } from './assistantusage-get-r
 // @ts-ignore
 import type { TeammembersGetResponseTeamMembersInner } from './teammembers-get-response-team-members-inner';
 
-/**
- * 
- * @export
- * @interface TeammembersGetResponse
- */
 export interface TeammembersGetResponse {
-    /**
-     * 
-     * @type {Array<TeammembersGetResponseTeamMembersInner>}
-     * @memberof TeammembersGetResponse
-     */
     'team_members'?: Array<TeammembersGetResponseTeamMembersInner>;
-    /**
-     * 
-     * @type {AssistantusageGetResponsePagination}
-     * @memberof TeammembersGetResponse
-     */
     'pagination'?: AssistantusageGetResponsePagination;
 }
 

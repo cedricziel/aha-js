@@ -13,96 +13,24 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface IdeasportalusersPutResponsePortalUser
- */
 export interface IdeasportalusersPutResponsePortalUser {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasportalusersPutResponsePortalUser
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasportalusersPutResponsePortalUser
-     */
     'email'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasportalusersPutResponsePortalUser
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasportalusersPutResponsePortalUser
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasportalusersPutResponsePortalUser
-     */
     'idea_portal_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasportalusersPutResponsePortalUser
-     */
     'first_name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasportalusersPutResponsePortalUser
-     */
     'last_name'?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdeasportalusersPutResponsePortalUser
-     */
     'enabled'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdeasportalusersPutResponsePortalUser
-     */
     'verified'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdeasportalusersPutResponsePortalUser
-     */
     'employee'?: boolean;
-    /**
-     * 
-     * @type {any}
-     * @memberof IdeasportalusersPutResponsePortalUser
-     */
-    'max_endorsements_override'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasportalusersPutResponsePortalUser
-     */
+    'max_endorsements_override'?: Null;
     'idea_user_id'?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdeasportalusersPutResponsePortalUser
-     */
     'unsubscribed'?: boolean;
-    /**
-     * 
-     * @type {any}
-     * @memberof IdeasportalusersPutResponsePortalUser
-     */
-    'unsubscribed_from_weekly_emails'?: any | null;
+    'unsubscribed_from_weekly_emails'?: Null;
 }
 

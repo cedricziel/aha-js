@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface AttachmentsPostResponseAttachment
- */
 export interface AttachmentsPostResponseAttachment {
-    /**
-     * 
-     * @type {string}
-     * @memberof AttachmentsPostResponseAttachment
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof AttachmentsPostResponseAttachment
-     */
     'download_url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof AttachmentsPostResponseAttachment
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof AttachmentsPostResponseAttachment
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof AttachmentsPostResponseAttachment
-     */
     'original_file_size'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof AttachmentsPostResponseAttachment
-     */
     'content_type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof AttachmentsPostResponseAttachment
-     */
     'file_name'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof AttachmentsPostResponseAttachment
-     */
     'file_size'?: number;
 }
 

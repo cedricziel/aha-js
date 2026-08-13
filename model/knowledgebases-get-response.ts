@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { KnowledgebasesGetResponseKnowledgeBase } from './knowledgebases-get-response-knowledge-base';
 
-/**
- * 
- * @export
- * @interface KnowledgebasesGetResponse
- */
 export interface KnowledgebasesGetResponse {
-    /**
-     * 
-     * @type {KnowledgebasesGetResponseKnowledgeBase}
-     * @memberof KnowledgebasesGetResponse
-     */
     'knowledge_base'?: KnowledgebasesGetResponseKnowledgeBase;
 }
 

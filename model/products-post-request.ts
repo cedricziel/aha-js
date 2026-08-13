@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { ProductsPostRequestProduct } from './products-post-request-product';
 
-/**
- * 
- * @export
- * @interface ProductsPostRequest
- */
 export interface ProductsPostRequest {
-    /**
-     * 
-     * @type {ProductsPostRequestProduct}
-     * @memberof ProductsPostRequest
-     */
     'product'?: ProductsPostRequestProduct;
 }
 

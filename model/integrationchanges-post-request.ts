@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface IntegrationchangesPostRequest
- */
 export interface IntegrationchangesPostRequest {
-    /**
-     * 
-     * @type {number}
-     * @memberof IntegrationchangesPostRequest
-     */
     'integration_id'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationchangesPostRequest
-     */
     'model_class'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof IntegrationchangesPostRequest
-     */
     'model_id'?: number;
 }
 

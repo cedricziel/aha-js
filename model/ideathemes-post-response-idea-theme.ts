@@ -20,53 +20,13 @@ import type { EpicsPostResponseEpicProject } from './epics-post-response-epic-pr
 // @ts-ignore
 import type { IdeathemesPostResponseIdeaThemeDescription } from './ideathemes-post-response-idea-theme-description';
 
-/**
- * 
- * @export
- * @interface IdeathemesPostResponseIdeaTheme
- */
 export interface IdeathemesPostResponseIdeaTheme {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeathemesPostResponseIdeaTheme
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeathemesPostResponseIdeaTheme
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeathemesPostResponseIdeaTheme
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeathemesPostResponseIdeaTheme
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {IdeathemesPostResponseIdeaThemeDescription}
-     * @memberof IdeathemesPostResponseIdeaTheme
-     */
     'description'?: IdeathemesPostResponseIdeaThemeDescription;
-    /**
-     * 
-     * @type {EpicsPostResponseEpicProject}
-     * @memberof IdeathemesPostResponseIdeaTheme
-     */
     'product'?: EpicsPostResponseEpicProject;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof IdeathemesPostResponseIdeaTheme
-     */
     'ideas'?: Array<any>;
 }
 

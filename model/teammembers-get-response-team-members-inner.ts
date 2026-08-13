@@ -13,42 +13,15 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface TeammembersGetResponseTeamMembersInner
- */
 export interface TeammembersGetResponseTeamMembersInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof TeammembersGetResponseTeamMembersInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof TeammembersGetResponseTeamMembersInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof TeammembersGetResponseTeamMembersInner
-     */
     'email'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof TeammembersGetResponseTeamMembersInner
-     */
-    'user_id'?: any | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof TeammembersGetResponseTeamMembersInner
-     */
+    'user_id'?: Null;
     'virtual'?: boolean;
 }
 

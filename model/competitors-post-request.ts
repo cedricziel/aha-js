@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { CompetitorsPostRequestCompetitor } from './competitors-post-request-competitor';
 
-/**
- * 
- * @export
- * @interface CompetitorsPostRequest
- */
 export interface CompetitorsPostRequest {
-    /**
-     * 
-     * @type {CompetitorsPostRequestCompetitor}
-     * @memberof CompetitorsPostRequest
-     */
     'competitor'?: CompetitorsPostRequestCompetitor;
 }
 

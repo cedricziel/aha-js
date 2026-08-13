@@ -18,115 +18,28 @@
 import type { CommentsPostResponseCommentUser } from './comments-post-response-comment-user';
 // May contain unused imports in some cases
 // @ts-ignore
+import type { Null } from './null';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { ToDosPostResponseTaskTaskable } from './to-dos-post-response-task-taskable';
 
-/**
- * 
- * @export
- * @interface ToDosPostResponseTask
- */
 export interface ToDosPostResponseTask {
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosPostResponseTask
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosPostResponseTask
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof ToDosPostResponseTask
-     */
-    'due_date'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosPostResponseTask
-     */
+    'due_date'?: Null;
     'status'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosPostResponseTask
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosPostResponseTask
-     */
     'body'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof ToDosPostResponseTask
-     */
     'position'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosPostResponseTask
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosPostResponseTask
-     */
     'product_id'?: string;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof ToDosPostResponseTask
-     */
     'assigned_to_users'?: Array<any>;
-    /**
-     * 
-     * @type {CommentsPostResponseCommentUser}
-     * @memberof ToDosPostResponseTask
-     */
     'created_by_user'?: CommentsPostResponseCommentUser;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof ToDosPostResponseTask
-     */
     'attachments'?: Array<any>;
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosPostResponseTask
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosPostResponseTask
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof ToDosPostResponseTask
-     */
     'comments_count'?: number;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof ToDosPostResponseTask
-     */
     'custom_fields'?: Array<any>;
-    /**
-     * 
-     * @type {ToDosPostResponseTaskTaskable}
-     * @memberof ToDosPostResponseTask
-     */
     'taskable'?: ToDosPostResponseTaskTaskable;
 }
 

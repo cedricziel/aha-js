@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { IdeasportalusersPostRequestPortalUser } from './ideasportalusers-post-request-portal-user';
 
-/**
- * 
- * @export
- * @interface IdeasportalusersPostRequest
- */
 export interface IdeasportalusersPostRequest {
-    /**
-     * 
-     * @type {IdeasportalusersPostRequestPortalUser}
-     * @memberof IdeasportalusersPostRequest
-     */
     'portal_user'?: IdeasportalusersPostRequestPortalUser;
 }
 

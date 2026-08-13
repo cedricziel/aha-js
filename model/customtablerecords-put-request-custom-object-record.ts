@@ -15,26 +15,14 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { CustomtablerecordsPutRequestCustomObjectRecordCustomFields } from './customtablerecords-put-request-custom-object-record-custom-fields';
+import type { CustomtablerecordsPostRequestCustomObjectRecordCustomFields } from './customtablerecords-post-request-custom-object-record-custom-fields';
 
-/**
- * 
- * @export
- * @interface CustomtablerecordsPutRequestCustomObjectRecord
- */
 export interface CustomtablerecordsPutRequestCustomObjectRecord {
     [key: string]: any;
 
-    /**
-     * 
-     * @type {CustomtablerecordsPutRequestCustomObjectRecordCustomFields}
-     * @memberof CustomtablerecordsPutRequestCustomObjectRecord
-     */
-    'custom_fields'?: CustomtablerecordsPutRequestCustomObjectRecordCustomFields;
+    'custom_fields'?: CustomtablerecordsPostRequestCustomObjectRecordCustomFields;
     /**
      * Custom table records to link, keyed by many-to-many custom field name. Replaces the existing list.
-     * @type {{ [key: string]: Array<string>; }}
-     * @memberof CustomtablerecordsPutRequestCustomObjectRecord
      */
     'custom_object_links'?: { [key: string]: Array<string>; };
 }

@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { IdentityprovidersGetResponseIdentityProvider } from './identityproviders-get-response-identity-provider';
 
-/**
- * 
- * @export
- * @interface IdentityprovidersGetResponse
- */
 export interface IdentityprovidersGetResponse {
-    /**
-     * 
-     * @type {IdentityprovidersGetResponseIdentityProvider}
-     * @memberof IdentityprovidersGetResponse
-     */
     'identity_provider'?: IdentityprovidersGetResponseIdentityProvider;
 }
 

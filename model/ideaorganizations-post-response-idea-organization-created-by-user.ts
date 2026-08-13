@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeaorganizationsPostResponseIdeaOrganizationCreatedByUser
- */
 export interface IdeaorganizationsPostResponseIdeaOrganizationCreatedByUser {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsPostResponseIdeaOrganizationCreatedByUser
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsPostResponseIdeaOrganizationCreatedByUser
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsPostResponseIdeaOrganizationCreatedByUser
-     */
     'email'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsPostResponseIdeaOrganizationCreatedByUser
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsPostResponseIdeaOrganizationCreatedByUser
-     */
     'updated_at'?: string;
 }
 

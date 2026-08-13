@@ -34,210 +34,43 @@ import type { InitiativesPostResponseInitiativeWorkflowStatus } from './initiati
 // May contain unused imports in some cases
 // @ts-ignore
 import type { InitiativesPostResponseInitiativeWorkflowStatusTimesInner } from './initiatives-post-response-initiative-workflow-status-times-inner';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface InitiativesPostResponseInitiative
- */
 export interface InitiativesPostResponseInitiative {
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPostResponseInitiative
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPostResponseInitiative
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPostResponseInitiative
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPostResponseInitiative
-     */
     'status'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof InitiativesPostResponseInitiative
-     */
     'effort'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof InitiativesPostResponseInitiative
-     */
     'value'?: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof InitiativesPostResponseInitiative
-     */
     'presented'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPostResponseInitiative
-     */
     'color'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof InitiativesPostResponseInitiative
-     */
-    'start_date'?: any | null;
-    /**
-     * 
-     * @type {any}
-     * @memberof InitiativesPostResponseInitiative
-     */
-    'end_date'?: any | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof InitiativesPostResponseInitiative
-     */
+    'start_date'?: Null;
+    'end_date'?: Null;
     'position'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof InitiativesPostResponseInitiative
-     */
     'score'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPostResponseInitiative
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPostResponseInitiative
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPostResponseInitiative
-     */
     'product_id'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof InitiativesPostResponseInitiative
-     */
     'progress'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPostResponseInitiative
-     */
     'progress_source'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPostResponseInitiative
-     */
     'duration_source'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPostResponseInitiative
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPostResponseInitiative
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {EpicsPostResponseEpicProject}
-     * @memberof InitiativesPostResponseInitiative
-     */
     'project'?: EpicsPostResponseEpicProject;
-    /**
-     * 
-     * @type {InitiativesPostResponseInitiativeWorkflowStatus}
-     * @memberof InitiativesPostResponseInitiative
-     */
     'workflow_status'?: InitiativesPostResponseInitiativeWorkflowStatus;
-    /**
-     * 
-     * @type {InitiativesPostResponseInitiativeDescription}
-     * @memberof InitiativesPostResponseInitiative
-     */
     'description'?: InitiativesPostResponseInitiativeDescription;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof InitiativesPostResponseInitiative
-     */
     'attachments'?: Array<any>;
-    /**
-     * 
-     * @type {EpicsPostResponseEpicAssignedToUser}
-     * @memberof InitiativesPostResponseInitiative
-     */
     'assigned_to_user'?: EpicsPostResponseEpicAssignedToUser;
-    /**
-     * 
-     * @type {number}
-     * @memberof InitiativesPostResponseInitiative
-     */
     'comments_count'?: number;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof InitiativesPostResponseInitiative
-     */
     'goals'?: Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof InitiativesPostResponseInitiative
-     */
     'key_results'?: Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof InitiativesPostResponseInitiative
-     */
     'score_facts'?: Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof InitiativesPostResponseInitiative
-     */
     'integration_fields'?: Array<any>;
-    /**
-     * 
-     * @type {Array<InitiativesPostResponseInitiativeWorkflowStatusTimesInner>}
-     * @memberof InitiativesPostResponseInitiative
-     */
     'workflow_status_times'?: Array<InitiativesPostResponseInitiativeWorkflowStatusTimesInner>;
-    /**
-     * 
-     * @type {CommentsPostResponseCommentUser}
-     * @memberof InitiativesPostResponseInitiative
-     */
     'created_by_user'?: CommentsPostResponseCommentUser;
-    /**
-     * 
-     * @type {Array<EpicsPostResponseEpicReleaseOwner>}
-     * @memberof InitiativesPostResponseInitiative
-     */
     'watchers'?: Array<EpicsPostResponseEpicReleaseOwner>;
 }
 

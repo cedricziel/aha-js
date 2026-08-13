@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface CapacityestimatevaluesGetResponsePagination
- */
 export interface CapacityestimatevaluesGetResponsePagination {
-    /**
-     * 
-     * @type {number}
-     * @memberof CapacityestimatevaluesGetResponsePagination
-     */
     'total_records'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof CapacityestimatevaluesGetResponsePagination
-     */
     'total_pages'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof CapacityestimatevaluesGetResponsePagination
-     */
     'current_page'?: number;
 }
 

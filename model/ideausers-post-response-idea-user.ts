@@ -14,53 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeausersPostResponseIdeaUser
- */
 export interface IdeausersPostResponseIdeaUser {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeausersPostResponseIdeaUser
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeausersPostResponseIdeaUser
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeausersPostResponseIdeaUser
-     */
     'email'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeausersPostResponseIdeaUser
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof IdeausersPostResponseIdeaUser
-     */
     'idea_organizations'?: Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof IdeausersPostResponseIdeaUser
-     */
     'custom_fields'?: Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof IdeausersPostResponseIdeaUser
-     */
     'integration_fields'?: Array<any>;
 }
 

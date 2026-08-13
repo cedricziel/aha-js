@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface TeammembershipsGetResponseTeamMembershipsInnerTeam
- */
 export interface TeammembershipsGetResponseTeamMembershipsInnerTeam {
-    /**
-     * 
-     * @type {string}
-     * @memberof TeammembershipsGetResponseTeamMembershipsInnerTeam
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof TeammembershipsGetResponseTeamMembershipsInnerTeam
-     */
     'name'?: string;
 }
 

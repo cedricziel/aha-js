@@ -13,42 +13,15 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface SchedulablechangesPostResponseSchedulableChangeTeamMembershipsInner
- */
 export interface SchedulablechangesPostResponseSchedulableChangeTeamMembershipsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof SchedulablechangesPostResponseSchedulableChangeTeamMembershipsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof SchedulablechangesPostResponseSchedulableChangeTeamMembershipsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof SchedulablechangesPostResponseSchedulableChangeTeamMembershipsInner
-     */
     'new_user'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof SchedulablechangesPostResponseSchedulableChangeTeamMembershipsInner
-     */
-    'deleted'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof SchedulablechangesPostResponseSchedulableChangeTeamMembershipsInner
-     */
+    'deleted'?: Null;
     'schedule'?: string;
 }
 

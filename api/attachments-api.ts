@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -27,7 +27,6 @@ import type { AttachmentsPost412Response } from '../model';
 import type { AttachmentsPostResponse } from '../model';
 /**
  * AttachmentsApi - axios parameter creator
- * @export
  */
 export const AttachmentsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -42,7 +41,7 @@ export const AttachmentsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'attachmentId' is not null or undefined
             assertParamExists('attachmentsByAttachmentDelete', 'attachmentId', attachmentId)
             const localVarPath = `/attachments/{attachment_id}`
-                .replace(`{${"attachment_id"}}`, encodeURIComponent(String(attachmentId)));
+                .replace('{attachment_id}', encodeURIComponent(String(attachmentId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -65,7 +64,6 @@ export const AttachmentsApiAxiosParamCreator = function (configuration?: Configu
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -87,7 +85,7 @@ export const AttachmentsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'commentId' is not null or undefined
             assertParamExists('commentsByCommentAttachmentsPost', 'commentId', commentId)
             const localVarPath = `/comments/{comment_id}/attachments`
-                .replace(`{${"comment_id"}}`, encodeURIComponent(String(commentId)));
+                .replace('{comment_id}', encodeURIComponent(String(commentId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -114,10 +112,9 @@ export const AttachmentsApiAxiosParamCreator = function (configuration?: Configu
             if (attachmentData !== undefined) { 
                 localVarFormParams.append('attachment[data]', attachmentData as any);
             }
-    
-    
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-    
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -140,7 +137,7 @@ export const AttachmentsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'customFieldValueId' is not null or undefined
             assertParamExists('customFieldValuesByCustomFieldValueAttachmentsPost', 'customFieldValueId', customFieldValueId)
             const localVarPath = `/custom_field_values/{custom_field_value_id}/attachments`
-                .replace(`{${"custom_field_value_id"}}`, encodeURIComponent(String(customFieldValueId)));
+                .replace('{custom_field_value_id}', encodeURIComponent(String(customFieldValueId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -167,10 +164,9 @@ export const AttachmentsApiAxiosParamCreator = function (configuration?: Configu
             if (attachmentData !== undefined) { 
                 localVarFormParams.append('attachment[data]', attachmentData as any);
             }
-    
-    
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-    
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -193,7 +189,7 @@ export const AttachmentsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'customFieldId' is not null or undefined
             assertParamExists('customFieldsByCustomFieldAttachmentsPost', 'customFieldId', customFieldId)
             const localVarPath = `/custom_fields/{custom_field_id}/attachments`
-                .replace(`{${"custom_field_id"}}`, encodeURIComponent(String(customFieldId)));
+                .replace('{custom_field_id}', encodeURIComponent(String(customFieldId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -220,10 +216,9 @@ export const AttachmentsApiAxiosParamCreator = function (configuration?: Configu
             if (attachmentData !== undefined) { 
                 localVarFormParams.append('attachment[data]', attachmentData as any);
             }
-    
-    
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-    
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -246,7 +241,7 @@ export const AttachmentsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'ideaCommentId' is not null or undefined
             assertParamExists('ideaCommentsByIdeaCommentAttachmentsPost', 'ideaCommentId', ideaCommentId)
             const localVarPath = `/idea_comments/{idea_comment_id}/attachments`
-                .replace(`{${"idea_comment_id"}}`, encodeURIComponent(String(ideaCommentId)));
+                .replace('{idea_comment_id}', encodeURIComponent(String(ideaCommentId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -273,10 +268,9 @@ export const AttachmentsApiAxiosParamCreator = function (configuration?: Configu
             if (attachmentData !== undefined) { 
                 localVarFormParams.append('attachment[data]', attachmentData as any);
             }
-    
-    
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-    
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -299,7 +293,7 @@ export const AttachmentsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'noteId' is not null or undefined
             assertParamExists('notesByNoteAttachmentsPost', 'noteId', noteId)
             const localVarPath = `/notes/{note_id}/attachments`
-                .replace(`{${"note_id"}}`, encodeURIComponent(String(noteId)));
+                .replace('{note_id}', encodeURIComponent(String(noteId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -326,10 +320,9 @@ export const AttachmentsApiAxiosParamCreator = function (configuration?: Configu
             if (attachmentData !== undefined) { 
                 localVarFormParams.append('attachment[data]', attachmentData as any);
             }
-    
-    
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-    
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -352,7 +345,7 @@ export const AttachmentsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'taskId' is not null or undefined
             assertParamExists('tasksByTaskAttachmentsPost', 'taskId', taskId)
             const localVarPath = `/tasks/{task_id}/attachments`
-                .replace(`{${"task_id"}}`, encodeURIComponent(String(taskId)));
+                .replace('{task_id}', encodeURIComponent(String(taskId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -379,10 +372,9 @@ export const AttachmentsApiAxiosParamCreator = function (configuration?: Configu
             if (attachmentData !== undefined) { 
                 localVarFormParams.append('attachment[data]', attachmentData as any);
             }
-    
-    
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-    
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -398,7 +390,6 @@ export const AttachmentsApiAxiosParamCreator = function (configuration?: Configu
 
 /**
  * AttachmentsApi - functional programming interface
- * @export
  */
 export const AttachmentsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = AttachmentsApiAxiosParamCreator(configuration)
@@ -505,7 +496,6 @@ export const AttachmentsApiFp = function(configuration?: Configuration) {
 
 /**
  * AttachmentsApi - factory interface
- * @export
  */
 export const AttachmentsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = AttachmentsApiFp(configuration)
@@ -585,8 +575,6 @@ export const AttachmentsApiFactory = function (configuration?: Configuration, ba
 
 /**
  * AttachmentsApi - interface
- * @export
- * @interface AttachmentsApi
  */
 export interface AttachmentsApiInterface {
     /**
@@ -595,7 +583,6 @@ export interface AttachmentsApiInterface {
      * @param {AttachmentsApiAttachmentsByAttachmentDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AttachmentsApiInterface
      */
     attachmentsByAttachmentDelete(requestParameters: AttachmentsApiAttachmentsByAttachmentDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -605,7 +592,6 @@ export interface AttachmentsApiInterface {
      * @param {AttachmentsApiCommentsByCommentAttachmentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AttachmentsApiInterface
      */
     commentsByCommentAttachmentsPost(requestParameters: AttachmentsApiCommentsByCommentAttachmentsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<AttachmentsPostResponse>;
 
@@ -615,7 +601,6 @@ export interface AttachmentsApiInterface {
      * @param {AttachmentsApiCustomFieldValuesByCustomFieldValueAttachmentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AttachmentsApiInterface
      */
     customFieldValuesByCustomFieldValueAttachmentsPost(requestParameters: AttachmentsApiCustomFieldValuesByCustomFieldValueAttachmentsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<AttachmentsPostResponse>;
 
@@ -625,7 +610,6 @@ export interface AttachmentsApiInterface {
      * @param {AttachmentsApiCustomFieldsByCustomFieldAttachmentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AttachmentsApiInterface
      */
     customFieldsByCustomFieldAttachmentsPost(requestParameters: AttachmentsApiCustomFieldsByCustomFieldAttachmentsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<AttachmentsPostResponse>;
 
@@ -635,7 +619,6 @@ export interface AttachmentsApiInterface {
      * @param {AttachmentsApiIdeaCommentsByIdeaCommentAttachmentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AttachmentsApiInterface
      */
     ideaCommentsByIdeaCommentAttachmentsPost(requestParameters: AttachmentsApiIdeaCommentsByIdeaCommentAttachmentsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<AttachmentsPostResponse>;
 
@@ -645,7 +628,6 @@ export interface AttachmentsApiInterface {
      * @param {AttachmentsApiNotesByNoteAttachmentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AttachmentsApiInterface
      */
     notesByNoteAttachmentsPost(requestParameters: AttachmentsApiNotesByNoteAttachmentsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<AttachmentsPostResponse>;
 
@@ -655,7 +637,6 @@ export interface AttachmentsApiInterface {
      * @param {AttachmentsApiTasksByTaskAttachmentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AttachmentsApiInterface
      */
     tasksByTaskAttachmentsPost(requestParameters: AttachmentsApiTasksByTaskAttachmentsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<AttachmentsPostResponse>;
 
@@ -663,149 +644,106 @@ export interface AttachmentsApiInterface {
 
 /**
  * Request parameters for attachmentsByAttachmentDelete operation in AttachmentsApi.
- * @export
- * @interface AttachmentsApiAttachmentsByAttachmentDeleteRequest
  */
 export interface AttachmentsApiAttachmentsByAttachmentDeleteRequest {
     /**
      * AttachmentId identifier
-     * @type {string}
-     * @memberof AttachmentsApiAttachmentsByAttachmentDelete
      */
     readonly attachmentId: string
 }
 
 /**
  * Request parameters for commentsByCommentAttachmentsPost operation in AttachmentsApi.
- * @export
- * @interface AttachmentsApiCommentsByCommentAttachmentsPostRequest
  */
 export interface AttachmentsApiCommentsByCommentAttachmentsPostRequest {
     /**
      * CommentId identifier
-     * @type {string}
-     * @memberof AttachmentsApiCommentsByCommentAttachmentsPost
      */
     readonly commentId: string
 
     /**
      * File to upload
-     * @type {File}
-     * @memberof AttachmentsApiCommentsByCommentAttachmentsPost
      */
     readonly attachmentData?: File
 }
 
 /**
  * Request parameters for customFieldValuesByCustomFieldValueAttachmentsPost operation in AttachmentsApi.
- * @export
- * @interface AttachmentsApiCustomFieldValuesByCustomFieldValueAttachmentsPostRequest
  */
 export interface AttachmentsApiCustomFieldValuesByCustomFieldValueAttachmentsPostRequest {
     /**
      * CustomFieldValueId identifier
-     * @type {string}
-     * @memberof AttachmentsApiCustomFieldValuesByCustomFieldValueAttachmentsPost
      */
     readonly customFieldValueId: string
 
     /**
      * File to upload
-     * @type {File}
-     * @memberof AttachmentsApiCustomFieldValuesByCustomFieldValueAttachmentsPost
      */
     readonly attachmentData?: File
 }
 
 /**
  * Request parameters for customFieldsByCustomFieldAttachmentsPost operation in AttachmentsApi.
- * @export
- * @interface AttachmentsApiCustomFieldsByCustomFieldAttachmentsPostRequest
  */
 export interface AttachmentsApiCustomFieldsByCustomFieldAttachmentsPostRequest {
     /**
      * CustomFieldId identifier
-     * @type {string}
-     * @memberof AttachmentsApiCustomFieldsByCustomFieldAttachmentsPost
      */
     readonly customFieldId: string
 
     /**
      * File to upload
-     * @type {File}
-     * @memberof AttachmentsApiCustomFieldsByCustomFieldAttachmentsPost
      */
     readonly attachmentData?: File
 }
 
 /**
  * Request parameters for ideaCommentsByIdeaCommentAttachmentsPost operation in AttachmentsApi.
- * @export
- * @interface AttachmentsApiIdeaCommentsByIdeaCommentAttachmentsPostRequest
  */
 export interface AttachmentsApiIdeaCommentsByIdeaCommentAttachmentsPostRequest {
     /**
      * IdeaCommentId identifier
-     * @type {string}
-     * @memberof AttachmentsApiIdeaCommentsByIdeaCommentAttachmentsPost
      */
     readonly ideaCommentId: string
 
     /**
      * File to upload
-     * @type {File}
-     * @memberof AttachmentsApiIdeaCommentsByIdeaCommentAttachmentsPost
      */
     readonly attachmentData?: File
 }
 
 /**
  * Request parameters for notesByNoteAttachmentsPost operation in AttachmentsApi.
- * @export
- * @interface AttachmentsApiNotesByNoteAttachmentsPostRequest
  */
 export interface AttachmentsApiNotesByNoteAttachmentsPostRequest {
     /**
      * NoteId identifier
-     * @type {string}
-     * @memberof AttachmentsApiNotesByNoteAttachmentsPost
      */
     readonly noteId: string
 
     /**
      * File to upload
-     * @type {File}
-     * @memberof AttachmentsApiNotesByNoteAttachmentsPost
      */
     readonly attachmentData?: File
 }
 
 /**
  * Request parameters for tasksByTaskAttachmentsPost operation in AttachmentsApi.
- * @export
- * @interface AttachmentsApiTasksByTaskAttachmentsPostRequest
  */
 export interface AttachmentsApiTasksByTaskAttachmentsPostRequest {
     /**
      * TaskId identifier
-     * @type {string}
-     * @memberof AttachmentsApiTasksByTaskAttachmentsPost
      */
     readonly taskId: string
 
     /**
      * File to upload
-     * @type {File}
-     * @memberof AttachmentsApiTasksByTaskAttachmentsPost
      */
     readonly attachmentData?: File
 }
 
 /**
  * AttachmentsApi - object-oriented interface
- * @export
- * @class AttachmentsApi
- * @extends {BaseAPI}
  */
 export class AttachmentsApi extends BaseAPI implements AttachmentsApiInterface {
     /**
@@ -814,7 +752,6 @@ export class AttachmentsApi extends BaseAPI implements AttachmentsApiInterface {
      * @param {AttachmentsApiAttachmentsByAttachmentDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AttachmentsApi
      */
     public attachmentsByAttachmentDelete(requestParameters: AttachmentsApiAttachmentsByAttachmentDeleteRequest, options?: RawAxiosRequestConfig) {
         return AttachmentsApiFp(this.configuration).attachmentsByAttachmentDelete(requestParameters.attachmentId, options).then((request) => request(this.axios, this.basePath));
@@ -826,7 +763,6 @@ export class AttachmentsApi extends BaseAPI implements AttachmentsApiInterface {
      * @param {AttachmentsApiCommentsByCommentAttachmentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AttachmentsApi
      */
     public commentsByCommentAttachmentsPost(requestParameters: AttachmentsApiCommentsByCommentAttachmentsPostRequest, options?: RawAxiosRequestConfig) {
         return AttachmentsApiFp(this.configuration).commentsByCommentAttachmentsPost(requestParameters.commentId, requestParameters.attachmentData, options).then((request) => request(this.axios, this.basePath));
@@ -838,7 +774,6 @@ export class AttachmentsApi extends BaseAPI implements AttachmentsApiInterface {
      * @param {AttachmentsApiCustomFieldValuesByCustomFieldValueAttachmentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AttachmentsApi
      */
     public customFieldValuesByCustomFieldValueAttachmentsPost(requestParameters: AttachmentsApiCustomFieldValuesByCustomFieldValueAttachmentsPostRequest, options?: RawAxiosRequestConfig) {
         return AttachmentsApiFp(this.configuration).customFieldValuesByCustomFieldValueAttachmentsPost(requestParameters.customFieldValueId, requestParameters.attachmentData, options).then((request) => request(this.axios, this.basePath));
@@ -850,7 +785,6 @@ export class AttachmentsApi extends BaseAPI implements AttachmentsApiInterface {
      * @param {AttachmentsApiCustomFieldsByCustomFieldAttachmentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AttachmentsApi
      */
     public customFieldsByCustomFieldAttachmentsPost(requestParameters: AttachmentsApiCustomFieldsByCustomFieldAttachmentsPostRequest, options?: RawAxiosRequestConfig) {
         return AttachmentsApiFp(this.configuration).customFieldsByCustomFieldAttachmentsPost(requestParameters.customFieldId, requestParameters.attachmentData, options).then((request) => request(this.axios, this.basePath));
@@ -862,7 +796,6 @@ export class AttachmentsApi extends BaseAPI implements AttachmentsApiInterface {
      * @param {AttachmentsApiIdeaCommentsByIdeaCommentAttachmentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AttachmentsApi
      */
     public ideaCommentsByIdeaCommentAttachmentsPost(requestParameters: AttachmentsApiIdeaCommentsByIdeaCommentAttachmentsPostRequest, options?: RawAxiosRequestConfig) {
         return AttachmentsApiFp(this.configuration).ideaCommentsByIdeaCommentAttachmentsPost(requestParameters.ideaCommentId, requestParameters.attachmentData, options).then((request) => request(this.axios, this.basePath));
@@ -874,7 +807,6 @@ export class AttachmentsApi extends BaseAPI implements AttachmentsApiInterface {
      * @param {AttachmentsApiNotesByNoteAttachmentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AttachmentsApi
      */
     public notesByNoteAttachmentsPost(requestParameters: AttachmentsApiNotesByNoteAttachmentsPostRequest, options?: RawAxiosRequestConfig) {
         return AttachmentsApiFp(this.configuration).notesByNoteAttachmentsPost(requestParameters.noteId, requestParameters.attachmentData, options).then((request) => request(this.axios, this.basePath));
@@ -886,7 +818,6 @@ export class AttachmentsApi extends BaseAPI implements AttachmentsApiInterface {
      * @param {AttachmentsApiTasksByTaskAttachmentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AttachmentsApi
      */
     public tasksByTaskAttachmentsPost(requestParameters: AttachmentsApiTasksByTaskAttachmentsPostRequest, options?: RawAxiosRequestConfig) {
         return AttachmentsApiFp(this.configuration).tasksByTaskAttachmentsPost(requestParameters.taskId, requestParameters.attachmentData, options).then((request) => request(this.axios, this.basePath));

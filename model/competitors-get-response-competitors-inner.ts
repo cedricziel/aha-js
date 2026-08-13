@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface CompetitorsGetResponseCompetitorsInner
- */
 export interface CompetitorsGetResponseCompetitorsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof CompetitorsGetResponseCompetitorsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CompetitorsGetResponseCompetitorsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CompetitorsGetResponseCompetitorsInner
-     */
     'created_at'?: string;
 }
 

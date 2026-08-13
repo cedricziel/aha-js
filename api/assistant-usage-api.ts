@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -27,7 +27,6 @@ import type { AssistantusageGet422Response } from '../model';
 import type { AssistantusageGetResponse } from '../model';
 /**
  * AssistantUsageApi - axios parameter creator
- * @export
  */
 export const AssistantUsageApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -80,8 +79,8 @@ export const AssistantUsageApiAxiosParamCreator = function (configuration?: Conf
                 localVarQueryParameter['end_at'] = endAt;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -96,7 +95,6 @@ export const AssistantUsageApiAxiosParamCreator = function (configuration?: Conf
 
 /**
  * AssistantUsageApi - functional programming interface
- * @export
  */
 export const AssistantUsageApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = AssistantUsageApiAxiosParamCreator(configuration)
@@ -122,7 +120,6 @@ export const AssistantUsageApiFp = function(configuration?: Configuration) {
 
 /**
  * AssistantUsageApi - factory interface
- * @export
  */
 export const AssistantUsageApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = AssistantUsageApiFp(configuration)
@@ -142,8 +139,6 @@ export const AssistantUsageApiFactory = function (configuration?: Configuration,
 
 /**
  * AssistantUsageApi - interface
- * @export
- * @interface AssistantUsageApi
  */
 export interface AssistantUsageApiInterface {
     /**
@@ -152,7 +147,6 @@ export interface AssistantUsageApiInterface {
      * @param {AssistantUsageApiUsageAssistantUsersGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AssistantUsageApiInterface
      */
     usageAssistantUsersGet(requestParameters?: AssistantUsageApiUsageAssistantUsersGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<AssistantusageGetResponse>;
 
@@ -160,44 +154,19 @@ export interface AssistantUsageApiInterface {
 
 /**
  * Request parameters for usageAssistantUsersGet operation in AssistantUsageApi.
- * @export
- * @interface AssistantUsageApiUsageAssistantUsersGetRequest
  */
 export interface AssistantUsageApiUsageAssistantUsersGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof AssistantUsageApiUsageAssistantUsersGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof AssistantUsageApiUsageAssistantUsersGet
-     */
     readonly perPage?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof AssistantUsageApiUsageAssistantUsersGet
-     */
     readonly startAt?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof AssistantUsageApiUsageAssistantUsersGet
-     */
     readonly endAt?: string
 }
 
 /**
  * AssistantUsageApi - object-oriented interface
- * @export
- * @class AssistantUsageApi
- * @extends {BaseAPI}
  */
 export class AssistantUsageApi extends BaseAPI implements AssistantUsageApiInterface {
     /**
@@ -206,7 +175,6 @@ export class AssistantUsageApi extends BaseAPI implements AssistantUsageApiInter
      * @param {AssistantUsageApiUsageAssistantUsersGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AssistantUsageApi
      */
     public usageAssistantUsersGet(requestParameters: AssistantUsageApiUsageAssistantUsersGetRequest = {}, options?: RawAxiosRequestConfig) {
         return AssistantUsageApiFp(this.configuration).usageAssistantUsersGet(requestParameters.page, requestParameters.perPage, requestParameters.startAt, requestParameters.endAt, options).then((request) => request(this.axios, this.basePath));

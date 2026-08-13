@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface WorkflowstatustimesPostResponseWorkflowStatusTime
- */
 export interface WorkflowstatustimesPostResponseWorkflowStatusTime {
-    /**
-     * 
-     * @type {string}
-     * @memberof WorkflowstatustimesPostResponseWorkflowStatusTime
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof WorkflowstatustimesPostResponseWorkflowStatusTime
-     */
     'workflow_status_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof WorkflowstatustimesPostResponseWorkflowStatusTime
-     */
     'status_name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof WorkflowstatustimesPostResponseWorkflowStatusTime
-     */
     'started_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof WorkflowstatustimesPostResponseWorkflowStatusTime
-     */
     'ended_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof WorkflowstatustimesPostResponseWorkflowStatusTime
-     */
     'created_at'?: string;
 }
 

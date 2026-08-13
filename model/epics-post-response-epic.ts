@@ -37,264 +37,52 @@ import type { EpicsPostResponseEpicReleaseOwner } from './epics-post-response-ep
 // May contain unused imports in some cases
 // @ts-ignore
 import type { EpicsPostResponseEpicWorkflowStatusTimesInner } from './epics-post-response-epic-workflow-status-times-inner';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface EpicsPostResponseEpic
- */
 export interface EpicsPostResponseEpic {
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpic
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpic
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpic
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof EpicsPostResponseEpic
-     */
-    'initiative_reference_num'?: any | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EpicsPostResponseEpic
-     */
+    'initiative_reference_num'?: Null;
     'position'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EpicsPostResponseEpic
-     */
     'score'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpic
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpic
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof EpicsPostResponseEpic
-     */
-    'start_date'?: any | null;
-    /**
-     * 
-     * @type {any}
-     * @memberof EpicsPostResponseEpic
-     */
-    'due_date'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpic
-     */
+    'start_date'?: Null;
+    'due_date'?: Null;
     'product_id'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof EpicsPostResponseEpic
-     */
     'progress'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpic
-     */
     'progress_source'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpic
-     */
     'duration_source'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpic
-     */
     'status_changed_on'?: string;
-    /**
-     * 
-     * @type {CommentsPostResponseCommentUser}
-     * @memberof EpicsPostResponseEpic
-     */
     'created_by_user'?: CommentsPostResponseCommentUser;
-    /**
-     * 
-     * @type {CustomtablerecordlinksPutResponseRequirementWorkflowStatus}
-     * @memberof EpicsPostResponseEpic
-     */
     'workflow_status'?: CustomtablerecordlinksPutResponseRequirementWorkflowStatus;
-    /**
-     * 
-     * @type {EpicsPostResponseEpicProject}
-     * @memberof EpicsPostResponseEpic
-     */
     'project'?: EpicsPostResponseEpicProject;
-    /**
-     * 
-     * @type {EpicsPostResponseEpicDescription}
-     * @memberof EpicsPostResponseEpic
-     */
     'description'?: EpicsPostResponseEpicDescription;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof EpicsPostResponseEpic
-     */
     'attachments'?: Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof EpicsPostResponseEpic
-     */
     'integration_fields'?: Array<any>;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpic
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpic
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {EpicsPostResponseEpicRelease}
-     * @memberof EpicsPostResponseEpic
-     */
     'release'?: EpicsPostResponseEpicRelease;
-    /**
-     * 
-     * @type {EpicsPostResponseEpicAssignedToUser}
-     * @memberof EpicsPostResponseEpic
-     */
     'assigned_to_user'?: EpicsPostResponseEpicAssignedToUser;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof EpicsPostResponseEpic
-     */
     'features'?: Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof EpicsPostResponseEpic
-     */
     'goals'?: Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof EpicsPostResponseEpic
-     */
     'key_results'?: Array<any>;
-    /**
-     * 
-     * @type {number}
-     * @memberof EpicsPostResponseEpic
-     */
     'comments_count'?: number;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof EpicsPostResponseEpic
-     */
     'score_facts'?: Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof EpicsPostResponseEpic
-     */
     'tags'?: Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof EpicsPostResponseEpic
-     */
     'full_tags'?: Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof EpicsPostResponseEpic
-     */
     'custom_fields'?: Array<any>;
-    /**
-     * 
-     * @type {Array<EpicsPostResponseEpicWorkflowStatusTimesInner>}
-     * @memberof EpicsPostResponseEpic
-     */
     'workflow_status_times'?: Array<EpicsPostResponseEpicWorkflowStatusTimesInner>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof EpicsPostResponseEpic
-     */
     'epic_links'?: Array<any>;
-    /**
-     * 
-     * @type {number}
-     * @memberof EpicsPostResponseEpic
-     */
     'master_feature_only_original_estimate'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EpicsPostResponseEpic
-     */
     'master_feature_only_remaining_estimate'?: number;
-    /**
-     * 
-     * @type {any}
-     * @memberof EpicsPostResponseEpic
-     */
-    'master_feature_only_work_done'?: any | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof EpicsPostResponseEpic
-     */
+    'master_feature_only_work_done'?: Null;
     'epic_only_original_estimate'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof EpicsPostResponseEpic
-     */
     'epic_only_remaining_estimate'?: number;
-    /**
-     * 
-     * @type {any}
-     * @memberof EpicsPostResponseEpic
-     */
-    'epic_only_work_done'?: any | null;
-    /**
-     * 
-     * @type {Array<EpicsPostResponseEpicReleaseOwner>}
-     * @memberof EpicsPostResponseEpic
-     */
+    'epic_only_work_done'?: Null;
     'watchers'?: Array<EpicsPostResponseEpicReleaseOwner>;
 }
 

@@ -13,42 +13,15 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface IdeacategoriesPostResponse
- */
 export interface IdeacategoriesPostResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeacategoriesPostResponse
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeacategoriesPostResponse
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof IdeacategoriesPostResponse
-     */
-    'parent_id'?: any | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeacategoriesPostResponse
-     */
+    'parent_id'?: Null;
     'project_id'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeacategoriesPostResponse
-     */
     'created_at'?: string;
 }
 

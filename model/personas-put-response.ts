@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { PersonasPutResponsePersona } from './personas-put-response-persona';
 
-/**
- * 
- * @export
- * @interface PersonasPutResponse
- */
 export interface PersonasPutResponse {
-    /**
-     * 
-     * @type {PersonasPutResponsePersona}
-     * @memberof PersonasPutResponse
-     */
     'persona'?: PersonasPutResponsePersona;
 }
 

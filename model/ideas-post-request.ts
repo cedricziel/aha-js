@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeasPostRequest
- */
 export interface IdeasPostRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPostRequest
-     */
     'promotable_type'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeasPostRequest
-     */
     'release_id'?: number;
 }
 

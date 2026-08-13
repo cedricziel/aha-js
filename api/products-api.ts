@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -33,7 +33,6 @@ import type { ProductsPutRequest } from '../model';
 import type { ProductsPutResponse } from '../model';
 /**
  * ProductsApi - axios parameter creator
- * @export
  */
 export const ProductsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -49,7 +48,7 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'id' is not null or undefined
             assertParamExists('productsByIdGet', 'id', id)
             const localVarPath = `/products/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -75,8 +74,8 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['fields'] = fields;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -100,7 +99,7 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'productsPutRequest' is not null or undefined
             assertParamExists('productsByIdPut', 'productsPutRequest', productsPutRequest)
             const localVarPath = `/products/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -122,9 +121,8 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -185,8 +183,8 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['with_idea_portals'] = withIdeaPortals;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -228,9 +226,8 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -247,7 +244,6 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
 
 /**
  * ProductsApi - functional programming interface
- * @export
  */
 export const ProductsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ProductsApiAxiosParamCreator(configuration)
@@ -314,7 +310,6 @@ export const ProductsApiFp = function(configuration?: Configuration) {
 
 /**
  * ProductsApi - factory interface
- * @export
  */
 export const ProductsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ProductsApiFp(configuration)
@@ -364,8 +359,6 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
 
 /**
  * ProductsApi - interface
- * @export
- * @interface ProductsApi
  */
 export interface ProductsApiInterface {
     /**
@@ -374,7 +367,6 @@ export interface ProductsApiInterface {
      * @param {ProductsApiProductsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ProductsApiInterface
      */
     productsByIdGet(requestParameters: ProductsApiProductsByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ProductsGetResponse>;
 
@@ -384,7 +376,6 @@ export interface ProductsApiInterface {
      * @param {ProductsApiProductsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ProductsApiInterface
      */
     productsByIdPut(requestParameters: ProductsApiProductsByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<ProductsPutResponse>;
 
@@ -394,7 +385,6 @@ export interface ProductsApiInterface {
      * @param {ProductsApiProductsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ProductsApiInterface
      */
     productsGet(requestParameters?: ProductsApiProductsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ProductsGetResponse>;
 
@@ -404,7 +394,6 @@ export interface ProductsApiInterface {
      * @param {ProductsApiProductsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ProductsApiInterface
      */
     productsPost(requestParameters: ProductsApiProductsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<ProductsPostResponse>;
 
@@ -412,100 +401,50 @@ export interface ProductsApiInterface {
 
 /**
  * Request parameters for productsByIdGet operation in ProductsApi.
- * @export
- * @interface ProductsApiProductsByIdGetRequest
  */
 export interface ProductsApiProductsByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof ProductsApiProductsByIdGet
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsApiProductsByIdGet
-     */
     readonly fields?: string
 }
 
 /**
  * Request parameters for productsByIdPut operation in ProductsApi.
- * @export
- * @interface ProductsApiProductsByIdPutRequest
  */
 export interface ProductsApiProductsByIdPutRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof ProductsApiProductsByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {ProductsPutRequest}
-     * @memberof ProductsApiProductsByIdPut
-     */
     readonly productsPutRequest: ProductsPutRequest
 }
 
 /**
  * Request parameters for productsGet operation in ProductsApi.
- * @export
- * @interface ProductsApiProductsGetRequest
  */
 export interface ProductsApiProductsGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsApiProductsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsApiProductsGet
-     */
     readonly perPage?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsApiProductsGet
-     */
     readonly includeTeams?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsApiProductsGet
-     */
     readonly withIdeaPortals?: string
 }
 
 /**
  * Request parameters for productsPost operation in ProductsApi.
- * @export
- * @interface ProductsApiProductsPostRequest
  */
 export interface ProductsApiProductsPostRequest {
-    /**
-     * 
-     * @type {ProductsPostRequest}
-     * @memberof ProductsApiProductsPost
-     */
     readonly productsPostRequest: ProductsPostRequest
 }
 
 /**
  * ProductsApi - object-oriented interface
- * @export
- * @class ProductsApi
- * @extends {BaseAPI}
  */
 export class ProductsApi extends BaseAPI implements ProductsApiInterface {
     /**
@@ -514,7 +453,6 @@ export class ProductsApi extends BaseAPI implements ProductsApiInterface {
      * @param {ProductsApiProductsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ProductsApi
      */
     public productsByIdGet(requestParameters: ProductsApiProductsByIdGetRequest, options?: RawAxiosRequestConfig) {
         return ProductsApiFp(this.configuration).productsByIdGet(requestParameters.id, requestParameters.fields, options).then((request) => request(this.axios, this.basePath));
@@ -526,7 +464,6 @@ export class ProductsApi extends BaseAPI implements ProductsApiInterface {
      * @param {ProductsApiProductsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ProductsApi
      */
     public productsByIdPut(requestParameters: ProductsApiProductsByIdPutRequest, options?: RawAxiosRequestConfig) {
         return ProductsApiFp(this.configuration).productsByIdPut(requestParameters.id, requestParameters.productsPutRequest, options).then((request) => request(this.axios, this.basePath));
@@ -538,7 +475,6 @@ export class ProductsApi extends BaseAPI implements ProductsApiInterface {
      * @param {ProductsApiProductsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ProductsApi
      */
     public productsGet(requestParameters: ProductsApiProductsGetRequest = {}, options?: RawAxiosRequestConfig) {
         return ProductsApiFp(this.configuration).productsGet(requestParameters.page, requestParameters.perPage, requestParameters.includeTeams, requestParameters.withIdeaPortals, options).then((request) => request(this.axios, this.basePath));
@@ -550,7 +486,6 @@ export class ProductsApi extends BaseAPI implements ProductsApiInterface {
      * @param {ProductsApiProductsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ProductsApi
      */
     public productsPost(requestParameters: ProductsApiProductsPostRequest, options?: RawAxiosRequestConfig) {
         return ProductsApiFp(this.configuration).productsPost(requestParameters.productsPostRequest, options).then((request) => request(this.axios, this.basePath));

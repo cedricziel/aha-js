@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeasubscriptionsPostRequestIdeaSubscription
- */
 export interface IdeasubscriptionsPostRequestIdeaSubscription {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasubscriptionsPostRequestIdeaSubscription
-     */
     'email'?: string;
 }
 

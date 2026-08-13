@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface RecordlinksPostRequestRecordLink
- */
 export interface RecordlinksPostRequestRecordLink {
-    /**
-     * 
-     * @type {string}
-     * @memberof RecordlinksPostRequestRecordLink
-     */
     'record_type'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof RecordlinksPostRequestRecordLink
-     */
     'record_id'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof RecordlinksPostRequestRecordLink
-     */
     'link_type'?: number;
 }
 

@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface HistoricalAuditsPostRequestSearch
- */
 export interface HistoricalAuditsPostRequestSearch {
-    /**
-     * 
-     * @type {string}
-     * @memberof HistoricalAuditsPostRequestSearch
-     */
     'created_since'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof HistoricalAuditsPostRequestSearch
-     */
     'created_before'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof HistoricalAuditsPostRequestSearch
-     */
     'auditable_type'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof HistoricalAuditsPostRequestSearch
-     */
     'auditable_id'?: number;
 }
 

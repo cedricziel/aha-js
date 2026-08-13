@@ -40,198 +40,41 @@ import type { IdeasPostResponseIdeaWorkflowStatus } from './ideas-post-response-
 // May contain unused imports in some cases
 // @ts-ignore
 import type { IdeasPostResponseIdeaWorkflowStatusTimesInner } from './ideas-post-response-idea-workflow-status-times-inner';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface IdeasPostResponseIdea
- */
 export interface IdeasPostResponseIdea {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPostResponseIdea
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPostResponseIdea
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPostResponseIdea
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeasPostResponseIdea
-     */
     'score'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPostResponseIdea
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPostResponseIdea
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPostResponseIdea
-     */
     'product_id'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeasPostResponseIdea
-     */
     'votes'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeasPostResponseIdea
-     */
     'initial_votes'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPostResponseIdea
-     */
     'status_changed_at'?: string;
-    /**
-     * 
-     * @type {IdeasPostResponseIdeaWorkflowStatus}
-     * @memberof IdeasPostResponseIdea
-     */
     'workflow_status'?: IdeasPostResponseIdeaWorkflowStatus;
-    /**
-     * 
-     * @type {IdeasPostResponseIdeaDescription}
-     * @memberof IdeasPostResponseIdea
-     */
     'description'?: IdeasPostResponseIdeaDescription;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPostResponseIdea
-     */
     'visibility'?: string;
-    /**
-     * 
-     * @type {IdeasPostResponseIdeaAdminResponse}
-     * @memberof IdeasPostResponseIdea
-     */
     'admin_response'?: IdeasPostResponseIdeaAdminResponse;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPostResponseIdea
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPostResponseIdea
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {EpicsPostResponseEpicProject}
-     * @memberof IdeasPostResponseIdea
-     */
     'product'?: EpicsPostResponseEpicProject;
-    /**
-     * 
-     * @type {IdeasPostResponseIdeaCreatedByPortalUser}
-     * @memberof IdeasPostResponseIdea
-     */
     'created_by_portal_user'?: IdeasPostResponseIdeaCreatedByPortalUser;
-    /**
-     * 
-     * @type {IdeasPostResponseIdeaCreatedByIdeaUser}
-     * @memberof IdeasPostResponseIdea
-     */
     'created_by_idea_user'?: IdeasPostResponseIdeaCreatedByIdeaUser;
-    /**
-     * 
-     * @type {any}
-     * @memberof IdeasPostResponseIdea
-     */
-    'assigned_to_user'?: any | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeasPostResponseIdea
-     */
+    'assigned_to_user'?: Null;
     'endorsements_count'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeasPostResponseIdea
-     */
     'comments_count'?: number;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof IdeasPostResponseIdea
-     */
     'score_facts'?: Array<any>;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof IdeasPostResponseIdea
-     */
     'tags'?: Array<string>;
-    /**
-     * 
-     * @type {Array<IdeasPostResponseIdeaFullTagsInner>}
-     * @memberof IdeasPostResponseIdea
-     */
     'full_tags'?: Array<IdeasPostResponseIdeaFullTagsInner>;
-    /**
-     * 
-     * @type {Array<IdeasPostResponseIdeaCategoriesInner>}
-     * @memberof IdeasPostResponseIdea
-     */
     'categories'?: Array<IdeasPostResponseIdeaCategoriesInner>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof IdeasPostResponseIdea
-     */
     'themes'?: Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof IdeasPostResponseIdea
-     */
     'custom_fields'?: Array<any>;
-    /**
-     * 
-     * @type {Array<IdeasPostResponseIdeaWorkflowStatusTimesInner>}
-     * @memberof IdeasPostResponseIdea
-     */
     'workflow_status_times'?: Array<IdeasPostResponseIdeaWorkflowStatusTimesInner>;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPostResponseIdea
-     */
     'submitted_idea_portal_record_url'?: string;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof IdeasPostResponseIdea
-     */
     'integration_fields'?: Array<any>;
 }
 

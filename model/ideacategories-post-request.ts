@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { IdeacategoriesPostRequestIdeaCategory } from './ideacategories-post-request-idea-category';
 
-/**
- * 
- * @export
- * @interface IdeacategoriesPostRequest
- */
 export interface IdeacategoriesPostRequest {
-    /**
-     * 
-     * @type {IdeacategoriesPostRequestIdeaCategory}
-     * @memberof IdeacategoriesPostRequest
-     */
     'idea_category'?: IdeacategoriesPostRequestIdeaCategory;
 }
 

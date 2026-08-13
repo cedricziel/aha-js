@@ -20,23 +20,8 @@ import type { CompetitorsGetResponsePagination } from './competitors-get-respons
 // @ts-ignore
 import type { IdeacommentsGetResponseIdeaCommentsInner } from './ideacomments-get-response-idea-comments-inner';
 
-/**
- * 
- * @export
- * @interface IdeacommentsGetResponse
- */
 export interface IdeacommentsGetResponse {
-    /**
-     * 
-     * @type {Array<IdeacommentsGetResponseIdeaCommentsInner>}
-     * @memberof IdeacommentsGetResponse
-     */
     'idea_comments'?: Array<IdeacommentsGetResponseIdeaCommentsInner>;
-    /**
-     * 
-     * @type {CompetitorsGetResponsePagination}
-     * @memberof IdeacommentsGetResponse
-     */
     'pagination'?: CompetitorsGetResponsePagination;
 }
 

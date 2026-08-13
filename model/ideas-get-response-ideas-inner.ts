@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeasGetResponseIdeasInner
- */
 export interface IdeasGetResponseIdeasInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasGetResponseIdeasInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasGetResponseIdeasInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasGetResponseIdeasInner
-     */
     'product_id'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeasGetResponseIdeasInner
-     */
     'votes'?: number;
 }
 

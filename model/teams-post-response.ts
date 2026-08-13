@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { TeamsPostResponseTeam } from './teams-post-response-team';
 
-/**
- * 
- * @export
- * @interface TeamsPostResponse
- */
 export interface TeamsPostResponse {
-    /**
-     * 
-     * @type {TeamsPostResponseTeam}
-     * @memberof TeamsPostResponse
-     */
     'team'?: TeamsPostResponseTeam;
 }
 

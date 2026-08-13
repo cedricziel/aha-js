@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { GoalsPutRequestGoal } from './goals-put-request-goal';
 
-/**
- * 
- * @export
- * @interface GoalsPutRequest
- */
 export interface GoalsPutRequest {
-    /**
-     * 
-     * @type {GoalsPutRequestGoal}
-     * @memberof GoalsPutRequest
-     */
     'goal'?: GoalsPutRequestGoal;
 }
 

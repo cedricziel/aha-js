@@ -16,96 +16,24 @@
 // May contain unused imports in some cases
 // @ts-ignore
 import type { IntegrationsGetResponseIntegrationOwner } from './integrations-get-response-integration-owner';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface IntegrationsGetResponseIntegration
- */
 export interface IntegrationsGetResponseIntegration {
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationsGetResponseIntegration
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationsGetResponseIntegration
-     */
     'service_name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationsGetResponseIntegration
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationsGetResponseIntegration
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof IntegrationsGetResponseIntegration
-     */
-    'template_id'?: any | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IntegrationsGetResponseIntegration
-     */
+    'template_id'?: Null;
     'enabled'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationsGetResponseIntegration
-     */
     'callback_token'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationsGetResponseIntegration
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof IntegrationsGetResponseIntegration
-     */
-    'last_error_at'?: any | null;
-    /**
-     * 
-     * @type {any}
-     * @memberof IntegrationsGetResponseIntegration
-     */
-    'last_webhook_request_at'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationsGetResponseIntegration
-     */
+    'last_error_at'?: Null;
+    'last_webhook_request_at'?: Null;
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationsGetResponseIntegration
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof IntegrationsGetResponseIntegration
-     */
-    'jql_filter'?: any | null;
-    /**
-     * 
-     * @type {IntegrationsGetResponseIntegrationOwner}
-     * @memberof IntegrationsGetResponseIntegration
-     */
+    'jql_filter'?: Null;
     'owner'?: IntegrationsGetResponseIntegrationOwner;
 }
 

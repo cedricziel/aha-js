@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface CustomfieldsGetResponseOptionsInnerMeta
- */
 export interface CustomfieldsGetResponseOptionsInnerMeta {
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomfieldsGetResponseOptionsInnerMeta
-     */
     'color'?: string;
 }
 

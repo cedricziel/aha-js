@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface RequirementsPostResponseFeatureDescription
- */
 export interface RequirementsPostResponseFeatureDescription {
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsPostResponseFeatureDescription
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsPostResponseFeatureDescription
-     */
     'body'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsPostResponseFeatureDescription
-     */
     'notable_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsPostResponseFeatureDescription
-     */
     'notable_type'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof RequirementsPostResponseFeatureDescription
-     */
     'editor_version'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsPostResponseFeatureDescription
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsPostResponseFeatureDescription
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof RequirementsPostResponseFeatureDescription
-     */
     'attachments'?: Array<any>;
 }
 

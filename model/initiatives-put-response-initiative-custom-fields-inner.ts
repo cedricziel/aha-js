@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface InitiativesPutResponseInitiativeCustomFieldsInner
- */
 export interface InitiativesPutResponseInitiativeCustomFieldsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPutResponseInitiativeCustomFieldsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPutResponseInitiativeCustomFieldsInner
-     */
     'key'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPutResponseInitiativeCustomFieldsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPutResponseInitiativeCustomFieldsInner
-     */
     'updatedAt'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPutResponseInitiativeCustomFieldsInner
-     */
     'type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPutResponseInitiativeCustomFieldsInner
-     */
     'value'?: string;
 }
 

@@ -16,96 +16,24 @@
 // May contain unused imports in some cases
 // @ts-ignore
 import type { FeaturesPutResponseFeatureBelongsToReleasePhaseDescription } from './features-put-response-feature-belongs-to-release-phase-description';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface FeaturesPutResponseFeatureBelongsToReleasePhase
- */
 export interface FeaturesPutResponseFeatureBelongsToReleasePhase {
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureBelongsToReleasePhase
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureBelongsToReleasePhase
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureBelongsToReleasePhase
-     */
     'start_on'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureBelongsToReleasePhase
-     */
     'end_on'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureBelongsToReleasePhase
-     */
     'type'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof FeaturesPutResponseFeatureBelongsToReleasePhase
-     */
     'release_id'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureBelongsToReleasePhase
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureBelongsToReleasePhase
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof FeaturesPutResponseFeatureBelongsToReleasePhase
-     */
-    'progress'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureBelongsToReleasePhase
-     */
+    'progress'?: Null;
     'progress_source'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureBelongsToReleasePhase
-     */
     'duration_source'?: string;
-    /**
-     * 
-     * @type {FeaturesPutResponseFeatureBelongsToReleasePhaseDescription}
-     * @memberof FeaturesPutResponseFeatureBelongsToReleasePhase
-     */
     'description'?: FeaturesPutResponseFeatureBelongsToReleasePhaseDescription;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof FeaturesPutResponseFeatureBelongsToReleasePhase
-     */
     'integration_fields'?: Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof FeaturesPutResponseFeatureBelongsToReleasePhase
-     */
     'custom_fields'?: Array<any>;
 }
 

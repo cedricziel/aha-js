@@ -20,23 +20,8 @@ import type { FeaturesGetResponsePagination } from './features-get-response-pagi
 // @ts-ignore
 import type { GoalsGetResponseGoalsInner } from './goals-get-response-goals-inner';
 
-/**
- * 
- * @export
- * @interface GoalsGetResponse
- */
 export interface GoalsGetResponse {
-    /**
-     * 
-     * @type {Array<GoalsGetResponseGoalsInner>}
-     * @memberof GoalsGetResponse
-     */
     'goals'?: Array<GoalsGetResponseGoalsInner>;
-    /**
-     * 
-     * @type {FeaturesGetResponsePagination}
-     * @memberof GoalsGetResponse
-     */
     'pagination'?: FeaturesGetResponsePagination;
 }
 

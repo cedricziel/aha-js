@@ -18,14 +18,13 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
 import type { StrategicmodelsGetResponse } from '../model';
 /**
  * StrategicModelsApi - axios parameter creator
- * @export
  */
 export const StrategicModelsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -40,7 +39,7 @@ export const StrategicModelsApiAxiosParamCreator = function (configuration?: Con
             // verify required parameter 'id' is not null or undefined
             assertParamExists('strategyModelsByIdGet', 'id', id)
             const localVarPath = `/strategy_models/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -62,8 +61,8 @@ export const StrategicModelsApiAxiosParamCreator = function (configuration?: Con
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -112,8 +111,8 @@ export const StrategicModelsApiAxiosParamCreator = function (configuration?: Con
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -128,7 +127,6 @@ export const StrategicModelsApiAxiosParamCreator = function (configuration?: Con
 
 /**
  * StrategicModelsApi - functional programming interface
- * @export
  */
 export const StrategicModelsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = StrategicModelsApiAxiosParamCreator(configuration)
@@ -165,7 +163,6 @@ export const StrategicModelsApiFp = function(configuration?: Configuration) {
 
 /**
  * StrategicModelsApi - factory interface
- * @export
  */
 export const StrategicModelsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = StrategicModelsApiFp(configuration)
@@ -195,8 +192,6 @@ export const StrategicModelsApiFactory = function (configuration?: Configuration
 
 /**
  * StrategicModelsApi - interface
- * @export
- * @interface StrategicModelsApi
  */
 export interface StrategicModelsApiInterface {
     /**
@@ -205,7 +200,6 @@ export interface StrategicModelsApiInterface {
      * @param {StrategicModelsApiStrategyModelsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StrategicModelsApiInterface
      */
     strategyModelsByIdGet(requestParameters: StrategicModelsApiStrategyModelsByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<StrategicmodelsGetResponse>;
 
@@ -215,7 +209,6 @@ export interface StrategicModelsApiInterface {
      * @param {StrategicModelsApiStrategyModelsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StrategicModelsApiInterface
      */
     strategyModelsGet(requestParameters?: StrategicModelsApiStrategyModelsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<StrategicmodelsGetResponse>;
 
@@ -223,44 +216,25 @@ export interface StrategicModelsApiInterface {
 
 /**
  * Request parameters for strategyModelsByIdGet operation in StrategicModelsApi.
- * @export
- * @interface StrategicModelsApiStrategyModelsByIdGetRequest
  */
 export interface StrategicModelsApiStrategyModelsByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof StrategicModelsApiStrategyModelsByIdGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for strategyModelsGet operation in StrategicModelsApi.
- * @export
- * @interface StrategicModelsApiStrategyModelsGetRequest
  */
 export interface StrategicModelsApiStrategyModelsGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicModelsApiStrategyModelsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicModelsApiStrategyModelsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * StrategicModelsApi - object-oriented interface
- * @export
- * @class StrategicModelsApi
- * @extends {BaseAPI}
  */
 export class StrategicModelsApi extends BaseAPI implements StrategicModelsApiInterface {
     /**
@@ -269,7 +243,6 @@ export class StrategicModelsApi extends BaseAPI implements StrategicModelsApiInt
      * @param {StrategicModelsApiStrategyModelsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StrategicModelsApi
      */
     public strategyModelsByIdGet(requestParameters: StrategicModelsApiStrategyModelsByIdGetRequest, options?: RawAxiosRequestConfig) {
         return StrategicModelsApiFp(this.configuration).strategyModelsByIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -281,7 +254,6 @@ export class StrategicModelsApi extends BaseAPI implements StrategicModelsApiInt
      * @param {StrategicModelsApiStrategyModelsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StrategicModelsApi
      */
     public strategyModelsGet(requestParameters: StrategicModelsApiStrategyModelsGetRequest = {}, options?: RawAxiosRequestConfig) {
         return StrategicModelsApiFp(this.configuration).strategyModelsGet(requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));

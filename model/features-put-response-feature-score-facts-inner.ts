@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface FeaturesPutResponseFeatureScoreFactsInner
- */
 export interface FeaturesPutResponseFeatureScoreFactsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureScoreFactsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureScoreFactsInner
-     */
     'value'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureScoreFactsInner
-     */
     'name'?: string;
 }
 

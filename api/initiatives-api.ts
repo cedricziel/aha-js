@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -35,7 +35,6 @@ import type { InitiativesPutRequest } from '../model';
 import type { InitiativesPutResponse } from '../model';
 /**
  * InitiativesApi - axios parameter creator
- * @export
  */
 export const InitiativesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -52,7 +51,7 @@ export const InitiativesApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'goalId' is not null or undefined
             assertParamExists('goalsByGoalInitiativesGet', 'goalId', goalId)
             const localVarPath = `/goals/{goal_id}/initiatives`
-                .replace(`{${"goal_id"}}`, encodeURIComponent(String(goalId)));
+                .replace('{goal_id}', encodeURIComponent(String(goalId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -82,8 +81,8 @@ export const InitiativesApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -104,7 +103,7 @@ export const InitiativesApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'id' is not null or undefined
             assertParamExists('initiativesByIdGet', 'id', id)
             const localVarPath = `/initiatives/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -126,8 +125,8 @@ export const InitiativesApiAxiosParamCreator = function (configuration?: Configu
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -151,7 +150,7 @@ export const InitiativesApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'initiativesPutRequest' is not null or undefined
             assertParamExists('initiativesByIdPut', 'initiativesPutRequest', initiativesPutRequest)
             const localVarPath = `/initiatives/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -173,9 +172,8 @@ export const InitiativesApiAxiosParamCreator = function (configuration?: Configu
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -241,8 +239,8 @@ export const InitiativesApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['workflow_status'] = workflowStatus;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -266,8 +264,8 @@ export const InitiativesApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'id' is not null or undefined
             assertParamExists('productsByProductInitiativesByIdDelete', 'id', id)
             const localVarPath = `/products/{product_id}/initiatives/{id}`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)))
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{product_id}', encodeURIComponent(String(productId)))
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -290,7 +288,6 @@ export const InitiativesApiAxiosParamCreator = function (configuration?: Configu
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -317,8 +314,8 @@ export const InitiativesApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'initiativesPostRequest' is not null or undefined
             assertParamExists('productsByProductInitiativesByIdPut', 'initiativesPostRequest', initiativesPostRequest)
             const localVarPath = `/products/{product_id}/initiatives/{id}`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)))
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{product_id}', encodeURIComponent(String(productId)))
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -340,9 +337,8 @@ export const InitiativesApiAxiosParamCreator = function (configuration?: Configu
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -367,7 +363,7 @@ export const InitiativesApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'productId' is not null or undefined
             assertParamExists('productsByProductInitiativesGet', 'productId', productId)
             const localVarPath = `/products/{product_id}/initiatives`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -397,8 +393,8 @@ export const InitiativesApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -422,7 +418,7 @@ export const InitiativesApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'initiativesPostRequest' is not null or undefined
             assertParamExists('productsByProductInitiativesPost', 'initiativesPostRequest', initiativesPostRequest)
             const localVarPath = `/products/{product_id}/initiatives`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -444,9 +440,8 @@ export const InitiativesApiAxiosParamCreator = function (configuration?: Configu
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -463,7 +458,6 @@ export const InitiativesApiAxiosParamCreator = function (configuration?: Configu
 
 /**
  * InitiativesApi - functional programming interface
- * @export
  */
 export const InitiativesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = InitiativesApiAxiosParamCreator(configuration)
@@ -590,7 +584,6 @@ export const InitiativesApiFp = function(configuration?: Configuration) {
 
 /**
  * InitiativesApi - factory interface
- * @export
  */
 export const InitiativesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = InitiativesApiFp(configuration)
@@ -680,8 +673,6 @@ export const InitiativesApiFactory = function (configuration?: Configuration, ba
 
 /**
  * InitiativesApi - interface
- * @export
- * @interface InitiativesApi
  */
 export interface InitiativesApiInterface {
     /**
@@ -690,7 +681,6 @@ export interface InitiativesApiInterface {
      * @param {InitiativesApiGoalsByGoalInitiativesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InitiativesApiInterface
      */
     goalsByGoalInitiativesGet(requestParameters: InitiativesApiGoalsByGoalInitiativesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<InitiativesGetResponse>;
 
@@ -700,7 +690,6 @@ export interface InitiativesApiInterface {
      * @param {InitiativesApiInitiativesByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InitiativesApiInterface
      */
     initiativesByIdGet(requestParameters: InitiativesApiInitiativesByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<InitiativesGetResponse>;
 
@@ -710,7 +699,6 @@ export interface InitiativesApiInterface {
      * @param {InitiativesApiInitiativesByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InitiativesApiInterface
      */
     initiativesByIdPut(requestParameters: InitiativesApiInitiativesByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<CustomtablerecordlinksPutResponse>;
 
@@ -720,7 +708,6 @@ export interface InitiativesApiInterface {
      * @param {InitiativesApiInitiativesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InitiativesApiInterface
      */
     initiativesGet(requestParameters?: InitiativesApiInitiativesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<InitiativesGetResponse>;
 
@@ -730,7 +717,6 @@ export interface InitiativesApiInterface {
      * @param {InitiativesApiProductsByProductInitiativesByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InitiativesApiInterface
      */
     productsByProductInitiativesByIdDelete(requestParameters: InitiativesApiProductsByProductInitiativesByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -740,7 +726,6 @@ export interface InitiativesApiInterface {
      * @param {InitiativesApiProductsByProductInitiativesByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InitiativesApiInterface
      */
     productsByProductInitiativesByIdPut(requestParameters: InitiativesApiProductsByProductInitiativesByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<InitiativesPutResponse>;
 
@@ -750,7 +735,6 @@ export interface InitiativesApiInterface {
      * @param {InitiativesApiProductsByProductInitiativesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InitiativesApiInterface
      */
     productsByProductInitiativesGet(requestParameters: InitiativesApiProductsByProductInitiativesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<InitiativesGetResponse>;
 
@@ -760,7 +744,6 @@ export interface InitiativesApiInterface {
      * @param {InitiativesApiProductsByProductInitiativesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InitiativesApiInterface
      */
     productsByProductInitiativesPost(requestParameters: InitiativesApiProductsByProductInitiativesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<InitiativesPostResponse>;
 
@@ -768,212 +751,115 @@ export interface InitiativesApiInterface {
 
 /**
  * Request parameters for goalsByGoalInitiativesGet operation in InitiativesApi.
- * @export
- * @interface InitiativesApiGoalsByGoalInitiativesGetRequest
  */
 export interface InitiativesApiGoalsByGoalInitiativesGetRequest {
     /**
      * GoalId identifier
-     * @type {string}
-     * @memberof InitiativesApiGoalsByGoalInitiativesGet
      */
     readonly goalId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesApiGoalsByGoalInitiativesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesApiGoalsByGoalInitiativesGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for initiativesByIdGet operation in InitiativesApi.
- * @export
- * @interface InitiativesApiInitiativesByIdGetRequest
  */
 export interface InitiativesApiInitiativesByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof InitiativesApiInitiativesByIdGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for initiativesByIdPut operation in InitiativesApi.
- * @export
- * @interface InitiativesApiInitiativesByIdPutRequest
  */
 export interface InitiativesApiInitiativesByIdPutRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof InitiativesApiInitiativesByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {InitiativesPutRequest}
-     * @memberof InitiativesApiInitiativesByIdPut
-     */
     readonly initiativesPutRequest: InitiativesPutRequest
 }
 
 /**
  * Request parameters for initiativesGet operation in InitiativesApi.
- * @export
- * @interface InitiativesApiInitiativesGetRequest
  */
 export interface InitiativesApiInitiativesGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesApiInitiativesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesApiInitiativesGet
-     */
     readonly perPage?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesApiInitiativesGet
-     */
     readonly customFields?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesApiInitiativesGet
-     */
     readonly fields?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesApiInitiativesGet
-     */
     readonly workflowStatus?: string
 }
 
 /**
  * Request parameters for productsByProductInitiativesByIdDelete operation in InitiativesApi.
- * @export
- * @interface InitiativesApiProductsByProductInitiativesByIdDeleteRequest
  */
 export interface InitiativesApiProductsByProductInitiativesByIdDeleteRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof InitiativesApiProductsByProductInitiativesByIdDelete
      */
     readonly productId: string
 
     /**
      * Id identifier
-     * @type {string}
-     * @memberof InitiativesApiProductsByProductInitiativesByIdDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for productsByProductInitiativesByIdPut operation in InitiativesApi.
- * @export
- * @interface InitiativesApiProductsByProductInitiativesByIdPutRequest
  */
 export interface InitiativesApiProductsByProductInitiativesByIdPutRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof InitiativesApiProductsByProductInitiativesByIdPut
      */
     readonly productId: string
 
     /**
      * Id identifier
-     * @type {string}
-     * @memberof InitiativesApiProductsByProductInitiativesByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {InitiativesPostRequest}
-     * @memberof InitiativesApiProductsByProductInitiativesByIdPut
-     */
     readonly initiativesPostRequest: InitiativesPostRequest
 }
 
 /**
  * Request parameters for productsByProductInitiativesGet operation in InitiativesApi.
- * @export
- * @interface InitiativesApiProductsByProductInitiativesGetRequest
  */
 export interface InitiativesApiProductsByProductInitiativesGetRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof InitiativesApiProductsByProductInitiativesGet
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesApiProductsByProductInitiativesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesApiProductsByProductInitiativesGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for productsByProductInitiativesPost operation in InitiativesApi.
- * @export
- * @interface InitiativesApiProductsByProductInitiativesPostRequest
  */
 export interface InitiativesApiProductsByProductInitiativesPostRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof InitiativesApiProductsByProductInitiativesPost
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {InitiativesPostRequest}
-     * @memberof InitiativesApiProductsByProductInitiativesPost
-     */
     readonly initiativesPostRequest: InitiativesPostRequest
 }
 
 /**
  * InitiativesApi - object-oriented interface
- * @export
- * @class InitiativesApi
- * @extends {BaseAPI}
  */
 export class InitiativesApi extends BaseAPI implements InitiativesApiInterface {
     /**
@@ -982,7 +868,6 @@ export class InitiativesApi extends BaseAPI implements InitiativesApiInterface {
      * @param {InitiativesApiGoalsByGoalInitiativesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InitiativesApi
      */
     public goalsByGoalInitiativesGet(requestParameters: InitiativesApiGoalsByGoalInitiativesGetRequest, options?: RawAxiosRequestConfig) {
         return InitiativesApiFp(this.configuration).goalsByGoalInitiativesGet(requestParameters.goalId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -994,7 +879,6 @@ export class InitiativesApi extends BaseAPI implements InitiativesApiInterface {
      * @param {InitiativesApiInitiativesByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InitiativesApi
      */
     public initiativesByIdGet(requestParameters: InitiativesApiInitiativesByIdGetRequest, options?: RawAxiosRequestConfig) {
         return InitiativesApiFp(this.configuration).initiativesByIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -1006,7 +890,6 @@ export class InitiativesApi extends BaseAPI implements InitiativesApiInterface {
      * @param {InitiativesApiInitiativesByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InitiativesApi
      */
     public initiativesByIdPut(requestParameters: InitiativesApiInitiativesByIdPutRequest, options?: RawAxiosRequestConfig) {
         return InitiativesApiFp(this.configuration).initiativesByIdPut(requestParameters.id, requestParameters.initiativesPutRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1018,7 +901,6 @@ export class InitiativesApi extends BaseAPI implements InitiativesApiInterface {
      * @param {InitiativesApiInitiativesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InitiativesApi
      */
     public initiativesGet(requestParameters: InitiativesApiInitiativesGetRequest = {}, options?: RawAxiosRequestConfig) {
         return InitiativesApiFp(this.configuration).initiativesGet(requestParameters.page, requestParameters.perPage, requestParameters.customFields, requestParameters.fields, requestParameters.workflowStatus, options).then((request) => request(this.axios, this.basePath));
@@ -1030,7 +912,6 @@ export class InitiativesApi extends BaseAPI implements InitiativesApiInterface {
      * @param {InitiativesApiProductsByProductInitiativesByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InitiativesApi
      */
     public productsByProductInitiativesByIdDelete(requestParameters: InitiativesApiProductsByProductInitiativesByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return InitiativesApiFp(this.configuration).productsByProductInitiativesByIdDelete(requestParameters.productId, requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -1042,7 +923,6 @@ export class InitiativesApi extends BaseAPI implements InitiativesApiInterface {
      * @param {InitiativesApiProductsByProductInitiativesByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InitiativesApi
      */
     public productsByProductInitiativesByIdPut(requestParameters: InitiativesApiProductsByProductInitiativesByIdPutRequest, options?: RawAxiosRequestConfig) {
         return InitiativesApiFp(this.configuration).productsByProductInitiativesByIdPut(requestParameters.productId, requestParameters.id, requestParameters.initiativesPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1054,7 +934,6 @@ export class InitiativesApi extends BaseAPI implements InitiativesApiInterface {
      * @param {InitiativesApiProductsByProductInitiativesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InitiativesApi
      */
     public productsByProductInitiativesGet(requestParameters: InitiativesApiProductsByProductInitiativesGetRequest, options?: RawAxiosRequestConfig) {
         return InitiativesApiFp(this.configuration).productsByProductInitiativesGet(requestParameters.productId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -1066,7 +945,6 @@ export class InitiativesApi extends BaseAPI implements InitiativesApiInterface {
      * @param {InitiativesApiProductsByProductInitiativesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InitiativesApi
      */
     public productsByProductInitiativesPost(requestParameters: InitiativesApiProductsByProductInitiativesPostRequest, options?: RawAxiosRequestConfig) {
         return InitiativesApiFp(this.configuration).productsByProductInitiativesPost(requestParameters.productId, requestParameters.initiativesPostRequest, options).then((request) => request(this.axios, this.basePath));

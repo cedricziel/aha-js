@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface IntegrationfieldsPostResponseIntegrationFieldIntegratable
- */
 export interface IntegrationfieldsPostResponseIntegrationFieldIntegratable {
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationfieldsPostResponseIntegrationFieldIntegratable
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationfieldsPostResponseIntegrationFieldIntegratable
-     */
     'resource'?: string;
 }
 

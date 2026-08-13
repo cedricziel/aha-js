@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface RequirementsPostResponseFeatureCustomFieldsInner
- */
 export interface RequirementsPostResponseFeatureCustomFieldsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsPostResponseFeatureCustomFieldsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsPostResponseFeatureCustomFieldsInner
-     */
     'key'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsPostResponseFeatureCustomFieldsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsPostResponseFeatureCustomFieldsInner
-     */
     'updatedAt'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsPostResponseFeatureCustomFieldsInner
-     */
     'type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsPostResponseFeatureCustomFieldsInner
-     */
     'value'?: string;
 }
 

@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -29,7 +29,6 @@ import type { HistoricalAuditsPostRequest } from '../model';
 import type { HistoricalAuditsPostResponse } from '../model';
 /**
  * HistoricalAuditsApi - axios parameter creator
- * @export
  */
 export const HistoricalAuditsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -92,8 +91,8 @@ export const HistoricalAuditsApiAxiosParamCreator = function (configuration?: Co
                 localVarQueryParameter['user_id'] = userId;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -135,9 +134,8 @@ export const HistoricalAuditsApiAxiosParamCreator = function (configuration?: Co
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -154,7 +152,6 @@ export const HistoricalAuditsApiAxiosParamCreator = function (configuration?: Co
 
 /**
  * HistoricalAuditsApi - functional programming interface
- * @export
  */
 export const HistoricalAuditsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = HistoricalAuditsApiAxiosParamCreator(configuration)
@@ -195,7 +192,6 @@ export const HistoricalAuditsApiFp = function(configuration?: Configuration) {
 
 /**
  * HistoricalAuditsApi - factory interface
- * @export
  */
 export const HistoricalAuditsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = HistoricalAuditsApiFp(configuration)
@@ -225,8 +221,6 @@ export const HistoricalAuditsApiFactory = function (configuration?: Configuratio
 
 /**
  * HistoricalAuditsApi - interface
- * @export
- * @interface HistoricalAuditsApi
  */
 export interface HistoricalAuditsApiInterface {
     /**
@@ -235,7 +229,6 @@ export interface HistoricalAuditsApiInterface {
      * @param {HistoricalAuditsApiHistoricalAuditsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof HistoricalAuditsApiInterface
      */
     historicalAuditsGet(requestParameters?: HistoricalAuditsApiHistoricalAuditsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<HistoricalAuditsGetResponse>;
 
@@ -245,7 +238,6 @@ export interface HistoricalAuditsApiInterface {
      * @param {HistoricalAuditsApiHistoricalAuditsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof HistoricalAuditsApiInterface
      */
     historicalAuditsPost(requestParameters: HistoricalAuditsApiHistoricalAuditsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<HistoricalAuditsPostResponse>;
 
@@ -253,72 +245,30 @@ export interface HistoricalAuditsApiInterface {
 
 /**
  * Request parameters for historicalAuditsGet operation in HistoricalAuditsApi.
- * @export
- * @interface HistoricalAuditsApiHistoricalAuditsGetRequest
  */
 export interface HistoricalAuditsApiHistoricalAuditsGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof HistoricalAuditsApiHistoricalAuditsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof HistoricalAuditsApiHistoricalAuditsGet
-     */
     readonly perPage?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof HistoricalAuditsApiHistoricalAuditsGet
-     */
     readonly createdSince?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof HistoricalAuditsApiHistoricalAuditsGet
-     */
     readonly createdBefore?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof HistoricalAuditsApiHistoricalAuditsGet
-     */
     readonly auditableType?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof HistoricalAuditsApiHistoricalAuditsGet
-     */
     readonly userId?: string
 }
 
 /**
  * Request parameters for historicalAuditsPost operation in HistoricalAuditsApi.
- * @export
- * @interface HistoricalAuditsApiHistoricalAuditsPostRequest
  */
 export interface HistoricalAuditsApiHistoricalAuditsPostRequest {
-    /**
-     * 
-     * @type {HistoricalAuditsPostRequest}
-     * @memberof HistoricalAuditsApiHistoricalAuditsPost
-     */
     readonly historicalAuditsPostRequest: HistoricalAuditsPostRequest
 }
 
 /**
  * HistoricalAuditsApi - object-oriented interface
- * @export
- * @class HistoricalAuditsApi
- * @extends {BaseAPI}
  */
 export class HistoricalAuditsApi extends BaseAPI implements HistoricalAuditsApiInterface {
     /**
@@ -327,7 +277,6 @@ export class HistoricalAuditsApi extends BaseAPI implements HistoricalAuditsApiI
      * @param {HistoricalAuditsApiHistoricalAuditsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof HistoricalAuditsApi
      */
     public historicalAuditsGet(requestParameters: HistoricalAuditsApiHistoricalAuditsGetRequest = {}, options?: RawAxiosRequestConfig) {
         return HistoricalAuditsApiFp(this.configuration).historicalAuditsGet(requestParameters.page, requestParameters.perPage, requestParameters.createdSince, requestParameters.createdBefore, requestParameters.auditableType, requestParameters.userId, options).then((request) => request(this.axios, this.basePath));
@@ -339,7 +288,6 @@ export class HistoricalAuditsApi extends BaseAPI implements HistoricalAuditsApiI
      * @param {HistoricalAuditsApiHistoricalAuditsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof HistoricalAuditsApi
      */
     public historicalAuditsPost(requestParameters: HistoricalAuditsApiHistoricalAuditsPostRequest, options?: RawAxiosRequestConfig) {
         return HistoricalAuditsApiFp(this.configuration).historicalAuditsPost(requestParameters.historicalAuditsPostRequest, options).then((request) => request(this.axios, this.basePath));

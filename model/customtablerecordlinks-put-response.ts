@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { CustomtablerecordlinksPutResponseRequirement } from './customtablerecordlinks-put-response-requirement';
 
-/**
- * 
- * @export
- * @interface CustomtablerecordlinksPutResponse
- */
 export interface CustomtablerecordlinksPutResponse {
-    /**
-     * 
-     * @type {CustomtablerecordlinksPutResponseRequirement}
-     * @memberof CustomtablerecordlinksPutResponse
-     */
     'requirement'?: CustomtablerecordlinksPutResponseRequirement;
 }
 

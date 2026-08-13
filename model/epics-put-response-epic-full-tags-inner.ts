@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface EpicsPutResponseEpicFullTagsInner
- */
 export interface EpicsPutResponseEpicFullTagsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicFullTagsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicFullTagsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicFullTagsInner
-     */
     'color'?: string;
 }
 

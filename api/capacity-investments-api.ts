@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { CapacityinvestmentsPostResponse } from '../model';
 import type { CapacityinvestmentsPutResponse } from '../model';
 /**
  * CapacityInvestmentsApi - axios parameter creator
- * @export
  */
 export const CapacityInvestmentsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -46,7 +45,7 @@ export const CapacityInvestmentsApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'id' is not null or undefined
             assertParamExists('capacityInvestmentsByIdGet', 'id', id)
             const localVarPath = `/capacity_investments/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -68,8 +67,8 @@ export const CapacityInvestmentsApiAxiosParamCreator = function (configuration?:
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -93,7 +92,7 @@ export const CapacityInvestmentsApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'capacityinvestmentsPostRequest' is not null or undefined
             assertParamExists('capacityInvestmentsByIdPut', 'capacityinvestmentsPostRequest', capacityinvestmentsPostRequest)
             const localVarPath = `/capacity_investments/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -115,9 +114,8 @@ export const CapacityInvestmentsApiAxiosParamCreator = function (configuration?:
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -142,7 +140,7 @@ export const CapacityInvestmentsApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'epicId' is not null or undefined
             assertParamExists('epicsByEpicCapacityInvestmentsGet', 'epicId', epicId)
             const localVarPath = `/epics/{epic_id}/capacity_investments`
-                .replace(`{${"epic_id"}}`, encodeURIComponent(String(epicId)));
+                .replace('{epic_id}', encodeURIComponent(String(epicId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -172,8 +170,8 @@ export const CapacityInvestmentsApiAxiosParamCreator = function (configuration?:
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -197,7 +195,7 @@ export const CapacityInvestmentsApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'capacityinvestmentsPostRequest' is not null or undefined
             assertParamExists('epicsByEpicCapacityInvestmentsPost', 'capacityinvestmentsPostRequest', capacityinvestmentsPostRequest)
             const localVarPath = `/epics/{epic_id}/capacity_investments`
-                .replace(`{${"epic_id"}}`, encodeURIComponent(String(epicId)));
+                .replace('{epic_id}', encodeURIComponent(String(epicId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -219,9 +217,8 @@ export const CapacityInvestmentsApiAxiosParamCreator = function (configuration?:
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -246,7 +243,7 @@ export const CapacityInvestmentsApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'featureId' is not null or undefined
             assertParamExists('featuresByFeatureCapacityInvestmentsGet', 'featureId', featureId)
             const localVarPath = `/features/{feature_id}/capacity_investments`
-                .replace(`{${"feature_id"}}`, encodeURIComponent(String(featureId)));
+                .replace('{feature_id}', encodeURIComponent(String(featureId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -276,8 +273,8 @@ export const CapacityInvestmentsApiAxiosParamCreator = function (configuration?:
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -301,7 +298,7 @@ export const CapacityInvestmentsApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'capacityinvestmentsPostRequest' is not null or undefined
             assertParamExists('featuresByFeatureCapacityInvestmentsPost', 'capacityinvestmentsPostRequest', capacityinvestmentsPostRequest)
             const localVarPath = `/features/{feature_id}/capacity_investments`
-                .replace(`{${"feature_id"}}`, encodeURIComponent(String(featureId)));
+                .replace('{feature_id}', encodeURIComponent(String(featureId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -323,9 +320,8 @@ export const CapacityInvestmentsApiAxiosParamCreator = function (configuration?:
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -350,7 +346,7 @@ export const CapacityInvestmentsApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'initiativeId' is not null or undefined
             assertParamExists('initiativesByInitiativeCapacityInvestmentsGet', 'initiativeId', initiativeId)
             const localVarPath = `/initiatives/{initiative_id}/capacity_investments`
-                .replace(`{${"initiative_id"}}`, encodeURIComponent(String(initiativeId)));
+                .replace('{initiative_id}', encodeURIComponent(String(initiativeId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -380,8 +376,8 @@ export const CapacityInvestmentsApiAxiosParamCreator = function (configuration?:
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -405,7 +401,7 @@ export const CapacityInvestmentsApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'capacityinvestmentsPostRequest' is not null or undefined
             assertParamExists('initiativesByInitiativeCapacityInvestmentsPost', 'capacityinvestmentsPostRequest', capacityinvestmentsPostRequest)
             const localVarPath = `/initiatives/{initiative_id}/capacity_investments`
-                .replace(`{${"initiative_id"}}`, encodeURIComponent(String(initiativeId)));
+                .replace('{initiative_id}', encodeURIComponent(String(initiativeId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -427,9 +423,8 @@ export const CapacityInvestmentsApiAxiosParamCreator = function (configuration?:
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -454,7 +449,7 @@ export const CapacityInvestmentsApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'productId' is not null or undefined
             assertParamExists('productsByProductCapacityInvestmentsGet', 'productId', productId)
             const localVarPath = `/products/{product_id}/capacity_investments`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -484,8 +479,8 @@ export const CapacityInvestmentsApiAxiosParamCreator = function (configuration?:
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -500,7 +495,6 @@ export const CapacityInvestmentsApiAxiosParamCreator = function (configuration?:
 
 /**
  * CapacityInvestmentsApi - functional programming interface
- * @export
  */
 export const CapacityInvestmentsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = CapacityInvestmentsApiAxiosParamCreator(configuration)
@@ -639,7 +633,6 @@ export const CapacityInvestmentsApiFp = function(configuration?: Configuration) 
 
 /**
  * CapacityInvestmentsApi - factory interface
- * @export
  */
 export const CapacityInvestmentsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = CapacityInvestmentsApiFp(configuration)
@@ -739,8 +732,6 @@ export const CapacityInvestmentsApiFactory = function (configuration?: Configura
 
 /**
  * CapacityInvestmentsApi - interface
- * @export
- * @interface CapacityInvestmentsApi
  */
 export interface CapacityInvestmentsApiInterface {
     /**
@@ -749,7 +740,6 @@ export interface CapacityInvestmentsApiInterface {
      * @param {CapacityInvestmentsApiCapacityInvestmentsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacityInvestmentsApiInterface
      */
     capacityInvestmentsByIdGet(requestParameters: CapacityInvestmentsApiCapacityInvestmentsByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<CapacityinvestmentsGetResponse>;
 
@@ -759,7 +749,6 @@ export interface CapacityInvestmentsApiInterface {
      * @param {CapacityInvestmentsApiCapacityInvestmentsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacityInvestmentsApiInterface
      */
     capacityInvestmentsByIdPut(requestParameters: CapacityInvestmentsApiCapacityInvestmentsByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<CapacityinvestmentsPutResponse>;
 
@@ -769,7 +758,6 @@ export interface CapacityInvestmentsApiInterface {
      * @param {CapacityInvestmentsApiEpicsByEpicCapacityInvestmentsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacityInvestmentsApiInterface
      */
     epicsByEpicCapacityInvestmentsGet(requestParameters: CapacityInvestmentsApiEpicsByEpicCapacityInvestmentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<CapacityinvestmentsGetResponse>;
 
@@ -779,7 +767,6 @@ export interface CapacityInvestmentsApiInterface {
      * @param {CapacityInvestmentsApiEpicsByEpicCapacityInvestmentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacityInvestmentsApiInterface
      */
     epicsByEpicCapacityInvestmentsPost(requestParameters: CapacityInvestmentsApiEpicsByEpicCapacityInvestmentsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<CapacityinvestmentsPostResponse>;
 
@@ -789,7 +776,6 @@ export interface CapacityInvestmentsApiInterface {
      * @param {CapacityInvestmentsApiFeaturesByFeatureCapacityInvestmentsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacityInvestmentsApiInterface
      */
     featuresByFeatureCapacityInvestmentsGet(requestParameters: CapacityInvestmentsApiFeaturesByFeatureCapacityInvestmentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<CapacityinvestmentsGetResponse>;
 
@@ -799,7 +785,6 @@ export interface CapacityInvestmentsApiInterface {
      * @param {CapacityInvestmentsApiFeaturesByFeatureCapacityInvestmentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacityInvestmentsApiInterface
      */
     featuresByFeatureCapacityInvestmentsPost(requestParameters: CapacityInvestmentsApiFeaturesByFeatureCapacityInvestmentsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<CapacityinvestmentsPostResponse>;
 
@@ -809,7 +794,6 @@ export interface CapacityInvestmentsApiInterface {
      * @param {CapacityInvestmentsApiInitiativesByInitiativeCapacityInvestmentsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacityInvestmentsApiInterface
      */
     initiativesByInitiativeCapacityInvestmentsGet(requestParameters: CapacityInvestmentsApiInitiativesByInitiativeCapacityInvestmentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<CapacityinvestmentsGetResponse>;
 
@@ -819,7 +803,6 @@ export interface CapacityInvestmentsApiInterface {
      * @param {CapacityInvestmentsApiInitiativesByInitiativeCapacityInvestmentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacityInvestmentsApiInterface
      */
     initiativesByInitiativeCapacityInvestmentsPost(requestParameters: CapacityInvestmentsApiInitiativesByInitiativeCapacityInvestmentsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<CapacityinvestmentsPostResponse>;
 
@@ -829,7 +812,6 @@ export interface CapacityInvestmentsApiInterface {
      * @param {CapacityInvestmentsApiProductsByProductCapacityInvestmentsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacityInvestmentsApiInterface
      */
     productsByProductCapacityInvestmentsGet(requestParameters: CapacityInvestmentsApiProductsByProductCapacityInvestmentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<CapacityinvestmentsGetResponse>;
 
@@ -837,219 +819,120 @@ export interface CapacityInvestmentsApiInterface {
 
 /**
  * Request parameters for capacityInvestmentsByIdGet operation in CapacityInvestmentsApi.
- * @export
- * @interface CapacityInvestmentsApiCapacityInvestmentsByIdGetRequest
  */
 export interface CapacityInvestmentsApiCapacityInvestmentsByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof CapacityInvestmentsApiCapacityInvestmentsByIdGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for capacityInvestmentsByIdPut operation in CapacityInvestmentsApi.
- * @export
- * @interface CapacityInvestmentsApiCapacityInvestmentsByIdPutRequest
  */
 export interface CapacityInvestmentsApiCapacityInvestmentsByIdPutRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof CapacityInvestmentsApiCapacityInvestmentsByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {CapacityinvestmentsPostRequest}
-     * @memberof CapacityInvestmentsApiCapacityInvestmentsByIdPut
-     */
     readonly capacityinvestmentsPostRequest: CapacityinvestmentsPostRequest
 }
 
 /**
  * Request parameters for epicsByEpicCapacityInvestmentsGet operation in CapacityInvestmentsApi.
- * @export
- * @interface CapacityInvestmentsApiEpicsByEpicCapacityInvestmentsGetRequest
  */
 export interface CapacityInvestmentsApiEpicsByEpicCapacityInvestmentsGetRequest {
     /**
      * EpicId identifier
-     * @type {string}
-     * @memberof CapacityInvestmentsApiEpicsByEpicCapacityInvestmentsGet
      */
     readonly epicId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityInvestmentsApiEpicsByEpicCapacityInvestmentsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityInvestmentsApiEpicsByEpicCapacityInvestmentsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for epicsByEpicCapacityInvestmentsPost operation in CapacityInvestmentsApi.
- * @export
- * @interface CapacityInvestmentsApiEpicsByEpicCapacityInvestmentsPostRequest
  */
 export interface CapacityInvestmentsApiEpicsByEpicCapacityInvestmentsPostRequest {
     /**
      * EpicId identifier
-     * @type {string}
-     * @memberof CapacityInvestmentsApiEpicsByEpicCapacityInvestmentsPost
      */
     readonly epicId: string
 
-    /**
-     * 
-     * @type {CapacityinvestmentsPostRequest}
-     * @memberof CapacityInvestmentsApiEpicsByEpicCapacityInvestmentsPost
-     */
     readonly capacityinvestmentsPostRequest: CapacityinvestmentsPostRequest
 }
 
 /**
  * Request parameters for featuresByFeatureCapacityInvestmentsGet operation in CapacityInvestmentsApi.
- * @export
- * @interface CapacityInvestmentsApiFeaturesByFeatureCapacityInvestmentsGetRequest
  */
 export interface CapacityInvestmentsApiFeaturesByFeatureCapacityInvestmentsGetRequest {
     /**
      * FeatureId identifier
-     * @type {string}
-     * @memberof CapacityInvestmentsApiFeaturesByFeatureCapacityInvestmentsGet
      */
     readonly featureId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityInvestmentsApiFeaturesByFeatureCapacityInvestmentsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityInvestmentsApiFeaturesByFeatureCapacityInvestmentsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for featuresByFeatureCapacityInvestmentsPost operation in CapacityInvestmentsApi.
- * @export
- * @interface CapacityInvestmentsApiFeaturesByFeatureCapacityInvestmentsPostRequest
  */
 export interface CapacityInvestmentsApiFeaturesByFeatureCapacityInvestmentsPostRequest {
     /**
      * FeatureId identifier
-     * @type {string}
-     * @memberof CapacityInvestmentsApiFeaturesByFeatureCapacityInvestmentsPost
      */
     readonly featureId: string
 
-    /**
-     * 
-     * @type {CapacityinvestmentsPostRequest}
-     * @memberof CapacityInvestmentsApiFeaturesByFeatureCapacityInvestmentsPost
-     */
     readonly capacityinvestmentsPostRequest: CapacityinvestmentsPostRequest
 }
 
 /**
  * Request parameters for initiativesByInitiativeCapacityInvestmentsGet operation in CapacityInvestmentsApi.
- * @export
- * @interface CapacityInvestmentsApiInitiativesByInitiativeCapacityInvestmentsGetRequest
  */
 export interface CapacityInvestmentsApiInitiativesByInitiativeCapacityInvestmentsGetRequest {
     /**
      * InitiativeId identifier
-     * @type {string}
-     * @memberof CapacityInvestmentsApiInitiativesByInitiativeCapacityInvestmentsGet
      */
     readonly initiativeId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityInvestmentsApiInitiativesByInitiativeCapacityInvestmentsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityInvestmentsApiInitiativesByInitiativeCapacityInvestmentsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for initiativesByInitiativeCapacityInvestmentsPost operation in CapacityInvestmentsApi.
- * @export
- * @interface CapacityInvestmentsApiInitiativesByInitiativeCapacityInvestmentsPostRequest
  */
 export interface CapacityInvestmentsApiInitiativesByInitiativeCapacityInvestmentsPostRequest {
     /**
      * InitiativeId identifier
-     * @type {string}
-     * @memberof CapacityInvestmentsApiInitiativesByInitiativeCapacityInvestmentsPost
      */
     readonly initiativeId: string
 
-    /**
-     * 
-     * @type {CapacityinvestmentsPostRequest}
-     * @memberof CapacityInvestmentsApiInitiativesByInitiativeCapacityInvestmentsPost
-     */
     readonly capacityinvestmentsPostRequest: CapacityinvestmentsPostRequest
 }
 
 /**
  * Request parameters for productsByProductCapacityInvestmentsGet operation in CapacityInvestmentsApi.
- * @export
- * @interface CapacityInvestmentsApiProductsByProductCapacityInvestmentsGetRequest
  */
 export interface CapacityInvestmentsApiProductsByProductCapacityInvestmentsGetRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof CapacityInvestmentsApiProductsByProductCapacityInvestmentsGet
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityInvestmentsApiProductsByProductCapacityInvestmentsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityInvestmentsApiProductsByProductCapacityInvestmentsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * CapacityInvestmentsApi - object-oriented interface
- * @export
- * @class CapacityInvestmentsApi
- * @extends {BaseAPI}
  */
 export class CapacityInvestmentsApi extends BaseAPI implements CapacityInvestmentsApiInterface {
     /**
@@ -1058,7 +941,6 @@ export class CapacityInvestmentsApi extends BaseAPI implements CapacityInvestmen
      * @param {CapacityInvestmentsApiCapacityInvestmentsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacityInvestmentsApi
      */
     public capacityInvestmentsByIdGet(requestParameters: CapacityInvestmentsApiCapacityInvestmentsByIdGetRequest, options?: RawAxiosRequestConfig) {
         return CapacityInvestmentsApiFp(this.configuration).capacityInvestmentsByIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -1070,7 +952,6 @@ export class CapacityInvestmentsApi extends BaseAPI implements CapacityInvestmen
      * @param {CapacityInvestmentsApiCapacityInvestmentsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacityInvestmentsApi
      */
     public capacityInvestmentsByIdPut(requestParameters: CapacityInvestmentsApiCapacityInvestmentsByIdPutRequest, options?: RawAxiosRequestConfig) {
         return CapacityInvestmentsApiFp(this.configuration).capacityInvestmentsByIdPut(requestParameters.id, requestParameters.capacityinvestmentsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1082,7 +963,6 @@ export class CapacityInvestmentsApi extends BaseAPI implements CapacityInvestmen
      * @param {CapacityInvestmentsApiEpicsByEpicCapacityInvestmentsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacityInvestmentsApi
      */
     public epicsByEpicCapacityInvestmentsGet(requestParameters: CapacityInvestmentsApiEpicsByEpicCapacityInvestmentsGetRequest, options?: RawAxiosRequestConfig) {
         return CapacityInvestmentsApiFp(this.configuration).epicsByEpicCapacityInvestmentsGet(requestParameters.epicId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -1094,7 +974,6 @@ export class CapacityInvestmentsApi extends BaseAPI implements CapacityInvestmen
      * @param {CapacityInvestmentsApiEpicsByEpicCapacityInvestmentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacityInvestmentsApi
      */
     public epicsByEpicCapacityInvestmentsPost(requestParameters: CapacityInvestmentsApiEpicsByEpicCapacityInvestmentsPostRequest, options?: RawAxiosRequestConfig) {
         return CapacityInvestmentsApiFp(this.configuration).epicsByEpicCapacityInvestmentsPost(requestParameters.epicId, requestParameters.capacityinvestmentsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1106,7 +985,6 @@ export class CapacityInvestmentsApi extends BaseAPI implements CapacityInvestmen
      * @param {CapacityInvestmentsApiFeaturesByFeatureCapacityInvestmentsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacityInvestmentsApi
      */
     public featuresByFeatureCapacityInvestmentsGet(requestParameters: CapacityInvestmentsApiFeaturesByFeatureCapacityInvestmentsGetRequest, options?: RawAxiosRequestConfig) {
         return CapacityInvestmentsApiFp(this.configuration).featuresByFeatureCapacityInvestmentsGet(requestParameters.featureId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -1118,7 +996,6 @@ export class CapacityInvestmentsApi extends BaseAPI implements CapacityInvestmen
      * @param {CapacityInvestmentsApiFeaturesByFeatureCapacityInvestmentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacityInvestmentsApi
      */
     public featuresByFeatureCapacityInvestmentsPost(requestParameters: CapacityInvestmentsApiFeaturesByFeatureCapacityInvestmentsPostRequest, options?: RawAxiosRequestConfig) {
         return CapacityInvestmentsApiFp(this.configuration).featuresByFeatureCapacityInvestmentsPost(requestParameters.featureId, requestParameters.capacityinvestmentsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1130,7 +1007,6 @@ export class CapacityInvestmentsApi extends BaseAPI implements CapacityInvestmen
      * @param {CapacityInvestmentsApiInitiativesByInitiativeCapacityInvestmentsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacityInvestmentsApi
      */
     public initiativesByInitiativeCapacityInvestmentsGet(requestParameters: CapacityInvestmentsApiInitiativesByInitiativeCapacityInvestmentsGetRequest, options?: RawAxiosRequestConfig) {
         return CapacityInvestmentsApiFp(this.configuration).initiativesByInitiativeCapacityInvestmentsGet(requestParameters.initiativeId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -1142,7 +1018,6 @@ export class CapacityInvestmentsApi extends BaseAPI implements CapacityInvestmen
      * @param {CapacityInvestmentsApiInitiativesByInitiativeCapacityInvestmentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacityInvestmentsApi
      */
     public initiativesByInitiativeCapacityInvestmentsPost(requestParameters: CapacityInvestmentsApiInitiativesByInitiativeCapacityInvestmentsPostRequest, options?: RawAxiosRequestConfig) {
         return CapacityInvestmentsApiFp(this.configuration).initiativesByInitiativeCapacityInvestmentsPost(requestParameters.initiativeId, requestParameters.capacityinvestmentsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1154,7 +1029,6 @@ export class CapacityInvestmentsApi extends BaseAPI implements CapacityInvestmen
      * @param {CapacityInvestmentsApiProductsByProductCapacityInvestmentsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacityInvestmentsApi
      */
     public productsByProductCapacityInvestmentsGet(requestParameters: CapacityInvestmentsApiProductsByProductCapacityInvestmentsGetRequest, options?: RawAxiosRequestConfig) {
         return CapacityInvestmentsApiFp(this.configuration).productsByProductCapacityInvestmentsGet(requestParameters.productId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));

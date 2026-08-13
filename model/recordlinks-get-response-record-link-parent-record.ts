@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface RecordlinksGetResponseRecordLinkParentRecord
- */
 export interface RecordlinksGetResponseRecordLinkParentRecord {
-    /**
-     * 
-     * @type {string}
-     * @memberof RecordlinksGetResponseRecordLinkParentRecord
-     */
     'record_type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RecordlinksGetResponseRecordLinkParentRecord
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RecordlinksGetResponseRecordLinkParentRecord
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RecordlinksGetResponseRecordLinkParentRecord
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RecordlinksGetResponseRecordLinkParentRecord
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RecordlinksGetResponseRecordLinkParentRecord
-     */
     'product_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RecordlinksGetResponseRecordLinkParentRecord
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RecordlinksGetResponseRecordLinkParentRecord
-     */
     'resource'?: string;
 }
 

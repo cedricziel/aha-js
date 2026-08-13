@@ -20,23 +20,8 @@ import type { ReleasesGetResponsePagination } from './releases-get-response-pagi
 // @ts-ignore
 import type { ReleasesGetResponseReleasesInner } from './releases-get-response-releases-inner';
 
-/**
- * 
- * @export
- * @interface ReleasesGetResponse
- */
 export interface ReleasesGetResponse {
-    /**
-     * 
-     * @type {Array<ReleasesGetResponseReleasesInner>}
-     * @memberof ReleasesGetResponse
-     */
     'releases'?: Array<ReleasesGetResponseReleasesInner>;
-    /**
-     * 
-     * @type {ReleasesGetResponsePagination}
-     * @memberof ReleasesGetResponse
-     */
     'pagination'?: ReleasesGetResponsePagination;
 }
 

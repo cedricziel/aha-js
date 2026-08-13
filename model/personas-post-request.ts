@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { PersonasPostRequestPersona } from './personas-post-request-persona';
 
-/**
- * 
- * @export
- * @interface PersonasPostRequest
- */
 export interface PersonasPostRequest {
-    /**
-     * 
-     * @type {PersonasPostRequestPersona}
-     * @memberof PersonasPostRequest
-     */
     'persona'?: PersonasPostRequestPersona;
 }
 

@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface CreativebriefsGetResponseCreativeBriefsInner
- */
 export interface CreativebriefsGetResponseCreativeBriefsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof CreativebriefsGetResponseCreativeBriefsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CreativebriefsGetResponseCreativeBriefsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CreativebriefsGetResponseCreativeBriefsInner
-     */
     'created_at'?: string;
 }
 

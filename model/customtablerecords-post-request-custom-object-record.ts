@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { CustomtablerecordsPostRequestCustomObjectRecordCustomFields } from './customtablerecords-post-request-custom-object-record-custom-fields';
 
-/**
- * 
- * @export
- * @interface CustomtablerecordsPostRequestCustomObjectRecord
- */
 export interface CustomtablerecordsPostRequestCustomObjectRecord {
-    /**
-     * 
-     * @type {CustomtablerecordsPostRequestCustomObjectRecordCustomFields}
-     * @memberof CustomtablerecordsPostRequestCustomObjectRecord
-     */
     'custom_fields'?: CustomtablerecordsPostRequestCustomObjectRecordCustomFields;
 }
 

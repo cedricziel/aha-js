@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface GoalsPostResponseGoalSuccessMetricDescription
- */
 export interface GoalsPostResponseGoalSuccessMetricDescription {
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPostResponseGoalSuccessMetricDescription
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPostResponseGoalSuccessMetricDescription
-     */
     'body'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPostResponseGoalSuccessMetricDescription
-     */
     'notable_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPostResponseGoalSuccessMetricDescription
-     */
     'notable_type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPostResponseGoalSuccessMetricDescription
-     */
     'editor_version'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPostResponseGoalSuccessMetricDescription
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPostResponseGoalSuccessMetricDescription
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPostResponseGoalSuccessMetricDescription
-     */
     'attachments'?: string;
 }
 

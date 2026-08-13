@@ -13,48 +13,16 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface GoalsPostResponseGoalSuccessMetricWorkflowStatus
- */
 export interface GoalsPostResponseGoalSuccessMetricWorkflowStatus {
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPostResponseGoalSuccessMetricWorkflowStatus
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPostResponseGoalSuccessMetricWorkflowStatus
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPostResponseGoalSuccessMetricWorkflowStatus
-     */
     'position'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPostResponseGoalSuccessMetricWorkflowStatus
-     */
     'complete'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPostResponseGoalSuccessMetricWorkflowStatus
-     */
     'color'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof GoalsPostResponseGoalSuccessMetricWorkflowStatus
-     */
-    'workflow_status_category'?: any | null;
+    'workflow_status_category'?: Null;
 }
 

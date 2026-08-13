@@ -17,29 +17,9 @@
 // @ts-ignore
 import type { CustomfieldsGetResponseOptionsInnerMeta } from './customfields-get-response-options-inner-meta';
 
-/**
- * 
- * @export
- * @interface CustomfieldsGetResponseOptionsInner
- */
 export interface CustomfieldsGetResponseOptionsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomfieldsGetResponseOptionsInner
-     */
     'text'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomfieldsGetResponseOptionsInner
-     */
     'value'?: string;
-    /**
-     * 
-     * @type {CustomfieldsGetResponseOptionsInnerMeta}
-     * @memberof CustomfieldsGetResponseOptionsInner
-     */
     'meta'?: CustomfieldsGetResponseOptionsInnerMeta;
 }
 

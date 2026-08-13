@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeavotesPutResponseIdeaEndorsementCustomFieldsInner
- */
 export interface IdeavotesPutResponseIdeaEndorsementCustomFieldsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPutResponseIdeaEndorsementCustomFieldsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPutResponseIdeaEndorsementCustomFieldsInner
-     */
     'key'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPutResponseIdeaEndorsementCustomFieldsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPutResponseIdeaEndorsementCustomFieldsInner
-     */
     'updatedAt'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPutResponseIdeaEndorsementCustomFieldsInner
-     */
     'type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPutResponseIdeaEndorsementCustomFieldsInner
-     */
     'value'?: string;
 }
 

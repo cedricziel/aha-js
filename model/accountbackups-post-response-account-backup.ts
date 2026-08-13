@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface AccountbackupsPostResponseAccountBackup
- */
 export interface AccountbackupsPostResponseAccountBackup {
-    /**
-     * 
-     * @type {string}
-     * @memberof AccountbackupsPostResponseAccountBackup
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof AccountbackupsPostResponseAccountBackup
-     */
     'status_code'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof AccountbackupsPostResponseAccountBackup
-     */
     'status_description'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof AccountbackupsPostResponseAccountBackup
-     */
     'created_at'?: string;
 }
 

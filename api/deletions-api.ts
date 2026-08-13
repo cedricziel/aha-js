@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -27,7 +27,6 @@ import type { DeletionsGetResponse } from '../model';
 import type { DeletionsPostResponse } from '../model';
 /**
  * DeletionsApi - axios parameter creator
- * @export
  */
 export const DeletionsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -42,7 +41,7 @@ export const DeletionsApiAxiosParamCreator = function (configuration?: Configura
             // verify required parameter 'id' is not null or undefined
             assertParamExists('deletionsByIdRestorePost', 'id', id)
             const localVarPath = `/deletions/{id}/restore`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -64,8 +63,8 @@ export const DeletionsApiAxiosParamCreator = function (configuration?: Configura
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -114,8 +113,8 @@ export const DeletionsApiAxiosParamCreator = function (configuration?: Configura
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -130,7 +129,6 @@ export const DeletionsApiAxiosParamCreator = function (configuration?: Configura
 
 /**
  * DeletionsApi - functional programming interface
- * @export
  */
 export const DeletionsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = DeletionsApiAxiosParamCreator(configuration)
@@ -167,7 +165,6 @@ export const DeletionsApiFp = function(configuration?: Configuration) {
 
 /**
  * DeletionsApi - factory interface
- * @export
  */
 export const DeletionsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = DeletionsApiFp(configuration)
@@ -197,8 +194,6 @@ export const DeletionsApiFactory = function (configuration?: Configuration, base
 
 /**
  * DeletionsApi - interface
- * @export
- * @interface DeletionsApi
  */
 export interface DeletionsApiInterface {
     /**
@@ -207,7 +202,6 @@ export interface DeletionsApiInterface {
      * @param {DeletionsApiDeletionsByIdRestorePostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DeletionsApiInterface
      */
     deletionsByIdRestorePost(requestParameters: DeletionsApiDeletionsByIdRestorePostRequest, options?: RawAxiosRequestConfig): AxiosPromise<DeletionsPostResponse>;
 
@@ -217,7 +211,6 @@ export interface DeletionsApiInterface {
      * @param {DeletionsApiDeletionsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DeletionsApiInterface
      */
     deletionsGet(requestParameters?: DeletionsApiDeletionsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<DeletionsGetResponse>;
 
@@ -225,44 +218,25 @@ export interface DeletionsApiInterface {
 
 /**
  * Request parameters for deletionsByIdRestorePost operation in DeletionsApi.
- * @export
- * @interface DeletionsApiDeletionsByIdRestorePostRequest
  */
 export interface DeletionsApiDeletionsByIdRestorePostRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof DeletionsApiDeletionsByIdRestorePost
      */
     readonly id: string
 }
 
 /**
  * Request parameters for deletionsGet operation in DeletionsApi.
- * @export
- * @interface DeletionsApiDeletionsGetRequest
  */
 export interface DeletionsApiDeletionsGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof DeletionsApiDeletionsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof DeletionsApiDeletionsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * DeletionsApi - object-oriented interface
- * @export
- * @class DeletionsApi
- * @extends {BaseAPI}
  */
 export class DeletionsApi extends BaseAPI implements DeletionsApiInterface {
     /**
@@ -271,7 +245,6 @@ export class DeletionsApi extends BaseAPI implements DeletionsApiInterface {
      * @param {DeletionsApiDeletionsByIdRestorePostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DeletionsApi
      */
     public deletionsByIdRestorePost(requestParameters: DeletionsApiDeletionsByIdRestorePostRequest, options?: RawAxiosRequestConfig) {
         return DeletionsApiFp(this.configuration).deletionsByIdRestorePost(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -283,7 +256,6 @@ export class DeletionsApi extends BaseAPI implements DeletionsApiInterface {
      * @param {DeletionsApiDeletionsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DeletionsApi
      */
     public deletionsGet(requestParameters: DeletionsApiDeletionsGetRequest = {}, options?: RawAxiosRequestConfig) {
         return DeletionsApiFp(this.configuration).deletionsGet(requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));

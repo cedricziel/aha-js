@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { CapacityestimatevaluesPostRequestEstimateValue } from './capacityestimatevalues-post-request-estimate-value';
 
-/**
- * 
- * @export
- * @interface CapacityestimatevaluesPostRequest
- */
 export interface CapacityestimatevaluesPostRequest {
-    /**
-     * 
-     * @type {CapacityestimatevaluesPostRequestEstimateValue}
-     * @memberof CapacityestimatevaluesPostRequest
-     */
     'estimate_value'?: CapacityestimatevaluesPostRequestEstimateValue;
 }
 

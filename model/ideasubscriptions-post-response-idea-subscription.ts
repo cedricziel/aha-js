@@ -20,41 +20,11 @@ import type { IdeacommentsPostResponseIdeaCommentIdea } from './ideacomments-pos
 // @ts-ignore
 import type { IdeasubscriptionsPostResponseIdeaSubscriptionPortalUser } from './ideasubscriptions-post-response-idea-subscription-portal-user';
 
-/**
- * 
- * @export
- * @interface IdeasubscriptionsPostResponseIdeaSubscription
- */
 export interface IdeasubscriptionsPostResponseIdeaSubscription {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasubscriptionsPostResponseIdeaSubscription
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasubscriptionsPostResponseIdeaSubscription
-     */
     'idea_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasubscriptionsPostResponseIdeaSubscription
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {IdeasubscriptionsPostResponseIdeaSubscriptionPortalUser}
-     * @memberof IdeasubscriptionsPostResponseIdeaSubscription
-     */
     'portal_user'?: IdeasubscriptionsPostResponseIdeaSubscriptionPortalUser;
-    /**
-     * 
-     * @type {IdeacommentsPostResponseIdeaCommentIdea}
-     * @memberof IdeasubscriptionsPostResponseIdeaSubscription
-     */
     'idea'?: IdeacommentsPostResponseIdeaCommentIdea;
 }
 

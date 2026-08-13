@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface EpicsPostResponseEpicAssignedToUser
- */
 export interface EpicsPostResponseEpicAssignedToUser {
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EpicsPostResponseEpicAssignedToUser
-     */
     'default_assignee'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpicAssignedToUser
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpicAssignedToUser
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpicAssignedToUser
-     */
     'email'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpicAssignedToUser
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpicAssignedToUser
-     */
     'updated_at'?: string;
 }
 

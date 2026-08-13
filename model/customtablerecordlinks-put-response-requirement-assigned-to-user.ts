@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface CustomtablerecordlinksPutResponseRequirementAssignedToUser
- */
 export interface CustomtablerecordlinksPutResponseRequirementAssignedToUser {
-    /**
-     * 
-     * @type {boolean}
-     * @memberof CustomtablerecordlinksPutResponseRequirementAssignedToUser
-     */
     'default_assignee'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordlinksPutResponseRequirementAssignedToUser
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordlinksPutResponseRequirementAssignedToUser
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordlinksPutResponseRequirementAssignedToUser
-     */
     'email'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordlinksPutResponseRequirementAssignedToUser
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordlinksPutResponseRequirementAssignedToUser
-     */
     'updated_at'?: string;
 }
 

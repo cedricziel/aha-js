@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface UsersGetResponseUserRolesInnerScope
- */
 export interface UsersGetResponseUserRolesInnerScope {
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersGetResponseUserRolesInnerScope
-     */
     'type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersGetResponseUserRolesInnerScope
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersGetResponseUserRolesInnerScope
-     */
     'id'?: string;
 }
 

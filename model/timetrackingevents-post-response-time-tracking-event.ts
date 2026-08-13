@@ -17,41 +17,11 @@
 // @ts-ignore
 import type { CommentsPostResponseCommentUser } from './comments-post-response-comment-user';
 
-/**
- * 
- * @export
- * @interface TimetrackingeventsPostResponseTimeTrackingEvent
- */
 export interface TimetrackingeventsPostResponseTimeTrackingEvent {
-    /**
-     * 
-     * @type {string}
-     * @memberof TimetrackingeventsPostResponseTimeTrackingEvent
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {CommentsPostResponseCommentUser}
-     * @memberof TimetrackingeventsPostResponseTimeTrackingEvent
-     */
     'user'?: CommentsPostResponseCommentUser;
-    /**
-     * 
-     * @type {string}
-     * @memberof TimetrackingeventsPostResponseTimeTrackingEvent
-     */
     'occurred_on'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof TimetrackingeventsPostResponseTimeTrackingEvent
-     */
     'work_done'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TimetrackingeventsPostResponseTimeTrackingEvent
-     */
     'work_units'?: number;
 }
 

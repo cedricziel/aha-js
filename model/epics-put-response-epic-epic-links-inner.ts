@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface EpicsPutResponseEpicEpicLinksInner
- */
 export interface EpicsPutResponseEpicEpicLinksInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicEpicLinksInner
-     */
     'link_type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicEpicLinksInner
-     */
     'link_type_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicEpicLinksInner
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicEpicLinksInner
-     */
     'parent_record'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicEpicLinksInner
-     */
     'child_record'?: string;
 }
 

@@ -17,65 +17,15 @@
 // @ts-ignore
 import type { CommentsGetResponseCommentsInnerUser } from './comments-get-response-comments-inner-user';
 
-/**
- * 
- * @export
- * @interface CustomtablerecordsGetResponseCustomObjectRecordsInner
- */
 export interface CustomtablerecordsGetResponseCustomObjectRecordsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordsGetResponseCustomObjectRecordsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordsGetResponseCustomObjectRecordsInner
-     */
     'product_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordsGetResponseCustomObjectRecordsInner
-     */
     'key'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordsGetResponseCustomObjectRecordsInner
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordsGetResponseCustomObjectRecordsInner
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof CustomtablerecordsGetResponseCustomObjectRecordsInner
-     */
     'custom_fields'?: Array<string>;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof CustomtablerecordsGetResponseCustomObjectRecordsInner
-     */
     'custom_object_links'?: Array<string>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof CustomtablerecordsGetResponseCustomObjectRecordsInner
-     */
     'linked_records'?: Array<any>;
-    /**
-     * 
-     * @type {CommentsGetResponseCommentsInnerUser}
-     * @memberof CustomtablerecordsGetResponseCustomObjectRecordsInner
-     */
     'created_by_user'?: CommentsGetResponseCommentsInnerUser;
 }
 

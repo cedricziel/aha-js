@@ -17,65 +17,15 @@
 // @ts-ignore
 import type { CommentsGetResponseCommentsInnerUser } from './comments-get-response-comments-inner-user';
 
-/**
- * 
- * @export
- * @interface IdeasPostResponseIdeaAdminResponse
- */
 export interface IdeasPostResponseIdeaAdminResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPostResponseIdeaAdminResponse
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPostResponseIdeaAdminResponse
-     */
     'body'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPostResponseIdeaAdminResponse
-     */
     'notable_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPostResponseIdeaAdminResponse
-     */
     'notable_type'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeasPostResponseIdeaAdminResponse
-     */
     'editor_version'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPostResponseIdeaAdminResponse
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPostResponseIdeaAdminResponse
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof IdeasPostResponseIdeaAdminResponse
-     */
     'attachments'?: Array<any>;
-    /**
-     * 
-     * @type {CommentsGetResponseCommentsInnerUser}
-     * @memberof IdeasPostResponseIdeaAdminResponse
-     */
     'responded_by_user'?: CommentsGetResponseCommentsInnerUser;
 }
 

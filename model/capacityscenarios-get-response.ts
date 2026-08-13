@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { CapacityscenariosGetResponseCapacityScenario } from './capacityscenarios-get-response-capacity-scenario';
 
-/**
- * 
- * @export
- * @interface CapacityscenariosGetResponse
- */
 export interface CapacityscenariosGetResponse {
-    /**
-     * 
-     * @type {CapacityscenariosGetResponseCapacityScenario}
-     * @memberof CapacityscenariosGetResponse
-     */
     'capacity_scenario'?: CapacityscenariosGetResponseCapacityScenario;
 }
 

@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface DeletionsPostResponseDeletionDeletedBy
- */
 export interface DeletionsPostResponseDeletionDeletedBy {
-    /**
-     * 
-     * @type {number}
-     * @memberof DeletionsPostResponseDeletionDeletedBy
-     */
     'id'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof DeletionsPostResponseDeletionDeletedBy
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DeletionsPostResponseDeletionDeletedBy
-     */
     'email'?: string;
 }
 

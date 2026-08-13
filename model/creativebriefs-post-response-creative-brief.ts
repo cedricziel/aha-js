@@ -14,65 +14,15 @@
 
 
 
-/**
- * 
- * @export
- * @interface CreativebriefsPostResponseCreativeBrief
- */
 export interface CreativebriefsPostResponseCreativeBrief {
-    /**
-     * 
-     * @type {string}
-     * @memberof CreativebriefsPostResponseCreativeBrief
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CreativebriefsPostResponseCreativeBrief
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CreativebriefsPostResponseCreativeBrief
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof CreativebriefsPostResponseCreativeBrief
-     */
     'color'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof CreativebriefsPostResponseCreativeBrief
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CreativebriefsPostResponseCreativeBrief
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CreativebriefsPostResponseCreativeBrief
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof CreativebriefsPostResponseCreativeBrief
-     */
     'custom_fields'?: Array<any>;
-    /**
-     * 
-     * @type {number}
-     * @memberof CreativebriefsPostResponseCreativeBrief
-     */
     'comments_count'?: number;
 }
 

@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { CommentsPostRequestComment } from './comments-post-request-comment';
 
-/**
- * 
- * @export
- * @interface CommentsPostRequest
- */
 export interface CommentsPostRequest {
-    /**
-     * 
-     * @type {CommentsPostRequestComment}
-     * @memberof CommentsPostRequest
-     */
     'comment'?: CommentsPostRequestComment;
 }
 

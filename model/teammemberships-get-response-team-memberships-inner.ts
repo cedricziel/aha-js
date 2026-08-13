@@ -20,35 +20,10 @@ import type { TeammembershipsGetResponseTeamMembershipsInnerTeam } from './teamm
 // @ts-ignore
 import type { TeammembershipsGetResponseTeamMembershipsInnerTeamMember } from './teammemberships-get-response-team-memberships-inner-team-member';
 
-/**
- * 
- * @export
- * @interface TeammembershipsGetResponseTeamMembershipsInner
- */
 export interface TeammembershipsGetResponseTeamMembershipsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof TeammembershipsGetResponseTeamMembershipsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {TeammembershipsGetResponseTeamMembershipsInnerTeamMember}
-     * @memberof TeammembershipsGetResponseTeamMembershipsInner
-     */
     'team_member'?: TeammembershipsGetResponseTeamMembershipsInnerTeamMember;
-    /**
-     * 
-     * @type {TeammembershipsGetResponseTeamMembershipsInnerTeam}
-     * @memberof TeammembershipsGetResponseTeamMembershipsInner
-     */
     'team'?: TeammembershipsGetResponseTeamMembershipsInnerTeam;
-    /**
-     * 
-     * @type {string}
-     * @memberof TeammembershipsGetResponseTeamMembershipsInner
-     */
     'created_at'?: string;
 }
 

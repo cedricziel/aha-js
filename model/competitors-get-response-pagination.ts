@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface CompetitorsGetResponsePagination
- */
 export interface CompetitorsGetResponsePagination {
-    /**
-     * 
-     * @type {number}
-     * @memberof CompetitorsGetResponsePagination
-     */
     'total_records'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof CompetitorsGetResponsePagination
-     */
     'total_pages'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof CompetitorsGetResponsePagination
-     */
     'current_page'?: number;
 }
 

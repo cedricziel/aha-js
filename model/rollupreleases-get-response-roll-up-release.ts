@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface RollupreleasesGetResponseRollUpRelease
- */
 export interface RollupreleasesGetResponseRollUpRelease {
-    /**
-     * 
-     * @type {string}
-     * @memberof RollupreleasesGetResponseRollUpRelease
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RollupreleasesGetResponseRollUpRelease
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RollupreleasesGetResponseRollUpRelease
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RollupreleasesGetResponseRollUpRelease
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RollupreleasesGetResponseRollUpRelease
-     */
     'start_date'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RollupreleasesGetResponseRollUpRelease
-     */
     'release_date'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RollupreleasesGetResponseRollUpRelease
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RollupreleasesGetResponseRollUpRelease
-     */
     'resource'?: string;
 }
 

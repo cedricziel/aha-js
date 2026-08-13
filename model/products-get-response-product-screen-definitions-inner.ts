@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface ProductsGetResponseProductScreenDefinitionsInner
- */
 export interface ProductsGetResponseProductScreenDefinitionsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsGetResponseProductScreenDefinitionsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsGetResponseProductScreenDefinitionsInner
-     */
     'screenable_type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsGetResponseProductScreenDefinitionsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsGetResponseProductScreenDefinitionsInner
-     */
     'custom_field_definitions'?: string;
 }
 

@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface WorkflowstatustimesPostRequestWorkflowStatusTime
- */
 export interface WorkflowstatustimesPostRequestWorkflowStatusTime {
-    /**
-     * 
-     * @type {string}
-     * @memberof WorkflowstatustimesPostRequestWorkflowStatusTime
-     */
     'started_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof WorkflowstatustimesPostRequestWorkflowStatusTime
-     */
     'ended_at'?: string;
 }
 

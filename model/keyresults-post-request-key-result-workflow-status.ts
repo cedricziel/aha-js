@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface KeyresultsPostRequestKeyResultWorkflowStatus
- */
 export interface KeyresultsPostRequestKeyResultWorkflowStatus {
-    /**
-     * 
-     * @type {string}
-     * @memberof KeyresultsPostRequestKeyResultWorkflowStatus
-     */
     'name'?: string;
 }
 

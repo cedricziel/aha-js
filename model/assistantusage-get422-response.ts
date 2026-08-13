@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface AssistantusageGet422Response
- */
 export interface AssistantusageGet422Response {
-    /**
-     * 
-     * @type {string}
-     * @memberof AssistantusageGet422Response
-     */
     'error'?: string;
 }
 

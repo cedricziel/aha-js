@@ -16,84 +16,22 @@
 // May contain unused imports in some cases
 // @ts-ignore
 import type { IdeaorganizationsPutResponseIdeaOrganizationCustomFieldsInner } from './ideaorganizations-put-response-idea-organization-custom-fields-inner';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface IdeaorganizationsPutResponseIdeaOrganization
- */
 export interface IdeaorganizationsPutResponseIdeaOrganization {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsPutResponseIdeaOrganization
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsPutResponseIdeaOrganization
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsPutResponseIdeaOrganization
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsPutResponseIdeaOrganization
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsPutResponseIdeaOrganization
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsPutResponseIdeaOrganization
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof IdeaorganizationsPutResponseIdeaOrganization
-     */
-    'description'?: any | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeaorganizationsPutResponseIdeaOrganization
-     */
+    'description'?: Null;
     'endorsements_count'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsPutResponseIdeaOrganization
-     */
     'email_domains'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof IdeaorganizationsPutResponseIdeaOrganization
-     */
-    'revenue'?: any | null;
-    /**
-     * 
-     * @type {Array<IdeaorganizationsPutResponseIdeaOrganizationCustomFieldsInner>}
-     * @memberof IdeaorganizationsPutResponseIdeaOrganization
-     */
+    'revenue'?: Null;
     'custom_fields'?: Array<IdeaorganizationsPutResponseIdeaOrganizationCustomFieldsInner>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof IdeaorganizationsPutResponseIdeaOrganization
-     */
     'integration_fields'?: Array<any>;
 }
 

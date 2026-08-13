@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { StrategicmodelsGetResponseStrategyModel } from './strategicmodels-get-response-strategy-model';
 
-/**
- * 
- * @export
- * @interface StrategicmodelsGetResponse
- */
 export interface StrategicmodelsGetResponse {
-    /**
-     * 
-     * @type {StrategicmodelsGetResponseStrategyModel}
-     * @memberof StrategicmodelsGetResponse
-     */
     'strategy_model'?: StrategicmodelsGetResponseStrategyModel;
 }
 

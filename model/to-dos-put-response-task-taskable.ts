@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface ToDosPutResponseTaskTaskable
- */
 export interface ToDosPutResponseTaskTaskable {
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosPutResponseTaskTaskable
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosPutResponseTaskTaskable
-     */
     'type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosPutResponseTaskTaskable
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosPutResponseTaskTaskable
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosPutResponseTaskTaskable
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosPutResponseTaskTaskable
-     */
     'resource'?: string;
 }
 

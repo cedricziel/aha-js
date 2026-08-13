@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { SchedulablechangesPostResponse } from '../model';
 import type { SchedulablechangesPutResponse } from '../model';
 /**
  * SchedulableChangesApi - axios parameter creator
- * @export
  */
 export const SchedulableChangesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -49,7 +48,7 @@ export const SchedulableChangesApiAxiosParamCreator = function (configuration?: 
             // verify required parameter 'schedulablechangesPostRequest' is not null or undefined
             assertParamExists('schedulableChangesByIdDelete', 'schedulablechangesPostRequest', schedulablechangesPostRequest)
             const localVarPath = `/schedulable_changes/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -71,8 +70,6 @@ export const SchedulableChangesApiAxiosParamCreator = function (configuration?: 
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -99,7 +96,7 @@ export const SchedulableChangesApiAxiosParamCreator = function (configuration?: 
             // verify required parameter 'schedulablechangesPostRequest' is not null or undefined
             assertParamExists('schedulableChangesByIdPut', 'schedulablechangesPostRequest', schedulablechangesPostRequest)
             const localVarPath = `/schedulable_changes/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -121,9 +118,8 @@ export const SchedulableChangesApiAxiosParamCreator = function (configuration?: 
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -149,7 +145,7 @@ export const SchedulableChangesApiAxiosParamCreator = function (configuration?: 
             // verify required parameter 'schedulablechangesPostRequest' is not null or undefined
             assertParamExists('schedulableChangesBySchedulableChangeUpdateTeamMembershipsPut', 'schedulablechangesPostRequest', schedulablechangesPostRequest)
             const localVarPath = `/schedulable_changes/{schedulable_change_id}/update_team_memberships`
-                .replace(`{${"schedulable_change_id"}}`, encodeURIComponent(String(schedulableChangeId)));
+                .replace('{schedulable_change_id}', encodeURIComponent(String(schedulableChangeId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -171,9 +167,8 @@ export const SchedulableChangesApiAxiosParamCreator = function (configuration?: 
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -224,8 +219,8 @@ export const SchedulableChangesApiAxiosParamCreator = function (configuration?: 
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -267,9 +262,8 @@ export const SchedulableChangesApiAxiosParamCreator = function (configuration?: 
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -286,7 +280,6 @@ export const SchedulableChangesApiAxiosParamCreator = function (configuration?: 
 
 /**
  * SchedulableChangesApi - functional programming interface
- * @export
  */
 export const SchedulableChangesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SchedulableChangesApiAxiosParamCreator(configuration)
@@ -365,7 +358,6 @@ export const SchedulableChangesApiFp = function(configuration?: Configuration) {
 
 /**
  * SchedulableChangesApi - factory interface
- * @export
  */
 export const SchedulableChangesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = SchedulableChangesApiFp(configuration)
@@ -425,8 +417,6 @@ export const SchedulableChangesApiFactory = function (configuration?: Configurat
 
 /**
  * SchedulableChangesApi - interface
- * @export
- * @interface SchedulableChangesApi
  */
 export interface SchedulableChangesApiInterface {
     /**
@@ -435,7 +425,6 @@ export interface SchedulableChangesApiInterface {
      * @param {SchedulableChangesApiSchedulableChangesByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SchedulableChangesApiInterface
      */
     schedulableChangesByIdDelete(requestParameters: SchedulableChangesApiSchedulableChangesByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -445,7 +434,6 @@ export interface SchedulableChangesApiInterface {
      * @param {SchedulableChangesApiSchedulableChangesByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SchedulableChangesApiInterface
      */
     schedulableChangesByIdPut(requestParameters: SchedulableChangesApiSchedulableChangesByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<SchedulablechangesPutResponse>;
 
@@ -455,7 +443,6 @@ export interface SchedulableChangesApiInterface {
      * @param {SchedulableChangesApiSchedulableChangesBySchedulableChangeUpdateTeamMembershipsPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SchedulableChangesApiInterface
      */
     schedulableChangesBySchedulableChangeUpdateTeamMembershipsPut(requestParameters: SchedulableChangesApiSchedulableChangesBySchedulableChangeUpdateTeamMembershipsPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<SchedulablechangesPutResponse>;
 
@@ -465,7 +452,6 @@ export interface SchedulableChangesApiInterface {
      * @param {SchedulableChangesApiSchedulableChangesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SchedulableChangesApiInterface
      */
     schedulableChangesGet(requestParameters?: SchedulableChangesApiSchedulableChangesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<SchedulablechangesGetResponse>;
 
@@ -475,7 +461,6 @@ export interface SchedulableChangesApiInterface {
      * @param {SchedulableChangesApiSchedulableChangesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SchedulableChangesApiInterface
      */
     schedulableChangesPost(requestParameters: SchedulableChangesApiSchedulableChangesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<SchedulablechangesPostResponse>;
 
@@ -483,107 +468,58 @@ export interface SchedulableChangesApiInterface {
 
 /**
  * Request parameters for schedulableChangesByIdDelete operation in SchedulableChangesApi.
- * @export
- * @interface SchedulableChangesApiSchedulableChangesByIdDeleteRequest
  */
 export interface SchedulableChangesApiSchedulableChangesByIdDeleteRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof SchedulableChangesApiSchedulableChangesByIdDelete
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {SchedulablechangesPostRequest}
-     * @memberof SchedulableChangesApiSchedulableChangesByIdDelete
-     */
     readonly schedulablechangesPostRequest: SchedulablechangesPostRequest
 }
 
 /**
  * Request parameters for schedulableChangesByIdPut operation in SchedulableChangesApi.
- * @export
- * @interface SchedulableChangesApiSchedulableChangesByIdPutRequest
  */
 export interface SchedulableChangesApiSchedulableChangesByIdPutRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof SchedulableChangesApiSchedulableChangesByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {SchedulablechangesPostRequest}
-     * @memberof SchedulableChangesApiSchedulableChangesByIdPut
-     */
     readonly schedulablechangesPostRequest: SchedulablechangesPostRequest
 }
 
 /**
  * Request parameters for schedulableChangesBySchedulableChangeUpdateTeamMembershipsPut operation in SchedulableChangesApi.
- * @export
- * @interface SchedulableChangesApiSchedulableChangesBySchedulableChangeUpdateTeamMembershipsPutRequest
  */
 export interface SchedulableChangesApiSchedulableChangesBySchedulableChangeUpdateTeamMembershipsPutRequest {
     /**
      * SchedulableChangeId identifier
-     * @type {string}
-     * @memberof SchedulableChangesApiSchedulableChangesBySchedulableChangeUpdateTeamMembershipsPut
      */
     readonly schedulableChangeId: string
 
-    /**
-     * 
-     * @type {SchedulablechangesPostRequest}
-     * @memberof SchedulableChangesApiSchedulableChangesBySchedulableChangeUpdateTeamMembershipsPut
-     */
     readonly schedulablechangesPostRequest: SchedulablechangesPostRequest
 }
 
 /**
  * Request parameters for schedulableChangesGet operation in SchedulableChangesApi.
- * @export
- * @interface SchedulableChangesApiSchedulableChangesGetRequest
  */
 export interface SchedulableChangesApiSchedulableChangesGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof SchedulableChangesApiSchedulableChangesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof SchedulableChangesApiSchedulableChangesGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for schedulableChangesPost operation in SchedulableChangesApi.
- * @export
- * @interface SchedulableChangesApiSchedulableChangesPostRequest
  */
 export interface SchedulableChangesApiSchedulableChangesPostRequest {
-    /**
-     * 
-     * @type {SchedulablechangesPostRequest}
-     * @memberof SchedulableChangesApiSchedulableChangesPost
-     */
     readonly schedulablechangesPostRequest: SchedulablechangesPostRequest
 }
 
 /**
  * SchedulableChangesApi - object-oriented interface
- * @export
- * @class SchedulableChangesApi
- * @extends {BaseAPI}
  */
 export class SchedulableChangesApi extends BaseAPI implements SchedulableChangesApiInterface {
     /**
@@ -592,7 +528,6 @@ export class SchedulableChangesApi extends BaseAPI implements SchedulableChanges
      * @param {SchedulableChangesApiSchedulableChangesByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SchedulableChangesApi
      */
     public schedulableChangesByIdDelete(requestParameters: SchedulableChangesApiSchedulableChangesByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return SchedulableChangesApiFp(this.configuration).schedulableChangesByIdDelete(requestParameters.id, requestParameters.schedulablechangesPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -604,7 +539,6 @@ export class SchedulableChangesApi extends BaseAPI implements SchedulableChanges
      * @param {SchedulableChangesApiSchedulableChangesByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SchedulableChangesApi
      */
     public schedulableChangesByIdPut(requestParameters: SchedulableChangesApiSchedulableChangesByIdPutRequest, options?: RawAxiosRequestConfig) {
         return SchedulableChangesApiFp(this.configuration).schedulableChangesByIdPut(requestParameters.id, requestParameters.schedulablechangesPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -616,7 +550,6 @@ export class SchedulableChangesApi extends BaseAPI implements SchedulableChanges
      * @param {SchedulableChangesApiSchedulableChangesBySchedulableChangeUpdateTeamMembershipsPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SchedulableChangesApi
      */
     public schedulableChangesBySchedulableChangeUpdateTeamMembershipsPut(requestParameters: SchedulableChangesApiSchedulableChangesBySchedulableChangeUpdateTeamMembershipsPutRequest, options?: RawAxiosRequestConfig) {
         return SchedulableChangesApiFp(this.configuration).schedulableChangesBySchedulableChangeUpdateTeamMembershipsPut(requestParameters.schedulableChangeId, requestParameters.schedulablechangesPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -628,7 +561,6 @@ export class SchedulableChangesApi extends BaseAPI implements SchedulableChanges
      * @param {SchedulableChangesApiSchedulableChangesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SchedulableChangesApi
      */
     public schedulableChangesGet(requestParameters: SchedulableChangesApiSchedulableChangesGetRequest = {}, options?: RawAxiosRequestConfig) {
         return SchedulableChangesApiFp(this.configuration).schedulableChangesGet(requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -640,7 +572,6 @@ export class SchedulableChangesApi extends BaseAPI implements SchedulableChanges
      * @param {SchedulableChangesApiSchedulableChangesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SchedulableChangesApi
      */
     public schedulableChangesPost(requestParameters: SchedulableChangesApiSchedulableChangesPostRequest, options?: RawAxiosRequestConfig) {
         return SchedulableChangesApiFp(this.configuration).schedulableChangesPost(requestParameters.schedulablechangesPostRequest, options).then((request) => request(this.axios, this.basePath));

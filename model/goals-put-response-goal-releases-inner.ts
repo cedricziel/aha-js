@@ -14,89 +14,19 @@
 
 
 
-/**
- * 
- * @export
- * @interface GoalsPutResponseGoalReleasesInner
- */
 export interface GoalsPutResponseGoalReleasesInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoalReleasesInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoalReleasesInner
-     */
     'product_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoalReleasesInner
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoalReleasesInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoalReleasesInner
-     */
     'start_date'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoalReleasesInner
-     */
     'release_date'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoalReleasesInner
-     */
     'parking_lot'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoalReleasesInner
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoalReleasesInner
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoalReleasesInner
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoalReleasesInner
-     */
     'integration_fields'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoalReleasesInner
-     */
     'owner'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoalReleasesInner
-     */
     'project'?: string;
 }
 

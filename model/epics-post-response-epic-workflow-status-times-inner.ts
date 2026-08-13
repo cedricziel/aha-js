@@ -13,36 +13,14 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface EpicsPostResponseEpicWorkflowStatusTimesInner
- */
 export interface EpicsPostResponseEpicWorkflowStatusTimesInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpicWorkflowStatusTimesInner
-     */
     'status_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpicWorkflowStatusTimesInner
-     */
     'status_name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpicWorkflowStatusTimesInner
-     */
     'started_at'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof EpicsPostResponseEpicWorkflowStatusTimesInner
-     */
-    'ended_at'?: any | null;
+    'ended_at'?: Null;
 }
 

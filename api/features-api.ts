@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -33,7 +33,6 @@ import type { FeaturesPutRequest } from '../model';
 import type { FeaturesPutResponse } from '../model';
 /**
  * FeaturesApi - axios parameter creator
- * @export
  */
 export const FeaturesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -50,7 +49,7 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'epicId' is not null or undefined
             assertParamExists('epicsByEpicFeaturesGet', 'epicId', epicId)
             const localVarPath = `/epics/{epic_id}/features`
-                .replace(`{${"epic_id"}}`, encodeURIComponent(String(epicId)));
+                .replace('{epic_id}', encodeURIComponent(String(epicId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -80,8 +79,8 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -102,7 +101,7 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'id' is not null or undefined
             assertParamExists('featuresByIdConvertToEpicPost', 'id', id)
             const localVarPath = `/features/{id}/convert_to_epic`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -124,8 +123,8 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -146,7 +145,7 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'id' is not null or undefined
             assertParamExists('featuresByIdDelete', 'id', id)
             const localVarPath = `/features/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -169,7 +168,6 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -191,7 +189,7 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'id' is not null or undefined
             assertParamExists('featuresByIdGet', 'id', id)
             const localVarPath = `/features/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -217,8 +215,8 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['fields'] = fields;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -242,7 +240,7 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'featuresPutRequest' is not null or undefined
             assertParamExists('featuresByIdPut', 'featuresPutRequest', featuresPutRequest)
             const localVarPath = `/features/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -264,9 +262,8 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -332,8 +329,8 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['workflow_status'] = workflowStatus;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -356,7 +353,7 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'goalId' is not null or undefined
             assertParamExists('goalsByGoalFeaturesGet', 'goalId', goalId)
             const localVarPath = `/goals/{goal_id}/features`
-                .replace(`{${"goal_id"}}`, encodeURIComponent(String(goalId)));
+                .replace('{goal_id}', encodeURIComponent(String(goalId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -386,8 +383,8 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -410,7 +407,7 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'initiativeId' is not null or undefined
             assertParamExists('initiativesByInitiativeFeaturesGet', 'initiativeId', initiativeId)
             const localVarPath = `/initiatives/{initiative_id}/features`
-                .replace(`{${"initiative_id"}}`, encodeURIComponent(String(initiativeId)));
+                .replace('{initiative_id}', encodeURIComponent(String(initiativeId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -440,8 +437,8 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -464,7 +461,7 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'productId' is not null or undefined
             assertParamExists('productsByProductFeaturesGet', 'productId', productId)
             const localVarPath = `/products/{product_id}/features`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -494,8 +491,8 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -518,7 +515,7 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'releaseId' is not null or undefined
             assertParamExists('releasesByReleaseFeaturesGet', 'releaseId', releaseId)
             const localVarPath = `/releases/{release_id}/features`
-                .replace(`{${"release_id"}}`, encodeURIComponent(String(releaseId)));
+                .replace('{release_id}', encodeURIComponent(String(releaseId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -548,8 +545,8 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -573,7 +570,7 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'featuresPostRequest' is not null or undefined
             assertParamExists('releasesByReleaseFeaturesPost', 'featuresPostRequest', featuresPostRequest)
             const localVarPath = `/releases/{release_id}/features`
-                .replace(`{${"release_id"}}`, encodeURIComponent(String(releaseId)));
+                .replace('{release_id}', encodeURIComponent(String(releaseId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -595,9 +592,8 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -614,7 +610,6 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
 
 /**
  * FeaturesApi - functional programming interface
- * @export
  */
 export const FeaturesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = FeaturesApiAxiosParamCreator(configuration)
@@ -784,7 +779,6 @@ export const FeaturesApiFp = function(configuration?: Configuration) {
 
 /**
  * FeaturesApi - factory interface
- * @export
  */
 export const FeaturesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = FeaturesApiFp(configuration)
@@ -904,8 +898,6 @@ export const FeaturesApiFactory = function (configuration?: Configuration, baseP
 
 /**
  * FeaturesApi - interface
- * @export
- * @interface FeaturesApi
  */
 export interface FeaturesApiInterface {
     /**
@@ -914,7 +906,6 @@ export interface FeaturesApiInterface {
      * @param {FeaturesApiEpicsByEpicFeaturesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApiInterface
      */
     epicsByEpicFeaturesGet(requestParameters: FeaturesApiEpicsByEpicFeaturesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<FeaturesGetResponse>;
 
@@ -924,7 +915,6 @@ export interface FeaturesApiInterface {
      * @param {FeaturesApiFeaturesByIdConvertToEpicPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApiInterface
      */
     featuresByIdConvertToEpicPost(requestParameters: FeaturesApiFeaturesByIdConvertToEpicPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<FeaturesPostResponse>;
 
@@ -934,7 +924,6 @@ export interface FeaturesApiInterface {
      * @param {FeaturesApiFeaturesByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApiInterface
      */
     featuresByIdDelete(requestParameters: FeaturesApiFeaturesByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -944,7 +933,6 @@ export interface FeaturesApiInterface {
      * @param {FeaturesApiFeaturesByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApiInterface
      */
     featuresByIdGet(requestParameters: FeaturesApiFeaturesByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<FeaturesGetResponse>;
 
@@ -954,7 +942,6 @@ export interface FeaturesApiInterface {
      * @param {FeaturesApiFeaturesByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApiInterface
      */
     featuresByIdPut(requestParameters: FeaturesApiFeaturesByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<FeaturesPutResponse>;
 
@@ -964,7 +951,6 @@ export interface FeaturesApiInterface {
      * @param {FeaturesApiFeaturesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApiInterface
      */
     featuresGet(requestParameters?: FeaturesApiFeaturesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<FeaturesGetResponse>;
 
@@ -974,7 +960,6 @@ export interface FeaturesApiInterface {
      * @param {FeaturesApiGoalsByGoalFeaturesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApiInterface
      */
     goalsByGoalFeaturesGet(requestParameters: FeaturesApiGoalsByGoalFeaturesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<FeaturesGetResponse>;
 
@@ -984,7 +969,6 @@ export interface FeaturesApiInterface {
      * @param {FeaturesApiInitiativesByInitiativeFeaturesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApiInterface
      */
     initiativesByInitiativeFeaturesGet(requestParameters: FeaturesApiInitiativesByInitiativeFeaturesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<FeaturesGetResponse>;
 
@@ -994,7 +978,6 @@ export interface FeaturesApiInterface {
      * @param {FeaturesApiProductsByProductFeaturesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApiInterface
      */
     productsByProductFeaturesGet(requestParameters: FeaturesApiProductsByProductFeaturesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<FeaturesGetResponse>;
 
@@ -1004,7 +987,6 @@ export interface FeaturesApiInterface {
      * @param {FeaturesApiReleasesByReleaseFeaturesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApiInterface
      */
     releasesByReleaseFeaturesGet(requestParameters: FeaturesApiReleasesByReleaseFeaturesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<FeaturesGetResponse>;
 
@@ -1014,7 +996,6 @@ export interface FeaturesApiInterface {
      * @param {FeaturesApiReleasesByReleaseFeaturesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApiInterface
      */
     releasesByReleaseFeaturesPost(requestParameters: FeaturesApiReleasesByReleaseFeaturesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<FeaturesPostResponse>;
 
@@ -1022,282 +1003,147 @@ export interface FeaturesApiInterface {
 
 /**
  * Request parameters for epicsByEpicFeaturesGet operation in FeaturesApi.
- * @export
- * @interface FeaturesApiEpicsByEpicFeaturesGetRequest
  */
 export interface FeaturesApiEpicsByEpicFeaturesGetRequest {
     /**
      * EpicId identifier
-     * @type {string}
-     * @memberof FeaturesApiEpicsByEpicFeaturesGet
      */
     readonly epicId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesApiEpicsByEpicFeaturesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesApiEpicsByEpicFeaturesGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for featuresByIdConvertToEpicPost operation in FeaturesApi.
- * @export
- * @interface FeaturesApiFeaturesByIdConvertToEpicPostRequest
  */
 export interface FeaturesApiFeaturesByIdConvertToEpicPostRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof FeaturesApiFeaturesByIdConvertToEpicPost
      */
     readonly id: string
 }
 
 /**
  * Request parameters for featuresByIdDelete operation in FeaturesApi.
- * @export
- * @interface FeaturesApiFeaturesByIdDeleteRequest
  */
 export interface FeaturesApiFeaturesByIdDeleteRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof FeaturesApiFeaturesByIdDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for featuresByIdGet operation in FeaturesApi.
- * @export
- * @interface FeaturesApiFeaturesByIdGetRequest
  */
 export interface FeaturesApiFeaturesByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof FeaturesApiFeaturesByIdGet
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesApiFeaturesByIdGet
-     */
     readonly fields?: string
 }
 
 /**
  * Request parameters for featuresByIdPut operation in FeaturesApi.
- * @export
- * @interface FeaturesApiFeaturesByIdPutRequest
  */
 export interface FeaturesApiFeaturesByIdPutRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof FeaturesApiFeaturesByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {FeaturesPutRequest}
-     * @memberof FeaturesApiFeaturesByIdPut
-     */
     readonly featuresPutRequest: FeaturesPutRequest
 }
 
 /**
  * Request parameters for featuresGet operation in FeaturesApi.
- * @export
- * @interface FeaturesApiFeaturesGetRequest
  */
 export interface FeaturesApiFeaturesGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesApiFeaturesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesApiFeaturesGet
-     */
     readonly perPage?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesApiFeaturesGet
-     */
     readonly customFields?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesApiFeaturesGet
-     */
     readonly fields?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesApiFeaturesGet
-     */
     readonly workflowStatus?: string
 }
 
 /**
  * Request parameters for goalsByGoalFeaturesGet operation in FeaturesApi.
- * @export
- * @interface FeaturesApiGoalsByGoalFeaturesGetRequest
  */
 export interface FeaturesApiGoalsByGoalFeaturesGetRequest {
     /**
      * GoalId identifier
-     * @type {string}
-     * @memberof FeaturesApiGoalsByGoalFeaturesGet
      */
     readonly goalId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesApiGoalsByGoalFeaturesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesApiGoalsByGoalFeaturesGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for initiativesByInitiativeFeaturesGet operation in FeaturesApi.
- * @export
- * @interface FeaturesApiInitiativesByInitiativeFeaturesGetRequest
  */
 export interface FeaturesApiInitiativesByInitiativeFeaturesGetRequest {
     /**
      * InitiativeId identifier
-     * @type {string}
-     * @memberof FeaturesApiInitiativesByInitiativeFeaturesGet
      */
     readonly initiativeId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesApiInitiativesByInitiativeFeaturesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesApiInitiativesByInitiativeFeaturesGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for productsByProductFeaturesGet operation in FeaturesApi.
- * @export
- * @interface FeaturesApiProductsByProductFeaturesGetRequest
  */
 export interface FeaturesApiProductsByProductFeaturesGetRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof FeaturesApiProductsByProductFeaturesGet
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesApiProductsByProductFeaturesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesApiProductsByProductFeaturesGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for releasesByReleaseFeaturesGet operation in FeaturesApi.
- * @export
- * @interface FeaturesApiReleasesByReleaseFeaturesGetRequest
  */
 export interface FeaturesApiReleasesByReleaseFeaturesGetRequest {
     /**
      * ReleaseId identifier
-     * @type {string}
-     * @memberof FeaturesApiReleasesByReleaseFeaturesGet
      */
     readonly releaseId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesApiReleasesByReleaseFeaturesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesApiReleasesByReleaseFeaturesGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for releasesByReleaseFeaturesPost operation in FeaturesApi.
- * @export
- * @interface FeaturesApiReleasesByReleaseFeaturesPostRequest
  */
 export interface FeaturesApiReleasesByReleaseFeaturesPostRequest {
     /**
      * ReleaseId identifier
-     * @type {string}
-     * @memberof FeaturesApiReleasesByReleaseFeaturesPost
      */
     readonly releaseId: string
 
-    /**
-     * 
-     * @type {FeaturesPostRequest}
-     * @memberof FeaturesApiReleasesByReleaseFeaturesPost
-     */
     readonly featuresPostRequest: FeaturesPostRequest
 }
 
 /**
  * FeaturesApi - object-oriented interface
- * @export
- * @class FeaturesApi
- * @extends {BaseAPI}
  */
 export class FeaturesApi extends BaseAPI implements FeaturesApiInterface {
     /**
@@ -1306,7 +1152,6 @@ export class FeaturesApi extends BaseAPI implements FeaturesApiInterface {
      * @param {FeaturesApiEpicsByEpicFeaturesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApi
      */
     public epicsByEpicFeaturesGet(requestParameters: FeaturesApiEpicsByEpicFeaturesGetRequest, options?: RawAxiosRequestConfig) {
         return FeaturesApiFp(this.configuration).epicsByEpicFeaturesGet(requestParameters.epicId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -1318,7 +1163,6 @@ export class FeaturesApi extends BaseAPI implements FeaturesApiInterface {
      * @param {FeaturesApiFeaturesByIdConvertToEpicPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApi
      */
     public featuresByIdConvertToEpicPost(requestParameters: FeaturesApiFeaturesByIdConvertToEpicPostRequest, options?: RawAxiosRequestConfig) {
         return FeaturesApiFp(this.configuration).featuresByIdConvertToEpicPost(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -1330,7 +1174,6 @@ export class FeaturesApi extends BaseAPI implements FeaturesApiInterface {
      * @param {FeaturesApiFeaturesByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApi
      */
     public featuresByIdDelete(requestParameters: FeaturesApiFeaturesByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return FeaturesApiFp(this.configuration).featuresByIdDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -1342,7 +1185,6 @@ export class FeaturesApi extends BaseAPI implements FeaturesApiInterface {
      * @param {FeaturesApiFeaturesByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApi
      */
     public featuresByIdGet(requestParameters: FeaturesApiFeaturesByIdGetRequest, options?: RawAxiosRequestConfig) {
         return FeaturesApiFp(this.configuration).featuresByIdGet(requestParameters.id, requestParameters.fields, options).then((request) => request(this.axios, this.basePath));
@@ -1354,7 +1196,6 @@ export class FeaturesApi extends BaseAPI implements FeaturesApiInterface {
      * @param {FeaturesApiFeaturesByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApi
      */
     public featuresByIdPut(requestParameters: FeaturesApiFeaturesByIdPutRequest, options?: RawAxiosRequestConfig) {
         return FeaturesApiFp(this.configuration).featuresByIdPut(requestParameters.id, requestParameters.featuresPutRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1366,7 +1207,6 @@ export class FeaturesApi extends BaseAPI implements FeaturesApiInterface {
      * @param {FeaturesApiFeaturesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApi
      */
     public featuresGet(requestParameters: FeaturesApiFeaturesGetRequest = {}, options?: RawAxiosRequestConfig) {
         return FeaturesApiFp(this.configuration).featuresGet(requestParameters.page, requestParameters.perPage, requestParameters.customFields, requestParameters.fields, requestParameters.workflowStatus, options).then((request) => request(this.axios, this.basePath));
@@ -1378,7 +1218,6 @@ export class FeaturesApi extends BaseAPI implements FeaturesApiInterface {
      * @param {FeaturesApiGoalsByGoalFeaturesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApi
      */
     public goalsByGoalFeaturesGet(requestParameters: FeaturesApiGoalsByGoalFeaturesGetRequest, options?: RawAxiosRequestConfig) {
         return FeaturesApiFp(this.configuration).goalsByGoalFeaturesGet(requestParameters.goalId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -1390,7 +1229,6 @@ export class FeaturesApi extends BaseAPI implements FeaturesApiInterface {
      * @param {FeaturesApiInitiativesByInitiativeFeaturesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApi
      */
     public initiativesByInitiativeFeaturesGet(requestParameters: FeaturesApiInitiativesByInitiativeFeaturesGetRequest, options?: RawAxiosRequestConfig) {
         return FeaturesApiFp(this.configuration).initiativesByInitiativeFeaturesGet(requestParameters.initiativeId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -1402,7 +1240,6 @@ export class FeaturesApi extends BaseAPI implements FeaturesApiInterface {
      * @param {FeaturesApiProductsByProductFeaturesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApi
      */
     public productsByProductFeaturesGet(requestParameters: FeaturesApiProductsByProductFeaturesGetRequest, options?: RawAxiosRequestConfig) {
         return FeaturesApiFp(this.configuration).productsByProductFeaturesGet(requestParameters.productId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -1414,7 +1251,6 @@ export class FeaturesApi extends BaseAPI implements FeaturesApiInterface {
      * @param {FeaturesApiReleasesByReleaseFeaturesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApi
      */
     public releasesByReleaseFeaturesGet(requestParameters: FeaturesApiReleasesByReleaseFeaturesGetRequest, options?: RawAxiosRequestConfig) {
         return FeaturesApiFp(this.configuration).releasesByReleaseFeaturesGet(requestParameters.releaseId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -1426,7 +1262,6 @@ export class FeaturesApi extends BaseAPI implements FeaturesApiInterface {
      * @param {FeaturesApiReleasesByReleaseFeaturesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FeaturesApi
      */
     public releasesByReleaseFeaturesPost(requestParameters: FeaturesApiReleasesByReleaseFeaturesPostRequest, options?: RawAxiosRequestConfig) {
         return FeaturesApiFp(this.configuration).releasesByReleaseFeaturesPost(requestParameters.releaseId, requestParameters.featuresPostRequest, options).then((request) => request(this.axios, this.basePath));

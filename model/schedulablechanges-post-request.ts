@@ -17,23 +17,8 @@
 // @ts-ignore
 import type { SchedulablechangesPostRequestTeamMembership } from './schedulablechanges-post-request-team-membership';
 
-/**
- * 
- * @export
- * @interface SchedulablechangesPostRequest
- */
 export interface SchedulablechangesPostRequest {
-    /**
-     * 
-     * @type {number}
-     * @memberof SchedulablechangesPostRequest
-     */
     'team_membership_id'?: number;
-    /**
-     * 
-     * @type {SchedulablechangesPostRequestTeamMembership}
-     * @memberof SchedulablechangesPostRequest
-     */
     'team_membership'?: SchedulablechangesPostRequestTeamMembership;
 }
 

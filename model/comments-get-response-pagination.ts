@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface CommentsGetResponsePagination
- */
 export interface CommentsGetResponsePagination {
-    /**
-     * 
-     * @type {number}
-     * @memberof CommentsGetResponsePagination
-     */
     'total_records'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof CommentsGetResponsePagination
-     */
     'total_pages'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof CommentsGetResponsePagination
-     */
     'current_page'?: number;
 }
 

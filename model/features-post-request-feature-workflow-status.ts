@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface FeaturesPostRequestFeatureWorkflowStatus
- */
 export interface FeaturesPostRequestFeatureWorkflowStatus {
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPostRequestFeatureWorkflowStatus
-     */
     'name'?: string;
 }
 

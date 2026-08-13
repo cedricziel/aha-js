@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface FeaturesPutResponseFeatureIntegrationFieldsInner
- */
 export interface FeaturesPutResponseFeatureIntegrationFieldsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureIntegrationFieldsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureIntegrationFieldsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureIntegrationFieldsInner
-     */
     'value'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureIntegrationFieldsInner
-     */
     'integration_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureIntegrationFieldsInner
-     */
     'service_name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureIntegrationFieldsInner
-     */
     'created_at'?: string;
 }
 

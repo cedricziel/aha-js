@@ -17,35 +17,10 @@
 // @ts-ignore
 import type { CustomLayoutsGetResponseCustomFieldDefinitionsInner } from './custom-layouts-get-response-custom-field-definitions-inner';
 
-/**
- * 
- * @export
- * @interface CustomLayoutsGetResponse
- */
 export interface CustomLayoutsGetResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof CustomLayoutsGetResponse
-     */
     'id'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomLayoutsGetResponse
-     */
     'screenable_type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomLayoutsGetResponse
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {Array<CustomLayoutsGetResponseCustomFieldDefinitionsInner>}
-     * @memberof CustomLayoutsGetResponse
-     */
     'custom_field_definitions'?: Array<CustomLayoutsGetResponseCustomFieldDefinitionsInner>;
 }
 

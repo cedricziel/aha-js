@@ -20,23 +20,8 @@ import type { CompetitorsGetResponseCompetitorsInner } from './competitors-get-r
 // @ts-ignore
 import type { CompetitorsGetResponsePagination } from './competitors-get-response-pagination';
 
-/**
- * 
- * @export
- * @interface CompetitorsGetResponse
- */
 export interface CompetitorsGetResponse {
-    /**
-     * 
-     * @type {Array<CompetitorsGetResponseCompetitorsInner>}
-     * @memberof CompetitorsGetResponse
-     */
     'competitors'?: Array<CompetitorsGetResponseCompetitorsInner>;
-    /**
-     * 
-     * @type {CompetitorsGetResponsePagination}
-     * @memberof CompetitorsGetResponse
-     */
     'pagination'?: CompetitorsGetResponsePagination;
 }
 

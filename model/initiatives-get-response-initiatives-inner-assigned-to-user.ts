@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface InitiativesGetResponseInitiativesInnerAssignedToUser
- */
 export interface InitiativesGetResponseInitiativesInnerAssignedToUser {
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesGetResponseInitiativesInnerAssignedToUser
-     */
     'default_assignee'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesGetResponseInitiativesInnerAssignedToUser
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesGetResponseInitiativesInnerAssignedToUser
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesGetResponseInitiativesInnerAssignedToUser
-     */
     'email'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesGetResponseInitiativesInnerAssignedToUser
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesGetResponseInitiativesInnerAssignedToUser
-     */
     'updated_at'?: string;
 }
 

@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { IdeausersPostRequestIdeaUser } from './ideausers-post-request-idea-user';
 
-/**
- * 
- * @export
- * @interface IdeausersPostRequest
- */
 export interface IdeausersPostRequest {
-    /**
-     * 
-     * @type {IdeausersPostRequestIdeaUser}
-     * @memberof IdeausersPostRequest
-     */
     'idea_user'?: IdeausersPostRequestIdeaUser;
 }
 

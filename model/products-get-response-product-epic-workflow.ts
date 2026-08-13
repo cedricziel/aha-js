@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface ProductsGetResponseProductEpicWorkflow
- */
 export interface ProductsGetResponseProductEpicWorkflow {
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsGetResponseProductEpicWorkflow
-     */
     'workflow_type'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof ProductsGetResponseProductEpicWorkflow
-     */
     'id'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsGetResponseProductEpicWorkflow
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsGetResponseProductEpicWorkflow
-     */
     'statusable_type'?: string;
 }
 

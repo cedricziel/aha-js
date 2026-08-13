@@ -20,65 +20,15 @@ import type { IdeacommentsPostResponseIdeaCommentIdeaDescription } from './ideac
 // @ts-ignore
 import type { IdeacommentsPostResponseIdeaCommentIdeaWorkflowStatus } from './ideacomments-post-response-idea-comment-idea-workflow-status';
 
-/**
- * 
- * @export
- * @interface IdeacommentsPostResponseIdeaCommentIdea
- */
 export interface IdeacommentsPostResponseIdeaCommentIdea {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeacommentsPostResponseIdeaCommentIdea
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeacommentsPostResponseIdeaCommentIdea
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeacommentsPostResponseIdeaCommentIdea
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeacommentsPostResponseIdeaCommentIdea
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeacommentsPostResponseIdeaCommentIdea
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {IdeacommentsPostResponseIdeaCommentIdeaWorkflowStatus}
-     * @memberof IdeacommentsPostResponseIdeaCommentIdea
-     */
     'workflow_status'?: IdeacommentsPostResponseIdeaCommentIdeaWorkflowStatus;
-    /**
-     * 
-     * @type {IdeacommentsPostResponseIdeaCommentIdeaDescription}
-     * @memberof IdeacommentsPostResponseIdeaCommentIdea
-     */
     'description'?: IdeacommentsPostResponseIdeaCommentIdeaDescription;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeacommentsPostResponseIdeaCommentIdea
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeacommentsPostResponseIdeaCommentIdea
-     */
     'resource'?: string;
 }
 

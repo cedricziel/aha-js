@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface PersonasPostRequestPersona
- */
 export interface PersonasPostRequestPersona {
-    /**
-     * 
-     * @type {string}
-     * @memberof PersonasPostRequestPersona
-     */
     'name'?: string;
 }
 

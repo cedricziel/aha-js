@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { KeyresultsPutResponseKeyResult } from './keyresults-put-response-key-result';
 
-/**
- * 
- * @export
- * @interface KeyresultsPutResponse
- */
 export interface KeyresultsPutResponse {
-    /**
-     * 
-     * @type {KeyresultsPutResponseKeyResult}
-     * @memberof KeyresultsPutResponse
-     */
     'key_result'?: KeyresultsPutResponseKeyResult;
 }
 

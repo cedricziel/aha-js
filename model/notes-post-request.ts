@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { NotesPostRequestPage } from './notes-post-request-page';
 
-/**
- * 
- * @export
- * @interface NotesPostRequest
- */
 export interface NotesPostRequest {
-    /**
-     * 
-     * @type {NotesPostRequestPage}
-     * @memberof NotesPostRequest
-     */
     'page'?: NotesPostRequestPage;
 }
 

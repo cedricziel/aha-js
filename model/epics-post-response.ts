@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { EpicsPostResponseEpic } from './epics-post-response-epic';
 
-/**
- * 
- * @export
- * @interface EpicsPostResponse
- */
 export interface EpicsPostResponse {
-    /**
-     * 
-     * @type {EpicsPostResponseEpic}
-     * @memberof EpicsPostResponse
-     */
     'epic'?: EpicsPostResponseEpic;
 }
 

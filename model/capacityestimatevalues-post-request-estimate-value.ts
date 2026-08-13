@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface CapacityestimatevaluesPostRequestEstimateValue
- */
 export interface CapacityestimatevaluesPostRequestEstimateValue {
-    /**
-     * 
-     * @type {number}
-     * @memberof CapacityestimatevaluesPostRequestEstimateValue
-     */
     'total'?: number;
 }
 

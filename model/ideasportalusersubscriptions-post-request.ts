@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { IdeasportalusersubscriptionsPostRequestPortalUserSubscriptions } from './ideasportalusersubscriptions-post-request-portal-user-subscriptions';
 
-/**
- * 
- * @export
- * @interface IdeasportalusersubscriptionsPostRequest
- */
 export interface IdeasportalusersubscriptionsPostRequest {
-    /**
-     * 
-     * @type {IdeasportalusersubscriptionsPostRequestPortalUserSubscriptions}
-     * @memberof IdeasportalusersubscriptionsPostRequest
-     */
     'portal_user_subscriptions'?: IdeasportalusersubscriptionsPostRequestPortalUserSubscriptions;
 }
 

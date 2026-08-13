@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface CapacityinvestmentsPostResponseCapacityInvestmentInitiative
- */
 export interface CapacityinvestmentsPostResponseCapacityInvestmentInitiative {
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityinvestmentsPostResponseCapacityInvestmentInitiative
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityinvestmentsPostResponseCapacityInvestmentInitiative
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityinvestmentsPostResponseCapacityInvestmentInitiative
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityinvestmentsPostResponseCapacityInvestmentInitiative
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityinvestmentsPostResponseCapacityInvestmentInitiative
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityinvestmentsPostResponseCapacityInvestmentInitiative
-     */
     'resource'?: string;
 }
 

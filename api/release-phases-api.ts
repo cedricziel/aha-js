@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { ReleasephasesPostResponse } from '../model';
 import type { ReleasephasesPutResponse } from '../model';
 /**
  * ReleasePhasesApi - axios parameter creator
- * @export
  */
 export const ReleasePhasesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -46,7 +45,7 @@ export const ReleasePhasesApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'id' is not null or undefined
             assertParamExists('releasePhasesByIdDelete', 'id', id)
             const localVarPath = `/release_phases/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -69,7 +68,6 @@ export const ReleasePhasesApiAxiosParamCreator = function (configuration?: Confi
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -90,7 +88,7 @@ export const ReleasePhasesApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'id' is not null or undefined
             assertParamExists('releasePhasesByIdGet', 'id', id)
             const localVarPath = `/release_phases/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -112,8 +110,8 @@ export const ReleasePhasesApiAxiosParamCreator = function (configuration?: Confi
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -137,7 +135,7 @@ export const ReleasePhasesApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'releasephasesPostRequest' is not null or undefined
             assertParamExists('releasePhasesByIdPut', 'releasephasesPostRequest', releasephasesPostRequest)
             const localVarPath = `/release_phases/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -159,9 +157,8 @@ export const ReleasePhasesApiAxiosParamCreator = function (configuration?: Confi
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -212,8 +209,8 @@ export const ReleasePhasesApiAxiosParamCreator = function (configuration?: Confi
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -255,9 +252,8 @@ export const ReleasePhasesApiAxiosParamCreator = function (configuration?: Confi
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -282,7 +278,7 @@ export const ReleasePhasesApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'id' is not null or undefined
             assertParamExists('releasesByIdReleasePhasesGet', 'id', id)
             const localVarPath = `/releases/{id}/release_phases`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -312,8 +308,8 @@ export const ReleasePhasesApiAxiosParamCreator = function (configuration?: Confi
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -328,7 +324,6 @@ export const ReleasePhasesApiAxiosParamCreator = function (configuration?: Confi
 
 /**
  * ReleasePhasesApi - functional programming interface
- * @export
  */
 export const ReleasePhasesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ReleasePhasesApiAxiosParamCreator(configuration)
@@ -420,7 +415,6 @@ export const ReleasePhasesApiFp = function(configuration?: Configuration) {
 
 /**
  * ReleasePhasesApi - factory interface
- * @export
  */
 export const ReleasePhasesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ReleasePhasesApiFp(configuration)
@@ -490,8 +484,6 @@ export const ReleasePhasesApiFactory = function (configuration?: Configuration, 
 
 /**
  * ReleasePhasesApi - interface
- * @export
- * @interface ReleasePhasesApi
  */
 export interface ReleasePhasesApiInterface {
     /**
@@ -500,7 +492,6 @@ export interface ReleasePhasesApiInterface {
      * @param {ReleasePhasesApiReleasePhasesByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasePhasesApiInterface
      */
     releasePhasesByIdDelete(requestParameters: ReleasePhasesApiReleasePhasesByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -510,7 +501,6 @@ export interface ReleasePhasesApiInterface {
      * @param {ReleasePhasesApiReleasePhasesByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasePhasesApiInterface
      */
     releasePhasesByIdGet(requestParameters: ReleasePhasesApiReleasePhasesByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleasephasesGetResponse>;
 
@@ -520,7 +510,6 @@ export interface ReleasePhasesApiInterface {
      * @param {ReleasePhasesApiReleasePhasesByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasePhasesApiInterface
      */
     releasePhasesByIdPut(requestParameters: ReleasePhasesApiReleasePhasesByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleasephasesPutResponse>;
 
@@ -530,7 +519,6 @@ export interface ReleasePhasesApiInterface {
      * @param {ReleasePhasesApiReleasePhasesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasePhasesApiInterface
      */
     releasePhasesGet(requestParameters?: ReleasePhasesApiReleasePhasesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleasephasesGetResponse>;
 
@@ -540,7 +528,6 @@ export interface ReleasePhasesApiInterface {
      * @param {ReleasePhasesApiReleasePhasesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasePhasesApiInterface
      */
     releasePhasesPost(requestParameters: ReleasePhasesApiReleasePhasesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleasephasesPostResponse>;
 
@@ -550,7 +537,6 @@ export interface ReleasePhasesApiInterface {
      * @param {ReleasePhasesApiReleasesByIdReleasePhasesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasePhasesApiInterface
      */
     releasesByIdReleasePhasesGet(requestParameters: ReleasePhasesApiReleasesByIdReleasePhasesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleasephasesGetResponse>;
 
@@ -558,121 +544,68 @@ export interface ReleasePhasesApiInterface {
 
 /**
  * Request parameters for releasePhasesByIdDelete operation in ReleasePhasesApi.
- * @export
- * @interface ReleasePhasesApiReleasePhasesByIdDeleteRequest
  */
 export interface ReleasePhasesApiReleasePhasesByIdDeleteRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof ReleasePhasesApiReleasePhasesByIdDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for releasePhasesByIdGet operation in ReleasePhasesApi.
- * @export
- * @interface ReleasePhasesApiReleasePhasesByIdGetRequest
  */
 export interface ReleasePhasesApiReleasePhasesByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof ReleasePhasesApiReleasePhasesByIdGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for releasePhasesByIdPut operation in ReleasePhasesApi.
- * @export
- * @interface ReleasePhasesApiReleasePhasesByIdPutRequest
  */
 export interface ReleasePhasesApiReleasePhasesByIdPutRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof ReleasePhasesApiReleasePhasesByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {ReleasephasesPostRequest}
-     * @memberof ReleasePhasesApiReleasePhasesByIdPut
-     */
     readonly releasephasesPostRequest: ReleasephasesPostRequest
 }
 
 /**
  * Request parameters for releasePhasesGet operation in ReleasePhasesApi.
- * @export
- * @interface ReleasePhasesApiReleasePhasesGetRequest
  */
 export interface ReleasePhasesApiReleasePhasesGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasePhasesApiReleasePhasesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasePhasesApiReleasePhasesGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for releasePhasesPost operation in ReleasePhasesApi.
- * @export
- * @interface ReleasePhasesApiReleasePhasesPostRequest
  */
 export interface ReleasePhasesApiReleasePhasesPostRequest {
-    /**
-     * 
-     * @type {ReleasephasesPostRequest}
-     * @memberof ReleasePhasesApiReleasePhasesPost
-     */
     readonly releasephasesPostRequest: ReleasephasesPostRequest
 }
 
 /**
  * Request parameters for releasesByIdReleasePhasesGet operation in ReleasePhasesApi.
- * @export
- * @interface ReleasePhasesApiReleasesByIdReleasePhasesGetRequest
  */
 export interface ReleasePhasesApiReleasesByIdReleasePhasesGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof ReleasePhasesApiReleasesByIdReleasePhasesGet
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasePhasesApiReleasesByIdReleasePhasesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasePhasesApiReleasesByIdReleasePhasesGet
-     */
     readonly perPage?: string
 }
 
 /**
  * ReleasePhasesApi - object-oriented interface
- * @export
- * @class ReleasePhasesApi
- * @extends {BaseAPI}
  */
 export class ReleasePhasesApi extends BaseAPI implements ReleasePhasesApiInterface {
     /**
@@ -681,7 +614,6 @@ export class ReleasePhasesApi extends BaseAPI implements ReleasePhasesApiInterfa
      * @param {ReleasePhasesApiReleasePhasesByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasePhasesApi
      */
     public releasePhasesByIdDelete(requestParameters: ReleasePhasesApiReleasePhasesByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return ReleasePhasesApiFp(this.configuration).releasePhasesByIdDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -693,7 +625,6 @@ export class ReleasePhasesApi extends BaseAPI implements ReleasePhasesApiInterfa
      * @param {ReleasePhasesApiReleasePhasesByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasePhasesApi
      */
     public releasePhasesByIdGet(requestParameters: ReleasePhasesApiReleasePhasesByIdGetRequest, options?: RawAxiosRequestConfig) {
         return ReleasePhasesApiFp(this.configuration).releasePhasesByIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -705,7 +636,6 @@ export class ReleasePhasesApi extends BaseAPI implements ReleasePhasesApiInterfa
      * @param {ReleasePhasesApiReleasePhasesByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasePhasesApi
      */
     public releasePhasesByIdPut(requestParameters: ReleasePhasesApiReleasePhasesByIdPutRequest, options?: RawAxiosRequestConfig) {
         return ReleasePhasesApiFp(this.configuration).releasePhasesByIdPut(requestParameters.id, requestParameters.releasephasesPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -717,7 +647,6 @@ export class ReleasePhasesApi extends BaseAPI implements ReleasePhasesApiInterfa
      * @param {ReleasePhasesApiReleasePhasesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasePhasesApi
      */
     public releasePhasesGet(requestParameters: ReleasePhasesApiReleasePhasesGetRequest = {}, options?: RawAxiosRequestConfig) {
         return ReleasePhasesApiFp(this.configuration).releasePhasesGet(requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -729,7 +658,6 @@ export class ReleasePhasesApi extends BaseAPI implements ReleasePhasesApiInterfa
      * @param {ReleasePhasesApiReleasePhasesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasePhasesApi
      */
     public releasePhasesPost(requestParameters: ReleasePhasesApiReleasePhasesPostRequest, options?: RawAxiosRequestConfig) {
         return ReleasePhasesApiFp(this.configuration).releasePhasesPost(requestParameters.releasephasesPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -741,7 +669,6 @@ export class ReleasePhasesApi extends BaseAPI implements ReleasePhasesApiInterfa
      * @param {ReleasePhasesApiReleasesByIdReleasePhasesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasePhasesApi
      */
     public releasesByIdReleasePhasesGet(requestParameters: ReleasePhasesApiReleasesByIdReleasePhasesGetRequest, options?: RawAxiosRequestConfig) {
         return ReleasePhasesApiFp(this.configuration).releasesByIdReleasePhasesGet(requestParameters.id, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));

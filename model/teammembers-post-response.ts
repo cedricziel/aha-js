@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { TeammembersPostResponseTeamMember } from './teammembers-post-response-team-member';
 
-/**
- * 
- * @export
- * @interface TeammembersPostResponse
- */
 export interface TeammembersPostResponse {
-    /**
-     * 
-     * @type {TeammembersPostResponseTeamMember}
-     * @memberof TeammembersPostResponse
-     */
     'team_member'?: TeammembersPostResponseTeamMember;
 }
 

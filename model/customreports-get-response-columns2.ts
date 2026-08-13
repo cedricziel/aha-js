@@ -13,60 +13,18 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface CustomreportsGetResponseColumns2
- */
 export interface CustomreportsGetResponseColumns2 {
-    /**
-     * 
-     * @type {number}
-     * @memberof CustomreportsGetResponseColumns2
-     */
     'ref'?: number;
-    /**
-     * 
-     * @type {any}
-     * @memberof CustomreportsGetResponseColumns2
-     */
-    'parent_ref'?: any | null;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof CustomreportsGetResponseColumns2
-     */
+    'parent_ref'?: Null;
     'child_refs'?: Array<any>;
-    /**
-     * 
-     * @type {number}
-     * @memberof CustomreportsGetResponseColumns2
-     */
     'id'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomreportsGetResponseColumns2
-     */
     'plain_value'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomreportsGetResponseColumns2
-     */
     'html_value'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomreportsGetResponseColumns2
-     */
     'rich_value'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof CustomreportsGetResponseColumns2
-     */
     'field_definition_ref'?: number;
 }
 

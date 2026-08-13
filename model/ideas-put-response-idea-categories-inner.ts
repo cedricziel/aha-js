@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeasPutResponseIdeaCategoriesInner
- */
 export interface IdeasPutResponseIdeaCategoriesInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaCategoriesInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaCategoriesInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaCategoriesInner
-     */
     'parent_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaCategoriesInner
-     */
     'project_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaCategoriesInner
-     */
     'created_at'?: string;
 }
 

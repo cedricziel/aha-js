@@ -14,53 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface StrategicmodelsGetResponseStrategyModelProject
- */
 export interface StrategicmodelsGetResponseStrategyModelProject {
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicmodelsGetResponseStrategyModelProject
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicmodelsGetResponseStrategyModelProject
-     */
     'reference_prefix'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicmodelsGetResponseStrategyModelProject
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof StrategicmodelsGetResponseStrategyModelProject
-     */
     'product_line'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicmodelsGetResponseStrategyModelProject
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicmodelsGetResponseStrategyModelProject
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicmodelsGetResponseStrategyModelProject
-     */
     'workspace_type'?: string;
 }
 

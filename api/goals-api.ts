@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -35,7 +35,6 @@ import type { GoalsPutRequest } from '../model';
 import type { GoalsPutResponse } from '../model';
 /**
  * GoalsApi - axios parameter creator
- * @export
  */
 export const GoalsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -50,7 +49,7 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('goalsByIdGet', 'id', id)
             const localVarPath = `/goals/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -72,8 +71,8 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -97,7 +96,7 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'goalsPutRequest' is not null or undefined
             assertParamExists('goalsByIdPut', 'goalsPutRequest', goalsPutRequest)
             const localVarPath = `/goals/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -119,9 +118,8 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -172,8 +170,8 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -196,7 +194,7 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'initiativeId' is not null or undefined
             assertParamExists('initiativesByInitiativeGoalsGet', 'initiativeId', initiativeId)
             const localVarPath = `/initiatives/{initiative_id}/goals`
-                .replace(`{${"initiative_id"}}`, encodeURIComponent(String(initiativeId)));
+                .replace('{initiative_id}', encodeURIComponent(String(initiativeId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -226,8 +224,8 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -251,8 +249,8 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('productsByProductGoalsByIdDelete', 'id', id)
             const localVarPath = `/products/{product_id}/goals/{id}`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)))
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{product_id}', encodeURIComponent(String(productId)))
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -275,7 +273,6 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -302,8 +299,8 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'goalsPostRequest' is not null or undefined
             assertParamExists('productsByProductGoalsByIdPut', 'goalsPostRequest', goalsPostRequest)
             const localVarPath = `/products/{product_id}/goals/{id}`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)))
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{product_id}', encodeURIComponent(String(productId)))
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -325,9 +322,8 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -352,7 +348,7 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'productId' is not null or undefined
             assertParamExists('productsByProductGoalsGet', 'productId', productId)
             const localVarPath = `/products/{product_id}/goals`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -382,8 +378,8 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -407,7 +403,7 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'goalsPostRequest' is not null or undefined
             assertParamExists('productsByProductGoalsPost', 'goalsPostRequest', goalsPostRequest)
             const localVarPath = `/products/{product_id}/goals`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -429,9 +425,8 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -448,7 +443,6 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
 
 /**
  * GoalsApi - functional programming interface
- * @export
  */
 export const GoalsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = GoalsApiAxiosParamCreator(configuration)
@@ -572,7 +566,6 @@ export const GoalsApiFp = function(configuration?: Configuration) {
 
 /**
  * GoalsApi - factory interface
- * @export
  */
 export const GoalsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = GoalsApiFp(configuration)
@@ -662,8 +655,6 @@ export const GoalsApiFactory = function (configuration?: Configuration, basePath
 
 /**
  * GoalsApi - interface
- * @export
- * @interface GoalsApi
  */
 export interface GoalsApiInterface {
     /**
@@ -672,7 +663,6 @@ export interface GoalsApiInterface {
      * @param {GoalsApiGoalsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GoalsApiInterface
      */
     goalsByIdGet(requestParameters: GoalsApiGoalsByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<GoalsGetResponse>;
 
@@ -682,7 +672,6 @@ export interface GoalsApiInterface {
      * @param {GoalsApiGoalsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GoalsApiInterface
      */
     goalsByIdPut(requestParameters: GoalsApiGoalsByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<CustomtablerecordlinksPutResponse>;
 
@@ -692,7 +681,6 @@ export interface GoalsApiInterface {
      * @param {GoalsApiGoalsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GoalsApiInterface
      */
     goalsGet(requestParameters?: GoalsApiGoalsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<GoalsGetResponse>;
 
@@ -702,7 +690,6 @@ export interface GoalsApiInterface {
      * @param {GoalsApiInitiativesByInitiativeGoalsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GoalsApiInterface
      */
     initiativesByInitiativeGoalsGet(requestParameters: GoalsApiInitiativesByInitiativeGoalsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<GoalsGetResponse>;
 
@@ -712,7 +699,6 @@ export interface GoalsApiInterface {
      * @param {GoalsApiProductsByProductGoalsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GoalsApiInterface
      */
     productsByProductGoalsByIdDelete(requestParameters: GoalsApiProductsByProductGoalsByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -722,7 +708,6 @@ export interface GoalsApiInterface {
      * @param {GoalsApiProductsByProductGoalsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GoalsApiInterface
      */
     productsByProductGoalsByIdPut(requestParameters: GoalsApiProductsByProductGoalsByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<GoalsPutResponse>;
 
@@ -732,7 +717,6 @@ export interface GoalsApiInterface {
      * @param {GoalsApiProductsByProductGoalsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GoalsApiInterface
      */
     productsByProductGoalsGet(requestParameters: GoalsApiProductsByProductGoalsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<GoalsGetResponse>;
 
@@ -742,7 +726,6 @@ export interface GoalsApiInterface {
      * @param {GoalsApiProductsByProductGoalsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GoalsApiInterface
      */
     productsByProductGoalsPost(requestParameters: GoalsApiProductsByProductGoalsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<GoalsPostResponse>;
 
@@ -750,191 +733,109 @@ export interface GoalsApiInterface {
 
 /**
  * Request parameters for goalsByIdGet operation in GoalsApi.
- * @export
- * @interface GoalsApiGoalsByIdGetRequest
  */
 export interface GoalsApiGoalsByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof GoalsApiGoalsByIdGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for goalsByIdPut operation in GoalsApi.
- * @export
- * @interface GoalsApiGoalsByIdPutRequest
  */
 export interface GoalsApiGoalsByIdPutRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof GoalsApiGoalsByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {GoalsPutRequest}
-     * @memberof GoalsApiGoalsByIdPut
-     */
     readonly goalsPutRequest: GoalsPutRequest
 }
 
 /**
  * Request parameters for goalsGet operation in GoalsApi.
- * @export
- * @interface GoalsApiGoalsGetRequest
  */
 export interface GoalsApiGoalsGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsApiGoalsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsApiGoalsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for initiativesByInitiativeGoalsGet operation in GoalsApi.
- * @export
- * @interface GoalsApiInitiativesByInitiativeGoalsGetRequest
  */
 export interface GoalsApiInitiativesByInitiativeGoalsGetRequest {
     /**
      * InitiativeId identifier
-     * @type {string}
-     * @memberof GoalsApiInitiativesByInitiativeGoalsGet
      */
     readonly initiativeId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsApiInitiativesByInitiativeGoalsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsApiInitiativesByInitiativeGoalsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for productsByProductGoalsByIdDelete operation in GoalsApi.
- * @export
- * @interface GoalsApiProductsByProductGoalsByIdDeleteRequest
  */
 export interface GoalsApiProductsByProductGoalsByIdDeleteRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof GoalsApiProductsByProductGoalsByIdDelete
      */
     readonly productId: string
 
     /**
      * Id identifier
-     * @type {string}
-     * @memberof GoalsApiProductsByProductGoalsByIdDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for productsByProductGoalsByIdPut operation in GoalsApi.
- * @export
- * @interface GoalsApiProductsByProductGoalsByIdPutRequest
  */
 export interface GoalsApiProductsByProductGoalsByIdPutRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof GoalsApiProductsByProductGoalsByIdPut
      */
     readonly productId: string
 
     /**
      * Id identifier
-     * @type {string}
-     * @memberof GoalsApiProductsByProductGoalsByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {GoalsPostRequest}
-     * @memberof GoalsApiProductsByProductGoalsByIdPut
-     */
     readonly goalsPostRequest: GoalsPostRequest
 }
 
 /**
  * Request parameters for productsByProductGoalsGet operation in GoalsApi.
- * @export
- * @interface GoalsApiProductsByProductGoalsGetRequest
  */
 export interface GoalsApiProductsByProductGoalsGetRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof GoalsApiProductsByProductGoalsGet
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsApiProductsByProductGoalsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsApiProductsByProductGoalsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for productsByProductGoalsPost operation in GoalsApi.
- * @export
- * @interface GoalsApiProductsByProductGoalsPostRequest
  */
 export interface GoalsApiProductsByProductGoalsPostRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof GoalsApiProductsByProductGoalsPost
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {GoalsPostRequest}
-     * @memberof GoalsApiProductsByProductGoalsPost
-     */
     readonly goalsPostRequest: GoalsPostRequest
 }
 
 /**
  * GoalsApi - object-oriented interface
- * @export
- * @class GoalsApi
- * @extends {BaseAPI}
  */
 export class GoalsApi extends BaseAPI implements GoalsApiInterface {
     /**
@@ -943,7 +844,6 @@ export class GoalsApi extends BaseAPI implements GoalsApiInterface {
      * @param {GoalsApiGoalsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GoalsApi
      */
     public goalsByIdGet(requestParameters: GoalsApiGoalsByIdGetRequest, options?: RawAxiosRequestConfig) {
         return GoalsApiFp(this.configuration).goalsByIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -955,7 +855,6 @@ export class GoalsApi extends BaseAPI implements GoalsApiInterface {
      * @param {GoalsApiGoalsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GoalsApi
      */
     public goalsByIdPut(requestParameters: GoalsApiGoalsByIdPutRequest, options?: RawAxiosRequestConfig) {
         return GoalsApiFp(this.configuration).goalsByIdPut(requestParameters.id, requestParameters.goalsPutRequest, options).then((request) => request(this.axios, this.basePath));
@@ -967,7 +866,6 @@ export class GoalsApi extends BaseAPI implements GoalsApiInterface {
      * @param {GoalsApiGoalsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GoalsApi
      */
     public goalsGet(requestParameters: GoalsApiGoalsGetRequest = {}, options?: RawAxiosRequestConfig) {
         return GoalsApiFp(this.configuration).goalsGet(requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -979,7 +877,6 @@ export class GoalsApi extends BaseAPI implements GoalsApiInterface {
      * @param {GoalsApiInitiativesByInitiativeGoalsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GoalsApi
      */
     public initiativesByInitiativeGoalsGet(requestParameters: GoalsApiInitiativesByInitiativeGoalsGetRequest, options?: RawAxiosRequestConfig) {
         return GoalsApiFp(this.configuration).initiativesByInitiativeGoalsGet(requestParameters.initiativeId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -991,7 +888,6 @@ export class GoalsApi extends BaseAPI implements GoalsApiInterface {
      * @param {GoalsApiProductsByProductGoalsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GoalsApi
      */
     public productsByProductGoalsByIdDelete(requestParameters: GoalsApiProductsByProductGoalsByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return GoalsApiFp(this.configuration).productsByProductGoalsByIdDelete(requestParameters.productId, requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -1003,7 +899,6 @@ export class GoalsApi extends BaseAPI implements GoalsApiInterface {
      * @param {GoalsApiProductsByProductGoalsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GoalsApi
      */
     public productsByProductGoalsByIdPut(requestParameters: GoalsApiProductsByProductGoalsByIdPutRequest, options?: RawAxiosRequestConfig) {
         return GoalsApiFp(this.configuration).productsByProductGoalsByIdPut(requestParameters.productId, requestParameters.id, requestParameters.goalsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1015,7 +910,6 @@ export class GoalsApi extends BaseAPI implements GoalsApiInterface {
      * @param {GoalsApiProductsByProductGoalsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GoalsApi
      */
     public productsByProductGoalsGet(requestParameters: GoalsApiProductsByProductGoalsGetRequest, options?: RawAxiosRequestConfig) {
         return GoalsApiFp(this.configuration).productsByProductGoalsGet(requestParameters.productId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -1027,7 +921,6 @@ export class GoalsApi extends BaseAPI implements GoalsApiInterface {
      * @param {GoalsApiProductsByProductGoalsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GoalsApi
      */
     public productsByProductGoalsPost(requestParameters: GoalsApiProductsByProductGoalsPostRequest, options?: RawAxiosRequestConfig) {
         return GoalsApiFp(this.configuration).productsByProductGoalsPost(requestParameters.productId, requestParameters.goalsPostRequest, options).then((request) => request(this.axios, this.basePath));

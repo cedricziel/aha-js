@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface ReleasesPostResponseRelease
- */
 export interface ReleasesPostResponseRelease {
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesPostResponseRelease
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesPostResponseRelease
-     */
     'name'?: string;
 }
 

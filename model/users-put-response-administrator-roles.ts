@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface UsersPutResponseAdministratorRoles
- */
 export interface UsersPutResponseAdministratorRoles {
-    /**
-     * 
-     * @type {boolean}
-     * @memberof UsersPutResponseAdministratorRoles
-     */
     'administer_account'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof UsersPutResponseAdministratorRoles
-     */
     'administer_billing'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof UsersPutResponseAdministratorRoles
-     */
     'administer_configuration'?: boolean;
 }
 

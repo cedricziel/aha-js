@@ -34,150 +34,33 @@ import type { GoalsPutResponseGoalReleasesInner } from './goals-put-response-goa
 // May contain unused imports in some cases
 // @ts-ignore
 import type { GoalsPutResponseGoalSuccessMetric } from './goals-put-response-goal-success-metric';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface GoalsPutResponseGoal
- */
 export interface GoalsPutResponseGoal {
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoal
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoal
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoal
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof GoalsPutResponseGoal
-     */
     'effort'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof GoalsPutResponseGoal
-     */
     'value'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoal
-     */
     'color'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof GoalsPutResponseGoal
-     */
     'position'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoal
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoal
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoal
-     */
     'product_id'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof GoalsPutResponseGoal
-     */
-    'progress'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoal
-     */
+    'progress'?: Null;
     'progress_source'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoal
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoal
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {GoalsPutResponseGoalDescription}
-     * @memberof GoalsPutResponseGoal
-     */
     'description'?: GoalsPutResponseGoalDescription;
-    /**
-     * 
-     * @type {GoalsPutResponseGoalSuccessMetric}
-     * @memberof GoalsPutResponseGoal
-     */
     'success_metric'?: GoalsPutResponseGoalSuccessMetric;
-    /**
-     * 
-     * @type {EpicsPostResponseEpicProject}
-     * @memberof GoalsPutResponseGoal
-     */
     'project'?: EpicsPostResponseEpicProject;
-    /**
-     * 
-     * @type {Array<GoalsPutResponseGoalInitiativesInner>}
-     * @memberof GoalsPutResponseGoal
-     */
     'initiatives'?: Array<GoalsPutResponseGoalInitiativesInner>;
-    /**
-     * 
-     * @type {Array<FeaturesPutResponseFeatureKeyResultsInner>}
-     * @memberof GoalsPutResponseGoal
-     */
     'key_results'?: Array<FeaturesPutResponseFeatureKeyResultsInner>;
-    /**
-     * 
-     * @type {number}
-     * @memberof GoalsPutResponseGoal
-     */
     'comments_count'?: number;
-    /**
-     * 
-     * @type {Array<EpicsPutResponseEpicFeaturesInner>}
-     * @memberof GoalsPutResponseGoal
-     */
     'features'?: Array<EpicsPutResponseEpicFeaturesInner>;
-    /**
-     * 
-     * @type {Array<GoalsPutResponseGoalReleasesInner>}
-     * @memberof GoalsPutResponseGoal
-     */
     'releases'?: Array<GoalsPutResponseGoalReleasesInner>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof GoalsPutResponseGoal
-     */
     'custom_fields'?: Array<any>;
 }
 

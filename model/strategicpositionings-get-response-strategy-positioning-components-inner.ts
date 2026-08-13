@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface StrategicpositioningsGetResponseStrategyPositioningComponentsInner
- */
 export interface StrategicpositioningsGetResponseStrategyPositioningComponentsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicpositioningsGetResponseStrategyPositioningComponentsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicpositioningsGetResponseStrategyPositioningComponentsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicpositioningsGetResponseStrategyPositioningComponentsInner
-     */
     'description'?: string;
 }
 

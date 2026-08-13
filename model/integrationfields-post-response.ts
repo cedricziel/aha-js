@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { IntegrationfieldsPostResponseIntegrationField } from './integrationfields-post-response-integration-field';
 
-/**
- * 
- * @export
- * @interface IntegrationfieldsPostResponse
- */
 export interface IntegrationfieldsPostResponse {
-    /**
-     * 
-     * @type {IntegrationfieldsPostResponseIntegrationField}
-     * @memberof IntegrationfieldsPostResponse
-     */
     'integration_field'?: IntegrationfieldsPostResponseIntegrationField;
 }
 

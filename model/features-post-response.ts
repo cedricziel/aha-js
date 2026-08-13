@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { FeaturesPostResponseFeature } from './features-post-response-feature';
 
-/**
- * 
- * @export
- * @interface FeaturesPostResponse
- */
 export interface FeaturesPostResponse {
-    /**
-     * 
-     * @type {FeaturesPostResponseFeature}
-     * @memberof FeaturesPostResponse
-     */
     'feature'?: FeaturesPostResponseFeature;
 }
 

@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface CustomfieldoptionsGetResponseCustomFieldOptionsInner
- */
 export interface CustomfieldoptionsGetResponseCustomFieldOptionsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomfieldoptionsGetResponseCustomFieldOptionsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomfieldoptionsGetResponseCustomFieldOptionsInner
-     */
     'value'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof CustomfieldoptionsGetResponseCustomFieldOptionsInner
-     */
     'color'?: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof CustomfieldoptionsGetResponseCustomFieldOptionsInner
-     */
     'hidden'?: boolean;
 }
 

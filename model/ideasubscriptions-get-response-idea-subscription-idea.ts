@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeasubscriptionsGetResponseIdeaSubscriptionIdea
- */
 export interface IdeasubscriptionsGetResponseIdeaSubscriptionIdea {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasubscriptionsGetResponseIdeaSubscriptionIdea
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasubscriptionsGetResponseIdeaSubscriptionIdea
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasubscriptionsGetResponseIdeaSubscriptionIdea
-     */
     'reference_num'?: string;
 }
 

@@ -17,23 +17,8 @@
 // @ts-ignore
 import type { NotesPostRequestPageDescriptionAttributes } from './notes-post-request-page-description-attributes';
 
-/**
- * 
- * @export
- * @interface NotesPostRequestPage
- */
 export interface NotesPostRequestPage {
-    /**
-     * 
-     * @type {string}
-     * @memberof NotesPostRequestPage
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {NotesPostRequestPageDescriptionAttributes}
-     * @memberof NotesPostRequestPage
-     */
     'description_attributes'?: NotesPostRequestPageDescriptionAttributes;
 }
 

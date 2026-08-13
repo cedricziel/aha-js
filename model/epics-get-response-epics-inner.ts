@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface EpicsGetResponseEpicsInner
- */
 export interface EpicsGetResponseEpicsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsGetResponseEpicsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsGetResponseEpicsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsGetResponseEpicsInner
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsGetResponseEpicsInner
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsGetResponseEpicsInner
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsGetResponseEpicsInner
-     */
     'resource'?: string;
 }
 

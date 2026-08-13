@@ -13,78 +13,21 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface CompetitorsPostResponseCompetitor
- */
 export interface CompetitorsPostResponseCompetitor {
-    /**
-     * 
-     * @type {string}
-     * @memberof CompetitorsPostResponseCompetitor
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CompetitorsPostResponseCompetitor
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CompetitorsPostResponseCompetitor
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof CompetitorsPostResponseCompetitor
-     */
     'color'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof CompetitorsPostResponseCompetitor
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof CompetitorsPostResponseCompetitor
-     */
-    'subtitle'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof CompetitorsPostResponseCompetitor
-     */
+    'subtitle'?: Null;
     'updated_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CompetitorsPostResponseCompetitor
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CompetitorsPostResponseCompetitor
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof CompetitorsPostResponseCompetitor
-     */
     'custom_fields'?: Array<any>;
-    /**
-     * 
-     * @type {number}
-     * @memberof CompetitorsPostResponseCompetitor
-     */
     'comments_count'?: number;
 }
 

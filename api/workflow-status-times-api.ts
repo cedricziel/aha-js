@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { WorkflowstatustimesPostResponse } from '../model';
 import type { WorkflowstatustimesPutResponse } from '../model';
 /**
  * WorkflowStatusTimesApi - axios parameter creator
- * @export
  */
 export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -48,7 +47,7 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'epicId' is not null or undefined
             assertParamExists('epicsByEpicWorkflowStatusTimesGet', 'epicId', epicId)
             const localVarPath = `/epics/{epic_id}/workflow_status_times`
-                .replace(`{${"epic_id"}}`, encodeURIComponent(String(epicId)));
+                .replace('{epic_id}', encodeURIComponent(String(epicId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -78,8 +77,8 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -103,7 +102,7 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'workflowstatustimesPostRequest' is not null or undefined
             assertParamExists('epicsByEpicWorkflowStatusTimesPost', 'workflowstatustimesPostRequest', workflowstatustimesPostRequest)
             const localVarPath = `/epics/{epic_id}/workflow_status_times`
-                .replace(`{${"epic_id"}}`, encodeURIComponent(String(epicId)));
+                .replace('{epic_id}', encodeURIComponent(String(epicId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -125,9 +124,8 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -152,7 +150,7 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'featureId' is not null or undefined
             assertParamExists('featuresByFeatureWorkflowStatusTimesGet', 'featureId', featureId)
             const localVarPath = `/features/{feature_id}/workflow_status_times`
-                .replace(`{${"feature_id"}}`, encodeURIComponent(String(featureId)));
+                .replace('{feature_id}', encodeURIComponent(String(featureId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -182,8 +180,8 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -207,7 +205,7 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'workflowstatustimesPostRequest' is not null or undefined
             assertParamExists('featuresByFeatureWorkflowStatusTimesPost', 'workflowstatustimesPostRequest', workflowstatustimesPostRequest)
             const localVarPath = `/features/{feature_id}/workflow_status_times`
-                .replace(`{${"feature_id"}}`, encodeURIComponent(String(featureId)));
+                .replace('{feature_id}', encodeURIComponent(String(featureId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -229,9 +227,8 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -256,7 +253,7 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'ideaId' is not null or undefined
             assertParamExists('ideasByIdeaWorkflowStatusTimesGet', 'ideaId', ideaId)
             const localVarPath = `/ideas/{idea_id}/workflow_status_times`
-                .replace(`{${"idea_id"}}`, encodeURIComponent(String(ideaId)));
+                .replace('{idea_id}', encodeURIComponent(String(ideaId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -286,8 +283,8 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -311,7 +308,7 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'workflowstatustimesPostRequest' is not null or undefined
             assertParamExists('ideasByIdeaWorkflowStatusTimesPost', 'workflowstatustimesPostRequest', workflowstatustimesPostRequest)
             const localVarPath = `/ideas/{idea_id}/workflow_status_times`
-                .replace(`{${"idea_id"}}`, encodeURIComponent(String(ideaId)));
+                .replace('{idea_id}', encodeURIComponent(String(ideaId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -333,9 +330,8 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -360,7 +356,7 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'initiativeId' is not null or undefined
             assertParamExists('initiativesByInitiativeWorkflowStatusTimesGet', 'initiativeId', initiativeId)
             const localVarPath = `/initiatives/{initiative_id}/workflow_status_times`
-                .replace(`{${"initiative_id"}}`, encodeURIComponent(String(initiativeId)));
+                .replace('{initiative_id}', encodeURIComponent(String(initiativeId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -390,8 +386,8 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -415,7 +411,7 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'workflowstatustimesPostRequest' is not null or undefined
             assertParamExists('initiativesByInitiativeWorkflowStatusTimesPost', 'workflowstatustimesPostRequest', workflowstatustimesPostRequest)
             const localVarPath = `/initiatives/{initiative_id}/workflow_status_times`
-                .replace(`{${"initiative_id"}}`, encodeURIComponent(String(initiativeId)));
+                .replace('{initiative_id}', encodeURIComponent(String(initiativeId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -437,9 +433,8 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -464,7 +459,7 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'keyResultId' is not null or undefined
             assertParamExists('keyResultsByKeyResultWorkflowStatusTimesGet', 'keyResultId', keyResultId)
             const localVarPath = `/key_results/{key_result_id}/workflow_status_times`
-                .replace(`{${"key_result_id"}}`, encodeURIComponent(String(keyResultId)));
+                .replace('{key_result_id}', encodeURIComponent(String(keyResultId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -494,8 +489,8 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -519,7 +514,7 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'workflowstatustimesPostRequest' is not null or undefined
             assertParamExists('keyResultsByKeyResultWorkflowStatusTimesPost', 'workflowstatustimesPostRequest', workflowstatustimesPostRequest)
             const localVarPath = `/key_results/{key_result_id}/workflow_status_times`
-                .replace(`{${"key_result_id"}}`, encodeURIComponent(String(keyResultId)));
+                .replace('{key_result_id}', encodeURIComponent(String(keyResultId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -541,9 +536,8 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -568,7 +562,7 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'masterFeatureId' is not null or undefined
             assertParamExists('masterFeaturesByMasterFeatureWorkflowStatusTimesGet', 'masterFeatureId', masterFeatureId)
             const localVarPath = `/master_features/{master_feature_id}/workflow_status_times`
-                .replace(`{${"master_feature_id"}}`, encodeURIComponent(String(masterFeatureId)));
+                .replace('{master_feature_id}', encodeURIComponent(String(masterFeatureId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -598,8 +592,8 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -623,7 +617,7 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'workflowstatustimesPostRequest' is not null or undefined
             assertParamExists('masterFeaturesByMasterFeatureWorkflowStatusTimesPost', 'workflowstatustimesPostRequest', workflowstatustimesPostRequest)
             const localVarPath = `/master_features/{master_feature_id}/workflow_status_times`
-                .replace(`{${"master_feature_id"}}`, encodeURIComponent(String(masterFeatureId)));
+                .replace('{master_feature_id}', encodeURIComponent(String(masterFeatureId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -645,9 +639,8 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -672,7 +665,7 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'pageId' is not null or undefined
             assertParamExists('pagesByPageWorkflowStatusTimesGet', 'pageId', pageId)
             const localVarPath = `/pages/{page_id}/workflow_status_times`
-                .replace(`{${"page_id"}}`, encodeURIComponent(String(pageId)));
+                .replace('{page_id}', encodeURIComponent(String(pageId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -702,8 +695,8 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -727,7 +720,7 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'workflowstatustimesPostRequest' is not null or undefined
             assertParamExists('pagesByPageWorkflowStatusTimesPost', 'workflowstatustimesPostRequest', workflowstatustimesPostRequest)
             const localVarPath = `/pages/{page_id}/workflow_status_times`
-                .replace(`{${"page_id"}}`, encodeURIComponent(String(pageId)));
+                .replace('{page_id}', encodeURIComponent(String(pageId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -749,9 +742,8 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -776,7 +768,7 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'releaseId' is not null or undefined
             assertParamExists('releasesByReleaseWorkflowStatusTimesGet', 'releaseId', releaseId)
             const localVarPath = `/releases/{release_id}/workflow_status_times`
-                .replace(`{${"release_id"}}`, encodeURIComponent(String(releaseId)));
+                .replace('{release_id}', encodeURIComponent(String(releaseId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -806,8 +798,8 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -831,7 +823,7 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'workflowstatustimesPostRequest' is not null or undefined
             assertParamExists('releasesByReleaseWorkflowStatusTimesPost', 'workflowstatustimesPostRequest', workflowstatustimesPostRequest)
             const localVarPath = `/releases/{release_id}/workflow_status_times`
-                .replace(`{${"release_id"}}`, encodeURIComponent(String(releaseId)));
+                .replace('{release_id}', encodeURIComponent(String(releaseId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -853,9 +845,8 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -880,7 +871,7 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'requirementId' is not null or undefined
             assertParamExists('requirementsByRequirementWorkflowStatusTimesGet', 'requirementId', requirementId)
             const localVarPath = `/requirements/{requirement_id}/workflow_status_times`
-                .replace(`{${"requirement_id"}}`, encodeURIComponent(String(requirementId)));
+                .replace('{requirement_id}', encodeURIComponent(String(requirementId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -910,8 +901,8 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -935,7 +926,7 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'workflowstatustimesPostRequest' is not null or undefined
             assertParamExists('requirementsByRequirementWorkflowStatusTimesPost', 'workflowstatustimesPostRequest', workflowstatustimesPostRequest)
             const localVarPath = `/requirements/{requirement_id}/workflow_status_times`
-                .replace(`{${"requirement_id"}}`, encodeURIComponent(String(requirementId)));
+                .replace('{requirement_id}', encodeURIComponent(String(requirementId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -957,9 +948,8 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -982,7 +972,7 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'id' is not null or undefined
             assertParamExists('workflowStatusTimesByIdDelete', 'id', id)
             const localVarPath = `/workflow_status_times/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1005,7 +995,6 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -1026,7 +1015,7 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'id' is not null or undefined
             assertParamExists('workflowStatusTimesByIdGet', 'id', id)
             const localVarPath = `/workflow_status_times/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1048,8 +1037,8 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -1073,7 +1062,7 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             // verify required parameter 'workflowstatustimesPostRequest' is not null or undefined
             assertParamExists('workflowStatusTimesByIdPut', 'workflowstatustimesPostRequest', workflowstatustimesPostRequest)
             const localVarPath = `/workflow_status_times/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1095,9 +1084,8 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -1114,7 +1102,6 @@ export const WorkflowStatusTimesApiAxiosParamCreator = function (configuration?:
 
 /**
  * WorkflowStatusTimesApi - functional programming interface
- * @export
  */
 export const WorkflowStatusTimesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = WorkflowStatusTimesApiAxiosParamCreator(configuration)
@@ -1425,7 +1412,6 @@ export const WorkflowStatusTimesApiFp = function(configuration?: Configuration) 
 
 /**
  * WorkflowStatusTimesApi - factory interface
- * @export
  */
 export const WorkflowStatusTimesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = WorkflowStatusTimesApiFp(configuration)
@@ -1645,8 +1631,6 @@ export const WorkflowStatusTimesApiFactory = function (configuration?: Configura
 
 /**
  * WorkflowStatusTimesApi - interface
- * @export
- * @interface WorkflowStatusTimesApi
  */
 export interface WorkflowStatusTimesApiInterface {
     /**
@@ -1655,7 +1639,6 @@ export interface WorkflowStatusTimesApiInterface {
      * @param {WorkflowStatusTimesApiEpicsByEpicWorkflowStatusTimesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApiInterface
      */
     epicsByEpicWorkflowStatusTimesGet(requestParameters: WorkflowStatusTimesApiEpicsByEpicWorkflowStatusTimesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<WorkflowstatustimesGetResponse>;
 
@@ -1665,7 +1648,6 @@ export interface WorkflowStatusTimesApiInterface {
      * @param {WorkflowStatusTimesApiEpicsByEpicWorkflowStatusTimesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApiInterface
      */
     epicsByEpicWorkflowStatusTimesPost(requestParameters: WorkflowStatusTimesApiEpicsByEpicWorkflowStatusTimesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<WorkflowstatustimesPostResponse>;
 
@@ -1675,7 +1657,6 @@ export interface WorkflowStatusTimesApiInterface {
      * @param {WorkflowStatusTimesApiFeaturesByFeatureWorkflowStatusTimesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApiInterface
      */
     featuresByFeatureWorkflowStatusTimesGet(requestParameters: WorkflowStatusTimesApiFeaturesByFeatureWorkflowStatusTimesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<WorkflowstatustimesGetResponse>;
 
@@ -1685,7 +1666,6 @@ export interface WorkflowStatusTimesApiInterface {
      * @param {WorkflowStatusTimesApiFeaturesByFeatureWorkflowStatusTimesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApiInterface
      */
     featuresByFeatureWorkflowStatusTimesPost(requestParameters: WorkflowStatusTimesApiFeaturesByFeatureWorkflowStatusTimesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<WorkflowstatustimesPostResponse>;
 
@@ -1695,7 +1675,6 @@ export interface WorkflowStatusTimesApiInterface {
      * @param {WorkflowStatusTimesApiIdeasByIdeaWorkflowStatusTimesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApiInterface
      */
     ideasByIdeaWorkflowStatusTimesGet(requestParameters: WorkflowStatusTimesApiIdeasByIdeaWorkflowStatusTimesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<WorkflowstatustimesGetResponse>;
 
@@ -1705,7 +1684,6 @@ export interface WorkflowStatusTimesApiInterface {
      * @param {WorkflowStatusTimesApiIdeasByIdeaWorkflowStatusTimesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApiInterface
      */
     ideasByIdeaWorkflowStatusTimesPost(requestParameters: WorkflowStatusTimesApiIdeasByIdeaWorkflowStatusTimesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<WorkflowstatustimesPostResponse>;
 
@@ -1715,7 +1693,6 @@ export interface WorkflowStatusTimesApiInterface {
      * @param {WorkflowStatusTimesApiInitiativesByInitiativeWorkflowStatusTimesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApiInterface
      */
     initiativesByInitiativeWorkflowStatusTimesGet(requestParameters: WorkflowStatusTimesApiInitiativesByInitiativeWorkflowStatusTimesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<WorkflowstatustimesGetResponse>;
 
@@ -1725,7 +1702,6 @@ export interface WorkflowStatusTimesApiInterface {
      * @param {WorkflowStatusTimesApiInitiativesByInitiativeWorkflowStatusTimesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApiInterface
      */
     initiativesByInitiativeWorkflowStatusTimesPost(requestParameters: WorkflowStatusTimesApiInitiativesByInitiativeWorkflowStatusTimesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<WorkflowstatustimesPostResponse>;
 
@@ -1735,7 +1711,6 @@ export interface WorkflowStatusTimesApiInterface {
      * @param {WorkflowStatusTimesApiKeyResultsByKeyResultWorkflowStatusTimesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApiInterface
      */
     keyResultsByKeyResultWorkflowStatusTimesGet(requestParameters: WorkflowStatusTimesApiKeyResultsByKeyResultWorkflowStatusTimesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<WorkflowstatustimesGetResponse>;
 
@@ -1745,7 +1720,6 @@ export interface WorkflowStatusTimesApiInterface {
      * @param {WorkflowStatusTimesApiKeyResultsByKeyResultWorkflowStatusTimesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApiInterface
      */
     keyResultsByKeyResultWorkflowStatusTimesPost(requestParameters: WorkflowStatusTimesApiKeyResultsByKeyResultWorkflowStatusTimesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<WorkflowstatustimesPostResponse>;
 
@@ -1755,7 +1729,6 @@ export interface WorkflowStatusTimesApiInterface {
      * @param {WorkflowStatusTimesApiMasterFeaturesByMasterFeatureWorkflowStatusTimesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApiInterface
      */
     masterFeaturesByMasterFeatureWorkflowStatusTimesGet(requestParameters: WorkflowStatusTimesApiMasterFeaturesByMasterFeatureWorkflowStatusTimesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<WorkflowstatustimesGetResponse>;
 
@@ -1765,7 +1738,6 @@ export interface WorkflowStatusTimesApiInterface {
      * @param {WorkflowStatusTimesApiMasterFeaturesByMasterFeatureWorkflowStatusTimesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApiInterface
      */
     masterFeaturesByMasterFeatureWorkflowStatusTimesPost(requestParameters: WorkflowStatusTimesApiMasterFeaturesByMasterFeatureWorkflowStatusTimesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<WorkflowstatustimesPostResponse>;
 
@@ -1775,7 +1747,6 @@ export interface WorkflowStatusTimesApiInterface {
      * @param {WorkflowStatusTimesApiPagesByPageWorkflowStatusTimesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApiInterface
      */
     pagesByPageWorkflowStatusTimesGet(requestParameters: WorkflowStatusTimesApiPagesByPageWorkflowStatusTimesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<WorkflowstatustimesGetResponse>;
 
@@ -1785,7 +1756,6 @@ export interface WorkflowStatusTimesApiInterface {
      * @param {WorkflowStatusTimesApiPagesByPageWorkflowStatusTimesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApiInterface
      */
     pagesByPageWorkflowStatusTimesPost(requestParameters: WorkflowStatusTimesApiPagesByPageWorkflowStatusTimesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<WorkflowstatustimesPostResponse>;
 
@@ -1795,7 +1765,6 @@ export interface WorkflowStatusTimesApiInterface {
      * @param {WorkflowStatusTimesApiReleasesByReleaseWorkflowStatusTimesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApiInterface
      */
     releasesByReleaseWorkflowStatusTimesGet(requestParameters: WorkflowStatusTimesApiReleasesByReleaseWorkflowStatusTimesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<WorkflowstatustimesGetResponse>;
 
@@ -1805,7 +1774,6 @@ export interface WorkflowStatusTimesApiInterface {
      * @param {WorkflowStatusTimesApiReleasesByReleaseWorkflowStatusTimesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApiInterface
      */
     releasesByReleaseWorkflowStatusTimesPost(requestParameters: WorkflowStatusTimesApiReleasesByReleaseWorkflowStatusTimesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<WorkflowstatustimesPostResponse>;
 
@@ -1815,7 +1783,6 @@ export interface WorkflowStatusTimesApiInterface {
      * @param {WorkflowStatusTimesApiRequirementsByRequirementWorkflowStatusTimesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApiInterface
      */
     requirementsByRequirementWorkflowStatusTimesGet(requestParameters: WorkflowStatusTimesApiRequirementsByRequirementWorkflowStatusTimesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<WorkflowstatustimesGetResponse>;
 
@@ -1825,7 +1792,6 @@ export interface WorkflowStatusTimesApiInterface {
      * @param {WorkflowStatusTimesApiRequirementsByRequirementWorkflowStatusTimesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApiInterface
      */
     requirementsByRequirementWorkflowStatusTimesPost(requestParameters: WorkflowStatusTimesApiRequirementsByRequirementWorkflowStatusTimesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<WorkflowstatustimesPostResponse>;
 
@@ -1835,7 +1801,6 @@ export interface WorkflowStatusTimesApiInterface {
      * @param {WorkflowStatusTimesApiWorkflowStatusTimesByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApiInterface
      */
     workflowStatusTimesByIdDelete(requestParameters: WorkflowStatusTimesApiWorkflowStatusTimesByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -1845,7 +1810,6 @@ export interface WorkflowStatusTimesApiInterface {
      * @param {WorkflowStatusTimesApiWorkflowStatusTimesByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApiInterface
      */
     workflowStatusTimesByIdGet(requestParameters: WorkflowStatusTimesApiWorkflowStatusTimesByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<WorkflowstatustimesGetResponse>;
 
@@ -1855,7 +1819,6 @@ export interface WorkflowStatusTimesApiInterface {
      * @param {WorkflowStatusTimesApiWorkflowStatusTimesByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApiInterface
      */
     workflowStatusTimesByIdPut(requestParameters: WorkflowStatusTimesApiWorkflowStatusTimesByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<WorkflowstatustimesPutResponse>;
 
@@ -1863,499 +1826,272 @@ export interface WorkflowStatusTimesApiInterface {
 
 /**
  * Request parameters for epicsByEpicWorkflowStatusTimesGet operation in WorkflowStatusTimesApi.
- * @export
- * @interface WorkflowStatusTimesApiEpicsByEpicWorkflowStatusTimesGetRequest
  */
 export interface WorkflowStatusTimesApiEpicsByEpicWorkflowStatusTimesGetRequest {
     /**
      * EpicId identifier
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiEpicsByEpicWorkflowStatusTimesGet
      */
     readonly epicId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiEpicsByEpicWorkflowStatusTimesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiEpicsByEpicWorkflowStatusTimesGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for epicsByEpicWorkflowStatusTimesPost operation in WorkflowStatusTimesApi.
- * @export
- * @interface WorkflowStatusTimesApiEpicsByEpicWorkflowStatusTimesPostRequest
  */
 export interface WorkflowStatusTimesApiEpicsByEpicWorkflowStatusTimesPostRequest {
     /**
      * EpicId identifier
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiEpicsByEpicWorkflowStatusTimesPost
      */
     readonly epicId: string
 
-    /**
-     * 
-     * @type {WorkflowstatustimesPostRequest}
-     * @memberof WorkflowStatusTimesApiEpicsByEpicWorkflowStatusTimesPost
-     */
     readonly workflowstatustimesPostRequest: WorkflowstatustimesPostRequest
 }
 
 /**
  * Request parameters for featuresByFeatureWorkflowStatusTimesGet operation in WorkflowStatusTimesApi.
- * @export
- * @interface WorkflowStatusTimesApiFeaturesByFeatureWorkflowStatusTimesGetRequest
  */
 export interface WorkflowStatusTimesApiFeaturesByFeatureWorkflowStatusTimesGetRequest {
     /**
      * FeatureId identifier
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiFeaturesByFeatureWorkflowStatusTimesGet
      */
     readonly featureId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiFeaturesByFeatureWorkflowStatusTimesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiFeaturesByFeatureWorkflowStatusTimesGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for featuresByFeatureWorkflowStatusTimesPost operation in WorkflowStatusTimesApi.
- * @export
- * @interface WorkflowStatusTimesApiFeaturesByFeatureWorkflowStatusTimesPostRequest
  */
 export interface WorkflowStatusTimesApiFeaturesByFeatureWorkflowStatusTimesPostRequest {
     /**
      * FeatureId identifier
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiFeaturesByFeatureWorkflowStatusTimesPost
      */
     readonly featureId: string
 
-    /**
-     * 
-     * @type {WorkflowstatustimesPostRequest}
-     * @memberof WorkflowStatusTimesApiFeaturesByFeatureWorkflowStatusTimesPost
-     */
     readonly workflowstatustimesPostRequest: WorkflowstatustimesPostRequest
 }
 
 /**
  * Request parameters for ideasByIdeaWorkflowStatusTimesGet operation in WorkflowStatusTimesApi.
- * @export
- * @interface WorkflowStatusTimesApiIdeasByIdeaWorkflowStatusTimesGetRequest
  */
 export interface WorkflowStatusTimesApiIdeasByIdeaWorkflowStatusTimesGetRequest {
     /**
      * IdeaId identifier
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiIdeasByIdeaWorkflowStatusTimesGet
      */
     readonly ideaId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiIdeasByIdeaWorkflowStatusTimesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiIdeasByIdeaWorkflowStatusTimesGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for ideasByIdeaWorkflowStatusTimesPost operation in WorkflowStatusTimesApi.
- * @export
- * @interface WorkflowStatusTimesApiIdeasByIdeaWorkflowStatusTimesPostRequest
  */
 export interface WorkflowStatusTimesApiIdeasByIdeaWorkflowStatusTimesPostRequest {
     /**
      * IdeaId identifier
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiIdeasByIdeaWorkflowStatusTimesPost
      */
     readonly ideaId: string
 
-    /**
-     * 
-     * @type {WorkflowstatustimesPostRequest}
-     * @memberof WorkflowStatusTimesApiIdeasByIdeaWorkflowStatusTimesPost
-     */
     readonly workflowstatustimesPostRequest: WorkflowstatustimesPostRequest
 }
 
 /**
  * Request parameters for initiativesByInitiativeWorkflowStatusTimesGet operation in WorkflowStatusTimesApi.
- * @export
- * @interface WorkflowStatusTimesApiInitiativesByInitiativeWorkflowStatusTimesGetRequest
  */
 export interface WorkflowStatusTimesApiInitiativesByInitiativeWorkflowStatusTimesGetRequest {
     /**
      * InitiativeId identifier
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiInitiativesByInitiativeWorkflowStatusTimesGet
      */
     readonly initiativeId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiInitiativesByInitiativeWorkflowStatusTimesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiInitiativesByInitiativeWorkflowStatusTimesGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for initiativesByInitiativeWorkflowStatusTimesPost operation in WorkflowStatusTimesApi.
- * @export
- * @interface WorkflowStatusTimesApiInitiativesByInitiativeWorkflowStatusTimesPostRequest
  */
 export interface WorkflowStatusTimesApiInitiativesByInitiativeWorkflowStatusTimesPostRequest {
     /**
      * InitiativeId identifier
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiInitiativesByInitiativeWorkflowStatusTimesPost
      */
     readonly initiativeId: string
 
-    /**
-     * 
-     * @type {WorkflowstatustimesPostRequest}
-     * @memberof WorkflowStatusTimesApiInitiativesByInitiativeWorkflowStatusTimesPost
-     */
     readonly workflowstatustimesPostRequest: WorkflowstatustimesPostRequest
 }
 
 /**
  * Request parameters for keyResultsByKeyResultWorkflowStatusTimesGet operation in WorkflowStatusTimesApi.
- * @export
- * @interface WorkflowStatusTimesApiKeyResultsByKeyResultWorkflowStatusTimesGetRequest
  */
 export interface WorkflowStatusTimesApiKeyResultsByKeyResultWorkflowStatusTimesGetRequest {
     /**
      * KeyResultId identifier
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiKeyResultsByKeyResultWorkflowStatusTimesGet
      */
     readonly keyResultId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiKeyResultsByKeyResultWorkflowStatusTimesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiKeyResultsByKeyResultWorkflowStatusTimesGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for keyResultsByKeyResultWorkflowStatusTimesPost operation in WorkflowStatusTimesApi.
- * @export
- * @interface WorkflowStatusTimesApiKeyResultsByKeyResultWorkflowStatusTimesPostRequest
  */
 export interface WorkflowStatusTimesApiKeyResultsByKeyResultWorkflowStatusTimesPostRequest {
     /**
      * KeyResultId identifier
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiKeyResultsByKeyResultWorkflowStatusTimesPost
      */
     readonly keyResultId: string
 
-    /**
-     * 
-     * @type {WorkflowstatustimesPostRequest}
-     * @memberof WorkflowStatusTimesApiKeyResultsByKeyResultWorkflowStatusTimesPost
-     */
     readonly workflowstatustimesPostRequest: WorkflowstatustimesPostRequest
 }
 
 /**
  * Request parameters for masterFeaturesByMasterFeatureWorkflowStatusTimesGet operation in WorkflowStatusTimesApi.
- * @export
- * @interface WorkflowStatusTimesApiMasterFeaturesByMasterFeatureWorkflowStatusTimesGetRequest
  */
 export interface WorkflowStatusTimesApiMasterFeaturesByMasterFeatureWorkflowStatusTimesGetRequest {
     /**
      * MasterFeatureId identifier
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiMasterFeaturesByMasterFeatureWorkflowStatusTimesGet
      */
     readonly masterFeatureId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiMasterFeaturesByMasterFeatureWorkflowStatusTimesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiMasterFeaturesByMasterFeatureWorkflowStatusTimesGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for masterFeaturesByMasterFeatureWorkflowStatusTimesPost operation in WorkflowStatusTimesApi.
- * @export
- * @interface WorkflowStatusTimesApiMasterFeaturesByMasterFeatureWorkflowStatusTimesPostRequest
  */
 export interface WorkflowStatusTimesApiMasterFeaturesByMasterFeatureWorkflowStatusTimesPostRequest {
     /**
      * MasterFeatureId identifier
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiMasterFeaturesByMasterFeatureWorkflowStatusTimesPost
      */
     readonly masterFeatureId: string
 
-    /**
-     * 
-     * @type {WorkflowstatustimesPostRequest}
-     * @memberof WorkflowStatusTimesApiMasterFeaturesByMasterFeatureWorkflowStatusTimesPost
-     */
     readonly workflowstatustimesPostRequest: WorkflowstatustimesPostRequest
 }
 
 /**
  * Request parameters for pagesByPageWorkflowStatusTimesGet operation in WorkflowStatusTimesApi.
- * @export
- * @interface WorkflowStatusTimesApiPagesByPageWorkflowStatusTimesGetRequest
  */
 export interface WorkflowStatusTimesApiPagesByPageWorkflowStatusTimesGetRequest {
     /**
      * PageId identifier
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiPagesByPageWorkflowStatusTimesGet
      */
     readonly pageId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiPagesByPageWorkflowStatusTimesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiPagesByPageWorkflowStatusTimesGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for pagesByPageWorkflowStatusTimesPost operation in WorkflowStatusTimesApi.
- * @export
- * @interface WorkflowStatusTimesApiPagesByPageWorkflowStatusTimesPostRequest
  */
 export interface WorkflowStatusTimesApiPagesByPageWorkflowStatusTimesPostRequest {
     /**
      * PageId identifier
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiPagesByPageWorkflowStatusTimesPost
      */
     readonly pageId: string
 
-    /**
-     * 
-     * @type {WorkflowstatustimesPostRequest}
-     * @memberof WorkflowStatusTimesApiPagesByPageWorkflowStatusTimesPost
-     */
     readonly workflowstatustimesPostRequest: WorkflowstatustimesPostRequest
 }
 
 /**
  * Request parameters for releasesByReleaseWorkflowStatusTimesGet operation in WorkflowStatusTimesApi.
- * @export
- * @interface WorkflowStatusTimesApiReleasesByReleaseWorkflowStatusTimesGetRequest
  */
 export interface WorkflowStatusTimesApiReleasesByReleaseWorkflowStatusTimesGetRequest {
     /**
      * ReleaseId identifier
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiReleasesByReleaseWorkflowStatusTimesGet
      */
     readonly releaseId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiReleasesByReleaseWorkflowStatusTimesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiReleasesByReleaseWorkflowStatusTimesGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for releasesByReleaseWorkflowStatusTimesPost operation in WorkflowStatusTimesApi.
- * @export
- * @interface WorkflowStatusTimesApiReleasesByReleaseWorkflowStatusTimesPostRequest
  */
 export interface WorkflowStatusTimesApiReleasesByReleaseWorkflowStatusTimesPostRequest {
     /**
      * ReleaseId identifier
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiReleasesByReleaseWorkflowStatusTimesPost
      */
     readonly releaseId: string
 
-    /**
-     * 
-     * @type {WorkflowstatustimesPostRequest}
-     * @memberof WorkflowStatusTimesApiReleasesByReleaseWorkflowStatusTimesPost
-     */
     readonly workflowstatustimesPostRequest: WorkflowstatustimesPostRequest
 }
 
 /**
  * Request parameters for requirementsByRequirementWorkflowStatusTimesGet operation in WorkflowStatusTimesApi.
- * @export
- * @interface WorkflowStatusTimesApiRequirementsByRequirementWorkflowStatusTimesGetRequest
  */
 export interface WorkflowStatusTimesApiRequirementsByRequirementWorkflowStatusTimesGetRequest {
     /**
      * RequirementId identifier
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiRequirementsByRequirementWorkflowStatusTimesGet
      */
     readonly requirementId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiRequirementsByRequirementWorkflowStatusTimesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiRequirementsByRequirementWorkflowStatusTimesGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for requirementsByRequirementWorkflowStatusTimesPost operation in WorkflowStatusTimesApi.
- * @export
- * @interface WorkflowStatusTimesApiRequirementsByRequirementWorkflowStatusTimesPostRequest
  */
 export interface WorkflowStatusTimesApiRequirementsByRequirementWorkflowStatusTimesPostRequest {
     /**
      * RequirementId identifier
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiRequirementsByRequirementWorkflowStatusTimesPost
      */
     readonly requirementId: string
 
-    /**
-     * 
-     * @type {WorkflowstatustimesPostRequest}
-     * @memberof WorkflowStatusTimesApiRequirementsByRequirementWorkflowStatusTimesPost
-     */
     readonly workflowstatustimesPostRequest: WorkflowstatustimesPostRequest
 }
 
 /**
  * Request parameters for workflowStatusTimesByIdDelete operation in WorkflowStatusTimesApi.
- * @export
- * @interface WorkflowStatusTimesApiWorkflowStatusTimesByIdDeleteRequest
  */
 export interface WorkflowStatusTimesApiWorkflowStatusTimesByIdDeleteRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiWorkflowStatusTimesByIdDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for workflowStatusTimesByIdGet operation in WorkflowStatusTimesApi.
- * @export
- * @interface WorkflowStatusTimesApiWorkflowStatusTimesByIdGetRequest
  */
 export interface WorkflowStatusTimesApiWorkflowStatusTimesByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiWorkflowStatusTimesByIdGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for workflowStatusTimesByIdPut operation in WorkflowStatusTimesApi.
- * @export
- * @interface WorkflowStatusTimesApiWorkflowStatusTimesByIdPutRequest
  */
 export interface WorkflowStatusTimesApiWorkflowStatusTimesByIdPutRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof WorkflowStatusTimesApiWorkflowStatusTimesByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {WorkflowstatustimesPostRequest}
-     * @memberof WorkflowStatusTimesApiWorkflowStatusTimesByIdPut
-     */
     readonly workflowstatustimesPostRequest: WorkflowstatustimesPostRequest
 }
 
 /**
  * WorkflowStatusTimesApi - object-oriented interface
- * @export
- * @class WorkflowStatusTimesApi
- * @extends {BaseAPI}
  */
 export class WorkflowStatusTimesApi extends BaseAPI implements WorkflowStatusTimesApiInterface {
     /**
@@ -2364,7 +2100,6 @@ export class WorkflowStatusTimesApi extends BaseAPI implements WorkflowStatusTim
      * @param {WorkflowStatusTimesApiEpicsByEpicWorkflowStatusTimesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApi
      */
     public epicsByEpicWorkflowStatusTimesGet(requestParameters: WorkflowStatusTimesApiEpicsByEpicWorkflowStatusTimesGetRequest, options?: RawAxiosRequestConfig) {
         return WorkflowStatusTimesApiFp(this.configuration).epicsByEpicWorkflowStatusTimesGet(requestParameters.epicId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -2376,7 +2111,6 @@ export class WorkflowStatusTimesApi extends BaseAPI implements WorkflowStatusTim
      * @param {WorkflowStatusTimesApiEpicsByEpicWorkflowStatusTimesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApi
      */
     public epicsByEpicWorkflowStatusTimesPost(requestParameters: WorkflowStatusTimesApiEpicsByEpicWorkflowStatusTimesPostRequest, options?: RawAxiosRequestConfig) {
         return WorkflowStatusTimesApiFp(this.configuration).epicsByEpicWorkflowStatusTimesPost(requestParameters.epicId, requestParameters.workflowstatustimesPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2388,7 +2122,6 @@ export class WorkflowStatusTimesApi extends BaseAPI implements WorkflowStatusTim
      * @param {WorkflowStatusTimesApiFeaturesByFeatureWorkflowStatusTimesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApi
      */
     public featuresByFeatureWorkflowStatusTimesGet(requestParameters: WorkflowStatusTimesApiFeaturesByFeatureWorkflowStatusTimesGetRequest, options?: RawAxiosRequestConfig) {
         return WorkflowStatusTimesApiFp(this.configuration).featuresByFeatureWorkflowStatusTimesGet(requestParameters.featureId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -2400,7 +2133,6 @@ export class WorkflowStatusTimesApi extends BaseAPI implements WorkflowStatusTim
      * @param {WorkflowStatusTimesApiFeaturesByFeatureWorkflowStatusTimesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApi
      */
     public featuresByFeatureWorkflowStatusTimesPost(requestParameters: WorkflowStatusTimesApiFeaturesByFeatureWorkflowStatusTimesPostRequest, options?: RawAxiosRequestConfig) {
         return WorkflowStatusTimesApiFp(this.configuration).featuresByFeatureWorkflowStatusTimesPost(requestParameters.featureId, requestParameters.workflowstatustimesPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2412,7 +2144,6 @@ export class WorkflowStatusTimesApi extends BaseAPI implements WorkflowStatusTim
      * @param {WorkflowStatusTimesApiIdeasByIdeaWorkflowStatusTimesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApi
      */
     public ideasByIdeaWorkflowStatusTimesGet(requestParameters: WorkflowStatusTimesApiIdeasByIdeaWorkflowStatusTimesGetRequest, options?: RawAxiosRequestConfig) {
         return WorkflowStatusTimesApiFp(this.configuration).ideasByIdeaWorkflowStatusTimesGet(requestParameters.ideaId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -2424,7 +2155,6 @@ export class WorkflowStatusTimesApi extends BaseAPI implements WorkflowStatusTim
      * @param {WorkflowStatusTimesApiIdeasByIdeaWorkflowStatusTimesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApi
      */
     public ideasByIdeaWorkflowStatusTimesPost(requestParameters: WorkflowStatusTimesApiIdeasByIdeaWorkflowStatusTimesPostRequest, options?: RawAxiosRequestConfig) {
         return WorkflowStatusTimesApiFp(this.configuration).ideasByIdeaWorkflowStatusTimesPost(requestParameters.ideaId, requestParameters.workflowstatustimesPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2436,7 +2166,6 @@ export class WorkflowStatusTimesApi extends BaseAPI implements WorkflowStatusTim
      * @param {WorkflowStatusTimesApiInitiativesByInitiativeWorkflowStatusTimesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApi
      */
     public initiativesByInitiativeWorkflowStatusTimesGet(requestParameters: WorkflowStatusTimesApiInitiativesByInitiativeWorkflowStatusTimesGetRequest, options?: RawAxiosRequestConfig) {
         return WorkflowStatusTimesApiFp(this.configuration).initiativesByInitiativeWorkflowStatusTimesGet(requestParameters.initiativeId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -2448,7 +2177,6 @@ export class WorkflowStatusTimesApi extends BaseAPI implements WorkflowStatusTim
      * @param {WorkflowStatusTimesApiInitiativesByInitiativeWorkflowStatusTimesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApi
      */
     public initiativesByInitiativeWorkflowStatusTimesPost(requestParameters: WorkflowStatusTimesApiInitiativesByInitiativeWorkflowStatusTimesPostRequest, options?: RawAxiosRequestConfig) {
         return WorkflowStatusTimesApiFp(this.configuration).initiativesByInitiativeWorkflowStatusTimesPost(requestParameters.initiativeId, requestParameters.workflowstatustimesPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2460,7 +2188,6 @@ export class WorkflowStatusTimesApi extends BaseAPI implements WorkflowStatusTim
      * @param {WorkflowStatusTimesApiKeyResultsByKeyResultWorkflowStatusTimesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApi
      */
     public keyResultsByKeyResultWorkflowStatusTimesGet(requestParameters: WorkflowStatusTimesApiKeyResultsByKeyResultWorkflowStatusTimesGetRequest, options?: RawAxiosRequestConfig) {
         return WorkflowStatusTimesApiFp(this.configuration).keyResultsByKeyResultWorkflowStatusTimesGet(requestParameters.keyResultId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -2472,7 +2199,6 @@ export class WorkflowStatusTimesApi extends BaseAPI implements WorkflowStatusTim
      * @param {WorkflowStatusTimesApiKeyResultsByKeyResultWorkflowStatusTimesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApi
      */
     public keyResultsByKeyResultWorkflowStatusTimesPost(requestParameters: WorkflowStatusTimesApiKeyResultsByKeyResultWorkflowStatusTimesPostRequest, options?: RawAxiosRequestConfig) {
         return WorkflowStatusTimesApiFp(this.configuration).keyResultsByKeyResultWorkflowStatusTimesPost(requestParameters.keyResultId, requestParameters.workflowstatustimesPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2484,7 +2210,6 @@ export class WorkflowStatusTimesApi extends BaseAPI implements WorkflowStatusTim
      * @param {WorkflowStatusTimesApiMasterFeaturesByMasterFeatureWorkflowStatusTimesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApi
      */
     public masterFeaturesByMasterFeatureWorkflowStatusTimesGet(requestParameters: WorkflowStatusTimesApiMasterFeaturesByMasterFeatureWorkflowStatusTimesGetRequest, options?: RawAxiosRequestConfig) {
         return WorkflowStatusTimesApiFp(this.configuration).masterFeaturesByMasterFeatureWorkflowStatusTimesGet(requestParameters.masterFeatureId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -2496,7 +2221,6 @@ export class WorkflowStatusTimesApi extends BaseAPI implements WorkflowStatusTim
      * @param {WorkflowStatusTimesApiMasterFeaturesByMasterFeatureWorkflowStatusTimesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApi
      */
     public masterFeaturesByMasterFeatureWorkflowStatusTimesPost(requestParameters: WorkflowStatusTimesApiMasterFeaturesByMasterFeatureWorkflowStatusTimesPostRequest, options?: RawAxiosRequestConfig) {
         return WorkflowStatusTimesApiFp(this.configuration).masterFeaturesByMasterFeatureWorkflowStatusTimesPost(requestParameters.masterFeatureId, requestParameters.workflowstatustimesPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2508,7 +2232,6 @@ export class WorkflowStatusTimesApi extends BaseAPI implements WorkflowStatusTim
      * @param {WorkflowStatusTimesApiPagesByPageWorkflowStatusTimesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApi
      */
     public pagesByPageWorkflowStatusTimesGet(requestParameters: WorkflowStatusTimesApiPagesByPageWorkflowStatusTimesGetRequest, options?: RawAxiosRequestConfig) {
         return WorkflowStatusTimesApiFp(this.configuration).pagesByPageWorkflowStatusTimesGet(requestParameters.pageId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -2520,7 +2243,6 @@ export class WorkflowStatusTimesApi extends BaseAPI implements WorkflowStatusTim
      * @param {WorkflowStatusTimesApiPagesByPageWorkflowStatusTimesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApi
      */
     public pagesByPageWorkflowStatusTimesPost(requestParameters: WorkflowStatusTimesApiPagesByPageWorkflowStatusTimesPostRequest, options?: RawAxiosRequestConfig) {
         return WorkflowStatusTimesApiFp(this.configuration).pagesByPageWorkflowStatusTimesPost(requestParameters.pageId, requestParameters.workflowstatustimesPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2532,7 +2254,6 @@ export class WorkflowStatusTimesApi extends BaseAPI implements WorkflowStatusTim
      * @param {WorkflowStatusTimesApiReleasesByReleaseWorkflowStatusTimesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApi
      */
     public releasesByReleaseWorkflowStatusTimesGet(requestParameters: WorkflowStatusTimesApiReleasesByReleaseWorkflowStatusTimesGetRequest, options?: RawAxiosRequestConfig) {
         return WorkflowStatusTimesApiFp(this.configuration).releasesByReleaseWorkflowStatusTimesGet(requestParameters.releaseId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -2544,7 +2265,6 @@ export class WorkflowStatusTimesApi extends BaseAPI implements WorkflowStatusTim
      * @param {WorkflowStatusTimesApiReleasesByReleaseWorkflowStatusTimesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApi
      */
     public releasesByReleaseWorkflowStatusTimesPost(requestParameters: WorkflowStatusTimesApiReleasesByReleaseWorkflowStatusTimesPostRequest, options?: RawAxiosRequestConfig) {
         return WorkflowStatusTimesApiFp(this.configuration).releasesByReleaseWorkflowStatusTimesPost(requestParameters.releaseId, requestParameters.workflowstatustimesPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2556,7 +2276,6 @@ export class WorkflowStatusTimesApi extends BaseAPI implements WorkflowStatusTim
      * @param {WorkflowStatusTimesApiRequirementsByRequirementWorkflowStatusTimesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApi
      */
     public requirementsByRequirementWorkflowStatusTimesGet(requestParameters: WorkflowStatusTimesApiRequirementsByRequirementWorkflowStatusTimesGetRequest, options?: RawAxiosRequestConfig) {
         return WorkflowStatusTimesApiFp(this.configuration).requirementsByRequirementWorkflowStatusTimesGet(requestParameters.requirementId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -2568,7 +2287,6 @@ export class WorkflowStatusTimesApi extends BaseAPI implements WorkflowStatusTim
      * @param {WorkflowStatusTimesApiRequirementsByRequirementWorkflowStatusTimesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApi
      */
     public requirementsByRequirementWorkflowStatusTimesPost(requestParameters: WorkflowStatusTimesApiRequirementsByRequirementWorkflowStatusTimesPostRequest, options?: RawAxiosRequestConfig) {
         return WorkflowStatusTimesApiFp(this.configuration).requirementsByRequirementWorkflowStatusTimesPost(requestParameters.requirementId, requestParameters.workflowstatustimesPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2580,7 +2298,6 @@ export class WorkflowStatusTimesApi extends BaseAPI implements WorkflowStatusTim
      * @param {WorkflowStatusTimesApiWorkflowStatusTimesByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApi
      */
     public workflowStatusTimesByIdDelete(requestParameters: WorkflowStatusTimesApiWorkflowStatusTimesByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return WorkflowStatusTimesApiFp(this.configuration).workflowStatusTimesByIdDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -2592,7 +2309,6 @@ export class WorkflowStatusTimesApi extends BaseAPI implements WorkflowStatusTim
      * @param {WorkflowStatusTimesApiWorkflowStatusTimesByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApi
      */
     public workflowStatusTimesByIdGet(requestParameters: WorkflowStatusTimesApiWorkflowStatusTimesByIdGetRequest, options?: RawAxiosRequestConfig) {
         return WorkflowStatusTimesApiFp(this.configuration).workflowStatusTimesByIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -2604,7 +2320,6 @@ export class WorkflowStatusTimesApi extends BaseAPI implements WorkflowStatusTim
      * @param {WorkflowStatusTimesApiWorkflowStatusTimesByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowStatusTimesApi
      */
     public workflowStatusTimesByIdPut(requestParameters: WorkflowStatusTimesApiWorkflowStatusTimesByIdPutRequest, options?: RawAxiosRequestConfig) {
         return WorkflowStatusTimesApiFp(this.configuration).workflowStatusTimesByIdPut(requestParameters.id, requestParameters.workflowstatustimesPostRequest, options).then((request) => request(this.axios, this.basePath));

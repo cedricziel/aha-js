@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface CapacityinvestmentsPostRequestCapacityInvestment
- */
 export interface CapacityinvestmentsPostRequestCapacityInvestment {
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityinvestmentsPostRequestCapacityInvestment
-     */
     'date_source'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityinvestmentsPostRequestCapacityInvestment
-     */
     'start_date'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityinvestmentsPostRequestCapacityInvestment
-     */
     'end_date'?: string;
 }
 

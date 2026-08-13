@@ -18,14 +18,13 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
 import type { SchedulesGetResponse } from '../model';
 /**
  * SchedulesApi - axios parameter creator
- * @export
  */
 export const SchedulesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -73,8 +72,8 @@ export const SchedulesApiAxiosParamCreator = function (configuration?: Configura
                 localVarQueryParameter['fields'] = fields;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -89,7 +88,6 @@ export const SchedulesApiAxiosParamCreator = function (configuration?: Configura
 
 /**
  * SchedulesApi - functional programming interface
- * @export
  */
 export const SchedulesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SchedulesApiAxiosParamCreator(configuration)
@@ -114,7 +112,6 @@ export const SchedulesApiFp = function(configuration?: Configuration) {
 
 /**
  * SchedulesApi - factory interface
- * @export
  */
 export const SchedulesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = SchedulesApiFp(configuration)
@@ -134,8 +131,6 @@ export const SchedulesApiFactory = function (configuration?: Configuration, base
 
 /**
  * SchedulesApi - interface
- * @export
- * @interface SchedulesApi
  */
 export interface SchedulesApiInterface {
     /**
@@ -144,7 +139,6 @@ export interface SchedulesApiInterface {
      * @param {SchedulesApiSchedulesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SchedulesApiInterface
      */
     schedulesGet(requestParameters?: SchedulesApiSchedulesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<SchedulesGetResponse>;
 
@@ -152,37 +146,17 @@ export interface SchedulesApiInterface {
 
 /**
  * Request parameters for schedulesGet operation in SchedulesApi.
- * @export
- * @interface SchedulesApiSchedulesGetRequest
  */
 export interface SchedulesApiSchedulesGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof SchedulesApiSchedulesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof SchedulesApiSchedulesGet
-     */
     readonly perPage?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof SchedulesApiSchedulesGet
-     */
     readonly fields?: string
 }
 
 /**
  * SchedulesApi - object-oriented interface
- * @export
- * @class SchedulesApi
- * @extends {BaseAPI}
  */
 export class SchedulesApi extends BaseAPI implements SchedulesApiInterface {
     /**
@@ -191,7 +165,6 @@ export class SchedulesApi extends BaseAPI implements SchedulesApiInterface {
      * @param {SchedulesApiSchedulesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SchedulesApi
      */
     public schedulesGet(requestParameters: SchedulesApiSchedulesGetRequest = {}, options?: RawAxiosRequestConfig) {
         return SchedulesApiFp(this.configuration).schedulesGet(requestParameters.page, requestParameters.perPage, requestParameters.fields, options).then((request) => request(this.axios, this.basePath));

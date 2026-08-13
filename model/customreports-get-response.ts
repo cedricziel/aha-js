@@ -23,47 +23,12 @@ import type { CustomreportsGetResponseFieldDefinitions } from './customreports-g
 // @ts-ignore
 import type { CustomreportsGetResponseRows } from './customreports-get-response-rows';
 
-/**
- * 
- * @export
- * @interface CustomreportsGetResponse
- */
 export interface CustomreportsGetResponse {
-    /**
-     * 
-     * @type {Array<number>}
-     * @memberof CustomreportsGetResponse
-     */
     'top_level_columns'?: Array<number>;
-    /**
-     * 
-     * @type {CustomreportsGetResponseColumns}
-     * @memberof CustomreportsGetResponse
-     */
     'columns'?: CustomreportsGetResponseColumns;
-    /**
-     * 
-     * @type {Array<number>}
-     * @memberof CustomreportsGetResponse
-     */
     'top_level_rows'?: Array<number>;
-    /**
-     * 
-     * @type {CustomreportsGetResponseRows}
-     * @memberof CustomreportsGetResponse
-     */
     'rows'?: CustomreportsGetResponseRows;
-    /**
-     * 
-     * @type {Array<Array<Array<string>>>}
-     * @memberof CustomreportsGetResponse
-     */
     'cells'?: Array<Array<Array<string>>>;
-    /**
-     * 
-     * @type {CustomreportsGetResponseFieldDefinitions}
-     * @memberof CustomreportsGetResponse
-     */
     'field_definitions'?: CustomreportsGetResponseFieldDefinitions;
 }
 

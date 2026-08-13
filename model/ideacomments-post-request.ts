@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { IdeacommentsPostRequestIdeaComment } from './ideacomments-post-request-idea-comment';
 
-/**
- * 
- * @export
- * @interface IdeacommentsPostRequest
- */
 export interface IdeacommentsPostRequest {
-    /**
-     * 
-     * @type {IdeacommentsPostRequestIdeaComment}
-     * @memberof IdeacommentsPostRequest
-     */
     'idea_comment'?: IdeacommentsPostRequestIdeaComment;
 }
 

@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { IdeathemesPostResponseIdeaTheme } from './ideathemes-post-response-idea-theme';
 
-/**
- * 
- * @export
- * @interface IdeathemesPostResponse
- */
 export interface IdeathemesPostResponse {
-    /**
-     * 
-     * @type {IdeathemesPostResponseIdeaTheme}
-     * @memberof IdeathemesPostResponse
-     */
     'idea_theme'?: IdeathemesPostResponseIdeaTheme;
 }
 

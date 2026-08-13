@@ -22,72 +22,20 @@ import type { IdeavotesGetResponseIdeaEndorsementsInnerEndorsedByIdeaUser } from
 // May contain unused imports in some cases
 // @ts-ignore
 import type { IdeavotesGetResponseIdeaEndorsementsInnerEndorsedByPortalUser } from './ideavotes-get-response-idea-endorsements-inner-endorsed-by-portal-user';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface IdeavotesGetResponseIdeaEndorsementsInner
- */
 export interface IdeavotesGetResponseIdeaEndorsementsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesGetResponseIdeaEndorsementsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesGetResponseIdeaEndorsementsInner
-     */
     'idea_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesGetResponseIdeaEndorsementsInner
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesGetResponseIdeaEndorsementsInner
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof IdeavotesGetResponseIdeaEndorsementsInner
-     */
-    'value'?: any | null;
-    /**
-     * 
-     * @type {any}
-     * @memberof IdeavotesGetResponseIdeaEndorsementsInner
-     */
-    'link'?: any | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeavotesGetResponseIdeaEndorsementsInner
-     */
+    'value'?: Null;
+    'link'?: Null;
     'weight'?: number;
-    /**
-     * 
-     * @type {IdeavotesGetResponseIdeaEndorsementsInnerEndorsedByPortalUser}
-     * @memberof IdeavotesGetResponseIdeaEndorsementsInner
-     */
     'endorsed_by_portal_user'?: IdeavotesGetResponseIdeaEndorsementsInnerEndorsedByPortalUser;
-    /**
-     * 
-     * @type {IdeavotesGetResponseIdeaEndorsementsInnerEndorsedByIdeaUser}
-     * @memberof IdeavotesGetResponseIdeaEndorsementsInner
-     */
     'endorsed_by_idea_user'?: IdeavotesGetResponseIdeaEndorsementsInnerEndorsedByIdeaUser;
-    /**
-     * 
-     * @type {IdeausersPutResponseIdeaUserIdeaOrganizationsInner}
-     * @memberof IdeavotesGetResponseIdeaEndorsementsInner
-     */
     'idea_organization'?: IdeausersPutResponseIdeaUserIdeaOrganizationsInner;
 }
 

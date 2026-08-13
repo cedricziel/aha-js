@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface EpicsPostRequestEpic
- */
 export interface EpicsPostRequestEpic {
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostRequestEpic
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostRequestEpic
-     */
     'description'?: string;
 }
 

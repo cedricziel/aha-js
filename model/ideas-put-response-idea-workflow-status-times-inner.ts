@@ -13,36 +13,14 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface IdeasPutResponseIdeaWorkflowStatusTimesInner
- */
 export interface IdeasPutResponseIdeaWorkflowStatusTimesInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaWorkflowStatusTimesInner
-     */
     'status_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaWorkflowStatusTimesInner
-     */
     'status_name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaWorkflowStatusTimesInner
-     */
     'started_at'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof IdeasPutResponseIdeaWorkflowStatusTimesInner
-     */
-    'ended_at'?: any | null;
+    'ended_at'?: Null;
 }
 

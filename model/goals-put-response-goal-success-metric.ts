@@ -20,29 +20,9 @@ import type { GoalsPutResponseGoalSuccessMetricDescription } from './goals-put-r
 // @ts-ignore
 import type { GoalsPutResponseGoalSuccessMetricWorkflowStatus } from './goals-put-response-goal-success-metric-workflow-status';
 
-/**
- * 
- * @export
- * @interface GoalsPutResponseGoalSuccessMetric
- */
 export interface GoalsPutResponseGoalSuccessMetric {
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoalSuccessMetric
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {GoalsPutResponseGoalSuccessMetricDescription}
-     * @memberof GoalsPutResponseGoalSuccessMetric
-     */
     'description'?: GoalsPutResponseGoalSuccessMetricDescription;
-    /**
-     * 
-     * @type {GoalsPutResponseGoalSuccessMetricWorkflowStatus}
-     * @memberof GoalsPutResponseGoalSuccessMetric
-     */
     'workflow_status'?: GoalsPutResponseGoalSuccessMetricWorkflowStatus;
 }
 

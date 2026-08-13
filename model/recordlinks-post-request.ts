@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { RecordlinksPostRequestRecordLink } from './recordlinks-post-request-record-link';
 
-/**
- * 
- * @export
- * @interface RecordlinksPostRequest
- */
 export interface RecordlinksPostRequest {
-    /**
-     * 
-     * @type {RecordlinksPostRequestRecordLink}
-     * @memberof RecordlinksPostRequest
-     */
     'record_link'?: RecordlinksPostRequestRecordLink;
 }
 

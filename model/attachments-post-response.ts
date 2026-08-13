@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { AttachmentsPostResponseAttachment } from './attachments-post-response-attachment';
 
-/**
- * 
- * @export
- * @interface AttachmentsPostResponse
- */
 export interface AttachmentsPostResponse {
-    /**
-     * 
-     * @type {AttachmentsPostResponseAttachment}
-     * @memberof AttachmentsPostResponse
-     */
     'attachment'?: AttachmentsPostResponseAttachment;
 }
 

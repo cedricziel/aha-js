@@ -20,23 +20,8 @@ import type { AssistantusageGetResponsePagination } from './assistantusage-get-r
 // @ts-ignore
 import type { CustomtablerecordsGetResponseCustomObjectRecordsInner } from './customtablerecords-get-response-custom-object-records-inner';
 
-/**
- * 
- * @export
- * @interface CustomtablerecordsGetResponse
- */
 export interface CustomtablerecordsGetResponse {
-    /**
-     * 
-     * @type {Array<CustomtablerecordsGetResponseCustomObjectRecordsInner>}
-     * @memberof CustomtablerecordsGetResponse
-     */
     'custom_object_records'?: Array<CustomtablerecordsGetResponseCustomObjectRecordsInner>;
-    /**
-     * 
-     * @type {AssistantusageGetResponsePagination}
-     * @memberof CustomtablerecordsGetResponse
-     */
     'pagination'?: AssistantusageGetResponsePagination;
 }
 

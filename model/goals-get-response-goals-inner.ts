@@ -25,156 +25,34 @@ import type { GoalsGetResponseGoalsInnerSuccessMetric } from './goals-get-respon
 // May contain unused imports in some cases
 // @ts-ignore
 import type { GoalsGetResponseGoalsInnerTimeFrame } from './goals-get-response-goals-inner-time-frame';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface GoalsGetResponseGoalsInner
- */
 export interface GoalsGetResponseGoalsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsGetResponseGoalsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsGetResponseGoalsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsGetResponseGoalsInner
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof GoalsGetResponseGoalsInner
-     */
     'effort'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof GoalsGetResponseGoalsInner
-     */
     'value'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsGetResponseGoalsInner
-     */
     'color'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof GoalsGetResponseGoalsInner
-     */
     'position'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsGetResponseGoalsInner
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsGetResponseGoalsInner
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsGetResponseGoalsInner
-     */
     'product_id'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof GoalsGetResponseGoalsInner
-     */
-    'progress'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsGetResponseGoalsInner
-     */
+    'progress'?: Null;
     'progress_source'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsGetResponseGoalsInner
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsGetResponseGoalsInner
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {GoalsGetResponseGoalsInnerDescription}
-     * @memberof GoalsGetResponseGoalsInner
-     */
     'description'?: GoalsGetResponseGoalsInnerDescription;
-    /**
-     * 
-     * @type {GoalsGetResponseGoalsInnerSuccessMetric}
-     * @memberof GoalsGetResponseGoalsInner
-     */
     'success_metric'?: GoalsGetResponseGoalsInnerSuccessMetric;
-    /**
-     * 
-     * @type {EpicsPostResponseEpicReleaseProject}
-     * @memberof GoalsGetResponseGoalsInner
-     */
     'project'?: EpicsPostResponseEpicReleaseProject;
-    /**
-     * 
-     * @type {GoalsGetResponseGoalsInnerTimeFrame}
-     * @memberof GoalsGetResponseGoalsInner
-     */
     'time_frame'?: GoalsGetResponseGoalsInnerTimeFrame;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof GoalsGetResponseGoalsInner
-     */
     'initiatives'?: Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof GoalsGetResponseGoalsInner
-     */
     'key_results'?: Array<any>;
-    /**
-     * 
-     * @type {number}
-     * @memberof GoalsGetResponseGoalsInner
-     */
     'comments_count'?: number;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof GoalsGetResponseGoalsInner
-     */
     'features'?: Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof GoalsGetResponseGoalsInner
-     */
     'releases'?: Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof GoalsGetResponseGoalsInner
-     */
     'custom_fields'?: Array<any>;
 }
 

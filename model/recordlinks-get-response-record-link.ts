@@ -20,77 +20,17 @@ import type { RecordlinksGetResponseRecordLinkChildRecord } from './recordlinks-
 // @ts-ignore
 import type { RecordlinksGetResponseRecordLinkParentRecord } from './recordlinks-get-response-record-link-parent-record';
 
-/**
- * 
- * @export
- * @interface RecordlinksGetResponseRecordLink
- */
 export interface RecordlinksGetResponseRecordLink {
-    /**
-     * 
-     * @type {number}
-     * @memberof RecordlinksGetResponseRecordLink
-     */
     'id'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof RecordlinksGetResponseRecordLink
-     */
     'link_type'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof RecordlinksGetResponseRecordLink
-     */
     'link_type_id'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof RecordlinksGetResponseRecordLink
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RecordlinksGetResponseRecordLink
-     */
     'parent_record_type'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof RecordlinksGetResponseRecordLink
-     */
     'parent_record_id'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof RecordlinksGetResponseRecordLink
-     */
     'child_record_type'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof RecordlinksGetResponseRecordLink
-     */
     'child_record_id'?: number;
-    /**
-     * 
-     * @type {RecordlinksGetResponseRecordLinkParentRecord}
-     * @memberof RecordlinksGetResponseRecordLink
-     */
     'parent_record'?: RecordlinksGetResponseRecordLinkParentRecord;
-    /**
-     * 
-     * @type {RecordlinksGetResponseRecordLinkChildRecord}
-     * @memberof RecordlinksGetResponseRecordLink
-     */
     'child_record'?: RecordlinksGetResponseRecordLinkChildRecord;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof RecordlinksGetResponseRecordLink
-     */
     'parent'?: boolean;
 }
 

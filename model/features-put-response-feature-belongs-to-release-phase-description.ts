@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface FeaturesPutResponseFeatureBelongsToReleasePhaseDescription
- */
 export interface FeaturesPutResponseFeatureBelongsToReleasePhaseDescription {
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureBelongsToReleasePhaseDescription
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureBelongsToReleasePhaseDescription
-     */
     'body'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureBelongsToReleasePhaseDescription
-     */
     'notable_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureBelongsToReleasePhaseDescription
-     */
     'notable_type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureBelongsToReleasePhaseDescription
-     */
     'editor_version'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureBelongsToReleasePhaseDescription
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureBelongsToReleasePhaseDescription
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureBelongsToReleasePhaseDescription
-     */
     'attachments'?: string;
 }
 

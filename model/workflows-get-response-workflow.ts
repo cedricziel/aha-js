@@ -20,47 +20,12 @@ import type { IdeacommentsPostResponseIdeaCommentIdeaWorkflowStatus } from './id
 // @ts-ignore
 import type { WorkflowsGetResponseWorkflowWorkflowKindsInner } from './workflows-get-response-workflow-workflow-kinds-inner';
 
-/**
- * 
- * @export
- * @interface WorkflowsGetResponseWorkflow
- */
 export interface WorkflowsGetResponseWorkflow {
-    /**
-     * 
-     * @type {number}
-     * @memberof WorkflowsGetResponseWorkflow
-     */
     'id'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof WorkflowsGetResponseWorkflow
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof WorkflowsGetResponseWorkflow
-     */
     'statusable_type'?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof WorkflowsGetResponseWorkflow
-     */
     'transitions_only'?: boolean;
-    /**
-     * 
-     * @type {Array<IdeacommentsPostResponseIdeaCommentIdeaWorkflowStatus>}
-     * @memberof WorkflowsGetResponseWorkflow
-     */
     'workflow_statuses'?: Array<IdeacommentsPostResponseIdeaCommentIdeaWorkflowStatus>;
-    /**
-     * 
-     * @type {Array<WorkflowsGetResponseWorkflowWorkflowKindsInner>}
-     * @memberof WorkflowsGetResponseWorkflow
-     */
     'workflow_kinds'?: Array<WorkflowsGetResponseWorkflowWorkflowKindsInner>;
 }
 

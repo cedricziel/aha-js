@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface CustomtablerecordlinksPutResponseRequirementIntegrationFieldsInner
- */
 export interface CustomtablerecordlinksPutResponseRequirementIntegrationFieldsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordlinksPutResponseRequirementIntegrationFieldsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordlinksPutResponseRequirementIntegrationFieldsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordlinksPutResponseRequirementIntegrationFieldsInner
-     */
     'value'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordlinksPutResponseRequirementIntegrationFieldsInner
-     */
     'integration_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordlinksPutResponseRequirementIntegrationFieldsInner
-     */
     'service_name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordlinksPutResponseRequirementIntegrationFieldsInner
-     */
     'created_at'?: string;
 }
 

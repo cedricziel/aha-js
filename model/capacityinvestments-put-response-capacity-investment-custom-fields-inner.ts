@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface CapacityinvestmentsPutResponseCapacityInvestmentCustomFieldsInner
- */
 export interface CapacityinvestmentsPutResponseCapacityInvestmentCustomFieldsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityinvestmentsPutResponseCapacityInvestmentCustomFieldsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityinvestmentsPutResponseCapacityInvestmentCustomFieldsInner
-     */
     'key'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityinvestmentsPutResponseCapacityInvestmentCustomFieldsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityinvestmentsPutResponseCapacityInvestmentCustomFieldsInner
-     */
     'updatedAt'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityinvestmentsPutResponseCapacityInvestmentCustomFieldsInner
-     */
     'type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityinvestmentsPutResponseCapacityInvestmentCustomFieldsInner
-     */
     'value'?: string;
 }
 

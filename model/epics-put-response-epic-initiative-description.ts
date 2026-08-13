@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface EpicsPutResponseEpicInitiativeDescription
- */
 export interface EpicsPutResponseEpicInitiativeDescription {
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicInitiativeDescription
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicInitiativeDescription
-     */
     'body'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicInitiativeDescription
-     */
     'notable_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicInitiativeDescription
-     */
     'notable_type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicInitiativeDescription
-     */
     'editor_version'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicInitiativeDescription
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicInitiativeDescription
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicInitiativeDescription
-     */
     'attachments'?: string;
 }
 

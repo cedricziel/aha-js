@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { KeyresultsGetResponseKeyResult } from './keyresults-get-response-key-result';
 
-/**
- * 
- * @export
- * @interface KeyresultsGetResponse
- */
 export interface KeyresultsGetResponse {
-    /**
-     * 
-     * @type {KeyresultsGetResponseKeyResult}
-     * @memberof KeyresultsGetResponse
-     */
     'key_result'?: KeyresultsGetResponseKeyResult;
 }
 

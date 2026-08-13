@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeasportalusersubscriptionsGetResponsePortalUserSubscriptionsPreferencesInner
- */
 export interface IdeasportalusersubscriptionsGetResponsePortalUserSubscriptionsPreferencesInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasportalusersubscriptionsGetResponsePortalUserSubscriptionsPreferencesInner
-     */
     'type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasportalusersubscriptionsGetResponsePortalUserSubscriptionsPreferencesInner
-     */
     'id'?: string;
 }
 

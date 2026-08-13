@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { TeammembershipsPostRequestTeamMembership } from './teammemberships-post-request-team-membership';
 
-/**
- * 
- * @export
- * @interface TeammembershipsPostRequest
- */
 export interface TeammembershipsPostRequest {
-    /**
-     * 
-     * @type {TeammembershipsPostRequestTeamMembership}
-     * @memberof TeammembershipsPostRequest
-     */
     'team_membership'?: TeammembershipsPostRequestTeamMembership;
 }
 

@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface ReleasephasesPostRequestReleasePhase
- */
 export interface ReleasephasesPostRequestReleasePhase {
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasephasesPostRequestReleasePhase
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasephasesPostRequestReleasePhase
-     */
     'description'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasephasesPostRequestReleasePhase
-     */
     'phase_type'?: string;
 }
 

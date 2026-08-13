@@ -20,23 +20,8 @@ import type { CapacityestimatevaluesDeleteResponseDestroyedInner } from './capac
 // @ts-ignore
 import type { CapacityestimatevaluesDeleteResponseUpdatedInner } from './capacityestimatevalues-delete-response-updated-inner';
 
-/**
- * 
- * @export
- * @interface CapacityestimatevaluesDeleteResponse
- */
 export interface CapacityestimatevaluesDeleteResponse {
-    /**
-     * 
-     * @type {Array<CapacityestimatevaluesDeleteResponseUpdatedInner>}
-     * @memberof CapacityestimatevaluesDeleteResponse
-     */
     'updated'?: Array<CapacityestimatevaluesDeleteResponseUpdatedInner>;
-    /**
-     * 
-     * @type {Array<CapacityestimatevaluesDeleteResponseDestroyedInner>}
-     * @memberof CapacityestimatevaluesDeleteResponse
-     */
     'destroyed'?: Array<CapacityestimatevaluesDeleteResponseDestroyedInner>;
 }
 

@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface KeyresultsPutResponseKeyResultCustomFieldsInner
- */
 export interface KeyresultsPutResponseKeyResultCustomFieldsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof KeyresultsPutResponseKeyResultCustomFieldsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KeyresultsPutResponseKeyResultCustomFieldsInner
-     */
     'key'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KeyresultsPutResponseKeyResultCustomFieldsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KeyresultsPutResponseKeyResultCustomFieldsInner
-     */
     'updatedAt'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KeyresultsPutResponseKeyResultCustomFieldsInner
-     */
     'type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KeyresultsPutResponseKeyResultCustomFieldsInner
-     */
     'value'?: string;
 }
 

@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface UsersPostResponseScope
- */
 export interface UsersPostResponseScope {
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersPostResponseScope
-     */
     'type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersPostResponseScope
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof UsersPostResponseScope
-     */
     'id'?: number;
 }
 

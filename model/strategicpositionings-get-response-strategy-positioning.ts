@@ -15,70 +15,23 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
+import type { Null } from './null';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { StrategicmodelsGetResponseStrategyModelProject } from './strategicmodels-get-response-strategy-model-project';
 // May contain unused imports in some cases
 // @ts-ignore
 import type { StrategicpositioningsGetResponseStrategyPositioningComponentsInner } from './strategicpositionings-get-response-strategy-positioning-components-inner';
 
-/**
- * 
- * @export
- * @interface StrategicpositioningsGetResponseStrategyPositioning
- */
 export interface StrategicpositioningsGetResponseStrategyPositioning {
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicpositioningsGetResponseStrategyPositioning
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicpositioningsGetResponseStrategyPositioning
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicpositioningsGetResponseStrategyPositioning
-     */
     'kind'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicpositioningsGetResponseStrategyPositioning
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicpositioningsGetResponseStrategyPositioning
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicpositioningsGetResponseStrategyPositioning
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {Array<StrategicpositioningsGetResponseStrategyPositioningComponentsInner>}
-     * @memberof StrategicpositioningsGetResponseStrategyPositioning
-     */
     'components'?: Array<StrategicpositioningsGetResponseStrategyPositioningComponentsInner>;
-    /**
-     * 
-     * @type {any}
-     * @memberof StrategicpositioningsGetResponseStrategyPositioning
-     */
-    'description'?: any | null;
-    /**
-     * 
-     * @type {StrategicmodelsGetResponseStrategyModelProject}
-     * @memberof StrategicpositioningsGetResponseStrategyPositioning
-     */
+    'description'?: Null;
     'project'?: StrategicmodelsGetResponseStrategyModelProject;
 }
 

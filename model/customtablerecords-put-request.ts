@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { CustomtablerecordsPutRequestCustomObjectRecord } from './customtablerecords-put-request-custom-object-record';
 
-/**
- * 
- * @export
- * @interface CustomtablerecordsPutRequest
- */
 export interface CustomtablerecordsPutRequest {
-    /**
-     * 
-     * @type {CustomtablerecordsPutRequestCustomObjectRecord}
-     * @memberof CustomtablerecordsPutRequest
-     */
     'custom_object_record'?: CustomtablerecordsPutRequestCustomObjectRecord;
 }
 

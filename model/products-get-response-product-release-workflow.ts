@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface ProductsGetResponseProductReleaseWorkflow
- */
 export interface ProductsGetResponseProductReleaseWorkflow {
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsGetResponseProductReleaseWorkflow
-     */
     'workflow_type'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof ProductsGetResponseProductReleaseWorkflow
-     */
     'id'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsGetResponseProductReleaseWorkflow
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsGetResponseProductReleaseWorkflow
-     */
     'statusable_type'?: string;
 }
 

@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { CommentsPutResponseComment } from './comments-put-response-comment';
 
-/**
- * 
- * @export
- * @interface CommentsPutResponse
- */
 export interface CommentsPutResponse {
-    /**
-     * 
-     * @type {CommentsPutResponseComment}
-     * @memberof CommentsPutResponse
-     */
     'comment'?: CommentsPutResponseComment;
 }
 

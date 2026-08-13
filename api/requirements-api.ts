@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -33,7 +33,6 @@ import type { RequirementsPutRequest } from '../model';
 import type { RequirementsPutResponse } from '../model';
 /**
  * RequirementsApi - axios parameter creator
- * @export
  */
 export const RequirementsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -51,7 +50,7 @@ export const RequirementsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'featureId' is not null or undefined
             assertParamExists('featuresByFeatureRequirementsGet', 'featureId', featureId)
             const localVarPath = `/features/{feature_id}/requirements`
-                .replace(`{${"feature_id"}}`, encodeURIComponent(String(featureId)));
+                .replace('{feature_id}', encodeURIComponent(String(featureId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -85,8 +84,8 @@ export const RequirementsApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['updated_since'] = updatedSince;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -110,7 +109,7 @@ export const RequirementsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'requirementsPostRequest' is not null or undefined
             assertParamExists('featuresByFeatureRequirementsPost', 'requirementsPostRequest', requirementsPostRequest)
             const localVarPath = `/features/{feature_id}/requirements`
-                .replace(`{${"feature_id"}}`, encodeURIComponent(String(featureId)));
+                .replace('{feature_id}', encodeURIComponent(String(featureId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -132,9 +131,8 @@ export const RequirementsApiAxiosParamCreator = function (configuration?: Config
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -157,7 +155,7 @@ export const RequirementsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'id' is not null or undefined
             assertParamExists('requirementsByIdConvertToFeaturePost', 'id', id)
             const localVarPath = `/requirements/{id}/convert_to_feature`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -179,8 +177,8 @@ export const RequirementsApiAxiosParamCreator = function (configuration?: Config
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -201,7 +199,7 @@ export const RequirementsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'id' is not null or undefined
             assertParamExists('requirementsByIdDelete', 'id', id)
             const localVarPath = `/requirements/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -224,7 +222,6 @@ export const RequirementsApiAxiosParamCreator = function (configuration?: Config
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -245,7 +242,7 @@ export const RequirementsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'id' is not null or undefined
             assertParamExists('requirementsByIdGet', 'id', id)
             const localVarPath = `/requirements/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -267,8 +264,8 @@ export const RequirementsApiAxiosParamCreator = function (configuration?: Config
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -292,7 +289,7 @@ export const RequirementsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'requirementsPutRequest' is not null or undefined
             assertParamExists('requirementsByIdPut', 'requirementsPutRequest', requirementsPutRequest)
             const localVarPath = `/requirements/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -314,9 +311,8 @@ export const RequirementsApiAxiosParamCreator = function (configuration?: Config
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -333,7 +329,6 @@ export const RequirementsApiAxiosParamCreator = function (configuration?: Config
 
 /**
  * RequirementsApi - functional programming interface
- * @export
  */
 export const RequirementsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = RequirementsApiAxiosParamCreator(configuration)
@@ -426,7 +421,6 @@ export const RequirementsApiFp = function(configuration?: Configuration) {
 
 /**
  * RequirementsApi - factory interface
- * @export
  */
 export const RequirementsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = RequirementsApiFp(configuration)
@@ -496,8 +490,6 @@ export const RequirementsApiFactory = function (configuration?: Configuration, b
 
 /**
  * RequirementsApi - interface
- * @export
- * @interface RequirementsApi
  */
 export interface RequirementsApiInterface {
     /**
@@ -506,7 +498,6 @@ export interface RequirementsApiInterface {
      * @param {RequirementsApiFeaturesByFeatureRequirementsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RequirementsApiInterface
      */
     featuresByFeatureRequirementsGet(requestParameters: RequirementsApiFeaturesByFeatureRequirementsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<RequirementsGetResponse>;
 
@@ -516,7 +507,6 @@ export interface RequirementsApiInterface {
      * @param {RequirementsApiFeaturesByFeatureRequirementsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RequirementsApiInterface
      */
     featuresByFeatureRequirementsPost(requestParameters: RequirementsApiFeaturesByFeatureRequirementsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<RequirementsPostResponse>;
 
@@ -526,7 +516,6 @@ export interface RequirementsApiInterface {
      * @param {RequirementsApiRequirementsByIdConvertToFeaturePostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RequirementsApiInterface
      */
     requirementsByIdConvertToFeaturePost(requestParameters: RequirementsApiRequirementsByIdConvertToFeaturePostRequest, options?: RawAxiosRequestConfig): AxiosPromise<RequirementsPostResponse>;
 
@@ -536,7 +525,6 @@ export interface RequirementsApiInterface {
      * @param {RequirementsApiRequirementsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RequirementsApiInterface
      */
     requirementsByIdDelete(requestParameters: RequirementsApiRequirementsByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -546,7 +534,6 @@ export interface RequirementsApiInterface {
      * @param {RequirementsApiRequirementsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RequirementsApiInterface
      */
     requirementsByIdGet(requestParameters: RequirementsApiRequirementsByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<RequirementsGetResponse>;
 
@@ -556,7 +543,6 @@ export interface RequirementsApiInterface {
      * @param {RequirementsApiRequirementsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RequirementsApiInterface
      */
     requirementsByIdPut(requestParameters: RequirementsApiRequirementsByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<RequirementsPutResponse>;
 
@@ -564,128 +550,76 @@ export interface RequirementsApiInterface {
 
 /**
  * Request parameters for featuresByFeatureRequirementsGet operation in RequirementsApi.
- * @export
- * @interface RequirementsApiFeaturesByFeatureRequirementsGetRequest
  */
 export interface RequirementsApiFeaturesByFeatureRequirementsGetRequest {
     /**
      * FeatureId identifier
-     * @type {string}
-     * @memberof RequirementsApiFeaturesByFeatureRequirementsGet
      */
     readonly featureId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsApiFeaturesByFeatureRequirementsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsApiFeaturesByFeatureRequirementsGet
-     */
     readonly perPage?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsApiFeaturesByFeatureRequirementsGet
-     */
     readonly updatedSince?: string
 }
 
 /**
  * Request parameters for featuresByFeatureRequirementsPost operation in RequirementsApi.
- * @export
- * @interface RequirementsApiFeaturesByFeatureRequirementsPostRequest
  */
 export interface RequirementsApiFeaturesByFeatureRequirementsPostRequest {
     /**
      * FeatureId identifier
-     * @type {string}
-     * @memberof RequirementsApiFeaturesByFeatureRequirementsPost
      */
     readonly featureId: string
 
-    /**
-     * 
-     * @type {RequirementsPostRequest}
-     * @memberof RequirementsApiFeaturesByFeatureRequirementsPost
-     */
     readonly requirementsPostRequest: RequirementsPostRequest
 }
 
 /**
  * Request parameters for requirementsByIdConvertToFeaturePost operation in RequirementsApi.
- * @export
- * @interface RequirementsApiRequirementsByIdConvertToFeaturePostRequest
  */
 export interface RequirementsApiRequirementsByIdConvertToFeaturePostRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof RequirementsApiRequirementsByIdConvertToFeaturePost
      */
     readonly id: string
 }
 
 /**
  * Request parameters for requirementsByIdDelete operation in RequirementsApi.
- * @export
- * @interface RequirementsApiRequirementsByIdDeleteRequest
  */
 export interface RequirementsApiRequirementsByIdDeleteRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof RequirementsApiRequirementsByIdDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for requirementsByIdGet operation in RequirementsApi.
- * @export
- * @interface RequirementsApiRequirementsByIdGetRequest
  */
 export interface RequirementsApiRequirementsByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof RequirementsApiRequirementsByIdGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for requirementsByIdPut operation in RequirementsApi.
- * @export
- * @interface RequirementsApiRequirementsByIdPutRequest
  */
 export interface RequirementsApiRequirementsByIdPutRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof RequirementsApiRequirementsByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {RequirementsPutRequest}
-     * @memberof RequirementsApiRequirementsByIdPut
-     */
     readonly requirementsPutRequest: RequirementsPutRequest
 }
 
 /**
  * RequirementsApi - object-oriented interface
- * @export
- * @class RequirementsApi
- * @extends {BaseAPI}
  */
 export class RequirementsApi extends BaseAPI implements RequirementsApiInterface {
     /**
@@ -694,7 +628,6 @@ export class RequirementsApi extends BaseAPI implements RequirementsApiInterface
      * @param {RequirementsApiFeaturesByFeatureRequirementsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RequirementsApi
      */
     public featuresByFeatureRequirementsGet(requestParameters: RequirementsApiFeaturesByFeatureRequirementsGetRequest, options?: RawAxiosRequestConfig) {
         return RequirementsApiFp(this.configuration).featuresByFeatureRequirementsGet(requestParameters.featureId, requestParameters.page, requestParameters.perPage, requestParameters.updatedSince, options).then((request) => request(this.axios, this.basePath));
@@ -706,7 +639,6 @@ export class RequirementsApi extends BaseAPI implements RequirementsApiInterface
      * @param {RequirementsApiFeaturesByFeatureRequirementsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RequirementsApi
      */
     public featuresByFeatureRequirementsPost(requestParameters: RequirementsApiFeaturesByFeatureRequirementsPostRequest, options?: RawAxiosRequestConfig) {
         return RequirementsApiFp(this.configuration).featuresByFeatureRequirementsPost(requestParameters.featureId, requestParameters.requirementsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -718,7 +650,6 @@ export class RequirementsApi extends BaseAPI implements RequirementsApiInterface
      * @param {RequirementsApiRequirementsByIdConvertToFeaturePostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RequirementsApi
      */
     public requirementsByIdConvertToFeaturePost(requestParameters: RequirementsApiRequirementsByIdConvertToFeaturePostRequest, options?: RawAxiosRequestConfig) {
         return RequirementsApiFp(this.configuration).requirementsByIdConvertToFeaturePost(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -730,7 +661,6 @@ export class RequirementsApi extends BaseAPI implements RequirementsApiInterface
      * @param {RequirementsApiRequirementsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RequirementsApi
      */
     public requirementsByIdDelete(requestParameters: RequirementsApiRequirementsByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return RequirementsApiFp(this.configuration).requirementsByIdDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -742,7 +672,6 @@ export class RequirementsApi extends BaseAPI implements RequirementsApiInterface
      * @param {RequirementsApiRequirementsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RequirementsApi
      */
     public requirementsByIdGet(requestParameters: RequirementsApiRequirementsByIdGetRequest, options?: RawAxiosRequestConfig) {
         return RequirementsApiFp(this.configuration).requirementsByIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -754,7 +683,6 @@ export class RequirementsApi extends BaseAPI implements RequirementsApiInterface
      * @param {RequirementsApiRequirementsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RequirementsApi
      */
     public requirementsByIdPut(requestParameters: RequirementsApiRequirementsByIdPutRequest, options?: RawAxiosRequestConfig) {
         return RequirementsApiFp(this.configuration).requirementsByIdPut(requestParameters.id, requestParameters.requirementsPutRequest, options).then((request) => request(this.axios, this.basePath));

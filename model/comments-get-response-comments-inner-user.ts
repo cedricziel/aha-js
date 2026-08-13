@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface CommentsGetResponseCommentsInnerUser
- */
 export interface CommentsGetResponseCommentsInnerUser {
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsGetResponseCommentsInnerUser
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsGetResponseCommentsInnerUser
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsGetResponseCommentsInnerUser
-     */
     'email'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsGetResponseCommentsInnerUser
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsGetResponseCommentsInnerUser
-     */
     'updated_at'?: string;
 }
 

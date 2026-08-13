@@ -18,67 +18,20 @@
 import type { EpicsPostResponseEpicProject } from './epics-post-response-epic-project';
 // May contain unused imports in some cases
 // @ts-ignore
+import type { Null } from './null';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { StrategicvisionsGetResponseStrategyVisionStrategyVisionComponentsInner } from './strategicvisions-get-response-strategy-vision-strategy-vision-components-inner';
 
-/**
- * 
- * @export
- * @interface StrategicvisionsGetResponseStrategyVision
- */
 export interface StrategicvisionsGetResponseStrategyVision {
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicvisionsGetResponseStrategyVision
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicvisionsGetResponseStrategyVision
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicvisionsGetResponseStrategyVision
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicvisionsGetResponseStrategyVision
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof StrategicvisionsGetResponseStrategyVision
-     */
-    'description'?: any | null;
-    /**
-     * 
-     * @type {Array<StrategicvisionsGetResponseStrategyVisionStrategyVisionComponentsInner>}
-     * @memberof StrategicvisionsGetResponseStrategyVision
-     */
+    'description'?: Null;
     'strategy_vision_components'?: Array<StrategicvisionsGetResponseStrategyVisionStrategyVisionComponentsInner>;
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicvisionsGetResponseStrategyVision
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicvisionsGetResponseStrategyVision
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {EpicsPostResponseEpicProject}
-     * @memberof StrategicvisionsGetResponseStrategyVision
-     */
     'project'?: EpicsPostResponseEpicProject;
 }
 

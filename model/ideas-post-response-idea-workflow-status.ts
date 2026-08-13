@@ -13,48 +13,16 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface IdeasPostResponseIdeaWorkflowStatus
- */
 export interface IdeasPostResponseIdeaWorkflowStatus {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPostResponseIdeaWorkflowStatus
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPostResponseIdeaWorkflowStatus
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeasPostResponseIdeaWorkflowStatus
-     */
     'position'?: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdeasPostResponseIdeaWorkflowStatus
-     */
     'complete'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPostResponseIdeaWorkflowStatus
-     */
     'color'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof IdeasPostResponseIdeaWorkflowStatus
-     */
-    'workflow_status_category'?: any | null;
+    'workflow_status_category'?: Null;
 }
 

@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface GoalsPostRequestGoal
- */
 export interface GoalsPostRequestGoal {
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPostRequestGoal
-     */
     'description'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPostRequestGoal
-     */
     'workflow_status'?: string;
 }
 

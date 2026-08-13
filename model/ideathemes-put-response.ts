@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { IdeathemesPutResponseIdeaTheme } from './ideathemes-put-response-idea-theme';
 
-/**
- * 
- * @export
- * @interface IdeathemesPutResponse
- */
 export interface IdeathemesPutResponse {
-    /**
-     * 
-     * @type {IdeathemesPutResponseIdeaTheme}
-     * @memberof IdeathemesPutResponse
-     */
     'idea_theme'?: IdeathemesPutResponseIdeaTheme;
 }
 

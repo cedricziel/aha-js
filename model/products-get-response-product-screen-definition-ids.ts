@@ -14,83 +14,18 @@
 
 
 
-/**
- * 
- * @export
- * @interface ProductsGetResponseProductScreenDefinitionIds
- */
 export interface ProductsGetResponseProductScreenDefinitionIds {
-    /**
-     * 
-     * @type {number}
-     * @memberof ProductsGetResponseProductScreenDefinitionIds
-     */
     'Approval'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ProductsGetResponseProductScreenDefinitionIds
-     */
     'Competitor'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ProductsGetResponseProductScreenDefinitionIds
-     */
     'Epic'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ProductsGetResponseProductScreenDefinitionIds
-     */
     'Feature'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ProductsGetResponseProductScreenDefinitionIds
-     */
     'Ideas::Idea'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ProductsGetResponseProductScreenDefinitionIds
-     */
     'Ideas::IdeaPortal'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ProductsGetResponseProductScreenDefinitionIds
-     */
     'Initiative'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ProductsGetResponseProductScreenDefinitionIds
-     */
     'Page'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ProductsGetResponseProductScreenDefinitionIds
-     */
     'Project'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ProductsGetResponseProductScreenDefinitionIds
-     */
     'Release'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ProductsGetResponseProductScreenDefinitionIds
-     */
     'Requirement'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ProductsGetResponseProductScreenDefinitionIds
-     */
     'StrategicImperative'?: number;
 }
 

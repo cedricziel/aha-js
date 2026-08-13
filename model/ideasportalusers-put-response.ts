@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { IdeasportalusersPutResponsePortalUser } from './ideasportalusers-put-response-portal-user';
 
-/**
- * 
- * @export
- * @interface IdeasportalusersPutResponse
- */
 export interface IdeasportalusersPutResponse {
-    /**
-     * 
-     * @type {IdeasportalusersPutResponsePortalUser}
-     * @memberof IdeasportalusersPutResponse
-     */
     'portal_user'?: IdeasportalusersPutResponsePortalUser;
 }
 

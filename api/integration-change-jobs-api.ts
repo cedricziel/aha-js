@@ -18,14 +18,13 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
 import type { IntegrationchangejobsGetResponse } from '../model';
 /**
  * IntegrationChangeJobsApi - axios parameter creator
- * @export
  */
 export const IntegrationChangeJobsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -40,7 +39,7 @@ export const IntegrationChangeJobsApiAxiosParamCreator = function (configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('integrationChangeJobsByIdGet', 'id', id)
             const localVarPath = `/integration_change_jobs/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -62,8 +61,8 @@ export const IntegrationChangeJobsApiAxiosParamCreator = function (configuration
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -78,7 +77,6 @@ export const IntegrationChangeJobsApiAxiosParamCreator = function (configuration
 
 /**
  * IntegrationChangeJobsApi - functional programming interface
- * @export
  */
 export const IntegrationChangeJobsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = IntegrationChangeJobsApiAxiosParamCreator(configuration)
@@ -101,7 +99,6 @@ export const IntegrationChangeJobsApiFp = function(configuration?: Configuration
 
 /**
  * IntegrationChangeJobsApi - factory interface
- * @export
  */
 export const IntegrationChangeJobsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = IntegrationChangeJobsApiFp(configuration)
@@ -121,8 +118,6 @@ export const IntegrationChangeJobsApiFactory = function (configuration?: Configu
 
 /**
  * IntegrationChangeJobsApi - interface
- * @export
- * @interface IntegrationChangeJobsApi
  */
 export interface IntegrationChangeJobsApiInterface {
     /**
@@ -131,7 +126,6 @@ export interface IntegrationChangeJobsApiInterface {
      * @param {IntegrationChangeJobsApiIntegrationChangeJobsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationChangeJobsApiInterface
      */
     integrationChangeJobsByIdGet(requestParameters: IntegrationChangeJobsApiIntegrationChangeJobsByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IntegrationchangejobsGetResponse>;
 
@@ -139,23 +133,16 @@ export interface IntegrationChangeJobsApiInterface {
 
 /**
  * Request parameters for integrationChangeJobsByIdGet operation in IntegrationChangeJobsApi.
- * @export
- * @interface IntegrationChangeJobsApiIntegrationChangeJobsByIdGetRequest
  */
 export interface IntegrationChangeJobsApiIntegrationChangeJobsByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof IntegrationChangeJobsApiIntegrationChangeJobsByIdGet
      */
     readonly id: string
 }
 
 /**
  * IntegrationChangeJobsApi - object-oriented interface
- * @export
- * @class IntegrationChangeJobsApi
- * @extends {BaseAPI}
  */
 export class IntegrationChangeJobsApi extends BaseAPI implements IntegrationChangeJobsApiInterface {
     /**
@@ -164,7 +151,6 @@ export class IntegrationChangeJobsApi extends BaseAPI implements IntegrationChan
      * @param {IntegrationChangeJobsApiIntegrationChangeJobsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationChangeJobsApi
      */
     public integrationChangeJobsByIdGet(requestParameters: IntegrationChangeJobsApiIntegrationChangeJobsByIdGetRequest, options?: RawAxiosRequestConfig) {
         return IntegrationChangeJobsApiFp(this.configuration).integrationChangeJobsByIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));

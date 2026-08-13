@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeasPutResponseIdeaDescription
- */
 export interface IdeasPutResponseIdeaDescription {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaDescription
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaDescription
-     */
     'body'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaDescription
-     */
     'notable_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaDescription
-     */
     'notable_type'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeasPutResponseIdeaDescription
-     */
     'editor_version'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaDescription
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaDescription
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof IdeasPutResponseIdeaDescription
-     */
     'attachments'?: Array<any>;
 }
 

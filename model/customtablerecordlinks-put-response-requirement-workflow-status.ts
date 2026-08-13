@@ -13,48 +13,16 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface CustomtablerecordlinksPutResponseRequirementWorkflowStatus
- */
 export interface CustomtablerecordlinksPutResponseRequirementWorkflowStatus {
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordlinksPutResponseRequirementWorkflowStatus
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordlinksPutResponseRequirementWorkflowStatus
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof CustomtablerecordlinksPutResponseRequirementWorkflowStatus
-     */
     'position'?: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof CustomtablerecordlinksPutResponseRequirementWorkflowStatus
-     */
     'complete'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordlinksPutResponseRequirementWorkflowStatus
-     */
     'color'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof CustomtablerecordlinksPutResponseRequirementWorkflowStatus
-     */
-    'workflow_status_category'?: any | null;
+    'workflow_status_category'?: Null;
 }
 

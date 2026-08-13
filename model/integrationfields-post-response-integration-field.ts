@@ -17,53 +17,13 @@
 // @ts-ignore
 import type { IntegrationfieldsPostResponseIntegrationFieldIntegratable } from './integrationfields-post-response-integration-field-integratable';
 
-/**
- * 
- * @export
- * @interface IntegrationfieldsPostResponseIntegrationField
- */
 export interface IntegrationfieldsPostResponseIntegrationField {
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationfieldsPostResponseIntegrationField
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationfieldsPostResponseIntegrationField
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationfieldsPostResponseIntegrationField
-     */
     'value'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof IntegrationfieldsPostResponseIntegrationField
-     */
     'integration_id'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationfieldsPostResponseIntegrationField
-     */
     'service_name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationfieldsPostResponseIntegrationField
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {IntegrationfieldsPostResponseIntegrationFieldIntegratable}
-     * @memberof IntegrationfieldsPostResponseIntegrationField
-     */
     'integratable'?: IntegrationfieldsPostResponseIntegrationFieldIntegratable;
 }
 

@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface FeaturesPostResponseFeatureWorkflowKind
- */
 export interface FeaturesPostResponseFeatureWorkflowKind {
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPostResponseFeatureWorkflowKind
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPostResponseFeatureWorkflowKind
-     */
     'name'?: string;
 }
 

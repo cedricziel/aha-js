@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { CompetitorsPostResponse } from '../model';
 import type { CompetitorsPutResponse } from '../model';
 /**
  * CompetitorsApi - axios parameter creator
- * @export
  */
 export const CompetitorsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -46,7 +45,7 @@ export const CompetitorsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'id' is not null or undefined
             assertParamExists('competitorsByIdGet', 'id', id)
             const localVarPath = `/competitors/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -68,8 +67,8 @@ export const CompetitorsApiAxiosParamCreator = function (configuration?: Configu
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -93,8 +92,8 @@ export const CompetitorsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'id' is not null or undefined
             assertParamExists('productsByProductCompetitorsByIdDelete', 'id', id)
             const localVarPath = `/products/{product_id}/competitors/{id}`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)))
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{product_id}', encodeURIComponent(String(productId)))
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -117,7 +116,6 @@ export const CompetitorsApiAxiosParamCreator = function (configuration?: Configu
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -144,8 +142,8 @@ export const CompetitorsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'competitorsPostRequest' is not null or undefined
             assertParamExists('productsByProductCompetitorsByIdPut', 'competitorsPostRequest', competitorsPostRequest)
             const localVarPath = `/products/{product_id}/competitors/{id}`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)))
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{product_id}', encodeURIComponent(String(productId)))
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -167,9 +165,8 @@ export const CompetitorsApiAxiosParamCreator = function (configuration?: Configu
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -194,7 +191,7 @@ export const CompetitorsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'productId' is not null or undefined
             assertParamExists('productsByProductCompetitorsGet', 'productId', productId)
             const localVarPath = `/products/{product_id}/competitors`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -224,8 +221,8 @@ export const CompetitorsApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -249,7 +246,7 @@ export const CompetitorsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'competitorsPostRequest' is not null or undefined
             assertParamExists('productsByProductCompetitorsPost', 'competitorsPostRequest', competitorsPostRequest)
             const localVarPath = `/products/{product_id}/competitors`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -271,9 +268,8 @@ export const CompetitorsApiAxiosParamCreator = function (configuration?: Configu
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -290,7 +286,6 @@ export const CompetitorsApiAxiosParamCreator = function (configuration?: Configu
 
 /**
  * CompetitorsApi - functional programming interface
- * @export
  */
 export const CompetitorsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = CompetitorsApiAxiosParamCreator(configuration)
@@ -371,7 +366,6 @@ export const CompetitorsApiFp = function(configuration?: Configuration) {
 
 /**
  * CompetitorsApi - factory interface
- * @export
  */
 export const CompetitorsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = CompetitorsApiFp(configuration)
@@ -431,8 +425,6 @@ export const CompetitorsApiFactory = function (configuration?: Configuration, ba
 
 /**
  * CompetitorsApi - interface
- * @export
- * @interface CompetitorsApi
  */
 export interface CompetitorsApiInterface {
     /**
@@ -441,7 +433,6 @@ export interface CompetitorsApiInterface {
      * @param {CompetitorsApiCompetitorsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CompetitorsApiInterface
      */
     competitorsByIdGet(requestParameters: CompetitorsApiCompetitorsByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<CompetitorsGetResponse>;
 
@@ -451,7 +442,6 @@ export interface CompetitorsApiInterface {
      * @param {CompetitorsApiProductsByProductCompetitorsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CompetitorsApiInterface
      */
     productsByProductCompetitorsByIdDelete(requestParameters: CompetitorsApiProductsByProductCompetitorsByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -461,7 +451,6 @@ export interface CompetitorsApiInterface {
      * @param {CompetitorsApiProductsByProductCompetitorsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CompetitorsApiInterface
      */
     productsByProductCompetitorsByIdPut(requestParameters: CompetitorsApiProductsByProductCompetitorsByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<CompetitorsPutResponse>;
 
@@ -471,7 +460,6 @@ export interface CompetitorsApiInterface {
      * @param {CompetitorsApiProductsByProductCompetitorsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CompetitorsApiInterface
      */
     productsByProductCompetitorsGet(requestParameters: CompetitorsApiProductsByProductCompetitorsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<CompetitorsGetResponse>;
 
@@ -481,7 +469,6 @@ export interface CompetitorsApiInterface {
      * @param {CompetitorsApiProductsByProductCompetitorsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CompetitorsApiInterface
      */
     productsByProductCompetitorsPost(requestParameters: CompetitorsApiProductsByProductCompetitorsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<CompetitorsPostResponse>;
 
@@ -489,121 +476,74 @@ export interface CompetitorsApiInterface {
 
 /**
  * Request parameters for competitorsByIdGet operation in CompetitorsApi.
- * @export
- * @interface CompetitorsApiCompetitorsByIdGetRequest
  */
 export interface CompetitorsApiCompetitorsByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof CompetitorsApiCompetitorsByIdGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for productsByProductCompetitorsByIdDelete operation in CompetitorsApi.
- * @export
- * @interface CompetitorsApiProductsByProductCompetitorsByIdDeleteRequest
  */
 export interface CompetitorsApiProductsByProductCompetitorsByIdDeleteRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof CompetitorsApiProductsByProductCompetitorsByIdDelete
      */
     readonly productId: string
 
     /**
      * Id identifier
-     * @type {string}
-     * @memberof CompetitorsApiProductsByProductCompetitorsByIdDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for productsByProductCompetitorsByIdPut operation in CompetitorsApi.
- * @export
- * @interface CompetitorsApiProductsByProductCompetitorsByIdPutRequest
  */
 export interface CompetitorsApiProductsByProductCompetitorsByIdPutRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof CompetitorsApiProductsByProductCompetitorsByIdPut
      */
     readonly productId: string
 
     /**
      * Id identifier
-     * @type {string}
-     * @memberof CompetitorsApiProductsByProductCompetitorsByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {CompetitorsPostRequest}
-     * @memberof CompetitorsApiProductsByProductCompetitorsByIdPut
-     */
     readonly competitorsPostRequest: CompetitorsPostRequest
 }
 
 /**
  * Request parameters for productsByProductCompetitorsGet operation in CompetitorsApi.
- * @export
- * @interface CompetitorsApiProductsByProductCompetitorsGetRequest
  */
 export interface CompetitorsApiProductsByProductCompetitorsGetRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof CompetitorsApiProductsByProductCompetitorsGet
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CompetitorsApiProductsByProductCompetitorsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CompetitorsApiProductsByProductCompetitorsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for productsByProductCompetitorsPost operation in CompetitorsApi.
- * @export
- * @interface CompetitorsApiProductsByProductCompetitorsPostRequest
  */
 export interface CompetitorsApiProductsByProductCompetitorsPostRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof CompetitorsApiProductsByProductCompetitorsPost
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {CompetitorsPostRequest}
-     * @memberof CompetitorsApiProductsByProductCompetitorsPost
-     */
     readonly competitorsPostRequest: CompetitorsPostRequest
 }
 
 /**
  * CompetitorsApi - object-oriented interface
- * @export
- * @class CompetitorsApi
- * @extends {BaseAPI}
  */
 export class CompetitorsApi extends BaseAPI implements CompetitorsApiInterface {
     /**
@@ -612,7 +552,6 @@ export class CompetitorsApi extends BaseAPI implements CompetitorsApiInterface {
      * @param {CompetitorsApiCompetitorsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CompetitorsApi
      */
     public competitorsByIdGet(requestParameters: CompetitorsApiCompetitorsByIdGetRequest, options?: RawAxiosRequestConfig) {
         return CompetitorsApiFp(this.configuration).competitorsByIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -624,7 +563,6 @@ export class CompetitorsApi extends BaseAPI implements CompetitorsApiInterface {
      * @param {CompetitorsApiProductsByProductCompetitorsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CompetitorsApi
      */
     public productsByProductCompetitorsByIdDelete(requestParameters: CompetitorsApiProductsByProductCompetitorsByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return CompetitorsApiFp(this.configuration).productsByProductCompetitorsByIdDelete(requestParameters.productId, requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -636,7 +574,6 @@ export class CompetitorsApi extends BaseAPI implements CompetitorsApiInterface {
      * @param {CompetitorsApiProductsByProductCompetitorsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CompetitorsApi
      */
     public productsByProductCompetitorsByIdPut(requestParameters: CompetitorsApiProductsByProductCompetitorsByIdPutRequest, options?: RawAxiosRequestConfig) {
         return CompetitorsApiFp(this.configuration).productsByProductCompetitorsByIdPut(requestParameters.productId, requestParameters.id, requestParameters.competitorsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -648,7 +585,6 @@ export class CompetitorsApi extends BaseAPI implements CompetitorsApiInterface {
      * @param {CompetitorsApiProductsByProductCompetitorsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CompetitorsApi
      */
     public productsByProductCompetitorsGet(requestParameters: CompetitorsApiProductsByProductCompetitorsGetRequest, options?: RawAxiosRequestConfig) {
         return CompetitorsApiFp(this.configuration).productsByProductCompetitorsGet(requestParameters.productId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -660,7 +596,6 @@ export class CompetitorsApi extends BaseAPI implements CompetitorsApiInterface {
      * @param {CompetitorsApiProductsByProductCompetitorsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CompetitorsApi
      */
     public productsByProductCompetitorsPost(requestParameters: CompetitorsApiProductsByProductCompetitorsPostRequest, options?: RawAxiosRequestConfig) {
         return CompetitorsApiFp(this.configuration).productsByProductCompetitorsPost(requestParameters.productId, requestParameters.competitorsPostRequest, options).then((request) => request(this.axios, this.basePath));

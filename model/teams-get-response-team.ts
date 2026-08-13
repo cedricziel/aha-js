@@ -15,94 +15,27 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
+import type { Null } from './null';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { SchedulablechangesPutResponseSchedulableChangeSchedule } from './schedulablechanges-put-response-schedulable-change-schedule';
 // May contain unused imports in some cases
 // @ts-ignore
 import type { TeamsGetResponseTeamTeamMembers } from './teams-get-response-team-team-members';
 
-/**
- * 
- * @export
- * @interface TeamsGetResponseTeam
- */
 export interface TeamsGetResponseTeam {
-    /**
-     * 
-     * @type {string}
-     * @memberof TeamsGetResponseTeam
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof TeamsGetResponseTeam
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof TeamsGetResponseTeam
-     */
     'team_members_count'?: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof TeamsGetResponseTeam
-     */
     'automatically_calculate_team_members_count'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof TeamsGetResponseTeam
-     */
     'capacity'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof TeamsGetResponseTeam
-     */
     'hourly_rate'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof TeamsGetResponseTeam
-     */
     'color'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof TeamsGetResponseTeam
-     */
     'start_date'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof TeamsGetResponseTeam
-     */
     'end_date'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof TeamsGetResponseTeam
-     */
-    'project'?: any | null;
-    /**
-     * 
-     * @type {SchedulablechangesPutResponseSchedulableChangeSchedule}
-     * @memberof TeamsGetResponseTeam
-     */
+    'project'?: Null;
     'schedule'?: SchedulablechangesPutResponseSchedulableChangeSchedule;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof TeamsGetResponseTeam
-     */
     'custom_fields'?: Array<any>;
-    /**
-     * 
-     * @type {TeamsGetResponseTeamTeamMembers}
-     * @memberof TeamsGetResponseTeam
-     */
     'team_members'?: TeamsGetResponseTeamTeamMembers;
 }
 

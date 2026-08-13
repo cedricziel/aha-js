@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { IdeaorganizationsPostRequestIdeaOrganization } from './ideaorganizations-post-request-idea-organization';
 
-/**
- * 
- * @export
- * @interface IdeaorganizationsPostRequest
- */
 export interface IdeaorganizationsPostRequest {
-    /**
-     * 
-     * @type {IdeaorganizationsPostRequestIdeaOrganization}
-     * @memberof IdeaorganizationsPostRequest
-     */
     'idea_organization'?: IdeaorganizationsPostRequestIdeaOrganization;
 }
 

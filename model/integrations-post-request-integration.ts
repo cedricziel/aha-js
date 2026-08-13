@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface IntegrationsPostRequestIntegration
- */
 export interface IntegrationsPostRequestIntegration {
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IntegrationsPostRequestIntegration
-     */
     'enabled'?: boolean;
 }
 

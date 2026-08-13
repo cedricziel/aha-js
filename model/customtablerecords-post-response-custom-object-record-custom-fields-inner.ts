@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface CustomtablerecordsPostResponseCustomObjectRecordCustomFieldsInner
- */
 export interface CustomtablerecordsPostResponseCustomObjectRecordCustomFieldsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordsPostResponseCustomObjectRecordCustomFieldsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordsPostResponseCustomObjectRecordCustomFieldsInner
-     */
     'key'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordsPostResponseCustomObjectRecordCustomFieldsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordsPostResponseCustomObjectRecordCustomFieldsInner
-     */
     'updatedAt'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordsPostResponseCustomObjectRecordCustomFieldsInner
-     */
     'type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordsPostResponseCustomObjectRecordCustomFieldsInner
-     */
     'value'?: string;
 }
 

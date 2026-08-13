@@ -14,36 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface ProductsPutRequestProduct
- */
 export interface ProductsPutRequestProduct {
     [key: string]: any;
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsPutRequestProduct
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsPutRequestProduct
-     */
     'description'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsPutRequestProduct
-     */
     'prefix'?: string;
     /**
      * Custom table records to link, keyed by many-to-many custom field name. Replaces the existing list.
-     * @type {{ [key: string]: Array<string>; }}
-     * @memberof ProductsPutRequestProduct
      */
     'custom_object_links'?: { [key: string]: Array<string>; };
 }

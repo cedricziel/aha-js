@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeasPutResponseIdeaCustomObjectLinksInner
- */
 export interface IdeasPutResponseIdeaCustomObjectLinksInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaCustomObjectLinksInner
-     */
     'key'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaCustomObjectLinksInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaCustomObjectLinksInner
-     */
     'record_type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaCustomObjectLinksInner
-     */
     'record_ids'?: string;
 }
 

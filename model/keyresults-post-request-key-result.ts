@@ -17,41 +17,11 @@
 // @ts-ignore
 import type { KeyresultsPostRequestKeyResultWorkflowStatus } from './keyresults-post-request-key-result-workflow-status';
 
-/**
- * 
- * @export
- * @interface KeyresultsPostRequestKeyResult
- */
 export interface KeyresultsPostRequestKeyResult {
-    /**
-     * 
-     * @type {string}
-     * @memberof KeyresultsPostRequestKeyResult
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {KeyresultsPostRequestKeyResultWorkflowStatus}
-     * @memberof KeyresultsPostRequestKeyResult
-     */
     'workflow_status'?: KeyresultsPostRequestKeyResultWorkflowStatus;
-    /**
-     * 
-     * @type {Array<number>}
-     * @memberof KeyresultsPostRequestKeyResult
-     */
     'watchers'?: Array<number>;
-    /**
-     * 
-     * @type {string}
-     * @memberof KeyresultsPostRequestKeyResult
-     */
     'description'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KeyresultsPostRequestKeyResult
-     */
     'current_metric'?: string;
 }
 

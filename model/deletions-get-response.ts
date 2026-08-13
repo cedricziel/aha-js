@@ -17,23 +17,8 @@
 // @ts-ignore
 import type { DeletionsGetResponsePagination } from './deletions-get-response-pagination';
 
-/**
- * 
- * @export
- * @interface DeletionsGetResponse
- */
 export interface DeletionsGetResponse {
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof DeletionsGetResponse
-     */
     'deletions'?: Array<any>;
-    /**
-     * 
-     * @type {DeletionsGetResponsePagination}
-     * @memberof DeletionsGetResponse
-     */
     'pagination'?: DeletionsGetResponsePagination;
 }
 

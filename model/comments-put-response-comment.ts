@@ -22,72 +22,20 @@ import type { CommentsPutResponseCommentAttachmentsInner } from './comments-put-
 // May contain unused imports in some cases
 // @ts-ignore
 import type { CommentsPutResponseCommentCommentable } from './comments-put-response-comment-commentable';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface CommentsPutResponseComment
- */
 export interface CommentsPutResponseComment {
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsPutResponseComment
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsPutResponseComment
-     */
     'body'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsPutResponseComment
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsPutResponseComment
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof CommentsPutResponseComment
-     */
-    'parent_comment_id'?: any | null;
-    /**
-     * 
-     * @type {CommentsPostResponseCommentUser}
-     * @memberof CommentsPutResponseComment
-     */
+    'parent_comment_id'?: Null;
     'user'?: CommentsPostResponseCommentUser;
-    /**
-     * 
-     * @type {Array<CommentsPutResponseCommentAttachmentsInner>}
-     * @memberof CommentsPutResponseComment
-     */
     'attachments'?: Array<CommentsPutResponseCommentAttachmentsInner>;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsPutResponseComment
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsPutResponseComment
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {CommentsPutResponseCommentCommentable}
-     * @memberof CommentsPutResponseComment
-     */
     'commentable'?: CommentsPutResponseCommentCommentable;
 }
 

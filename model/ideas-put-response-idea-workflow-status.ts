@@ -17,47 +17,12 @@
 // @ts-ignore
 import type { IdeasPutResponseIdeaWorkflowStatusWorkflowStatusCategory } from './ideas-put-response-idea-workflow-status-workflow-status-category';
 
-/**
- * 
- * @export
- * @interface IdeasPutResponseIdeaWorkflowStatus
- */
 export interface IdeasPutResponseIdeaWorkflowStatus {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaWorkflowStatus
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaWorkflowStatus
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeasPutResponseIdeaWorkflowStatus
-     */
     'position'?: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdeasPutResponseIdeaWorkflowStatus
-     */
     'complete'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaWorkflowStatus
-     */
     'color'?: string;
-    /**
-     * 
-     * @type {IdeasPutResponseIdeaWorkflowStatusWorkflowStatusCategory}
-     * @memberof IdeasPutResponseIdeaWorkflowStatus
-     */
     'workflow_status_category'?: IdeasPutResponseIdeaWorkflowStatusWorkflowStatusCategory;
 }
 

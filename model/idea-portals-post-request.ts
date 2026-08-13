@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeaPortalsPostRequest
- */
 export interface IdeaPortalsPostRequest {
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof IdeaPortalsPostRequest
-     */
     'idea_portal_ids'?: Array<string>;
 }
 

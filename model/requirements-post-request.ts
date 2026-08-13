@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { RequirementsPostRequestRequirement } from './requirements-post-request-requirement';
 
-/**
- * 
- * @export
- * @interface RequirementsPostRequest
- */
 export interface RequirementsPostRequest {
-    /**
-     * 
-     * @type {RequirementsPostRequestRequirement}
-     * @memberof RequirementsPostRequest
-     */
     'requirement'?: RequirementsPostRequestRequirement;
 }
 

@@ -18,14 +18,13 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
 import type { AuditsGetResponse } from '../model';
 /**
  * AuditsApi - axios parameter creator
- * @export
  */
 export const AuditsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -93,8 +92,8 @@ export const AuditsApiAxiosParamCreator = function (configuration?: Configuratio
                 localVarQueryParameter['associated_type'] = associatedType;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -109,7 +108,6 @@ export const AuditsApiAxiosParamCreator = function (configuration?: Configuratio
 
 /**
  * AuditsApi - functional programming interface
- * @export
  */
 export const AuditsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = AuditsApiAxiosParamCreator(configuration)
@@ -138,7 +136,6 @@ export const AuditsApiFp = function(configuration?: Configuration) {
 
 /**
  * AuditsApi - factory interface
- * @export
  */
 export const AuditsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = AuditsApiFp(configuration)
@@ -158,8 +155,6 @@ export const AuditsApiFactory = function (configuration?: Configuration, basePat
 
 /**
  * AuditsApi - interface
- * @export
- * @interface AuditsApi
  */
 export interface AuditsApiInterface {
     /**
@@ -168,7 +163,6 @@ export interface AuditsApiInterface {
      * @param {AuditsApiAuditsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AuditsApiInterface
      */
     auditsGet(requestParameters?: AuditsApiAuditsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<AuditsGetResponse>;
 
@@ -176,65 +170,25 @@ export interface AuditsApiInterface {
 
 /**
  * Request parameters for auditsGet operation in AuditsApi.
- * @export
- * @interface AuditsApiAuditsGetRequest
  */
 export interface AuditsApiAuditsGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof AuditsApiAuditsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof AuditsApiAuditsGet
-     */
     readonly perPage?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof AuditsApiAuditsGet
-     */
     readonly auditableId?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof AuditsApiAuditsGet
-     */
     readonly auditableType?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof AuditsApiAuditsGet
-     */
     readonly fields?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof AuditsApiAuditsGet
-     */
     readonly associatedId?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof AuditsApiAuditsGet
-     */
     readonly associatedType?: string
 }
 
 /**
  * AuditsApi - object-oriented interface
- * @export
- * @class AuditsApi
- * @extends {BaseAPI}
  */
 export class AuditsApi extends BaseAPI implements AuditsApiInterface {
     /**
@@ -243,7 +197,6 @@ export class AuditsApi extends BaseAPI implements AuditsApiInterface {
      * @param {AuditsApiAuditsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AuditsApi
      */
     public auditsGet(requestParameters: AuditsApiAuditsGetRequest = {}, options?: RawAxiosRequestConfig) {
         return AuditsApiFp(this.configuration).auditsGet(requestParameters.page, requestParameters.perPage, requestParameters.auditableId, requestParameters.auditableType, requestParameters.fields, requestParameters.associatedId, requestParameters.associatedType, options).then((request) => request(this.axios, this.basePath));

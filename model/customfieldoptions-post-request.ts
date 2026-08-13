@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { CustomfieldoptionsPostRequestCustomFieldOption } from './customfieldoptions-post-request-custom-field-option';
 
-/**
- * 
- * @export
- * @interface CustomfieldoptionsPostRequest
- */
 export interface CustomfieldoptionsPostRequest {
-    /**
-     * 
-     * @type {CustomfieldoptionsPostRequestCustomFieldOption}
-     * @memberof CustomfieldoptionsPostRequest
-     */
     'custom_field_option'?: CustomfieldoptionsPostRequestCustomFieldOption;
 }
 

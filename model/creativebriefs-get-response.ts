@@ -20,23 +20,8 @@ import type { CompetitorsGetResponsePagination } from './competitors-get-respons
 // @ts-ignore
 import type { CreativebriefsGetResponseCreativeBriefsInner } from './creativebriefs-get-response-creative-briefs-inner';
 
-/**
- * 
- * @export
- * @interface CreativebriefsGetResponse
- */
 export interface CreativebriefsGetResponse {
-    /**
-     * 
-     * @type {Array<CreativebriefsGetResponseCreativeBriefsInner>}
-     * @memberof CreativebriefsGetResponse
-     */
     'creative_briefs'?: Array<CreativebriefsGetResponseCreativeBriefsInner>;
-    /**
-     * 
-     * @type {CompetitorsGetResponsePagination}
-     * @memberof CreativebriefsGetResponse
-     */
     'pagination'?: CompetitorsGetResponsePagination;
 }
 

@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdentityprovidersGetResponseIdentityProvider
- */
 export interface IdentityprovidersGetResponseIdentityProvider {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityprovidersGetResponseIdentityProvider
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdentityprovidersGetResponseIdentityProvider
-     */
     'enabled'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityprovidersGetResponseIdentityProvider
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityprovidersGetResponseIdentityProvider
-     */
     'sso_endpoint'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityprovidersGetResponseIdentityProvider
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityprovidersGetResponseIdentityProvider
-     */
     'updated_at'?: string;
 }
 

@@ -20,23 +20,8 @@ import type { IdeavotesGetResponseIdeaEndorsementsInner } from './ideavotes-get-
 // @ts-ignore
 import type { IdeavotesGetResponsePagination } from './ideavotes-get-response-pagination';
 
-/**
- * 
- * @export
- * @interface IdeavotesGetResponse
- */
 export interface IdeavotesGetResponse {
-    /**
-     * 
-     * @type {Array<IdeavotesGetResponseIdeaEndorsementsInner>}
-     * @memberof IdeavotesGetResponse
-     */
     'idea_endorsements'?: Array<IdeavotesGetResponseIdeaEndorsementsInner>;
-    /**
-     * 
-     * @type {IdeavotesGetResponsePagination}
-     * @memberof IdeavotesGetResponse
-     */
     'pagination'?: IdeavotesGetResponsePagination;
 }
 

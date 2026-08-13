@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -33,7 +33,6 @@ import type { IdeasPutRequest } from '../model';
 import type { IdeasPutResponse } from '../model';
 /**
  * IdeasApi - axios parameter creator
- * @export
  */
 export const IdeasApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -48,7 +47,7 @@ export const IdeasApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('ideasByIdDelete', 'id', id)
             const localVarPath = `/ideas/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -71,7 +70,6 @@ export const IdeasApiAxiosParamCreator = function (configuration?: Configuration
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -93,7 +91,7 @@ export const IdeasApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('ideasByIdGet', 'id', id)
             const localVarPath = `/ideas/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -119,8 +117,8 @@ export const IdeasApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['fields'] = fields;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -144,7 +142,7 @@ export const IdeasApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'ideasPostRequest' is not null or undefined
             assertParamExists('ideasByIdPromotePut', 'ideasPostRequest', ideasPostRequest)
             const localVarPath = `/ideas/{id}/promote`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -166,9 +164,8 @@ export const IdeasApiAxiosParamCreator = function (configuration?: Configuration
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -194,7 +191,7 @@ export const IdeasApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'ideasPutRequest' is not null or undefined
             assertParamExists('ideasByIdPut', 'ideasPutRequest', ideasPutRequest)
             const localVarPath = `/ideas/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -216,9 +213,8 @@ export const IdeasApiAxiosParamCreator = function (configuration?: Configuration
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -324,8 +320,8 @@ export const IdeasApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['fields'] = fields;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -379,8 +375,8 @@ export const IdeasApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['idea_portal_id'] = ideaPortalId;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -414,7 +410,7 @@ export const IdeasApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'productId' is not null or undefined
             assertParamExists('productsByProductIdeasGet', 'productId', productId)
             const localVarPath = `/products/{product_id}/ideas`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -488,8 +484,8 @@ export const IdeasApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['fields'] = fields;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -513,7 +509,7 @@ export const IdeasApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'ideasPostRequest' is not null or undefined
             assertParamExists('productsByProductIdeasPost', 'ideasPostRequest', ideasPostRequest)
             const localVarPath = `/products/{product_id}/ideas`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -535,9 +531,8 @@ export const IdeasApiAxiosParamCreator = function (configuration?: Configuration
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -554,7 +549,6 @@ export const IdeasApiAxiosParamCreator = function (configuration?: Configuration
 
 /**
  * IdeasApi - functional programming interface
- * @export
  */
 export const IdeasApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = IdeasApiAxiosParamCreator(configuration)
@@ -699,7 +693,6 @@ export const IdeasApiFp = function(configuration?: Configuration) {
 
 /**
  * IdeasApi - factory interface
- * @export
  */
 export const IdeasApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = IdeasApiFp(configuration)
@@ -789,8 +782,6 @@ export const IdeasApiFactory = function (configuration?: Configuration, basePath
 
 /**
  * IdeasApi - interface
- * @export
- * @interface IdeasApi
  */
 export interface IdeasApiInterface {
     /**
@@ -799,7 +790,6 @@ export interface IdeasApiInterface {
      * @param {IdeasApiIdeasByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApiInterface
      */
     ideasByIdDelete(requestParameters: IdeasApiIdeasByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -809,7 +799,6 @@ export interface IdeasApiInterface {
      * @param {IdeasApiIdeasByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApiInterface
      */
     ideasByIdGet(requestParameters: IdeasApiIdeasByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasGetResponse>;
 
@@ -819,7 +808,6 @@ export interface IdeasApiInterface {
      * @param {IdeasApiIdeasByIdPromotePutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApiInterface
      */
     ideasByIdPromotePut(requestParameters: IdeasApiIdeasByIdPromotePutRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasPutResponse>;
 
@@ -829,7 +817,6 @@ export interface IdeasApiInterface {
      * @param {IdeasApiIdeasByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApiInterface
      */
     ideasByIdPut(requestParameters: IdeasApiIdeasByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasPutResponse>;
 
@@ -839,7 +826,6 @@ export interface IdeasApiInterface {
      * @param {IdeasApiIdeasGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApiInterface
      */
     ideasGet(requestParameters?: IdeasApiIdeasGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasGetResponse>;
 
@@ -849,7 +835,6 @@ export interface IdeasApiInterface {
      * @param {IdeasApiIdeasRelatedGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApiInterface
      */
     ideasRelatedGet(requestParameters?: IdeasApiIdeasRelatedGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasGetResponse>;
 
@@ -859,7 +844,6 @@ export interface IdeasApiInterface {
      * @param {IdeasApiProductsByProductIdeasGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApiInterface
      */
     productsByProductIdeasGet(requestParameters: IdeasApiProductsByProductIdeasGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasGetResponse>;
 
@@ -869,7 +853,6 @@ export interface IdeasApiInterface {
      * @param {IdeasApiProductsByProductIdeasPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApiInterface
      */
     productsByProductIdeasPost(requestParameters: IdeasApiProductsByProductIdeasPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasPostResponse>;
 
@@ -877,338 +860,142 @@ export interface IdeasApiInterface {
 
 /**
  * Request parameters for ideasByIdDelete operation in IdeasApi.
- * @export
- * @interface IdeasApiIdeasByIdDeleteRequest
  */
 export interface IdeasApiIdeasByIdDeleteRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof IdeasApiIdeasByIdDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for ideasByIdGet operation in IdeasApi.
- * @export
- * @interface IdeasApiIdeasByIdGetRequest
  */
 export interface IdeasApiIdeasByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof IdeasApiIdeasByIdGet
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasApiIdeasByIdGet
-     */
     readonly fields?: string
 }
 
 /**
  * Request parameters for ideasByIdPromotePut operation in IdeasApi.
- * @export
- * @interface IdeasApiIdeasByIdPromotePutRequest
  */
 export interface IdeasApiIdeasByIdPromotePutRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof IdeasApiIdeasByIdPromotePut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {IdeasPostRequest}
-     * @memberof IdeasApiIdeasByIdPromotePut
-     */
     readonly ideasPostRequest: IdeasPostRequest
 }
 
 /**
  * Request parameters for ideasByIdPut operation in IdeasApi.
- * @export
- * @interface IdeasApiIdeasByIdPutRequest
  */
 export interface IdeasApiIdeasByIdPutRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof IdeasApiIdeasByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {IdeasPutRequest}
-     * @memberof IdeasApiIdeasByIdPut
-     */
     readonly ideasPutRequest: IdeasPutRequest
 }
 
 /**
  * Request parameters for ideasGet operation in IdeasApi.
- * @export
- * @interface IdeasApiIdeasGetRequest
  */
 export interface IdeasApiIdeasGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasApiIdeasGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasApiIdeasGet
-     */
     readonly perPage?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasApiIdeasGet
-     */
     readonly q?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasApiIdeasGet
-     */
     readonly workflowStatus?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasApiIdeasGet
-     */
     readonly assignedToUser?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasApiIdeasGet
-     */
     readonly tag?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasApiIdeasGet
-     */
     readonly userId?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasApiIdeasGet
-     */
     readonly spam?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasApiIdeasGet
-     */
     readonly createdSince?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasApiIdeasGet
-     */
     readonly createdBefore?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasApiIdeasGet
-     */
     readonly updatedSince?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasApiIdeasGet
-     */
     readonly sort?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasApiIdeasGet
-     */
     readonly fields?: string
 }
 
 /**
  * Request parameters for ideasRelatedGet operation in IdeasApi.
- * @export
- * @interface IdeasApiIdeasRelatedGetRequest
  */
 export interface IdeasApiIdeasRelatedGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasApiIdeasRelatedGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasApiIdeasRelatedGet
-     */
     readonly q?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasApiIdeasRelatedGet
-     */
     readonly ideaPortalId?: string
 }
 
 /**
  * Request parameters for productsByProductIdeasGet operation in IdeasApi.
- * @export
- * @interface IdeasApiProductsByProductIdeasGetRequest
  */
 export interface IdeasApiProductsByProductIdeasGetRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof IdeasApiProductsByProductIdeasGet
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasApiProductsByProductIdeasGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasApiProductsByProductIdeasGet
-     */
     readonly perPage?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasApiProductsByProductIdeasGet
-     */
     readonly q?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasApiProductsByProductIdeasGet
-     */
     readonly workflowStatus?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasApiProductsByProductIdeasGet
-     */
     readonly assignedToUser?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasApiProductsByProductIdeasGet
-     */
     readonly tag?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasApiProductsByProductIdeasGet
-     */
     readonly userId?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasApiProductsByProductIdeasGet
-     */
     readonly spam?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasApiProductsByProductIdeasGet
-     */
     readonly createdSince?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasApiProductsByProductIdeasGet
-     */
     readonly createdBefore?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasApiProductsByProductIdeasGet
-     */
     readonly updatedSince?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasApiProductsByProductIdeasGet
-     */
     readonly sort?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasApiProductsByProductIdeasGet
-     */
     readonly fields?: string
 }
 
 /**
  * Request parameters for productsByProductIdeasPost operation in IdeasApi.
- * @export
- * @interface IdeasApiProductsByProductIdeasPostRequest
  */
 export interface IdeasApiProductsByProductIdeasPostRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof IdeasApiProductsByProductIdeasPost
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {IdeasPostRequest}
-     * @memberof IdeasApiProductsByProductIdeasPost
-     */
     readonly ideasPostRequest: IdeasPostRequest
 }
 
 /**
  * IdeasApi - object-oriented interface
- * @export
- * @class IdeasApi
- * @extends {BaseAPI}
  */
 export class IdeasApi extends BaseAPI implements IdeasApiInterface {
     /**
@@ -1217,7 +1004,6 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
      * @param {IdeasApiIdeasByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApi
      */
     public ideasByIdDelete(requestParameters: IdeasApiIdeasByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return IdeasApiFp(this.configuration).ideasByIdDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -1229,7 +1015,6 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
      * @param {IdeasApiIdeasByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApi
      */
     public ideasByIdGet(requestParameters: IdeasApiIdeasByIdGetRequest, options?: RawAxiosRequestConfig) {
         return IdeasApiFp(this.configuration).ideasByIdGet(requestParameters.id, requestParameters.fields, options).then((request) => request(this.axios, this.basePath));
@@ -1241,7 +1026,6 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
      * @param {IdeasApiIdeasByIdPromotePutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApi
      */
     public ideasByIdPromotePut(requestParameters: IdeasApiIdeasByIdPromotePutRequest, options?: RawAxiosRequestConfig) {
         return IdeasApiFp(this.configuration).ideasByIdPromotePut(requestParameters.id, requestParameters.ideasPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1253,7 +1037,6 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
      * @param {IdeasApiIdeasByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApi
      */
     public ideasByIdPut(requestParameters: IdeasApiIdeasByIdPutRequest, options?: RawAxiosRequestConfig) {
         return IdeasApiFp(this.configuration).ideasByIdPut(requestParameters.id, requestParameters.ideasPutRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1265,7 +1048,6 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
      * @param {IdeasApiIdeasGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApi
      */
     public ideasGet(requestParameters: IdeasApiIdeasGetRequest = {}, options?: RawAxiosRequestConfig) {
         return IdeasApiFp(this.configuration).ideasGet(requestParameters.page, requestParameters.perPage, requestParameters.q, requestParameters.workflowStatus, requestParameters.assignedToUser, requestParameters.tag, requestParameters.userId, requestParameters.spam, requestParameters.createdSince, requestParameters.createdBefore, requestParameters.updatedSince, requestParameters.sort, requestParameters.fields, options).then((request) => request(this.axios, this.basePath));
@@ -1277,7 +1059,6 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
      * @param {IdeasApiIdeasRelatedGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApi
      */
     public ideasRelatedGet(requestParameters: IdeasApiIdeasRelatedGetRequest = {}, options?: RawAxiosRequestConfig) {
         return IdeasApiFp(this.configuration).ideasRelatedGet(requestParameters.page, requestParameters.q, requestParameters.ideaPortalId, options).then((request) => request(this.axios, this.basePath));
@@ -1289,7 +1070,6 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
      * @param {IdeasApiProductsByProductIdeasGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApi
      */
     public productsByProductIdeasGet(requestParameters: IdeasApiProductsByProductIdeasGetRequest, options?: RawAxiosRequestConfig) {
         return IdeasApiFp(this.configuration).productsByProductIdeasGet(requestParameters.productId, requestParameters.page, requestParameters.perPage, requestParameters.q, requestParameters.workflowStatus, requestParameters.assignedToUser, requestParameters.tag, requestParameters.userId, requestParameters.spam, requestParameters.createdSince, requestParameters.createdBefore, requestParameters.updatedSince, requestParameters.sort, requestParameters.fields, options).then((request) => request(this.axios, this.basePath));
@@ -1301,7 +1081,6 @@ export class IdeasApi extends BaseAPI implements IdeasApiInterface {
      * @param {IdeasApiProductsByProductIdeasPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasApi
      */
     public productsByProductIdeasPost(requestParameters: IdeasApiProductsByProductIdeasPostRequest, options?: RawAxiosRequestConfig) {
         return IdeasApiFp(this.configuration).productsByProductIdeasPost(requestParameters.productId, requestParameters.ideasPostRequest, options).then((request) => request(this.axios, this.basePath));

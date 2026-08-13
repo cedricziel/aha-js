@@ -16,126 +16,29 @@
 // May contain unused imports in some cases
 // @ts-ignore
 import type { KnowledgebasepagesGetResponsePageDescription } from './knowledgebasepages-get-response-page-description';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface KnowledgebasepagesGetResponsePage
- */
 export interface KnowledgebasepagesGetResponsePage {
-    /**
-     * 
-     * @type {string}
-     * @memberof KnowledgebasepagesGetResponsePage
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KnowledgebasepagesGetResponsePage
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KnowledgebasepagesGetResponsePage
-     */
     'title'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KnowledgebasepagesGetResponsePage
-     */
     'document_title'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KnowledgebasepagesGetResponsePage
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof KnowledgebasepagesGetResponsePage
-     */
-    'emoji_value'?: any | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof KnowledgebasepagesGetResponsePage
-     */
+    'emoji_value'?: Null;
     'document_type'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof KnowledgebasepagesGetResponsePage
-     */
     'document_type_name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KnowledgebasepagesGetResponsePage
-     */
     'type_name'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof KnowledgebasepagesGetResponsePage
-     */
     'position'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof KnowledgebasepagesGetResponsePage
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof KnowledgebasepagesGetResponsePage
-     */
-    'location'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof KnowledgebasepagesGetResponsePage
-     */
+    'location'?: Null;
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KnowledgebasepagesGetResponsePage
-     */
     'knowledge_base_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KnowledgebasepagesGetResponsePage
-     */
     'publishing_status'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof KnowledgebasepagesGetResponsePage
-     */
-    'parent_id'?: any | null;
-    /**
-     * 
-     * @type {KnowledgebasepagesGetResponsePageDescription}
-     * @memberof KnowledgebasepagesGetResponsePage
-     */
+    'parent_id'?: Null;
     'description'?: KnowledgebasepagesGetResponsePageDescription;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof KnowledgebasepagesGetResponsePage
-     */
     'collections'?: Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof KnowledgebasepagesGetResponsePage
-     */
     'custom_fields'?: Array<any>;
 }
 

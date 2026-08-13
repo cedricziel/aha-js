@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeasPutResponseIdeaScoreFactsInner
- */
 export interface IdeasPutResponseIdeaScoreFactsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaScoreFactsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaScoreFactsInner
-     */
     'value'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaScoreFactsInner
-     */
     'name'?: string;
 }
 

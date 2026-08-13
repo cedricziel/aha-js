@@ -17,29 +17,9 @@
 // @ts-ignore
 import type { IdeasubscriptionsGetResponseIdeaSubscriptionIdea } from './ideasubscriptions-get-response-idea-subscription-idea';
 
-/**
- * 
- * @export
- * @interface IdeasubscriptionsGetResponseIdeaSubscription
- */
 export interface IdeasubscriptionsGetResponseIdeaSubscription {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasubscriptionsGetResponseIdeaSubscription
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasubscriptionsGetResponseIdeaSubscription
-     */
     'idea_id'?: string;
-    /**
-     * 
-     * @type {IdeasubscriptionsGetResponseIdeaSubscriptionIdea}
-     * @memberof IdeasubscriptionsGetResponseIdeaSubscription
-     */
     'idea'?: IdeasubscriptionsGetResponseIdeaSubscriptionIdea;
 }
 

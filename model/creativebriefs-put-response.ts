@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { CreativebriefsPutResponseCreativeBrief } from './creativebriefs-put-response-creative-brief';
 
-/**
- * 
- * @export
- * @interface CreativebriefsPutResponse
- */
 export interface CreativebriefsPutResponse {
-    /**
-     * 
-     * @type {CreativebriefsPutResponseCreativeBrief}
-     * @memberof CreativebriefsPutResponse
-     */
     'creative_brief'?: CreativebriefsPutResponseCreativeBrief;
 }
 

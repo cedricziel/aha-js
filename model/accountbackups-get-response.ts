@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { AccountbackupsGetResponseAccountBackup } from './accountbackups-get-response-account-backup';
 
-/**
- * 
- * @export
- * @interface AccountbackupsGetResponse
- */
 export interface AccountbackupsGetResponse {
-    /**
-     * 
-     * @type {AccountbackupsGetResponseAccountBackup}
-     * @memberof AccountbackupsGetResponse
-     */
     'account_backup'?: AccountbackupsGetResponseAccountBackup;
 }
 

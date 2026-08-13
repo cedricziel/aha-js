@@ -15,70 +15,23 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
+import type { Null } from './null';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { StrategicmodelsGetResponseStrategyModelComponentsInner } from './strategicmodels-get-response-strategy-model-components-inner';
 // May contain unused imports in some cases
 // @ts-ignore
 import type { StrategicmodelsGetResponseStrategyModelProject } from './strategicmodels-get-response-strategy-model-project';
 
-/**
- * 
- * @export
- * @interface StrategicmodelsGetResponseStrategyModel
- */
 export interface StrategicmodelsGetResponseStrategyModel {
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicmodelsGetResponseStrategyModel
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicmodelsGetResponseStrategyModel
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicmodelsGetResponseStrategyModel
-     */
     'kind'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicmodelsGetResponseStrategyModel
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicmodelsGetResponseStrategyModel
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicmodelsGetResponseStrategyModel
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {Array<StrategicmodelsGetResponseStrategyModelComponentsInner>}
-     * @memberof StrategicmodelsGetResponseStrategyModel
-     */
     'components'?: Array<StrategicmodelsGetResponseStrategyModelComponentsInner>;
-    /**
-     * 
-     * @type {any}
-     * @memberof StrategicmodelsGetResponseStrategyModel
-     */
-    'description'?: any | null;
-    /**
-     * 
-     * @type {StrategicmodelsGetResponseStrategyModelProject}
-     * @memberof StrategicmodelsGetResponseStrategyModel
-     */
+    'description'?: Null;
     'project'?: StrategicmodelsGetResponseStrategyModelProject;
 }
 

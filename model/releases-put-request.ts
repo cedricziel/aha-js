@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { ReleasesPutRequestRelease } from './releases-put-request-release';
 
-/**
- * 
- * @export
- * @interface ReleasesPutRequest
- */
 export interface ReleasesPutRequest {
-    /**
-     * 
-     * @type {ReleasesPutRequestRelease}
-     * @memberof ReleasesPutRequest
-     */
     'release'?: ReleasesPutRequestRelease;
 }
 

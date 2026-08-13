@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { SchedulablechangesPutResponseSchedulableChange } from './schedulablechanges-put-response-schedulable-change';
 
-/**
- * 
- * @export
- * @interface SchedulablechangesPutResponse
- */
 export interface SchedulablechangesPutResponse {
-    /**
-     * 
-     * @type {SchedulablechangesPutResponseSchedulableChange}
-     * @memberof SchedulablechangesPutResponse
-     */
     'schedulable_change'?: SchedulablechangesPutResponseSchedulableChange;
 }
 

@@ -18,14 +18,13 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
 import type { KnowledgebasesGetResponse } from '../model';
 /**
  * KnowledgeBasesApi - axios parameter creator
- * @export
  */
 export const KnowledgeBasesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -40,7 +39,7 @@ export const KnowledgeBasesApiAxiosParamCreator = function (configuration?: Conf
             // verify required parameter 'id' is not null or undefined
             assertParamExists('knowledgeBasesByIdGet', 'id', id)
             const localVarPath = `/knowledge_bases/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -62,8 +61,8 @@ export const KnowledgeBasesApiAxiosParamCreator = function (configuration?: Conf
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -78,7 +77,6 @@ export const KnowledgeBasesApiAxiosParamCreator = function (configuration?: Conf
 
 /**
  * KnowledgeBasesApi - functional programming interface
- * @export
  */
 export const KnowledgeBasesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = KnowledgeBasesApiAxiosParamCreator(configuration)
@@ -101,7 +99,6 @@ export const KnowledgeBasesApiFp = function(configuration?: Configuration) {
 
 /**
  * KnowledgeBasesApi - factory interface
- * @export
  */
 export const KnowledgeBasesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = KnowledgeBasesApiFp(configuration)
@@ -121,8 +118,6 @@ export const KnowledgeBasesApiFactory = function (configuration?: Configuration,
 
 /**
  * KnowledgeBasesApi - interface
- * @export
- * @interface KnowledgeBasesApi
  */
 export interface KnowledgeBasesApiInterface {
     /**
@@ -131,7 +126,6 @@ export interface KnowledgeBasesApiInterface {
      * @param {KnowledgeBasesApiKnowledgeBasesByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof KnowledgeBasesApiInterface
      */
     knowledgeBasesByIdGet(requestParameters: KnowledgeBasesApiKnowledgeBasesByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<KnowledgebasesGetResponse>;
 
@@ -139,23 +133,16 @@ export interface KnowledgeBasesApiInterface {
 
 /**
  * Request parameters for knowledgeBasesByIdGet operation in KnowledgeBasesApi.
- * @export
- * @interface KnowledgeBasesApiKnowledgeBasesByIdGetRequest
  */
 export interface KnowledgeBasesApiKnowledgeBasesByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof KnowledgeBasesApiKnowledgeBasesByIdGet
      */
     readonly id: string
 }
 
 /**
  * KnowledgeBasesApi - object-oriented interface
- * @export
- * @class KnowledgeBasesApi
- * @extends {BaseAPI}
  */
 export class KnowledgeBasesApi extends BaseAPI implements KnowledgeBasesApiInterface {
     /**
@@ -164,7 +151,6 @@ export class KnowledgeBasesApi extends BaseAPI implements KnowledgeBasesApiInter
      * @param {KnowledgeBasesApiKnowledgeBasesByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof KnowledgeBasesApi
      */
     public knowledgeBasesByIdGet(requestParameters: KnowledgeBasesApiKnowledgeBasesByIdGetRequest, options?: RawAxiosRequestConfig) {
         return KnowledgeBasesApiFp(this.configuration).knowledgeBasesByIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));

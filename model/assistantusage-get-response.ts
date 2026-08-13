@@ -20,23 +20,8 @@ import type { AssistantusageGetResponsePagination } from './assistantusage-get-r
 // @ts-ignore
 import type { AssistantusageGetResponseUsersInner } from './assistantusage-get-response-users-inner';
 
-/**
- * 
- * @export
- * @interface AssistantusageGetResponse
- */
 export interface AssistantusageGetResponse {
-    /**
-     * 
-     * @type {Array<AssistantusageGetResponseUsersInner>}
-     * @memberof AssistantusageGetResponse
-     */
     'users'?: Array<AssistantusageGetResponseUsersInner>;
-    /**
-     * 
-     * @type {AssistantusageGetResponsePagination}
-     * @memberof AssistantusageGetResponse
-     */
     'pagination'?: AssistantusageGetResponsePagination;
 }
 

@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { IdeaPortalsPutResponseIdeaPortalsInner } from './idea-portals-put-response-idea-portals-inner';
 
-/**
- * 
- * @export
- * @interface IdeaPortalsPutResponse
- */
 export interface IdeaPortalsPutResponse {
-    /**
-     * 
-     * @type {Array<IdeaPortalsPutResponseIdeaPortalsInner>}
-     * @memberof IdeaPortalsPutResponse
-     */
     'idea_portals'?: Array<IdeaPortalsPutResponseIdeaPortalsInner>;
 }
 

@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { NotesPostResponsePage } from './notes-post-response-page';
 
-/**
- * 
- * @export
- * @interface NotesPostResponse
- */
 export interface NotesPostResponse {
-    /**
-     * 
-     * @type {NotesPostResponsePage}
-     * @memberof NotesPostResponse
-     */
     'page'?: NotesPostResponsePage;
 }
 

@@ -14,53 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface EpicsPostResponseEpicReleaseProject
- */
 export interface EpicsPostResponseEpicReleaseProject {
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpicReleaseProject
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpicReleaseProject
-     */
     'reference_prefix'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpicReleaseProject
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpicReleaseProject
-     */
     'product_line'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpicReleaseProject
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpicReleaseProject
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpicReleaseProject
-     */
     'workspace_type'?: string;
 }
 

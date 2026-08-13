@@ -13,84 +13,22 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface PersonasPutResponsePersona
- */
 export interface PersonasPutResponsePersona {
-    /**
-     * 
-     * @type {string}
-     * @memberof PersonasPutResponsePersona
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PersonasPutResponsePersona
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PersonasPutResponsePersona
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PersonasPutResponsePersona
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof PersonasPutResponsePersona
-     */
     'color'?: number;
-    /**
-     * 
-     * @type {any}
-     * @memberof PersonasPutResponsePersona
-     */
-    'occupation'?: any | null;
-    /**
-     * 
-     * @type {any}
-     * @memberof PersonasPutResponsePersona
-     */
-    'quote'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof PersonasPutResponsePersona
-     */
+    'occupation'?: Null;
+    'quote'?: Null;
     'updated_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PersonasPutResponsePersona
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PersonasPutResponsePersona
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof PersonasPutResponsePersona
-     */
     'custom_fields'?: Array<any>;
-    /**
-     * 
-     * @type {number}
-     * @memberof PersonasPutResponsePersona
-     */
     'comments_count'?: number;
 }
 

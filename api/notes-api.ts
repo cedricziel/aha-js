@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { NotesPostResponse } from '../model';
 import type { NotesPutResponse } from '../model';
 /**
  * NotesApi - axios parameter creator
- * @export
  */
 export const NotesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -46,7 +45,7 @@ export const NotesApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('pagesByIdDelete', 'id', id)
             const localVarPath = `/pages/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -69,7 +68,6 @@ export const NotesApiAxiosParamCreator = function (configuration?: Configuration
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -90,7 +88,7 @@ export const NotesApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('pagesByIdGet', 'id', id)
             const localVarPath = `/pages/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -112,8 +110,8 @@ export const NotesApiAxiosParamCreator = function (configuration?: Configuration
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -134,7 +132,7 @@ export const NotesApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('pagesByIdPublishPost', 'id', id)
             const localVarPath = `/pages/{id}/publish`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -156,8 +154,8 @@ export const NotesApiAxiosParamCreator = function (configuration?: Configuration
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -181,7 +179,7 @@ export const NotesApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'notesPostRequest' is not null or undefined
             assertParamExists('pagesByIdPut', 'notesPostRequest', notesPostRequest)
             const localVarPath = `/pages/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -203,9 +201,8 @@ export const NotesApiAxiosParamCreator = function (configuration?: Configuration
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -228,7 +225,7 @@ export const NotesApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('pagesByIdUnpublishPost', 'id', id)
             const localVarPath = `/pages/{id}/unpublish`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -251,7 +248,6 @@ export const NotesApiAxiosParamCreator = function (configuration?: Configuration
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -274,7 +270,7 @@ export const NotesApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'productId' is not null or undefined
             assertParamExists('productsByProductPagesGet', 'productId', productId)
             const localVarPath = `/products/{product_id}/pages`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -304,8 +300,8 @@ export const NotesApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -329,7 +325,7 @@ export const NotesApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'notesPostRequest' is not null or undefined
             assertParamExists('productsByProductPagesPost', 'notesPostRequest', notesPostRequest)
             const localVarPath = `/products/{product_id}/pages`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -351,9 +347,8 @@ export const NotesApiAxiosParamCreator = function (configuration?: Configuration
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -370,7 +365,6 @@ export const NotesApiAxiosParamCreator = function (configuration?: Configuration
 
 /**
  * NotesApi - functional programming interface
- * @export
  */
 export const NotesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = NotesApiAxiosParamCreator(configuration)
@@ -475,7 +469,6 @@ export const NotesApiFp = function(configuration?: Configuration) {
 
 /**
  * NotesApi - factory interface
- * @export
  */
 export const NotesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = NotesApiFp(configuration)
@@ -555,8 +548,6 @@ export const NotesApiFactory = function (configuration?: Configuration, basePath
 
 /**
  * NotesApi - interface
- * @export
- * @interface NotesApi
  */
 export interface NotesApiInterface {
     /**
@@ -565,7 +556,6 @@ export interface NotesApiInterface {
      * @param {NotesApiPagesByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof NotesApiInterface
      */
     pagesByIdDelete(requestParameters: NotesApiPagesByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -575,7 +565,6 @@ export interface NotesApiInterface {
      * @param {NotesApiPagesByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof NotesApiInterface
      */
     pagesByIdGet(requestParameters: NotesApiPagesByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<NotesGetResponse>;
 
@@ -585,7 +574,6 @@ export interface NotesApiInterface {
      * @param {NotesApiPagesByIdPublishPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof NotesApiInterface
      */
     pagesByIdPublishPost(requestParameters: NotesApiPagesByIdPublishPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<NotesPostResponse>;
 
@@ -595,7 +583,6 @@ export interface NotesApiInterface {
      * @param {NotesApiPagesByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof NotesApiInterface
      */
     pagesByIdPut(requestParameters: NotesApiPagesByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<NotesPutResponse>;
 
@@ -605,7 +592,6 @@ export interface NotesApiInterface {
      * @param {NotesApiPagesByIdUnpublishPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof NotesApiInterface
      */
     pagesByIdUnpublishPost(requestParameters: NotesApiPagesByIdUnpublishPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -615,7 +601,6 @@ export interface NotesApiInterface {
      * @param {NotesApiProductsByProductPagesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof NotesApiInterface
      */
     productsByProductPagesGet(requestParameters: NotesApiProductsByProductPagesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<NotesGetResponse>;
 
@@ -625,7 +610,6 @@ export interface NotesApiInterface {
      * @param {NotesApiProductsByProductPagesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof NotesApiInterface
      */
     productsByProductPagesPost(requestParameters: NotesApiProductsByProductPagesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<NotesPostResponse>;
 
@@ -633,135 +617,84 @@ export interface NotesApiInterface {
 
 /**
  * Request parameters for pagesByIdDelete operation in NotesApi.
- * @export
- * @interface NotesApiPagesByIdDeleteRequest
  */
 export interface NotesApiPagesByIdDeleteRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof NotesApiPagesByIdDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for pagesByIdGet operation in NotesApi.
- * @export
- * @interface NotesApiPagesByIdGetRequest
  */
 export interface NotesApiPagesByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof NotesApiPagesByIdGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for pagesByIdPublishPost operation in NotesApi.
- * @export
- * @interface NotesApiPagesByIdPublishPostRequest
  */
 export interface NotesApiPagesByIdPublishPostRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof NotesApiPagesByIdPublishPost
      */
     readonly id: string
 }
 
 /**
  * Request parameters for pagesByIdPut operation in NotesApi.
- * @export
- * @interface NotesApiPagesByIdPutRequest
  */
 export interface NotesApiPagesByIdPutRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof NotesApiPagesByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {NotesPostRequest}
-     * @memberof NotesApiPagesByIdPut
-     */
     readonly notesPostRequest: NotesPostRequest
 }
 
 /**
  * Request parameters for pagesByIdUnpublishPost operation in NotesApi.
- * @export
- * @interface NotesApiPagesByIdUnpublishPostRequest
  */
 export interface NotesApiPagesByIdUnpublishPostRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof NotesApiPagesByIdUnpublishPost
      */
     readonly id: string
 }
 
 /**
  * Request parameters for productsByProductPagesGet operation in NotesApi.
- * @export
- * @interface NotesApiProductsByProductPagesGetRequest
  */
 export interface NotesApiProductsByProductPagesGetRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof NotesApiProductsByProductPagesGet
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof NotesApiProductsByProductPagesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof NotesApiProductsByProductPagesGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for productsByProductPagesPost operation in NotesApi.
- * @export
- * @interface NotesApiProductsByProductPagesPostRequest
  */
 export interface NotesApiProductsByProductPagesPostRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof NotesApiProductsByProductPagesPost
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {NotesPostRequest}
-     * @memberof NotesApiProductsByProductPagesPost
-     */
     readonly notesPostRequest: NotesPostRequest
 }
 
 /**
  * NotesApi - object-oriented interface
- * @export
- * @class NotesApi
- * @extends {BaseAPI}
  */
 export class NotesApi extends BaseAPI implements NotesApiInterface {
     /**
@@ -770,7 +703,6 @@ export class NotesApi extends BaseAPI implements NotesApiInterface {
      * @param {NotesApiPagesByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof NotesApi
      */
     public pagesByIdDelete(requestParameters: NotesApiPagesByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return NotesApiFp(this.configuration).pagesByIdDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -782,7 +714,6 @@ export class NotesApi extends BaseAPI implements NotesApiInterface {
      * @param {NotesApiPagesByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof NotesApi
      */
     public pagesByIdGet(requestParameters: NotesApiPagesByIdGetRequest, options?: RawAxiosRequestConfig) {
         return NotesApiFp(this.configuration).pagesByIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -794,7 +725,6 @@ export class NotesApi extends BaseAPI implements NotesApiInterface {
      * @param {NotesApiPagesByIdPublishPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof NotesApi
      */
     public pagesByIdPublishPost(requestParameters: NotesApiPagesByIdPublishPostRequest, options?: RawAxiosRequestConfig) {
         return NotesApiFp(this.configuration).pagesByIdPublishPost(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -806,7 +736,6 @@ export class NotesApi extends BaseAPI implements NotesApiInterface {
      * @param {NotesApiPagesByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof NotesApi
      */
     public pagesByIdPut(requestParameters: NotesApiPagesByIdPutRequest, options?: RawAxiosRequestConfig) {
         return NotesApiFp(this.configuration).pagesByIdPut(requestParameters.id, requestParameters.notesPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -818,7 +747,6 @@ export class NotesApi extends BaseAPI implements NotesApiInterface {
      * @param {NotesApiPagesByIdUnpublishPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof NotesApi
      */
     public pagesByIdUnpublishPost(requestParameters: NotesApiPagesByIdUnpublishPostRequest, options?: RawAxiosRequestConfig) {
         return NotesApiFp(this.configuration).pagesByIdUnpublishPost(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -830,7 +758,6 @@ export class NotesApi extends BaseAPI implements NotesApiInterface {
      * @param {NotesApiProductsByProductPagesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof NotesApi
      */
     public productsByProductPagesGet(requestParameters: NotesApiProductsByProductPagesGetRequest, options?: RawAxiosRequestConfig) {
         return NotesApiFp(this.configuration).productsByProductPagesGet(requestParameters.productId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -842,7 +769,6 @@ export class NotesApi extends BaseAPI implements NotesApiInterface {
      * @param {NotesApiProductsByProductPagesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof NotesApi
      */
     public productsByProductPagesPost(requestParameters: NotesApiProductsByProductPagesPostRequest, options?: RawAxiosRequestConfig) {
         return NotesApiFp(this.configuration).productsByProductPagesPost(requestParameters.productId, requestParameters.notesPostRequest, options).then((request) => request(this.axios, this.basePath));

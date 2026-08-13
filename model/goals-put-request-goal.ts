@@ -14,30 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface GoalsPutRequestGoal
- */
 export interface GoalsPutRequestGoal {
     [key: string]: any;
 
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutRequestGoal
-     */
     'description'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutRequestGoal
-     */
     'workflow_status'?: string;
     /**
      * Custom table records to link, keyed by many-to-many custom field name. Replaces the existing list.
-     * @type {{ [key: string]: Array<string>; }}
-     * @memberof GoalsPutRequestGoal
      */
     'custom_object_links'?: { [key: string]: Array<string>; };
 }

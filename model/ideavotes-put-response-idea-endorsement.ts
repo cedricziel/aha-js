@@ -31,96 +31,24 @@ import type { IdeavotesPutResponseIdeaEndorsementIdeaOrganization } from './idea
 // May contain unused imports in some cases
 // @ts-ignore
 import type { IdeavotesPutResponseIdeaEndorsementIntegrationFieldsInner } from './ideavotes-put-response-idea-endorsement-integration-fields-inner';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface IdeavotesPutResponseIdeaEndorsement
- */
 export interface IdeavotesPutResponseIdeaEndorsement {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPutResponseIdeaEndorsement
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPutResponseIdeaEndorsement
-     */
     'idea_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPutResponseIdeaEndorsement
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPutResponseIdeaEndorsement
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof IdeavotesPutResponseIdeaEndorsement
-     */
-    'value'?: any | null;
-    /**
-     * 
-     * @type {any}
-     * @memberof IdeavotesPutResponseIdeaEndorsement
-     */
-    'link'?: any | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeavotesPutResponseIdeaEndorsement
-     */
+    'value'?: Null;
+    'link'?: Null;
     'weight'?: number;
-    /**
-     * 
-     * @type {IdeavotesPutResponseIdeaEndorsementEndorsedByPortalUser}
-     * @memberof IdeavotesPutResponseIdeaEndorsement
-     */
     'endorsed_by_portal_user'?: IdeavotesPutResponseIdeaEndorsementEndorsedByPortalUser;
-    /**
-     * 
-     * @type {IdeavotesPutResponseIdeaEndorsementEndorsedByIdeaUser}
-     * @memberof IdeavotesPutResponseIdeaEndorsement
-     */
     'endorsed_by_idea_user'?: IdeavotesPutResponseIdeaEndorsementEndorsedByIdeaUser;
-    /**
-     * 
-     * @type {IdeavotesPutResponseIdeaEndorsementIdeaOrganization}
-     * @memberof IdeavotesPutResponseIdeaEndorsement
-     */
     'idea_organization'?: IdeavotesPutResponseIdeaEndorsementIdeaOrganization;
-    /**
-     * 
-     * @type {any}
-     * @memberof IdeavotesPutResponseIdeaEndorsement
-     */
-    'description'?: any | null;
-    /**
-     * 
-     * @type {Array<IdeavotesPutResponseIdeaEndorsementIntegrationFieldsInner>}
-     * @memberof IdeavotesPutResponseIdeaEndorsement
-     */
+    'description'?: Null;
     'integration_fields'?: Array<IdeavotesPutResponseIdeaEndorsementIntegrationFieldsInner>;
-    /**
-     * 
-     * @type {Array<IdeavotesPutResponseIdeaEndorsementCustomFieldsInner>}
-     * @memberof IdeavotesPutResponseIdeaEndorsement
-     */
     'custom_fields'?: Array<IdeavotesPutResponseIdeaEndorsementCustomFieldsInner>;
-    /**
-     * 
-     * @type {IdeacommentsPostResponseIdeaCommentIdea}
-     * @memberof IdeavotesPutResponseIdeaEndorsement
-     */
     'idea'?: IdeacommentsPostResponseIdeaCommentIdea;
 }
 

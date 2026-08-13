@@ -14,77 +14,17 @@
 
 
 
-/**
- * 
- * @export
- * @interface ReleasesPutResponseReleaseCustomFieldsInner
- */
 export interface ReleasesPutResponseReleaseCustomFieldsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesPutResponseReleaseCustomFieldsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesPutResponseReleaseCustomFieldsInner
-     */
     'key'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesPutResponseReleaseCustomFieldsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesPutResponseReleaseCustomFieldsInner
-     */
     'updatedAt'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesPutResponseReleaseCustomFieldsInner
-     */
     'type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesPutResponseReleaseCustomFieldsInner
-     */
     'value'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesPutResponseReleaseCustomFieldsInner
-     */
     'body'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesPutResponseReleaseCustomFieldsInner
-     */
     'editor_version'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesPutResponseReleaseCustomFieldsInner
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesPutResponseReleaseCustomFieldsInner
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesPutResponseReleaseCustomFieldsInner
-     */
     'attachments'?: string;
 }
 

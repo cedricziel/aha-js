@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { RequirementsGetResponseRequirement } from './requirements-get-response-requirement';
 
-/**
- * 
- * @export
- * @interface RequirementsGetResponse
- */
 export interface RequirementsGetResponse {
-    /**
-     * 
-     * @type {RequirementsGetResponseRequirement}
-     * @memberof RequirementsGetResponse
-     */
     'requirement'?: RequirementsGetResponseRequirement;
 }
 

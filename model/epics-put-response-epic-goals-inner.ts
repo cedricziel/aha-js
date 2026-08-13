@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface EpicsPutResponseEpicGoalsInner
- */
 export interface EpicsPutResponseEpicGoalsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicGoalsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicGoalsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicGoalsInner
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicGoalsInner
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicGoalsInner
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicGoalsInner
-     */
     'description'?: string;
 }
 

@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface GoalsGetResponseGoalsInnerTimeFrame
- */
 export interface GoalsGetResponseGoalsInnerTimeFrame {
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsGetResponseGoalsInnerTimeFrame
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsGetResponseGoalsInnerTimeFrame
-     */
     'name'?: string;
 }
 

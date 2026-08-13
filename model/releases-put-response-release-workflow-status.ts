@@ -13,48 +13,16 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface ReleasesPutResponseReleaseWorkflowStatus
- */
 export interface ReleasesPutResponseReleaseWorkflowStatus {
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesPutResponseReleaseWorkflowStatus
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesPutResponseReleaseWorkflowStatus
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof ReleasesPutResponseReleaseWorkflowStatus
-     */
     'position'?: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ReleasesPutResponseReleaseWorkflowStatus
-     */
     'complete'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesPutResponseReleaseWorkflowStatus
-     */
     'color'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof ReleasesPutResponseReleaseWorkflowStatus
-     */
-    'workflow_status_category'?: any | null;
+    'workflow_status_category'?: Null;
 }
 

@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { CommentsPostResponse } from '../model';
 import type { CommentsPutResponse } from '../model';
 /**
  * CommentsApi - axios parameter creator
- * @export
  */
 export const CommentsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -46,7 +45,7 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'id' is not null or undefined
             assertParamExists('commentsByIdDelete', 'id', id)
             const localVarPath = `/comments/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -69,7 +68,6 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -91,7 +89,7 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'id' is not null or undefined
             assertParamExists('commentsByIdGet', 'id', id)
             const localVarPath = `/comments/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -117,8 +115,8 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['fields'] = fields;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -142,7 +140,7 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'commentsPostRequest' is not null or undefined
             assertParamExists('commentsByIdPut', 'commentsPostRequest', commentsPostRequest)
             const localVarPath = `/comments/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -164,9 +162,8 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -191,7 +188,7 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'epicId' is not null or undefined
             assertParamExists('epicsByEpicCommentsGet', 'epicId', epicId)
             const localVarPath = `/epics/{epic_id}/comments`
-                .replace(`{${"epic_id"}}`, encodeURIComponent(String(epicId)));
+                .replace('{epic_id}', encodeURIComponent(String(epicId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -221,8 +218,8 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -246,7 +243,7 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'commentsPostRequest' is not null or undefined
             assertParamExists('epicsByEpicCommentsPost', 'commentsPostRequest', commentsPostRequest)
             const localVarPath = `/epics/{epic_id}/comments`
-                .replace(`{${"epic_id"}}`, encodeURIComponent(String(epicId)));
+                .replace('{epic_id}', encodeURIComponent(String(epicId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -268,9 +265,8 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -295,7 +291,7 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'featureId' is not null or undefined
             assertParamExists('featuresByFeatureCommentsGet', 'featureId', featureId)
             const localVarPath = `/features/{feature_id}/comments`
-                .replace(`{${"feature_id"}}`, encodeURIComponent(String(featureId)));
+                .replace('{feature_id}', encodeURIComponent(String(featureId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -325,8 +321,8 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -350,7 +346,7 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'commentsPostRequest' is not null or undefined
             assertParamExists('featuresByFeatureCommentsPost', 'commentsPostRequest', commentsPostRequest)
             const localVarPath = `/features/{feature_id}/comments`
-                .replace(`{${"feature_id"}}`, encodeURIComponent(String(featureId)));
+                .replace('{feature_id}', encodeURIComponent(String(featureId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -372,9 +368,8 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -399,7 +394,7 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'goalId' is not null or undefined
             assertParamExists('goalsByGoalCommentsGet', 'goalId', goalId)
             const localVarPath = `/goals/{goal_id}/comments`
-                .replace(`{${"goal_id"}}`, encodeURIComponent(String(goalId)));
+                .replace('{goal_id}', encodeURIComponent(String(goalId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -429,8 +424,8 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -454,7 +449,7 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'commentsPostRequest' is not null or undefined
             assertParamExists('goalsByGoalCommentsPost', 'commentsPostRequest', commentsPostRequest)
             const localVarPath = `/goals/{goal_id}/comments`
-                .replace(`{${"goal_id"}}`, encodeURIComponent(String(goalId)));
+                .replace('{goal_id}', encodeURIComponent(String(goalId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -476,9 +471,8 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -503,7 +497,7 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'ideaId' is not null or undefined
             assertParamExists('ideasByIdeaCommentsGet', 'ideaId', ideaId)
             const localVarPath = `/ideas/{idea_id}/comments`
-                .replace(`{${"idea_id"}}`, encodeURIComponent(String(ideaId)));
+                .replace('{idea_id}', encodeURIComponent(String(ideaId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -533,8 +527,8 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -558,7 +552,7 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'commentsPostRequest' is not null or undefined
             assertParamExists('ideasByIdeaCommentsPost', 'commentsPostRequest', commentsPostRequest)
             const localVarPath = `/ideas/{idea_id}/comments`
-                .replace(`{${"idea_id"}}`, encodeURIComponent(String(ideaId)));
+                .replace('{idea_id}', encodeURIComponent(String(ideaId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -580,9 +574,8 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -607,7 +600,7 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'initiativeId' is not null or undefined
             assertParamExists('initiativesByInitiativeCommentsGet', 'initiativeId', initiativeId)
             const localVarPath = `/initiatives/{initiative_id}/comments`
-                .replace(`{${"initiative_id"}}`, encodeURIComponent(String(initiativeId)));
+                .replace('{initiative_id}', encodeURIComponent(String(initiativeId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -637,8 +630,8 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -662,7 +655,7 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'commentsPostRequest' is not null or undefined
             assertParamExists('initiativesByInitiativeCommentsPost', 'commentsPostRequest', commentsPostRequest)
             const localVarPath = `/initiatives/{initiative_id}/comments`
-                .replace(`{${"initiative_id"}}`, encodeURIComponent(String(initiativeId)));
+                .replace('{initiative_id}', encodeURIComponent(String(initiativeId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -684,9 +677,8 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -711,7 +703,7 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'pageId' is not null or undefined
             assertParamExists('pagesByPageCommentsGet', 'pageId', pageId)
             const localVarPath = `/pages/{page_id}/comments`
-                .replace(`{${"page_id"}}`, encodeURIComponent(String(pageId)));
+                .replace('{page_id}', encodeURIComponent(String(pageId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -741,8 +733,8 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -766,7 +758,7 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'commentsPostRequest' is not null or undefined
             assertParamExists('pagesByPageCommentsPost', 'commentsPostRequest', commentsPostRequest)
             const localVarPath = `/pages/{page_id}/comments`
-                .replace(`{${"page_id"}}`, encodeURIComponent(String(pageId)));
+                .replace('{page_id}', encodeURIComponent(String(pageId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -788,9 +780,8 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -816,7 +807,7 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'projectId' is not null or undefined
             assertParamExists('productsByProjectCommentsGet', 'projectId', projectId)
             const localVarPath = `/products/{project_id}/comments`
-                .replace(`{${"project_id"}}`, encodeURIComponent(String(projectId)));
+                .replace('{project_id}', encodeURIComponent(String(projectId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -850,8 +841,8 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['fields'] = fields;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -874,7 +865,7 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'releasePhaseId' is not null or undefined
             assertParamExists('releasePhasesByReleasePhaseCommentsGet', 'releasePhaseId', releasePhaseId)
             const localVarPath = `/release_phases/{release_phase_id}/comments`
-                .replace(`{${"release_phase_id"}}`, encodeURIComponent(String(releasePhaseId)));
+                .replace('{release_phase_id}', encodeURIComponent(String(releasePhaseId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -904,8 +895,8 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -929,7 +920,7 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'commentsPostRequest' is not null or undefined
             assertParamExists('releasePhasesByReleasePhaseCommentsPost', 'commentsPostRequest', commentsPostRequest)
             const localVarPath = `/release_phases/{release_phase_id}/comments`
-                .replace(`{${"release_phase_id"}}`, encodeURIComponent(String(releasePhaseId)));
+                .replace('{release_phase_id}', encodeURIComponent(String(releasePhaseId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -951,9 +942,8 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -978,7 +968,7 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'releaseId' is not null or undefined
             assertParamExists('releasesByReleaseCommentsGet', 'releaseId', releaseId)
             const localVarPath = `/releases/{release_id}/comments`
-                .replace(`{${"release_id"}}`, encodeURIComponent(String(releaseId)));
+                .replace('{release_id}', encodeURIComponent(String(releaseId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1008,8 +998,8 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -1033,7 +1023,7 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'commentsPostRequest' is not null or undefined
             assertParamExists('releasesByReleaseCommentsPost', 'commentsPostRequest', commentsPostRequest)
             const localVarPath = `/releases/{release_id}/comments`
-                .replace(`{${"release_id"}}`, encodeURIComponent(String(releaseId)));
+                .replace('{release_id}', encodeURIComponent(String(releaseId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1055,9 +1045,8 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -1082,7 +1071,7 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'requirementId' is not null or undefined
             assertParamExists('requirementsByRequirementCommentsGet', 'requirementId', requirementId)
             const localVarPath = `/requirements/{requirement_id}/comments`
-                .replace(`{${"requirement_id"}}`, encodeURIComponent(String(requirementId)));
+                .replace('{requirement_id}', encodeURIComponent(String(requirementId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1112,8 +1101,8 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -1137,7 +1126,7 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'commentsPostRequest' is not null or undefined
             assertParamExists('requirementsByRequirementCommentsPost', 'commentsPostRequest', commentsPostRequest)
             const localVarPath = `/requirements/{requirement_id}/comments`
-                .replace(`{${"requirement_id"}}`, encodeURIComponent(String(requirementId)));
+                .replace('{requirement_id}', encodeURIComponent(String(requirementId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1159,9 +1148,8 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -1186,7 +1174,7 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'taskId' is not null or undefined
             assertParamExists('tasksByTaskCommentsGet', 'taskId', taskId)
             const localVarPath = `/tasks/{task_id}/comments`
-                .replace(`{${"task_id"}}`, encodeURIComponent(String(taskId)));
+                .replace('{task_id}', encodeURIComponent(String(taskId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1216,8 +1204,8 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -1241,7 +1229,7 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'commentsPostRequest' is not null or undefined
             assertParamExists('tasksByTaskCommentsPost', 'commentsPostRequest', commentsPostRequest)
             const localVarPath = `/tasks/{task_id}/comments`
-                .replace(`{${"task_id"}}`, encodeURIComponent(String(taskId)));
+                .replace('{task_id}', encodeURIComponent(String(taskId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1263,9 +1251,8 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -1282,7 +1269,6 @@ export const CommentsApiAxiosParamCreator = function (configuration?: Configurat
 
 /**
  * CommentsApi - functional programming interface
- * @export
  */
 export const CommentsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = CommentsApiAxiosParamCreator(configuration)
@@ -1639,7 +1625,6 @@ export const CommentsApiFp = function(configuration?: Configuration) {
 
 /**
  * CommentsApi - factory interface
- * @export
  */
 export const CommentsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = CommentsApiFp(configuration)
@@ -1889,8 +1874,6 @@ export const CommentsApiFactory = function (configuration?: Configuration, baseP
 
 /**
  * CommentsApi - interface
- * @export
- * @interface CommentsApi
  */
 export interface CommentsApiInterface {
     /**
@@ -1899,7 +1882,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiCommentsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     commentsByIdDelete(requestParameters: CommentsApiCommentsByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -1909,7 +1891,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiCommentsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     commentsByIdGet(requestParameters: CommentsApiCommentsByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsGetResponse>;
 
@@ -1919,7 +1900,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiCommentsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     commentsByIdPut(requestParameters: CommentsApiCommentsByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsPutResponse>;
 
@@ -1929,7 +1909,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiEpicsByEpicCommentsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     epicsByEpicCommentsGet(requestParameters: CommentsApiEpicsByEpicCommentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsGetResponse>;
 
@@ -1939,7 +1918,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiEpicsByEpicCommentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     epicsByEpicCommentsPost(requestParameters: CommentsApiEpicsByEpicCommentsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsPostResponse>;
 
@@ -1949,7 +1927,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiFeaturesByFeatureCommentsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     featuresByFeatureCommentsGet(requestParameters: CommentsApiFeaturesByFeatureCommentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsGetResponse>;
 
@@ -1959,7 +1936,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiFeaturesByFeatureCommentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     featuresByFeatureCommentsPost(requestParameters: CommentsApiFeaturesByFeatureCommentsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsPostResponse>;
 
@@ -1969,7 +1945,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiGoalsByGoalCommentsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     goalsByGoalCommentsGet(requestParameters: CommentsApiGoalsByGoalCommentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsGetResponse>;
 
@@ -1979,7 +1954,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiGoalsByGoalCommentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     goalsByGoalCommentsPost(requestParameters: CommentsApiGoalsByGoalCommentsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsPostResponse>;
 
@@ -1989,7 +1963,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiIdeasByIdeaCommentsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     ideasByIdeaCommentsGet(requestParameters: CommentsApiIdeasByIdeaCommentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsGetResponse>;
 
@@ -1999,7 +1972,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiIdeasByIdeaCommentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     ideasByIdeaCommentsPost(requestParameters: CommentsApiIdeasByIdeaCommentsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsPostResponse>;
 
@@ -2009,7 +1981,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiInitiativesByInitiativeCommentsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     initiativesByInitiativeCommentsGet(requestParameters: CommentsApiInitiativesByInitiativeCommentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsGetResponse>;
 
@@ -2019,7 +1990,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiInitiativesByInitiativeCommentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     initiativesByInitiativeCommentsPost(requestParameters: CommentsApiInitiativesByInitiativeCommentsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsPostResponse>;
 
@@ -2029,7 +1999,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiPagesByPageCommentsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     pagesByPageCommentsGet(requestParameters: CommentsApiPagesByPageCommentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsGetResponse>;
 
@@ -2039,7 +2008,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiPagesByPageCommentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     pagesByPageCommentsPost(requestParameters: CommentsApiPagesByPageCommentsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsPostResponse>;
 
@@ -2049,7 +2017,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiProductsByProjectCommentsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     productsByProjectCommentsGet(requestParameters: CommentsApiProductsByProjectCommentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsGetResponse>;
 
@@ -2059,7 +2026,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiReleasePhasesByReleasePhaseCommentsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     releasePhasesByReleasePhaseCommentsGet(requestParameters: CommentsApiReleasePhasesByReleasePhaseCommentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsGetResponse>;
 
@@ -2069,7 +2035,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiReleasePhasesByReleasePhaseCommentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     releasePhasesByReleasePhaseCommentsPost(requestParameters: CommentsApiReleasePhasesByReleasePhaseCommentsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsPostResponse>;
 
@@ -2079,7 +2044,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiReleasesByReleaseCommentsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     releasesByReleaseCommentsGet(requestParameters: CommentsApiReleasesByReleaseCommentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsGetResponse>;
 
@@ -2089,7 +2053,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiReleasesByReleaseCommentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     releasesByReleaseCommentsPost(requestParameters: CommentsApiReleasesByReleaseCommentsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsPostResponse>;
 
@@ -2099,7 +2062,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiRequirementsByRequirementCommentsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     requirementsByRequirementCommentsGet(requestParameters: CommentsApiRequirementsByRequirementCommentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsGetResponse>;
 
@@ -2109,7 +2071,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiRequirementsByRequirementCommentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     requirementsByRequirementCommentsPost(requestParameters: CommentsApiRequirementsByRequirementCommentsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsPostResponse>;
 
@@ -2119,7 +2080,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiTasksByTaskCommentsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     tasksByTaskCommentsGet(requestParameters: CommentsApiTasksByTaskCommentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsGetResponse>;
 
@@ -2129,7 +2089,6 @@ export interface CommentsApiInterface {
      * @param {CommentsApiTasksByTaskCommentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApiInterface
      */
     tasksByTaskCommentsPost(requestParameters: CommentsApiTasksByTaskCommentsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<CommentsPostResponse>;
 
@@ -2137,590 +2096,316 @@ export interface CommentsApiInterface {
 
 /**
  * Request parameters for commentsByIdDelete operation in CommentsApi.
- * @export
- * @interface CommentsApiCommentsByIdDeleteRequest
  */
 export interface CommentsApiCommentsByIdDeleteRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof CommentsApiCommentsByIdDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for commentsByIdGet operation in CommentsApi.
- * @export
- * @interface CommentsApiCommentsByIdGetRequest
  */
 export interface CommentsApiCommentsByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof CommentsApiCommentsByIdGet
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiCommentsByIdGet
-     */
     readonly fields?: string
 }
 
 /**
  * Request parameters for commentsByIdPut operation in CommentsApi.
- * @export
- * @interface CommentsApiCommentsByIdPutRequest
  */
 export interface CommentsApiCommentsByIdPutRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof CommentsApiCommentsByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {CommentsPostRequest}
-     * @memberof CommentsApiCommentsByIdPut
-     */
     readonly commentsPostRequest: CommentsPostRequest
 }
 
 /**
  * Request parameters for epicsByEpicCommentsGet operation in CommentsApi.
- * @export
- * @interface CommentsApiEpicsByEpicCommentsGetRequest
  */
 export interface CommentsApiEpicsByEpicCommentsGetRequest {
     /**
      * EpicId identifier
-     * @type {string}
-     * @memberof CommentsApiEpicsByEpicCommentsGet
      */
     readonly epicId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiEpicsByEpicCommentsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiEpicsByEpicCommentsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for epicsByEpicCommentsPost operation in CommentsApi.
- * @export
- * @interface CommentsApiEpicsByEpicCommentsPostRequest
  */
 export interface CommentsApiEpicsByEpicCommentsPostRequest {
     /**
      * EpicId identifier
-     * @type {string}
-     * @memberof CommentsApiEpicsByEpicCommentsPost
      */
     readonly epicId: string
 
-    /**
-     * 
-     * @type {CommentsPostRequest}
-     * @memberof CommentsApiEpicsByEpicCommentsPost
-     */
     readonly commentsPostRequest: CommentsPostRequest
 }
 
 /**
  * Request parameters for featuresByFeatureCommentsGet operation in CommentsApi.
- * @export
- * @interface CommentsApiFeaturesByFeatureCommentsGetRequest
  */
 export interface CommentsApiFeaturesByFeatureCommentsGetRequest {
     /**
      * FeatureId identifier
-     * @type {string}
-     * @memberof CommentsApiFeaturesByFeatureCommentsGet
      */
     readonly featureId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiFeaturesByFeatureCommentsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiFeaturesByFeatureCommentsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for featuresByFeatureCommentsPost operation in CommentsApi.
- * @export
- * @interface CommentsApiFeaturesByFeatureCommentsPostRequest
  */
 export interface CommentsApiFeaturesByFeatureCommentsPostRequest {
     /**
      * FeatureId identifier
-     * @type {string}
-     * @memberof CommentsApiFeaturesByFeatureCommentsPost
      */
     readonly featureId: string
 
-    /**
-     * 
-     * @type {CommentsPostRequest}
-     * @memberof CommentsApiFeaturesByFeatureCommentsPost
-     */
     readonly commentsPostRequest: CommentsPostRequest
 }
 
 /**
  * Request parameters for goalsByGoalCommentsGet operation in CommentsApi.
- * @export
- * @interface CommentsApiGoalsByGoalCommentsGetRequest
  */
 export interface CommentsApiGoalsByGoalCommentsGetRequest {
     /**
      * GoalId identifier
-     * @type {string}
-     * @memberof CommentsApiGoalsByGoalCommentsGet
      */
     readonly goalId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiGoalsByGoalCommentsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiGoalsByGoalCommentsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for goalsByGoalCommentsPost operation in CommentsApi.
- * @export
- * @interface CommentsApiGoalsByGoalCommentsPostRequest
  */
 export interface CommentsApiGoalsByGoalCommentsPostRequest {
     /**
      * GoalId identifier
-     * @type {string}
-     * @memberof CommentsApiGoalsByGoalCommentsPost
      */
     readonly goalId: string
 
-    /**
-     * 
-     * @type {CommentsPostRequest}
-     * @memberof CommentsApiGoalsByGoalCommentsPost
-     */
     readonly commentsPostRequest: CommentsPostRequest
 }
 
 /**
  * Request parameters for ideasByIdeaCommentsGet operation in CommentsApi.
- * @export
- * @interface CommentsApiIdeasByIdeaCommentsGetRequest
  */
 export interface CommentsApiIdeasByIdeaCommentsGetRequest {
     /**
      * IdeaId identifier
-     * @type {string}
-     * @memberof CommentsApiIdeasByIdeaCommentsGet
      */
     readonly ideaId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiIdeasByIdeaCommentsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiIdeasByIdeaCommentsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for ideasByIdeaCommentsPost operation in CommentsApi.
- * @export
- * @interface CommentsApiIdeasByIdeaCommentsPostRequest
  */
 export interface CommentsApiIdeasByIdeaCommentsPostRequest {
     /**
      * IdeaId identifier
-     * @type {string}
-     * @memberof CommentsApiIdeasByIdeaCommentsPost
      */
     readonly ideaId: string
 
-    /**
-     * 
-     * @type {CommentsPostRequest}
-     * @memberof CommentsApiIdeasByIdeaCommentsPost
-     */
     readonly commentsPostRequest: CommentsPostRequest
 }
 
 /**
  * Request parameters for initiativesByInitiativeCommentsGet operation in CommentsApi.
- * @export
- * @interface CommentsApiInitiativesByInitiativeCommentsGetRequest
  */
 export interface CommentsApiInitiativesByInitiativeCommentsGetRequest {
     /**
      * InitiativeId identifier
-     * @type {string}
-     * @memberof CommentsApiInitiativesByInitiativeCommentsGet
      */
     readonly initiativeId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiInitiativesByInitiativeCommentsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiInitiativesByInitiativeCommentsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for initiativesByInitiativeCommentsPost operation in CommentsApi.
- * @export
- * @interface CommentsApiInitiativesByInitiativeCommentsPostRequest
  */
 export interface CommentsApiInitiativesByInitiativeCommentsPostRequest {
     /**
      * InitiativeId identifier
-     * @type {string}
-     * @memberof CommentsApiInitiativesByInitiativeCommentsPost
      */
     readonly initiativeId: string
 
-    /**
-     * 
-     * @type {CommentsPostRequest}
-     * @memberof CommentsApiInitiativesByInitiativeCommentsPost
-     */
     readonly commentsPostRequest: CommentsPostRequest
 }
 
 /**
  * Request parameters for pagesByPageCommentsGet operation in CommentsApi.
- * @export
- * @interface CommentsApiPagesByPageCommentsGetRequest
  */
 export interface CommentsApiPagesByPageCommentsGetRequest {
     /**
      * PageId identifier
-     * @type {string}
-     * @memberof CommentsApiPagesByPageCommentsGet
      */
     readonly pageId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiPagesByPageCommentsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiPagesByPageCommentsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for pagesByPageCommentsPost operation in CommentsApi.
- * @export
- * @interface CommentsApiPagesByPageCommentsPostRequest
  */
 export interface CommentsApiPagesByPageCommentsPostRequest {
     /**
      * PageId identifier
-     * @type {string}
-     * @memberof CommentsApiPagesByPageCommentsPost
      */
     readonly pageId: string
 
-    /**
-     * 
-     * @type {CommentsPostRequest}
-     * @memberof CommentsApiPagesByPageCommentsPost
-     */
     readonly commentsPostRequest: CommentsPostRequest
 }
 
 /**
  * Request parameters for productsByProjectCommentsGet operation in CommentsApi.
- * @export
- * @interface CommentsApiProductsByProjectCommentsGetRequest
  */
 export interface CommentsApiProductsByProjectCommentsGetRequest {
     /**
      * ProjectId identifier
-     * @type {string}
-     * @memberof CommentsApiProductsByProjectCommentsGet
      */
     readonly projectId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiProductsByProjectCommentsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiProductsByProjectCommentsGet
-     */
     readonly perPage?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiProductsByProjectCommentsGet
-     */
     readonly fields?: string
 }
 
 /**
  * Request parameters for releasePhasesByReleasePhaseCommentsGet operation in CommentsApi.
- * @export
- * @interface CommentsApiReleasePhasesByReleasePhaseCommentsGetRequest
  */
 export interface CommentsApiReleasePhasesByReleasePhaseCommentsGetRequest {
     /**
      * ReleasePhaseId identifier
-     * @type {string}
-     * @memberof CommentsApiReleasePhasesByReleasePhaseCommentsGet
      */
     readonly releasePhaseId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiReleasePhasesByReleasePhaseCommentsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiReleasePhasesByReleasePhaseCommentsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for releasePhasesByReleasePhaseCommentsPost operation in CommentsApi.
- * @export
- * @interface CommentsApiReleasePhasesByReleasePhaseCommentsPostRequest
  */
 export interface CommentsApiReleasePhasesByReleasePhaseCommentsPostRequest {
     /**
      * ReleasePhaseId identifier
-     * @type {string}
-     * @memberof CommentsApiReleasePhasesByReleasePhaseCommentsPost
      */
     readonly releasePhaseId: string
 
-    /**
-     * 
-     * @type {CommentsPostRequest}
-     * @memberof CommentsApiReleasePhasesByReleasePhaseCommentsPost
-     */
     readonly commentsPostRequest: CommentsPostRequest
 }
 
 /**
  * Request parameters for releasesByReleaseCommentsGet operation in CommentsApi.
- * @export
- * @interface CommentsApiReleasesByReleaseCommentsGetRequest
  */
 export interface CommentsApiReleasesByReleaseCommentsGetRequest {
     /**
      * ReleaseId identifier
-     * @type {string}
-     * @memberof CommentsApiReleasesByReleaseCommentsGet
      */
     readonly releaseId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiReleasesByReleaseCommentsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiReleasesByReleaseCommentsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for releasesByReleaseCommentsPost operation in CommentsApi.
- * @export
- * @interface CommentsApiReleasesByReleaseCommentsPostRequest
  */
 export interface CommentsApiReleasesByReleaseCommentsPostRequest {
     /**
      * ReleaseId identifier
-     * @type {string}
-     * @memberof CommentsApiReleasesByReleaseCommentsPost
      */
     readonly releaseId: string
 
-    /**
-     * 
-     * @type {CommentsPostRequest}
-     * @memberof CommentsApiReleasesByReleaseCommentsPost
-     */
     readonly commentsPostRequest: CommentsPostRequest
 }
 
 /**
  * Request parameters for requirementsByRequirementCommentsGet operation in CommentsApi.
- * @export
- * @interface CommentsApiRequirementsByRequirementCommentsGetRequest
  */
 export interface CommentsApiRequirementsByRequirementCommentsGetRequest {
     /**
      * RequirementId identifier
-     * @type {string}
-     * @memberof CommentsApiRequirementsByRequirementCommentsGet
      */
     readonly requirementId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiRequirementsByRequirementCommentsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiRequirementsByRequirementCommentsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for requirementsByRequirementCommentsPost operation in CommentsApi.
- * @export
- * @interface CommentsApiRequirementsByRequirementCommentsPostRequest
  */
 export interface CommentsApiRequirementsByRequirementCommentsPostRequest {
     /**
      * RequirementId identifier
-     * @type {string}
-     * @memberof CommentsApiRequirementsByRequirementCommentsPost
      */
     readonly requirementId: string
 
-    /**
-     * 
-     * @type {CommentsPostRequest}
-     * @memberof CommentsApiRequirementsByRequirementCommentsPost
-     */
     readonly commentsPostRequest: CommentsPostRequest
 }
 
 /**
  * Request parameters for tasksByTaskCommentsGet operation in CommentsApi.
- * @export
- * @interface CommentsApiTasksByTaskCommentsGetRequest
  */
 export interface CommentsApiTasksByTaskCommentsGetRequest {
     /**
      * TaskId identifier
-     * @type {string}
-     * @memberof CommentsApiTasksByTaskCommentsGet
      */
     readonly taskId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiTasksByTaskCommentsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsApiTasksByTaskCommentsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for tasksByTaskCommentsPost operation in CommentsApi.
- * @export
- * @interface CommentsApiTasksByTaskCommentsPostRequest
  */
 export interface CommentsApiTasksByTaskCommentsPostRequest {
     /**
      * TaskId identifier
-     * @type {string}
-     * @memberof CommentsApiTasksByTaskCommentsPost
      */
     readonly taskId: string
 
-    /**
-     * 
-     * @type {CommentsPostRequest}
-     * @memberof CommentsApiTasksByTaskCommentsPost
-     */
     readonly commentsPostRequest: CommentsPostRequest
 }
 
 /**
  * CommentsApi - object-oriented interface
- * @export
- * @class CommentsApi
- * @extends {BaseAPI}
  */
 export class CommentsApi extends BaseAPI implements CommentsApiInterface {
     /**
@@ -2729,7 +2414,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiCommentsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public commentsByIdDelete(requestParameters: CommentsApiCommentsByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).commentsByIdDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -2741,7 +2425,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiCommentsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public commentsByIdGet(requestParameters: CommentsApiCommentsByIdGetRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).commentsByIdGet(requestParameters.id, requestParameters.fields, options).then((request) => request(this.axios, this.basePath));
@@ -2753,7 +2436,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiCommentsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public commentsByIdPut(requestParameters: CommentsApiCommentsByIdPutRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).commentsByIdPut(requestParameters.id, requestParameters.commentsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2765,7 +2447,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiEpicsByEpicCommentsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public epicsByEpicCommentsGet(requestParameters: CommentsApiEpicsByEpicCommentsGetRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).epicsByEpicCommentsGet(requestParameters.epicId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -2777,7 +2458,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiEpicsByEpicCommentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public epicsByEpicCommentsPost(requestParameters: CommentsApiEpicsByEpicCommentsPostRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).epicsByEpicCommentsPost(requestParameters.epicId, requestParameters.commentsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2789,7 +2469,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiFeaturesByFeatureCommentsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public featuresByFeatureCommentsGet(requestParameters: CommentsApiFeaturesByFeatureCommentsGetRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).featuresByFeatureCommentsGet(requestParameters.featureId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -2801,7 +2480,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiFeaturesByFeatureCommentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public featuresByFeatureCommentsPost(requestParameters: CommentsApiFeaturesByFeatureCommentsPostRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).featuresByFeatureCommentsPost(requestParameters.featureId, requestParameters.commentsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2813,7 +2491,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiGoalsByGoalCommentsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public goalsByGoalCommentsGet(requestParameters: CommentsApiGoalsByGoalCommentsGetRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).goalsByGoalCommentsGet(requestParameters.goalId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -2825,7 +2502,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiGoalsByGoalCommentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public goalsByGoalCommentsPost(requestParameters: CommentsApiGoalsByGoalCommentsPostRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).goalsByGoalCommentsPost(requestParameters.goalId, requestParameters.commentsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2837,7 +2513,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiIdeasByIdeaCommentsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public ideasByIdeaCommentsGet(requestParameters: CommentsApiIdeasByIdeaCommentsGetRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).ideasByIdeaCommentsGet(requestParameters.ideaId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -2849,7 +2524,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiIdeasByIdeaCommentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public ideasByIdeaCommentsPost(requestParameters: CommentsApiIdeasByIdeaCommentsPostRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).ideasByIdeaCommentsPost(requestParameters.ideaId, requestParameters.commentsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2861,7 +2535,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiInitiativesByInitiativeCommentsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public initiativesByInitiativeCommentsGet(requestParameters: CommentsApiInitiativesByInitiativeCommentsGetRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).initiativesByInitiativeCommentsGet(requestParameters.initiativeId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -2873,7 +2546,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiInitiativesByInitiativeCommentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public initiativesByInitiativeCommentsPost(requestParameters: CommentsApiInitiativesByInitiativeCommentsPostRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).initiativesByInitiativeCommentsPost(requestParameters.initiativeId, requestParameters.commentsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2885,7 +2557,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiPagesByPageCommentsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public pagesByPageCommentsGet(requestParameters: CommentsApiPagesByPageCommentsGetRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).pagesByPageCommentsGet(requestParameters.pageId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -2897,7 +2568,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiPagesByPageCommentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public pagesByPageCommentsPost(requestParameters: CommentsApiPagesByPageCommentsPostRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).pagesByPageCommentsPost(requestParameters.pageId, requestParameters.commentsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2909,7 +2579,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiProductsByProjectCommentsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public productsByProjectCommentsGet(requestParameters: CommentsApiProductsByProjectCommentsGetRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).productsByProjectCommentsGet(requestParameters.projectId, requestParameters.page, requestParameters.perPage, requestParameters.fields, options).then((request) => request(this.axios, this.basePath));
@@ -2921,7 +2590,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiReleasePhasesByReleasePhaseCommentsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public releasePhasesByReleasePhaseCommentsGet(requestParameters: CommentsApiReleasePhasesByReleasePhaseCommentsGetRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).releasePhasesByReleasePhaseCommentsGet(requestParameters.releasePhaseId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -2933,7 +2601,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiReleasePhasesByReleasePhaseCommentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public releasePhasesByReleasePhaseCommentsPost(requestParameters: CommentsApiReleasePhasesByReleasePhaseCommentsPostRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).releasePhasesByReleasePhaseCommentsPost(requestParameters.releasePhaseId, requestParameters.commentsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2945,7 +2612,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiReleasesByReleaseCommentsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public releasesByReleaseCommentsGet(requestParameters: CommentsApiReleasesByReleaseCommentsGetRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).releasesByReleaseCommentsGet(requestParameters.releaseId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -2957,7 +2623,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiReleasesByReleaseCommentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public releasesByReleaseCommentsPost(requestParameters: CommentsApiReleasesByReleaseCommentsPostRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).releasesByReleaseCommentsPost(requestParameters.releaseId, requestParameters.commentsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2969,7 +2634,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiRequirementsByRequirementCommentsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public requirementsByRequirementCommentsGet(requestParameters: CommentsApiRequirementsByRequirementCommentsGetRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).requirementsByRequirementCommentsGet(requestParameters.requirementId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -2981,7 +2645,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiRequirementsByRequirementCommentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public requirementsByRequirementCommentsPost(requestParameters: CommentsApiRequirementsByRequirementCommentsPostRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).requirementsByRequirementCommentsPost(requestParameters.requirementId, requestParameters.commentsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2993,7 +2656,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiTasksByTaskCommentsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public tasksByTaskCommentsGet(requestParameters: CommentsApiTasksByTaskCommentsGetRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).tasksByTaskCommentsGet(requestParameters.taskId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -3005,7 +2667,6 @@ export class CommentsApi extends BaseAPI implements CommentsApiInterface {
      * @param {CommentsApiTasksByTaskCommentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CommentsApi
      */
     public tasksByTaskCommentsPost(requestParameters: CommentsApiTasksByTaskCommentsPostRequest, options?: RawAxiosRequestConfig) {
         return CommentsApiFp(this.configuration).tasksByTaskCommentsPost(requestParameters.taskId, requestParameters.commentsPostRequest, options).then((request) => request(this.axios, this.basePath));

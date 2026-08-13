@@ -17,29 +17,9 @@
 // @ts-ignore
 import type { UsersPostResponseScope } from './users-post-response-scope';
 
-/**
- * 
- * @export
- * @interface UsersPostResponse
- */
 export interface UsersPostResponse {
-    /**
-     * 
-     * @type {number}
-     * @memberof UsersPostResponse
-     */
     'role_id'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersPostResponse
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {UsersPostResponseScope}
-     * @memberof UsersPostResponse
-     */
     'scope'?: UsersPostResponseScope;
 }
 

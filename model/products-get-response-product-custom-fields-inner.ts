@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface ProductsGetResponseProductCustomFieldsInner
- */
 export interface ProductsGetResponseProductCustomFieldsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsGetResponseProductCustomFieldsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsGetResponseProductCustomFieldsInner
-     */
     'key'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsGetResponseProductCustomFieldsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsGetResponseProductCustomFieldsInner
-     */
     'updatedAt'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsGetResponseProductCustomFieldsInner
-     */
     'type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsGetResponseProductCustomFieldsInner
-     */
     'value'?: string;
 }
 

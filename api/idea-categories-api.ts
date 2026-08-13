@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -29,7 +29,6 @@ import type { IdeacategoriesPostRequest } from '../model';
 import type { IdeacategoriesPostResponse } from '../model';
 /**
  * IdeaCategoriesApi - axios parameter creator
- * @export
  */
 export const IdeaCategoriesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -46,7 +45,7 @@ export const IdeaCategoriesApiAxiosParamCreator = function (configuration?: Conf
             // verify required parameter 'productId' is not null or undefined
             assertParamExists('productsByProductIdeaCategoriesGet', 'productId', productId)
             const localVarPath = `/products/{product_id}/idea_categories`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -76,8 +75,8 @@ export const IdeaCategoriesApiAxiosParamCreator = function (configuration?: Conf
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -101,7 +100,7 @@ export const IdeaCategoriesApiAxiosParamCreator = function (configuration?: Conf
             // verify required parameter 'ideacategoriesPostRequest' is not null or undefined
             assertParamExists('productsByProductIdeaCategoriesPost', 'ideacategoriesPostRequest', ideacategoriesPostRequest)
             const localVarPath = `/products/{product_id}/idea_categories`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -123,9 +122,8 @@ export const IdeaCategoriesApiAxiosParamCreator = function (configuration?: Conf
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -142,7 +140,6 @@ export const IdeaCategoriesApiAxiosParamCreator = function (configuration?: Conf
 
 /**
  * IdeaCategoriesApi - functional programming interface
- * @export
  */
 export const IdeaCategoriesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = IdeaCategoriesApiAxiosParamCreator(configuration)
@@ -181,7 +178,6 @@ export const IdeaCategoriesApiFp = function(configuration?: Configuration) {
 
 /**
  * IdeaCategoriesApi - factory interface
- * @export
  */
 export const IdeaCategoriesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = IdeaCategoriesApiFp(configuration)
@@ -211,8 +207,6 @@ export const IdeaCategoriesApiFactory = function (configuration?: Configuration,
 
 /**
  * IdeaCategoriesApi - interface
- * @export
- * @interface IdeaCategoriesApi
  */
 export interface IdeaCategoriesApiInterface {
     /**
@@ -221,7 +215,6 @@ export interface IdeaCategoriesApiInterface {
      * @param {IdeaCategoriesApiProductsByProductIdeaCategoriesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaCategoriesApiInterface
      */
     productsByProductIdeaCategoriesGet(requestParameters: IdeaCategoriesApiProductsByProductIdeaCategoriesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeacategoriesGetResponse>;
 
@@ -231,7 +224,6 @@ export interface IdeaCategoriesApiInterface {
      * @param {IdeaCategoriesApiProductsByProductIdeaCategoriesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaCategoriesApiInterface
      */
     productsByProductIdeaCategoriesPost(requestParameters: IdeaCategoriesApiProductsByProductIdeaCategoriesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeacategoriesPostResponse>;
 
@@ -239,58 +231,32 @@ export interface IdeaCategoriesApiInterface {
 
 /**
  * Request parameters for productsByProductIdeaCategoriesGet operation in IdeaCategoriesApi.
- * @export
- * @interface IdeaCategoriesApiProductsByProductIdeaCategoriesGetRequest
  */
 export interface IdeaCategoriesApiProductsByProductIdeaCategoriesGetRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof IdeaCategoriesApiProductsByProductIdeaCategoriesGet
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaCategoriesApiProductsByProductIdeaCategoriesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaCategoriesApiProductsByProductIdeaCategoriesGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for productsByProductIdeaCategoriesPost operation in IdeaCategoriesApi.
- * @export
- * @interface IdeaCategoriesApiProductsByProductIdeaCategoriesPostRequest
  */
 export interface IdeaCategoriesApiProductsByProductIdeaCategoriesPostRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof IdeaCategoriesApiProductsByProductIdeaCategoriesPost
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {IdeacategoriesPostRequest}
-     * @memberof IdeaCategoriesApiProductsByProductIdeaCategoriesPost
-     */
     readonly ideacategoriesPostRequest: IdeacategoriesPostRequest
 }
 
 /**
  * IdeaCategoriesApi - object-oriented interface
- * @export
- * @class IdeaCategoriesApi
- * @extends {BaseAPI}
  */
 export class IdeaCategoriesApi extends BaseAPI implements IdeaCategoriesApiInterface {
     /**
@@ -299,7 +265,6 @@ export class IdeaCategoriesApi extends BaseAPI implements IdeaCategoriesApiInter
      * @param {IdeaCategoriesApiProductsByProductIdeaCategoriesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaCategoriesApi
      */
     public productsByProductIdeaCategoriesGet(requestParameters: IdeaCategoriesApiProductsByProductIdeaCategoriesGetRequest, options?: RawAxiosRequestConfig) {
         return IdeaCategoriesApiFp(this.configuration).productsByProductIdeaCategoriesGet(requestParameters.productId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -311,7 +276,6 @@ export class IdeaCategoriesApi extends BaseAPI implements IdeaCategoriesApiInter
      * @param {IdeaCategoriesApiProductsByProductIdeaCategoriesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaCategoriesApi
      */
     public productsByProductIdeaCategoriesPost(requestParameters: IdeaCategoriesApiProductsByProductIdeaCategoriesPostRequest, options?: RawAxiosRequestConfig) {
         return IdeaCategoriesApiFp(this.configuration).productsByProductIdeaCategoriesPost(requestParameters.productId, requestParameters.ideacategoriesPostRequest, options).then((request) => request(this.axios, this.basePath));

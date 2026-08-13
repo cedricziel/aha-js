@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { IdeausersPutResponseIdeaUser } from './ideausers-put-response-idea-user';
 
-/**
- * 
- * @export
- * @interface IdeausersPutResponse
- */
 export interface IdeausersPutResponse {
-    /**
-     * 
-     * @type {IdeausersPutResponseIdeaUser}
-     * @memberof IdeausersPutResponse
-     */
     'idea_user'?: IdeausersPutResponseIdeaUser;
 }
 

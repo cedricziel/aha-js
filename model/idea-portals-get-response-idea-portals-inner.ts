@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeaPortalsGetResponseIdeaPortalsInner
- */
 export interface IdeaPortalsGetResponseIdeaPortalsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaPortalsGetResponseIdeaPortalsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaPortalsGetResponseIdeaPortalsInner
-     */
     'title'?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdeaPortalsGetResponseIdeaPortalsInner
-     */
     'portal_enabled'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaPortalsGetResponseIdeaPortalsInner
-     */
     'access_type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaPortalsGetResponseIdeaPortalsInner
-     */
     'external_url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaPortalsGetResponseIdeaPortalsInner
-     */
     'created_at'?: string;
 }
 

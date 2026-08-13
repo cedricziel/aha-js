@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeavotesGetResponsePagination
- */
 export interface IdeavotesGetResponsePagination {
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeavotesGetResponsePagination
-     */
     'total_records'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeavotesGetResponsePagination
-     */
     'total_pages'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeavotesGetResponsePagination
-     */
     'current_page'?: number;
 }
 

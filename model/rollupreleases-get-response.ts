@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { RollupreleasesGetResponseRollUpRelease } from './rollupreleases-get-response-roll-up-release';
 
-/**
- * 
- * @export
- * @interface RollupreleasesGetResponse
- */
 export interface RollupreleasesGetResponse {
-    /**
-     * 
-     * @type {RollupreleasesGetResponseRollUpRelease}
-     * @memberof RollupreleasesGetResponse
-     */
     'roll_up_release'?: RollupreleasesGetResponseRollUpRelease;
 }
 

@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -27,7 +27,6 @@ import type { IntegrationchangesPostRequest } from '../model';
 import type { IntegrationchangesPostResponse } from '../model';
 /**
  * IntegrationChangesApi - axios parameter creator
- * @export
  */
 export const IntegrationChangesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -63,9 +62,8 @@ export const IntegrationChangesApiAxiosParamCreator = function (configuration?: 
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -82,7 +80,6 @@ export const IntegrationChangesApiAxiosParamCreator = function (configuration?: 
 
 /**
  * IntegrationChangesApi - functional programming interface
- * @export
  */
 export const IntegrationChangesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = IntegrationChangesApiAxiosParamCreator(configuration)
@@ -105,7 +102,6 @@ export const IntegrationChangesApiFp = function(configuration?: Configuration) {
 
 /**
  * IntegrationChangesApi - factory interface
- * @export
  */
 export const IntegrationChangesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = IntegrationChangesApiFp(configuration)
@@ -125,8 +121,6 @@ export const IntegrationChangesApiFactory = function (configuration?: Configurat
 
 /**
  * IntegrationChangesApi - interface
- * @export
- * @interface IntegrationChangesApi
  */
 export interface IntegrationChangesApiInterface {
     /**
@@ -135,7 +129,6 @@ export interface IntegrationChangesApiInterface {
      * @param {IntegrationChangesApiIntegrationChangesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationChangesApiInterface
      */
     integrationChangesPost(requestParameters: IntegrationChangesApiIntegrationChangesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<IntegrationchangesPostResponse>;
 
@@ -143,23 +136,13 @@ export interface IntegrationChangesApiInterface {
 
 /**
  * Request parameters for integrationChangesPost operation in IntegrationChangesApi.
- * @export
- * @interface IntegrationChangesApiIntegrationChangesPostRequest
  */
 export interface IntegrationChangesApiIntegrationChangesPostRequest {
-    /**
-     * 
-     * @type {IntegrationchangesPostRequest}
-     * @memberof IntegrationChangesApiIntegrationChangesPost
-     */
     readonly integrationchangesPostRequest: IntegrationchangesPostRequest
 }
 
 /**
  * IntegrationChangesApi - object-oriented interface
- * @export
- * @class IntegrationChangesApi
- * @extends {BaseAPI}
  */
 export class IntegrationChangesApi extends BaseAPI implements IntegrationChangesApiInterface {
     /**
@@ -168,7 +151,6 @@ export class IntegrationChangesApi extends BaseAPI implements IntegrationChanges
      * @param {IntegrationChangesApiIntegrationChangesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationChangesApi
      */
     public integrationChangesPost(requestParameters: IntegrationChangesApiIntegrationChangesPostRequest, options?: RawAxiosRequestConfig) {
         return IntegrationChangesApiFp(this.configuration).integrationChangesPost(requestParameters.integrationchangesPostRequest, options).then((request) => request(this.axios, this.basePath));

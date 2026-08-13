@@ -20,23 +20,8 @@ import type { IdeasGetResponsePagination } from './ideas-get-response-pagination
 // @ts-ignore
 import type { InitiativesGetResponseInitiativesInner } from './initiatives-get-response-initiatives-inner';
 
-/**
- * 
- * @export
- * @interface InitiativesGetResponse
- */
 export interface InitiativesGetResponse {
-    /**
-     * 
-     * @type {Array<InitiativesGetResponseInitiativesInner>}
-     * @memberof InitiativesGetResponse
-     */
     'initiatives'?: Array<InitiativesGetResponseInitiativesInner>;
-    /**
-     * 
-     * @type {IdeasGetResponsePagination}
-     * @memberof InitiativesGetResponse
-     */
     'pagination'?: IdeasGetResponsePagination;
 }
 

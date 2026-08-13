@@ -19,96 +19,24 @@ import type { CustomtablerecordlinksPutResponseRequirementWorkflowStatus } from 
 // May contain unused imports in some cases
 // @ts-ignore
 import type { KeyresultsPutResponseKeyResultCustomFieldsInner } from './keyresults-put-response-key-result-custom-fields-inner';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface KeyresultsPutResponseKeyResult
- */
 export interface KeyresultsPutResponseKeyResult {
-    /**
-     * 
-     * @type {string}
-     * @memberof KeyresultsPutResponseKeyResult
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KeyresultsPutResponseKeyResult
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KeyresultsPutResponseKeyResult
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof KeyresultsPutResponseKeyResult
-     */
     'position'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof KeyresultsPutResponseKeyResult
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KeyresultsPutResponseKeyResult
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof KeyresultsPutResponseKeyResult
-     */
-    'progress'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof KeyresultsPutResponseKeyResult
-     */
+    'progress'?: Null;
     'target_metric'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KeyresultsPutResponseKeyResult
-     */
     'starting_metric'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KeyresultsPutResponseKeyResult
-     */
     'current_metric'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof KeyresultsPutResponseKeyResult
-     */
-    'description'?: any | null;
-    /**
-     * 
-     * @type {any}
-     * @memberof KeyresultsPutResponseKeyResult
-     */
-    'assigned_to_user'?: any | null;
-    /**
-     * 
-     * @type {CustomtablerecordlinksPutResponseRequirementWorkflowStatus}
-     * @memberof KeyresultsPutResponseKeyResult
-     */
+    'description'?: Null;
+    'assigned_to_user'?: Null;
     'workflow_status'?: CustomtablerecordlinksPutResponseRequirementWorkflowStatus;
-    /**
-     * 
-     * @type {Array<KeyresultsPutResponseKeyResultCustomFieldsInner>}
-     * @memberof KeyresultsPutResponseKeyResult
-     */
     'custom_fields'?: Array<KeyresultsPutResponseKeyResultCustomFieldsInner>;
 }
 

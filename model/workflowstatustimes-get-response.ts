@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { WorkflowstatustimesGetResponseWorkflowStatusTime } from './workflowstatustimes-get-response-workflow-status-time';
 
-/**
- * 
- * @export
- * @interface WorkflowstatustimesGetResponse
- */
 export interface WorkflowstatustimesGetResponse {
-    /**
-     * 
-     * @type {WorkflowstatustimesGetResponseWorkflowStatusTime}
-     * @memberof WorkflowstatustimesGetResponse
-     */
     'workflow_status_time'?: WorkflowstatustimesGetResponseWorkflowStatusTime;
 }
 

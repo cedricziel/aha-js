@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { UsersPostResponse } from '../model';
 import type { UsersPutResponse } from '../model';
 /**
  * UsersApi - axios parameter creator
- * @export
  */
 export const UsersApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -48,7 +47,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'productId' is not null or undefined
             assertParamExists('productsByProductUsersGet', 'productId', productId)
             const localVarPath = `/products/{product_id}/users`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -78,8 +77,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -103,7 +102,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'usersPostRequest' is not null or undefined
             assertParamExists('productsByProductUsersPost', 'usersPostRequest', usersPostRequest)
             const localVarPath = `/products/{product_id}/users`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -125,9 +124,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -150,7 +148,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('usersByIdGet', 'id', id)
             const localVarPath = `/users/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -172,8 +170,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -197,8 +195,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'productId' is not null or undefined
             assertParamExists('usersByIdProductRolesByProductDelete', 'productId', productId)
             const localVarPath = `/users/{id}/product_roles/{product_id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)))
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{id}', encodeURIComponent(String(id)))
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -221,7 +219,6 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -244,7 +241,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('usersByIdProductRolesGet', 'id', id)
             const localVarPath = `/users/{id}/product_roles`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -274,8 +271,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -299,7 +296,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'usersPostRequest' is not null or undefined
             assertParamExists('usersByIdProductRolesPost', 'usersPostRequest', usersPostRequest)
             const localVarPath = `/users/{id}/product_roles`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -321,9 +318,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -349,7 +345,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'usersPostRequest' is not null or undefined
             assertParamExists('usersByIdPut', 'usersPostRequest', usersPostRequest)
             const localVarPath = `/users/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -371,9 +367,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -399,8 +394,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'productId' is not null or undefined
             assertParamExists('usersByIdUserRolesByProductDelete', 'productId', productId)
             const localVarPath = `/users/{id}/user_roles/{product_id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)))
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{id}', encodeURIComponent(String(id)))
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -423,7 +418,6 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -446,7 +440,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('usersByIdUserRolesGet', 'id', id)
             const localVarPath = `/users/{id}/user_roles`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -476,8 +470,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -501,7 +495,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'usersPostRequest' is not null or undefined
             assertParamExists('usersByIdUserRolesPost', 'usersPostRequest', usersPostRequest)
             const localVarPath = `/users/{id}/user_roles`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -523,9 +517,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -576,8 +569,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -592,7 +585,6 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
 
 /**
  * UsersApi - functional programming interface
- * @export
  */
 export const UsersApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = UsersApiAxiosParamCreator(configuration)
@@ -758,7 +750,6 @@ export const UsersApiFp = function(configuration?: Configuration) {
 
 /**
  * UsersApi - factory interface
- * @export
  */
 export const UsersApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = UsersApiFp(configuration)
@@ -878,8 +869,6 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
 
 /**
  * UsersApi - interface
- * @export
- * @interface UsersApi
  */
 export interface UsersApiInterface {
     /**
@@ -888,7 +877,6 @@ export interface UsersApiInterface {
      * @param {UsersApiProductsByProductUsersGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApiInterface
      */
     productsByProductUsersGet(requestParameters: UsersApiProductsByProductUsersGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<UsersGetResponse>;
 
@@ -898,7 +886,6 @@ export interface UsersApiInterface {
      * @param {UsersApiProductsByProductUsersPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApiInterface
      */
     productsByProductUsersPost(requestParameters: UsersApiProductsByProductUsersPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<UsersPostResponse>;
 
@@ -908,7 +895,6 @@ export interface UsersApiInterface {
      * @param {UsersApiUsersByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApiInterface
      */
     usersByIdGet(requestParameters: UsersApiUsersByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<UsersGetResponse>;
 
@@ -918,7 +904,6 @@ export interface UsersApiInterface {
      * @param {UsersApiUsersByIdProductRolesByProductDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApiInterface
      */
     usersByIdProductRolesByProductDelete(requestParameters: UsersApiUsersByIdProductRolesByProductDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -928,7 +913,6 @@ export interface UsersApiInterface {
      * @param {UsersApiUsersByIdProductRolesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApiInterface
      */
     usersByIdProductRolesGet(requestParameters: UsersApiUsersByIdProductRolesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<UsersGetResponse>;
 
@@ -938,7 +922,6 @@ export interface UsersApiInterface {
      * @param {UsersApiUsersByIdProductRolesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApiInterface
      */
     usersByIdProductRolesPost(requestParameters: UsersApiUsersByIdProductRolesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<UsersPostResponse>;
 
@@ -948,7 +931,6 @@ export interface UsersApiInterface {
      * @param {UsersApiUsersByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApiInterface
      */
     usersByIdPut(requestParameters: UsersApiUsersByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<UsersPutResponse>;
 
@@ -958,7 +940,6 @@ export interface UsersApiInterface {
      * @param {UsersApiUsersByIdUserRolesByProductDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApiInterface
      */
     usersByIdUserRolesByProductDelete(requestParameters: UsersApiUsersByIdUserRolesByProductDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -968,7 +949,6 @@ export interface UsersApiInterface {
      * @param {UsersApiUsersByIdUserRolesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApiInterface
      */
     usersByIdUserRolesGet(requestParameters: UsersApiUsersByIdUserRolesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<UsersGetResponse>;
 
@@ -978,7 +958,6 @@ export interface UsersApiInterface {
      * @param {UsersApiUsersByIdUserRolesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApiInterface
      */
     usersByIdUserRolesPost(requestParameters: UsersApiUsersByIdUserRolesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<UsersPostResponse>;
 
@@ -988,7 +967,6 @@ export interface UsersApiInterface {
      * @param {UsersApiUsersGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApiInterface
      */
     usersGet(requestParameters?: UsersApiUsersGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<UsersGetResponse>;
 
@@ -996,254 +974,145 @@ export interface UsersApiInterface {
 
 /**
  * Request parameters for productsByProductUsersGet operation in UsersApi.
- * @export
- * @interface UsersApiProductsByProductUsersGetRequest
  */
 export interface UsersApiProductsByProductUsersGetRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof UsersApiProductsByProductUsersGet
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersApiProductsByProductUsersGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersApiProductsByProductUsersGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for productsByProductUsersPost operation in UsersApi.
- * @export
- * @interface UsersApiProductsByProductUsersPostRequest
  */
 export interface UsersApiProductsByProductUsersPostRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof UsersApiProductsByProductUsersPost
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {UsersPostRequest}
-     * @memberof UsersApiProductsByProductUsersPost
-     */
     readonly usersPostRequest: UsersPostRequest
 }
 
 /**
  * Request parameters for usersByIdGet operation in UsersApi.
- * @export
- * @interface UsersApiUsersByIdGetRequest
  */
 export interface UsersApiUsersByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof UsersApiUsersByIdGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for usersByIdProductRolesByProductDelete operation in UsersApi.
- * @export
- * @interface UsersApiUsersByIdProductRolesByProductDeleteRequest
  */
 export interface UsersApiUsersByIdProductRolesByProductDeleteRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof UsersApiUsersByIdProductRolesByProductDelete
      */
     readonly id: string
 
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof UsersApiUsersByIdProductRolesByProductDelete
      */
     readonly productId: string
 }
 
 /**
  * Request parameters for usersByIdProductRolesGet operation in UsersApi.
- * @export
- * @interface UsersApiUsersByIdProductRolesGetRequest
  */
 export interface UsersApiUsersByIdProductRolesGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof UsersApiUsersByIdProductRolesGet
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersApiUsersByIdProductRolesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersApiUsersByIdProductRolesGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for usersByIdProductRolesPost operation in UsersApi.
- * @export
- * @interface UsersApiUsersByIdProductRolesPostRequest
  */
 export interface UsersApiUsersByIdProductRolesPostRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof UsersApiUsersByIdProductRolesPost
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {UsersPostRequest}
-     * @memberof UsersApiUsersByIdProductRolesPost
-     */
     readonly usersPostRequest: UsersPostRequest
 }
 
 /**
  * Request parameters for usersByIdPut operation in UsersApi.
- * @export
- * @interface UsersApiUsersByIdPutRequest
  */
 export interface UsersApiUsersByIdPutRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof UsersApiUsersByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {UsersPostRequest}
-     * @memberof UsersApiUsersByIdPut
-     */
     readonly usersPostRequest: UsersPostRequest
 }
 
 /**
  * Request parameters for usersByIdUserRolesByProductDelete operation in UsersApi.
- * @export
- * @interface UsersApiUsersByIdUserRolesByProductDeleteRequest
  */
 export interface UsersApiUsersByIdUserRolesByProductDeleteRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof UsersApiUsersByIdUserRolesByProductDelete
      */
     readonly id: string
 
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof UsersApiUsersByIdUserRolesByProductDelete
      */
     readonly productId: string
 }
 
 /**
  * Request parameters for usersByIdUserRolesGet operation in UsersApi.
- * @export
- * @interface UsersApiUsersByIdUserRolesGetRequest
  */
 export interface UsersApiUsersByIdUserRolesGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof UsersApiUsersByIdUserRolesGet
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersApiUsersByIdUserRolesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersApiUsersByIdUserRolesGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for usersByIdUserRolesPost operation in UsersApi.
- * @export
- * @interface UsersApiUsersByIdUserRolesPostRequest
  */
 export interface UsersApiUsersByIdUserRolesPostRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof UsersApiUsersByIdUserRolesPost
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {UsersPostRequest}
-     * @memberof UsersApiUsersByIdUserRolesPost
-     */
     readonly usersPostRequest: UsersPostRequest
 }
 
 /**
  * Request parameters for usersGet operation in UsersApi.
- * @export
- * @interface UsersApiUsersGetRequest
  */
 export interface UsersApiUsersGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersApiUsersGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersApiUsersGet
-     */
     readonly perPage?: string
 }
 
 /**
  * UsersApi - object-oriented interface
- * @export
- * @class UsersApi
- * @extends {BaseAPI}
  */
 export class UsersApi extends BaseAPI implements UsersApiInterface {
     /**
@@ -1252,7 +1121,6 @@ export class UsersApi extends BaseAPI implements UsersApiInterface {
      * @param {UsersApiProductsByProductUsersGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public productsByProductUsersGet(requestParameters: UsersApiProductsByProductUsersGetRequest, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).productsByProductUsersGet(requestParameters.productId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -1264,7 +1132,6 @@ export class UsersApi extends BaseAPI implements UsersApiInterface {
      * @param {UsersApiProductsByProductUsersPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public productsByProductUsersPost(requestParameters: UsersApiProductsByProductUsersPostRequest, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).productsByProductUsersPost(requestParameters.productId, requestParameters.usersPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1276,7 +1143,6 @@ export class UsersApi extends BaseAPI implements UsersApiInterface {
      * @param {UsersApiUsersByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public usersByIdGet(requestParameters: UsersApiUsersByIdGetRequest, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).usersByIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -1288,7 +1154,6 @@ export class UsersApi extends BaseAPI implements UsersApiInterface {
      * @param {UsersApiUsersByIdProductRolesByProductDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public usersByIdProductRolesByProductDelete(requestParameters: UsersApiUsersByIdProductRolesByProductDeleteRequest, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).usersByIdProductRolesByProductDelete(requestParameters.id, requestParameters.productId, options).then((request) => request(this.axios, this.basePath));
@@ -1300,7 +1165,6 @@ export class UsersApi extends BaseAPI implements UsersApiInterface {
      * @param {UsersApiUsersByIdProductRolesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public usersByIdProductRolesGet(requestParameters: UsersApiUsersByIdProductRolesGetRequest, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).usersByIdProductRolesGet(requestParameters.id, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -1312,7 +1176,6 @@ export class UsersApi extends BaseAPI implements UsersApiInterface {
      * @param {UsersApiUsersByIdProductRolesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public usersByIdProductRolesPost(requestParameters: UsersApiUsersByIdProductRolesPostRequest, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).usersByIdProductRolesPost(requestParameters.id, requestParameters.usersPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1324,7 +1187,6 @@ export class UsersApi extends BaseAPI implements UsersApiInterface {
      * @param {UsersApiUsersByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public usersByIdPut(requestParameters: UsersApiUsersByIdPutRequest, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).usersByIdPut(requestParameters.id, requestParameters.usersPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1336,7 +1198,6 @@ export class UsersApi extends BaseAPI implements UsersApiInterface {
      * @param {UsersApiUsersByIdUserRolesByProductDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public usersByIdUserRolesByProductDelete(requestParameters: UsersApiUsersByIdUserRolesByProductDeleteRequest, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).usersByIdUserRolesByProductDelete(requestParameters.id, requestParameters.productId, options).then((request) => request(this.axios, this.basePath));
@@ -1348,7 +1209,6 @@ export class UsersApi extends BaseAPI implements UsersApiInterface {
      * @param {UsersApiUsersByIdUserRolesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public usersByIdUserRolesGet(requestParameters: UsersApiUsersByIdUserRolesGetRequest, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).usersByIdUserRolesGet(requestParameters.id, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -1360,7 +1220,6 @@ export class UsersApi extends BaseAPI implements UsersApiInterface {
      * @param {UsersApiUsersByIdUserRolesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public usersByIdUserRolesPost(requestParameters: UsersApiUsersByIdUserRolesPostRequest, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).usersByIdUserRolesPost(requestParameters.id, requestParameters.usersPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1372,7 +1231,6 @@ export class UsersApi extends BaseAPI implements UsersApiInterface {
      * @param {UsersApiUsersGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public usersGet(requestParameters: UsersApiUsersGetRequest = {}, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).usersGet(requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));

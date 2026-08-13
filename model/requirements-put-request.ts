@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { RequirementsPutRequestRequirement } from './requirements-put-request-requirement';
 
-/**
- * 
- * @export
- * @interface RequirementsPutRequest
- */
 export interface RequirementsPutRequest {
-    /**
-     * 
-     * @type {RequirementsPutRequestRequirement}
-     * @memberof RequirementsPutRequest
-     */
     'requirement'?: RequirementsPutRequestRequirement;
 }
 

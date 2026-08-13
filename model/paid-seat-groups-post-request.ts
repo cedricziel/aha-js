@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface PaidSeatGroupsPostRequest
- */
 export interface PaidSeatGroupsPostRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof PaidSeatGroupsPostRequest
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof PaidSeatGroupsPostRequest
-     */
     'capacity'?: number;
 }
 

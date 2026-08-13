@@ -20,53 +20,13 @@ import type { SchedulablechangesPostResponseSchedulableChangeSchedule } from './
 // @ts-ignore
 import type { SchedulablechangesPostResponseSchedulableChangeTeamMembershipsInner } from './schedulablechanges-post-response-schedulable-change-team-memberships-inner';
 
-/**
- * 
- * @export
- * @interface SchedulablechangesPostResponseSchedulableChange
- */
 export interface SchedulablechangesPostResponseSchedulableChange {
-    /**
-     * 
-     * @type {string}
-     * @memberof SchedulablechangesPostResponseSchedulableChange
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof SchedulablechangesPostResponseSchedulableChange
-     */
     'effective_start_date'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof SchedulablechangesPostResponseSchedulableChange
-     */
     'team_members_count'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof SchedulablechangesPostResponseSchedulableChange
-     */
     'hourly_rate'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof SchedulablechangesPostResponseSchedulableChange
-     */
     'color'?: number;
-    /**
-     * 
-     * @type {SchedulablechangesPostResponseSchedulableChangeSchedule}
-     * @memberof SchedulablechangesPostResponseSchedulableChange
-     */
     'schedule'?: SchedulablechangesPostResponseSchedulableChangeSchedule;
-    /**
-     * 
-     * @type {Array<SchedulablechangesPostResponseSchedulableChangeTeamMembershipsInner>}
-     * @memberof SchedulablechangesPostResponseSchedulableChange
-     */
     'team_memberships'?: Array<SchedulablechangesPostResponseSchedulableChangeTeamMembershipsInner>;
 }
 

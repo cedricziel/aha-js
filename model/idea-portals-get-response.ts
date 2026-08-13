@@ -20,23 +20,8 @@ import type { CompetitorsGetResponsePagination } from './competitors-get-respons
 // @ts-ignore
 import type { IdeaPortalsGetResponseIdeaPortalsInner } from './idea-portals-get-response-idea-portals-inner';
 
-/**
- * 
- * @export
- * @interface IdeaPortalsGetResponse
- */
 export interface IdeaPortalsGetResponse {
-    /**
-     * 
-     * @type {Array<IdeaPortalsGetResponseIdeaPortalsInner>}
-     * @memberof IdeaPortalsGetResponse
-     */
     'idea_portals'?: Array<IdeaPortalsGetResponseIdeaPortalsInner>;
-    /**
-     * 
-     * @type {CompetitorsGetResponsePagination}
-     * @memberof IdeaPortalsGetResponse
-     */
     'pagination'?: CompetitorsGetResponsePagination;
 }
 

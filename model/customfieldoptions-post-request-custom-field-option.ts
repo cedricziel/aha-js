@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface CustomfieldoptionsPostRequestCustomFieldOption
- */
 export interface CustomfieldoptionsPostRequestCustomFieldOption {
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomfieldoptionsPostRequestCustomFieldOption
-     */
     'value'?: string;
 }
 

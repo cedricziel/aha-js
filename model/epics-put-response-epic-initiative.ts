@@ -17,59 +17,14 @@
 // @ts-ignore
 import type { EpicsPutResponseEpicInitiativeDescription } from './epics-put-response-epic-initiative-description';
 
-/**
- * 
- * @export
- * @interface EpicsPutResponseEpicInitiative
- */
 export interface EpicsPutResponseEpicInitiative {
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicInitiative
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicInitiative
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicInitiative
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicInitiative
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicInitiative
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicInitiative
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {EpicsPutResponseEpicInitiativeDescription}
-     * @memberof EpicsPutResponseEpicInitiative
-     */
     'description'?: EpicsPutResponseEpicInitiativeDescription;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof EpicsPutResponseEpicInitiative
-     */
     'integration_fields'?: Array<string>;
 }
 

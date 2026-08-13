@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { PersonasPostResponse } from '../model';
 import type { PersonasPutResponse } from '../model';
 /**
  * PersonasApi - axios parameter creator
- * @export
  */
 export const PersonasApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -46,7 +45,7 @@ export const PersonasApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'id' is not null or undefined
             assertParamExists('personasByIdGet', 'id', id)
             const localVarPath = `/personas/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -68,8 +67,8 @@ export const PersonasApiAxiosParamCreator = function (configuration?: Configurat
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -93,8 +92,8 @@ export const PersonasApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'id' is not null or undefined
             assertParamExists('productsByProductPersonasByIdDelete', 'id', id)
             const localVarPath = `/products/{product_id}/personas/{id}`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)))
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{product_id}', encodeURIComponent(String(productId)))
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -117,7 +116,6 @@ export const PersonasApiAxiosParamCreator = function (configuration?: Configurat
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -144,8 +142,8 @@ export const PersonasApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'personasPostRequest' is not null or undefined
             assertParamExists('productsByProductPersonasByIdPut', 'personasPostRequest', personasPostRequest)
             const localVarPath = `/products/{product_id}/personas/{id}`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)))
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{product_id}', encodeURIComponent(String(productId)))
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -167,9 +165,8 @@ export const PersonasApiAxiosParamCreator = function (configuration?: Configurat
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -194,7 +191,7 @@ export const PersonasApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'productId' is not null or undefined
             assertParamExists('productsByProductPersonasGet', 'productId', productId)
             const localVarPath = `/products/{product_id}/personas`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -224,8 +221,8 @@ export const PersonasApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -249,7 +246,7 @@ export const PersonasApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'personasPostRequest' is not null or undefined
             assertParamExists('productsByProductPersonasPost', 'personasPostRequest', personasPostRequest)
             const localVarPath = `/products/{product_id}/personas`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -271,9 +268,8 @@ export const PersonasApiAxiosParamCreator = function (configuration?: Configurat
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -290,7 +286,6 @@ export const PersonasApiAxiosParamCreator = function (configuration?: Configurat
 
 /**
  * PersonasApi - functional programming interface
- * @export
  */
 export const PersonasApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = PersonasApiAxiosParamCreator(configuration)
@@ -371,7 +366,6 @@ export const PersonasApiFp = function(configuration?: Configuration) {
 
 /**
  * PersonasApi - factory interface
- * @export
  */
 export const PersonasApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = PersonasApiFp(configuration)
@@ -431,8 +425,6 @@ export const PersonasApiFactory = function (configuration?: Configuration, baseP
 
 /**
  * PersonasApi - interface
- * @export
- * @interface PersonasApi
  */
 export interface PersonasApiInterface {
     /**
@@ -441,7 +433,6 @@ export interface PersonasApiInterface {
      * @param {PersonasApiPersonasByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PersonasApiInterface
      */
     personasByIdGet(requestParameters: PersonasApiPersonasByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<PersonasGetResponse>;
 
@@ -451,7 +442,6 @@ export interface PersonasApiInterface {
      * @param {PersonasApiProductsByProductPersonasByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PersonasApiInterface
      */
     productsByProductPersonasByIdDelete(requestParameters: PersonasApiProductsByProductPersonasByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -461,7 +451,6 @@ export interface PersonasApiInterface {
      * @param {PersonasApiProductsByProductPersonasByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PersonasApiInterface
      */
     productsByProductPersonasByIdPut(requestParameters: PersonasApiProductsByProductPersonasByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<PersonasPutResponse>;
 
@@ -471,7 +460,6 @@ export interface PersonasApiInterface {
      * @param {PersonasApiProductsByProductPersonasGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PersonasApiInterface
      */
     productsByProductPersonasGet(requestParameters: PersonasApiProductsByProductPersonasGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<PersonasGetResponse>;
 
@@ -481,7 +469,6 @@ export interface PersonasApiInterface {
      * @param {PersonasApiProductsByProductPersonasPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PersonasApiInterface
      */
     productsByProductPersonasPost(requestParameters: PersonasApiProductsByProductPersonasPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<PersonasPostResponse>;
 
@@ -489,121 +476,74 @@ export interface PersonasApiInterface {
 
 /**
  * Request parameters for personasByIdGet operation in PersonasApi.
- * @export
- * @interface PersonasApiPersonasByIdGetRequest
  */
 export interface PersonasApiPersonasByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof PersonasApiPersonasByIdGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for productsByProductPersonasByIdDelete operation in PersonasApi.
- * @export
- * @interface PersonasApiProductsByProductPersonasByIdDeleteRequest
  */
 export interface PersonasApiProductsByProductPersonasByIdDeleteRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof PersonasApiProductsByProductPersonasByIdDelete
      */
     readonly productId: string
 
     /**
      * Id identifier
-     * @type {string}
-     * @memberof PersonasApiProductsByProductPersonasByIdDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for productsByProductPersonasByIdPut operation in PersonasApi.
- * @export
- * @interface PersonasApiProductsByProductPersonasByIdPutRequest
  */
 export interface PersonasApiProductsByProductPersonasByIdPutRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof PersonasApiProductsByProductPersonasByIdPut
      */
     readonly productId: string
 
     /**
      * Id identifier
-     * @type {string}
-     * @memberof PersonasApiProductsByProductPersonasByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {PersonasPostRequest}
-     * @memberof PersonasApiProductsByProductPersonasByIdPut
-     */
     readonly personasPostRequest: PersonasPostRequest
 }
 
 /**
  * Request parameters for productsByProductPersonasGet operation in PersonasApi.
- * @export
- * @interface PersonasApiProductsByProductPersonasGetRequest
  */
 export interface PersonasApiProductsByProductPersonasGetRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof PersonasApiProductsByProductPersonasGet
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof PersonasApiProductsByProductPersonasGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof PersonasApiProductsByProductPersonasGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for productsByProductPersonasPost operation in PersonasApi.
- * @export
- * @interface PersonasApiProductsByProductPersonasPostRequest
  */
 export interface PersonasApiProductsByProductPersonasPostRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof PersonasApiProductsByProductPersonasPost
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {PersonasPostRequest}
-     * @memberof PersonasApiProductsByProductPersonasPost
-     */
     readonly personasPostRequest: PersonasPostRequest
 }
 
 /**
  * PersonasApi - object-oriented interface
- * @export
- * @class PersonasApi
- * @extends {BaseAPI}
  */
 export class PersonasApi extends BaseAPI implements PersonasApiInterface {
     /**
@@ -612,7 +552,6 @@ export class PersonasApi extends BaseAPI implements PersonasApiInterface {
      * @param {PersonasApiPersonasByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PersonasApi
      */
     public personasByIdGet(requestParameters: PersonasApiPersonasByIdGetRequest, options?: RawAxiosRequestConfig) {
         return PersonasApiFp(this.configuration).personasByIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -624,7 +563,6 @@ export class PersonasApi extends BaseAPI implements PersonasApiInterface {
      * @param {PersonasApiProductsByProductPersonasByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PersonasApi
      */
     public productsByProductPersonasByIdDelete(requestParameters: PersonasApiProductsByProductPersonasByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return PersonasApiFp(this.configuration).productsByProductPersonasByIdDelete(requestParameters.productId, requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -636,7 +574,6 @@ export class PersonasApi extends BaseAPI implements PersonasApiInterface {
      * @param {PersonasApiProductsByProductPersonasByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PersonasApi
      */
     public productsByProductPersonasByIdPut(requestParameters: PersonasApiProductsByProductPersonasByIdPutRequest, options?: RawAxiosRequestConfig) {
         return PersonasApiFp(this.configuration).productsByProductPersonasByIdPut(requestParameters.productId, requestParameters.id, requestParameters.personasPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -648,7 +585,6 @@ export class PersonasApi extends BaseAPI implements PersonasApiInterface {
      * @param {PersonasApiProductsByProductPersonasGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PersonasApi
      */
     public productsByProductPersonasGet(requestParameters: PersonasApiProductsByProductPersonasGetRequest, options?: RawAxiosRequestConfig) {
         return PersonasApiFp(this.configuration).productsByProductPersonasGet(requestParameters.productId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -660,7 +596,6 @@ export class PersonasApi extends BaseAPI implements PersonasApiInterface {
      * @param {PersonasApiProductsByProductPersonasPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PersonasApi
      */
     public productsByProductPersonasPost(requestParameters: PersonasApiProductsByProductPersonasPostRequest, options?: RawAxiosRequestConfig) {
         return PersonasApiFp(this.configuration).productsByProductPersonasPost(requestParameters.productId, requestParameters.personasPostRequest, options).then((request) => request(this.axios, this.basePath));

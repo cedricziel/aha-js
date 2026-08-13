@@ -17,23 +17,8 @@
 // @ts-ignore
 import type { AuditsGetResponsePagination } from './audits-get-response-pagination';
 
-/**
- * 
- * @export
- * @interface SchedulablechangesGetResponse
- */
 export interface SchedulablechangesGetResponse {
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof SchedulablechangesGetResponse
-     */
     'schedulable_changes'?: Array<any>;
-    /**
-     * 
-     * @type {AuditsGetResponsePagination}
-     * @memberof SchedulablechangesGetResponse
-     */
     'pagination'?: AuditsGetResponsePagination;
 }
 

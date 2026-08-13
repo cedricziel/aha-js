@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeathemesPostResponseIdeaThemeDescription
- */
 export interface IdeathemesPostResponseIdeaThemeDescription {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeathemesPostResponseIdeaThemeDescription
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeathemesPostResponseIdeaThemeDescription
-     */
     'body'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeathemesPostResponseIdeaThemeDescription
-     */
     'notable_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeathemesPostResponseIdeaThemeDescription
-     */
     'notable_type'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeathemesPostResponseIdeaThemeDescription
-     */
     'editor_version'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeathemesPostResponseIdeaThemeDescription
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeathemesPostResponseIdeaThemeDescription
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof IdeathemesPostResponseIdeaThemeDescription
-     */
     'attachments'?: Array<any>;
 }
 

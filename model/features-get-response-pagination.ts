@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface FeaturesGetResponsePagination
- */
 export interface FeaturesGetResponsePagination {
-    /**
-     * 
-     * @type {number}
-     * @memberof FeaturesGetResponsePagination
-     */
     'total_records'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof FeaturesGetResponsePagination
-     */
     'total_pages'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof FeaturesGetResponsePagination
-     */
     'current_page'?: number;
 }
 

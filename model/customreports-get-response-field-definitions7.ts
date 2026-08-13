@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface CustomreportsGetResponseFieldDefinitions7
- */
 export interface CustomreportsGetResponseFieldDefinitions7 {
-    /**
-     * 
-     * @type {number}
-     * @memberof CustomreportsGetResponseFieldDefinitions7
-     */
     'ref'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomreportsGetResponseFieldDefinitions7
-     */
     'table'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomreportsGetResponseFieldDefinitions7
-     */
     'field'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomreportsGetResponseFieldDefinitions7
-     */
     'title'?: string;
 }
 

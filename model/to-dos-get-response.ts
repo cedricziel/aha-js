@@ -17,23 +17,8 @@
 // @ts-ignore
 import type { AuditsGetResponsePagination } from './audits-get-response-pagination';
 
-/**
- * 
- * @export
- * @interface ToDosGetResponse
- */
 export interface ToDosGetResponse {
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof ToDosGetResponse
-     */
     'tasks'?: Array<any>;
-    /**
-     * 
-     * @type {AuditsGetResponsePagination}
-     * @memberof ToDosGetResponse
-     */
     'pagination'?: AuditsGetResponsePagination;
 }
 

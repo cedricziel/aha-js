@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface CustomtablerecordlinksPostRequestRequirementCustomObjectLinks
- */
 export interface CustomtablerecordlinksPostRequestRequirementCustomObjectLinks {
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof CustomtablerecordlinksPostRequestRequirementCustomObjectLinks
-     */
     'customers'?: Array<string>;
 }
 

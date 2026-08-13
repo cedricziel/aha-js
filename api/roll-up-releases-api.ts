@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { RollupreleasesPostResponse } from '../model';
 import type { RollupreleasesPutResponse } from '../model';
 /**
  * RollUpReleasesApi - axios parameter creator
- * @export
  */
 export const RollUpReleasesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -48,7 +47,7 @@ export const RollUpReleasesApiAxiosParamCreator = function (configuration?: Conf
             // verify required parameter 'productId' is not null or undefined
             assertParamExists('productsByProductRollUpReleasesGet', 'productId', productId)
             const localVarPath = `/products/{product_id}/roll_up_releases`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -78,8 +77,8 @@ export const RollUpReleasesApiAxiosParamCreator = function (configuration?: Conf
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -103,7 +102,7 @@ export const RollUpReleasesApiAxiosParamCreator = function (configuration?: Conf
             // verify required parameter 'rollupreleasesPostRequest' is not null or undefined
             assertParamExists('productsByProductRollUpReleasesPost', 'rollupreleasesPostRequest', rollupreleasesPostRequest)
             const localVarPath = `/products/{product_id}/roll_up_releases`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -125,9 +124,8 @@ export const RollUpReleasesApiAxiosParamCreator = function (configuration?: Conf
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -150,7 +148,7 @@ export const RollUpReleasesApiAxiosParamCreator = function (configuration?: Conf
             // verify required parameter 'id' is not null or undefined
             assertParamExists('rollUpReleasesByIdGet', 'id', id)
             const localVarPath = `/roll_up_releases/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -172,8 +170,8 @@ export const RollUpReleasesApiAxiosParamCreator = function (configuration?: Conf
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -197,7 +195,7 @@ export const RollUpReleasesApiAxiosParamCreator = function (configuration?: Conf
             // verify required parameter 'rollupreleasesPostRequest' is not null or undefined
             assertParamExists('rollUpReleasesByIdPut', 'rollupreleasesPostRequest', rollupreleasesPostRequest)
             const localVarPath = `/roll_up_releases/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -219,9 +217,8 @@ export const RollUpReleasesApiAxiosParamCreator = function (configuration?: Conf
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -238,7 +235,6 @@ export const RollUpReleasesApiAxiosParamCreator = function (configuration?: Conf
 
 /**
  * RollUpReleasesApi - functional programming interface
- * @export
  */
 export const RollUpReleasesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = RollUpReleasesApiAxiosParamCreator(configuration)
@@ -304,7 +300,6 @@ export const RollUpReleasesApiFp = function(configuration?: Configuration) {
 
 /**
  * RollUpReleasesApi - factory interface
- * @export
  */
 export const RollUpReleasesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = RollUpReleasesApiFp(configuration)
@@ -354,8 +349,6 @@ export const RollUpReleasesApiFactory = function (configuration?: Configuration,
 
 /**
  * RollUpReleasesApi - interface
- * @export
- * @interface RollUpReleasesApi
  */
 export interface RollUpReleasesApiInterface {
     /**
@@ -364,7 +357,6 @@ export interface RollUpReleasesApiInterface {
      * @param {RollUpReleasesApiProductsByProductRollUpReleasesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RollUpReleasesApiInterface
      */
     productsByProductRollUpReleasesGet(requestParameters: RollUpReleasesApiProductsByProductRollUpReleasesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<RollupreleasesGetResponse>;
 
@@ -374,7 +366,6 @@ export interface RollUpReleasesApiInterface {
      * @param {RollUpReleasesApiProductsByProductRollUpReleasesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RollUpReleasesApiInterface
      */
     productsByProductRollUpReleasesPost(requestParameters: RollUpReleasesApiProductsByProductRollUpReleasesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<RollupreleasesPostResponse>;
 
@@ -384,7 +375,6 @@ export interface RollUpReleasesApiInterface {
      * @param {RollUpReleasesApiRollUpReleasesByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RollUpReleasesApiInterface
      */
     rollUpReleasesByIdGet(requestParameters: RollUpReleasesApiRollUpReleasesByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<RollupreleasesGetResponse>;
 
@@ -394,7 +384,6 @@ export interface RollUpReleasesApiInterface {
      * @param {RollUpReleasesApiRollUpReleasesByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RollUpReleasesApiInterface
      */
     rollUpReleasesByIdPut(requestParameters: RollUpReleasesApiRollUpReleasesByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<RollupreleasesPutResponse>;
 
@@ -402,93 +391,54 @@ export interface RollUpReleasesApiInterface {
 
 /**
  * Request parameters for productsByProductRollUpReleasesGet operation in RollUpReleasesApi.
- * @export
- * @interface RollUpReleasesApiProductsByProductRollUpReleasesGetRequest
  */
 export interface RollUpReleasesApiProductsByProductRollUpReleasesGetRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof RollUpReleasesApiProductsByProductRollUpReleasesGet
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof RollUpReleasesApiProductsByProductRollUpReleasesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof RollUpReleasesApiProductsByProductRollUpReleasesGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for productsByProductRollUpReleasesPost operation in RollUpReleasesApi.
- * @export
- * @interface RollUpReleasesApiProductsByProductRollUpReleasesPostRequest
  */
 export interface RollUpReleasesApiProductsByProductRollUpReleasesPostRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof RollUpReleasesApiProductsByProductRollUpReleasesPost
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {RollupreleasesPostRequest}
-     * @memberof RollUpReleasesApiProductsByProductRollUpReleasesPost
-     */
     readonly rollupreleasesPostRequest: RollupreleasesPostRequest
 }
 
 /**
  * Request parameters for rollUpReleasesByIdGet operation in RollUpReleasesApi.
- * @export
- * @interface RollUpReleasesApiRollUpReleasesByIdGetRequest
  */
 export interface RollUpReleasesApiRollUpReleasesByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof RollUpReleasesApiRollUpReleasesByIdGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for rollUpReleasesByIdPut operation in RollUpReleasesApi.
- * @export
- * @interface RollUpReleasesApiRollUpReleasesByIdPutRequest
  */
 export interface RollUpReleasesApiRollUpReleasesByIdPutRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof RollUpReleasesApiRollUpReleasesByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {RollupreleasesPostRequest}
-     * @memberof RollUpReleasesApiRollUpReleasesByIdPut
-     */
     readonly rollupreleasesPostRequest: RollupreleasesPostRequest
 }
 
 /**
  * RollUpReleasesApi - object-oriented interface
- * @export
- * @class RollUpReleasesApi
- * @extends {BaseAPI}
  */
 export class RollUpReleasesApi extends BaseAPI implements RollUpReleasesApiInterface {
     /**
@@ -497,7 +447,6 @@ export class RollUpReleasesApi extends BaseAPI implements RollUpReleasesApiInter
      * @param {RollUpReleasesApiProductsByProductRollUpReleasesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RollUpReleasesApi
      */
     public productsByProductRollUpReleasesGet(requestParameters: RollUpReleasesApiProductsByProductRollUpReleasesGetRequest, options?: RawAxiosRequestConfig) {
         return RollUpReleasesApiFp(this.configuration).productsByProductRollUpReleasesGet(requestParameters.productId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -509,7 +458,6 @@ export class RollUpReleasesApi extends BaseAPI implements RollUpReleasesApiInter
      * @param {RollUpReleasesApiProductsByProductRollUpReleasesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RollUpReleasesApi
      */
     public productsByProductRollUpReleasesPost(requestParameters: RollUpReleasesApiProductsByProductRollUpReleasesPostRequest, options?: RawAxiosRequestConfig) {
         return RollUpReleasesApiFp(this.configuration).productsByProductRollUpReleasesPost(requestParameters.productId, requestParameters.rollupreleasesPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -521,7 +469,6 @@ export class RollUpReleasesApi extends BaseAPI implements RollUpReleasesApiInter
      * @param {RollUpReleasesApiRollUpReleasesByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RollUpReleasesApi
      */
     public rollUpReleasesByIdGet(requestParameters: RollUpReleasesApiRollUpReleasesByIdGetRequest, options?: RawAxiosRequestConfig) {
         return RollUpReleasesApiFp(this.configuration).rollUpReleasesByIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -533,7 +480,6 @@ export class RollUpReleasesApi extends BaseAPI implements RollUpReleasesApiInter
      * @param {RollUpReleasesApiRollUpReleasesByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RollUpReleasesApi
      */
     public rollUpReleasesByIdPut(requestParameters: RollUpReleasesApiRollUpReleasesByIdPutRequest, options?: RawAxiosRequestConfig) {
         return RollUpReleasesApiFp(this.configuration).rollUpReleasesByIdPut(requestParameters.id, requestParameters.rollupreleasesPostRequest, options).then((request) => request(this.axios, this.basePath));

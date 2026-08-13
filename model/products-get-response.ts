@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { ProductsGetResponseProduct } from './products-get-response-product';
 
-/**
- * 
- * @export
- * @interface ProductsGetResponse
- */
 export interface ProductsGetResponse {
-    /**
-     * 
-     * @type {ProductsGetResponseProduct}
-     * @memberof ProductsGetResponse
-     */
     'product'?: ProductsGetResponseProduct;
 }
 

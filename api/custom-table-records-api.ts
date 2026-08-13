@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -33,7 +33,6 @@ import type { CustomtablerecordsPutRequest } from '../model';
 import type { CustomtablerecordsPutResponse } from '../model';
 /**
  * CustomTableRecordsApi - axios parameter creator
- * @export
  */
 export const CustomTableRecordsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -48,7 +47,7 @@ export const CustomTableRecordsApiAxiosParamCreator = function (configuration?: 
             // verify required parameter 'id' is not null or undefined
             assertParamExists('customObjectRecordsByIdDelete', 'id', id)
             const localVarPath = `/custom_object_records/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -71,7 +70,6 @@ export const CustomTableRecordsApiAxiosParamCreator = function (configuration?: 
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -92,7 +90,7 @@ export const CustomTableRecordsApiAxiosParamCreator = function (configuration?: 
             // verify required parameter 'id' is not null or undefined
             assertParamExists('customObjectRecordsByIdGet', 'id', id)
             const localVarPath = `/custom_object_records/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -114,8 +112,8 @@ export const CustomTableRecordsApiAxiosParamCreator = function (configuration?: 
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -139,7 +137,7 @@ export const CustomTableRecordsApiAxiosParamCreator = function (configuration?: 
             // verify required parameter 'customtablerecordsPutRequest' is not null or undefined
             assertParamExists('customObjectRecordsByIdPut', 'customtablerecordsPutRequest', customtablerecordsPutRequest)
             const localVarPath = `/custom_object_records/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -161,9 +159,8 @@ export const CustomTableRecordsApiAxiosParamCreator = function (configuration?: 
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -191,8 +188,8 @@ export const CustomTableRecordsApiAxiosParamCreator = function (configuration?: 
             // verify required parameter 'key' is not null or undefined
             assertParamExists('productsByProductCustomObjectsByKeyRecordsGet', 'key', key)
             const localVarPath = `/products/{product_id}/custom_objects/{key}/records`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)))
-                .replace(`{${"key"}}`, encodeURIComponent(String(key)));
+                .replace('{product_id}', encodeURIComponent(String(productId)))
+                .replace('{key}', encodeURIComponent(String(key)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -222,8 +219,8 @@ export const CustomTableRecordsApiAxiosParamCreator = function (configuration?: 
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -250,8 +247,8 @@ export const CustomTableRecordsApiAxiosParamCreator = function (configuration?: 
             // verify required parameter 'customtablerecordsPostRequest' is not null or undefined
             assertParamExists('productsByProductCustomObjectsByKeyRecordsPost', 'customtablerecordsPostRequest', customtablerecordsPostRequest)
             const localVarPath = `/products/{product_id}/custom_objects/{key}/records`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)))
-                .replace(`{${"key"}}`, encodeURIComponent(String(key)));
+                .replace('{product_id}', encodeURIComponent(String(productId)))
+                .replace('{key}', encodeURIComponent(String(key)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -273,9 +270,8 @@ export const CustomTableRecordsApiAxiosParamCreator = function (configuration?: 
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -292,7 +288,6 @@ export const CustomTableRecordsApiAxiosParamCreator = function (configuration?: 
 
 /**
  * CustomTableRecordsApi - functional programming interface
- * @export
  */
 export const CustomTableRecordsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = CustomTableRecordsApiAxiosParamCreator(configuration)
@@ -373,7 +368,6 @@ export const CustomTableRecordsApiFp = function(configuration?: Configuration) {
 
 /**
  * CustomTableRecordsApi - factory interface
- * @export
  */
 export const CustomTableRecordsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = CustomTableRecordsApiFp(configuration)
@@ -433,8 +427,6 @@ export const CustomTableRecordsApiFactory = function (configuration?: Configurat
 
 /**
  * CustomTableRecordsApi - interface
- * @export
- * @interface CustomTableRecordsApi
  */
 export interface CustomTableRecordsApiInterface {
     /**
@@ -443,7 +435,6 @@ export interface CustomTableRecordsApiInterface {
      * @param {CustomTableRecordsApiCustomObjectRecordsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomTableRecordsApiInterface
      */
     customObjectRecordsByIdDelete(requestParameters: CustomTableRecordsApiCustomObjectRecordsByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -453,7 +444,6 @@ export interface CustomTableRecordsApiInterface {
      * @param {CustomTableRecordsApiCustomObjectRecordsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomTableRecordsApiInterface
      */
     customObjectRecordsByIdGet(requestParameters: CustomTableRecordsApiCustomObjectRecordsByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<CustomtablerecordsGetResponse>;
 
@@ -463,7 +453,6 @@ export interface CustomTableRecordsApiInterface {
      * @param {CustomTableRecordsApiCustomObjectRecordsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomTableRecordsApiInterface
      */
     customObjectRecordsByIdPut(requestParameters: CustomTableRecordsApiCustomObjectRecordsByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<CustomtablerecordsPutResponse>;
 
@@ -473,7 +462,6 @@ export interface CustomTableRecordsApiInterface {
      * @param {CustomTableRecordsApiProductsByProductCustomObjectsByKeyRecordsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomTableRecordsApiInterface
      */
     productsByProductCustomObjectsByKeyRecordsGet(requestParameters: CustomTableRecordsApiProductsByProductCustomObjectsByKeyRecordsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<CustomtablerecordsGetResponse>;
 
@@ -483,7 +471,6 @@ export interface CustomTableRecordsApiInterface {
      * @param {CustomTableRecordsApiProductsByProductCustomObjectsByKeyRecordsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomTableRecordsApiInterface
      */
     productsByProductCustomObjectsByKeyRecordsPost(requestParameters: CustomTableRecordsApiProductsByProductCustomObjectsByKeyRecordsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<CustomtablerecordsPostResponse>;
 
@@ -491,121 +478,74 @@ export interface CustomTableRecordsApiInterface {
 
 /**
  * Request parameters for customObjectRecordsByIdDelete operation in CustomTableRecordsApi.
- * @export
- * @interface CustomTableRecordsApiCustomObjectRecordsByIdDeleteRequest
  */
 export interface CustomTableRecordsApiCustomObjectRecordsByIdDeleteRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof CustomTableRecordsApiCustomObjectRecordsByIdDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for customObjectRecordsByIdGet operation in CustomTableRecordsApi.
- * @export
- * @interface CustomTableRecordsApiCustomObjectRecordsByIdGetRequest
  */
 export interface CustomTableRecordsApiCustomObjectRecordsByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof CustomTableRecordsApiCustomObjectRecordsByIdGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for customObjectRecordsByIdPut operation in CustomTableRecordsApi.
- * @export
- * @interface CustomTableRecordsApiCustomObjectRecordsByIdPutRequest
  */
 export interface CustomTableRecordsApiCustomObjectRecordsByIdPutRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof CustomTableRecordsApiCustomObjectRecordsByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {CustomtablerecordsPutRequest}
-     * @memberof CustomTableRecordsApiCustomObjectRecordsByIdPut
-     */
     readonly customtablerecordsPutRequest: CustomtablerecordsPutRequest
 }
 
 /**
  * Request parameters for productsByProductCustomObjectsByKeyRecordsGet operation in CustomTableRecordsApi.
- * @export
- * @interface CustomTableRecordsApiProductsByProductCustomObjectsByKeyRecordsGetRequest
  */
 export interface CustomTableRecordsApiProductsByProductCustomObjectsByKeyRecordsGetRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof CustomTableRecordsApiProductsByProductCustomObjectsByKeyRecordsGet
      */
     readonly productId: string
 
     /**
      * Key identifier
-     * @type {string}
-     * @memberof CustomTableRecordsApiProductsByProductCustomObjectsByKeyRecordsGet
      */
     readonly key: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomTableRecordsApiProductsByProductCustomObjectsByKeyRecordsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomTableRecordsApiProductsByProductCustomObjectsByKeyRecordsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for productsByProductCustomObjectsByKeyRecordsPost operation in CustomTableRecordsApi.
- * @export
- * @interface CustomTableRecordsApiProductsByProductCustomObjectsByKeyRecordsPostRequest
  */
 export interface CustomTableRecordsApiProductsByProductCustomObjectsByKeyRecordsPostRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof CustomTableRecordsApiProductsByProductCustomObjectsByKeyRecordsPost
      */
     readonly productId: string
 
     /**
      * Key identifier
-     * @type {string}
-     * @memberof CustomTableRecordsApiProductsByProductCustomObjectsByKeyRecordsPost
      */
     readonly key: string
 
-    /**
-     * 
-     * @type {CustomtablerecordsPostRequest}
-     * @memberof CustomTableRecordsApiProductsByProductCustomObjectsByKeyRecordsPost
-     */
     readonly customtablerecordsPostRequest: CustomtablerecordsPostRequest
 }
 
 /**
  * CustomTableRecordsApi - object-oriented interface
- * @export
- * @class CustomTableRecordsApi
- * @extends {BaseAPI}
  */
 export class CustomTableRecordsApi extends BaseAPI implements CustomTableRecordsApiInterface {
     /**
@@ -614,7 +554,6 @@ export class CustomTableRecordsApi extends BaseAPI implements CustomTableRecords
      * @param {CustomTableRecordsApiCustomObjectRecordsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomTableRecordsApi
      */
     public customObjectRecordsByIdDelete(requestParameters: CustomTableRecordsApiCustomObjectRecordsByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return CustomTableRecordsApiFp(this.configuration).customObjectRecordsByIdDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -626,7 +565,6 @@ export class CustomTableRecordsApi extends BaseAPI implements CustomTableRecords
      * @param {CustomTableRecordsApiCustomObjectRecordsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomTableRecordsApi
      */
     public customObjectRecordsByIdGet(requestParameters: CustomTableRecordsApiCustomObjectRecordsByIdGetRequest, options?: RawAxiosRequestConfig) {
         return CustomTableRecordsApiFp(this.configuration).customObjectRecordsByIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -638,7 +576,6 @@ export class CustomTableRecordsApi extends BaseAPI implements CustomTableRecords
      * @param {CustomTableRecordsApiCustomObjectRecordsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomTableRecordsApi
      */
     public customObjectRecordsByIdPut(requestParameters: CustomTableRecordsApiCustomObjectRecordsByIdPutRequest, options?: RawAxiosRequestConfig) {
         return CustomTableRecordsApiFp(this.configuration).customObjectRecordsByIdPut(requestParameters.id, requestParameters.customtablerecordsPutRequest, options).then((request) => request(this.axios, this.basePath));
@@ -650,7 +587,6 @@ export class CustomTableRecordsApi extends BaseAPI implements CustomTableRecords
      * @param {CustomTableRecordsApiProductsByProductCustomObjectsByKeyRecordsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomTableRecordsApi
      */
     public productsByProductCustomObjectsByKeyRecordsGet(requestParameters: CustomTableRecordsApiProductsByProductCustomObjectsByKeyRecordsGetRequest, options?: RawAxiosRequestConfig) {
         return CustomTableRecordsApiFp(this.configuration).productsByProductCustomObjectsByKeyRecordsGet(requestParameters.productId, requestParameters.key, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -662,7 +598,6 @@ export class CustomTableRecordsApi extends BaseAPI implements CustomTableRecords
      * @param {CustomTableRecordsApiProductsByProductCustomObjectsByKeyRecordsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomTableRecordsApi
      */
     public productsByProductCustomObjectsByKeyRecordsPost(requestParameters: CustomTableRecordsApiProductsByProductCustomObjectsByKeyRecordsPostRequest, options?: RawAxiosRequestConfig) {
         return CustomTableRecordsApiFp(this.configuration).productsByProductCustomObjectsByKeyRecordsPost(requestParameters.productId, requestParameters.key, requestParameters.customtablerecordsPostRequest, options).then((request) => request(this.axios, this.basePath));

@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeaorganizationsPostResponseIdeaOrganizationDescription
- */
 export interface IdeaorganizationsPostResponseIdeaOrganizationDescription {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsPostResponseIdeaOrganizationDescription
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsPostResponseIdeaOrganizationDescription
-     */
     'body'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsPostResponseIdeaOrganizationDescription
-     */
     'notable_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsPostResponseIdeaOrganizationDescription
-     */
     'notable_type'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeaorganizationsPostResponseIdeaOrganizationDescription
-     */
     'editor_version'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsPostResponseIdeaOrganizationDescription
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsPostResponseIdeaOrganizationDescription
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof IdeaorganizationsPostResponseIdeaOrganizationDescription
-     */
     'attachments'?: Array<any>;
 }
 

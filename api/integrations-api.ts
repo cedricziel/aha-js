@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { IntegrationsPostResponse } from '../model';
 import type { IntegrationsPutResponse } from '../model';
 /**
  * IntegrationsApi - axios parameter creator
- * @export
  */
 export const IntegrationsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -74,8 +73,8 @@ export const IntegrationsApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -117,9 +116,8 @@ export const IntegrationsApiAxiosParamCreator = function (configuration?: Config
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -145,8 +143,8 @@ export const IntegrationsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'integrationId' is not null or undefined
             assertParamExists('productsByProductIntegrationsByIntegrationGet', 'integrationId', integrationId)
             const localVarPath = `/products/{product_id}/integrations/{integration_id}`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)))
-                .replace(`{${"integration_id"}}`, encodeURIComponent(String(integrationId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)))
+                .replace('{integration_id}', encodeURIComponent(String(integrationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -168,8 +166,8 @@ export const IntegrationsApiAxiosParamCreator = function (configuration?: Config
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -196,8 +194,8 @@ export const IntegrationsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'integrationsPostRequest' is not null or undefined
             assertParamExists('productsByProductIntegrationsByIntegrationPut', 'integrationsPostRequest', integrationsPostRequest)
             const localVarPath = `/products/{product_id}/integrations/{integration_id}`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)))
-                .replace(`{${"integration_id"}}`, encodeURIComponent(String(integrationId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)))
+                .replace('{integration_id}', encodeURIComponent(String(integrationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -219,9 +217,8 @@ export const IntegrationsApiAxiosParamCreator = function (configuration?: Config
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -246,7 +243,7 @@ export const IntegrationsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'productId' is not null or undefined
             assertParamExists('productsByProductIntegrationsGet', 'productId', productId)
             const localVarPath = `/products/{product_id}/integrations`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -276,8 +273,8 @@ export const IntegrationsApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -301,7 +298,7 @@ export const IntegrationsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'integrationsPostRequest' is not null or undefined
             assertParamExists('productsByProductIntegrationsPost', 'integrationsPostRequest', integrationsPostRequest)
             const localVarPath = `/products/{product_id}/integrations`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -323,9 +320,8 @@ export const IntegrationsApiAxiosParamCreator = function (configuration?: Config
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -342,7 +338,6 @@ export const IntegrationsApiAxiosParamCreator = function (configuration?: Config
 
 /**
  * IntegrationsApi - functional programming interface
- * @export
  */
 export const IntegrationsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = IntegrationsApiAxiosParamCreator(configuration)
@@ -437,7 +432,6 @@ export const IntegrationsApiFp = function(configuration?: Configuration) {
 
 /**
  * IntegrationsApi - factory interface
- * @export
  */
 export const IntegrationsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = IntegrationsApiFp(configuration)
@@ -507,8 +501,6 @@ export const IntegrationsApiFactory = function (configuration?: Configuration, b
 
 /**
  * IntegrationsApi - interface
- * @export
- * @interface IntegrationsApi
  */
 export interface IntegrationsApiInterface {
     /**
@@ -517,7 +509,6 @@ export interface IntegrationsApiInterface {
      * @param {IntegrationsApiIntegrationsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationsApiInterface
      */
     integrationsGet(requestParameters?: IntegrationsApiIntegrationsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IntegrationsGetResponse>;
 
@@ -527,7 +518,6 @@ export interface IntegrationsApiInterface {
      * @param {IntegrationsApiIntegrationsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationsApiInterface
      */
     integrationsPost(requestParameters: IntegrationsApiIntegrationsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<IntegrationsPostResponse>;
 
@@ -537,7 +527,6 @@ export interface IntegrationsApiInterface {
      * @param {IntegrationsApiProductsByProductIntegrationsByIntegrationGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationsApiInterface
      */
     productsByProductIntegrationsByIntegrationGet(requestParameters: IntegrationsApiProductsByProductIntegrationsByIntegrationGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IntegrationsGetResponse>;
 
@@ -547,7 +536,6 @@ export interface IntegrationsApiInterface {
      * @param {IntegrationsApiProductsByProductIntegrationsByIntegrationPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationsApiInterface
      */
     productsByProductIntegrationsByIntegrationPut(requestParameters: IntegrationsApiProductsByProductIntegrationsByIntegrationPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<IntegrationsPutResponse>;
 
@@ -557,7 +545,6 @@ export interface IntegrationsApiInterface {
      * @param {IntegrationsApiProductsByProductIntegrationsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationsApiInterface
      */
     productsByProductIntegrationsGet(requestParameters: IntegrationsApiProductsByProductIntegrationsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IntegrationsGetResponse>;
 
@@ -567,7 +554,6 @@ export interface IntegrationsApiInterface {
      * @param {IntegrationsApiProductsByProductIntegrationsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationsApiInterface
      */
     productsByProductIntegrationsPost(requestParameters: IntegrationsApiProductsByProductIntegrationsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<IntegrationsPostResponse>;
 
@@ -575,142 +561,80 @@ export interface IntegrationsApiInterface {
 
 /**
  * Request parameters for integrationsGet operation in IntegrationsApi.
- * @export
- * @interface IntegrationsApiIntegrationsGetRequest
  */
 export interface IntegrationsApiIntegrationsGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationsApiIntegrationsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationsApiIntegrationsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for integrationsPost operation in IntegrationsApi.
- * @export
- * @interface IntegrationsApiIntegrationsPostRequest
  */
 export interface IntegrationsApiIntegrationsPostRequest {
-    /**
-     * 
-     * @type {IntegrationsPostRequest}
-     * @memberof IntegrationsApiIntegrationsPost
-     */
     readonly integrationsPostRequest: IntegrationsPostRequest
 }
 
 /**
  * Request parameters for productsByProductIntegrationsByIntegrationGet operation in IntegrationsApi.
- * @export
- * @interface IntegrationsApiProductsByProductIntegrationsByIntegrationGetRequest
  */
 export interface IntegrationsApiProductsByProductIntegrationsByIntegrationGetRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof IntegrationsApiProductsByProductIntegrationsByIntegrationGet
      */
     readonly productId: string
 
     /**
      * IntegrationId identifier
-     * @type {string}
-     * @memberof IntegrationsApiProductsByProductIntegrationsByIntegrationGet
      */
     readonly integrationId: string
 }
 
 /**
  * Request parameters for productsByProductIntegrationsByIntegrationPut operation in IntegrationsApi.
- * @export
- * @interface IntegrationsApiProductsByProductIntegrationsByIntegrationPutRequest
  */
 export interface IntegrationsApiProductsByProductIntegrationsByIntegrationPutRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof IntegrationsApiProductsByProductIntegrationsByIntegrationPut
      */
     readonly productId: string
 
     /**
      * IntegrationId identifier
-     * @type {string}
-     * @memberof IntegrationsApiProductsByProductIntegrationsByIntegrationPut
      */
     readonly integrationId: string
 
-    /**
-     * 
-     * @type {IntegrationsPostRequest}
-     * @memberof IntegrationsApiProductsByProductIntegrationsByIntegrationPut
-     */
     readonly integrationsPostRequest: IntegrationsPostRequest
 }
 
 /**
  * Request parameters for productsByProductIntegrationsGet operation in IntegrationsApi.
- * @export
- * @interface IntegrationsApiProductsByProductIntegrationsGetRequest
  */
 export interface IntegrationsApiProductsByProductIntegrationsGetRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof IntegrationsApiProductsByProductIntegrationsGet
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationsApiProductsByProductIntegrationsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationsApiProductsByProductIntegrationsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for productsByProductIntegrationsPost operation in IntegrationsApi.
- * @export
- * @interface IntegrationsApiProductsByProductIntegrationsPostRequest
  */
 export interface IntegrationsApiProductsByProductIntegrationsPostRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof IntegrationsApiProductsByProductIntegrationsPost
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {IntegrationsPostRequest}
-     * @memberof IntegrationsApiProductsByProductIntegrationsPost
-     */
     readonly integrationsPostRequest: IntegrationsPostRequest
 }
 
 /**
  * IntegrationsApi - object-oriented interface
- * @export
- * @class IntegrationsApi
- * @extends {BaseAPI}
  */
 export class IntegrationsApi extends BaseAPI implements IntegrationsApiInterface {
     /**
@@ -719,7 +643,6 @@ export class IntegrationsApi extends BaseAPI implements IntegrationsApiInterface
      * @param {IntegrationsApiIntegrationsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationsApi
      */
     public integrationsGet(requestParameters: IntegrationsApiIntegrationsGetRequest = {}, options?: RawAxiosRequestConfig) {
         return IntegrationsApiFp(this.configuration).integrationsGet(requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -731,7 +654,6 @@ export class IntegrationsApi extends BaseAPI implements IntegrationsApiInterface
      * @param {IntegrationsApiIntegrationsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationsApi
      */
     public integrationsPost(requestParameters: IntegrationsApiIntegrationsPostRequest, options?: RawAxiosRequestConfig) {
         return IntegrationsApiFp(this.configuration).integrationsPost(requestParameters.integrationsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -743,7 +665,6 @@ export class IntegrationsApi extends BaseAPI implements IntegrationsApiInterface
      * @param {IntegrationsApiProductsByProductIntegrationsByIntegrationGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationsApi
      */
     public productsByProductIntegrationsByIntegrationGet(requestParameters: IntegrationsApiProductsByProductIntegrationsByIntegrationGetRequest, options?: RawAxiosRequestConfig) {
         return IntegrationsApiFp(this.configuration).productsByProductIntegrationsByIntegrationGet(requestParameters.productId, requestParameters.integrationId, options).then((request) => request(this.axios, this.basePath));
@@ -755,7 +676,6 @@ export class IntegrationsApi extends BaseAPI implements IntegrationsApiInterface
      * @param {IntegrationsApiProductsByProductIntegrationsByIntegrationPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationsApi
      */
     public productsByProductIntegrationsByIntegrationPut(requestParameters: IntegrationsApiProductsByProductIntegrationsByIntegrationPutRequest, options?: RawAxiosRequestConfig) {
         return IntegrationsApiFp(this.configuration).productsByProductIntegrationsByIntegrationPut(requestParameters.productId, requestParameters.integrationId, requestParameters.integrationsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -767,7 +687,6 @@ export class IntegrationsApi extends BaseAPI implements IntegrationsApiInterface
      * @param {IntegrationsApiProductsByProductIntegrationsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationsApi
      */
     public productsByProductIntegrationsGet(requestParameters: IntegrationsApiProductsByProductIntegrationsGetRequest, options?: RawAxiosRequestConfig) {
         return IntegrationsApiFp(this.configuration).productsByProductIntegrationsGet(requestParameters.productId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -779,7 +698,6 @@ export class IntegrationsApi extends BaseAPI implements IntegrationsApiInterface
      * @param {IntegrationsApiProductsByProductIntegrationsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationsApi
      */
     public productsByProductIntegrationsPost(requestParameters: IntegrationsApiProductsByProductIntegrationsPostRequest, options?: RawAxiosRequestConfig) {
         return IntegrationsApiFp(this.configuration).productsByProductIntegrationsPost(requestParameters.productId, requestParameters.integrationsPostRequest, options).then((request) => request(this.axios, this.basePath));

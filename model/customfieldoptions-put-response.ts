@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface CustomfieldoptionsPutResponse
- */
 export interface CustomfieldoptionsPutResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomfieldoptionsPutResponse
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomfieldoptionsPutResponse
-     */
     'value'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof CustomfieldoptionsPutResponse
-     */
     'color'?: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof CustomfieldoptionsPutResponse
-     */
     'hidden'?: boolean;
 }
 

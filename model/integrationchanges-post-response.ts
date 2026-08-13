@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface IntegrationchangesPostResponse
- */
 export interface IntegrationchangesPostResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationchangesPostResponse
-     */
     'status'?: string;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof IntegrationchangesPostResponse
-     */
     'integration_change_job_ids'?: Array<string>;
 }
 

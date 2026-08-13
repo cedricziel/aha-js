@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface AuditsGetResponsePagination
- */
 export interface AuditsGetResponsePagination {
-    /**
-     * 
-     * @type {number}
-     * @memberof AuditsGetResponsePagination
-     */
     'total_records'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AuditsGetResponsePagination
-     */
     'total_pages'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AuditsGetResponsePagination
-     */
     'current_page'?: number;
 }
 

@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface ProductsGetResponseProductDescription
- */
 export interface ProductsGetResponseProductDescription {
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsGetResponseProductDescription
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsGetResponseProductDescription
-     */
     'body'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsGetResponseProductDescription
-     */
     'notable_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsGetResponseProductDescription
-     */
     'notable_type'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof ProductsGetResponseProductDescription
-     */
     'editor_version'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsGetResponseProductDescription
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsGetResponseProductDescription
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof ProductsGetResponseProductDescription
-     */
     'attachments'?: Array<any>;
 }
 

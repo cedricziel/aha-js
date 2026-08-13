@@ -18,14 +18,13 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
 import type { IdentityprovidersGetResponse } from '../model';
 /**
  * IdentityProvidersApi - axios parameter creator
- * @export
  */
 export const IdentityProvidersApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -40,7 +39,7 @@ export const IdentityProvidersApiAxiosParamCreator = function (configuration?: C
             // verify required parameter 'id' is not null or undefined
             assertParamExists('identityProvidersByIdGet', 'id', id)
             const localVarPath = `/identity_providers/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -62,8 +61,8 @@ export const IdentityProvidersApiAxiosParamCreator = function (configuration?: C
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -102,8 +101,8 @@ export const IdentityProvidersApiAxiosParamCreator = function (configuration?: C
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -118,7 +117,6 @@ export const IdentityProvidersApiAxiosParamCreator = function (configuration?: C
 
 /**
  * IdentityProvidersApi - functional programming interface
- * @export
  */
 export const IdentityProvidersApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = IdentityProvidersApiAxiosParamCreator(configuration)
@@ -153,7 +151,6 @@ export const IdentityProvidersApiFp = function(configuration?: Configuration) {
 
 /**
  * IdentityProvidersApi - factory interface
- * @export
  */
 export const IdentityProvidersApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = IdentityProvidersApiFp(configuration)
@@ -182,8 +179,6 @@ export const IdentityProvidersApiFactory = function (configuration?: Configurati
 
 /**
  * IdentityProvidersApi - interface
- * @export
- * @interface IdentityProvidersApi
  */
 export interface IdentityProvidersApiInterface {
     /**
@@ -192,7 +187,6 @@ export interface IdentityProvidersApiInterface {
      * @param {IdentityProvidersApiIdentityProvidersByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdentityProvidersApiInterface
      */
     identityProvidersByIdGet(requestParameters: IdentityProvidersApiIdentityProvidersByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdentityprovidersGetResponse>;
 
@@ -201,7 +195,6 @@ export interface IdentityProvidersApiInterface {
      * @summary List active identity providers that can be used for SSO
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdentityProvidersApiInterface
      */
     identityProvidersGet(options?: RawAxiosRequestConfig): AxiosPromise<IdentityprovidersGetResponse>;
 
@@ -209,23 +202,16 @@ export interface IdentityProvidersApiInterface {
 
 /**
  * Request parameters for identityProvidersByIdGet operation in IdentityProvidersApi.
- * @export
- * @interface IdentityProvidersApiIdentityProvidersByIdGetRequest
  */
 export interface IdentityProvidersApiIdentityProvidersByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof IdentityProvidersApiIdentityProvidersByIdGet
      */
     readonly id: string
 }
 
 /**
  * IdentityProvidersApi - object-oriented interface
- * @export
- * @class IdentityProvidersApi
- * @extends {BaseAPI}
  */
 export class IdentityProvidersApi extends BaseAPI implements IdentityProvidersApiInterface {
     /**
@@ -234,7 +220,6 @@ export class IdentityProvidersApi extends BaseAPI implements IdentityProvidersAp
      * @param {IdentityProvidersApiIdentityProvidersByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdentityProvidersApi
      */
     public identityProvidersByIdGet(requestParameters: IdentityProvidersApiIdentityProvidersByIdGetRequest, options?: RawAxiosRequestConfig) {
         return IdentityProvidersApiFp(this.configuration).identityProvidersByIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -245,7 +230,6 @@ export class IdentityProvidersApi extends BaseAPI implements IdentityProvidersAp
      * @summary List active identity providers that can be used for SSO
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdentityProvidersApi
      */
     public identityProvidersGet(options?: RawAxiosRequestConfig) {
         return IdentityProvidersApiFp(this.configuration).identityProvidersGet(options).then((request) => request(this.axios, this.basePath));

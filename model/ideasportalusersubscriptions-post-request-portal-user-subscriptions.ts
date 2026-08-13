@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { IdeasportalusersubscriptionsPostRequestPortalUserSubscriptionsPreferencesInner } from './ideasportalusersubscriptions-post-request-portal-user-subscriptions-preferences-inner';
 
-/**
- * 
- * @export
- * @interface IdeasportalusersubscriptionsPostRequestPortalUserSubscriptions
- */
 export interface IdeasportalusersubscriptionsPostRequestPortalUserSubscriptions {
-    /**
-     * 
-     * @type {Array<IdeasportalusersubscriptionsPostRequestPortalUserSubscriptionsPreferencesInner>}
-     * @memberof IdeasportalusersubscriptionsPostRequestPortalUserSubscriptions
-     */
     'preferences'?: Array<IdeasportalusersubscriptionsPostRequestPortalUserSubscriptionsPreferencesInner>;
 }
 

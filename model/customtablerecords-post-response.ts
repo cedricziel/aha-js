@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { CustomtablerecordsPostResponseCustomObjectRecord } from './customtablerecords-post-response-custom-object-record';
 
-/**
- * 
- * @export
- * @interface CustomtablerecordsPostResponse
- */
 export interface CustomtablerecordsPostResponse {
-    /**
-     * 
-     * @type {CustomtablerecordsPostResponseCustomObjectRecord}
-     * @memberof CustomtablerecordsPostResponse
-     */
     'custom_object_record'?: CustomtablerecordsPostResponseCustomObjectRecord;
 }
 

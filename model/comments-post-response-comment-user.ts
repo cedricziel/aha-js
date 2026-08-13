@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface CommentsPostResponseCommentUser
- */
 export interface CommentsPostResponseCommentUser {
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsPostResponseCommentUser
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsPostResponseCommentUser
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsPostResponseCommentUser
-     */
     'email'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsPostResponseCommentUser
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsPostResponseCommentUser
-     */
     'updated_at'?: string;
 }
 

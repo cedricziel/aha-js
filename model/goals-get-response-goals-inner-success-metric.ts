@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface GoalsGetResponseGoalsInnerSuccessMetric
- */
 export interface GoalsGetResponseGoalsInnerSuccessMetric {
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsGetResponseGoalsInnerSuccessMetric
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsGetResponseGoalsInnerSuccessMetric
-     */
     'description'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsGetResponseGoalsInnerSuccessMetric
-     */
     'workflow_status'?: string;
 }
 

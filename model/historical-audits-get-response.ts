@@ -20,23 +20,8 @@ import type { CompetitorsGetResponsePagination } from './competitors-get-respons
 // @ts-ignore
 import type { HistoricalAuditsGetResponseHistoricalAuditsInner } from './historical-audits-get-response-historical-audits-inner';
 
-/**
- * 
- * @export
- * @interface HistoricalAuditsGetResponse
- */
 export interface HistoricalAuditsGetResponse {
-    /**
-     * 
-     * @type {Array<HistoricalAuditsGetResponseHistoricalAuditsInner>}
-     * @memberof HistoricalAuditsGetResponse
-     */
     'historical_audits'?: Array<HistoricalAuditsGetResponseHistoricalAuditsInner>;
-    /**
-     * 
-     * @type {CompetitorsGetResponsePagination}
-     * @memberof HistoricalAuditsGetResponse
-     */
     'pagination'?: CompetitorsGetResponsePagination;
 }
 

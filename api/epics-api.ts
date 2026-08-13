@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { EpicsPostResponse } from '../model';
 import type { EpicsPutResponse } from '../model';
 /**
  * EpicsApi - axios parameter creator
- * @export
  */
 export const EpicsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -46,7 +45,7 @@ export const EpicsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('epicsByIdDelete', 'id', id)
             const localVarPath = `/epics/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -69,7 +68,6 @@ export const EpicsApiAxiosParamCreator = function (configuration?: Configuration
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -90,7 +88,7 @@ export const EpicsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('epicsByIdGet', 'id', id)
             const localVarPath = `/epics/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -112,8 +110,8 @@ export const EpicsApiAxiosParamCreator = function (configuration?: Configuration
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -137,7 +135,7 @@ export const EpicsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'epicsPostRequest' is not null or undefined
             assertParamExists('epicsByIdPut', 'epicsPostRequest', epicsPostRequest)
             const localVarPath = `/epics/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -159,9 +157,8 @@ export const EpicsApiAxiosParamCreator = function (configuration?: Configuration
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -227,8 +224,8 @@ export const EpicsApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['workflow_status'] = workflowStatus;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -251,7 +248,7 @@ export const EpicsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'goalId' is not null or undefined
             assertParamExists('goalsByGoalEpicsGet', 'goalId', goalId)
             const localVarPath = `/goals/{goal_id}/epics`
-                .replace(`{${"goal_id"}}`, encodeURIComponent(String(goalId)));
+                .replace('{goal_id}', encodeURIComponent(String(goalId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -281,8 +278,8 @@ export const EpicsApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -305,7 +302,7 @@ export const EpicsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'initiativeId' is not null or undefined
             assertParamExists('initiativesByInitiativeEpicsGet', 'initiativeId', initiativeId)
             const localVarPath = `/initiatives/{initiative_id}/epics`
-                .replace(`{${"initiative_id"}}`, encodeURIComponent(String(initiativeId)));
+                .replace('{initiative_id}', encodeURIComponent(String(initiativeId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -335,8 +332,8 @@ export const EpicsApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -359,7 +356,7 @@ export const EpicsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'productId' is not null or undefined
             assertParamExists('productsByProductEpicsGet', 'productId', productId)
             const localVarPath = `/products/{product_id}/epics`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -389,8 +386,8 @@ export const EpicsApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -414,7 +411,7 @@ export const EpicsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'epicsPostRequest' is not null or undefined
             assertParamExists('productsByProductEpicsPost', 'epicsPostRequest', epicsPostRequest)
             const localVarPath = `/products/{product_id}/epics`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -436,9 +433,8 @@ export const EpicsApiAxiosParamCreator = function (configuration?: Configuration
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -463,7 +459,7 @@ export const EpicsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'releaseId' is not null or undefined
             assertParamExists('releasesByReleaseEpicsGet', 'releaseId', releaseId)
             const localVarPath = `/releases/{release_id}/epics`
-                .replace(`{${"release_id"}}`, encodeURIComponent(String(releaseId)));
+                .replace('{release_id}', encodeURIComponent(String(releaseId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -493,8 +489,8 @@ export const EpicsApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -518,7 +514,7 @@ export const EpicsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'epicsPostRequest' is not null or undefined
             assertParamExists('releasesByReleaseEpicsPost', 'epicsPostRequest', epicsPostRequest)
             const localVarPath = `/releases/{release_id}/epics`
-                .replace(`{${"release_id"}}`, encodeURIComponent(String(releaseId)));
+                .replace('{release_id}', encodeURIComponent(String(releaseId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -540,9 +536,8 @@ export const EpicsApiAxiosParamCreator = function (configuration?: Configuration
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -559,7 +554,6 @@ export const EpicsApiAxiosParamCreator = function (configuration?: Configuration
 
 /**
  * EpicsApi - functional programming interface
- * @export
  */
 export const EpicsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = EpicsApiAxiosParamCreator(configuration)
@@ -714,7 +708,6 @@ export const EpicsApiFp = function(configuration?: Configuration) {
 
 /**
  * EpicsApi - factory interface
- * @export
  */
 export const EpicsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = EpicsApiFp(configuration)
@@ -824,8 +817,6 @@ export const EpicsApiFactory = function (configuration?: Configuration, basePath
 
 /**
  * EpicsApi - interface
- * @export
- * @interface EpicsApi
  */
 export interface EpicsApiInterface {
     /**
@@ -834,7 +825,6 @@ export interface EpicsApiInterface {
      * @param {EpicsApiEpicsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApiInterface
      */
     epicsByIdDelete(requestParameters: EpicsApiEpicsByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -844,7 +834,6 @@ export interface EpicsApiInterface {
      * @param {EpicsApiEpicsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApiInterface
      */
     epicsByIdGet(requestParameters: EpicsApiEpicsByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsGetResponse>;
 
@@ -854,7 +843,6 @@ export interface EpicsApiInterface {
      * @param {EpicsApiEpicsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApiInterface
      */
     epicsByIdPut(requestParameters: EpicsApiEpicsByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsPutResponse>;
 
@@ -864,7 +852,6 @@ export interface EpicsApiInterface {
      * @param {EpicsApiEpicsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApiInterface
      */
     epicsGet(requestParameters?: EpicsApiEpicsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsGetResponse>;
 
@@ -874,7 +861,6 @@ export interface EpicsApiInterface {
      * @param {EpicsApiGoalsByGoalEpicsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApiInterface
      */
     goalsByGoalEpicsGet(requestParameters: EpicsApiGoalsByGoalEpicsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsGetResponse>;
 
@@ -884,7 +870,6 @@ export interface EpicsApiInterface {
      * @param {EpicsApiInitiativesByInitiativeEpicsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApiInterface
      */
     initiativesByInitiativeEpicsGet(requestParameters: EpicsApiInitiativesByInitiativeEpicsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsGetResponse>;
 
@@ -894,7 +879,6 @@ export interface EpicsApiInterface {
      * @param {EpicsApiProductsByProductEpicsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApiInterface
      */
     productsByProductEpicsGet(requestParameters: EpicsApiProductsByProductEpicsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsGetResponse>;
 
@@ -904,7 +888,6 @@ export interface EpicsApiInterface {
      * @param {EpicsApiProductsByProductEpicsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApiInterface
      */
     productsByProductEpicsPost(requestParameters: EpicsApiProductsByProductEpicsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsPostResponse>;
 
@@ -914,7 +897,6 @@ export interface EpicsApiInterface {
      * @param {EpicsApiReleasesByReleaseEpicsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApiInterface
      */
     releasesByReleaseEpicsGet(requestParameters: EpicsApiReleasesByReleaseEpicsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsGetResponse>;
 
@@ -924,7 +906,6 @@ export interface EpicsApiInterface {
      * @param {EpicsApiReleasesByReleaseEpicsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApiInterface
      */
     releasesByReleaseEpicsPost(requestParameters: EpicsApiReleasesByReleaseEpicsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<EpicsPostResponse>;
 
@@ -932,254 +913,133 @@ export interface EpicsApiInterface {
 
 /**
  * Request parameters for epicsByIdDelete operation in EpicsApi.
- * @export
- * @interface EpicsApiEpicsByIdDeleteRequest
  */
 export interface EpicsApiEpicsByIdDeleteRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof EpicsApiEpicsByIdDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for epicsByIdGet operation in EpicsApi.
- * @export
- * @interface EpicsApiEpicsByIdGetRequest
  */
 export interface EpicsApiEpicsByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof EpicsApiEpicsByIdGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for epicsByIdPut operation in EpicsApi.
- * @export
- * @interface EpicsApiEpicsByIdPutRequest
  */
 export interface EpicsApiEpicsByIdPutRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof EpicsApiEpicsByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {EpicsPostRequest}
-     * @memberof EpicsApiEpicsByIdPut
-     */
     readonly epicsPostRequest: EpicsPostRequest
 }
 
 /**
  * Request parameters for epicsGet operation in EpicsApi.
- * @export
- * @interface EpicsApiEpicsGetRequest
  */
 export interface EpicsApiEpicsGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsApiEpicsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsApiEpicsGet
-     */
     readonly perPage?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsApiEpicsGet
-     */
     readonly customFields?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsApiEpicsGet
-     */
     readonly fields?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsApiEpicsGet
-     */
     readonly workflowStatus?: string
 }
 
 /**
  * Request parameters for goalsByGoalEpicsGet operation in EpicsApi.
- * @export
- * @interface EpicsApiGoalsByGoalEpicsGetRequest
  */
 export interface EpicsApiGoalsByGoalEpicsGetRequest {
     /**
      * GoalId identifier
-     * @type {string}
-     * @memberof EpicsApiGoalsByGoalEpicsGet
      */
     readonly goalId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsApiGoalsByGoalEpicsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsApiGoalsByGoalEpicsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for initiativesByInitiativeEpicsGet operation in EpicsApi.
- * @export
- * @interface EpicsApiInitiativesByInitiativeEpicsGetRequest
  */
 export interface EpicsApiInitiativesByInitiativeEpicsGetRequest {
     /**
      * InitiativeId identifier
-     * @type {string}
-     * @memberof EpicsApiInitiativesByInitiativeEpicsGet
      */
     readonly initiativeId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsApiInitiativesByInitiativeEpicsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsApiInitiativesByInitiativeEpicsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for productsByProductEpicsGet operation in EpicsApi.
- * @export
- * @interface EpicsApiProductsByProductEpicsGetRequest
  */
 export interface EpicsApiProductsByProductEpicsGetRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof EpicsApiProductsByProductEpicsGet
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsApiProductsByProductEpicsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsApiProductsByProductEpicsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for productsByProductEpicsPost operation in EpicsApi.
- * @export
- * @interface EpicsApiProductsByProductEpicsPostRequest
  */
 export interface EpicsApiProductsByProductEpicsPostRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof EpicsApiProductsByProductEpicsPost
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {EpicsPostRequest}
-     * @memberof EpicsApiProductsByProductEpicsPost
-     */
     readonly epicsPostRequest: EpicsPostRequest
 }
 
 /**
  * Request parameters for releasesByReleaseEpicsGet operation in EpicsApi.
- * @export
- * @interface EpicsApiReleasesByReleaseEpicsGetRequest
  */
 export interface EpicsApiReleasesByReleaseEpicsGetRequest {
     /**
      * ReleaseId identifier
-     * @type {string}
-     * @memberof EpicsApiReleasesByReleaseEpicsGet
      */
     readonly releaseId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsApiReleasesByReleaseEpicsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsApiReleasesByReleaseEpicsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for releasesByReleaseEpicsPost operation in EpicsApi.
- * @export
- * @interface EpicsApiReleasesByReleaseEpicsPostRequest
  */
 export interface EpicsApiReleasesByReleaseEpicsPostRequest {
     /**
      * ReleaseId identifier
-     * @type {string}
-     * @memberof EpicsApiReleasesByReleaseEpicsPost
      */
     readonly releaseId: string
 
-    /**
-     * 
-     * @type {EpicsPostRequest}
-     * @memberof EpicsApiReleasesByReleaseEpicsPost
-     */
     readonly epicsPostRequest: EpicsPostRequest
 }
 
 /**
  * EpicsApi - object-oriented interface
- * @export
- * @class EpicsApi
- * @extends {BaseAPI}
  */
 export class EpicsApi extends BaseAPI implements EpicsApiInterface {
     /**
@@ -1188,7 +1048,6 @@ export class EpicsApi extends BaseAPI implements EpicsApiInterface {
      * @param {EpicsApiEpicsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApi
      */
     public epicsByIdDelete(requestParameters: EpicsApiEpicsByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return EpicsApiFp(this.configuration).epicsByIdDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -1200,7 +1059,6 @@ export class EpicsApi extends BaseAPI implements EpicsApiInterface {
      * @param {EpicsApiEpicsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApi
      */
     public epicsByIdGet(requestParameters: EpicsApiEpicsByIdGetRequest, options?: RawAxiosRequestConfig) {
         return EpicsApiFp(this.configuration).epicsByIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -1212,7 +1070,6 @@ export class EpicsApi extends BaseAPI implements EpicsApiInterface {
      * @param {EpicsApiEpicsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApi
      */
     public epicsByIdPut(requestParameters: EpicsApiEpicsByIdPutRequest, options?: RawAxiosRequestConfig) {
         return EpicsApiFp(this.configuration).epicsByIdPut(requestParameters.id, requestParameters.epicsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1224,7 +1081,6 @@ export class EpicsApi extends BaseAPI implements EpicsApiInterface {
      * @param {EpicsApiEpicsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApi
      */
     public epicsGet(requestParameters: EpicsApiEpicsGetRequest = {}, options?: RawAxiosRequestConfig) {
         return EpicsApiFp(this.configuration).epicsGet(requestParameters.page, requestParameters.perPage, requestParameters.customFields, requestParameters.fields, requestParameters.workflowStatus, options).then((request) => request(this.axios, this.basePath));
@@ -1236,7 +1092,6 @@ export class EpicsApi extends BaseAPI implements EpicsApiInterface {
      * @param {EpicsApiGoalsByGoalEpicsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApi
      */
     public goalsByGoalEpicsGet(requestParameters: EpicsApiGoalsByGoalEpicsGetRequest, options?: RawAxiosRequestConfig) {
         return EpicsApiFp(this.configuration).goalsByGoalEpicsGet(requestParameters.goalId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -1248,7 +1103,6 @@ export class EpicsApi extends BaseAPI implements EpicsApiInterface {
      * @param {EpicsApiInitiativesByInitiativeEpicsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApi
      */
     public initiativesByInitiativeEpicsGet(requestParameters: EpicsApiInitiativesByInitiativeEpicsGetRequest, options?: RawAxiosRequestConfig) {
         return EpicsApiFp(this.configuration).initiativesByInitiativeEpicsGet(requestParameters.initiativeId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -1260,7 +1114,6 @@ export class EpicsApi extends BaseAPI implements EpicsApiInterface {
      * @param {EpicsApiProductsByProductEpicsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApi
      */
     public productsByProductEpicsGet(requestParameters: EpicsApiProductsByProductEpicsGetRequest, options?: RawAxiosRequestConfig) {
         return EpicsApiFp(this.configuration).productsByProductEpicsGet(requestParameters.productId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -1272,7 +1125,6 @@ export class EpicsApi extends BaseAPI implements EpicsApiInterface {
      * @param {EpicsApiProductsByProductEpicsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApi
      */
     public productsByProductEpicsPost(requestParameters: EpicsApiProductsByProductEpicsPostRequest, options?: RawAxiosRequestConfig) {
         return EpicsApiFp(this.configuration).productsByProductEpicsPost(requestParameters.productId, requestParameters.epicsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1284,7 +1136,6 @@ export class EpicsApi extends BaseAPI implements EpicsApiInterface {
      * @param {EpicsApiReleasesByReleaseEpicsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApi
      */
     public releasesByReleaseEpicsGet(requestParameters: EpicsApiReleasesByReleaseEpicsGetRequest, options?: RawAxiosRequestConfig) {
         return EpicsApiFp(this.configuration).releasesByReleaseEpicsGet(requestParameters.releaseId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -1296,7 +1147,6 @@ export class EpicsApi extends BaseAPI implements EpicsApiInterface {
      * @param {EpicsApiReleasesByReleaseEpicsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EpicsApi
      */
     public releasesByReleaseEpicsPost(requestParameters: EpicsApiReleasesByReleaseEpicsPostRequest, options?: RawAxiosRequestConfig) {
         return EpicsApiFp(this.configuration).releasesByReleaseEpicsPost(requestParameters.releaseId, requestParameters.epicsPostRequest, options).then((request) => request(this.axios, this.basePath));

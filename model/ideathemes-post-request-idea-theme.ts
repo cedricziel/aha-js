@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeathemesPostRequestIdeaTheme
- */
 export interface IdeathemesPostRequestIdeaTheme {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeathemesPostRequestIdeaTheme
-     */
     'name'?: string;
 }
 

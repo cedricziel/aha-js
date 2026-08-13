@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeacommentsPostRequestIdeaComment
- */
 export interface IdeacommentsPostRequestIdeaComment {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeacommentsPostRequestIdeaComment
-     */
     'spam'?: string;
 }
 

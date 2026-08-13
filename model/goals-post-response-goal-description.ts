@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface GoalsPostResponseGoalDescription
- */
 export interface GoalsPostResponseGoalDescription {
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPostResponseGoalDescription
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPostResponseGoalDescription
-     */
     'body'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPostResponseGoalDescription
-     */
     'notable_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPostResponseGoalDescription
-     */
     'notable_type'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof GoalsPostResponseGoalDescription
-     */
     'editor_version'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPostResponseGoalDescription
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPostResponseGoalDescription
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof GoalsPostResponseGoalDescription
-     */
     'attachments'?: Array<any>;
 }
 

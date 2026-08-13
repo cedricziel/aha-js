@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface IntegrationchangejobsGetResponseIntegrationChangeJobErrorsInner
- */
 export interface IntegrationchangejobsGetResponseIntegrationChangeJobErrorsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationchangejobsGetResponseIntegrationChangeJobErrorsInner
-     */
     'record_type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationchangejobsGetResponseIntegrationChangeJobErrorsInner
-     */
     'record_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationchangejobsGetResponseIntegrationChangeJobErrorsInner
-     */
     'failure_message'?: string;
 }
 

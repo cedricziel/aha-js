@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface DeletionsPostResponseDeletionRecord
- */
 export interface DeletionsPostResponseDeletionRecord {
-    /**
-     * 
-     * @type {string}
-     * @memberof DeletionsPostResponseDeletionRecord
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DeletionsPostResponseDeletionRecord
-     */
     'type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DeletionsPostResponseDeletionRecord
-     */
     'reference_num'?: string;
 }
 

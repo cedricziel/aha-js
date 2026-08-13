@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface WorkflowsGetResponseWorkflowWorkflowKindsInner
- */
 export interface WorkflowsGetResponseWorkflowWorkflowKindsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof WorkflowsGetResponseWorkflowWorkflowKindsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof WorkflowsGetResponseWorkflowWorkflowKindsInner
-     */
     'name'?: string;
 }
 

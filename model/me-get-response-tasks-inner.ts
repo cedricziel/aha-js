@@ -13,42 +13,15 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface MeGetResponseTasksInner
- */
 export interface MeGetResponseTasksInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof MeGetResponseTasksInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof MeGetResponseTasksInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof MeGetResponseTasksInner
-     */
-    'due_date'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof MeGetResponseTasksInner
-     */
+    'due_date'?: Null;
     'status'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof MeGetResponseTasksInner
-     */
     'created_at'?: string;
 }
 

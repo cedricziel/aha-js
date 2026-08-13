@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { KnowledgebasepagesGetResponsePage } from './knowledgebasepages-get-response-page';
 
-/**
- * 
- * @export
- * @interface KnowledgebasepagesGetResponse
- */
 export interface KnowledgebasepagesGetResponse {
-    /**
-     * 
-     * @type {KnowledgebasepagesGetResponsePage}
-     * @memberof KnowledgebasepagesGetResponse
-     */
     'page'?: KnowledgebasepagesGetResponsePage;
 }
 

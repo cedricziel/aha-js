@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { IdeathemesPostResponse } from '../model';
 import type { IdeathemesPutResponse } from '../model';
 /**
  * IdeaThemesApi - axios parameter creator
- * @export
  */
 export const IdeaThemesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -46,7 +45,7 @@ export const IdeaThemesApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'id' is not null or undefined
             assertParamExists('ideaThemesByIdDelete', 'id', id)
             const localVarPath = `/idea_themes/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -69,7 +68,6 @@ export const IdeaThemesApiAxiosParamCreator = function (configuration?: Configur
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -90,7 +88,7 @@ export const IdeaThemesApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'id' is not null or undefined
             assertParamExists('ideaThemesByIdGet', 'id', id)
             const localVarPath = `/idea_themes/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -112,8 +110,8 @@ export const IdeaThemesApiAxiosParamCreator = function (configuration?: Configur
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -137,7 +135,7 @@ export const IdeaThemesApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'ideathemesPostRequest' is not null or undefined
             assertParamExists('ideaThemesByIdPut', 'ideathemesPostRequest', ideathemesPostRequest)
             const localVarPath = `/idea_themes/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -159,9 +157,8 @@ export const IdeaThemesApiAxiosParamCreator = function (configuration?: Configur
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -212,8 +209,8 @@ export const IdeaThemesApiAxiosParamCreator = function (configuration?: Configur
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -255,9 +252,8 @@ export const IdeaThemesApiAxiosParamCreator = function (configuration?: Configur
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -274,7 +270,6 @@ export const IdeaThemesApiAxiosParamCreator = function (configuration?: Configur
 
 /**
  * IdeaThemesApi - functional programming interface
- * @export
  */
 export const IdeaThemesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = IdeaThemesApiAxiosParamCreator(configuration)
@@ -351,7 +346,6 @@ export const IdeaThemesApiFp = function(configuration?: Configuration) {
 
 /**
  * IdeaThemesApi - factory interface
- * @export
  */
 export const IdeaThemesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = IdeaThemesApiFp(configuration)
@@ -411,8 +405,6 @@ export const IdeaThemesApiFactory = function (configuration?: Configuration, bas
 
 /**
  * IdeaThemesApi - interface
- * @export
- * @interface IdeaThemesApi
  */
 export interface IdeaThemesApiInterface {
     /**
@@ -421,7 +413,6 @@ export interface IdeaThemesApiInterface {
      * @param {IdeaThemesApiIdeaThemesByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaThemesApiInterface
      */
     ideaThemesByIdDelete(requestParameters: IdeaThemesApiIdeaThemesByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -431,7 +422,6 @@ export interface IdeaThemesApiInterface {
      * @param {IdeaThemesApiIdeaThemesByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaThemesApiInterface
      */
     ideaThemesByIdGet(requestParameters: IdeaThemesApiIdeaThemesByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeathemesGetResponse>;
 
@@ -441,7 +431,6 @@ export interface IdeaThemesApiInterface {
      * @param {IdeaThemesApiIdeaThemesByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaThemesApiInterface
      */
     ideaThemesByIdPut(requestParameters: IdeaThemesApiIdeaThemesByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeathemesPutResponse>;
 
@@ -451,7 +440,6 @@ export interface IdeaThemesApiInterface {
      * @param {IdeaThemesApiIdeaThemesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaThemesApiInterface
      */
     ideaThemesGet(requestParameters?: IdeaThemesApiIdeaThemesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeathemesGetResponse>;
 
@@ -461,7 +449,6 @@ export interface IdeaThemesApiInterface {
      * @param {IdeaThemesApiIdeaThemesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaThemesApiInterface
      */
     ideaThemesPost(requestParameters: IdeaThemesApiIdeaThemesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeathemesPostResponse>;
 
@@ -469,93 +456,54 @@ export interface IdeaThemesApiInterface {
 
 /**
  * Request parameters for ideaThemesByIdDelete operation in IdeaThemesApi.
- * @export
- * @interface IdeaThemesApiIdeaThemesByIdDeleteRequest
  */
 export interface IdeaThemesApiIdeaThemesByIdDeleteRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof IdeaThemesApiIdeaThemesByIdDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for ideaThemesByIdGet operation in IdeaThemesApi.
- * @export
- * @interface IdeaThemesApiIdeaThemesByIdGetRequest
  */
 export interface IdeaThemesApiIdeaThemesByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof IdeaThemesApiIdeaThemesByIdGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for ideaThemesByIdPut operation in IdeaThemesApi.
- * @export
- * @interface IdeaThemesApiIdeaThemesByIdPutRequest
  */
 export interface IdeaThemesApiIdeaThemesByIdPutRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof IdeaThemesApiIdeaThemesByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {IdeathemesPostRequest}
-     * @memberof IdeaThemesApiIdeaThemesByIdPut
-     */
     readonly ideathemesPostRequest: IdeathemesPostRequest
 }
 
 /**
  * Request parameters for ideaThemesGet operation in IdeaThemesApi.
- * @export
- * @interface IdeaThemesApiIdeaThemesGetRequest
  */
 export interface IdeaThemesApiIdeaThemesGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaThemesApiIdeaThemesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaThemesApiIdeaThemesGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for ideaThemesPost operation in IdeaThemesApi.
- * @export
- * @interface IdeaThemesApiIdeaThemesPostRequest
  */
 export interface IdeaThemesApiIdeaThemesPostRequest {
-    /**
-     * 
-     * @type {IdeathemesPostRequest}
-     * @memberof IdeaThemesApiIdeaThemesPost
-     */
     readonly ideathemesPostRequest: IdeathemesPostRequest
 }
 
 /**
  * IdeaThemesApi - object-oriented interface
- * @export
- * @class IdeaThemesApi
- * @extends {BaseAPI}
  */
 export class IdeaThemesApi extends BaseAPI implements IdeaThemesApiInterface {
     /**
@@ -564,7 +512,6 @@ export class IdeaThemesApi extends BaseAPI implements IdeaThemesApiInterface {
      * @param {IdeaThemesApiIdeaThemesByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaThemesApi
      */
     public ideaThemesByIdDelete(requestParameters: IdeaThemesApiIdeaThemesByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return IdeaThemesApiFp(this.configuration).ideaThemesByIdDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -576,7 +523,6 @@ export class IdeaThemesApi extends BaseAPI implements IdeaThemesApiInterface {
      * @param {IdeaThemesApiIdeaThemesByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaThemesApi
      */
     public ideaThemesByIdGet(requestParameters: IdeaThemesApiIdeaThemesByIdGetRequest, options?: RawAxiosRequestConfig) {
         return IdeaThemesApiFp(this.configuration).ideaThemesByIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -588,7 +534,6 @@ export class IdeaThemesApi extends BaseAPI implements IdeaThemesApiInterface {
      * @param {IdeaThemesApiIdeaThemesByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaThemesApi
      */
     public ideaThemesByIdPut(requestParameters: IdeaThemesApiIdeaThemesByIdPutRequest, options?: RawAxiosRequestConfig) {
         return IdeaThemesApiFp(this.configuration).ideaThemesByIdPut(requestParameters.id, requestParameters.ideathemesPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -600,7 +545,6 @@ export class IdeaThemesApi extends BaseAPI implements IdeaThemesApiInterface {
      * @param {IdeaThemesApiIdeaThemesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaThemesApi
      */
     public ideaThemesGet(requestParameters: IdeaThemesApiIdeaThemesGetRequest = {}, options?: RawAxiosRequestConfig) {
         return IdeaThemesApiFp(this.configuration).ideaThemesGet(requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -612,7 +556,6 @@ export class IdeaThemesApi extends BaseAPI implements IdeaThemesApiInterface {
      * @param {IdeaThemesApiIdeaThemesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaThemesApi
      */
     public ideaThemesPost(requestParameters: IdeaThemesApiIdeaThemesPostRequest, options?: RawAxiosRequestConfig) {
         return IdeaThemesApiFp(this.configuration).ideaThemesPost(requestParameters.ideathemesPostRequest, options).then((request) => request(this.axios, this.basePath));

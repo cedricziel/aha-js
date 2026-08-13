@@ -20,23 +20,8 @@ import type { FeaturesPutResponseFeatureBelongsToReleasePhase } from './features
 // @ts-ignore
 import type { ReleasephasesGetResponsePagination } from './releasephases-get-response-pagination';
 
-/**
- * 
- * @export
- * @interface ReleasephasesGetResponse
- */
 export interface ReleasephasesGetResponse {
-    /**
-     * 
-     * @type {Array<FeaturesPutResponseFeatureBelongsToReleasePhase>}
-     * @memberof ReleasephasesGetResponse
-     */
     'release_phases'?: Array<FeaturesPutResponseFeatureBelongsToReleasePhase>;
-    /**
-     * 
-     * @type {ReleasephasesGetResponsePagination}
-     * @memberof ReleasephasesGetResponse
-     */
     'pagination'?: ReleasephasesGetResponsePagination;
 }
 

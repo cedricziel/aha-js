@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeasPostResponseIdeaFullTagsInner
- */
 export interface IdeasPostResponseIdeaFullTagsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPostResponseIdeaFullTagsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPostResponseIdeaFullTagsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPostResponseIdeaFullTagsInner
-     */
     'color'?: string;
 }
 

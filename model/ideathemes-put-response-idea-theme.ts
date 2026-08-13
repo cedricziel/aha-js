@@ -16,54 +16,17 @@
 // May contain unused imports in some cases
 // @ts-ignore
 import type { EpicsPostResponseEpicProject } from './epics-post-response-epic-project';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface IdeathemesPutResponseIdeaTheme
- */
 export interface IdeathemesPutResponseIdeaTheme {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeathemesPutResponseIdeaTheme
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeathemesPutResponseIdeaTheme
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeathemesPutResponseIdeaTheme
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeathemesPutResponseIdeaTheme
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof IdeathemesPutResponseIdeaTheme
-     */
-    'description'?: any | null;
-    /**
-     * 
-     * @type {EpicsPostResponseEpicProject}
-     * @memberof IdeathemesPutResponseIdeaTheme
-     */
+    'description'?: Null;
     'product'?: EpicsPostResponseEpicProject;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof IdeathemesPutResponseIdeaTheme
-     */
     'ideas'?: Array<any>;
 }
 

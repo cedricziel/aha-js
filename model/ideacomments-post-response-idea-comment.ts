@@ -19,72 +19,20 @@ import type { CommentsPostResponseCommentUser } from './comments-post-response-c
 // May contain unused imports in some cases
 // @ts-ignore
 import type { IdeacommentsPostResponseIdeaCommentIdea } from './ideacomments-post-response-idea-comment-idea';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface IdeacommentsPostResponseIdeaComment
- */
 export interface IdeacommentsPostResponseIdeaComment {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeacommentsPostResponseIdeaComment
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeacommentsPostResponseIdeaComment
-     */
     'idea_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeacommentsPostResponseIdeaComment
-     */
     'body'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeacommentsPostResponseIdeaComment
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeacommentsPostResponseIdeaComment
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeacommentsPostResponseIdeaComment
-     */
     'visibility'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof IdeacommentsPostResponseIdeaComment
-     */
-    'parent_idea_comment_id'?: any | null;
-    /**
-     * 
-     * @type {CommentsPostResponseCommentUser}
-     * @memberof IdeacommentsPostResponseIdeaComment
-     */
+    'parent_idea_comment_id'?: Null;
     'idea_commenter_user'?: CommentsPostResponseCommentUser;
-    /**
-     * 
-     * @type {IdeacommentsPostResponseIdeaCommentIdea}
-     * @memberof IdeacommentsPostResponseIdeaComment
-     */
     'idea'?: IdeacommentsPostResponseIdeaCommentIdea;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof IdeacommentsPostResponseIdeaComment
-     */
     'attachments'?: Array<any>;
 }
 

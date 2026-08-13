@@ -13,30 +13,13 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface StrategicvisionsGetResponseStrategyVisionStrategyVisionComponentsInner
- */
 export interface StrategicvisionsGetResponseStrategyVisionStrategyVisionComponentsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicvisionsGetResponseStrategyVisionStrategyVisionComponentsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicvisionsGetResponseStrategyVisionStrategyVisionComponentsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof StrategicvisionsGetResponseStrategyVisionStrategyVisionComponentsInner
-     */
-    'title'?: any | null;
+    'title'?: Null;
 }
 

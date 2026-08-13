@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeavotesPutResponseIdeaEndorsementIdeaOrganization
- */
 export interface IdeavotesPutResponseIdeaEndorsementIdeaOrganization {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPutResponseIdeaEndorsementIdeaOrganization
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPutResponseIdeaEndorsementIdeaOrganization
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPutResponseIdeaEndorsementIdeaOrganization
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPutResponseIdeaEndorsementIdeaOrganization
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPutResponseIdeaEndorsementIdeaOrganization
-     */
     'resource'?: string;
 }
 

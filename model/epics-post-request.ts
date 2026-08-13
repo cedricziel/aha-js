@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { EpicsPostRequestEpic } from './epics-post-request-epic';
 
-/**
- * 
- * @export
- * @interface EpicsPostRequest
- */
 export interface EpicsPostRequest {
-    /**
-     * 
-     * @type {EpicsPostRequestEpic}
-     * @memberof EpicsPostRequest
-     */
     'epic'?: EpicsPostRequestEpic;
 }
 

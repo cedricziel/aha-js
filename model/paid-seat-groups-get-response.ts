@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { PaidSeatGroupsGetResponsePaidSeatGroupsInner } from './paid-seat-groups-get-response-paid-seat-groups-inner';
 
-/**
- * 
- * @export
- * @interface PaidSeatGroupsGetResponse
- */
 export interface PaidSeatGroupsGetResponse {
-    /**
-     * 
-     * @type {Array<PaidSeatGroupsGetResponsePaidSeatGroupsInner>}
-     * @memberof PaidSeatGroupsGetResponse
-     */
     'paid_seat_groups'?: Array<PaidSeatGroupsGetResponsePaidSeatGroupsInner>;
 }
 

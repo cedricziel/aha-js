@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface CompetitorsPostRequestCompetitor
- */
 export interface CompetitorsPostRequestCompetitor {
-    /**
-     * 
-     * @type {string}
-     * @memberof CompetitorsPostRequestCompetitor
-     */
     'name'?: string;
 }
 

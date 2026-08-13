@@ -18,14 +18,13 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
 import type { CustomreportsGetResponse } from '../model';
 /**
  * CustomReportsApi - axios parameter creator
- * @export
  */
 export const CustomReportsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -43,7 +42,7 @@ export const CustomReportsApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'reportId' is not null or undefined
             assertParamExists('bookmarksCustomPivotsByReportGet', 'reportId', reportId)
             const localVarPath = `/bookmarks/custom_pivots/{report_id}`
-                .replace(`{${"report_id"}}`, encodeURIComponent(String(reportId)));
+                .replace('{report_id}', encodeURIComponent(String(reportId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -77,8 +76,8 @@ export const CustomReportsApiAxiosParamCreator = function (configuration?: Confi
                 localVarQueryParameter['view'] = view;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -93,7 +92,6 @@ export const CustomReportsApiAxiosParamCreator = function (configuration?: Confi
 
 /**
  * CustomReportsApi - functional programming interface
- * @export
  */
 export const CustomReportsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = CustomReportsApiAxiosParamCreator(configuration)
@@ -119,7 +117,6 @@ export const CustomReportsApiFp = function(configuration?: Configuration) {
 
 /**
  * CustomReportsApi - factory interface
- * @export
  */
 export const CustomReportsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = CustomReportsApiFp(configuration)
@@ -139,8 +136,6 @@ export const CustomReportsApiFactory = function (configuration?: Configuration, 
 
 /**
  * CustomReportsApi - interface
- * @export
- * @interface CustomReportsApi
  */
 export interface CustomReportsApiInterface {
     /**
@@ -149,7 +144,6 @@ export interface CustomReportsApiInterface {
      * @param {CustomReportsApiBookmarksCustomPivotsByReportGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomReportsApiInterface
      */
     bookmarksCustomPivotsByReportGet(requestParameters: CustomReportsApiBookmarksCustomPivotsByReportGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<CustomreportsGetResponse>;
 
@@ -157,44 +151,22 @@ export interface CustomReportsApiInterface {
 
 /**
  * Request parameters for bookmarksCustomPivotsByReportGet operation in CustomReportsApi.
- * @export
- * @interface CustomReportsApiBookmarksCustomPivotsByReportGetRequest
  */
 export interface CustomReportsApiBookmarksCustomPivotsByReportGetRequest {
     /**
      * ReportId identifier
-     * @type {string}
-     * @memberof CustomReportsApiBookmarksCustomPivotsByReportGet
      */
     readonly reportId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomReportsApiBookmarksCustomPivotsByReportGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomReportsApiBookmarksCustomPivotsByReportGet
-     */
     readonly perPage?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomReportsApiBookmarksCustomPivotsByReportGet
-     */
     readonly view?: string
 }
 
 /**
  * CustomReportsApi - object-oriented interface
- * @export
- * @class CustomReportsApi
- * @extends {BaseAPI}
  */
 export class CustomReportsApi extends BaseAPI implements CustomReportsApiInterface {
     /**
@@ -203,7 +175,6 @@ export class CustomReportsApi extends BaseAPI implements CustomReportsApiInterfa
      * @param {CustomReportsApiBookmarksCustomPivotsByReportGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomReportsApi
      */
     public bookmarksCustomPivotsByReportGet(requestParameters: CustomReportsApiBookmarksCustomPivotsByReportGetRequest, options?: RawAxiosRequestConfig) {
         return CustomReportsApiFp(this.configuration).bookmarksCustomPivotsByReportGet(requestParameters.reportId, requestParameters.page, requestParameters.perPage, requestParameters.view, options).then((request) => request(this.axios, this.basePath));

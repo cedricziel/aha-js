@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { PaidSeatGroupsPostResponse } from '../model';
 import type { PaidSeatGroupsPutResponse } from '../model';
 /**
  * PaidSeatGroupsApi - axios parameter creator
- * @export
  */
 export const PaidSeatGroupsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -49,7 +48,7 @@ export const PaidSeatGroupsApiAxiosParamCreator = function (configuration?: Conf
             // verify required parameter 'paidSeatGroupsPostRequest' is not null or undefined
             assertParamExists('paidSeatGroupsByIdModifyUserPost', 'paidSeatGroupsPostRequest', paidSeatGroupsPostRequest)
             const localVarPath = `/paid_seat_groups/{id}/modify_user`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -71,9 +70,8 @@ export const PaidSeatGroupsApiAxiosParamCreator = function (configuration?: Conf
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -99,7 +97,7 @@ export const PaidSeatGroupsApiAxiosParamCreator = function (configuration?: Conf
             // verify required parameter 'paidSeatGroupsPostRequest' is not null or undefined
             assertParamExists('paidSeatGroupsByIdPut', 'paidSeatGroupsPostRequest', paidSeatGroupsPostRequest)
             const localVarPath = `/paid_seat_groups/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -121,9 +119,8 @@ export const PaidSeatGroupsApiAxiosParamCreator = function (configuration?: Conf
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -164,8 +161,8 @@ export const PaidSeatGroupsApiAxiosParamCreator = function (configuration?: Conf
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -180,7 +177,6 @@ export const PaidSeatGroupsApiAxiosParamCreator = function (configuration?: Conf
 
 /**
  * PaidSeatGroupsApi - functional programming interface
- * @export
  */
 export const PaidSeatGroupsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = PaidSeatGroupsApiAxiosParamCreator(configuration)
@@ -230,7 +226,6 @@ export const PaidSeatGroupsApiFp = function(configuration?: Configuration) {
 
 /**
  * PaidSeatGroupsApi - factory interface
- * @export
  */
 export const PaidSeatGroupsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = PaidSeatGroupsApiFp(configuration)
@@ -269,8 +264,6 @@ export const PaidSeatGroupsApiFactory = function (configuration?: Configuration,
 
 /**
  * PaidSeatGroupsApi - interface
- * @export
- * @interface PaidSeatGroupsApi
  */
 export interface PaidSeatGroupsApiInterface {
     /**
@@ -279,7 +272,6 @@ export interface PaidSeatGroupsApiInterface {
      * @param {PaidSeatGroupsApiPaidSeatGroupsByIdModifyUserPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PaidSeatGroupsApiInterface
      */
     paidSeatGroupsByIdModifyUserPost(requestParameters: PaidSeatGroupsApiPaidSeatGroupsByIdModifyUserPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<PaidSeatGroupsPostResponse>;
 
@@ -289,7 +281,6 @@ export interface PaidSeatGroupsApiInterface {
      * @param {PaidSeatGroupsApiPaidSeatGroupsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PaidSeatGroupsApiInterface
      */
     paidSeatGroupsByIdPut(requestParameters: PaidSeatGroupsApiPaidSeatGroupsByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<PaidSeatGroupsPutResponse>;
 
@@ -298,7 +289,6 @@ export interface PaidSeatGroupsApiInterface {
      * @summary List the administered paid seat groups
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PaidSeatGroupsApiInterface
      */
     paidSeatGroupsGet(options?: RawAxiosRequestConfig): AxiosPromise<PaidSeatGroupsGetResponse>;
 
@@ -306,51 +296,30 @@ export interface PaidSeatGroupsApiInterface {
 
 /**
  * Request parameters for paidSeatGroupsByIdModifyUserPost operation in PaidSeatGroupsApi.
- * @export
- * @interface PaidSeatGroupsApiPaidSeatGroupsByIdModifyUserPostRequest
  */
 export interface PaidSeatGroupsApiPaidSeatGroupsByIdModifyUserPostRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof PaidSeatGroupsApiPaidSeatGroupsByIdModifyUserPost
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {PaidSeatGroupsPostRequest}
-     * @memberof PaidSeatGroupsApiPaidSeatGroupsByIdModifyUserPost
-     */
     readonly paidSeatGroupsPostRequest: PaidSeatGroupsPostRequest
 }
 
 /**
  * Request parameters for paidSeatGroupsByIdPut operation in PaidSeatGroupsApi.
- * @export
- * @interface PaidSeatGroupsApiPaidSeatGroupsByIdPutRequest
  */
 export interface PaidSeatGroupsApiPaidSeatGroupsByIdPutRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof PaidSeatGroupsApiPaidSeatGroupsByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {PaidSeatGroupsPostRequest}
-     * @memberof PaidSeatGroupsApiPaidSeatGroupsByIdPut
-     */
     readonly paidSeatGroupsPostRequest: PaidSeatGroupsPostRequest
 }
 
 /**
  * PaidSeatGroupsApi - object-oriented interface
- * @export
- * @class PaidSeatGroupsApi
- * @extends {BaseAPI}
  */
 export class PaidSeatGroupsApi extends BaseAPI implements PaidSeatGroupsApiInterface {
     /**
@@ -359,7 +328,6 @@ export class PaidSeatGroupsApi extends BaseAPI implements PaidSeatGroupsApiInter
      * @param {PaidSeatGroupsApiPaidSeatGroupsByIdModifyUserPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PaidSeatGroupsApi
      */
     public paidSeatGroupsByIdModifyUserPost(requestParameters: PaidSeatGroupsApiPaidSeatGroupsByIdModifyUserPostRequest, options?: RawAxiosRequestConfig) {
         return PaidSeatGroupsApiFp(this.configuration).paidSeatGroupsByIdModifyUserPost(requestParameters.id, requestParameters.paidSeatGroupsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -371,7 +339,6 @@ export class PaidSeatGroupsApi extends BaseAPI implements PaidSeatGroupsApiInter
      * @param {PaidSeatGroupsApiPaidSeatGroupsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PaidSeatGroupsApi
      */
     public paidSeatGroupsByIdPut(requestParameters: PaidSeatGroupsApiPaidSeatGroupsByIdPutRequest, options?: RawAxiosRequestConfig) {
         return PaidSeatGroupsApiFp(this.configuration).paidSeatGroupsByIdPut(requestParameters.id, requestParameters.paidSeatGroupsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -382,7 +349,6 @@ export class PaidSeatGroupsApi extends BaseAPI implements PaidSeatGroupsApiInter
      * @summary List the administered paid seat groups
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PaidSeatGroupsApi
      */
     public paidSeatGroupsGet(options?: RawAxiosRequestConfig) {
         return PaidSeatGroupsApiFp(this.configuration).paidSeatGroupsGet(options).then((request) => request(this.axios, this.basePath));

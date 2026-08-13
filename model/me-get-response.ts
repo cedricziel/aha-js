@@ -20,23 +20,8 @@ import type { CommentsGetResponsePagination } from './comments-get-response-pagi
 // @ts-ignore
 import type { MeGetResponseTasksInner } from './me-get-response-tasks-inner';
 
-/**
- * 
- * @export
- * @interface MeGetResponse
- */
 export interface MeGetResponse {
-    /**
-     * 
-     * @type {Array<MeGetResponseTasksInner>}
-     * @memberof MeGetResponse
-     */
     'tasks'?: Array<MeGetResponseTasksInner>;
-    /**
-     * 
-     * @type {CommentsGetResponsePagination}
-     * @memberof MeGetResponse
-     */
     'pagination'?: CommentsGetResponsePagination;
 }
 

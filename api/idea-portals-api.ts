@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { IdeaPortalsPostResponse } from '../model';
 import type { IdeaPortalsPutResponse } from '../model';
 /**
  * IdeaPortalsApi - axios parameter creator
- * @export
  */
 export const IdeaPortalsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -74,8 +73,8 @@ export const IdeaPortalsApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -98,7 +97,7 @@ export const IdeaPortalsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'productId' is not null or undefined
             assertParamExists('productsByProductIdeaPortalsGet', 'productId', productId)
             const localVarPath = `/products/{product_id}/idea_portals`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -128,8 +127,8 @@ export const IdeaPortalsApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -153,7 +152,7 @@ export const IdeaPortalsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'ideaPortalsPostRequest' is not null or undefined
             assertParamExists('productsByProductIdeaPortalsPost', 'ideaPortalsPostRequest', ideaPortalsPostRequest)
             const localVarPath = `/products/{product_id}/idea_portals`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -175,9 +174,8 @@ export const IdeaPortalsApiAxiosParamCreator = function (configuration?: Configu
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -203,7 +201,7 @@ export const IdeaPortalsApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'ideaPortalsPostRequest' is not null or undefined
             assertParamExists('productsByProductIdeaPortalsPut', 'ideaPortalsPostRequest', ideaPortalsPostRequest)
             const localVarPath = `/products/{product_id}/idea_portals`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -225,9 +223,8 @@ export const IdeaPortalsApiAxiosParamCreator = function (configuration?: Configu
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -244,7 +241,6 @@ export const IdeaPortalsApiAxiosParamCreator = function (configuration?: Configu
 
 /**
  * IdeaPortalsApi - functional programming interface
- * @export
  */
 export const IdeaPortalsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = IdeaPortalsApiAxiosParamCreator(configuration)
@@ -311,7 +307,6 @@ export const IdeaPortalsApiFp = function(configuration?: Configuration) {
 
 /**
  * IdeaPortalsApi - factory interface
- * @export
  */
 export const IdeaPortalsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = IdeaPortalsApiFp(configuration)
@@ -361,8 +356,6 @@ export const IdeaPortalsApiFactory = function (configuration?: Configuration, ba
 
 /**
  * IdeaPortalsApi - interface
- * @export
- * @interface IdeaPortalsApi
  */
 export interface IdeaPortalsApiInterface {
     /**
@@ -371,7 +364,6 @@ export interface IdeaPortalsApiInterface {
      * @param {IdeaPortalsApiIdeaPortalsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaPortalsApiInterface
      */
     ideaPortalsGet(requestParameters?: IdeaPortalsApiIdeaPortalsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaPortalsGetResponse>;
 
@@ -381,7 +373,6 @@ export interface IdeaPortalsApiInterface {
      * @param {IdeaPortalsApiProductsByProductIdeaPortalsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaPortalsApiInterface
      */
     productsByProductIdeaPortalsGet(requestParameters: IdeaPortalsApiProductsByProductIdeaPortalsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaPortalsGetResponse>;
 
@@ -391,7 +382,6 @@ export interface IdeaPortalsApiInterface {
      * @param {IdeaPortalsApiProductsByProductIdeaPortalsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaPortalsApiInterface
      */
     productsByProductIdeaPortalsPost(requestParameters: IdeaPortalsApiProductsByProductIdeaPortalsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaPortalsPostResponse>;
 
@@ -401,7 +391,6 @@ export interface IdeaPortalsApiInterface {
      * @param {IdeaPortalsApiProductsByProductIdeaPortalsPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaPortalsApiInterface
      */
     productsByProductIdeaPortalsPut(requestParameters: IdeaPortalsApiProductsByProductIdeaPortalsPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaPortalsPutResponse>;
 
@@ -409,100 +398,53 @@ export interface IdeaPortalsApiInterface {
 
 /**
  * Request parameters for ideaPortalsGet operation in IdeaPortalsApi.
- * @export
- * @interface IdeaPortalsApiIdeaPortalsGetRequest
  */
 export interface IdeaPortalsApiIdeaPortalsGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaPortalsApiIdeaPortalsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaPortalsApiIdeaPortalsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for productsByProductIdeaPortalsGet operation in IdeaPortalsApi.
- * @export
- * @interface IdeaPortalsApiProductsByProductIdeaPortalsGetRequest
  */
 export interface IdeaPortalsApiProductsByProductIdeaPortalsGetRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof IdeaPortalsApiProductsByProductIdeaPortalsGet
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaPortalsApiProductsByProductIdeaPortalsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaPortalsApiProductsByProductIdeaPortalsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for productsByProductIdeaPortalsPost operation in IdeaPortalsApi.
- * @export
- * @interface IdeaPortalsApiProductsByProductIdeaPortalsPostRequest
  */
 export interface IdeaPortalsApiProductsByProductIdeaPortalsPostRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof IdeaPortalsApiProductsByProductIdeaPortalsPost
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {IdeaPortalsPostRequest}
-     * @memberof IdeaPortalsApiProductsByProductIdeaPortalsPost
-     */
     readonly ideaPortalsPostRequest: IdeaPortalsPostRequest
 }
 
 /**
  * Request parameters for productsByProductIdeaPortalsPut operation in IdeaPortalsApi.
- * @export
- * @interface IdeaPortalsApiProductsByProductIdeaPortalsPutRequest
  */
 export interface IdeaPortalsApiProductsByProductIdeaPortalsPutRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof IdeaPortalsApiProductsByProductIdeaPortalsPut
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {IdeaPortalsPostRequest}
-     * @memberof IdeaPortalsApiProductsByProductIdeaPortalsPut
-     */
     readonly ideaPortalsPostRequest: IdeaPortalsPostRequest
 }
 
 /**
  * IdeaPortalsApi - object-oriented interface
- * @export
- * @class IdeaPortalsApi
- * @extends {BaseAPI}
  */
 export class IdeaPortalsApi extends BaseAPI implements IdeaPortalsApiInterface {
     /**
@@ -511,7 +453,6 @@ export class IdeaPortalsApi extends BaseAPI implements IdeaPortalsApiInterface {
      * @param {IdeaPortalsApiIdeaPortalsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaPortalsApi
      */
     public ideaPortalsGet(requestParameters: IdeaPortalsApiIdeaPortalsGetRequest = {}, options?: RawAxiosRequestConfig) {
         return IdeaPortalsApiFp(this.configuration).ideaPortalsGet(requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -523,7 +464,6 @@ export class IdeaPortalsApi extends BaseAPI implements IdeaPortalsApiInterface {
      * @param {IdeaPortalsApiProductsByProductIdeaPortalsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaPortalsApi
      */
     public productsByProductIdeaPortalsGet(requestParameters: IdeaPortalsApiProductsByProductIdeaPortalsGetRequest, options?: RawAxiosRequestConfig) {
         return IdeaPortalsApiFp(this.configuration).productsByProductIdeaPortalsGet(requestParameters.productId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -535,7 +475,6 @@ export class IdeaPortalsApi extends BaseAPI implements IdeaPortalsApiInterface {
      * @param {IdeaPortalsApiProductsByProductIdeaPortalsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaPortalsApi
      */
     public productsByProductIdeaPortalsPost(requestParameters: IdeaPortalsApiProductsByProductIdeaPortalsPostRequest, options?: RawAxiosRequestConfig) {
         return IdeaPortalsApiFp(this.configuration).productsByProductIdeaPortalsPost(requestParameters.productId, requestParameters.ideaPortalsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -547,7 +486,6 @@ export class IdeaPortalsApi extends BaseAPI implements IdeaPortalsApiInterface {
      * @param {IdeaPortalsApiProductsByProductIdeaPortalsPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaPortalsApi
      */
     public productsByProductIdeaPortalsPut(requestParameters: IdeaPortalsApiProductsByProductIdeaPortalsPutRequest, options?: RawAxiosRequestConfig) {
         return IdeaPortalsApiFp(this.configuration).productsByProductIdeaPortalsPut(requestParameters.productId, requestParameters.ideaPortalsPostRequest, options).then((request) => request(this.axios, this.basePath));

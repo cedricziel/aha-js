@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { IdeathemesGetResponseIdeaTheme } from './ideathemes-get-response-idea-theme';
 
-/**
- * 
- * @export
- * @interface IdeathemesGetResponse
- */
 export interface IdeathemesGetResponse {
-    /**
-     * 
-     * @type {IdeathemesGetResponseIdeaTheme}
-     * @memberof IdeathemesGetResponse
-     */
     'idea_theme'?: IdeathemesGetResponseIdeaTheme;
 }
 

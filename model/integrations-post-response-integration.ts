@@ -16,90 +16,23 @@
 // May contain unused imports in some cases
 // @ts-ignore
 import type { IntegrationsGetResponseIntegrationOwner } from './integrations-get-response-integration-owner';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface IntegrationsPostResponseIntegration
- */
 export interface IntegrationsPostResponseIntegration {
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationsPostResponseIntegration
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationsPostResponseIntegration
-     */
     'service_name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationsPostResponseIntegration
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationsPostResponseIntegration
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof IntegrationsPostResponseIntegration
-     */
-    'template_id'?: any | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IntegrationsPostResponseIntegration
-     */
+    'template_id'?: Null;
     'enabled'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationsPostResponseIntegration
-     */
     'callback_token'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationsPostResponseIntegration
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof IntegrationsPostResponseIntegration
-     */
-    'last_error_at'?: any | null;
-    /**
-     * 
-     * @type {any}
-     * @memberof IntegrationsPostResponseIntegration
-     */
-    'last_webhook_request_at'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationsPostResponseIntegration
-     */
+    'last_error_at'?: Null;
+    'last_webhook_request_at'?: Null;
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationsPostResponseIntegration
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {IntegrationsGetResponseIntegrationOwner}
-     * @memberof IntegrationsPostResponseIntegration
-     */
     'owner'?: IntegrationsGetResponseIntegrationOwner;
 }
 

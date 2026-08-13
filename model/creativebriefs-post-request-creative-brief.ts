@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface CreativebriefsPostRequestCreativeBrief
- */
 export interface CreativebriefsPostRequestCreativeBrief {
-    /**
-     * 
-     * @type {string}
-     * @memberof CreativebriefsPostRequestCreativeBrief
-     */
     'name'?: string;
 }
 

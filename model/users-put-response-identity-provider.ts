@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface UsersPutResponseIdentityProvider
- */
 export interface UsersPutResponseIdentityProvider {
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersPutResponseIdentityProvider
-     */
     'type'?: string;
 }
 

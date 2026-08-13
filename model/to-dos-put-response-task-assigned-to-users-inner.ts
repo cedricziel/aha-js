@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface ToDosPutResponseTaskAssignedToUsersInner
- */
 export interface ToDosPutResponseTaskAssignedToUsersInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosPutResponseTaskAssignedToUsersInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosPutResponseTaskAssignedToUsersInner
-     */
     'status'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosPutResponseTaskAssignedToUsersInner
-     */
     'completed_date'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosPutResponseTaskAssignedToUsersInner
-     */
     'user'?: string;
 }
 

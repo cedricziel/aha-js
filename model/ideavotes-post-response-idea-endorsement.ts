@@ -22,90 +22,23 @@ import type { IdeavotesPostResponseIdeaEndorsementEndorsedByPortalUser } from '.
 // May contain unused imports in some cases
 // @ts-ignore
 import type { IdeavotesPostResponseIdeaEndorsementIdea } from './ideavotes-post-response-idea-endorsement-idea';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface IdeavotesPostResponseIdeaEndorsement
- */
 export interface IdeavotesPostResponseIdeaEndorsement {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPostResponseIdeaEndorsement
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPostResponseIdeaEndorsement
-     */
     'idea_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPostResponseIdeaEndorsement
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPostResponseIdeaEndorsement
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof IdeavotesPostResponseIdeaEndorsement
-     */
-    'value'?: any | null;
-    /**
-     * 
-     * @type {any}
-     * @memberof IdeavotesPostResponseIdeaEndorsement
-     */
-    'link'?: any | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeavotesPostResponseIdeaEndorsement
-     */
+    'value'?: Null;
+    'link'?: Null;
     'weight'?: number;
-    /**
-     * 
-     * @type {IdeavotesPostResponseIdeaEndorsementEndorsedByPortalUser}
-     * @memberof IdeavotesPostResponseIdeaEndorsement
-     */
     'endorsed_by_portal_user'?: IdeavotesPostResponseIdeaEndorsementEndorsedByPortalUser;
-    /**
-     * 
-     * @type {IdeavotesPostResponseIdeaEndorsementEndorsedByIdeaUser}
-     * @memberof IdeavotesPostResponseIdeaEndorsement
-     */
     'endorsed_by_idea_user'?: IdeavotesPostResponseIdeaEndorsementEndorsedByIdeaUser;
-    /**
-     * 
-     * @type {any}
-     * @memberof IdeavotesPostResponseIdeaEndorsement
-     */
-    'description'?: any | null;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof IdeavotesPostResponseIdeaEndorsement
-     */
+    'description'?: Null;
     'integration_fields'?: Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof IdeavotesPostResponseIdeaEndorsement
-     */
     'custom_fields'?: Array<any>;
-    /**
-     * 
-     * @type {IdeavotesPostResponseIdeaEndorsementIdea}
-     * @memberof IdeavotesPostResponseIdeaEndorsement
-     */
     'idea'?: IdeavotesPostResponseIdeaEndorsementIdea;
 }
 

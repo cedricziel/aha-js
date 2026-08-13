@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface NotesPostRequestPageDescriptionAttributes
- */
 export interface NotesPostRequestPageDescriptionAttributes {
-    /**
-     * 
-     * @type {string}
-     * @memberof NotesPostRequestPageDescriptionAttributes
-     */
     'body'?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof NotesPostRequestPageDescriptionAttributes
-     */
     'table_of_contents_enabled'?: boolean;
 }
 

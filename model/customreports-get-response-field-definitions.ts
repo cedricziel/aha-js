@@ -32,47 +32,12 @@ import type { CustomreportsGetResponseFieldDefinitions8 } from './customreports-
 // @ts-ignore
 import type { CustomreportsGetResponseFieldDefinitions9 } from './customreports-get-response-field-definitions9';
 
-/**
- * 
- * @export
- * @interface CustomreportsGetResponseFieldDefinitions
- */
 export interface CustomreportsGetResponseFieldDefinitions {
-    /**
-     * 
-     * @type {CustomreportsGetResponseFieldDefinitions7}
-     * @memberof CustomreportsGetResponseFieldDefinitions
-     */
     '7'?: CustomreportsGetResponseFieldDefinitions7;
-    /**
-     * 
-     * @type {CustomreportsGetResponseFieldDefinitions8}
-     * @memberof CustomreportsGetResponseFieldDefinitions
-     */
     '8'?: CustomreportsGetResponseFieldDefinitions8;
-    /**
-     * 
-     * @type {CustomreportsGetResponseFieldDefinitions9}
-     * @memberof CustomreportsGetResponseFieldDefinitions
-     */
     '9'?: CustomreportsGetResponseFieldDefinitions9;
-    /**
-     * 
-     * @type {CustomreportsGetResponseFieldDefinitions10}
-     * @memberof CustomreportsGetResponseFieldDefinitions
-     */
     '10'?: CustomreportsGetResponseFieldDefinitions10;
-    /**
-     * 
-     * @type {CustomreportsGetResponseFieldDefinitions11}
-     * @memberof CustomreportsGetResponseFieldDefinitions
-     */
     '11'?: CustomreportsGetResponseFieldDefinitions11;
-    /**
-     * 
-     * @type {CustomreportsGetResponseFieldDefinitions12}
-     * @memberof CustomreportsGetResponseFieldDefinitions
-     */
     '12'?: CustomreportsGetResponseFieldDefinitions12;
 }
 

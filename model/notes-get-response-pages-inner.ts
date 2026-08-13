@@ -13,60 +13,18 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface NotesGetResponsePagesInner
- */
 export interface NotesGetResponsePagesInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof NotesGetResponsePagesInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof NotesGetResponsePagesInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof NotesGetResponsePagesInner
-     */
     'title'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof NotesGetResponsePagesInner
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof NotesGetResponsePagesInner
-     */
-    'parent_id'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof NotesGetResponsePagesInner
-     */
+    'parent_id'?: Null;
     'reference_num'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof NotesGetResponsePagesInner
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof NotesGetResponsePagesInner
-     */
     'resource'?: string;
 }
 

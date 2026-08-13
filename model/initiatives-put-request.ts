@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { InitiativesPutRequestInitiative } from './initiatives-put-request-initiative';
 
-/**
- * 
- * @export
- * @interface InitiativesPutRequest
- */
 export interface InitiativesPutRequest {
-    /**
-     * 
-     * @type {InitiativesPutRequestInitiative}
-     * @memberof InitiativesPutRequest
-     */
     'initiative'?: InitiativesPutRequestInitiative;
 }
 

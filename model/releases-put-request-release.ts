@@ -14,30 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface ReleasesPutRequestRelease
- */
 export interface ReleasesPutRequestRelease {
     [key: string]: any;
 
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof ReleasesPutRequestRelease
-     */
     'initiatives'?: Array<any>;
-    /**
-     * 
-     * @type {number}
-     * @memberof ReleasesPutRequestRelease
-     */
     'parent_id'?: number;
     /**
      * Custom table records to link, keyed by many-to-many custom field name. Replaces the existing list.
-     * @type {{ [key: string]: Array<string>; }}
-     * @memberof ReleasesPutRequestRelease
      */
     'custom_object_links'?: { [key: string]: Array<string>; };
 }

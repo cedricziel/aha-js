@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -27,7 +27,6 @@ import type { TimetrackingeventsPostRequest } from '../model';
 import type { TimetrackingeventsPostResponse } from '../model';
 /**
  * TimeTrackingEventsApi - axios parameter creator
- * @export
  */
 export const TimeTrackingEventsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -45,7 +44,7 @@ export const TimeTrackingEventsApiAxiosParamCreator = function (configuration?: 
             // verify required parameter 'timetrackingeventsPostRequest' is not null or undefined
             assertParamExists('featuresByFeatureTimeTrackingEventsPost', 'timetrackingeventsPostRequest', timetrackingeventsPostRequest)
             const localVarPath = `/features/{feature_id}/time_tracking_events`
-                .replace(`{${"feature_id"}}`, encodeURIComponent(String(featureId)));
+                .replace('{feature_id}', encodeURIComponent(String(featureId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -67,9 +66,8 @@ export const TimeTrackingEventsApiAxiosParamCreator = function (configuration?: 
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -95,7 +93,7 @@ export const TimeTrackingEventsApiAxiosParamCreator = function (configuration?: 
             // verify required parameter 'timetrackingeventsPostRequest' is not null or undefined
             assertParamExists('initiativesByInitiativeTimeTrackingEventsPost', 'timetrackingeventsPostRequest', timetrackingeventsPostRequest)
             const localVarPath = `/initiatives/{initiative_id}/time_tracking_events`
-                .replace(`{${"initiative_id"}}`, encodeURIComponent(String(initiativeId)));
+                .replace('{initiative_id}', encodeURIComponent(String(initiativeId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -117,9 +115,8 @@ export const TimeTrackingEventsApiAxiosParamCreator = function (configuration?: 
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -145,7 +142,7 @@ export const TimeTrackingEventsApiAxiosParamCreator = function (configuration?: 
             // verify required parameter 'timetrackingeventsPostRequest' is not null or undefined
             assertParamExists('requirementsByRequirementTimeTrackingEventsPost', 'timetrackingeventsPostRequest', timetrackingeventsPostRequest)
             const localVarPath = `/requirements/{requirement_id}/time_tracking_events`
-                .replace(`{${"requirement_id"}}`, encodeURIComponent(String(requirementId)));
+                .replace('{requirement_id}', encodeURIComponent(String(requirementId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -167,9 +164,8 @@ export const TimeTrackingEventsApiAxiosParamCreator = function (configuration?: 
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -192,7 +188,7 @@ export const TimeTrackingEventsApiAxiosParamCreator = function (configuration?: 
             // verify required parameter 'id' is not null or undefined
             assertParamExists('timeTrackingEventsByIdDelete', 'id', id)
             const localVarPath = `/time_tracking_events/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -215,7 +211,6 @@ export const TimeTrackingEventsApiAxiosParamCreator = function (configuration?: 
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -230,7 +225,6 @@ export const TimeTrackingEventsApiAxiosParamCreator = function (configuration?: 
 
 /**
  * TimeTrackingEventsApi - functional programming interface
- * @export
  */
 export const TimeTrackingEventsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = TimeTrackingEventsApiAxiosParamCreator(configuration)
@@ -295,7 +289,6 @@ export const TimeTrackingEventsApiFp = function(configuration?: Configuration) {
 
 /**
  * TimeTrackingEventsApi - factory interface
- * @export
  */
 export const TimeTrackingEventsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = TimeTrackingEventsApiFp(configuration)
@@ -345,8 +338,6 @@ export const TimeTrackingEventsApiFactory = function (configuration?: Configurat
 
 /**
  * TimeTrackingEventsApi - interface
- * @export
- * @interface TimeTrackingEventsApi
  */
 export interface TimeTrackingEventsApiInterface {
     /**
@@ -355,7 +346,6 @@ export interface TimeTrackingEventsApiInterface {
      * @param {TimeTrackingEventsApiFeaturesByFeatureTimeTrackingEventsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TimeTrackingEventsApiInterface
      */
     featuresByFeatureTimeTrackingEventsPost(requestParameters: TimeTrackingEventsApiFeaturesByFeatureTimeTrackingEventsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<TimetrackingeventsPostResponse>;
 
@@ -365,7 +355,6 @@ export interface TimeTrackingEventsApiInterface {
      * @param {TimeTrackingEventsApiInitiativesByInitiativeTimeTrackingEventsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TimeTrackingEventsApiInterface
      */
     initiativesByInitiativeTimeTrackingEventsPost(requestParameters: TimeTrackingEventsApiInitiativesByInitiativeTimeTrackingEventsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<TimetrackingeventsPostResponse>;
 
@@ -375,7 +364,6 @@ export interface TimeTrackingEventsApiInterface {
      * @param {TimeTrackingEventsApiRequirementsByRequirementTimeTrackingEventsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TimeTrackingEventsApiInterface
      */
     requirementsByRequirementTimeTrackingEventsPost(requestParameters: TimeTrackingEventsApiRequirementsByRequirementTimeTrackingEventsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<TimetrackingeventsPostResponse>;
 
@@ -385,7 +373,6 @@ export interface TimeTrackingEventsApiInterface {
      * @param {TimeTrackingEventsApiTimeTrackingEventsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TimeTrackingEventsApiInterface
      */
     timeTrackingEventsByIdDelete(requestParameters: TimeTrackingEventsApiTimeTrackingEventsByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -393,86 +380,52 @@ export interface TimeTrackingEventsApiInterface {
 
 /**
  * Request parameters for featuresByFeatureTimeTrackingEventsPost operation in TimeTrackingEventsApi.
- * @export
- * @interface TimeTrackingEventsApiFeaturesByFeatureTimeTrackingEventsPostRequest
  */
 export interface TimeTrackingEventsApiFeaturesByFeatureTimeTrackingEventsPostRequest {
     /**
      * FeatureId identifier
-     * @type {string}
-     * @memberof TimeTrackingEventsApiFeaturesByFeatureTimeTrackingEventsPost
      */
     readonly featureId: string
 
-    /**
-     * 
-     * @type {TimetrackingeventsPostRequest}
-     * @memberof TimeTrackingEventsApiFeaturesByFeatureTimeTrackingEventsPost
-     */
     readonly timetrackingeventsPostRequest: TimetrackingeventsPostRequest
 }
 
 /**
  * Request parameters for initiativesByInitiativeTimeTrackingEventsPost operation in TimeTrackingEventsApi.
- * @export
- * @interface TimeTrackingEventsApiInitiativesByInitiativeTimeTrackingEventsPostRequest
  */
 export interface TimeTrackingEventsApiInitiativesByInitiativeTimeTrackingEventsPostRequest {
     /**
      * InitiativeId identifier
-     * @type {string}
-     * @memberof TimeTrackingEventsApiInitiativesByInitiativeTimeTrackingEventsPost
      */
     readonly initiativeId: string
 
-    /**
-     * 
-     * @type {TimetrackingeventsPostRequest}
-     * @memberof TimeTrackingEventsApiInitiativesByInitiativeTimeTrackingEventsPost
-     */
     readonly timetrackingeventsPostRequest: TimetrackingeventsPostRequest
 }
 
 /**
  * Request parameters for requirementsByRequirementTimeTrackingEventsPost operation in TimeTrackingEventsApi.
- * @export
- * @interface TimeTrackingEventsApiRequirementsByRequirementTimeTrackingEventsPostRequest
  */
 export interface TimeTrackingEventsApiRequirementsByRequirementTimeTrackingEventsPostRequest {
     /**
      * RequirementId identifier
-     * @type {string}
-     * @memberof TimeTrackingEventsApiRequirementsByRequirementTimeTrackingEventsPost
      */
     readonly requirementId: string
 
-    /**
-     * 
-     * @type {TimetrackingeventsPostRequest}
-     * @memberof TimeTrackingEventsApiRequirementsByRequirementTimeTrackingEventsPost
-     */
     readonly timetrackingeventsPostRequest: TimetrackingeventsPostRequest
 }
 
 /**
  * Request parameters for timeTrackingEventsByIdDelete operation in TimeTrackingEventsApi.
- * @export
- * @interface TimeTrackingEventsApiTimeTrackingEventsByIdDeleteRequest
  */
 export interface TimeTrackingEventsApiTimeTrackingEventsByIdDeleteRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof TimeTrackingEventsApiTimeTrackingEventsByIdDelete
      */
     readonly id: string
 }
 
 /**
  * TimeTrackingEventsApi - object-oriented interface
- * @export
- * @class TimeTrackingEventsApi
- * @extends {BaseAPI}
  */
 export class TimeTrackingEventsApi extends BaseAPI implements TimeTrackingEventsApiInterface {
     /**
@@ -481,7 +434,6 @@ export class TimeTrackingEventsApi extends BaseAPI implements TimeTrackingEvents
      * @param {TimeTrackingEventsApiFeaturesByFeatureTimeTrackingEventsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TimeTrackingEventsApi
      */
     public featuresByFeatureTimeTrackingEventsPost(requestParameters: TimeTrackingEventsApiFeaturesByFeatureTimeTrackingEventsPostRequest, options?: RawAxiosRequestConfig) {
         return TimeTrackingEventsApiFp(this.configuration).featuresByFeatureTimeTrackingEventsPost(requestParameters.featureId, requestParameters.timetrackingeventsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -493,7 +445,6 @@ export class TimeTrackingEventsApi extends BaseAPI implements TimeTrackingEvents
      * @param {TimeTrackingEventsApiInitiativesByInitiativeTimeTrackingEventsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TimeTrackingEventsApi
      */
     public initiativesByInitiativeTimeTrackingEventsPost(requestParameters: TimeTrackingEventsApiInitiativesByInitiativeTimeTrackingEventsPostRequest, options?: RawAxiosRequestConfig) {
         return TimeTrackingEventsApiFp(this.configuration).initiativesByInitiativeTimeTrackingEventsPost(requestParameters.initiativeId, requestParameters.timetrackingeventsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -505,7 +456,6 @@ export class TimeTrackingEventsApi extends BaseAPI implements TimeTrackingEvents
      * @param {TimeTrackingEventsApiRequirementsByRequirementTimeTrackingEventsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TimeTrackingEventsApi
      */
     public requirementsByRequirementTimeTrackingEventsPost(requestParameters: TimeTrackingEventsApiRequirementsByRequirementTimeTrackingEventsPostRequest, options?: RawAxiosRequestConfig) {
         return TimeTrackingEventsApiFp(this.configuration).requirementsByRequirementTimeTrackingEventsPost(requestParameters.requirementId, requestParameters.timetrackingeventsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -517,7 +467,6 @@ export class TimeTrackingEventsApi extends BaseAPI implements TimeTrackingEvents
      * @param {TimeTrackingEventsApiTimeTrackingEventsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TimeTrackingEventsApi
      */
     public timeTrackingEventsByIdDelete(requestParameters: TimeTrackingEventsApiTimeTrackingEventsByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return TimeTrackingEventsApiFp(this.configuration).timeTrackingEventsByIdDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));

@@ -19,72 +19,20 @@ import type { CapacityinvestmentsPutResponseCapacityInvestmentCustomFieldsInner 
 // May contain unused imports in some cases
 // @ts-ignore
 import type { CapacityinvestmentsPutResponseCapacityInvestmentInitiative } from './capacityinvestments-put-response-capacity-investment-initiative';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface CapacityinvestmentsPutResponseCapacityInvestment
- */
 export interface CapacityinvestmentsPutResponseCapacityInvestment {
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityinvestmentsPutResponseCapacityInvestment
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityinvestmentsPutResponseCapacityInvestment
-     */
     'capacity_scenario_id'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof CapacityinvestmentsPutResponseCapacityInvestment
-     */
-    'total'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityinvestmentsPutResponseCapacityInvestment
-     */
+    'total'?: Null;
     'estimate_source'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityinvestmentsPutResponseCapacityInvestment
-     */
     'date_source'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityinvestmentsPutResponseCapacityInvestment
-     */
     'start_date'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityinvestmentsPutResponseCapacityInvestment
-     */
     'end_date'?: string;
-    /**
-     * 
-     * @type {CapacityinvestmentsPutResponseCapacityInvestmentInitiative}
-     * @memberof CapacityinvestmentsPutResponseCapacityInvestment
-     */
     'initiative'?: CapacityinvestmentsPutResponseCapacityInvestmentInitiative;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof CapacityinvestmentsPutResponseCapacityInvestment
-     */
     'estimate_values'?: Array<any>;
-    /**
-     * 
-     * @type {Array<CapacityinvestmentsPutResponseCapacityInvestmentCustomFieldsInner>}
-     * @memberof CapacityinvestmentsPutResponseCapacityInvestment
-     */
     'custom_fields'?: Array<CapacityinvestmentsPutResponseCapacityInvestmentCustomFieldsInner>;
 }
 

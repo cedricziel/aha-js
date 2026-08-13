@@ -20,23 +20,8 @@ import type { CapacityestimatevaluesGetResponseEstimateValuesInner } from './cap
 // @ts-ignore
 import type { CapacityestimatevaluesGetResponsePagination } from './capacityestimatevalues-get-response-pagination';
 
-/**
- * 
- * @export
- * @interface CapacityestimatevaluesGetResponse
- */
 export interface CapacityestimatevaluesGetResponse {
-    /**
-     * 
-     * @type {Array<CapacityestimatevaluesGetResponseEstimateValuesInner>}
-     * @memberof CapacityestimatevaluesGetResponse
-     */
     'estimate_values'?: Array<CapacityestimatevaluesGetResponseEstimateValuesInner>;
-    /**
-     * 
-     * @type {CapacityestimatevaluesGetResponsePagination}
-     * @memberof CapacityestimatevaluesGetResponse
-     */
     'pagination'?: CapacityestimatevaluesGetResponsePagination;
 }
 

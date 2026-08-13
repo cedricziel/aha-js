@@ -20,23 +20,8 @@ import type { CommentsGetResponsePagination } from './comments-get-response-pagi
 // @ts-ignore
 import type { UsersGetResponseUserRolesInner } from './users-get-response-user-roles-inner';
 
-/**
- * 
- * @export
- * @interface UsersGetResponse
- */
 export interface UsersGetResponse {
-    /**
-     * 
-     * @type {Array<UsersGetResponseUserRolesInner>}
-     * @memberof UsersGetResponse
-     */
     'user_roles'?: Array<UsersGetResponseUserRolesInner>;
-    /**
-     * 
-     * @type {CommentsGetResponsePagination}
-     * @memberof UsersGetResponse
-     */
     'pagination'?: CommentsGetResponsePagination;
 }
 

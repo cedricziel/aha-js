@@ -19,72 +19,20 @@ import type { CommentsGetResponseCommentsInnerCommentable } from './comments-get
 // May contain unused imports in some cases
 // @ts-ignore
 import type { CommentsGetResponseCommentsInnerUser } from './comments-get-response-comments-inner-user';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface CommentsGetResponseCommentsInner
- */
 export interface CommentsGetResponseCommentsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsGetResponseCommentsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsGetResponseCommentsInner
-     */
     'body'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsGetResponseCommentsInner
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsGetResponseCommentsInner
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof CommentsGetResponseCommentsInner
-     */
-    'parent_comment_id'?: any | null;
-    /**
-     * 
-     * @type {CommentsGetResponseCommentsInnerUser}
-     * @memberof CommentsGetResponseCommentsInner
-     */
+    'parent_comment_id'?: Null;
     'user'?: CommentsGetResponseCommentsInnerUser;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof CommentsGetResponseCommentsInner
-     */
     'attachments'?: Array<any>;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsGetResponseCommentsInner
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsGetResponseCommentsInner
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {CommentsGetResponseCommentsInnerCommentable}
-     * @memberof CommentsGetResponseCommentsInner
-     */
     'commentable'?: CommentsGetResponseCommentsInnerCommentable;
 }
 

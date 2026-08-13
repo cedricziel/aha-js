@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface FeaturesPutResponseFeatureFullTagsInner
- */
 export interface FeaturesPutResponseFeatureFullTagsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureFullTagsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureFullTagsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureFullTagsInner
-     */
     'color'?: string;
 }
 

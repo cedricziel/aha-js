@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface DiscoverygroupsGetResponseDiscoveryGroup
- */
 export interface DiscoverygroupsGetResponseDiscoveryGroup {
-    /**
-     * 
-     * @type {string}
-     * @memberof DiscoverygroupsGetResponseDiscoveryGroup
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DiscoverygroupsGetResponseDiscoveryGroup
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DiscoverygroupsGetResponseDiscoveryGroup
-     */
     'color'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DiscoverygroupsGetResponseDiscoveryGroup
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DiscoverygroupsGetResponseDiscoveryGroup
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof DiscoverygroupsGetResponseDiscoveryGroup
-     */
     'idea_users_count'?: number;
 }
 

@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface CustomtablerecordsPostRequestCustomObjectRecordCustomFields
- */
 export interface CustomtablerecordsPostRequestCustomObjectRecordCustomFields {
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordsPostRequestCustomObjectRecordCustomFields
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordsPostRequestCustomObjectRecordCustomFields
-     */
     'website'?: string;
 }
 

@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface HistoricalAuditsGetResponseHistoricalAuditsInner
- */
 export interface HistoricalAuditsGetResponseHistoricalAuditsInner {
-    /**
-     * 
-     * @type {number}
-     * @memberof HistoricalAuditsGetResponseHistoricalAuditsInner
-     */
     'auditable_id'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof HistoricalAuditsGetResponseHistoricalAuditsInner
-     */
     'auditable_type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof HistoricalAuditsGetResponseHistoricalAuditsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof HistoricalAuditsGetResponseHistoricalAuditsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof HistoricalAuditsGetResponseHistoricalAuditsInner
-     */
     'email'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof HistoricalAuditsGetResponseHistoricalAuditsInner
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof HistoricalAuditsGetResponseHistoricalAuditsInner
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof HistoricalAuditsGetResponseHistoricalAuditsInner
-     */
     'dates_active'?: Array<string>;
 }
 

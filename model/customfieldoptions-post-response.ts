@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface CustomfieldoptionsPostResponse
- */
 export interface CustomfieldoptionsPostResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomfieldoptionsPostResponse
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomfieldoptionsPostResponse
-     */
     'value'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof CustomfieldoptionsPostResponse
-     */
     'color'?: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof CustomfieldoptionsPostResponse
-     */
     'hidden'?: boolean;
 }
 

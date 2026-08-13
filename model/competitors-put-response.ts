@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { CompetitorsPutResponseCompetitor } from './competitors-put-response-competitor';
 
-/**
- * 
- * @export
- * @interface CompetitorsPutResponse
- */
 export interface CompetitorsPutResponse {
-    /**
-     * 
-     * @type {CompetitorsPutResponseCompetitor}
-     * @memberof CompetitorsPutResponse
-     */
     'competitor'?: CompetitorsPutResponseCompetitor;
 }
 

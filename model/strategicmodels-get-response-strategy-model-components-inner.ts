@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface StrategicmodelsGetResponseStrategyModelComponentsInner
- */
 export interface StrategicmodelsGetResponseStrategyModelComponentsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicmodelsGetResponseStrategyModelComponentsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicmodelsGetResponseStrategyModelComponentsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicmodelsGetResponseStrategyModelComponentsInner
-     */
     'description'?: string;
 }
 

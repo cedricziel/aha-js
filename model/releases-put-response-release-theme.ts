@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface ReleasesPutResponseReleaseTheme
- */
 export interface ReleasesPutResponseReleaseTheme {
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesPutResponseReleaseTheme
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesPutResponseReleaseTheme
-     */
     'body'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesPutResponseReleaseTheme
-     */
     'notable_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesPutResponseReleaseTheme
-     */
     'notable_type'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof ReleasesPutResponseReleaseTheme
-     */
     'editor_version'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesPutResponseReleaseTheme
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesPutResponseReleaseTheme
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof ReleasesPutResponseReleaseTheme
-     */
     'attachments'?: Array<any>;
 }
 

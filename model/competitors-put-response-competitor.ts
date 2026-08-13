@@ -16,78 +16,21 @@
 // May contain unused imports in some cases
 // @ts-ignore
 import type { CompetitorsPutResponseCompetitorCustomFieldsInner } from './competitors-put-response-competitor-custom-fields-inner';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface CompetitorsPutResponseCompetitor
- */
 export interface CompetitorsPutResponseCompetitor {
-    /**
-     * 
-     * @type {string}
-     * @memberof CompetitorsPutResponseCompetitor
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CompetitorsPutResponseCompetitor
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CompetitorsPutResponseCompetitor
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof CompetitorsPutResponseCompetitor
-     */
     'color'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof CompetitorsPutResponseCompetitor
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof CompetitorsPutResponseCompetitor
-     */
-    'subtitle'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof CompetitorsPutResponseCompetitor
-     */
+    'subtitle'?: Null;
     'updated_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CompetitorsPutResponseCompetitor
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CompetitorsPutResponseCompetitor
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {Array<CompetitorsPutResponseCompetitorCustomFieldsInner>}
-     * @memberof CompetitorsPutResponseCompetitor
-     */
     'custom_fields'?: Array<CompetitorsPutResponseCompetitorCustomFieldsInner>;
-    /**
-     * 
-     * @type {number}
-     * @memberof CompetitorsPutResponseCompetitor
-     */
     'comments_count'?: number;
 }
 

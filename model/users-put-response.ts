@@ -23,89 +23,19 @@ import type { UsersPutResponseIdentityProvider } from './users-put-response-iden
 // @ts-ignore
 import type { UsersPutResponseProductRolesInner } from './users-put-response-product-roles-inner';
 
-/**
- * 
- * @export
- * @interface UsersPutResponse
- */
 export interface UsersPutResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersPutResponse
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersPutResponse
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersPutResponse
-     */
     'email'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersPutResponse
-     */
     'timezone'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersPutResponse
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersPutResponse
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersPutResponse
-     */
     'accessed_at'?: string;
-    /**
-     * 
-     * @type {Array<UsersPutResponseProductRolesInner>}
-     * @memberof UsersPutResponse
-     */
     'product_roles'?: Array<UsersPutResponseProductRolesInner>;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof UsersPutResponse
-     */
     'enabled'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof UsersPutResponse
-     */
     'paid_seat'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof UsersPutResponse
-     */
     'administrator'?: boolean;
-    /**
-     * 
-     * @type {UsersPutResponseAdministratorRoles}
-     * @memberof UsersPutResponse
-     */
     'administrator_roles'?: UsersPutResponseAdministratorRoles;
-    /**
-     * 
-     * @type {UsersPutResponseIdentityProvider}
-     * @memberof UsersPutResponse
-     */
     'identity_provider'?: UsersPutResponseIdentityProvider;
 }
 

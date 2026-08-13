@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface EpicsPutResponseEpicCustomFieldsInner
- */
 export interface EpicsPutResponseEpicCustomFieldsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicCustomFieldsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicCustomFieldsInner
-     */
     'key'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicCustomFieldsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicCustomFieldsInner
-     */
     'updatedAt'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicCustomFieldsInner
-     */
     'type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicCustomFieldsInner
-     */
     'value'?: string;
 }
 

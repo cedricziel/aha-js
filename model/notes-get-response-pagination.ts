@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface NotesGetResponsePagination
- */
 export interface NotesGetResponsePagination {
-    /**
-     * 
-     * @type {number}
-     * @memberof NotesGetResponsePagination
-     */
     'total_records'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof NotesGetResponsePagination
-     */
     'total_pages'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof NotesGetResponsePagination
-     */
     'current_page'?: number;
 }
 

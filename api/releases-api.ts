@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -35,7 +35,6 @@ import type { ReleasesPutRequest } from '../model';
 import type { ReleasesPutResponse } from '../model';
 /**
  * ReleasesApi - axios parameter creator
- * @export
  */
 export const ReleasesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -52,7 +51,7 @@ export const ReleasesApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'goalId' is not null or undefined
             assertParamExists('goalsByGoalReleasesGet', 'goalId', goalId)
             const localVarPath = `/goals/{goal_id}/releases`
-                .replace(`{${"goal_id"}}`, encodeURIComponent(String(goalId)));
+                .replace('{goal_id}', encodeURIComponent(String(goalId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -82,8 +81,8 @@ export const ReleasesApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -106,7 +105,7 @@ export const ReleasesApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'initiativeId' is not null or undefined
             assertParamExists('initiativesByInitiativeReleasesGet', 'initiativeId', initiativeId)
             const localVarPath = `/initiatives/{initiative_id}/releases`
-                .replace(`{${"initiative_id"}}`, encodeURIComponent(String(initiativeId)));
+                .replace('{initiative_id}', encodeURIComponent(String(initiativeId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -136,8 +135,8 @@ export const ReleasesApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -161,8 +160,8 @@ export const ReleasesApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'id' is not null or undefined
             assertParamExists('productsByProductReleasesByIdDelete', 'id', id)
             const localVarPath = `/products/{product_id}/releases/{id}`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)))
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{product_id}', encodeURIComponent(String(productId)))
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -185,7 +184,6 @@ export const ReleasesApiAxiosParamCreator = function (configuration?: Configurat
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -212,8 +210,8 @@ export const ReleasesApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'releasesPostRequest' is not null or undefined
             assertParamExists('productsByProductReleasesByIdPut', 'releasesPostRequest', releasesPostRequest)
             const localVarPath = `/products/{product_id}/releases/{id}`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)))
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{product_id}', encodeURIComponent(String(productId)))
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -235,9 +233,8 @@ export const ReleasesApiAxiosParamCreator = function (configuration?: Configurat
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -262,7 +259,7 @@ export const ReleasesApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'productId' is not null or undefined
             assertParamExists('productsByProductReleasesGet', 'productId', productId)
             const localVarPath = `/products/{product_id}/releases`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -292,8 +289,8 @@ export const ReleasesApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -317,7 +314,7 @@ export const ReleasesApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'releasesPostRequest' is not null or undefined
             assertParamExists('productsByProductReleasesPost', 'releasesPostRequest', releasesPostRequest)
             const localVarPath = `/products/{product_id}/releases`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -339,9 +336,8 @@ export const ReleasesApiAxiosParamCreator = function (configuration?: Configurat
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -364,7 +360,7 @@ export const ReleasesApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'id' is not null or undefined
             assertParamExists('releasesByIdDuplicatePost', 'id', id)
             const localVarPath = `/releases/{id}/duplicate`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -386,8 +382,8 @@ export const ReleasesApiAxiosParamCreator = function (configuration?: Configurat
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -408,7 +404,7 @@ export const ReleasesApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'id' is not null or undefined
             assertParamExists('releasesByIdGet', 'id', id)
             const localVarPath = `/releases/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -430,8 +426,8 @@ export const ReleasesApiAxiosParamCreator = function (configuration?: Configurat
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -455,7 +451,7 @@ export const ReleasesApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'releasesPutRequest' is not null or undefined
             assertParamExists('releasesByIdPut', 'releasesPutRequest', releasesPutRequest)
             const localVarPath = `/releases/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -477,9 +473,8 @@ export const ReleasesApiAxiosParamCreator = function (configuration?: Configurat
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -504,7 +499,7 @@ export const ReleasesApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'releaseId' is not null or undefined
             assertParamExists('releasesByReleaseReleasesGet', 'releaseId', releaseId)
             const localVarPath = `/releases/{release_id}/releases`
-                .replace(`{${"release_id"}}`, encodeURIComponent(String(releaseId)));
+                .replace('{release_id}', encodeURIComponent(String(releaseId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -534,8 +529,8 @@ export const ReleasesApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -558,7 +553,7 @@ export const ReleasesApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'releaseId' is not null or undefined
             assertParamExists('rollUpReleasesByReleaseReleasesGet', 'releaseId', releaseId)
             const localVarPath = `/roll_up_releases/{release_id}/releases`
-                .replace(`{${"release_id"}}`, encodeURIComponent(String(releaseId)));
+                .replace('{release_id}', encodeURIComponent(String(releaseId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -588,8 +583,8 @@ export const ReleasesApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -604,7 +599,6 @@ export const ReleasesApiAxiosParamCreator = function (configuration?: Configurat
 
 /**
  * ReleasesApi - functional programming interface
- * @export
  */
 export const ReleasesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ReleasesApiAxiosParamCreator(configuration)
@@ -772,7 +766,6 @@ export const ReleasesApiFp = function(configuration?: Configuration) {
 
 /**
  * ReleasesApi - factory interface
- * @export
  */
 export const ReleasesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ReleasesApiFp(configuration)
@@ -892,8 +885,6 @@ export const ReleasesApiFactory = function (configuration?: Configuration, baseP
 
 /**
  * ReleasesApi - interface
- * @export
- * @interface ReleasesApi
  */
 export interface ReleasesApiInterface {
     /**
@@ -902,7 +893,6 @@ export interface ReleasesApiInterface {
      * @param {ReleasesApiGoalsByGoalReleasesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApiInterface
      */
     goalsByGoalReleasesGet(requestParameters: ReleasesApiGoalsByGoalReleasesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleasesGetResponse>;
 
@@ -912,7 +902,6 @@ export interface ReleasesApiInterface {
      * @param {ReleasesApiInitiativesByInitiativeReleasesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApiInterface
      */
     initiativesByInitiativeReleasesGet(requestParameters: ReleasesApiInitiativesByInitiativeReleasesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleasesGetResponse>;
 
@@ -922,7 +911,6 @@ export interface ReleasesApiInterface {
      * @param {ReleasesApiProductsByProductReleasesByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApiInterface
      */
     productsByProductReleasesByIdDelete(requestParameters: ReleasesApiProductsByProductReleasesByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -932,7 +920,6 @@ export interface ReleasesApiInterface {
      * @param {ReleasesApiProductsByProductReleasesByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApiInterface
      */
     productsByProductReleasesByIdPut(requestParameters: ReleasesApiProductsByProductReleasesByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleasesPutResponse>;
 
@@ -942,7 +929,6 @@ export interface ReleasesApiInterface {
      * @param {ReleasesApiProductsByProductReleasesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApiInterface
      */
     productsByProductReleasesGet(requestParameters: ReleasesApiProductsByProductReleasesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleasesGetResponse>;
 
@@ -952,7 +938,6 @@ export interface ReleasesApiInterface {
      * @param {ReleasesApiProductsByProductReleasesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApiInterface
      */
     productsByProductReleasesPost(requestParameters: ReleasesApiProductsByProductReleasesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleasesPostResponse>;
 
@@ -962,7 +947,6 @@ export interface ReleasesApiInterface {
      * @param {ReleasesApiReleasesByIdDuplicatePostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApiInterface
      */
     releasesByIdDuplicatePost(requestParameters: ReleasesApiReleasesByIdDuplicatePostRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleasesPostResponse>;
 
@@ -972,7 +956,6 @@ export interface ReleasesApiInterface {
      * @param {ReleasesApiReleasesByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApiInterface
      */
     releasesByIdGet(requestParameters: ReleasesApiReleasesByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleasesGetResponse>;
 
@@ -982,7 +965,6 @@ export interface ReleasesApiInterface {
      * @param {ReleasesApiReleasesByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApiInterface
      */
     releasesByIdPut(requestParameters: ReleasesApiReleasesByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<CustomtablerecordlinksPutResponse>;
 
@@ -992,7 +974,6 @@ export interface ReleasesApiInterface {
      * @param {ReleasesApiReleasesByReleaseReleasesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApiInterface
      */
     releasesByReleaseReleasesGet(requestParameters: ReleasesApiReleasesByReleaseReleasesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleasesGetResponse>;
 
@@ -1002,7 +983,6 @@ export interface ReleasesApiInterface {
      * @param {ReleasesApiRollUpReleasesByReleaseReleasesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApiInterface
      */
     rollUpReleasesByReleaseReleasesGet(requestParameters: ReleasesApiRollUpReleasesByReleaseReleasesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleasesGetResponse>;
 
@@ -1010,268 +990,152 @@ export interface ReleasesApiInterface {
 
 /**
  * Request parameters for goalsByGoalReleasesGet operation in ReleasesApi.
- * @export
- * @interface ReleasesApiGoalsByGoalReleasesGetRequest
  */
 export interface ReleasesApiGoalsByGoalReleasesGetRequest {
     /**
      * GoalId identifier
-     * @type {string}
-     * @memberof ReleasesApiGoalsByGoalReleasesGet
      */
     readonly goalId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesApiGoalsByGoalReleasesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesApiGoalsByGoalReleasesGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for initiativesByInitiativeReleasesGet operation in ReleasesApi.
- * @export
- * @interface ReleasesApiInitiativesByInitiativeReleasesGetRequest
  */
 export interface ReleasesApiInitiativesByInitiativeReleasesGetRequest {
     /**
      * InitiativeId identifier
-     * @type {string}
-     * @memberof ReleasesApiInitiativesByInitiativeReleasesGet
      */
     readonly initiativeId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesApiInitiativesByInitiativeReleasesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesApiInitiativesByInitiativeReleasesGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for productsByProductReleasesByIdDelete operation in ReleasesApi.
- * @export
- * @interface ReleasesApiProductsByProductReleasesByIdDeleteRequest
  */
 export interface ReleasesApiProductsByProductReleasesByIdDeleteRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof ReleasesApiProductsByProductReleasesByIdDelete
      */
     readonly productId: string
 
     /**
      * Id identifier
-     * @type {string}
-     * @memberof ReleasesApiProductsByProductReleasesByIdDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for productsByProductReleasesByIdPut operation in ReleasesApi.
- * @export
- * @interface ReleasesApiProductsByProductReleasesByIdPutRequest
  */
 export interface ReleasesApiProductsByProductReleasesByIdPutRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof ReleasesApiProductsByProductReleasesByIdPut
      */
     readonly productId: string
 
     /**
      * Id identifier
-     * @type {string}
-     * @memberof ReleasesApiProductsByProductReleasesByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {ReleasesPostRequest}
-     * @memberof ReleasesApiProductsByProductReleasesByIdPut
-     */
     readonly releasesPostRequest: ReleasesPostRequest
 }
 
 /**
  * Request parameters for productsByProductReleasesGet operation in ReleasesApi.
- * @export
- * @interface ReleasesApiProductsByProductReleasesGetRequest
  */
 export interface ReleasesApiProductsByProductReleasesGetRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof ReleasesApiProductsByProductReleasesGet
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesApiProductsByProductReleasesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesApiProductsByProductReleasesGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for productsByProductReleasesPost operation in ReleasesApi.
- * @export
- * @interface ReleasesApiProductsByProductReleasesPostRequest
  */
 export interface ReleasesApiProductsByProductReleasesPostRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof ReleasesApiProductsByProductReleasesPost
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {ReleasesPostRequest}
-     * @memberof ReleasesApiProductsByProductReleasesPost
-     */
     readonly releasesPostRequest: ReleasesPostRequest
 }
 
 /**
  * Request parameters for releasesByIdDuplicatePost operation in ReleasesApi.
- * @export
- * @interface ReleasesApiReleasesByIdDuplicatePostRequest
  */
 export interface ReleasesApiReleasesByIdDuplicatePostRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof ReleasesApiReleasesByIdDuplicatePost
      */
     readonly id: string
 }
 
 /**
  * Request parameters for releasesByIdGet operation in ReleasesApi.
- * @export
- * @interface ReleasesApiReleasesByIdGetRequest
  */
 export interface ReleasesApiReleasesByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof ReleasesApiReleasesByIdGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for releasesByIdPut operation in ReleasesApi.
- * @export
- * @interface ReleasesApiReleasesByIdPutRequest
  */
 export interface ReleasesApiReleasesByIdPutRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof ReleasesApiReleasesByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {ReleasesPutRequest}
-     * @memberof ReleasesApiReleasesByIdPut
-     */
     readonly releasesPutRequest: ReleasesPutRequest
 }
 
 /**
  * Request parameters for releasesByReleaseReleasesGet operation in ReleasesApi.
- * @export
- * @interface ReleasesApiReleasesByReleaseReleasesGetRequest
  */
 export interface ReleasesApiReleasesByReleaseReleasesGetRequest {
     /**
      * ReleaseId identifier
-     * @type {string}
-     * @memberof ReleasesApiReleasesByReleaseReleasesGet
      */
     readonly releaseId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesApiReleasesByReleaseReleasesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesApiReleasesByReleaseReleasesGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for rollUpReleasesByReleaseReleasesGet operation in ReleasesApi.
- * @export
- * @interface ReleasesApiRollUpReleasesByReleaseReleasesGetRequest
  */
 export interface ReleasesApiRollUpReleasesByReleaseReleasesGetRequest {
     /**
      * ReleaseId identifier
-     * @type {string}
-     * @memberof ReleasesApiRollUpReleasesByReleaseReleasesGet
      */
     readonly releaseId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesApiRollUpReleasesByReleaseReleasesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesApiRollUpReleasesByReleaseReleasesGet
-     */
     readonly perPage?: string
 }
 
 /**
  * ReleasesApi - object-oriented interface
- * @export
- * @class ReleasesApi
- * @extends {BaseAPI}
  */
 export class ReleasesApi extends BaseAPI implements ReleasesApiInterface {
     /**
@@ -1280,7 +1144,6 @@ export class ReleasesApi extends BaseAPI implements ReleasesApiInterface {
      * @param {ReleasesApiGoalsByGoalReleasesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApi
      */
     public goalsByGoalReleasesGet(requestParameters: ReleasesApiGoalsByGoalReleasesGetRequest, options?: RawAxiosRequestConfig) {
         return ReleasesApiFp(this.configuration).goalsByGoalReleasesGet(requestParameters.goalId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -1292,7 +1155,6 @@ export class ReleasesApi extends BaseAPI implements ReleasesApiInterface {
      * @param {ReleasesApiInitiativesByInitiativeReleasesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApi
      */
     public initiativesByInitiativeReleasesGet(requestParameters: ReleasesApiInitiativesByInitiativeReleasesGetRequest, options?: RawAxiosRequestConfig) {
         return ReleasesApiFp(this.configuration).initiativesByInitiativeReleasesGet(requestParameters.initiativeId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -1304,7 +1166,6 @@ export class ReleasesApi extends BaseAPI implements ReleasesApiInterface {
      * @param {ReleasesApiProductsByProductReleasesByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApi
      */
     public productsByProductReleasesByIdDelete(requestParameters: ReleasesApiProductsByProductReleasesByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return ReleasesApiFp(this.configuration).productsByProductReleasesByIdDelete(requestParameters.productId, requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -1316,7 +1177,6 @@ export class ReleasesApi extends BaseAPI implements ReleasesApiInterface {
      * @param {ReleasesApiProductsByProductReleasesByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApi
      */
     public productsByProductReleasesByIdPut(requestParameters: ReleasesApiProductsByProductReleasesByIdPutRequest, options?: RawAxiosRequestConfig) {
         return ReleasesApiFp(this.configuration).productsByProductReleasesByIdPut(requestParameters.productId, requestParameters.id, requestParameters.releasesPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1328,7 +1188,6 @@ export class ReleasesApi extends BaseAPI implements ReleasesApiInterface {
      * @param {ReleasesApiProductsByProductReleasesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApi
      */
     public productsByProductReleasesGet(requestParameters: ReleasesApiProductsByProductReleasesGetRequest, options?: RawAxiosRequestConfig) {
         return ReleasesApiFp(this.configuration).productsByProductReleasesGet(requestParameters.productId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -1340,7 +1199,6 @@ export class ReleasesApi extends BaseAPI implements ReleasesApiInterface {
      * @param {ReleasesApiProductsByProductReleasesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApi
      */
     public productsByProductReleasesPost(requestParameters: ReleasesApiProductsByProductReleasesPostRequest, options?: RawAxiosRequestConfig) {
         return ReleasesApiFp(this.configuration).productsByProductReleasesPost(requestParameters.productId, requestParameters.releasesPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1352,7 +1210,6 @@ export class ReleasesApi extends BaseAPI implements ReleasesApiInterface {
      * @param {ReleasesApiReleasesByIdDuplicatePostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApi
      */
     public releasesByIdDuplicatePost(requestParameters: ReleasesApiReleasesByIdDuplicatePostRequest, options?: RawAxiosRequestConfig) {
         return ReleasesApiFp(this.configuration).releasesByIdDuplicatePost(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -1364,7 +1221,6 @@ export class ReleasesApi extends BaseAPI implements ReleasesApiInterface {
      * @param {ReleasesApiReleasesByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApi
      */
     public releasesByIdGet(requestParameters: ReleasesApiReleasesByIdGetRequest, options?: RawAxiosRequestConfig) {
         return ReleasesApiFp(this.configuration).releasesByIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -1376,7 +1232,6 @@ export class ReleasesApi extends BaseAPI implements ReleasesApiInterface {
      * @param {ReleasesApiReleasesByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApi
      */
     public releasesByIdPut(requestParameters: ReleasesApiReleasesByIdPutRequest, options?: RawAxiosRequestConfig) {
         return ReleasesApiFp(this.configuration).releasesByIdPut(requestParameters.id, requestParameters.releasesPutRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1388,7 +1243,6 @@ export class ReleasesApi extends BaseAPI implements ReleasesApiInterface {
      * @param {ReleasesApiReleasesByReleaseReleasesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApi
      */
     public releasesByReleaseReleasesGet(requestParameters: ReleasesApiReleasesByReleaseReleasesGetRequest, options?: RawAxiosRequestConfig) {
         return ReleasesApiFp(this.configuration).releasesByReleaseReleasesGet(requestParameters.releaseId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -1400,7 +1254,6 @@ export class ReleasesApi extends BaseAPI implements ReleasesApiInterface {
      * @param {ReleasesApiRollUpReleasesByReleaseReleasesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ReleasesApi
      */
     public rollUpReleasesByReleaseReleasesGet(requestParameters: ReleasesApiRollUpReleasesByReleaseReleasesGetRequest, options?: RawAxiosRequestConfig) {
         return ReleasesApiFp(this.configuration).rollUpReleasesByReleaseReleasesGet(requestParameters.releaseId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));

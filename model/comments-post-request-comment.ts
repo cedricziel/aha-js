@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface CommentsPostRequestComment
- */
 export interface CommentsPostRequestComment {
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsPostRequestComment
-     */
     'body'?: string;
 }
 

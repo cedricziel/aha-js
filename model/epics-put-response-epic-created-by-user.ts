@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface EpicsPutResponseEpicCreatedByUser
- */
 export interface EpicsPutResponseEpicCreatedByUser {
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicCreatedByUser
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicCreatedByUser
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicCreatedByUser
-     */
     'email'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicCreatedByUser
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicCreatedByUser
-     */
     'updated_at'?: string;
 }
 

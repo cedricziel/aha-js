@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface CommentsGetResponseCommentsInnerCommentable
- */
 export interface CommentsGetResponseCommentsInnerCommentable {
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsGetResponseCommentsInnerCommentable
-     */
     'type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsGetResponseCommentsInnerCommentable
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsGetResponseCommentsInnerCommentable
-     */
     'product_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsGetResponseCommentsInnerCommentable
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsGetResponseCommentsInnerCommentable
-     */
     'resource'?: string;
 }
 

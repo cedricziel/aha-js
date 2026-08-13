@@ -13,78 +13,21 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface FeaturesPutResponseFeatureKeyResultsInner
- */
 export interface FeaturesPutResponseFeatureKeyResultsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureKeyResultsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureKeyResultsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureKeyResultsInner
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureKeyResultsInner
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureKeyResultsInner
-     */
     'position'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureKeyResultsInner
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureKeyResultsInner
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof FeaturesPutResponseFeatureKeyResultsInner
-     */
-    'progress'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureKeyResultsInner
-     */
+    'progress'?: Null;
     'target_metric'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureKeyResultsInner
-     */
     'starting_metric'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureKeyResultsInner
-     */
     'current_metric'?: string;
 }
 

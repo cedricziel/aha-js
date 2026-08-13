@@ -19,72 +19,20 @@ import type { CommentsPostResponseCommentCommentable } from './comments-post-res
 // May contain unused imports in some cases
 // @ts-ignore
 import type { CommentsPostResponseCommentUser } from './comments-post-response-comment-user';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface CommentsPostResponseComment
- */
 export interface CommentsPostResponseComment {
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsPostResponseComment
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsPostResponseComment
-     */
     'body'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsPostResponseComment
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsPostResponseComment
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof CommentsPostResponseComment
-     */
-    'parent_comment_id'?: any | null;
-    /**
-     * 
-     * @type {CommentsPostResponseCommentUser}
-     * @memberof CommentsPostResponseComment
-     */
+    'parent_comment_id'?: Null;
     'user'?: CommentsPostResponseCommentUser;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof CommentsPostResponseComment
-     */
     'attachments'?: Array<any>;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsPostResponseComment
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsPostResponseComment
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {CommentsPostResponseCommentCommentable}
-     * @memberof CommentsPostResponseComment
-     */
     'commentable'?: CommentsPostResponseCommentCommentable;
 }
 

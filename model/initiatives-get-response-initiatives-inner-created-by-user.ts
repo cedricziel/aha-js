@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface InitiativesGetResponseInitiativesInnerCreatedByUser
- */
 export interface InitiativesGetResponseInitiativesInnerCreatedByUser {
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesGetResponseInitiativesInnerCreatedByUser
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesGetResponseInitiativesInnerCreatedByUser
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesGetResponseInitiativesInnerCreatedByUser
-     */
     'email'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesGetResponseInitiativesInnerCreatedByUser
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesGetResponseInitiativesInnerCreatedByUser
-     */
     'updated_at'?: string;
 }
 

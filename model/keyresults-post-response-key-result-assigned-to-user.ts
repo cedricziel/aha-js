@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface KeyresultsPostResponseKeyResultAssignedToUser
- */
 export interface KeyresultsPostResponseKeyResultAssignedToUser {
-    /**
-     * 
-     * @type {boolean}
-     * @memberof KeyresultsPostResponseKeyResultAssignedToUser
-     */
     'default_assignee'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof KeyresultsPostResponseKeyResultAssignedToUser
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KeyresultsPostResponseKeyResultAssignedToUser
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KeyresultsPostResponseKeyResultAssignedToUser
-     */
     'email'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KeyresultsPostResponseKeyResultAssignedToUser
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KeyresultsPostResponseKeyResultAssignedToUser
-     */
     'updated_at'?: string;
 }
 

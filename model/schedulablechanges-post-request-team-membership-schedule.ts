@@ -14,65 +14,15 @@
 
 
 
-/**
- * 
- * @export
- * @interface SchedulablechangesPostRequestTeamMembershipSchedule
- */
 export interface SchedulablechangesPostRequestTeamMembershipSchedule {
-    /**
-     * 
-     * @type {number}
-     * @memberof SchedulablechangesPostRequestTeamMembershipSchedule
-     */
     'hours_per_day'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof SchedulablechangesPostRequestTeamMembershipSchedule
-     */
     'story_points_per_day'?: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof SchedulablechangesPostRequestTeamMembershipSchedule
-     */
     'monday'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof SchedulablechangesPostRequestTeamMembershipSchedule
-     */
     'tuesday'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof SchedulablechangesPostRequestTeamMembershipSchedule
-     */
     'wednesday'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof SchedulablechangesPostRequestTeamMembershipSchedule
-     */
     'thursday'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof SchedulablechangesPostRequestTeamMembershipSchedule
-     */
     'friday'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof SchedulablechangesPostRequestTeamMembershipSchedule
-     */
     'saturday'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof SchedulablechangesPostRequestTeamMembershipSchedule
-     */
     'sunday'?: boolean;
 }
 

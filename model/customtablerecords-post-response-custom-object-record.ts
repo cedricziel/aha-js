@@ -20,65 +20,15 @@ import type { CommentsPostResponseCommentUser } from './comments-post-response-c
 // @ts-ignore
 import type { CustomtablerecordsPostResponseCustomObjectRecordCustomFieldsInner } from './customtablerecords-post-response-custom-object-record-custom-fields-inner';
 
-/**
- * 
- * @export
- * @interface CustomtablerecordsPostResponseCustomObjectRecord
- */
 export interface CustomtablerecordsPostResponseCustomObjectRecord {
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordsPostResponseCustomObjectRecord
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordsPostResponseCustomObjectRecord
-     */
     'product_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordsPostResponseCustomObjectRecord
-     */
     'key'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordsPostResponseCustomObjectRecord
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordsPostResponseCustomObjectRecord
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {Array<CustomtablerecordsPostResponseCustomObjectRecordCustomFieldsInner>}
-     * @memberof CustomtablerecordsPostResponseCustomObjectRecord
-     */
     'custom_fields'?: Array<CustomtablerecordsPostResponseCustomObjectRecordCustomFieldsInner>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof CustomtablerecordsPostResponseCustomObjectRecord
-     */
     'custom_object_links'?: Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof CustomtablerecordsPostResponseCustomObjectRecord
-     */
     'linked_records'?: Array<any>;
-    /**
-     * 
-     * @type {CommentsPostResponseCommentUser}
-     * @memberof CustomtablerecordsPostResponseCustomObjectRecord
-     */
     'created_by_user'?: CommentsPostResponseCommentUser;
 }
 

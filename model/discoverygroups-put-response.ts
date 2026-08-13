@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { DiscoverygroupsPutResponseDiscoveryGroup } from './discoverygroups-put-response-discovery-group';
 
-/**
- * 
- * @export
- * @interface DiscoverygroupsPutResponse
- */
 export interface DiscoverygroupsPutResponse {
-    /**
-     * 
-     * @type {DiscoverygroupsPutResponseDiscoveryGroup}
-     * @memberof DiscoverygroupsPutResponse
-     */
     'discovery_group'?: DiscoverygroupsPutResponseDiscoveryGroup;
 }
 

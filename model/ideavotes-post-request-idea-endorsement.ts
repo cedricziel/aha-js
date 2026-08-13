@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeavotesPostRequestIdeaEndorsement
- */
 export interface IdeavotesPostRequestIdeaEndorsement {
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeavotesPostRequestIdeaEndorsement
-     */
     'value'?: number;
 }
 

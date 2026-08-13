@@ -15,53 +15,21 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { FeaturesPutRequestFeatureAssignedToUser } from './features-put-request-feature-assigned-to-user';
+import type { FeaturesPostRequestFeatureAssignedToUser } from './features-post-request-feature-assigned-to-user';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { FeaturesPutRequestFeatureWorkflowStatus } from './features-put-request-feature-workflow-status';
+import type { FeaturesPostRequestFeatureWorkflowStatus } from './features-post-request-feature-workflow-status';
 
-/**
- * 
- * @export
- * @interface FeaturesPutRequestFeature
- */
 export interface FeaturesPutRequestFeature {
     [key: string]: any;
 
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutRequestFeature
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutRequestFeature
-     */
     'workflow_kind'?: string;
-    /**
-     * 
-     * @type {FeaturesPutRequestFeatureWorkflowStatus}
-     * @memberof FeaturesPutRequestFeature
-     */
-    'workflow_status'?: FeaturesPutRequestFeatureWorkflowStatus;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutRequestFeature
-     */
+    'workflow_status'?: FeaturesPostRequestFeatureWorkflowStatus;
     'description'?: string;
-    /**
-     * 
-     * @type {FeaturesPutRequestFeatureAssignedToUser}
-     * @memberof FeaturesPutRequestFeature
-     */
-    'assigned_to_user'?: FeaturesPutRequestFeatureAssignedToUser;
+    'assigned_to_user'?: FeaturesPostRequestFeatureAssignedToUser;
     /**
      * Custom table records to link, keyed by many-to-many custom field name. Replaces the existing list.
-     * @type {{ [key: string]: Array<string>; }}
-     * @memberof FeaturesPutRequestFeature
      */
     'custom_object_links'?: { [key: string]: Array<string>; };
 }

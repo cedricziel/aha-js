@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface CapacityscenariosGetResponseCapacityScenario
- */
 export interface CapacityscenariosGetResponseCapacityScenario {
-    /**
-     * 
-     * @type {number}
-     * @memberof CapacityscenariosGetResponseCapacityScenario
-     */
     'id'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityscenariosGetResponseCapacityScenario
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityscenariosGetResponseCapacityScenario
-     */
     'planning_interval'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityscenariosGetResponseCapacityScenario
-     */
     'planning_start_date'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityscenariosGetResponseCapacityScenario
-     */
     'planning_end_date'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityscenariosGetResponseCapacityScenario
-     */
     'estimate_value_layout'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityscenariosGetResponseCapacityScenario
-     */
     'data_entry_units'?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof CapacityscenariosGetResponseCapacityScenario
-     */
     'archived'?: boolean;
 }
 

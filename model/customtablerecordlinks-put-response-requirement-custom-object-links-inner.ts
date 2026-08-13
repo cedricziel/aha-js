@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface CustomtablerecordlinksPutResponseRequirementCustomObjectLinksInner
- */
 export interface CustomtablerecordlinksPutResponseRequirementCustomObjectLinksInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordlinksPutResponseRequirementCustomObjectLinksInner
-     */
     'key'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordlinksPutResponseRequirementCustomObjectLinksInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordlinksPutResponseRequirementCustomObjectLinksInner
-     */
     'record_type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomtablerecordlinksPutResponseRequirementCustomObjectLinksInner
-     */
     'record_ids'?: string;
 }
 

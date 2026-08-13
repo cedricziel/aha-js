@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { StrategicvisionsGetResponseStrategyVision } from './strategicvisions-get-response-strategy-vision';
 
-/**
- * 
- * @export
- * @interface StrategicvisionsGetResponse
- */
 export interface StrategicvisionsGetResponse {
-    /**
-     * 
-     * @type {StrategicvisionsGetResponseStrategyVision}
-     * @memberof StrategicvisionsGetResponse
-     */
     'strategy_vision'?: StrategicvisionsGetResponseStrategyVision;
 }
 

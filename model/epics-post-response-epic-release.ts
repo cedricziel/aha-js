@@ -20,89 +20,19 @@ import type { EpicsPostResponseEpicReleaseOwner } from './epics-post-response-ep
 // @ts-ignore
 import type { EpicsPostResponseEpicReleaseProject } from './epics-post-response-epic-release-project';
 
-/**
- * 
- * @export
- * @interface EpicsPostResponseEpicRelease
- */
 export interface EpicsPostResponseEpicRelease {
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpicRelease
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpicRelease
-     */
     'product_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpicRelease
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpicRelease
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpicRelease
-     */
     'start_date'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpicRelease
-     */
     'release_date'?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EpicsPostResponseEpicRelease
-     */
     'parking_lot'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpicRelease
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpicRelease
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPostResponseEpicRelease
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof EpicsPostResponseEpicRelease
-     */
     'integration_fields'?: Array<string>;
-    /**
-     * 
-     * @type {EpicsPostResponseEpicReleaseOwner}
-     * @memberof EpicsPostResponseEpicRelease
-     */
     'owner'?: EpicsPostResponseEpicReleaseOwner;
-    /**
-     * 
-     * @type {EpicsPostResponseEpicReleaseProject}
-     * @memberof EpicsPostResponseEpicRelease
-     */
     'project'?: EpicsPostResponseEpicReleaseProject;
 }
 

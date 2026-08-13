@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface TimetrackingeventsPostRequestTimeTrackingEvent
- */
 export interface TimetrackingeventsPostRequestTimeTrackingEvent {
-    /**
-     * 
-     * @type {number}
-     * @memberof TimetrackingeventsPostRequestTimeTrackingEvent
-     */
     'user_id'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof TimetrackingeventsPostRequestTimeTrackingEvent
-     */
     'work_done_text'?: string;
 }
 

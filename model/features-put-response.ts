@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { FeaturesPutResponseFeature } from './features-put-response-feature';
 
-/**
- * 
- * @export
- * @interface FeaturesPutResponse
- */
 export interface FeaturesPutResponse {
-    /**
-     * 
-     * @type {FeaturesPutResponseFeature}
-     * @memberof FeaturesPutResponse
-     */
     'feature'?: FeaturesPutResponseFeature;
 }
 

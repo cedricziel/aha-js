@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface IntegrationfieldsPostRequestIntegrationField
- */
 export interface IntegrationfieldsPostRequestIntegrationField {
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationfieldsPostRequestIntegrationField
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationfieldsPostRequestIntegrationField
-     */
     'value'?: string;
 }
 

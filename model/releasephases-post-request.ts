@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { ReleasephasesPostRequestReleasePhase } from './releasephases-post-request-release-phase';
 
-/**
- * 
- * @export
- * @interface ReleasephasesPostRequest
- */
 export interface ReleasephasesPostRequest {
-    /**
-     * 
-     * @type {ReleasephasesPostRequestReleasePhase}
-     * @memberof ReleasephasesPostRequest
-     */
     'release_phase'?: ReleasephasesPostRequestReleasePhase;
 }
 

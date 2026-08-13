@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -33,7 +33,6 @@ import type { CapacityestimatevaluesPostResponse } from '../model';
 import type { CapacityestimatevaluesPutResponse } from '../model';
 /**
  * CapacityEstimateValuesApi - axios parameter creator
- * @export
  */
 export const CapacityEstimateValuesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -50,7 +49,7 @@ export const CapacityEstimateValuesApiAxiosParamCreator = function (configuratio
             // verify required parameter 'id' is not null or undefined
             assertParamExists('capacityInvestmentsByIdEstimateValuesGet', 'id', id)
             const localVarPath = `/capacity_investments/{id}/estimate_values`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -80,8 +79,8 @@ export const CapacityEstimateValuesApiAxiosParamCreator = function (configuratio
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -105,7 +104,7 @@ export const CapacityEstimateValuesApiAxiosParamCreator = function (configuratio
             // verify required parameter 'capacityestimatevaluesPostRequest' is not null or undefined
             assertParamExists('capacityInvestmentsByIdEstimateValuesPost', 'capacityestimatevaluesPostRequest', capacityestimatevaluesPostRequest)
             const localVarPath = `/capacity_investments/{id}/estimate_values`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -127,9 +126,8 @@ export const CapacityEstimateValuesApiAxiosParamCreator = function (configuratio
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -155,7 +153,7 @@ export const CapacityEstimateValuesApiAxiosParamCreator = function (configuratio
             // verify required parameter 'capacityestimatevaluesPostRequest' is not null or undefined
             assertParamExists('estimateValuesByIdDelete', 'capacityestimatevaluesPostRequest', capacityestimatevaluesPostRequest)
             const localVarPath = `/estimate_values/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -177,9 +175,8 @@ export const CapacityEstimateValuesApiAxiosParamCreator = function (configuratio
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -205,7 +202,7 @@ export const CapacityEstimateValuesApiAxiosParamCreator = function (configuratio
             // verify required parameter 'capacityestimatevaluesPostRequest' is not null or undefined
             assertParamExists('estimateValuesByIdPut', 'capacityestimatevaluesPostRequest', capacityestimatevaluesPostRequest)
             const localVarPath = `/estimate_values/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -227,9 +224,8 @@ export const CapacityEstimateValuesApiAxiosParamCreator = function (configuratio
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -246,7 +242,6 @@ export const CapacityEstimateValuesApiAxiosParamCreator = function (configuratio
 
 /**
  * CapacityEstimateValuesApi - functional programming interface
- * @export
  */
 export const CapacityEstimateValuesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = CapacityEstimateValuesApiAxiosParamCreator(configuration)
@@ -313,7 +308,6 @@ export const CapacityEstimateValuesApiFp = function(configuration?: Configuratio
 
 /**
  * CapacityEstimateValuesApi - factory interface
- * @export
  */
 export const CapacityEstimateValuesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = CapacityEstimateValuesApiFp(configuration)
@@ -363,8 +357,6 @@ export const CapacityEstimateValuesApiFactory = function (configuration?: Config
 
 /**
  * CapacityEstimateValuesApi - interface
- * @export
- * @interface CapacityEstimateValuesApi
  */
 export interface CapacityEstimateValuesApiInterface {
     /**
@@ -373,7 +365,6 @@ export interface CapacityEstimateValuesApiInterface {
      * @param {CapacityEstimateValuesApiCapacityInvestmentsByIdEstimateValuesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacityEstimateValuesApiInterface
      */
     capacityInvestmentsByIdEstimateValuesGet(requestParameters: CapacityEstimateValuesApiCapacityInvestmentsByIdEstimateValuesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<CapacityestimatevaluesGetResponse>;
 
@@ -383,7 +374,6 @@ export interface CapacityEstimateValuesApiInterface {
      * @param {CapacityEstimateValuesApiCapacityInvestmentsByIdEstimateValuesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacityEstimateValuesApiInterface
      */
     capacityInvestmentsByIdEstimateValuesPost(requestParameters: CapacityEstimateValuesApiCapacityInvestmentsByIdEstimateValuesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<CapacityestimatevaluesPostResponse>;
 
@@ -393,7 +383,6 @@ export interface CapacityEstimateValuesApiInterface {
      * @param {CapacityEstimateValuesApiEstimateValuesByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacityEstimateValuesApiInterface
      */
     estimateValuesByIdDelete(requestParameters: CapacityEstimateValuesApiEstimateValuesByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<CapacityestimatevaluesDeleteResponse>;
 
@@ -403,7 +392,6 @@ export interface CapacityEstimateValuesApiInterface {
      * @param {CapacityEstimateValuesApiEstimateValuesByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacityEstimateValuesApiInterface
      */
     estimateValuesByIdPut(requestParameters: CapacityEstimateValuesApiEstimateValuesByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<CapacityestimatevaluesPutResponse>;
 
@@ -411,100 +399,56 @@ export interface CapacityEstimateValuesApiInterface {
 
 /**
  * Request parameters for capacityInvestmentsByIdEstimateValuesGet operation in CapacityEstimateValuesApi.
- * @export
- * @interface CapacityEstimateValuesApiCapacityInvestmentsByIdEstimateValuesGetRequest
  */
 export interface CapacityEstimateValuesApiCapacityInvestmentsByIdEstimateValuesGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof CapacityEstimateValuesApiCapacityInvestmentsByIdEstimateValuesGet
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityEstimateValuesApiCapacityInvestmentsByIdEstimateValuesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityEstimateValuesApiCapacityInvestmentsByIdEstimateValuesGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for capacityInvestmentsByIdEstimateValuesPost operation in CapacityEstimateValuesApi.
- * @export
- * @interface CapacityEstimateValuesApiCapacityInvestmentsByIdEstimateValuesPostRequest
  */
 export interface CapacityEstimateValuesApiCapacityInvestmentsByIdEstimateValuesPostRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof CapacityEstimateValuesApiCapacityInvestmentsByIdEstimateValuesPost
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {CapacityestimatevaluesPostRequest}
-     * @memberof CapacityEstimateValuesApiCapacityInvestmentsByIdEstimateValuesPost
-     */
     readonly capacityestimatevaluesPostRequest: CapacityestimatevaluesPostRequest
 }
 
 /**
  * Request parameters for estimateValuesByIdDelete operation in CapacityEstimateValuesApi.
- * @export
- * @interface CapacityEstimateValuesApiEstimateValuesByIdDeleteRequest
  */
 export interface CapacityEstimateValuesApiEstimateValuesByIdDeleteRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof CapacityEstimateValuesApiEstimateValuesByIdDelete
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {CapacityestimatevaluesPostRequest}
-     * @memberof CapacityEstimateValuesApiEstimateValuesByIdDelete
-     */
     readonly capacityestimatevaluesPostRequest: CapacityestimatevaluesPostRequest
 }
 
 /**
  * Request parameters for estimateValuesByIdPut operation in CapacityEstimateValuesApi.
- * @export
- * @interface CapacityEstimateValuesApiEstimateValuesByIdPutRequest
  */
 export interface CapacityEstimateValuesApiEstimateValuesByIdPutRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof CapacityEstimateValuesApiEstimateValuesByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {CapacityestimatevaluesPostRequest}
-     * @memberof CapacityEstimateValuesApiEstimateValuesByIdPut
-     */
     readonly capacityestimatevaluesPostRequest: CapacityestimatevaluesPostRequest
 }
 
 /**
  * CapacityEstimateValuesApi - object-oriented interface
- * @export
- * @class CapacityEstimateValuesApi
- * @extends {BaseAPI}
  */
 export class CapacityEstimateValuesApi extends BaseAPI implements CapacityEstimateValuesApiInterface {
     /**
@@ -513,7 +457,6 @@ export class CapacityEstimateValuesApi extends BaseAPI implements CapacityEstima
      * @param {CapacityEstimateValuesApiCapacityInvestmentsByIdEstimateValuesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacityEstimateValuesApi
      */
     public capacityInvestmentsByIdEstimateValuesGet(requestParameters: CapacityEstimateValuesApiCapacityInvestmentsByIdEstimateValuesGetRequest, options?: RawAxiosRequestConfig) {
         return CapacityEstimateValuesApiFp(this.configuration).capacityInvestmentsByIdEstimateValuesGet(requestParameters.id, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -525,7 +468,6 @@ export class CapacityEstimateValuesApi extends BaseAPI implements CapacityEstima
      * @param {CapacityEstimateValuesApiCapacityInvestmentsByIdEstimateValuesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacityEstimateValuesApi
      */
     public capacityInvestmentsByIdEstimateValuesPost(requestParameters: CapacityEstimateValuesApiCapacityInvestmentsByIdEstimateValuesPostRequest, options?: RawAxiosRequestConfig) {
         return CapacityEstimateValuesApiFp(this.configuration).capacityInvestmentsByIdEstimateValuesPost(requestParameters.id, requestParameters.capacityestimatevaluesPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -537,7 +479,6 @@ export class CapacityEstimateValuesApi extends BaseAPI implements CapacityEstima
      * @param {CapacityEstimateValuesApiEstimateValuesByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacityEstimateValuesApi
      */
     public estimateValuesByIdDelete(requestParameters: CapacityEstimateValuesApiEstimateValuesByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return CapacityEstimateValuesApiFp(this.configuration).estimateValuesByIdDelete(requestParameters.id, requestParameters.capacityestimatevaluesPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -549,7 +490,6 @@ export class CapacityEstimateValuesApi extends BaseAPI implements CapacityEstima
      * @param {CapacityEstimateValuesApiEstimateValuesByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacityEstimateValuesApi
      */
     public estimateValuesByIdPut(requestParameters: CapacityEstimateValuesApiEstimateValuesByIdPutRequest, options?: RawAxiosRequestConfig) {
         return CapacityEstimateValuesApiFp(this.configuration).estimateValuesByIdPut(requestParameters.id, requestParameters.capacityestimatevaluesPostRequest, options).then((request) => request(this.axios, this.basePath));

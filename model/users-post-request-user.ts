@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface UsersPostRequestUser
- */
 export interface UsersPostRequestUser {
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersPostRequestUser
-     */
     'first_name'?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof UsersPostRequestUser
-     */
     'enabled'?: boolean;
 }
 

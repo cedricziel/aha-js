@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -33,7 +33,6 @@ import type { IdeaorganizationsPutRequest } from '../model';
 import type { IdeaorganizationsPutResponse } from '../model';
 /**
  * IdeaOrganizationsApi - axios parameter creator
- * @export
  */
 export const IdeaOrganizationsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -48,7 +47,7 @@ export const IdeaOrganizationsApiAxiosParamCreator = function (configuration?: C
             // verify required parameter 'id' is not null or undefined
             assertParamExists('ideaOrganizationsByIdDelete', 'id', id)
             const localVarPath = `/idea_organizations/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -71,7 +70,6 @@ export const IdeaOrganizationsApiAxiosParamCreator = function (configuration?: C
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -93,7 +91,7 @@ export const IdeaOrganizationsApiAxiosParamCreator = function (configuration?: C
             // verify required parameter 'id' is not null or undefined
             assertParamExists('ideaOrganizationsByIdGet', 'id', id)
             const localVarPath = `/idea_organizations/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -119,8 +117,8 @@ export const IdeaOrganizationsApiAxiosParamCreator = function (configuration?: C
                 localVarQueryParameter['fields'] = fields;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -144,7 +142,7 @@ export const IdeaOrganizationsApiAxiosParamCreator = function (configuration?: C
             // verify required parameter 'ideaorganizationsPutRequest' is not null or undefined
             assertParamExists('ideaOrganizationsByIdPut', 'ideaorganizationsPutRequest', ideaorganizationsPutRequest)
             const localVarPath = `/idea_organizations/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -166,9 +164,8 @@ export const IdeaOrganizationsApiAxiosParamCreator = function (configuration?: C
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -224,8 +221,8 @@ export const IdeaOrganizationsApiAxiosParamCreator = function (configuration?: C
                 localVarQueryParameter['fields'] = fields;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -267,9 +264,8 @@ export const IdeaOrganizationsApiAxiosParamCreator = function (configuration?: C
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -286,7 +282,6 @@ export const IdeaOrganizationsApiAxiosParamCreator = function (configuration?: C
 
 /**
  * IdeaOrganizationsApi - functional programming interface
- * @export
  */
 export const IdeaOrganizationsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = IdeaOrganizationsApiAxiosParamCreator(configuration)
@@ -365,7 +360,6 @@ export const IdeaOrganizationsApiFp = function(configuration?: Configuration) {
 
 /**
  * IdeaOrganizationsApi - factory interface
- * @export
  */
 export const IdeaOrganizationsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = IdeaOrganizationsApiFp(configuration)
@@ -425,8 +419,6 @@ export const IdeaOrganizationsApiFactory = function (configuration?: Configurati
 
 /**
  * IdeaOrganizationsApi - interface
- * @export
- * @interface IdeaOrganizationsApi
  */
 export interface IdeaOrganizationsApiInterface {
     /**
@@ -435,7 +427,6 @@ export interface IdeaOrganizationsApiInterface {
      * @param {IdeaOrganizationsApiIdeaOrganizationsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaOrganizationsApiInterface
      */
     ideaOrganizationsByIdDelete(requestParameters: IdeaOrganizationsApiIdeaOrganizationsByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -445,7 +436,6 @@ export interface IdeaOrganizationsApiInterface {
      * @param {IdeaOrganizationsApiIdeaOrganizationsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaOrganizationsApiInterface
      */
     ideaOrganizationsByIdGet(requestParameters: IdeaOrganizationsApiIdeaOrganizationsByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaorganizationsGetResponse>;
 
@@ -455,7 +445,6 @@ export interface IdeaOrganizationsApiInterface {
      * @param {IdeaOrganizationsApiIdeaOrganizationsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaOrganizationsApiInterface
      */
     ideaOrganizationsByIdPut(requestParameters: IdeaOrganizationsApiIdeaOrganizationsByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaorganizationsPutResponse>;
 
@@ -465,7 +454,6 @@ export interface IdeaOrganizationsApiInterface {
      * @param {IdeaOrganizationsApiIdeaOrganizationsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaOrganizationsApiInterface
      */
     ideaOrganizationsGet(requestParameters?: IdeaOrganizationsApiIdeaOrganizationsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaorganizationsGetResponse>;
 
@@ -475,7 +463,6 @@ export interface IdeaOrganizationsApiInterface {
      * @param {IdeaOrganizationsApiIdeaOrganizationsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaOrganizationsApiInterface
      */
     ideaOrganizationsPost(requestParameters: IdeaOrganizationsApiIdeaOrganizationsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeaorganizationsPostResponse>;
 
@@ -483,107 +470,58 @@ export interface IdeaOrganizationsApiInterface {
 
 /**
  * Request parameters for ideaOrganizationsByIdDelete operation in IdeaOrganizationsApi.
- * @export
- * @interface IdeaOrganizationsApiIdeaOrganizationsByIdDeleteRequest
  */
 export interface IdeaOrganizationsApiIdeaOrganizationsByIdDeleteRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof IdeaOrganizationsApiIdeaOrganizationsByIdDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for ideaOrganizationsByIdGet operation in IdeaOrganizationsApi.
- * @export
- * @interface IdeaOrganizationsApiIdeaOrganizationsByIdGetRequest
  */
 export interface IdeaOrganizationsApiIdeaOrganizationsByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof IdeaOrganizationsApiIdeaOrganizationsByIdGet
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaOrganizationsApiIdeaOrganizationsByIdGet
-     */
     readonly fields?: string
 }
 
 /**
  * Request parameters for ideaOrganizationsByIdPut operation in IdeaOrganizationsApi.
- * @export
- * @interface IdeaOrganizationsApiIdeaOrganizationsByIdPutRequest
  */
 export interface IdeaOrganizationsApiIdeaOrganizationsByIdPutRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof IdeaOrganizationsApiIdeaOrganizationsByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {IdeaorganizationsPutRequest}
-     * @memberof IdeaOrganizationsApiIdeaOrganizationsByIdPut
-     */
     readonly ideaorganizationsPutRequest: IdeaorganizationsPutRequest
 }
 
 /**
  * Request parameters for ideaOrganizationsGet operation in IdeaOrganizationsApi.
- * @export
- * @interface IdeaOrganizationsApiIdeaOrganizationsGetRequest
  */
 export interface IdeaOrganizationsApiIdeaOrganizationsGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaOrganizationsApiIdeaOrganizationsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaOrganizationsApiIdeaOrganizationsGet
-     */
     readonly perPage?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaOrganizationsApiIdeaOrganizationsGet
-     */
     readonly fields?: string
 }
 
 /**
  * Request parameters for ideaOrganizationsPost operation in IdeaOrganizationsApi.
- * @export
- * @interface IdeaOrganizationsApiIdeaOrganizationsPostRequest
  */
 export interface IdeaOrganizationsApiIdeaOrganizationsPostRequest {
-    /**
-     * 
-     * @type {IdeaorganizationsPostRequest}
-     * @memberof IdeaOrganizationsApiIdeaOrganizationsPost
-     */
     readonly ideaorganizationsPostRequest: IdeaorganizationsPostRequest
 }
 
 /**
  * IdeaOrganizationsApi - object-oriented interface
- * @export
- * @class IdeaOrganizationsApi
- * @extends {BaseAPI}
  */
 export class IdeaOrganizationsApi extends BaseAPI implements IdeaOrganizationsApiInterface {
     /**
@@ -592,7 +530,6 @@ export class IdeaOrganizationsApi extends BaseAPI implements IdeaOrganizationsAp
      * @param {IdeaOrganizationsApiIdeaOrganizationsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaOrganizationsApi
      */
     public ideaOrganizationsByIdDelete(requestParameters: IdeaOrganizationsApiIdeaOrganizationsByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return IdeaOrganizationsApiFp(this.configuration).ideaOrganizationsByIdDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -604,7 +541,6 @@ export class IdeaOrganizationsApi extends BaseAPI implements IdeaOrganizationsAp
      * @param {IdeaOrganizationsApiIdeaOrganizationsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaOrganizationsApi
      */
     public ideaOrganizationsByIdGet(requestParameters: IdeaOrganizationsApiIdeaOrganizationsByIdGetRequest, options?: RawAxiosRequestConfig) {
         return IdeaOrganizationsApiFp(this.configuration).ideaOrganizationsByIdGet(requestParameters.id, requestParameters.fields, options).then((request) => request(this.axios, this.basePath));
@@ -616,7 +552,6 @@ export class IdeaOrganizationsApi extends BaseAPI implements IdeaOrganizationsAp
      * @param {IdeaOrganizationsApiIdeaOrganizationsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaOrganizationsApi
      */
     public ideaOrganizationsByIdPut(requestParameters: IdeaOrganizationsApiIdeaOrganizationsByIdPutRequest, options?: RawAxiosRequestConfig) {
         return IdeaOrganizationsApiFp(this.configuration).ideaOrganizationsByIdPut(requestParameters.id, requestParameters.ideaorganizationsPutRequest, options).then((request) => request(this.axios, this.basePath));
@@ -628,7 +563,6 @@ export class IdeaOrganizationsApi extends BaseAPI implements IdeaOrganizationsAp
      * @param {IdeaOrganizationsApiIdeaOrganizationsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaOrganizationsApi
      */
     public ideaOrganizationsGet(requestParameters: IdeaOrganizationsApiIdeaOrganizationsGetRequest = {}, options?: RawAxiosRequestConfig) {
         return IdeaOrganizationsApiFp(this.configuration).ideaOrganizationsGet(requestParameters.page, requestParameters.perPage, requestParameters.fields, options).then((request) => request(this.axios, this.basePath));
@@ -640,7 +574,6 @@ export class IdeaOrganizationsApi extends BaseAPI implements IdeaOrganizationsAp
      * @param {IdeaOrganizationsApiIdeaOrganizationsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaOrganizationsApi
      */
     public ideaOrganizationsPost(requestParameters: IdeaOrganizationsApiIdeaOrganizationsPostRequest, options?: RawAxiosRequestConfig) {
         return IdeaOrganizationsApiFp(this.configuration).ideaOrganizationsPost(requestParameters.ideaorganizationsPostRequest, options).then((request) => request(this.axios, this.basePath));

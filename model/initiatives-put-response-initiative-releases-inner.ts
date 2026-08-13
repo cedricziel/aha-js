@@ -14,89 +14,19 @@
 
 
 
-/**
- * 
- * @export
- * @interface InitiativesPutResponseInitiativeReleasesInner
- */
 export interface InitiativesPutResponseInitiativeReleasesInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPutResponseInitiativeReleasesInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPutResponseInitiativeReleasesInner
-     */
     'product_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPutResponseInitiativeReleasesInner
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPutResponseInitiativeReleasesInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPutResponseInitiativeReleasesInner
-     */
     'start_date'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPutResponseInitiativeReleasesInner
-     */
     'release_date'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPutResponseInitiativeReleasesInner
-     */
     'parking_lot'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPutResponseInitiativeReleasesInner
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPutResponseInitiativeReleasesInner
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPutResponseInitiativeReleasesInner
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPutResponseInitiativeReleasesInner
-     */
     'integration_fields'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPutResponseInitiativeReleasesInner
-     */
     'owner'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPutResponseInitiativeReleasesInner
-     */
     'project'?: string;
 }
 

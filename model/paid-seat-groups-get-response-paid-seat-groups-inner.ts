@@ -13,60 +13,18 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface PaidSeatGroupsGetResponsePaidSeatGroupsInner
- */
 export interface PaidSeatGroupsGetResponsePaidSeatGroupsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof PaidSeatGroupsGetResponsePaidSeatGroupsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PaidSeatGroupsGetResponsePaidSeatGroupsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof PaidSeatGroupsGetResponsePaidSeatGroupsInner
-     */
     'administrators'?: Array<any>;
-    /**
-     * 
-     * @type {number}
-     * @memberof PaidSeatGroupsGetResponsePaidSeatGroupsInner
-     */
     'capacity'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof PaidSeatGroupsGetResponsePaidSeatGroupsInner
-     */
     'allocated_seats'?: number;
-    /**
-     * 
-     * @type {any}
-     * @memberof PaidSeatGroupsGetResponsePaidSeatGroupsInner
-     */
-    'description'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof PaidSeatGroupsGetResponsePaidSeatGroupsInner
-     */
+    'description'?: Null;
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PaidSeatGroupsGetResponsePaidSeatGroupsInner
-     */
     'updated_at'?: string;
 }
 

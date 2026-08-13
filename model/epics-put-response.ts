@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { EpicsPutResponseEpic } from './epics-put-response-epic';
 
-/**
- * 
- * @export
- * @interface EpicsPutResponse
- */
 export interface EpicsPutResponse {
-    /**
-     * 
-     * @type {EpicsPutResponseEpic}
-     * @memberof EpicsPutResponse
-     */
     'epic'?: EpicsPutResponseEpic;
 }
 

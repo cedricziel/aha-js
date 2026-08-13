@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface FeaturesPutResponseFeatureMasterFeature
- */
 export interface FeaturesPutResponseFeatureMasterFeature {
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureMasterFeature
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureMasterFeature
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureMasterFeature
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureMasterFeature
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureMasterFeature
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureMasterFeature
-     */
     'resource'?: string;
 }
 

@@ -20,35 +20,10 @@ import type { GoalsPostResponseGoalSuccessMetricDescription } from './goals-post
 // @ts-ignore
 import type { GoalsPostResponseGoalSuccessMetricWorkflowStatus } from './goals-post-response-goal-success-metric-workflow-status';
 
-/**
- * 
- * @export
- * @interface GoalsPostResponseGoalSuccessMetric
- */
 export interface GoalsPostResponseGoalSuccessMetric {
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPostResponseGoalSuccessMetric
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {GoalsPostResponseGoalSuccessMetricDescription}
-     * @memberof GoalsPostResponseGoalSuccessMetric
-     */
     'description'?: GoalsPostResponseGoalSuccessMetricDescription;
-    /**
-     * 
-     * @type {GoalsPostResponseGoalSuccessMetricWorkflowStatus}
-     * @memberof GoalsPostResponseGoalSuccessMetric
-     */
     'workflow_status'?: GoalsPostResponseGoalSuccessMetricWorkflowStatus;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof GoalsPostResponseGoalSuccessMetric
-     */
     'workflow_status_times'?: Array<string>;
 }
 

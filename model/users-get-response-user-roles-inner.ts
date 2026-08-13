@@ -17,29 +17,9 @@
 // @ts-ignore
 import type { UsersGetResponseUserRolesInnerScope } from './users-get-response-user-roles-inner-scope';
 
-/**
- * 
- * @export
- * @interface UsersGetResponseUserRolesInner
- */
 export interface UsersGetResponseUserRolesInner {
-    /**
-     * 
-     * @type {number}
-     * @memberof UsersGetResponseUserRolesInner
-     */
     'role_id'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersGetResponseUserRolesInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {UsersGetResponseUserRolesInnerScope}
-     * @memberof UsersGetResponseUserRolesInner
-     */
     'scope'?: UsersGetResponseUserRolesInnerScope;
 }
 

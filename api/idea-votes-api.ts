@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { IdeavotesPostResponse } from '../model';
 import type { IdeavotesPutResponse } from '../model';
 /**
  * IdeaVotesApi - axios parameter creator
- * @export
  */
 export const IdeaVotesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -48,7 +47,7 @@ export const IdeaVotesApiAxiosParamCreator = function (configuration?: Configura
             // verify required parameter 'ideaOrganizationId' is not null or undefined
             assertParamExists('ideaOrganizationsByIdeaOrganizationEndorsementsGet', 'ideaOrganizationId', ideaOrganizationId)
             const localVarPath = `/idea_organizations/{idea_organization_id}/endorsements`
-                .replace(`{${"idea_organization_id"}}`, encodeURIComponent(String(ideaOrganizationId)));
+                .replace('{idea_organization_id}', encodeURIComponent(String(ideaOrganizationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -78,8 +77,8 @@ export const IdeaVotesApiAxiosParamCreator = function (configuration?: Configura
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -103,8 +102,8 @@ export const IdeaVotesApiAxiosParamCreator = function (configuration?: Configura
             // verify required parameter 'id' is not null or undefined
             assertParamExists('ideasByIdeaEndorsementsByIdDelete', 'id', id)
             const localVarPath = `/ideas/{idea_id}/endorsements/{id}`
-                .replace(`{${"idea_id"}}`, encodeURIComponent(String(ideaId)))
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{idea_id}', encodeURIComponent(String(ideaId)))
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -127,7 +126,6 @@ export const IdeaVotesApiAxiosParamCreator = function (configuration?: Configura
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -151,8 +149,8 @@ export const IdeaVotesApiAxiosParamCreator = function (configuration?: Configura
             // verify required parameter 'id' is not null or undefined
             assertParamExists('ideasByIdeaEndorsementsByIdGet', 'id', id)
             const localVarPath = `/ideas/{idea_id}/endorsements/{id}`
-                .replace(`{${"idea_id"}}`, encodeURIComponent(String(ideaId)))
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{idea_id}', encodeURIComponent(String(ideaId)))
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -174,8 +172,8 @@ export const IdeaVotesApiAxiosParamCreator = function (configuration?: Configura
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -202,8 +200,8 @@ export const IdeaVotesApiAxiosParamCreator = function (configuration?: Configura
             // verify required parameter 'ideavotesPostRequest' is not null or undefined
             assertParamExists('ideasByIdeaEndorsementsByIdPut', 'ideavotesPostRequest', ideavotesPostRequest)
             const localVarPath = `/ideas/{idea_id}/endorsements/{id}`
-                .replace(`{${"idea_id"}}`, encodeURIComponent(String(ideaId)))
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{idea_id}', encodeURIComponent(String(ideaId)))
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -225,9 +223,8 @@ export const IdeaVotesApiAxiosParamCreator = function (configuration?: Configura
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -254,7 +251,7 @@ export const IdeaVotesApiAxiosParamCreator = function (configuration?: Configura
             // verify required parameter 'ideaId' is not null or undefined
             assertParamExists('ideasByIdeaEndorsementsGet', 'ideaId', ideaId)
             const localVarPath = `/ideas/{idea_id}/endorsements`
-                .replace(`{${"idea_id"}}`, encodeURIComponent(String(ideaId)));
+                .replace('{idea_id}', encodeURIComponent(String(ideaId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -292,8 +289,8 @@ export const IdeaVotesApiAxiosParamCreator = function (configuration?: Configura
                 localVarQueryParameter['proxy'] = proxy;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -317,7 +314,7 @@ export const IdeaVotesApiAxiosParamCreator = function (configuration?: Configura
             // verify required parameter 'ideavotesPostRequest' is not null or undefined
             assertParamExists('ideasByIdeaEndorsementsPost', 'ideavotesPostRequest', ideavotesPostRequest)
             const localVarPath = `/ideas/{idea_id}/endorsements`
-                .replace(`{${"idea_id"}}`, encodeURIComponent(String(ideaId)));
+                .replace('{idea_id}', encodeURIComponent(String(ideaId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -339,9 +336,8 @@ export const IdeaVotesApiAxiosParamCreator = function (configuration?: Configura
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -392,8 +388,8 @@ export const IdeaVotesApiAxiosParamCreator = function (configuration?: Configura
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -408,7 +404,6 @@ export const IdeaVotesApiAxiosParamCreator = function (configuration?: Configura
 
 /**
  * IdeaVotesApi - functional programming interface
- * @export
  */
 export const IdeaVotesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = IdeaVotesApiAxiosParamCreator(configuration)
@@ -521,7 +516,6 @@ export const IdeaVotesApiFp = function(configuration?: Configuration) {
 
 /**
  * IdeaVotesApi - factory interface
- * @export
  */
 export const IdeaVotesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = IdeaVotesApiFp(configuration)
@@ -601,8 +595,6 @@ export const IdeaVotesApiFactory = function (configuration?: Configuration, base
 
 /**
  * IdeaVotesApi - interface
- * @export
- * @interface IdeaVotesApi
  */
 export interface IdeaVotesApiInterface {
     /**
@@ -611,7 +603,6 @@ export interface IdeaVotesApiInterface {
      * @param {IdeaVotesApiIdeaOrganizationsByIdeaOrganizationEndorsementsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaVotesApiInterface
      */
     ideaOrganizationsByIdeaOrganizationEndorsementsGet(requestParameters: IdeaVotesApiIdeaOrganizationsByIdeaOrganizationEndorsementsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeavotesGetResponse>;
 
@@ -621,7 +612,6 @@ export interface IdeaVotesApiInterface {
      * @param {IdeaVotesApiIdeasByIdeaEndorsementsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaVotesApiInterface
      */
     ideasByIdeaEndorsementsByIdDelete(requestParameters: IdeaVotesApiIdeasByIdeaEndorsementsByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -631,7 +621,6 @@ export interface IdeaVotesApiInterface {
      * @param {IdeaVotesApiIdeasByIdeaEndorsementsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaVotesApiInterface
      */
     ideasByIdeaEndorsementsByIdGet(requestParameters: IdeaVotesApiIdeasByIdeaEndorsementsByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeavotesGetResponse>;
 
@@ -641,7 +630,6 @@ export interface IdeaVotesApiInterface {
      * @param {IdeaVotesApiIdeasByIdeaEndorsementsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaVotesApiInterface
      */
     ideasByIdeaEndorsementsByIdPut(requestParameters: IdeaVotesApiIdeasByIdeaEndorsementsByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeavotesPutResponse>;
 
@@ -651,7 +639,6 @@ export interface IdeaVotesApiInterface {
      * @param {IdeaVotesApiIdeasByIdeaEndorsementsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaVotesApiInterface
      */
     ideasByIdeaEndorsementsGet(requestParameters: IdeaVotesApiIdeasByIdeaEndorsementsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeavotesGetResponse>;
 
@@ -661,7 +648,6 @@ export interface IdeaVotesApiInterface {
      * @param {IdeaVotesApiIdeasByIdeaEndorsementsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaVotesApiInterface
      */
     ideasByIdeaEndorsementsPost(requestParameters: IdeaVotesApiIdeasByIdeaEndorsementsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeavotesPostResponse>;
 
@@ -671,7 +657,6 @@ export interface IdeaVotesApiInterface {
      * @param {IdeaVotesApiIdeasEndorsementsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaVotesApiInterface
      */
     ideasEndorsementsGet(requestParameters?: IdeaVotesApiIdeasEndorsementsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeavotesGetResponse>;
 
@@ -679,191 +664,106 @@ export interface IdeaVotesApiInterface {
 
 /**
  * Request parameters for ideaOrganizationsByIdeaOrganizationEndorsementsGet operation in IdeaVotesApi.
- * @export
- * @interface IdeaVotesApiIdeaOrganizationsByIdeaOrganizationEndorsementsGetRequest
  */
 export interface IdeaVotesApiIdeaOrganizationsByIdeaOrganizationEndorsementsGetRequest {
     /**
      * IdeaOrganizationId identifier
-     * @type {string}
-     * @memberof IdeaVotesApiIdeaOrganizationsByIdeaOrganizationEndorsementsGet
      */
     readonly ideaOrganizationId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaVotesApiIdeaOrganizationsByIdeaOrganizationEndorsementsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaVotesApiIdeaOrganizationsByIdeaOrganizationEndorsementsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for ideasByIdeaEndorsementsByIdDelete operation in IdeaVotesApi.
- * @export
- * @interface IdeaVotesApiIdeasByIdeaEndorsementsByIdDeleteRequest
  */
 export interface IdeaVotesApiIdeasByIdeaEndorsementsByIdDeleteRequest {
     /**
      * IdeaId identifier
-     * @type {string}
-     * @memberof IdeaVotesApiIdeasByIdeaEndorsementsByIdDelete
      */
     readonly ideaId: string
 
     /**
      * Id identifier
-     * @type {string}
-     * @memberof IdeaVotesApiIdeasByIdeaEndorsementsByIdDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for ideasByIdeaEndorsementsByIdGet operation in IdeaVotesApi.
- * @export
- * @interface IdeaVotesApiIdeasByIdeaEndorsementsByIdGetRequest
  */
 export interface IdeaVotesApiIdeasByIdeaEndorsementsByIdGetRequest {
     /**
      * IdeaId identifier
-     * @type {string}
-     * @memberof IdeaVotesApiIdeasByIdeaEndorsementsByIdGet
      */
     readonly ideaId: string
 
     /**
      * Id identifier
-     * @type {string}
-     * @memberof IdeaVotesApiIdeasByIdeaEndorsementsByIdGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for ideasByIdeaEndorsementsByIdPut operation in IdeaVotesApi.
- * @export
- * @interface IdeaVotesApiIdeasByIdeaEndorsementsByIdPutRequest
  */
 export interface IdeaVotesApiIdeasByIdeaEndorsementsByIdPutRequest {
     /**
      * IdeaId identifier
-     * @type {string}
-     * @memberof IdeaVotesApiIdeasByIdeaEndorsementsByIdPut
      */
     readonly ideaId: string
 
     /**
      * Id identifier
-     * @type {string}
-     * @memberof IdeaVotesApiIdeasByIdeaEndorsementsByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {IdeavotesPostRequest}
-     * @memberof IdeaVotesApiIdeasByIdeaEndorsementsByIdPut
-     */
     readonly ideavotesPostRequest: IdeavotesPostRequest
 }
 
 /**
  * Request parameters for ideasByIdeaEndorsementsGet operation in IdeaVotesApi.
- * @export
- * @interface IdeaVotesApiIdeasByIdeaEndorsementsGetRequest
  */
 export interface IdeaVotesApiIdeasByIdeaEndorsementsGetRequest {
     /**
      * IdeaId identifier
-     * @type {string}
-     * @memberof IdeaVotesApiIdeasByIdeaEndorsementsGet
      */
     readonly ideaId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaVotesApiIdeasByIdeaEndorsementsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaVotesApiIdeasByIdeaEndorsementsGet
-     */
     readonly perPage?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaVotesApiIdeasByIdeaEndorsementsGet
-     */
     readonly fields?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaVotesApiIdeasByIdeaEndorsementsGet
-     */
     readonly proxy?: string
 }
 
 /**
  * Request parameters for ideasByIdeaEndorsementsPost operation in IdeaVotesApi.
- * @export
- * @interface IdeaVotesApiIdeasByIdeaEndorsementsPostRequest
  */
 export interface IdeaVotesApiIdeasByIdeaEndorsementsPostRequest {
     /**
      * IdeaId identifier
-     * @type {string}
-     * @memberof IdeaVotesApiIdeasByIdeaEndorsementsPost
      */
     readonly ideaId: string
 
-    /**
-     * 
-     * @type {IdeavotesPostRequest}
-     * @memberof IdeaVotesApiIdeasByIdeaEndorsementsPost
-     */
     readonly ideavotesPostRequest: IdeavotesPostRequest
 }
 
 /**
  * Request parameters for ideasEndorsementsGet operation in IdeaVotesApi.
- * @export
- * @interface IdeaVotesApiIdeasEndorsementsGetRequest
  */
 export interface IdeaVotesApiIdeasEndorsementsGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaVotesApiIdeasEndorsementsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaVotesApiIdeasEndorsementsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * IdeaVotesApi - object-oriented interface
- * @export
- * @class IdeaVotesApi
- * @extends {BaseAPI}
  */
 export class IdeaVotesApi extends BaseAPI implements IdeaVotesApiInterface {
     /**
@@ -872,7 +772,6 @@ export class IdeaVotesApi extends BaseAPI implements IdeaVotesApiInterface {
      * @param {IdeaVotesApiIdeaOrganizationsByIdeaOrganizationEndorsementsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaVotesApi
      */
     public ideaOrganizationsByIdeaOrganizationEndorsementsGet(requestParameters: IdeaVotesApiIdeaOrganizationsByIdeaOrganizationEndorsementsGetRequest, options?: RawAxiosRequestConfig) {
         return IdeaVotesApiFp(this.configuration).ideaOrganizationsByIdeaOrganizationEndorsementsGet(requestParameters.ideaOrganizationId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -884,7 +783,6 @@ export class IdeaVotesApi extends BaseAPI implements IdeaVotesApiInterface {
      * @param {IdeaVotesApiIdeasByIdeaEndorsementsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaVotesApi
      */
     public ideasByIdeaEndorsementsByIdDelete(requestParameters: IdeaVotesApiIdeasByIdeaEndorsementsByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return IdeaVotesApiFp(this.configuration).ideasByIdeaEndorsementsByIdDelete(requestParameters.ideaId, requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -896,7 +794,6 @@ export class IdeaVotesApi extends BaseAPI implements IdeaVotesApiInterface {
      * @param {IdeaVotesApiIdeasByIdeaEndorsementsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaVotesApi
      */
     public ideasByIdeaEndorsementsByIdGet(requestParameters: IdeaVotesApiIdeasByIdeaEndorsementsByIdGetRequest, options?: RawAxiosRequestConfig) {
         return IdeaVotesApiFp(this.configuration).ideasByIdeaEndorsementsByIdGet(requestParameters.ideaId, requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -908,7 +805,6 @@ export class IdeaVotesApi extends BaseAPI implements IdeaVotesApiInterface {
      * @param {IdeaVotesApiIdeasByIdeaEndorsementsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaVotesApi
      */
     public ideasByIdeaEndorsementsByIdPut(requestParameters: IdeaVotesApiIdeasByIdeaEndorsementsByIdPutRequest, options?: RawAxiosRequestConfig) {
         return IdeaVotesApiFp(this.configuration).ideasByIdeaEndorsementsByIdPut(requestParameters.ideaId, requestParameters.id, requestParameters.ideavotesPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -920,7 +816,6 @@ export class IdeaVotesApi extends BaseAPI implements IdeaVotesApiInterface {
      * @param {IdeaVotesApiIdeasByIdeaEndorsementsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaVotesApi
      */
     public ideasByIdeaEndorsementsGet(requestParameters: IdeaVotesApiIdeasByIdeaEndorsementsGetRequest, options?: RawAxiosRequestConfig) {
         return IdeaVotesApiFp(this.configuration).ideasByIdeaEndorsementsGet(requestParameters.ideaId, requestParameters.page, requestParameters.perPage, requestParameters.fields, requestParameters.proxy, options).then((request) => request(this.axios, this.basePath));
@@ -932,7 +827,6 @@ export class IdeaVotesApi extends BaseAPI implements IdeaVotesApiInterface {
      * @param {IdeaVotesApiIdeasByIdeaEndorsementsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaVotesApi
      */
     public ideasByIdeaEndorsementsPost(requestParameters: IdeaVotesApiIdeasByIdeaEndorsementsPostRequest, options?: RawAxiosRequestConfig) {
         return IdeaVotesApiFp(this.configuration).ideasByIdeaEndorsementsPost(requestParameters.ideaId, requestParameters.ideavotesPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -944,7 +838,6 @@ export class IdeaVotesApi extends BaseAPI implements IdeaVotesApiInterface {
      * @param {IdeaVotesApiIdeasEndorsementsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaVotesApi
      */
     public ideasEndorsementsGet(requestParameters: IdeaVotesApiIdeasEndorsementsGetRequest = {}, options?: RawAxiosRequestConfig) {
         return IdeaVotesApiFp(this.configuration).ideasEndorsementsGet(requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));

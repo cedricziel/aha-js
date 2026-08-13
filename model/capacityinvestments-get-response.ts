@@ -20,23 +20,8 @@ import type { AssistantusageGetResponsePagination } from './assistantusage-get-r
 // @ts-ignore
 import type { CapacityinvestmentsGetResponseCapacityInvestmentsInner } from './capacityinvestments-get-response-capacity-investments-inner';
 
-/**
- * 
- * @export
- * @interface CapacityinvestmentsGetResponse
- */
 export interface CapacityinvestmentsGetResponse {
-    /**
-     * 
-     * @type {Array<CapacityinvestmentsGetResponseCapacityInvestmentsInner>}
-     * @memberof CapacityinvestmentsGetResponse
-     */
     'capacity_investments'?: Array<CapacityinvestmentsGetResponseCapacityInvestmentsInner>;
-    /**
-     * 
-     * @type {AssistantusageGetResponsePagination}
-     * @memberof CapacityinvestmentsGetResponse
-     */
     'pagination'?: AssistantusageGetResponsePagination;
 }
 

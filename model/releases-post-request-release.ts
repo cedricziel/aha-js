@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface ReleasesPostRequestRelease
- */
 export interface ReleasesPostRequestRelease {
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof ReleasesPostRequestRelease
-     */
     'initiatives'?: Array<any>;
-    /**
-     * 
-     * @type {number}
-     * @memberof ReleasesPostRequestRelease
-     */
     'parent_id'?: number;
 }
 

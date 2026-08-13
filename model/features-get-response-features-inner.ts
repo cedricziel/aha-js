@@ -14,53 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface FeaturesGetResponseFeaturesInner
- */
 export interface FeaturesGetResponseFeaturesInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesGetResponseFeaturesInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesGetResponseFeaturesInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesGetResponseFeaturesInner
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesGetResponseFeaturesInner
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesGetResponseFeaturesInner
-     */
     'product_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesGetResponseFeaturesInner
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesGetResponseFeaturesInner
-     */
     'resource'?: string;
 }
 

@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface CompetitorsPutResponseCompetitorCustomFieldsInner
- */
 export interface CompetitorsPutResponseCompetitorCustomFieldsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof CompetitorsPutResponseCompetitorCustomFieldsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CompetitorsPutResponseCompetitorCustomFieldsInner
-     */
     'key'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CompetitorsPutResponseCompetitorCustomFieldsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CompetitorsPutResponseCompetitorCustomFieldsInner
-     */
     'updatedAt'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CompetitorsPutResponseCompetitorCustomFieldsInner
-     */
     'type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CompetitorsPutResponseCompetitorCustomFieldsInner
-     */
     'value'?: string;
 }
 

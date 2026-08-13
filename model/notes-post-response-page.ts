@@ -19,174 +19,37 @@ import type { NotesPostResponsePageDescription } from './notes-post-response-pag
 // May contain unused imports in some cases
 // @ts-ignore
 import type { NotesPostResponsePageWorkflowStatus } from './notes-post-response-page-workflow-status';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface NotesPostResponsePage
- */
 export interface NotesPostResponsePage {
-    /**
-     * 
-     * @type {string}
-     * @memberof NotesPostResponsePage
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof NotesPostResponsePage
-     */
-    'name'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof NotesPostResponsePage
-     */
+    'name'?: Null;
     'title'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof NotesPostResponsePage
-     */
     'document_title'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof NotesPostResponsePage
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof NotesPostResponsePage
-     */
-    'parent_id'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof NotesPostResponsePage
-     */
+    'parent_id'?: Null;
     'updated_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof NotesPostResponsePage
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof NotesPostResponsePage
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof NotesPostResponsePage
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof NotesPostResponsePage
-     */
-    'emoji_value'?: any | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof NotesPostResponsePage
-     */
+    'emoji_value'?: Null;
     'document_type'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof NotesPostResponsePage
-     */
     'document_type_name'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof NotesPostResponsePage
-     */
-    'editor_width'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof NotesPostResponsePage
-     */
+    'editor_width'?: Null;
     'type_name'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof NotesPostResponsePage
-     */
-    'position'?: any | null;
-    /**
-     * 
-     * @type {any}
-     * @memberof NotesPostResponsePage
-     */
-    'location'?: any | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof NotesPostResponsePage
-     */
+    'position'?: Null;
+    'location'?: Null;
     'edit_locked'?: boolean;
-    /**
-     * 
-     * @type {number}
-     * @memberof NotesPostResponsePage
-     */
     'linked_record_id'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof NotesPostResponsePage
-     */
     'linked_record_type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof NotesPostResponsePage
-     */
     'product_id'?: string;
-    /**
-     * 
-     * @type {NotesPostResponsePageDescription}
-     * @memberof NotesPostResponsePage
-     */
     'description'?: NotesPostResponsePageDescription;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof NotesPostResponsePage
-     */
     'tags'?: Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof NotesPostResponsePage
-     */
     'full_tags'?: Array<any>;
-    /**
-     * 
-     * @type {number}
-     * @memberof NotesPostResponsePage
-     */
     'comments_count'?: number;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof NotesPostResponsePage
-     */
     'custom_fields'?: Array<any>;
-    /**
-     * 
-     * @type {NotesPostResponsePageWorkflowStatus}
-     * @memberof NotesPostResponsePage
-     */
     'workflow_status'?: NotesPostResponsePageWorkflowStatus;
 }
 

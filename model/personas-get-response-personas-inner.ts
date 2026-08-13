@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface PersonasGetResponsePersonasInner
- */
 export interface PersonasGetResponsePersonasInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof PersonasGetResponsePersonasInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PersonasGetResponsePersonasInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PersonasGetResponsePersonasInner
-     */
     'created_at'?: string;
 }
 

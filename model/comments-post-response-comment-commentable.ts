@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface CommentsPostResponseCommentCommentable
- */
 export interface CommentsPostResponseCommentCommentable {
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsPostResponseCommentCommentable
-     */
     'type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsPostResponseCommentCommentable
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsPostResponseCommentCommentable
-     */
     'product_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsPostResponseCommentCommentable
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsPostResponseCommentCommentable
-     */
     'resource'?: string;
 }
 

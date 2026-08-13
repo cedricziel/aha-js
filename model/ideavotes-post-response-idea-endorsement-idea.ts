@@ -16,66 +16,19 @@
 // May contain unused imports in some cases
 // @ts-ignore
 import type { IdeacommentsPostResponseIdeaCommentIdeaWorkflowStatus } from './ideacomments-post-response-idea-comment-idea-workflow-status';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface IdeavotesPostResponseIdeaEndorsementIdea
- */
 export interface IdeavotesPostResponseIdeaEndorsementIdea {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPostResponseIdeaEndorsementIdea
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPostResponseIdeaEndorsementIdea
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPostResponseIdeaEndorsementIdea
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPostResponseIdeaEndorsementIdea
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPostResponseIdeaEndorsementIdea
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {IdeacommentsPostResponseIdeaCommentIdeaWorkflowStatus}
-     * @memberof IdeavotesPostResponseIdeaEndorsementIdea
-     */
     'workflow_status'?: IdeacommentsPostResponseIdeaCommentIdeaWorkflowStatus;
-    /**
-     * 
-     * @type {any}
-     * @memberof IdeavotesPostResponseIdeaEndorsementIdea
-     */
-    'description'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPostResponseIdeaEndorsementIdea
-     */
+    'description'?: Null;
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPostResponseIdeaEndorsementIdea
-     */
     'resource'?: string;
 }
 

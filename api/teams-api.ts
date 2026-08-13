@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { TeamsPostResponse } from '../model';
 import type { TeamsPutResponse } from '../model';
 /**
  * TeamsApi - axios parameter creator
- * @export
  */
 export const TeamsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -48,7 +47,7 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'productId' is not null or undefined
             assertParamExists('productsByProductTeamsGet', 'productId', productId)
             const localVarPath = `/products/{product_id}/teams`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -78,8 +77,8 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -103,7 +102,7 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'teamsPostRequest' is not null or undefined
             assertParamExists('productsByProductTeamsPost', 'teamsPostRequest', teamsPostRequest)
             const localVarPath = `/products/{product_id}/teams`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -125,9 +124,8 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -153,7 +151,7 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'teamsPostRequest' is not null or undefined
             assertParamExists('teamsByIdDelete', 'teamsPostRequest', teamsPostRequest)
             const localVarPath = `/teams/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -175,8 +173,6 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -200,7 +196,7 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('teamsByIdGet', 'id', id)
             const localVarPath = `/teams/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -222,8 +218,8 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -247,7 +243,7 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'teamsPostRequest' is not null or undefined
             assertParamExists('teamsByIdPut', 'teamsPostRequest', teamsPostRequest)
             const localVarPath = `/teams/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -269,9 +265,8 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -327,8 +322,8 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['fields'] = fields;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -370,9 +365,8 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -389,7 +383,6 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
 
 /**
  * TeamsApi - functional programming interface
- * @export
  */
 export const TeamsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = TeamsApiAxiosParamCreator(configuration)
@@ -497,7 +490,6 @@ export const TeamsApiFp = function(configuration?: Configuration) {
 
 /**
  * TeamsApi - factory interface
- * @export
  */
 export const TeamsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = TeamsApiFp(configuration)
@@ -577,8 +569,6 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
 
 /**
  * TeamsApi - interface
- * @export
- * @interface TeamsApi
  */
 export interface TeamsApiInterface {
     /**
@@ -587,7 +577,6 @@ export interface TeamsApiInterface {
      * @param {TeamsApiProductsByProductTeamsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TeamsApiInterface
      */
     productsByProductTeamsGet(requestParameters: TeamsApiProductsByProductTeamsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<TeamsGetResponse>;
 
@@ -597,7 +586,6 @@ export interface TeamsApiInterface {
      * @param {TeamsApiProductsByProductTeamsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TeamsApiInterface
      */
     productsByProductTeamsPost(requestParameters: TeamsApiProductsByProductTeamsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<TeamsPostResponse>;
 
@@ -607,7 +595,6 @@ export interface TeamsApiInterface {
      * @param {TeamsApiTeamsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TeamsApiInterface
      */
     teamsByIdDelete(requestParameters: TeamsApiTeamsByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -617,7 +604,6 @@ export interface TeamsApiInterface {
      * @param {TeamsApiTeamsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TeamsApiInterface
      */
     teamsByIdGet(requestParameters: TeamsApiTeamsByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<TeamsGetResponse>;
 
@@ -627,7 +613,6 @@ export interface TeamsApiInterface {
      * @param {TeamsApiTeamsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TeamsApiInterface
      */
     teamsByIdPut(requestParameters: TeamsApiTeamsByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<TeamsPutResponse>;
 
@@ -637,7 +622,6 @@ export interface TeamsApiInterface {
      * @param {TeamsApiTeamsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TeamsApiInterface
      */
     teamsGet(requestParameters?: TeamsApiTeamsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<TeamsGetResponse>;
 
@@ -647,7 +631,6 @@ export interface TeamsApiInterface {
      * @param {TeamsApiTeamsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TeamsApiInterface
      */
     teamsPost(requestParameters: TeamsApiTeamsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<TeamsPostResponse>;
 
@@ -655,156 +638,84 @@ export interface TeamsApiInterface {
 
 /**
  * Request parameters for productsByProductTeamsGet operation in TeamsApi.
- * @export
- * @interface TeamsApiProductsByProductTeamsGetRequest
  */
 export interface TeamsApiProductsByProductTeamsGetRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof TeamsApiProductsByProductTeamsGet
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof TeamsApiProductsByProductTeamsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof TeamsApiProductsByProductTeamsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for productsByProductTeamsPost operation in TeamsApi.
- * @export
- * @interface TeamsApiProductsByProductTeamsPostRequest
  */
 export interface TeamsApiProductsByProductTeamsPostRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof TeamsApiProductsByProductTeamsPost
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {TeamsPostRequest}
-     * @memberof TeamsApiProductsByProductTeamsPost
-     */
     readonly teamsPostRequest: TeamsPostRequest
 }
 
 /**
  * Request parameters for teamsByIdDelete operation in TeamsApi.
- * @export
- * @interface TeamsApiTeamsByIdDeleteRequest
  */
 export interface TeamsApiTeamsByIdDeleteRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof TeamsApiTeamsByIdDelete
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {TeamsPostRequest}
-     * @memberof TeamsApiTeamsByIdDelete
-     */
     readonly teamsPostRequest: TeamsPostRequest
 }
 
 /**
  * Request parameters for teamsByIdGet operation in TeamsApi.
- * @export
- * @interface TeamsApiTeamsByIdGetRequest
  */
 export interface TeamsApiTeamsByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof TeamsApiTeamsByIdGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for teamsByIdPut operation in TeamsApi.
- * @export
- * @interface TeamsApiTeamsByIdPutRequest
  */
 export interface TeamsApiTeamsByIdPutRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof TeamsApiTeamsByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {TeamsPostRequest}
-     * @memberof TeamsApiTeamsByIdPut
-     */
     readonly teamsPostRequest: TeamsPostRequest
 }
 
 /**
  * Request parameters for teamsGet operation in TeamsApi.
- * @export
- * @interface TeamsApiTeamsGetRequest
  */
 export interface TeamsApiTeamsGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof TeamsApiTeamsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof TeamsApiTeamsGet
-     */
     readonly perPage?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof TeamsApiTeamsGet
-     */
     readonly fields?: string
 }
 
 /**
  * Request parameters for teamsPost operation in TeamsApi.
- * @export
- * @interface TeamsApiTeamsPostRequest
  */
 export interface TeamsApiTeamsPostRequest {
-    /**
-     * 
-     * @type {TeamsPostRequest}
-     * @memberof TeamsApiTeamsPost
-     */
     readonly teamsPostRequest: TeamsPostRequest
 }
 
 /**
  * TeamsApi - object-oriented interface
- * @export
- * @class TeamsApi
- * @extends {BaseAPI}
  */
 export class TeamsApi extends BaseAPI implements TeamsApiInterface {
     /**
@@ -813,7 +724,6 @@ export class TeamsApi extends BaseAPI implements TeamsApiInterface {
      * @param {TeamsApiProductsByProductTeamsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TeamsApi
      */
     public productsByProductTeamsGet(requestParameters: TeamsApiProductsByProductTeamsGetRequest, options?: RawAxiosRequestConfig) {
         return TeamsApiFp(this.configuration).productsByProductTeamsGet(requestParameters.productId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -825,7 +735,6 @@ export class TeamsApi extends BaseAPI implements TeamsApiInterface {
      * @param {TeamsApiProductsByProductTeamsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TeamsApi
      */
     public productsByProductTeamsPost(requestParameters: TeamsApiProductsByProductTeamsPostRequest, options?: RawAxiosRequestConfig) {
         return TeamsApiFp(this.configuration).productsByProductTeamsPost(requestParameters.productId, requestParameters.teamsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -837,7 +746,6 @@ export class TeamsApi extends BaseAPI implements TeamsApiInterface {
      * @param {TeamsApiTeamsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TeamsApi
      */
     public teamsByIdDelete(requestParameters: TeamsApiTeamsByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return TeamsApiFp(this.configuration).teamsByIdDelete(requestParameters.id, requestParameters.teamsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -849,7 +757,6 @@ export class TeamsApi extends BaseAPI implements TeamsApiInterface {
      * @param {TeamsApiTeamsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TeamsApi
      */
     public teamsByIdGet(requestParameters: TeamsApiTeamsByIdGetRequest, options?: RawAxiosRequestConfig) {
         return TeamsApiFp(this.configuration).teamsByIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -861,7 +768,6 @@ export class TeamsApi extends BaseAPI implements TeamsApiInterface {
      * @param {TeamsApiTeamsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TeamsApi
      */
     public teamsByIdPut(requestParameters: TeamsApiTeamsByIdPutRequest, options?: RawAxiosRequestConfig) {
         return TeamsApiFp(this.configuration).teamsByIdPut(requestParameters.id, requestParameters.teamsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -873,7 +779,6 @@ export class TeamsApi extends BaseAPI implements TeamsApiInterface {
      * @param {TeamsApiTeamsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TeamsApi
      */
     public teamsGet(requestParameters: TeamsApiTeamsGetRequest = {}, options?: RawAxiosRequestConfig) {
         return TeamsApiFp(this.configuration).teamsGet(requestParameters.page, requestParameters.perPage, requestParameters.fields, options).then((request) => request(this.axios, this.basePath));
@@ -885,7 +790,6 @@ export class TeamsApi extends BaseAPI implements TeamsApiInterface {
      * @param {TeamsApiTeamsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TeamsApi
      */
     public teamsPost(requestParameters: TeamsApiTeamsPostRequest, options?: RawAxiosRequestConfig) {
         return TeamsApiFp(this.configuration).teamsPost(requestParameters.teamsPostRequest, options).then((request) => request(this.axios, this.basePath));

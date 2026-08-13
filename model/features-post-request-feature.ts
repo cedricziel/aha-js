@@ -20,41 +20,11 @@ import type { FeaturesPostRequestFeatureAssignedToUser } from './features-post-r
 // @ts-ignore
 import type { FeaturesPostRequestFeatureWorkflowStatus } from './features-post-request-feature-workflow-status';
 
-/**
- * 
- * @export
- * @interface FeaturesPostRequestFeature
- */
 export interface FeaturesPostRequestFeature {
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPostRequestFeature
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPostRequestFeature
-     */
     'workflow_kind'?: string;
-    /**
-     * 
-     * @type {FeaturesPostRequestFeatureWorkflowStatus}
-     * @memberof FeaturesPostRequestFeature
-     */
     'workflow_status'?: FeaturesPostRequestFeatureWorkflowStatus;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPostRequestFeature
-     */
     'description'?: string;
-    /**
-     * 
-     * @type {FeaturesPostRequestFeatureAssignedToUser}
-     * @memberof FeaturesPostRequestFeature
-     */
     'assigned_to_user'?: FeaturesPostRequestFeatureAssignedToUser;
 }
 

@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface TeammembershipsPostRequestTeamMembership
- */
 export interface TeammembershipsPostRequestTeamMembership {
-    /**
-     * 
-     * @type {number}
-     * @memberof TeammembershipsPostRequestTeamMembership
-     */
     'user_id'?: number;
 }
 

@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -29,7 +29,6 @@ import type { IdeasubscriptionsPostRequest } from '../model';
 import type { IdeasubscriptionsPostResponse } from '../model';
 /**
  * IdeaSubscriptionsApi - axios parameter creator
- * @export
  */
 export const IdeaSubscriptionsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -47,8 +46,8 @@ export const IdeaSubscriptionsApiAxiosParamCreator = function (configuration?: C
             // verify required parameter 'id' is not null or undefined
             assertParamExists('ideasByIdeaSubscriptionsByIdDelete', 'id', id)
             const localVarPath = `/ideas/{idea_id}/subscriptions/{id}`
-                .replace(`{${"idea_id"}}`, encodeURIComponent(String(ideaId)))
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{idea_id}', encodeURIComponent(String(ideaId)))
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -71,7 +70,6 @@ export const IdeaSubscriptionsApiAxiosParamCreator = function (configuration?: C
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -96,8 +94,8 @@ export const IdeaSubscriptionsApiAxiosParamCreator = function (configuration?: C
             // verify required parameter 'id' is not null or undefined
             assertParamExists('ideasByIdeaSubscriptionsByIdGet', 'id', id)
             const localVarPath = `/ideas/{idea_id}/subscriptions/{id}`
-                .replace(`{${"idea_id"}}`, encodeURIComponent(String(ideaId)))
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{idea_id}', encodeURIComponent(String(ideaId)))
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -123,8 +121,8 @@ export const IdeaSubscriptionsApiAxiosParamCreator = function (configuration?: C
                 localVarQueryParameter['fields'] = fields;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -148,7 +146,7 @@ export const IdeaSubscriptionsApiAxiosParamCreator = function (configuration?: C
             // verify required parameter 'ideaId' is not null or undefined
             assertParamExists('ideasByIdeaSubscriptionsGet', 'ideaId', ideaId)
             const localVarPath = `/ideas/{idea_id}/subscriptions`
-                .replace(`{${"idea_id"}}`, encodeURIComponent(String(ideaId)));
+                .replace('{idea_id}', encodeURIComponent(String(ideaId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -182,8 +180,8 @@ export const IdeaSubscriptionsApiAxiosParamCreator = function (configuration?: C
                 localVarQueryParameter['fields'] = fields;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -207,7 +205,7 @@ export const IdeaSubscriptionsApiAxiosParamCreator = function (configuration?: C
             // verify required parameter 'ideasubscriptionsPostRequest' is not null or undefined
             assertParamExists('ideasByIdeaSubscriptionsPost', 'ideasubscriptionsPostRequest', ideasubscriptionsPostRequest)
             const localVarPath = `/ideas/{idea_id}/subscriptions`
-                .replace(`{${"idea_id"}}`, encodeURIComponent(String(ideaId)));
+                .replace('{idea_id}', encodeURIComponent(String(ideaId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -229,9 +227,8 @@ export const IdeaSubscriptionsApiAxiosParamCreator = function (configuration?: C
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -248,7 +245,6 @@ export const IdeaSubscriptionsApiAxiosParamCreator = function (configuration?: C
 
 /**
  * IdeaSubscriptionsApi - functional programming interface
- * @export
  */
 export const IdeaSubscriptionsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = IdeaSubscriptionsApiAxiosParamCreator(configuration)
@@ -317,7 +313,6 @@ export const IdeaSubscriptionsApiFp = function(configuration?: Configuration) {
 
 /**
  * IdeaSubscriptionsApi - factory interface
- * @export
  */
 export const IdeaSubscriptionsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = IdeaSubscriptionsApiFp(configuration)
@@ -367,8 +362,6 @@ export const IdeaSubscriptionsApiFactory = function (configuration?: Configurati
 
 /**
  * IdeaSubscriptionsApi - interface
- * @export
- * @interface IdeaSubscriptionsApi
  */
 export interface IdeaSubscriptionsApiInterface {
     /**
@@ -377,7 +370,6 @@ export interface IdeaSubscriptionsApiInterface {
      * @param {IdeaSubscriptionsApiIdeasByIdeaSubscriptionsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaSubscriptionsApiInterface
      */
     ideasByIdeaSubscriptionsByIdDelete(requestParameters: IdeaSubscriptionsApiIdeasByIdeaSubscriptionsByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -387,7 +379,6 @@ export interface IdeaSubscriptionsApiInterface {
      * @param {IdeaSubscriptionsApiIdeasByIdeaSubscriptionsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaSubscriptionsApiInterface
      */
     ideasByIdeaSubscriptionsByIdGet(requestParameters: IdeaSubscriptionsApiIdeasByIdeaSubscriptionsByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasubscriptionsGetResponse>;
 
@@ -397,7 +388,6 @@ export interface IdeaSubscriptionsApiInterface {
      * @param {IdeaSubscriptionsApiIdeasByIdeaSubscriptionsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaSubscriptionsApiInterface
      */
     ideasByIdeaSubscriptionsGet(requestParameters: IdeaSubscriptionsApiIdeasByIdeaSubscriptionsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasubscriptionsGetResponse>;
 
@@ -407,7 +397,6 @@ export interface IdeaSubscriptionsApiInterface {
      * @param {IdeaSubscriptionsApiIdeasByIdeaSubscriptionsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaSubscriptionsApiInterface
      */
     ideasByIdeaSubscriptionsPost(requestParameters: IdeaSubscriptionsApiIdeasByIdeaSubscriptionsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasubscriptionsPostResponse>;
 
@@ -415,114 +404,66 @@ export interface IdeaSubscriptionsApiInterface {
 
 /**
  * Request parameters for ideasByIdeaSubscriptionsByIdDelete operation in IdeaSubscriptionsApi.
- * @export
- * @interface IdeaSubscriptionsApiIdeasByIdeaSubscriptionsByIdDeleteRequest
  */
 export interface IdeaSubscriptionsApiIdeasByIdeaSubscriptionsByIdDeleteRequest {
     /**
      * IdeaId identifier
-     * @type {string}
-     * @memberof IdeaSubscriptionsApiIdeasByIdeaSubscriptionsByIdDelete
      */
     readonly ideaId: string
 
     /**
      * Id identifier
-     * @type {string}
-     * @memberof IdeaSubscriptionsApiIdeasByIdeaSubscriptionsByIdDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for ideasByIdeaSubscriptionsByIdGet operation in IdeaSubscriptionsApi.
- * @export
- * @interface IdeaSubscriptionsApiIdeasByIdeaSubscriptionsByIdGetRequest
  */
 export interface IdeaSubscriptionsApiIdeasByIdeaSubscriptionsByIdGetRequest {
     /**
      * IdeaId identifier
-     * @type {string}
-     * @memberof IdeaSubscriptionsApiIdeasByIdeaSubscriptionsByIdGet
      */
     readonly ideaId: string
 
     /**
      * Id identifier
-     * @type {string}
-     * @memberof IdeaSubscriptionsApiIdeasByIdeaSubscriptionsByIdGet
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaSubscriptionsApiIdeasByIdeaSubscriptionsByIdGet
-     */
     readonly fields?: string
 }
 
 /**
  * Request parameters for ideasByIdeaSubscriptionsGet operation in IdeaSubscriptionsApi.
- * @export
- * @interface IdeaSubscriptionsApiIdeasByIdeaSubscriptionsGetRequest
  */
 export interface IdeaSubscriptionsApiIdeasByIdeaSubscriptionsGetRequest {
     /**
      * IdeaId identifier
-     * @type {string}
-     * @memberof IdeaSubscriptionsApiIdeasByIdeaSubscriptionsGet
      */
     readonly ideaId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaSubscriptionsApiIdeasByIdeaSubscriptionsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaSubscriptionsApiIdeasByIdeaSubscriptionsGet
-     */
     readonly perPage?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaSubscriptionsApiIdeasByIdeaSubscriptionsGet
-     */
     readonly fields?: string
 }
 
 /**
  * Request parameters for ideasByIdeaSubscriptionsPost operation in IdeaSubscriptionsApi.
- * @export
- * @interface IdeaSubscriptionsApiIdeasByIdeaSubscriptionsPostRequest
  */
 export interface IdeaSubscriptionsApiIdeasByIdeaSubscriptionsPostRequest {
     /**
      * IdeaId identifier
-     * @type {string}
-     * @memberof IdeaSubscriptionsApiIdeasByIdeaSubscriptionsPost
      */
     readonly ideaId: string
 
-    /**
-     * 
-     * @type {IdeasubscriptionsPostRequest}
-     * @memberof IdeaSubscriptionsApiIdeasByIdeaSubscriptionsPost
-     */
     readonly ideasubscriptionsPostRequest: IdeasubscriptionsPostRequest
 }
 
 /**
  * IdeaSubscriptionsApi - object-oriented interface
- * @export
- * @class IdeaSubscriptionsApi
- * @extends {BaseAPI}
  */
 export class IdeaSubscriptionsApi extends BaseAPI implements IdeaSubscriptionsApiInterface {
     /**
@@ -531,7 +472,6 @@ export class IdeaSubscriptionsApi extends BaseAPI implements IdeaSubscriptionsAp
      * @param {IdeaSubscriptionsApiIdeasByIdeaSubscriptionsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaSubscriptionsApi
      */
     public ideasByIdeaSubscriptionsByIdDelete(requestParameters: IdeaSubscriptionsApiIdeasByIdeaSubscriptionsByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return IdeaSubscriptionsApiFp(this.configuration).ideasByIdeaSubscriptionsByIdDelete(requestParameters.ideaId, requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -543,7 +483,6 @@ export class IdeaSubscriptionsApi extends BaseAPI implements IdeaSubscriptionsAp
      * @param {IdeaSubscriptionsApiIdeasByIdeaSubscriptionsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaSubscriptionsApi
      */
     public ideasByIdeaSubscriptionsByIdGet(requestParameters: IdeaSubscriptionsApiIdeasByIdeaSubscriptionsByIdGetRequest, options?: RawAxiosRequestConfig) {
         return IdeaSubscriptionsApiFp(this.configuration).ideasByIdeaSubscriptionsByIdGet(requestParameters.ideaId, requestParameters.id, requestParameters.fields, options).then((request) => request(this.axios, this.basePath));
@@ -555,7 +494,6 @@ export class IdeaSubscriptionsApi extends BaseAPI implements IdeaSubscriptionsAp
      * @param {IdeaSubscriptionsApiIdeasByIdeaSubscriptionsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaSubscriptionsApi
      */
     public ideasByIdeaSubscriptionsGet(requestParameters: IdeaSubscriptionsApiIdeasByIdeaSubscriptionsGetRequest, options?: RawAxiosRequestConfig) {
         return IdeaSubscriptionsApiFp(this.configuration).ideasByIdeaSubscriptionsGet(requestParameters.ideaId, requestParameters.page, requestParameters.perPage, requestParameters.fields, options).then((request) => request(this.axios, this.basePath));
@@ -567,7 +505,6 @@ export class IdeaSubscriptionsApi extends BaseAPI implements IdeaSubscriptionsAp
      * @param {IdeaSubscriptionsApiIdeasByIdeaSubscriptionsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaSubscriptionsApi
      */
     public ideasByIdeaSubscriptionsPost(requestParameters: IdeaSubscriptionsApiIdeasByIdeaSubscriptionsPostRequest, options?: RawAxiosRequestConfig) {
         return IdeaSubscriptionsApiFp(this.configuration).ideasByIdeaSubscriptionsPost(requestParameters.ideaId, requestParameters.ideasubscriptionsPostRequest, options).then((request) => request(this.axios, this.basePath));

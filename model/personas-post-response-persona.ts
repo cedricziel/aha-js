@@ -13,84 +13,22 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface PersonasPostResponsePersona
- */
 export interface PersonasPostResponsePersona {
-    /**
-     * 
-     * @type {string}
-     * @memberof PersonasPostResponsePersona
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PersonasPostResponsePersona
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PersonasPostResponsePersona
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PersonasPostResponsePersona
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof PersonasPostResponsePersona
-     */
     'color'?: number;
-    /**
-     * 
-     * @type {any}
-     * @memberof PersonasPostResponsePersona
-     */
-    'occupation'?: any | null;
-    /**
-     * 
-     * @type {any}
-     * @memberof PersonasPostResponsePersona
-     */
-    'quote'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof PersonasPostResponsePersona
-     */
+    'occupation'?: Null;
+    'quote'?: Null;
     'updated_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PersonasPostResponsePersona
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PersonasPostResponsePersona
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof PersonasPostResponsePersona
-     */
     'custom_fields'?: Array<any>;
-    /**
-     * 
-     * @type {number}
-     * @memberof PersonasPostResponsePersona
-     */
     'comments_count'?: number;
 }
 

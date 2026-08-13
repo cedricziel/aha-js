@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { IdeausersPostResponseIdeaUser } from './ideausers-post-response-idea-user';
 
-/**
- * 
- * @export
- * @interface IdeausersPostResponse
- */
 export interface IdeausersPostResponse {
-    /**
-     * 
-     * @type {IdeausersPostResponseIdeaUser}
-     * @memberof IdeausersPostResponse
-     */
     'idea_user'?: IdeausersPostResponseIdeaUser;
 }
 

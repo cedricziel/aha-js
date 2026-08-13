@@ -15,59 +15,22 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { FeaturesPutRequestFeatureAssignedToUser } from './features-put-request-feature-assigned-to-user';
+import type { FeaturesPostRequestFeatureAssignedToUser } from './features-post-request-feature-assigned-to-user';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { FeaturesPutRequestFeatureWorkflowStatus } from './features-put-request-feature-workflow-status';
+import type { FeaturesPostRequestFeatureWorkflowStatus } from './features-post-request-feature-workflow-status';
 
-/**
- * 
- * @export
- * @interface RequirementsPutRequestRequirement
- */
 export interface RequirementsPutRequestRequirement {
     [key: string]: any;
 
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsPutRequestRequirement
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsPutRequestRequirement
-     */
     'start_date'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsPutRequestRequirement
-     */
     'end_date'?: string;
-    /**
-     * 
-     * @type {FeaturesPutRequestFeatureWorkflowStatus}
-     * @memberof RequirementsPutRequestRequirement
-     */
-    'workflow_status'?: FeaturesPutRequestFeatureWorkflowStatus;
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsPutRequestRequirement
-     */
+    'workflow_status'?: FeaturesPostRequestFeatureWorkflowStatus;
     'description'?: string;
-    /**
-     * 
-     * @type {FeaturesPutRequestFeatureAssignedToUser}
-     * @memberof RequirementsPutRequestRequirement
-     */
-    'assigned_to_user'?: FeaturesPutRequestFeatureAssignedToUser;
+    'assigned_to_user'?: FeaturesPostRequestFeatureAssignedToUser;
     /**
      * Custom table records to link, keyed by many-to-many custom field name. Replaces the existing list.
-     * @type {{ [key: string]: Array<string>; }}
-     * @memberof RequirementsPutRequestRequirement
      */
     'custom_object_links'?: { [key: string]: Array<string>; };
 }

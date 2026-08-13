@@ -16,54 +16,17 @@
 // May contain unused imports in some cases
 // @ts-ignore
 import type { IntegrationchangejobsGetResponseIntegrationChangeJobErrorsInner } from './integrationchangejobs-get-response-integration-change-job-errors-inner';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface IntegrationchangejobsGetResponseIntegrationChangeJob
- */
 export interface IntegrationchangejobsGetResponseIntegrationChangeJob {
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationchangejobsGetResponseIntegrationChangeJob
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationchangejobsGetResponseIntegrationChangeJob
-     */
     'status'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof IntegrationchangejobsGetResponseIntegrationChangeJob
-     */
     'percentage_complete'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationchangejobsGetResponseIntegrationChangeJob
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof IntegrationchangejobsGetResponseIntegrationChangeJob
-     */
-    'started_at'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationchangejobsGetResponseIntegrationChangeJob
-     */
+    'started_at'?: Null;
     'completed_at'?: string;
-    /**
-     * 
-     * @type {Array<IntegrationchangejobsGetResponseIntegrationChangeJobErrorsInner>}
-     * @memberof IntegrationchangejobsGetResponseIntegrationChangeJob
-     */
     'errors'?: Array<IntegrationchangejobsGetResponseIntegrationChangeJobErrorsInner>;
 }
 

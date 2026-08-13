@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface TeamsGetResponseTeamTeamMembers
- */
 export interface TeamsGetResponseTeamTeamMembers {
-    /**
-     * 
-     * @type {string}
-     * @memberof TeamsGetResponseTeamTeamMembers
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof TeamsGetResponseTeamTeamMembers
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof TeamsGetResponseTeamTeamMembers
-     */
     'email'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof TeamsGetResponseTeamTeamMembers
-     */
     'user_id'?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof TeamsGetResponseTeamTeamMembers
-     */
     'virtual'?: boolean;
 }
 

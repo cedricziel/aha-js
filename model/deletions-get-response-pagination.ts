@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface DeletionsGetResponsePagination
- */
 export interface DeletionsGetResponsePagination {
-    /**
-     * 
-     * @type {number}
-     * @memberof DeletionsGetResponsePagination
-     */
     'total_records'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof DeletionsGetResponsePagination
-     */
     'total_pages'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof DeletionsGetResponsePagination
-     */
     'current_page'?: string;
 }
 

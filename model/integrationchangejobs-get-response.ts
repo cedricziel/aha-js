@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { IntegrationchangejobsGetResponseIntegrationChangeJob } from './integrationchangejobs-get-response-integration-change-job';
 
-/**
- * 
- * @export
- * @interface IntegrationchangejobsGetResponse
- */
 export interface IntegrationchangejobsGetResponse {
-    /**
-     * 
-     * @type {IntegrationchangejobsGetResponseIntegrationChangeJob}
-     * @memberof IntegrationchangejobsGetResponse
-     */
     'integration_change_job'?: IntegrationchangejobsGetResponseIntegrationChangeJob;
 }
 

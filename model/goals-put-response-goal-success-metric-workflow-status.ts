@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface GoalsPutResponseGoalSuccessMetricWorkflowStatus
- */
 export interface GoalsPutResponseGoalSuccessMetricWorkflowStatus {
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoalSuccessMetricWorkflowStatus
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoalSuccessMetricWorkflowStatus
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoalSuccessMetricWorkflowStatus
-     */
     'position'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoalSuccessMetricWorkflowStatus
-     */
     'complete'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoalSuccessMetricWorkflowStatus
-     */
     'color'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof GoalsPutResponseGoalSuccessMetricWorkflowStatus
-     */
     'workflow_status_category'?: string;
 }
 

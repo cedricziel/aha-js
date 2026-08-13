@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { HistoricalAuditsPostRequestSearch } from './historical-audits-post-request-search';
 
-/**
- * 
- * @export
- * @interface HistoricalAuditsPostRequest
- */
 export interface HistoricalAuditsPostRequest {
-    /**
-     * 
-     * @type {HistoricalAuditsPostRequestSearch}
-     * @memberof HistoricalAuditsPostRequest
-     */
     'search'?: HistoricalAuditsPostRequestSearch;
 }
 

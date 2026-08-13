@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeasubscriptionsPostResponseIdeaSubscriptionPortalUser
- */
 export interface IdeasubscriptionsPostResponseIdeaSubscriptionPortalUser {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasubscriptionsPostResponseIdeaSubscriptionPortalUser
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasubscriptionsPostResponseIdeaSubscriptionPortalUser
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasubscriptionsPostResponseIdeaSubscriptionPortalUser
-     */
     'email'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasubscriptionsPostResponseIdeaSubscriptionPortalUser
-     */
     'created_at'?: string;
 }
 

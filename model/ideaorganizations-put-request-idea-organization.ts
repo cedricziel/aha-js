@@ -14,36 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeaorganizationsPutRequestIdeaOrganization
- */
 export interface IdeaorganizationsPutRequestIdeaOrganization {
     [key: string]: any;
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsPutRequestIdeaOrganization
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsPutRequestIdeaOrganization
-     */
     'email_domains'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsPutRequestIdeaOrganization
-     */
     'revenue'?: string;
     /**
      * Custom table records to link, keyed by many-to-many custom field name. Replaces the existing list.
-     * @type {{ [key: string]: Array<string>; }}
-     * @memberof IdeaorganizationsPutRequestIdeaOrganization
      */
     'custom_object_links'?: { [key: string]: Array<string>; };
 }

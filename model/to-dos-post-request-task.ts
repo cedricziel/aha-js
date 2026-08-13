@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface ToDosPostRequestTask
- */
 export interface ToDosPostRequestTask {
-    /**
-     * 
-     * @type {string}
-     * @memberof ToDosPostRequestTask
-     */
     'body'?: string;
 }
 

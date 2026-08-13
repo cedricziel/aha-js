@@ -14,65 +14,15 @@
 
 
 
-/**
- * 
- * @export
- * @interface KnowledgebasesGetResponseKnowledgeBase
- */
 export interface KnowledgebasesGetResponseKnowledgeBase {
-    /**
-     * 
-     * @type {string}
-     * @memberof KnowledgebasesGetResponseKnowledgeBase
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KnowledgebasesGetResponseKnowledgeBase
-     */
     'product_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KnowledgebasesGetResponseKnowledgeBase
-     */
     'title'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KnowledgebasesGetResponseKnowledgeBase
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KnowledgebasesGetResponseKnowledgeBase
-     */
     'status'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KnowledgebasesGetResponseKnowledgeBase
-     */
     'publishing_method'?: string;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof KnowledgebasesGetResponseKnowledgeBase
-     */
     'authentication_methods'?: Array<string>;
-    /**
-     * 
-     * @type {string}
-     * @memberof KnowledgebasesGetResponseKnowledgeBase
-     */
     'folder_display'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KnowledgebasesGetResponseKnowledgeBase
-     */
     'source_documents'?: string;
 }
 

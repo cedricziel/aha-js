@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { IntegrationsGetResponseIntegration } from './integrations-get-response-integration';
 
-/**
- * 
- * @export
- * @interface IntegrationsPutResponse
- */
 export interface IntegrationsPutResponse {
-    /**
-     * 
-     * @type {IntegrationsGetResponseIntegration}
-     * @memberof IntegrationsPutResponse
-     */
     'integration'?: IntegrationsGetResponseIntegration;
 }
 

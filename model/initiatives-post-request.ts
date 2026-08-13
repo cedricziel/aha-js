@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { InitiativesPostRequestInitiative } from './initiatives-post-request-initiative';
 
-/**
- * 
- * @export
- * @interface InitiativesPostRequest
- */
 export interface InitiativesPostRequest {
-    /**
-     * 
-     * @type {InitiativesPostRequestInitiative}
-     * @memberof InitiativesPostRequest
-     */
     'initiative'?: InitiativesPostRequestInitiative;
 }
 

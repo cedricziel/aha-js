@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeasportalusersPostRequestPortalUser
- */
 export interface IdeasportalusersPostRequestPortalUser {
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdeasportalusersPostRequestPortalUser
-     */
     'unsubscribed'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof IdeasportalusersPostRequestPortalUser
-     */
     'unsubscribed_from_weekly_emails'?: boolean;
 }
 

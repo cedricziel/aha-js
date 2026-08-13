@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface RollupreleasesPostRequestRollUpRelease
- */
 export interface RollupreleasesPostRequestRollUpRelease {
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof RollupreleasesPostRequestRollUpRelease
-     */
     'project_ids'?: Array<string>;
 }
 

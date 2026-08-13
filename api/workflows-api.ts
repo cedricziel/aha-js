@@ -18,14 +18,13 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
 import type { WorkflowsGetResponse } from '../model';
 /**
  * WorkflowsApi - axios parameter creator
- * @export
  */
 export const WorkflowsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -40,7 +39,7 @@ export const WorkflowsApiAxiosParamCreator = function (configuration?: Configura
             // verify required parameter 'productId' is not null or undefined
             assertParamExists('productsByProductWorkflowsGet', 'productId', productId)
             const localVarPath = `/products/{product_id}/workflows`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -62,8 +61,8 @@ export const WorkflowsApiAxiosParamCreator = function (configuration?: Configura
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -84,7 +83,7 @@ export const WorkflowsApiAxiosParamCreator = function (configuration?: Configura
             // verify required parameter 'id' is not null or undefined
             assertParamExists('workflowsByIdGet', 'id', id)
             const localVarPath = `/workflows/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -106,8 +105,8 @@ export const WorkflowsApiAxiosParamCreator = function (configuration?: Configura
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -122,7 +121,6 @@ export const WorkflowsApiAxiosParamCreator = function (configuration?: Configura
 
 /**
  * WorkflowsApi - functional programming interface
- * @export
  */
 export const WorkflowsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = WorkflowsApiAxiosParamCreator(configuration)
@@ -158,7 +156,6 @@ export const WorkflowsApiFp = function(configuration?: Configuration) {
 
 /**
  * WorkflowsApi - factory interface
- * @export
  */
 export const WorkflowsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = WorkflowsApiFp(configuration)
@@ -188,8 +185,6 @@ export const WorkflowsApiFactory = function (configuration?: Configuration, base
 
 /**
  * WorkflowsApi - interface
- * @export
- * @interface WorkflowsApi
  */
 export interface WorkflowsApiInterface {
     /**
@@ -198,7 +193,6 @@ export interface WorkflowsApiInterface {
      * @param {WorkflowsApiProductsByProductWorkflowsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowsApiInterface
      */
     productsByProductWorkflowsGet(requestParameters: WorkflowsApiProductsByProductWorkflowsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<WorkflowsGetResponse>;
 
@@ -208,7 +202,6 @@ export interface WorkflowsApiInterface {
      * @param {WorkflowsApiWorkflowsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowsApiInterface
      */
     workflowsByIdGet(requestParameters: WorkflowsApiWorkflowsByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<WorkflowsGetResponse>;
 
@@ -216,37 +209,26 @@ export interface WorkflowsApiInterface {
 
 /**
  * Request parameters for productsByProductWorkflowsGet operation in WorkflowsApi.
- * @export
- * @interface WorkflowsApiProductsByProductWorkflowsGetRequest
  */
 export interface WorkflowsApiProductsByProductWorkflowsGetRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof WorkflowsApiProductsByProductWorkflowsGet
      */
     readonly productId: string
 }
 
 /**
  * Request parameters for workflowsByIdGet operation in WorkflowsApi.
- * @export
- * @interface WorkflowsApiWorkflowsByIdGetRequest
  */
 export interface WorkflowsApiWorkflowsByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof WorkflowsApiWorkflowsByIdGet
      */
     readonly id: string
 }
 
 /**
  * WorkflowsApi - object-oriented interface
- * @export
- * @class WorkflowsApi
- * @extends {BaseAPI}
  */
 export class WorkflowsApi extends BaseAPI implements WorkflowsApiInterface {
     /**
@@ -255,7 +237,6 @@ export class WorkflowsApi extends BaseAPI implements WorkflowsApiInterface {
      * @param {WorkflowsApiProductsByProductWorkflowsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowsApi
      */
     public productsByProductWorkflowsGet(requestParameters: WorkflowsApiProductsByProductWorkflowsGetRequest, options?: RawAxiosRequestConfig) {
         return WorkflowsApiFp(this.configuration).productsByProductWorkflowsGet(requestParameters.productId, options).then((request) => request(this.axios, this.basePath));
@@ -267,7 +248,6 @@ export class WorkflowsApi extends BaseAPI implements WorkflowsApiInterface {
      * @param {WorkflowsApiWorkflowsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof WorkflowsApi
      */
     public workflowsByIdGet(requestParameters: WorkflowsApiWorkflowsByIdGetRequest, options?: RawAxiosRequestConfig) {
         return WorkflowsApiFp(this.configuration).workflowsByIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));

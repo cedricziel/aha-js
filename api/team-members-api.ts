@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -29,7 +29,6 @@ import type { TeammembersPostRequest } from '../model';
 import type { TeammembersPostResponse } from '../model';
 /**
  * TeamMembersApi - axios parameter creator
- * @export
  */
 export const TeamMembersApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -47,7 +46,7 @@ export const TeamMembersApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'teammembersPostRequest' is not null or undefined
             assertParamExists('teamMembersByIdDelete', 'teammembersPostRequest', teammembersPostRequest)
             const localVarPath = `/team_members/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -69,8 +68,6 @@ export const TeamMembersApiAxiosParamCreator = function (configuration?: Configu
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -122,8 +119,8 @@ export const TeamMembersApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -165,9 +162,8 @@ export const TeamMembersApiAxiosParamCreator = function (configuration?: Configu
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -184,7 +180,6 @@ export const TeamMembersApiAxiosParamCreator = function (configuration?: Configu
 
 /**
  * TeamMembersApi - functional programming interface
- * @export
  */
 export const TeamMembersApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = TeamMembersApiAxiosParamCreator(configuration)
@@ -235,7 +230,6 @@ export const TeamMembersApiFp = function(configuration?: Configuration) {
 
 /**
  * TeamMembersApi - factory interface
- * @export
  */
 export const TeamMembersApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = TeamMembersApiFp(configuration)
@@ -275,8 +269,6 @@ export const TeamMembersApiFactory = function (configuration?: Configuration, ba
 
 /**
  * TeamMembersApi - interface
- * @export
- * @interface TeamMembersApi
  */
 export interface TeamMembersApiInterface {
     /**
@@ -285,7 +277,6 @@ export interface TeamMembersApiInterface {
      * @param {TeamMembersApiTeamMembersByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TeamMembersApiInterface
      */
     teamMembersByIdDelete(requestParameters: TeamMembersApiTeamMembersByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -295,7 +286,6 @@ export interface TeamMembersApiInterface {
      * @param {TeamMembersApiTeamMembersGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TeamMembersApiInterface
      */
     teamMembersGet(requestParameters?: TeamMembersApiTeamMembersGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<TeammembersGetResponse>;
 
@@ -305,7 +295,6 @@ export interface TeamMembersApiInterface {
      * @param {TeamMembersApiTeamMembersPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TeamMembersApiInterface
      */
     teamMembersPost(requestParameters: TeamMembersApiTeamMembersPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<TeammembersPostResponse>;
 
@@ -313,65 +302,34 @@ export interface TeamMembersApiInterface {
 
 /**
  * Request parameters for teamMembersByIdDelete operation in TeamMembersApi.
- * @export
- * @interface TeamMembersApiTeamMembersByIdDeleteRequest
  */
 export interface TeamMembersApiTeamMembersByIdDeleteRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof TeamMembersApiTeamMembersByIdDelete
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {TeammembersPostRequest}
-     * @memberof TeamMembersApiTeamMembersByIdDelete
-     */
     readonly teammembersPostRequest: TeammembersPostRequest
 }
 
 /**
  * Request parameters for teamMembersGet operation in TeamMembersApi.
- * @export
- * @interface TeamMembersApiTeamMembersGetRequest
  */
 export interface TeamMembersApiTeamMembersGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof TeamMembersApiTeamMembersGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof TeamMembersApiTeamMembersGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for teamMembersPost operation in TeamMembersApi.
- * @export
- * @interface TeamMembersApiTeamMembersPostRequest
  */
 export interface TeamMembersApiTeamMembersPostRequest {
-    /**
-     * 
-     * @type {TeammembersPostRequest}
-     * @memberof TeamMembersApiTeamMembersPost
-     */
     readonly teammembersPostRequest: TeammembersPostRequest
 }
 
 /**
  * TeamMembersApi - object-oriented interface
- * @export
- * @class TeamMembersApi
- * @extends {BaseAPI}
  */
 export class TeamMembersApi extends BaseAPI implements TeamMembersApiInterface {
     /**
@@ -380,7 +338,6 @@ export class TeamMembersApi extends BaseAPI implements TeamMembersApiInterface {
      * @param {TeamMembersApiTeamMembersByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TeamMembersApi
      */
     public teamMembersByIdDelete(requestParameters: TeamMembersApiTeamMembersByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return TeamMembersApiFp(this.configuration).teamMembersByIdDelete(requestParameters.id, requestParameters.teammembersPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -392,7 +349,6 @@ export class TeamMembersApi extends BaseAPI implements TeamMembersApiInterface {
      * @param {TeamMembersApiTeamMembersGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TeamMembersApi
      */
     public teamMembersGet(requestParameters: TeamMembersApiTeamMembersGetRequest = {}, options?: RawAxiosRequestConfig) {
         return TeamMembersApiFp(this.configuration).teamMembersGet(requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -404,7 +360,6 @@ export class TeamMembersApi extends BaseAPI implements TeamMembersApiInterface {
      * @param {TeamMembersApiTeamMembersPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TeamMembersApi
      */
     public teamMembersPost(requestParameters: TeamMembersApiTeamMembersPostRequest, options?: RawAxiosRequestConfig) {
         return TeamMembersApiFp(this.configuration).teamMembersPost(requestParameters.teammembersPostRequest, options).then((request) => request(this.axios, this.basePath));

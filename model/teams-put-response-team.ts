@@ -23,89 +23,19 @@ import type { SchedulablechangesPutResponseSchedulableChangeSchedule } from './s
 // @ts-ignore
 import type { TeamsPutResponseTeamTeamMembers } from './teams-put-response-team-team-members';
 
-/**
- * 
- * @export
- * @interface TeamsPutResponseTeam
- */
 export interface TeamsPutResponseTeam {
-    /**
-     * 
-     * @type {string}
-     * @memberof TeamsPutResponseTeam
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof TeamsPutResponseTeam
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof TeamsPutResponseTeam
-     */
     'team_members_count'?: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof TeamsPutResponseTeam
-     */
     'automatically_calculate_team_members_count'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof TeamsPutResponseTeam
-     */
     'capacity'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof TeamsPutResponseTeam
-     */
     'hourly_rate'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof TeamsPutResponseTeam
-     */
     'color'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof TeamsPutResponseTeam
-     */
     'start_date'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof TeamsPutResponseTeam
-     */
     'end_date'?: string;
-    /**
-     * 
-     * @type {EpicsPostResponseEpicProject}
-     * @memberof TeamsPutResponseTeam
-     */
     'project'?: EpicsPostResponseEpicProject;
-    /**
-     * 
-     * @type {SchedulablechangesPutResponseSchedulableChangeSchedule}
-     * @memberof TeamsPutResponseTeam
-     */
     'schedule'?: SchedulablechangesPutResponseSchedulableChangeSchedule;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof TeamsPutResponseTeam
-     */
     'custom_fields'?: Array<any>;
-    /**
-     * 
-     * @type {TeamsPutResponseTeamTeamMembers}
-     * @memberof TeamsPutResponseTeam
-     */
     'team_members'?: TeamsPutResponseTeamTeamMembers;
 }
 

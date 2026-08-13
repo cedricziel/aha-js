@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface AttachmentsPost412Response
- */
 export interface AttachmentsPost412Response {
-    /**
-     * 
-     * @type {string}
-     * @memberof AttachmentsPost412Response
-     */
     'status'?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof AttachmentsPost412Response
-     */
     'success'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof AttachmentsPost412Response
-     */
     'attachmentId'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof AttachmentsPost412Response
-     */
     'attachmentUrl'?: string;
 }
 

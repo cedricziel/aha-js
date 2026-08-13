@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { GoalsPostResponseGoal } from './goals-post-response-goal';
 
-/**
- * 
- * @export
- * @interface GoalsPostResponse
- */
 export interface GoalsPostResponse {
-    /**
-     * 
-     * @type {GoalsPostResponseGoal}
-     * @memberof GoalsPostResponse
-     */
     'goal'?: GoalsPostResponseGoal;
 }
 

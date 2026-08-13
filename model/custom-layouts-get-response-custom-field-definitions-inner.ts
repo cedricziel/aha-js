@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface CustomLayoutsGetResponseCustomFieldDefinitionsInner
- */
 export interface CustomLayoutsGetResponseCustomFieldDefinitionsInner {
-    /**
-     * 
-     * @type {boolean}
-     * @memberof CustomLayoutsGetResponseCustomFieldDefinitionsInner
-     */
     'required'?: boolean;
-    /**
-     * 
-     * @type {number}
-     * @memberof CustomLayoutsGetResponseCustomFieldDefinitionsInner
-     */
     'id'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomLayoutsGetResponseCustomFieldDefinitionsInner
-     */
     'key'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof CustomLayoutsGetResponseCustomFieldDefinitionsInner
-     */
     'position'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomLayoutsGetResponseCustomFieldDefinitionsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomLayoutsGetResponseCustomFieldDefinitionsInner
-     */
     'type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomLayoutsGetResponseCustomFieldDefinitionsInner
-     */
     'api_type'?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof CustomLayoutsGetResponseCustomFieldDefinitionsInner
-     */
     'can_be_required_on_form'?: boolean;
 }
 

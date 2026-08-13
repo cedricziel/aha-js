@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface DiscoverygroupsPostRequestDiscoveryGroup
- */
 export interface DiscoverygroupsPostRequestDiscoveryGroup {
-    /**
-     * 
-     * @type {string}
-     * @memberof DiscoverygroupsPostRequestDiscoveryGroup
-     */
     'name'?: string;
 }
 

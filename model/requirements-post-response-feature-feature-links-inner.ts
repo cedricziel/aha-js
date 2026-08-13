@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface RequirementsPostResponseFeatureFeatureLinksInner
- */
 export interface RequirementsPostResponseFeatureFeatureLinksInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsPostResponseFeatureFeatureLinksInner
-     */
     'link_type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsPostResponseFeatureFeatureLinksInner
-     */
     'link_type_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsPostResponseFeatureFeatureLinksInner
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsPostResponseFeatureFeatureLinksInner
-     */
     'parent_record'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RequirementsPostResponseFeatureFeatureLinksInner
-     */
     'child_record'?: string;
 }
 

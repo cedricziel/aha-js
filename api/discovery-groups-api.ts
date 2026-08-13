@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { DiscoverygroupsPostResponse } from '../model';
 import type { DiscoverygroupsPutResponse } from '../model';
 /**
  * DiscoveryGroupsApi - axios parameter creator
- * @export
  */
 export const DiscoveryGroupsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -46,7 +45,7 @@ export const DiscoveryGroupsApiAxiosParamCreator = function (configuration?: Con
             // verify required parameter 'id' is not null or undefined
             assertParamExists('discoveryGroupsByIdDelete', 'id', id)
             const localVarPath = `/discovery_groups/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -69,7 +68,6 @@ export const DiscoveryGroupsApiAxiosParamCreator = function (configuration?: Con
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -90,7 +88,7 @@ export const DiscoveryGroupsApiAxiosParamCreator = function (configuration?: Con
             // verify required parameter 'id' is not null or undefined
             assertParamExists('discoveryGroupsByIdGet', 'id', id)
             const localVarPath = `/discovery_groups/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -112,8 +110,8 @@ export const DiscoveryGroupsApiAxiosParamCreator = function (configuration?: Con
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -137,7 +135,7 @@ export const DiscoveryGroupsApiAxiosParamCreator = function (configuration?: Con
             // verify required parameter 'discoverygroupsPostRequest' is not null or undefined
             assertParamExists('discoveryGroupsByIdPut', 'discoverygroupsPostRequest', discoverygroupsPostRequest)
             const localVarPath = `/discovery_groups/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -159,9 +157,8 @@ export const DiscoveryGroupsApiAxiosParamCreator = function (configuration?: Con
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -212,8 +209,8 @@ export const DiscoveryGroupsApiAxiosParamCreator = function (configuration?: Con
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -255,9 +252,8 @@ export const DiscoveryGroupsApiAxiosParamCreator = function (configuration?: Con
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -274,7 +270,6 @@ export const DiscoveryGroupsApiAxiosParamCreator = function (configuration?: Con
 
 /**
  * DiscoveryGroupsApi - functional programming interface
- * @export
  */
 export const DiscoveryGroupsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = DiscoveryGroupsApiAxiosParamCreator(configuration)
@@ -351,7 +346,6 @@ export const DiscoveryGroupsApiFp = function(configuration?: Configuration) {
 
 /**
  * DiscoveryGroupsApi - factory interface
- * @export
  */
 export const DiscoveryGroupsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = DiscoveryGroupsApiFp(configuration)
@@ -411,8 +405,6 @@ export const DiscoveryGroupsApiFactory = function (configuration?: Configuration
 
 /**
  * DiscoveryGroupsApi - interface
- * @export
- * @interface DiscoveryGroupsApi
  */
 export interface DiscoveryGroupsApiInterface {
     /**
@@ -421,7 +413,6 @@ export interface DiscoveryGroupsApiInterface {
      * @param {DiscoveryGroupsApiDiscoveryGroupsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DiscoveryGroupsApiInterface
      */
     discoveryGroupsByIdDelete(requestParameters: DiscoveryGroupsApiDiscoveryGroupsByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -431,7 +422,6 @@ export interface DiscoveryGroupsApiInterface {
      * @param {DiscoveryGroupsApiDiscoveryGroupsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DiscoveryGroupsApiInterface
      */
     discoveryGroupsByIdGet(requestParameters: DiscoveryGroupsApiDiscoveryGroupsByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<DiscoverygroupsGetResponse>;
 
@@ -441,7 +431,6 @@ export interface DiscoveryGroupsApiInterface {
      * @param {DiscoveryGroupsApiDiscoveryGroupsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DiscoveryGroupsApiInterface
      */
     discoveryGroupsByIdPut(requestParameters: DiscoveryGroupsApiDiscoveryGroupsByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<DiscoverygroupsPutResponse>;
 
@@ -451,7 +440,6 @@ export interface DiscoveryGroupsApiInterface {
      * @param {DiscoveryGroupsApiDiscoveryGroupsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DiscoveryGroupsApiInterface
      */
     discoveryGroupsGet(requestParameters?: DiscoveryGroupsApiDiscoveryGroupsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<DiscoverygroupsGetResponse>;
 
@@ -461,7 +449,6 @@ export interface DiscoveryGroupsApiInterface {
      * @param {DiscoveryGroupsApiDiscoveryGroupsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DiscoveryGroupsApiInterface
      */
     discoveryGroupsPost(requestParameters: DiscoveryGroupsApiDiscoveryGroupsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<DiscoverygroupsPostResponse>;
 
@@ -469,93 +456,54 @@ export interface DiscoveryGroupsApiInterface {
 
 /**
  * Request parameters for discoveryGroupsByIdDelete operation in DiscoveryGroupsApi.
- * @export
- * @interface DiscoveryGroupsApiDiscoveryGroupsByIdDeleteRequest
  */
 export interface DiscoveryGroupsApiDiscoveryGroupsByIdDeleteRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof DiscoveryGroupsApiDiscoveryGroupsByIdDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for discoveryGroupsByIdGet operation in DiscoveryGroupsApi.
- * @export
- * @interface DiscoveryGroupsApiDiscoveryGroupsByIdGetRequest
  */
 export interface DiscoveryGroupsApiDiscoveryGroupsByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof DiscoveryGroupsApiDiscoveryGroupsByIdGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for discoveryGroupsByIdPut operation in DiscoveryGroupsApi.
- * @export
- * @interface DiscoveryGroupsApiDiscoveryGroupsByIdPutRequest
  */
 export interface DiscoveryGroupsApiDiscoveryGroupsByIdPutRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof DiscoveryGroupsApiDiscoveryGroupsByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {DiscoverygroupsPostRequest}
-     * @memberof DiscoveryGroupsApiDiscoveryGroupsByIdPut
-     */
     readonly discoverygroupsPostRequest: DiscoverygroupsPostRequest
 }
 
 /**
  * Request parameters for discoveryGroupsGet operation in DiscoveryGroupsApi.
- * @export
- * @interface DiscoveryGroupsApiDiscoveryGroupsGetRequest
  */
 export interface DiscoveryGroupsApiDiscoveryGroupsGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof DiscoveryGroupsApiDiscoveryGroupsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof DiscoveryGroupsApiDiscoveryGroupsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for discoveryGroupsPost operation in DiscoveryGroupsApi.
- * @export
- * @interface DiscoveryGroupsApiDiscoveryGroupsPostRequest
  */
 export interface DiscoveryGroupsApiDiscoveryGroupsPostRequest {
-    /**
-     * 
-     * @type {DiscoverygroupsPostRequest}
-     * @memberof DiscoveryGroupsApiDiscoveryGroupsPost
-     */
     readonly discoverygroupsPostRequest: DiscoverygroupsPostRequest
 }
 
 /**
  * DiscoveryGroupsApi - object-oriented interface
- * @export
- * @class DiscoveryGroupsApi
- * @extends {BaseAPI}
  */
 export class DiscoveryGroupsApi extends BaseAPI implements DiscoveryGroupsApiInterface {
     /**
@@ -564,7 +512,6 @@ export class DiscoveryGroupsApi extends BaseAPI implements DiscoveryGroupsApiInt
      * @param {DiscoveryGroupsApiDiscoveryGroupsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DiscoveryGroupsApi
      */
     public discoveryGroupsByIdDelete(requestParameters: DiscoveryGroupsApiDiscoveryGroupsByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return DiscoveryGroupsApiFp(this.configuration).discoveryGroupsByIdDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -576,7 +523,6 @@ export class DiscoveryGroupsApi extends BaseAPI implements DiscoveryGroupsApiInt
      * @param {DiscoveryGroupsApiDiscoveryGroupsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DiscoveryGroupsApi
      */
     public discoveryGroupsByIdGet(requestParameters: DiscoveryGroupsApiDiscoveryGroupsByIdGetRequest, options?: RawAxiosRequestConfig) {
         return DiscoveryGroupsApiFp(this.configuration).discoveryGroupsByIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -588,7 +534,6 @@ export class DiscoveryGroupsApi extends BaseAPI implements DiscoveryGroupsApiInt
      * @param {DiscoveryGroupsApiDiscoveryGroupsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DiscoveryGroupsApi
      */
     public discoveryGroupsByIdPut(requestParameters: DiscoveryGroupsApiDiscoveryGroupsByIdPutRequest, options?: RawAxiosRequestConfig) {
         return DiscoveryGroupsApiFp(this.configuration).discoveryGroupsByIdPut(requestParameters.id, requestParameters.discoverygroupsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -600,7 +545,6 @@ export class DiscoveryGroupsApi extends BaseAPI implements DiscoveryGroupsApiInt
      * @param {DiscoveryGroupsApiDiscoveryGroupsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DiscoveryGroupsApi
      */
     public discoveryGroupsGet(requestParameters: DiscoveryGroupsApiDiscoveryGroupsGetRequest = {}, options?: RawAxiosRequestConfig) {
         return DiscoveryGroupsApiFp(this.configuration).discoveryGroupsGet(requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -612,7 +556,6 @@ export class DiscoveryGroupsApi extends BaseAPI implements DiscoveryGroupsApiInt
      * @param {DiscoveryGroupsApiDiscoveryGroupsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DiscoveryGroupsApi
      */
     public discoveryGroupsPost(requestParameters: DiscoveryGroupsApiDiscoveryGroupsPostRequest, options?: RawAxiosRequestConfig) {
         return DiscoveryGroupsApiFp(this.configuration).discoveryGroupsPost(requestParameters.discoverygroupsPostRequest, options).then((request) => request(this.axios, this.basePath));

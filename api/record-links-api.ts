@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -27,7 +27,6 @@ import type { RecordlinksGetResponse } from '../model';
 import type { RecordlinksPostRequest } from '../model';
 /**
  * RecordLinksApi - axios parameter creator
- * @export
  */
 export const RecordLinksApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -48,8 +47,8 @@ export const RecordLinksApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'recordlinksPostRequest' is not null or undefined
             assertParamExists('byRecordTypeByIdRecordLinksPost', 'recordlinksPostRequest', recordlinksPostRequest)
             const localVarPath = `/{record_type}/{id}/record_links`
-                .replace(`{${"record_type"}}`, encodeURIComponent(String(recordType)))
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{record_type}', encodeURIComponent(String(recordType)))
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -71,8 +70,6 @@ export const RecordLinksApiAxiosParamCreator = function (configuration?: Configu
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -97,7 +94,7 @@ export const RecordLinksApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'id' is not null or undefined
             assertParamExists('featuresByIdRecordLinksGet', 'id', id)
             const localVarPath = `/features/{id}/record_links`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -123,8 +120,8 @@ export const RecordLinksApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['parent_and_child_links'] = parentAndChildLinks;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -145,7 +142,7 @@ export const RecordLinksApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'id' is not null or undefined
             assertParamExists('recordLinksByIdDelete', 'id', id)
             const localVarPath = `/record_links/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -168,7 +165,6 @@ export const RecordLinksApiAxiosParamCreator = function (configuration?: Configu
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -189,7 +185,7 @@ export const RecordLinksApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'id' is not null or undefined
             assertParamExists('recordLinksByIdGet', 'id', id)
             const localVarPath = `/record_links/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -211,8 +207,8 @@ export const RecordLinksApiAxiosParamCreator = function (configuration?: Configu
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -227,7 +223,6 @@ export const RecordLinksApiAxiosParamCreator = function (configuration?: Configu
 
 /**
  * RecordLinksApi - functional programming interface
- * @export
  */
 export const RecordLinksApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = RecordLinksApiAxiosParamCreator(configuration)
@@ -292,7 +287,6 @@ export const RecordLinksApiFp = function(configuration?: Configuration) {
 
 /**
  * RecordLinksApi - factory interface
- * @export
  */
 export const RecordLinksApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = RecordLinksApiFp(configuration)
@@ -342,8 +336,6 @@ export const RecordLinksApiFactory = function (configuration?: Configuration, ba
 
 /**
  * RecordLinksApi - interface
- * @export
- * @interface RecordLinksApi
  */
 export interface RecordLinksApiInterface {
     /**
@@ -352,7 +344,6 @@ export interface RecordLinksApiInterface {
      * @param {RecordLinksApiByRecordTypeByIdRecordLinksPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RecordLinksApiInterface
      */
     byRecordTypeByIdRecordLinksPost(requestParameters: RecordLinksApiByRecordTypeByIdRecordLinksPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -362,7 +353,6 @@ export interface RecordLinksApiInterface {
      * @param {RecordLinksApiFeaturesByIdRecordLinksGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RecordLinksApiInterface
      */
     featuresByIdRecordLinksGet(requestParameters: RecordLinksApiFeaturesByIdRecordLinksGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<RecordlinksGetResponse>;
 
@@ -372,7 +362,6 @@ export interface RecordLinksApiInterface {
      * @param {RecordLinksApiRecordLinksByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RecordLinksApiInterface
      */
     recordLinksByIdDelete(requestParameters: RecordLinksApiRecordLinksByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -382,7 +371,6 @@ export interface RecordLinksApiInterface {
      * @param {RecordLinksApiRecordLinksByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RecordLinksApiInterface
      */
     recordLinksByIdGet(requestParameters: RecordLinksApiRecordLinksByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<RecordlinksGetResponse>;
 
@@ -390,86 +378,55 @@ export interface RecordLinksApiInterface {
 
 /**
  * Request parameters for byRecordTypeByIdRecordLinksPost operation in RecordLinksApi.
- * @export
- * @interface RecordLinksApiByRecordTypeByIdRecordLinksPostRequest
  */
 export interface RecordLinksApiByRecordTypeByIdRecordLinksPostRequest {
     /**
      * RecordType identifier
-     * @type {string}
-     * @memberof RecordLinksApiByRecordTypeByIdRecordLinksPost
      */
     readonly recordType: string
 
     /**
      * Id identifier
-     * @type {string}
-     * @memberof RecordLinksApiByRecordTypeByIdRecordLinksPost
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {RecordlinksPostRequest}
-     * @memberof RecordLinksApiByRecordTypeByIdRecordLinksPost
-     */
     readonly recordlinksPostRequest: RecordlinksPostRequest
 }
 
 /**
  * Request parameters for featuresByIdRecordLinksGet operation in RecordLinksApi.
- * @export
- * @interface RecordLinksApiFeaturesByIdRecordLinksGetRequest
  */
 export interface RecordLinksApiFeaturesByIdRecordLinksGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof RecordLinksApiFeaturesByIdRecordLinksGet
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof RecordLinksApiFeaturesByIdRecordLinksGet
-     */
     readonly parentAndChildLinks?: string
 }
 
 /**
  * Request parameters for recordLinksByIdDelete operation in RecordLinksApi.
- * @export
- * @interface RecordLinksApiRecordLinksByIdDeleteRequest
  */
 export interface RecordLinksApiRecordLinksByIdDeleteRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof RecordLinksApiRecordLinksByIdDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for recordLinksByIdGet operation in RecordLinksApi.
- * @export
- * @interface RecordLinksApiRecordLinksByIdGetRequest
  */
 export interface RecordLinksApiRecordLinksByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof RecordLinksApiRecordLinksByIdGet
      */
     readonly id: string
 }
 
 /**
  * RecordLinksApi - object-oriented interface
- * @export
- * @class RecordLinksApi
- * @extends {BaseAPI}
  */
 export class RecordLinksApi extends BaseAPI implements RecordLinksApiInterface {
     /**
@@ -478,7 +435,6 @@ export class RecordLinksApi extends BaseAPI implements RecordLinksApiInterface {
      * @param {RecordLinksApiByRecordTypeByIdRecordLinksPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RecordLinksApi
      */
     public byRecordTypeByIdRecordLinksPost(requestParameters: RecordLinksApiByRecordTypeByIdRecordLinksPostRequest, options?: RawAxiosRequestConfig) {
         return RecordLinksApiFp(this.configuration).byRecordTypeByIdRecordLinksPost(requestParameters.recordType, requestParameters.id, requestParameters.recordlinksPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -490,7 +446,6 @@ export class RecordLinksApi extends BaseAPI implements RecordLinksApiInterface {
      * @param {RecordLinksApiFeaturesByIdRecordLinksGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RecordLinksApi
      */
     public featuresByIdRecordLinksGet(requestParameters: RecordLinksApiFeaturesByIdRecordLinksGetRequest, options?: RawAxiosRequestConfig) {
         return RecordLinksApiFp(this.configuration).featuresByIdRecordLinksGet(requestParameters.id, requestParameters.parentAndChildLinks, options).then((request) => request(this.axios, this.basePath));
@@ -502,7 +457,6 @@ export class RecordLinksApi extends BaseAPI implements RecordLinksApiInterface {
      * @param {RecordLinksApiRecordLinksByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RecordLinksApi
      */
     public recordLinksByIdDelete(requestParameters: RecordLinksApiRecordLinksByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return RecordLinksApiFp(this.configuration).recordLinksByIdDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -514,7 +468,6 @@ export class RecordLinksApi extends BaseAPI implements RecordLinksApiInterface {
      * @param {RecordLinksApiRecordLinksByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RecordLinksApi
      */
     public recordLinksByIdGet(requestParameters: RecordLinksApiRecordLinksByIdGetRequest, options?: RawAxiosRequestConfig) {
         return RecordLinksApiFp(this.configuration).recordLinksByIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));

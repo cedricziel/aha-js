@@ -14,47 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface EpicsPutResponseEpicIntegrationFieldsInner
- */
 export interface EpicsPutResponseEpicIntegrationFieldsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicIntegrationFieldsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicIntegrationFieldsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicIntegrationFieldsInner
-     */
     'value'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicIntegrationFieldsInner
-     */
     'integration_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicIntegrationFieldsInner
-     */
     'service_name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EpicsPutResponseEpicIntegrationFieldsInner
-     */
     'created_at'?: string;
 }
 

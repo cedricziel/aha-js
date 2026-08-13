@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeasPutResponseIdeaWorkflowStatusWorkflowStatusCategory
- */
 export interface IdeasPutResponseIdeaWorkflowStatusWorkflowStatusCategory {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaWorkflowStatusWorkflowStatusCategory
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPutResponseIdeaWorkflowStatusWorkflowStatusCategory
-     */
     'name'?: string;
 }
 

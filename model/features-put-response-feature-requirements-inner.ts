@@ -13,144 +13,32 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface FeaturesPutResponseFeatureRequirementsInner
- */
 export interface FeaturesPutResponseFeatureRequirementsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureRequirementsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureRequirementsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureRequirementsInner
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureRequirementsInner
-     */
     'position'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureRequirementsInner
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureRequirementsInner
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureRequirementsInner
-     */
     'release_id'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof FeaturesPutResponseFeatureRequirementsInner
-     */
-    'start_date'?: any | null;
-    /**
-     * 
-     * @type {any}
-     * @memberof FeaturesPutResponseFeatureRequirementsInner
-     */
-    'end_date'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureRequirementsInner
-     */
+    'start_date'?: Null;
+    'end_date'?: Null;
     'created_by_user'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureRequirementsInner
-     */
     'workflow_status'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureRequirementsInner
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureRequirementsInner
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof FeaturesPutResponseFeatureRequirementsInner
-     */
-    'description'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureRequirementsInner
-     */
+    'description'?: Null;
     'feature'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureRequirementsInner
-     */
     'assigned_to_user'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureRequirementsInner
-     */
     'attachments'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureRequirementsInner
-     */
     'tags'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureRequirementsInner
-     */
     'full_tags'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureRequirementsInner
-     */
     'custom_fields'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureRequirementsInner
-     */
     'integration_fields'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FeaturesPutResponseFeatureRequirementsInner
-     */
     'comments_count'?: string;
 }
 

@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { CustomfieldsGetResponseOptionsInner } from './customfields-get-response-options-inner';
 
-/**
- * 
- * @export
- * @interface CustomfieldsGetResponse
- */
 export interface CustomfieldsGetResponse {
-    /**
-     * 
-     * @type {Array<CustomfieldsGetResponseOptionsInner>}
-     * @memberof CustomfieldsGetResponse
-     */
     'options'?: Array<CustomfieldsGetResponseOptionsInner>;
 }
 

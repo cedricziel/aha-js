@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { StrategicpositioningsGetResponseStrategyPositioning } from './strategicpositionings-get-response-strategy-positioning';
 
-/**
- * 
- * @export
- * @interface StrategicpositioningsGetResponse
- */
 export interface StrategicpositioningsGetResponse {
-    /**
-     * 
-     * @type {StrategicpositioningsGetResponseStrategyPositioning}
-     * @memberof StrategicpositioningsGetResponse
-     */
     'strategy_positioning'?: StrategicpositioningsGetResponseStrategyPositioning;
 }
 

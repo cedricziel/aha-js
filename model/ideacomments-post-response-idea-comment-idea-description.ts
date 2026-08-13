@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeacommentsPostResponseIdeaCommentIdeaDescription
- */
 export interface IdeacommentsPostResponseIdeaCommentIdeaDescription {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeacommentsPostResponseIdeaCommentIdeaDescription
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeacommentsPostResponseIdeaCommentIdeaDescription
-     */
     'body'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeacommentsPostResponseIdeaCommentIdeaDescription
-     */
     'notable_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeacommentsPostResponseIdeaCommentIdeaDescription
-     */
     'notable_type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeacommentsPostResponseIdeaCommentIdeaDescription
-     */
     'editor_version'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeacommentsPostResponseIdeaCommentIdeaDescription
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeacommentsPostResponseIdeaCommentIdeaDescription
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeacommentsPostResponseIdeaCommentIdeaDescription
-     */
     'attachments'?: string;
 }
 

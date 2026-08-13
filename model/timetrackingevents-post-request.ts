@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { TimetrackingeventsPostRequestTimeTrackingEvent } from './timetrackingevents-post-request-time-tracking-event';
 
-/**
- * 
- * @export
- * @interface TimetrackingeventsPostRequest
- */
 export interface TimetrackingeventsPostRequest {
-    /**
-     * 
-     * @type {TimetrackingeventsPostRequestTimeTrackingEvent}
-     * @memberof TimetrackingeventsPostRequest
-     */
     'time_tracking_event'?: TimetrackingeventsPostRequestTimeTrackingEvent;
 }
 

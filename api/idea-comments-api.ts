@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { IdeacommentsPostResponse } from '../model';
 import type { IdeacommentsPutResponse } from '../model';
 /**
  * IdeaCommentsApi - axios parameter creator
- * @export
  */
 export const IdeaCommentsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -49,7 +48,7 @@ export const IdeaCommentsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'ideacommentsPostRequest' is not null or undefined
             assertParamExists('ideaCommentsByIdPut', 'ideacommentsPostRequest', ideacommentsPostRequest)
             const localVarPath = `/idea_comments/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -71,9 +70,8 @@ export const IdeaCommentsApiAxiosParamCreator = function (configuration?: Config
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -99,8 +97,8 @@ export const IdeaCommentsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'id' is not null or undefined
             assertParamExists('ideasByIdeaIdeaCommentsByIdDelete', 'id', id)
             const localVarPath = `/ideas/{idea_id}/idea_comments/{id}`
-                .replace(`{${"idea_id"}}`, encodeURIComponent(String(ideaId)))
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{idea_id}', encodeURIComponent(String(ideaId)))
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -123,7 +121,6 @@ export const IdeaCommentsApiAxiosParamCreator = function (configuration?: Config
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -147,7 +144,7 @@ export const IdeaCommentsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'ideaId' is not null or undefined
             assertParamExists('ideasByIdeaIdeaCommentsGet', 'ideaId', ideaId)
             const localVarPath = `/ideas/{idea_id}/idea_comments`
-                .replace(`{${"idea_id"}}`, encodeURIComponent(String(ideaId)));
+                .replace('{idea_id}', encodeURIComponent(String(ideaId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -181,8 +178,8 @@ export const IdeaCommentsApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['fields'] = fields;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -206,7 +203,7 @@ export const IdeaCommentsApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'ideacommentsPostRequest' is not null or undefined
             assertParamExists('ideasByIdeaIdeaCommentsPost', 'ideacommentsPostRequest', ideacommentsPostRequest)
             const localVarPath = `/ideas/{idea_id}/idea_comments`
-                .replace(`{${"idea_id"}}`, encodeURIComponent(String(ideaId)));
+                .replace('{idea_id}', encodeURIComponent(String(ideaId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -228,9 +225,8 @@ export const IdeaCommentsApiAxiosParamCreator = function (configuration?: Config
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -247,7 +243,6 @@ export const IdeaCommentsApiAxiosParamCreator = function (configuration?: Config
 
 /**
  * IdeaCommentsApi - functional programming interface
- * @export
  */
 export const IdeaCommentsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = IdeaCommentsApiAxiosParamCreator(configuration)
@@ -315,7 +310,6 @@ export const IdeaCommentsApiFp = function(configuration?: Configuration) {
 
 /**
  * IdeaCommentsApi - factory interface
- * @export
  */
 export const IdeaCommentsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = IdeaCommentsApiFp(configuration)
@@ -365,8 +359,6 @@ export const IdeaCommentsApiFactory = function (configuration?: Configuration, b
 
 /**
  * IdeaCommentsApi - interface
- * @export
- * @interface IdeaCommentsApi
  */
 export interface IdeaCommentsApiInterface {
     /**
@@ -375,7 +367,6 @@ export interface IdeaCommentsApiInterface {
      * @param {IdeaCommentsApiIdeaCommentsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaCommentsApiInterface
      */
     ideaCommentsByIdPut(requestParameters: IdeaCommentsApiIdeaCommentsByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeacommentsPutResponse>;
 
@@ -385,7 +376,6 @@ export interface IdeaCommentsApiInterface {
      * @param {IdeaCommentsApiIdeasByIdeaIdeaCommentsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaCommentsApiInterface
      */
     ideasByIdeaIdeaCommentsByIdDelete(requestParameters: IdeaCommentsApiIdeasByIdeaIdeaCommentsByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -395,7 +385,6 @@ export interface IdeaCommentsApiInterface {
      * @param {IdeaCommentsApiIdeasByIdeaIdeaCommentsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaCommentsApiInterface
      */
     ideasByIdeaIdeaCommentsGet(requestParameters: IdeaCommentsApiIdeasByIdeaIdeaCommentsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeacommentsGetResponse>;
 
@@ -405,7 +394,6 @@ export interface IdeaCommentsApiInterface {
      * @param {IdeaCommentsApiIdeasByIdeaIdeaCommentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaCommentsApiInterface
      */
     ideasByIdeaIdeaCommentsPost(requestParameters: IdeaCommentsApiIdeasByIdeaIdeaCommentsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeacommentsPostResponse>;
 
@@ -413,107 +401,61 @@ export interface IdeaCommentsApiInterface {
 
 /**
  * Request parameters for ideaCommentsByIdPut operation in IdeaCommentsApi.
- * @export
- * @interface IdeaCommentsApiIdeaCommentsByIdPutRequest
  */
 export interface IdeaCommentsApiIdeaCommentsByIdPutRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof IdeaCommentsApiIdeaCommentsByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {IdeacommentsPostRequest}
-     * @memberof IdeaCommentsApiIdeaCommentsByIdPut
-     */
     readonly ideacommentsPostRequest: IdeacommentsPostRequest
 }
 
 /**
  * Request parameters for ideasByIdeaIdeaCommentsByIdDelete operation in IdeaCommentsApi.
- * @export
- * @interface IdeaCommentsApiIdeasByIdeaIdeaCommentsByIdDeleteRequest
  */
 export interface IdeaCommentsApiIdeasByIdeaIdeaCommentsByIdDeleteRequest {
     /**
      * IdeaId identifier
-     * @type {string}
-     * @memberof IdeaCommentsApiIdeasByIdeaIdeaCommentsByIdDelete
      */
     readonly ideaId: string
 
     /**
      * Id identifier
-     * @type {string}
-     * @memberof IdeaCommentsApiIdeasByIdeaIdeaCommentsByIdDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for ideasByIdeaIdeaCommentsGet operation in IdeaCommentsApi.
- * @export
- * @interface IdeaCommentsApiIdeasByIdeaIdeaCommentsGetRequest
  */
 export interface IdeaCommentsApiIdeasByIdeaIdeaCommentsGetRequest {
     /**
      * IdeaId identifier
-     * @type {string}
-     * @memberof IdeaCommentsApiIdeasByIdeaIdeaCommentsGet
      */
     readonly ideaId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaCommentsApiIdeasByIdeaIdeaCommentsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaCommentsApiIdeasByIdeaIdeaCommentsGet
-     */
     readonly perPage?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaCommentsApiIdeasByIdeaIdeaCommentsGet
-     */
     readonly fields?: string
 }
 
 /**
  * Request parameters for ideasByIdeaIdeaCommentsPost operation in IdeaCommentsApi.
- * @export
- * @interface IdeaCommentsApiIdeasByIdeaIdeaCommentsPostRequest
  */
 export interface IdeaCommentsApiIdeasByIdeaIdeaCommentsPostRequest {
     /**
      * IdeaId identifier
-     * @type {string}
-     * @memberof IdeaCommentsApiIdeasByIdeaIdeaCommentsPost
      */
     readonly ideaId: string
 
-    /**
-     * 
-     * @type {IdeacommentsPostRequest}
-     * @memberof IdeaCommentsApiIdeasByIdeaIdeaCommentsPost
-     */
     readonly ideacommentsPostRequest: IdeacommentsPostRequest
 }
 
 /**
  * IdeaCommentsApi - object-oriented interface
- * @export
- * @class IdeaCommentsApi
- * @extends {BaseAPI}
  */
 export class IdeaCommentsApi extends BaseAPI implements IdeaCommentsApiInterface {
     /**
@@ -522,7 +464,6 @@ export class IdeaCommentsApi extends BaseAPI implements IdeaCommentsApiInterface
      * @param {IdeaCommentsApiIdeaCommentsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaCommentsApi
      */
     public ideaCommentsByIdPut(requestParameters: IdeaCommentsApiIdeaCommentsByIdPutRequest, options?: RawAxiosRequestConfig) {
         return IdeaCommentsApiFp(this.configuration).ideaCommentsByIdPut(requestParameters.id, requestParameters.ideacommentsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -534,7 +475,6 @@ export class IdeaCommentsApi extends BaseAPI implements IdeaCommentsApiInterface
      * @param {IdeaCommentsApiIdeasByIdeaIdeaCommentsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaCommentsApi
      */
     public ideasByIdeaIdeaCommentsByIdDelete(requestParameters: IdeaCommentsApiIdeasByIdeaIdeaCommentsByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return IdeaCommentsApiFp(this.configuration).ideasByIdeaIdeaCommentsByIdDelete(requestParameters.ideaId, requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -546,7 +486,6 @@ export class IdeaCommentsApi extends BaseAPI implements IdeaCommentsApiInterface
      * @param {IdeaCommentsApiIdeasByIdeaIdeaCommentsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaCommentsApi
      */
     public ideasByIdeaIdeaCommentsGet(requestParameters: IdeaCommentsApiIdeasByIdeaIdeaCommentsGetRequest, options?: RawAxiosRequestConfig) {
         return IdeaCommentsApiFp(this.configuration).ideasByIdeaIdeaCommentsGet(requestParameters.ideaId, requestParameters.page, requestParameters.perPage, requestParameters.fields, options).then((request) => request(this.axios, this.basePath));
@@ -558,7 +497,6 @@ export class IdeaCommentsApi extends BaseAPI implements IdeaCommentsApiInterface
      * @param {IdeaCommentsApiIdeasByIdeaIdeaCommentsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeaCommentsApi
      */
     public ideasByIdeaIdeaCommentsPost(requestParameters: IdeaCommentsApiIdeasByIdeaIdeaCommentsPostRequest, options?: RawAxiosRequestConfig) {
         return IdeaCommentsApiFp(this.configuration).ideasByIdeaIdeaCommentsPost(requestParameters.ideaId, requestParameters.ideacommentsPostRequest, options).then((request) => request(this.axios, this.basePath));

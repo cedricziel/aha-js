@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface KnowledgebasepagesGetResponsePageDescription
- */
 export interface KnowledgebasepagesGetResponsePageDescription {
-    /**
-     * 
-     * @type {string}
-     * @memberof KnowledgebasepagesGetResponsePageDescription
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KnowledgebasepagesGetResponsePageDescription
-     */
     'body'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KnowledgebasepagesGetResponsePageDescription
-     */
     'notable_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KnowledgebasepagesGetResponsePageDescription
-     */
     'notable_type'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof KnowledgebasepagesGetResponsePageDescription
-     */
     'editor_version'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof KnowledgebasepagesGetResponsePageDescription
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KnowledgebasepagesGetResponsePageDescription
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof KnowledgebasepagesGetResponsePageDescription
-     */
     'attachments'?: Array<any>;
 }
 

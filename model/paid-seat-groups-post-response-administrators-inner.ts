@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface PaidSeatGroupsPostResponseAdministratorsInner
- */
 export interface PaidSeatGroupsPostResponseAdministratorsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof PaidSeatGroupsPostResponseAdministratorsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PaidSeatGroupsPostResponseAdministratorsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PaidSeatGroupsPostResponseAdministratorsInner
-     */
     'email'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PaidSeatGroupsPostResponseAdministratorsInner
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PaidSeatGroupsPostResponseAdministratorsInner
-     */
     'updated_at'?: string;
 }
 

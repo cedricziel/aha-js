@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { DeletionsPostResponseDeletion } from './deletions-post-response-deletion';
 
-/**
- * 
- * @export
- * @interface DeletionsPostResponse
- */
 export interface DeletionsPostResponse {
-    /**
-     * 
-     * @type {DeletionsPostResponseDeletion}
-     * @memberof DeletionsPostResponse
-     */
     'deletion'?: DeletionsPostResponseDeletion;
 }
 

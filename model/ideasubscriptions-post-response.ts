@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { IdeasubscriptionsPostResponseIdeaSubscription } from './ideasubscriptions-post-response-idea-subscription';
 
-/**
- * 
- * @export
- * @interface IdeasubscriptionsPostResponse
- */
 export interface IdeasubscriptionsPostResponse {
-    /**
-     * 
-     * @type {IdeasubscriptionsPostResponseIdeaSubscription}
-     * @memberof IdeasubscriptionsPostResponse
-     */
     'idea_subscription'?: IdeasubscriptionsPostResponseIdeaSubscription;
 }
 

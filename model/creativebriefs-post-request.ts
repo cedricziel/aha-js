@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { CreativebriefsPostRequestCreativeBrief } from './creativebriefs-post-request-creative-brief';
 
-/**
- * 
- * @export
- * @interface CreativebriefsPostRequest
- */
 export interface CreativebriefsPostRequest {
-    /**
-     * 
-     * @type {CreativebriefsPostRequestCreativeBrief}
-     * @memberof CreativebriefsPostRequest
-     */
     'creative_brief'?: CreativebriefsPostRequestCreativeBrief;
 }
 

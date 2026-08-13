@@ -46,228 +46,46 @@ import type { InitiativesPutResponseInitiativeMasterFeaturesInner } from './init
 // May contain unused imports in some cases
 // @ts-ignore
 import type { InitiativesPutResponseInitiativeReleasesInner } from './initiatives-put-response-initiative-releases-inner';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface InitiativesPutResponseInitiative
- */
 export interface InitiativesPutResponseInitiative {
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPutResponseInitiative
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPutResponseInitiative
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPutResponseInitiative
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPutResponseInitiative
-     */
     'status'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof InitiativesPutResponseInitiative
-     */
     'effort'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof InitiativesPutResponseInitiative
-     */
     'value'?: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof InitiativesPutResponseInitiative
-     */
     'presented'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPutResponseInitiative
-     */
     'color'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof InitiativesPutResponseInitiative
-     */
-    'start_date'?: any | null;
-    /**
-     * 
-     * @type {any}
-     * @memberof InitiativesPutResponseInitiative
-     */
-    'end_date'?: any | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof InitiativesPutResponseInitiative
-     */
+    'start_date'?: Null;
+    'end_date'?: Null;
     'position'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof InitiativesPutResponseInitiative
-     */
     'score'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPutResponseInitiative
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPutResponseInitiative
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPutResponseInitiative
-     */
     'product_id'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof InitiativesPutResponseInitiative
-     */
-    'progress'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPutResponseInitiative
-     */
+    'progress'?: Null;
     'progress_source'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPutResponseInitiative
-     */
     'duration_source'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPutResponseInitiative
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPutResponseInitiative
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {EpicsPostResponseEpicProject}
-     * @memberof InitiativesPutResponseInitiative
-     */
     'project'?: EpicsPostResponseEpicProject;
-    /**
-     * 
-     * @type {InitiativesPostResponseInitiativeWorkflowStatus}
-     * @memberof InitiativesPutResponseInitiative
-     */
     'workflow_status'?: InitiativesPostResponseInitiativeWorkflowStatus;
-    /**
-     * 
-     * @type {InitiativesPutResponseInitiativeDescription}
-     * @memberof InitiativesPutResponseInitiative
-     */
     'description'?: InitiativesPutResponseInitiativeDescription;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof InitiativesPutResponseInitiative
-     */
     'attachments'?: Array<any>;
-    /**
-     * 
-     * @type {CustomtablerecordlinksPutResponseRequirementAssignedToUser}
-     * @memberof InitiativesPutResponseInitiative
-     */
     'assigned_to_user'?: CustomtablerecordlinksPutResponseRequirementAssignedToUser;
-    /**
-     * 
-     * @type {number}
-     * @memberof InitiativesPutResponseInitiative
-     */
     'comments_count'?: number;
-    /**
-     * 
-     * @type {Array<EpicsPutResponseEpicGoalsInner>}
-     * @memberof InitiativesPutResponseInitiative
-     */
     'goals'?: Array<EpicsPutResponseEpicGoalsInner>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof InitiativesPutResponseInitiative
-     */
     'key_results'?: Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof InitiativesPutResponseInitiative
-     */
     'score_facts'?: Array<any>;
-    /**
-     * 
-     * @type {Array<EpicsPutResponseEpicFeaturesInner>}
-     * @memberof InitiativesPutResponseInitiative
-     */
     'features'?: Array<EpicsPutResponseEpicFeaturesInner>;
-    /**
-     * 
-     * @type {Array<InitiativesPutResponseInitiativeMasterFeaturesInner>}
-     * @memberof InitiativesPutResponseInitiative
-     */
     'master_features'?: Array<InitiativesPutResponseInitiativeMasterFeaturesInner>;
-    /**
-     * 
-     * @type {Array<InitiativesPutResponseInitiativeMasterFeaturesInner>}
-     * @memberof InitiativesPutResponseInitiative
-     */
     'epic'?: Array<InitiativesPutResponseInitiativeMasterFeaturesInner>;
-    /**
-     * 
-     * @type {Array<InitiativesPutResponseInitiativeReleasesInner>}
-     * @memberof InitiativesPutResponseInitiative
-     */
     'releases'?: Array<InitiativesPutResponseInitiativeReleasesInner>;
-    /**
-     * 
-     * @type {Array<InitiativesPutResponseInitiativeIntegrationFieldsInner>}
-     * @memberof InitiativesPutResponseInitiative
-     */
     'integration_fields'?: Array<InitiativesPutResponseInitiativeIntegrationFieldsInner>;
-    /**
-     * 
-     * @type {Array<InitiativesPutResponseInitiativeCustomFieldsInner>}
-     * @memberof InitiativesPutResponseInitiative
-     */
     'custom_fields'?: Array<InitiativesPutResponseInitiativeCustomFieldsInner>;
-    /**
-     * 
-     * @type {CommentsPostResponseCommentUser}
-     * @memberof InitiativesPutResponseInitiative
-     */
     'created_by_user'?: CommentsPostResponseCommentUser;
 }
 

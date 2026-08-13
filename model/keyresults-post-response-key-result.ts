@@ -22,96 +22,24 @@ import type { KeyresultsPostResponseKeyResultDescription } from './keyresults-po
 // May contain unused imports in some cases
 // @ts-ignore
 import type { KeyresultsPostResponseKeyResultWorkflowStatus } from './keyresults-post-response-key-result-workflow-status';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface KeyresultsPostResponseKeyResult
- */
 export interface KeyresultsPostResponseKeyResult {
-    /**
-     * 
-     * @type {string}
-     * @memberof KeyresultsPostResponseKeyResult
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KeyresultsPostResponseKeyResult
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KeyresultsPostResponseKeyResult
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof KeyresultsPostResponseKeyResult
-     */
     'position'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof KeyresultsPostResponseKeyResult
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof KeyresultsPostResponseKeyResult
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof KeyresultsPostResponseKeyResult
-     */
     'progress'?: number;
-    /**
-     * 
-     * @type {any}
-     * @memberof KeyresultsPostResponseKeyResult
-     */
-    'target_metric'?: any | null;
-    /**
-     * 
-     * @type {any}
-     * @memberof KeyresultsPostResponseKeyResult
-     */
-    'starting_metric'?: any | null;
-    /**
-     * 
-     * @type {any}
-     * @memberof KeyresultsPostResponseKeyResult
-     */
-    'current_metric'?: any | null;
-    /**
-     * 
-     * @type {KeyresultsPostResponseKeyResultDescription}
-     * @memberof KeyresultsPostResponseKeyResult
-     */
+    'target_metric'?: Null;
+    'starting_metric'?: Null;
+    'current_metric'?: Null;
     'description'?: KeyresultsPostResponseKeyResultDescription;
-    /**
-     * 
-     * @type {KeyresultsPostResponseKeyResultAssignedToUser}
-     * @memberof KeyresultsPostResponseKeyResult
-     */
     'assigned_to_user'?: KeyresultsPostResponseKeyResultAssignedToUser;
-    /**
-     * 
-     * @type {KeyresultsPostResponseKeyResultWorkflowStatus}
-     * @memberof KeyresultsPostResponseKeyResult
-     */
     'workflow_status'?: KeyresultsPostResponseKeyResultWorkflowStatus;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof KeyresultsPostResponseKeyResult
-     */
     'custom_fields'?: Array<any>;
 }
 

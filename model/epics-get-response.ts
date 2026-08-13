@@ -20,23 +20,8 @@ import type { CompetitorsGetResponsePagination } from './competitors-get-respons
 // @ts-ignore
 import type { EpicsGetResponseEpicsInner } from './epics-get-response-epics-inner';
 
-/**
- * 
- * @export
- * @interface EpicsGetResponse
- */
 export interface EpicsGetResponse {
-    /**
-     * 
-     * @type {Array<EpicsGetResponseEpicsInner>}
-     * @memberof EpicsGetResponse
-     */
     'epics'?: Array<EpicsGetResponseEpicsInner>;
-    /**
-     * 
-     * @type {CompetitorsGetResponsePagination}
-     * @memberof EpicsGetResponse
-     */
     'pagination'?: CompetitorsGetResponsePagination;
 }
 

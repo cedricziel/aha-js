@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { WorkflowsGetResponseWorkflow } from './workflows-get-response-workflow';
 
-/**
- * 
- * @export
- * @interface WorkflowsGetResponse
- */
 export interface WorkflowsGetResponse {
-    /**
-     * 
-     * @type {WorkflowsGetResponseWorkflow}
-     * @memberof WorkflowsGetResponse
-     */
     'workflow'?: WorkflowsGetResponseWorkflow;
 }
 

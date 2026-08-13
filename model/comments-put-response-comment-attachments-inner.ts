@@ -14,59 +14,14 @@
 
 
 
-/**
- * 
- * @export
- * @interface CommentsPutResponseCommentAttachmentsInner
- */
 export interface CommentsPutResponseCommentAttachmentsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsPutResponseCommentAttachmentsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsPutResponseCommentAttachmentsInner
-     */
     'download_url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsPutResponseCommentAttachmentsInner
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsPutResponseCommentAttachmentsInner
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsPutResponseCommentAttachmentsInner
-     */
     'original_file_size'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsPutResponseCommentAttachmentsInner
-     */
     'content_type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsPutResponseCommentAttachmentsInner
-     */
     'file_name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CommentsPutResponseCommentAttachmentsInner
-     */
     'file_size'?: string;
 }
 

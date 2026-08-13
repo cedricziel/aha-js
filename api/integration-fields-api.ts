@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -29,7 +29,6 @@ import type { IntegrationfieldsPostRequest } from '../model';
 import type { IntegrationfieldsPostResponse } from '../model';
 /**
  * IntegrationFieldsApi - axios parameter creator
- * @export
  */
 export const IntegrationFieldsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -50,8 +49,8 @@ export const IntegrationFieldsApiAxiosParamCreator = function (configuration?: C
             // verify required parameter 'integrationfieldsPostRequest' is not null or undefined
             assertParamExists('epicsByEpicIntegrationsByIntegrationFieldsPost', 'integrationfieldsPostRequest', integrationfieldsPostRequest)
             const localVarPath = `/epics/{epic_id}/integrations/{integration_id}/fields`
-                .replace(`{${"epic_id"}}`, encodeURIComponent(String(epicId)))
-                .replace(`{${"integration_id"}}`, encodeURIComponent(String(integrationId)));
+                .replace('{epic_id}', encodeURIComponent(String(epicId)))
+                .replace('{integration_id}', encodeURIComponent(String(integrationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -73,9 +72,8 @@ export const IntegrationFieldsApiAxiosParamCreator = function (configuration?: C
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -103,8 +101,8 @@ export const IntegrationFieldsApiAxiosParamCreator = function (configuration?: C
             // verify required parameter 'fieldValue' is not null or undefined
             assertParamExists('epicsFieldsByFieldNameValueByFieldValueGet', 'fieldValue', fieldValue)
             const localVarPath = `/epics/fields/{field_name}/value/{field_value}`
-                .replace(`{${"field_name"}}`, encodeURIComponent(String(fieldName)))
-                .replace(`{${"field_value"}}`, encodeURIComponent(String(fieldValue)));
+                .replace('{field_name}', encodeURIComponent(String(fieldName)))
+                .replace('{field_value}', encodeURIComponent(String(fieldValue)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -134,8 +132,8 @@ export const IntegrationFieldsApiAxiosParamCreator = function (configuration?: C
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -162,9 +160,9 @@ export const IntegrationFieldsApiAxiosParamCreator = function (configuration?: C
             // verify required parameter 'fieldName' is not null or undefined
             assertParamExists('featuresByFeatureIntegrationsByIntegrationFieldsByFieldNameGet', 'fieldName', fieldName)
             const localVarPath = `/features/{feature_id}/integrations/{integration_id}/fields/{field_name}`
-                .replace(`{${"feature_id"}}`, encodeURIComponent(String(featureId)))
-                .replace(`{${"integration_id"}}`, encodeURIComponent(String(integrationId)))
-                .replace(`{${"field_name"}}`, encodeURIComponent(String(fieldName)));
+                .replace('{feature_id}', encodeURIComponent(String(featureId)))
+                .replace('{integration_id}', encodeURIComponent(String(integrationId)))
+                .replace('{field_name}', encodeURIComponent(String(fieldName)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -186,8 +184,8 @@ export const IntegrationFieldsApiAxiosParamCreator = function (configuration?: C
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -214,8 +212,8 @@ export const IntegrationFieldsApiAxiosParamCreator = function (configuration?: C
             // verify required parameter 'integrationfieldsPostRequest' is not null or undefined
             assertParamExists('featuresByFeatureIntegrationsByIntegrationFieldsPost', 'integrationfieldsPostRequest', integrationfieldsPostRequest)
             const localVarPath = `/features/{feature_id}/integrations/{integration_id}/fields`
-                .replace(`{${"feature_id"}}`, encodeURIComponent(String(featureId)))
-                .replace(`{${"integration_id"}}`, encodeURIComponent(String(integrationId)));
+                .replace('{feature_id}', encodeURIComponent(String(featureId)))
+                .replace('{integration_id}', encodeURIComponent(String(integrationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -237,9 +235,8 @@ export const IntegrationFieldsApiAxiosParamCreator = function (configuration?: C
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -267,8 +264,8 @@ export const IntegrationFieldsApiAxiosParamCreator = function (configuration?: C
             // verify required parameter 'fieldValue' is not null or undefined
             assertParamExists('featuresFieldsByFieldNameValueByFieldValueGet', 'fieldValue', fieldValue)
             const localVarPath = `/features/fields/{field_name}/value/{field_value}`
-                .replace(`{${"field_name"}}`, encodeURIComponent(String(fieldName)))
-                .replace(`{${"field_value"}}`, encodeURIComponent(String(fieldValue)));
+                .replace('{field_name}', encodeURIComponent(String(fieldName)))
+                .replace('{field_value}', encodeURIComponent(String(fieldValue)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -298,8 +295,8 @@ export const IntegrationFieldsApiAxiosParamCreator = function (configuration?: C
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -326,8 +323,8 @@ export const IntegrationFieldsApiAxiosParamCreator = function (configuration?: C
             // verify required parameter 'integrationfieldsPostRequest' is not null or undefined
             assertParamExists('ideaEndorsementsByIdeaEndorsementIntegrationsByIntegrationFieldsPost', 'integrationfieldsPostRequest', integrationfieldsPostRequest)
             const localVarPath = `/idea_endorsements/{idea_endorsement_id}/integrations/{integration_id}/fields`
-                .replace(`{${"idea_endorsement_id"}}`, encodeURIComponent(String(ideaEndorsementId)))
-                .replace(`{${"integration_id"}}`, encodeURIComponent(String(integrationId)));
+                .replace('{idea_endorsement_id}', encodeURIComponent(String(ideaEndorsementId)))
+                .replace('{integration_id}', encodeURIComponent(String(integrationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -349,9 +346,8 @@ export const IntegrationFieldsApiAxiosParamCreator = function (configuration?: C
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -379,8 +375,8 @@ export const IntegrationFieldsApiAxiosParamCreator = function (configuration?: C
             // verify required parameter 'fieldValue' is not null or undefined
             assertParamExists('ideaEndorsementsFieldsByFieldNameValueByFieldValueGet', 'fieldValue', fieldValue)
             const localVarPath = `/idea_endorsements/fields/{field_name}/value/{field_value}`
-                .replace(`{${"field_name"}}`, encodeURIComponent(String(fieldName)))
-                .replace(`{${"field_value"}}`, encodeURIComponent(String(fieldValue)));
+                .replace('{field_name}', encodeURIComponent(String(fieldName)))
+                .replace('{field_value}', encodeURIComponent(String(fieldValue)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -410,8 +406,8 @@ export const IntegrationFieldsApiAxiosParamCreator = function (configuration?: C
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -438,8 +434,8 @@ export const IntegrationFieldsApiAxiosParamCreator = function (configuration?: C
             // verify required parameter 'integrationfieldsPostRequest' is not null or undefined
             assertParamExists('ideaUsersByIdeaUserIntegrationsByIntegrationFieldsPost', 'integrationfieldsPostRequest', integrationfieldsPostRequest)
             const localVarPath = `/idea_users/{idea_user_id}/integrations/{integration_id}/fields`
-                .replace(`{${"idea_user_id"}}`, encodeURIComponent(String(ideaUserId)))
-                .replace(`{${"integration_id"}}`, encodeURIComponent(String(integrationId)));
+                .replace('{idea_user_id}', encodeURIComponent(String(ideaUserId)))
+                .replace('{integration_id}', encodeURIComponent(String(integrationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -461,9 +457,8 @@ export const IntegrationFieldsApiAxiosParamCreator = function (configuration?: C
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -492,8 +487,8 @@ export const IntegrationFieldsApiAxiosParamCreator = function (configuration?: C
             // verify required parameter 'integrationfieldsPostRequest' is not null or undefined
             assertParamExists('ideasByIdeaIntegrationsByIntegrationFieldsPost', 'integrationfieldsPostRequest', integrationfieldsPostRequest)
             const localVarPath = `/ideas/{idea_id}/integrations/{integration_id}/fields`
-                .replace(`{${"idea_id"}}`, encodeURIComponent(String(ideaId)))
-                .replace(`{${"integration_id"}}`, encodeURIComponent(String(integrationId)));
+                .replace('{idea_id}', encodeURIComponent(String(ideaId)))
+                .replace('{integration_id}', encodeURIComponent(String(integrationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -515,9 +510,8 @@ export const IntegrationFieldsApiAxiosParamCreator = function (configuration?: C
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -545,8 +539,8 @@ export const IntegrationFieldsApiAxiosParamCreator = function (configuration?: C
             // verify required parameter 'fieldValue' is not null or undefined
             assertParamExists('ideasFieldsByFieldNameValueByFieldValueGet', 'fieldValue', fieldValue)
             const localVarPath = `/ideas/fields/{field_name}/value/{field_value}`
-                .replace(`{${"field_name"}}`, encodeURIComponent(String(fieldName)))
-                .replace(`{${"field_value"}}`, encodeURIComponent(String(fieldValue)));
+                .replace('{field_name}', encodeURIComponent(String(fieldName)))
+                .replace('{field_value}', encodeURIComponent(String(fieldValue)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -576,8 +570,8 @@ export const IntegrationFieldsApiAxiosParamCreator = function (configuration?: C
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -603,8 +597,8 @@ export const IntegrationFieldsApiAxiosParamCreator = function (configuration?: C
             // verify required parameter 'fieldValue' is not null or undefined
             assertParamExists('initiativesFieldsByFieldNameValueByFieldValueGet', 'fieldValue', fieldValue)
             const localVarPath = `/initiatives/fields/{field_name}/value/{field_value}`
-                .replace(`{${"field_name"}}`, encodeURIComponent(String(fieldName)))
-                .replace(`{${"field_value"}}`, encodeURIComponent(String(fieldValue)));
+                .replace('{field_name}', encodeURIComponent(String(fieldName)))
+                .replace('{field_value}', encodeURIComponent(String(fieldValue)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -634,8 +628,8 @@ export const IntegrationFieldsApiAxiosParamCreator = function (configuration?: C
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -656,7 +650,7 @@ export const IntegrationFieldsApiAxiosParamCreator = function (configuration?: C
             // verify required parameter 'id' is not null or undefined
             assertParamExists('integrationFieldsByIdDelete', 'id', id)
             const localVarPath = `/integration_fields/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -679,7 +673,6 @@ export const IntegrationFieldsApiAxiosParamCreator = function (configuration?: C
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -708,9 +701,9 @@ export const IntegrationFieldsApiAxiosParamCreator = function (configuration?: C
             // verify required parameter 'fieldValue' is not null or undefined
             assertParamExists('integrationsByIntegrationFieldsByFieldNameValueByFieldValueGet', 'fieldValue', fieldValue)
             const localVarPath = `/integrations/{integration_id}/fields/{field_name}/value/{field_value}`
-                .replace(`{${"integration_id"}}`, encodeURIComponent(String(integrationId)))
-                .replace(`{${"field_name"}}`, encodeURIComponent(String(fieldName)))
-                .replace(`{${"field_value"}}`, encodeURIComponent(String(fieldValue)));
+                .replace('{integration_id}', encodeURIComponent(String(integrationId)))
+                .replace('{field_name}', encodeURIComponent(String(fieldName)))
+                .replace('{field_value}', encodeURIComponent(String(fieldValue)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -740,8 +733,8 @@ export const IntegrationFieldsApiAxiosParamCreator = function (configuration?: C
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -767,8 +760,8 @@ export const IntegrationFieldsApiAxiosParamCreator = function (configuration?: C
             // verify required parameter 'fieldValue' is not null or undefined
             assertParamExists('releasesFieldsByFieldNameValueByFieldValueGet', 'fieldValue', fieldValue)
             const localVarPath = `/releases/fields/{field_name}/value/{field_value}`
-                .replace(`{${"field_name"}}`, encodeURIComponent(String(fieldName)))
-                .replace(`{${"field_value"}}`, encodeURIComponent(String(fieldValue)));
+                .replace('{field_name}', encodeURIComponent(String(fieldName)))
+                .replace('{field_value}', encodeURIComponent(String(fieldValue)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -798,8 +791,8 @@ export const IntegrationFieldsApiAxiosParamCreator = function (configuration?: C
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -825,8 +818,8 @@ export const IntegrationFieldsApiAxiosParamCreator = function (configuration?: C
             // verify required parameter 'fieldValue' is not null or undefined
             assertParamExists('requirementsFieldsByFieldNameValueByFieldValueGet', 'fieldValue', fieldValue)
             const localVarPath = `/requirements/fields/{field_name}/value/{field_value}`
-                .replace(`{${"field_name"}}`, encodeURIComponent(String(fieldName)))
-                .replace(`{${"field_value"}}`, encodeURIComponent(String(fieldValue)));
+                .replace('{field_name}', encodeURIComponent(String(fieldName)))
+                .replace('{field_value}', encodeURIComponent(String(fieldValue)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -856,8 +849,8 @@ export const IntegrationFieldsApiAxiosParamCreator = function (configuration?: C
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -872,7 +865,6 @@ export const IntegrationFieldsApiAxiosParamCreator = function (configuration?: C
 
 /**
  * IntegrationFieldsApi - functional programming interface
- * @export
  */
 export const IntegrationFieldsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = IntegrationFieldsApiAxiosParamCreator(configuration)
@@ -1114,7 +1106,6 @@ export const IntegrationFieldsApiFp = function(configuration?: Configuration) {
 
 /**
  * IntegrationFieldsApi - factory interface
- * @export
  */
 export const IntegrationFieldsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = IntegrationFieldsApiFp(configuration)
@@ -1274,8 +1265,6 @@ export const IntegrationFieldsApiFactory = function (configuration?: Configurati
 
 /**
  * IntegrationFieldsApi - interface
- * @export
- * @interface IntegrationFieldsApi
  */
 export interface IntegrationFieldsApiInterface {
     /**
@@ -1284,7 +1273,6 @@ export interface IntegrationFieldsApiInterface {
      * @param {IntegrationFieldsApiEpicsByEpicIntegrationsByIntegrationFieldsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationFieldsApiInterface
      */
     epicsByEpicIntegrationsByIntegrationFieldsPost(requestParameters: IntegrationFieldsApiEpicsByEpicIntegrationsByIntegrationFieldsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<number>>;
 
@@ -1294,7 +1282,6 @@ export interface IntegrationFieldsApiInterface {
      * @param {IntegrationFieldsApiEpicsFieldsByFieldNameValueByFieldValueGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationFieldsApiInterface
      */
     epicsFieldsByFieldNameValueByFieldValueGet(requestParameters: IntegrationFieldsApiEpicsFieldsByFieldNameValueByFieldValueGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IntegrationfieldsGetResponse>;
 
@@ -1304,7 +1291,6 @@ export interface IntegrationFieldsApiInterface {
      * @param {IntegrationFieldsApiFeaturesByFeatureIntegrationsByIntegrationFieldsByFieldNameGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationFieldsApiInterface
      */
     featuresByFeatureIntegrationsByIntegrationFieldsByFieldNameGet(requestParameters: IntegrationFieldsApiFeaturesByFeatureIntegrationsByIntegrationFieldsByFieldNameGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IntegrationfieldsGetResponse>;
 
@@ -1314,7 +1300,6 @@ export interface IntegrationFieldsApiInterface {
      * @param {IntegrationFieldsApiFeaturesByFeatureIntegrationsByIntegrationFieldsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationFieldsApiInterface
      */
     featuresByFeatureIntegrationsByIntegrationFieldsPost(requestParameters: IntegrationFieldsApiFeaturesByFeatureIntegrationsByIntegrationFieldsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<number>>;
 
@@ -1324,7 +1309,6 @@ export interface IntegrationFieldsApiInterface {
      * @param {IntegrationFieldsApiFeaturesFieldsByFieldNameValueByFieldValueGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationFieldsApiInterface
      */
     featuresFieldsByFieldNameValueByFieldValueGet(requestParameters: IntegrationFieldsApiFeaturesFieldsByFieldNameValueByFieldValueGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IntegrationfieldsGetResponse>;
 
@@ -1334,7 +1318,6 @@ export interface IntegrationFieldsApiInterface {
      * @param {IntegrationFieldsApiIdeaEndorsementsByIdeaEndorsementIntegrationsByIntegrationFieldsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationFieldsApiInterface
      */
     ideaEndorsementsByIdeaEndorsementIntegrationsByIntegrationFieldsPost(requestParameters: IntegrationFieldsApiIdeaEndorsementsByIdeaEndorsementIntegrationsByIntegrationFieldsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<IntegrationfieldsPostResponse>;
 
@@ -1344,7 +1327,6 @@ export interface IntegrationFieldsApiInterface {
      * @param {IntegrationFieldsApiIdeaEndorsementsFieldsByFieldNameValueByFieldValueGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationFieldsApiInterface
      */
     ideaEndorsementsFieldsByFieldNameValueByFieldValueGet(requestParameters: IntegrationFieldsApiIdeaEndorsementsFieldsByFieldNameValueByFieldValueGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IntegrationfieldsGetResponse>;
 
@@ -1354,7 +1336,6 @@ export interface IntegrationFieldsApiInterface {
      * @param {IntegrationFieldsApiIdeaUsersByIdeaUserIntegrationsByIntegrationFieldsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationFieldsApiInterface
      */
     ideaUsersByIdeaUserIntegrationsByIntegrationFieldsPost(requestParameters: IntegrationFieldsApiIdeaUsersByIdeaUserIntegrationsByIntegrationFieldsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<IntegrationfieldsPostResponse>;
 
@@ -1364,7 +1345,6 @@ export interface IntegrationFieldsApiInterface {
      * @param {IntegrationFieldsApiIdeasByIdeaIntegrationsByIntegrationFieldsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationFieldsApiInterface
      */
     ideasByIdeaIntegrationsByIntegrationFieldsPost(requestParameters: IntegrationFieldsApiIdeasByIdeaIntegrationsByIntegrationFieldsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<string>>;
 
@@ -1374,7 +1354,6 @@ export interface IntegrationFieldsApiInterface {
      * @param {IntegrationFieldsApiIdeasFieldsByFieldNameValueByFieldValueGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationFieldsApiInterface
      */
     ideasFieldsByFieldNameValueByFieldValueGet(requestParameters: IntegrationFieldsApiIdeasFieldsByFieldNameValueByFieldValueGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IntegrationfieldsGetResponse>;
 
@@ -1384,7 +1363,6 @@ export interface IntegrationFieldsApiInterface {
      * @param {IntegrationFieldsApiInitiativesFieldsByFieldNameValueByFieldValueGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationFieldsApiInterface
      */
     initiativesFieldsByFieldNameValueByFieldValueGet(requestParameters: IntegrationFieldsApiInitiativesFieldsByFieldNameValueByFieldValueGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IntegrationfieldsGetResponse>;
 
@@ -1394,7 +1372,6 @@ export interface IntegrationFieldsApiInterface {
      * @param {IntegrationFieldsApiIntegrationFieldsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationFieldsApiInterface
      */
     integrationFieldsByIdDelete(requestParameters: IntegrationFieldsApiIntegrationFieldsByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -1404,7 +1381,6 @@ export interface IntegrationFieldsApiInterface {
      * @param {IntegrationFieldsApiIntegrationsByIntegrationFieldsByFieldNameValueByFieldValueGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationFieldsApiInterface
      */
     integrationsByIntegrationFieldsByFieldNameValueByFieldValueGet(requestParameters: IntegrationFieldsApiIntegrationsByIntegrationFieldsByFieldNameValueByFieldValueGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IntegrationfieldsGetResponse>;
 
@@ -1414,7 +1390,6 @@ export interface IntegrationFieldsApiInterface {
      * @param {IntegrationFieldsApiReleasesFieldsByFieldNameValueByFieldValueGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationFieldsApiInterface
      */
     releasesFieldsByFieldNameValueByFieldValueGet(requestParameters: IntegrationFieldsApiReleasesFieldsByFieldNameValueByFieldValueGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IntegrationfieldsGetResponse>;
 
@@ -1424,7 +1399,6 @@ export interface IntegrationFieldsApiInterface {
      * @param {IntegrationFieldsApiRequirementsFieldsByFieldNameValueByFieldValueGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationFieldsApiInterface
      */
     requirementsFieldsByFieldNameValueByFieldValueGet(requestParameters: IntegrationFieldsApiRequirementsFieldsByFieldNameValueByFieldValueGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IntegrationfieldsGetResponse>;
 
@@ -1432,478 +1406,278 @@ export interface IntegrationFieldsApiInterface {
 
 /**
  * Request parameters for epicsByEpicIntegrationsByIntegrationFieldsPost operation in IntegrationFieldsApi.
- * @export
- * @interface IntegrationFieldsApiEpicsByEpicIntegrationsByIntegrationFieldsPostRequest
  */
 export interface IntegrationFieldsApiEpicsByEpicIntegrationsByIntegrationFieldsPostRequest {
     /**
      * EpicId identifier
-     * @type {string}
-     * @memberof IntegrationFieldsApiEpicsByEpicIntegrationsByIntegrationFieldsPost
      */
     readonly epicId: string
 
     /**
      * IntegrationId identifier
-     * @type {string}
-     * @memberof IntegrationFieldsApiEpicsByEpicIntegrationsByIntegrationFieldsPost
      */
     readonly integrationId: string
 
-    /**
-     * 
-     * @type {IntegrationfieldsPostRequest}
-     * @memberof IntegrationFieldsApiEpicsByEpicIntegrationsByIntegrationFieldsPost
-     */
     readonly integrationfieldsPostRequest: IntegrationfieldsPostRequest
 }
 
 /**
  * Request parameters for epicsFieldsByFieldNameValueByFieldValueGet operation in IntegrationFieldsApi.
- * @export
- * @interface IntegrationFieldsApiEpicsFieldsByFieldNameValueByFieldValueGetRequest
  */
 export interface IntegrationFieldsApiEpicsFieldsByFieldNameValueByFieldValueGetRequest {
     /**
      * FieldName identifier
-     * @type {string}
-     * @memberof IntegrationFieldsApiEpicsFieldsByFieldNameValueByFieldValueGet
      */
     readonly fieldName: string
 
     /**
      * FieldValue identifier
-     * @type {string}
-     * @memberof IntegrationFieldsApiEpicsFieldsByFieldNameValueByFieldValueGet
      */
     readonly fieldValue: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationFieldsApiEpicsFieldsByFieldNameValueByFieldValueGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationFieldsApiEpicsFieldsByFieldNameValueByFieldValueGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for featuresByFeatureIntegrationsByIntegrationFieldsByFieldNameGet operation in IntegrationFieldsApi.
- * @export
- * @interface IntegrationFieldsApiFeaturesByFeatureIntegrationsByIntegrationFieldsByFieldNameGetRequest
  */
 export interface IntegrationFieldsApiFeaturesByFeatureIntegrationsByIntegrationFieldsByFieldNameGetRequest {
     /**
      * FeatureId identifier
-     * @type {string}
-     * @memberof IntegrationFieldsApiFeaturesByFeatureIntegrationsByIntegrationFieldsByFieldNameGet
      */
     readonly featureId: string
 
     /**
      * IntegrationId identifier
-     * @type {string}
-     * @memberof IntegrationFieldsApiFeaturesByFeatureIntegrationsByIntegrationFieldsByFieldNameGet
      */
     readonly integrationId: string
 
     /**
      * FieldName identifier
-     * @type {string}
-     * @memberof IntegrationFieldsApiFeaturesByFeatureIntegrationsByIntegrationFieldsByFieldNameGet
      */
     readonly fieldName: string
 }
 
 /**
  * Request parameters for featuresByFeatureIntegrationsByIntegrationFieldsPost operation in IntegrationFieldsApi.
- * @export
- * @interface IntegrationFieldsApiFeaturesByFeatureIntegrationsByIntegrationFieldsPostRequest
  */
 export interface IntegrationFieldsApiFeaturesByFeatureIntegrationsByIntegrationFieldsPostRequest {
     /**
      * FeatureId identifier
-     * @type {string}
-     * @memberof IntegrationFieldsApiFeaturesByFeatureIntegrationsByIntegrationFieldsPost
      */
     readonly featureId: string
 
     /**
      * IntegrationId identifier
-     * @type {string}
-     * @memberof IntegrationFieldsApiFeaturesByFeatureIntegrationsByIntegrationFieldsPost
      */
     readonly integrationId: string
 
-    /**
-     * 
-     * @type {IntegrationfieldsPostRequest}
-     * @memberof IntegrationFieldsApiFeaturesByFeatureIntegrationsByIntegrationFieldsPost
-     */
     readonly integrationfieldsPostRequest: IntegrationfieldsPostRequest
 }
 
 /**
  * Request parameters for featuresFieldsByFieldNameValueByFieldValueGet operation in IntegrationFieldsApi.
- * @export
- * @interface IntegrationFieldsApiFeaturesFieldsByFieldNameValueByFieldValueGetRequest
  */
 export interface IntegrationFieldsApiFeaturesFieldsByFieldNameValueByFieldValueGetRequest {
     /**
      * FieldName identifier
-     * @type {string}
-     * @memberof IntegrationFieldsApiFeaturesFieldsByFieldNameValueByFieldValueGet
      */
     readonly fieldName: string
 
     /**
      * FieldValue identifier
-     * @type {string}
-     * @memberof IntegrationFieldsApiFeaturesFieldsByFieldNameValueByFieldValueGet
      */
     readonly fieldValue: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationFieldsApiFeaturesFieldsByFieldNameValueByFieldValueGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationFieldsApiFeaturesFieldsByFieldNameValueByFieldValueGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for ideaEndorsementsByIdeaEndorsementIntegrationsByIntegrationFieldsPost operation in IntegrationFieldsApi.
- * @export
- * @interface IntegrationFieldsApiIdeaEndorsementsByIdeaEndorsementIntegrationsByIntegrationFieldsPostRequest
  */
 export interface IntegrationFieldsApiIdeaEndorsementsByIdeaEndorsementIntegrationsByIntegrationFieldsPostRequest {
     /**
      * IdeaEndorsementId identifier
-     * @type {string}
-     * @memberof IntegrationFieldsApiIdeaEndorsementsByIdeaEndorsementIntegrationsByIntegrationFieldsPost
      */
     readonly ideaEndorsementId: string
 
     /**
      * IntegrationId identifier
-     * @type {string}
-     * @memberof IntegrationFieldsApiIdeaEndorsementsByIdeaEndorsementIntegrationsByIntegrationFieldsPost
      */
     readonly integrationId: string
 
-    /**
-     * 
-     * @type {IntegrationfieldsPostRequest}
-     * @memberof IntegrationFieldsApiIdeaEndorsementsByIdeaEndorsementIntegrationsByIntegrationFieldsPost
-     */
     readonly integrationfieldsPostRequest: IntegrationfieldsPostRequest
 }
 
 /**
  * Request parameters for ideaEndorsementsFieldsByFieldNameValueByFieldValueGet operation in IntegrationFieldsApi.
- * @export
- * @interface IntegrationFieldsApiIdeaEndorsementsFieldsByFieldNameValueByFieldValueGetRequest
  */
 export interface IntegrationFieldsApiIdeaEndorsementsFieldsByFieldNameValueByFieldValueGetRequest {
     /**
      * FieldName identifier
-     * @type {string}
-     * @memberof IntegrationFieldsApiIdeaEndorsementsFieldsByFieldNameValueByFieldValueGet
      */
     readonly fieldName: string
 
     /**
      * FieldValue identifier
-     * @type {string}
-     * @memberof IntegrationFieldsApiIdeaEndorsementsFieldsByFieldNameValueByFieldValueGet
      */
     readonly fieldValue: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationFieldsApiIdeaEndorsementsFieldsByFieldNameValueByFieldValueGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationFieldsApiIdeaEndorsementsFieldsByFieldNameValueByFieldValueGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for ideaUsersByIdeaUserIntegrationsByIntegrationFieldsPost operation in IntegrationFieldsApi.
- * @export
- * @interface IntegrationFieldsApiIdeaUsersByIdeaUserIntegrationsByIntegrationFieldsPostRequest
  */
 export interface IntegrationFieldsApiIdeaUsersByIdeaUserIntegrationsByIntegrationFieldsPostRequest {
     /**
      * IdeaUserId identifier
-     * @type {string}
-     * @memberof IntegrationFieldsApiIdeaUsersByIdeaUserIntegrationsByIntegrationFieldsPost
      */
     readonly ideaUserId: string
 
     /**
      * IntegrationId identifier
-     * @type {string}
-     * @memberof IntegrationFieldsApiIdeaUsersByIdeaUserIntegrationsByIntegrationFieldsPost
      */
     readonly integrationId: string
 
-    /**
-     * 
-     * @type {IntegrationfieldsPostRequest}
-     * @memberof IntegrationFieldsApiIdeaUsersByIdeaUserIntegrationsByIntegrationFieldsPost
-     */
     readonly integrationfieldsPostRequest: IntegrationfieldsPostRequest
 }
 
 /**
  * Request parameters for ideasByIdeaIntegrationsByIntegrationFieldsPost operation in IntegrationFieldsApi.
- * @export
- * @interface IntegrationFieldsApiIdeasByIdeaIntegrationsByIntegrationFieldsPostRequest
  */
 export interface IntegrationFieldsApiIdeasByIdeaIntegrationsByIntegrationFieldsPostRequest {
     /**
      * IdeaId identifier
-     * @type {string}
-     * @memberof IntegrationFieldsApiIdeasByIdeaIntegrationsByIntegrationFieldsPost
      */
     readonly ideaId: string
 
     /**
      * IntegrationId identifier
-     * @type {string}
-     * @memberof IntegrationFieldsApiIdeasByIdeaIntegrationsByIntegrationFieldsPost
      */
     readonly integrationId: string
 
-    /**
-     * 
-     * @type {IntegrationfieldsPostRequest}
-     * @memberof IntegrationFieldsApiIdeasByIdeaIntegrationsByIntegrationFieldsPost
-     */
     readonly integrationfieldsPostRequest: IntegrationfieldsPostRequest
 }
 
 /**
  * Request parameters for ideasFieldsByFieldNameValueByFieldValueGet operation in IntegrationFieldsApi.
- * @export
- * @interface IntegrationFieldsApiIdeasFieldsByFieldNameValueByFieldValueGetRequest
  */
 export interface IntegrationFieldsApiIdeasFieldsByFieldNameValueByFieldValueGetRequest {
     /**
      * FieldName identifier
-     * @type {string}
-     * @memberof IntegrationFieldsApiIdeasFieldsByFieldNameValueByFieldValueGet
      */
     readonly fieldName: string
 
     /**
      * FieldValue identifier
-     * @type {string}
-     * @memberof IntegrationFieldsApiIdeasFieldsByFieldNameValueByFieldValueGet
      */
     readonly fieldValue: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationFieldsApiIdeasFieldsByFieldNameValueByFieldValueGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationFieldsApiIdeasFieldsByFieldNameValueByFieldValueGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for initiativesFieldsByFieldNameValueByFieldValueGet operation in IntegrationFieldsApi.
- * @export
- * @interface IntegrationFieldsApiInitiativesFieldsByFieldNameValueByFieldValueGetRequest
  */
 export interface IntegrationFieldsApiInitiativesFieldsByFieldNameValueByFieldValueGetRequest {
     /**
      * FieldName identifier
-     * @type {string}
-     * @memberof IntegrationFieldsApiInitiativesFieldsByFieldNameValueByFieldValueGet
      */
     readonly fieldName: string
 
     /**
      * FieldValue identifier
-     * @type {string}
-     * @memberof IntegrationFieldsApiInitiativesFieldsByFieldNameValueByFieldValueGet
      */
     readonly fieldValue: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationFieldsApiInitiativesFieldsByFieldNameValueByFieldValueGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationFieldsApiInitiativesFieldsByFieldNameValueByFieldValueGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for integrationFieldsByIdDelete operation in IntegrationFieldsApi.
- * @export
- * @interface IntegrationFieldsApiIntegrationFieldsByIdDeleteRequest
  */
 export interface IntegrationFieldsApiIntegrationFieldsByIdDeleteRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof IntegrationFieldsApiIntegrationFieldsByIdDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for integrationsByIntegrationFieldsByFieldNameValueByFieldValueGet operation in IntegrationFieldsApi.
- * @export
- * @interface IntegrationFieldsApiIntegrationsByIntegrationFieldsByFieldNameValueByFieldValueGetRequest
  */
 export interface IntegrationFieldsApiIntegrationsByIntegrationFieldsByFieldNameValueByFieldValueGetRequest {
     /**
      * IntegrationId identifier
-     * @type {string}
-     * @memberof IntegrationFieldsApiIntegrationsByIntegrationFieldsByFieldNameValueByFieldValueGet
      */
     readonly integrationId: string
 
     /**
      * FieldName identifier
-     * @type {string}
-     * @memberof IntegrationFieldsApiIntegrationsByIntegrationFieldsByFieldNameValueByFieldValueGet
      */
     readonly fieldName: string
 
     /**
      * FieldValue identifier
-     * @type {string}
-     * @memberof IntegrationFieldsApiIntegrationsByIntegrationFieldsByFieldNameValueByFieldValueGet
      */
     readonly fieldValue: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationFieldsApiIntegrationsByIntegrationFieldsByFieldNameValueByFieldValueGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationFieldsApiIntegrationsByIntegrationFieldsByFieldNameValueByFieldValueGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for releasesFieldsByFieldNameValueByFieldValueGet operation in IntegrationFieldsApi.
- * @export
- * @interface IntegrationFieldsApiReleasesFieldsByFieldNameValueByFieldValueGetRequest
  */
 export interface IntegrationFieldsApiReleasesFieldsByFieldNameValueByFieldValueGetRequest {
     /**
      * FieldName identifier
-     * @type {string}
-     * @memberof IntegrationFieldsApiReleasesFieldsByFieldNameValueByFieldValueGet
      */
     readonly fieldName: string
 
     /**
      * FieldValue identifier
-     * @type {string}
-     * @memberof IntegrationFieldsApiReleasesFieldsByFieldNameValueByFieldValueGet
      */
     readonly fieldValue: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationFieldsApiReleasesFieldsByFieldNameValueByFieldValueGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationFieldsApiReleasesFieldsByFieldNameValueByFieldValueGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for requirementsFieldsByFieldNameValueByFieldValueGet operation in IntegrationFieldsApi.
- * @export
- * @interface IntegrationFieldsApiRequirementsFieldsByFieldNameValueByFieldValueGetRequest
  */
 export interface IntegrationFieldsApiRequirementsFieldsByFieldNameValueByFieldValueGetRequest {
     /**
      * FieldName identifier
-     * @type {string}
-     * @memberof IntegrationFieldsApiRequirementsFieldsByFieldNameValueByFieldValueGet
      */
     readonly fieldName: string
 
     /**
      * FieldValue identifier
-     * @type {string}
-     * @memberof IntegrationFieldsApiRequirementsFieldsByFieldNameValueByFieldValueGet
      */
     readonly fieldValue: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationFieldsApiRequirementsFieldsByFieldNameValueByFieldValueGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationFieldsApiRequirementsFieldsByFieldNameValueByFieldValueGet
-     */
     readonly perPage?: string
 }
 
 /**
  * IntegrationFieldsApi - object-oriented interface
- * @export
- * @class IntegrationFieldsApi
- * @extends {BaseAPI}
  */
 export class IntegrationFieldsApi extends BaseAPI implements IntegrationFieldsApiInterface {
     /**
@@ -1912,7 +1686,6 @@ export class IntegrationFieldsApi extends BaseAPI implements IntegrationFieldsAp
      * @param {IntegrationFieldsApiEpicsByEpicIntegrationsByIntegrationFieldsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationFieldsApi
      */
     public epicsByEpicIntegrationsByIntegrationFieldsPost(requestParameters: IntegrationFieldsApiEpicsByEpicIntegrationsByIntegrationFieldsPostRequest, options?: RawAxiosRequestConfig) {
         return IntegrationFieldsApiFp(this.configuration).epicsByEpicIntegrationsByIntegrationFieldsPost(requestParameters.epicId, requestParameters.integrationId, requestParameters.integrationfieldsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1924,7 +1697,6 @@ export class IntegrationFieldsApi extends BaseAPI implements IntegrationFieldsAp
      * @param {IntegrationFieldsApiEpicsFieldsByFieldNameValueByFieldValueGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationFieldsApi
      */
     public epicsFieldsByFieldNameValueByFieldValueGet(requestParameters: IntegrationFieldsApiEpicsFieldsByFieldNameValueByFieldValueGetRequest, options?: RawAxiosRequestConfig) {
         return IntegrationFieldsApiFp(this.configuration).epicsFieldsByFieldNameValueByFieldValueGet(requestParameters.fieldName, requestParameters.fieldValue, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -1936,7 +1708,6 @@ export class IntegrationFieldsApi extends BaseAPI implements IntegrationFieldsAp
      * @param {IntegrationFieldsApiFeaturesByFeatureIntegrationsByIntegrationFieldsByFieldNameGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationFieldsApi
      */
     public featuresByFeatureIntegrationsByIntegrationFieldsByFieldNameGet(requestParameters: IntegrationFieldsApiFeaturesByFeatureIntegrationsByIntegrationFieldsByFieldNameGetRequest, options?: RawAxiosRequestConfig) {
         return IntegrationFieldsApiFp(this.configuration).featuresByFeatureIntegrationsByIntegrationFieldsByFieldNameGet(requestParameters.featureId, requestParameters.integrationId, requestParameters.fieldName, options).then((request) => request(this.axios, this.basePath));
@@ -1948,7 +1719,6 @@ export class IntegrationFieldsApi extends BaseAPI implements IntegrationFieldsAp
      * @param {IntegrationFieldsApiFeaturesByFeatureIntegrationsByIntegrationFieldsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationFieldsApi
      */
     public featuresByFeatureIntegrationsByIntegrationFieldsPost(requestParameters: IntegrationFieldsApiFeaturesByFeatureIntegrationsByIntegrationFieldsPostRequest, options?: RawAxiosRequestConfig) {
         return IntegrationFieldsApiFp(this.configuration).featuresByFeatureIntegrationsByIntegrationFieldsPost(requestParameters.featureId, requestParameters.integrationId, requestParameters.integrationfieldsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1960,7 +1730,6 @@ export class IntegrationFieldsApi extends BaseAPI implements IntegrationFieldsAp
      * @param {IntegrationFieldsApiFeaturesFieldsByFieldNameValueByFieldValueGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationFieldsApi
      */
     public featuresFieldsByFieldNameValueByFieldValueGet(requestParameters: IntegrationFieldsApiFeaturesFieldsByFieldNameValueByFieldValueGetRequest, options?: RawAxiosRequestConfig) {
         return IntegrationFieldsApiFp(this.configuration).featuresFieldsByFieldNameValueByFieldValueGet(requestParameters.fieldName, requestParameters.fieldValue, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -1972,7 +1741,6 @@ export class IntegrationFieldsApi extends BaseAPI implements IntegrationFieldsAp
      * @param {IntegrationFieldsApiIdeaEndorsementsByIdeaEndorsementIntegrationsByIntegrationFieldsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationFieldsApi
      */
     public ideaEndorsementsByIdeaEndorsementIntegrationsByIntegrationFieldsPost(requestParameters: IntegrationFieldsApiIdeaEndorsementsByIdeaEndorsementIntegrationsByIntegrationFieldsPostRequest, options?: RawAxiosRequestConfig) {
         return IntegrationFieldsApiFp(this.configuration).ideaEndorsementsByIdeaEndorsementIntegrationsByIntegrationFieldsPost(requestParameters.ideaEndorsementId, requestParameters.integrationId, requestParameters.integrationfieldsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -1984,7 +1752,6 @@ export class IntegrationFieldsApi extends BaseAPI implements IntegrationFieldsAp
      * @param {IntegrationFieldsApiIdeaEndorsementsFieldsByFieldNameValueByFieldValueGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationFieldsApi
      */
     public ideaEndorsementsFieldsByFieldNameValueByFieldValueGet(requestParameters: IntegrationFieldsApiIdeaEndorsementsFieldsByFieldNameValueByFieldValueGetRequest, options?: RawAxiosRequestConfig) {
         return IntegrationFieldsApiFp(this.configuration).ideaEndorsementsFieldsByFieldNameValueByFieldValueGet(requestParameters.fieldName, requestParameters.fieldValue, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -1996,7 +1763,6 @@ export class IntegrationFieldsApi extends BaseAPI implements IntegrationFieldsAp
      * @param {IntegrationFieldsApiIdeaUsersByIdeaUserIntegrationsByIntegrationFieldsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationFieldsApi
      */
     public ideaUsersByIdeaUserIntegrationsByIntegrationFieldsPost(requestParameters: IntegrationFieldsApiIdeaUsersByIdeaUserIntegrationsByIntegrationFieldsPostRequest, options?: RawAxiosRequestConfig) {
         return IntegrationFieldsApiFp(this.configuration).ideaUsersByIdeaUserIntegrationsByIntegrationFieldsPost(requestParameters.ideaUserId, requestParameters.integrationId, requestParameters.integrationfieldsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2008,7 +1774,6 @@ export class IntegrationFieldsApi extends BaseAPI implements IntegrationFieldsAp
      * @param {IntegrationFieldsApiIdeasByIdeaIntegrationsByIntegrationFieldsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationFieldsApi
      */
     public ideasByIdeaIntegrationsByIntegrationFieldsPost(requestParameters: IntegrationFieldsApiIdeasByIdeaIntegrationsByIntegrationFieldsPostRequest, options?: RawAxiosRequestConfig) {
         return IntegrationFieldsApiFp(this.configuration).ideasByIdeaIntegrationsByIntegrationFieldsPost(requestParameters.ideaId, requestParameters.integrationId, requestParameters.integrationfieldsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -2020,7 +1785,6 @@ export class IntegrationFieldsApi extends BaseAPI implements IntegrationFieldsAp
      * @param {IntegrationFieldsApiIdeasFieldsByFieldNameValueByFieldValueGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationFieldsApi
      */
     public ideasFieldsByFieldNameValueByFieldValueGet(requestParameters: IntegrationFieldsApiIdeasFieldsByFieldNameValueByFieldValueGetRequest, options?: RawAxiosRequestConfig) {
         return IntegrationFieldsApiFp(this.configuration).ideasFieldsByFieldNameValueByFieldValueGet(requestParameters.fieldName, requestParameters.fieldValue, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -2032,7 +1796,6 @@ export class IntegrationFieldsApi extends BaseAPI implements IntegrationFieldsAp
      * @param {IntegrationFieldsApiInitiativesFieldsByFieldNameValueByFieldValueGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationFieldsApi
      */
     public initiativesFieldsByFieldNameValueByFieldValueGet(requestParameters: IntegrationFieldsApiInitiativesFieldsByFieldNameValueByFieldValueGetRequest, options?: RawAxiosRequestConfig) {
         return IntegrationFieldsApiFp(this.configuration).initiativesFieldsByFieldNameValueByFieldValueGet(requestParameters.fieldName, requestParameters.fieldValue, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -2044,7 +1807,6 @@ export class IntegrationFieldsApi extends BaseAPI implements IntegrationFieldsAp
      * @param {IntegrationFieldsApiIntegrationFieldsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationFieldsApi
      */
     public integrationFieldsByIdDelete(requestParameters: IntegrationFieldsApiIntegrationFieldsByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return IntegrationFieldsApiFp(this.configuration).integrationFieldsByIdDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -2056,7 +1818,6 @@ export class IntegrationFieldsApi extends BaseAPI implements IntegrationFieldsAp
      * @param {IntegrationFieldsApiIntegrationsByIntegrationFieldsByFieldNameValueByFieldValueGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationFieldsApi
      */
     public integrationsByIntegrationFieldsByFieldNameValueByFieldValueGet(requestParameters: IntegrationFieldsApiIntegrationsByIntegrationFieldsByFieldNameValueByFieldValueGetRequest, options?: RawAxiosRequestConfig) {
         return IntegrationFieldsApiFp(this.configuration).integrationsByIntegrationFieldsByFieldNameValueByFieldValueGet(requestParameters.integrationId, requestParameters.fieldName, requestParameters.fieldValue, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -2068,7 +1829,6 @@ export class IntegrationFieldsApi extends BaseAPI implements IntegrationFieldsAp
      * @param {IntegrationFieldsApiReleasesFieldsByFieldNameValueByFieldValueGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationFieldsApi
      */
     public releasesFieldsByFieldNameValueByFieldValueGet(requestParameters: IntegrationFieldsApiReleasesFieldsByFieldNameValueByFieldValueGetRequest, options?: RawAxiosRequestConfig) {
         return IntegrationFieldsApiFp(this.configuration).releasesFieldsByFieldNameValueByFieldValueGet(requestParameters.fieldName, requestParameters.fieldValue, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -2080,7 +1840,6 @@ export class IntegrationFieldsApi extends BaseAPI implements IntegrationFieldsAp
      * @param {IntegrationFieldsApiRequirementsFieldsByFieldNameValueByFieldValueGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IntegrationFieldsApi
      */
     public requirementsFieldsByFieldNameValueByFieldValueGet(requestParameters: IntegrationFieldsApiRequirementsFieldsByFieldNameValueByFieldValueGetRequest, options?: RawAxiosRequestConfig) {
         return IntegrationFieldsApiFp(this.configuration).requirementsFieldsByFieldNameValueByFieldValueGet(requestParameters.fieldName, requestParameters.fieldValue, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));

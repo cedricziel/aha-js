@@ -20,23 +20,8 @@ import type { CompetitorsGetResponsePagination } from './competitors-get-respons
 // @ts-ignore
 import type { PersonasGetResponsePersonasInner } from './personas-get-response-personas-inner';
 
-/**
- * 
- * @export
- * @interface PersonasGetResponse
- */
 export interface PersonasGetResponse {
-    /**
-     * 
-     * @type {Array<PersonasGetResponsePersonasInner>}
-     * @memberof PersonasGetResponse
-     */
     'personas'?: Array<PersonasGetResponsePersonasInner>;
-    /**
-     * 
-     * @type {CompetitorsGetResponsePagination}
-     * @memberof PersonasGetResponse
-     */
     'pagination'?: CompetitorsGetResponsePagination;
 }
 

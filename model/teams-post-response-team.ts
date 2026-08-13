@@ -15,85 +15,23 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
+import type { Null } from './null';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { SchedulablechangesPutResponseSchedulableChangeSchedule } from './schedulablechanges-put-response-schedulable-change-schedule';
 
-/**
- * 
- * @export
- * @interface TeamsPostResponseTeam
- */
 export interface TeamsPostResponseTeam {
-    /**
-     * 
-     * @type {string}
-     * @memberof TeamsPostResponseTeam
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof TeamsPostResponseTeam
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof TeamsPostResponseTeam
-     */
     'team_members_count'?: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof TeamsPostResponseTeam
-     */
     'automatically_calculate_team_members_count'?: boolean;
-    /**
-     * 
-     * @type {number}
-     * @memberof TeamsPostResponseTeam
-     */
     'capacity'?: number;
-    /**
-     * 
-     * @type {any}
-     * @memberof TeamsPostResponseTeam
-     */
-    'hourly_rate'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TeamsPostResponseTeam
-     */
+    'hourly_rate'?: Null;
     'color'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof TeamsPostResponseTeam
-     */
-    'start_date'?: any | null;
-    /**
-     * 
-     * @type {any}
-     * @memberof TeamsPostResponseTeam
-     */
-    'end_date'?: any | null;
-    /**
-     * 
-     * @type {any}
-     * @memberof TeamsPostResponseTeam
-     */
-    'project'?: any | null;
-    /**
-     * 
-     * @type {SchedulablechangesPutResponseSchedulableChangeSchedule}
-     * @memberof TeamsPostResponseTeam
-     */
+    'start_date'?: Null;
+    'end_date'?: Null;
+    'project'?: Null;
     'schedule'?: SchedulablechangesPutResponseSchedulableChangeSchedule;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof TeamsPostResponseTeam
-     */
     'custom_fields'?: Array<any>;
 }
 

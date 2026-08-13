@@ -20,77 +20,17 @@ import type { EpicsPostResponseEpicReleaseOwner } from './epics-post-response-ep
 // @ts-ignore
 import type { ReleasesGetResponseReleasesInnerProject } from './releases-get-response-releases-inner-project';
 
-/**
- * 
- * @export
- * @interface ReleasesGetResponseReleasesInner
- */
 export interface ReleasesGetResponseReleasesInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesGetResponseReleasesInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesGetResponseReleasesInner
-     */
     'product_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesGetResponseReleasesInner
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesGetResponseReleasesInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ReleasesGetResponseReleasesInner
-     */
     'parking_lot'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesGetResponseReleasesInner
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesGetResponseReleasesInner
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasesGetResponseReleasesInner
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof ReleasesGetResponseReleasesInner
-     */
     'integration_fields'?: Array<any>;
-    /**
-     * 
-     * @type {EpicsPostResponseEpicReleaseOwner}
-     * @memberof ReleasesGetResponseReleasesInner
-     */
     'owner'?: EpicsPostResponseEpicReleaseOwner;
-    /**
-     * 
-     * @type {ReleasesGetResponseReleasesInnerProject}
-     * @memberof ReleasesGetResponseReleasesInner
-     */
     'project'?: ReleasesGetResponseReleasesInnerProject;
 }
 

@@ -18,14 +18,13 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
 import type { CapacityscenariosGetResponse } from '../model';
 /**
  * CapacityScenariosApi - axios parameter creator
- * @export
  */
 export const CapacityScenariosApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -40,7 +39,7 @@ export const CapacityScenariosApiAxiosParamCreator = function (configuration?: C
             // verify required parameter 'id' is not null or undefined
             assertParamExists('capacityScenariosByIdGet', 'id', id)
             const localVarPath = `/capacity_scenarios/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -62,8 +61,8 @@ export const CapacityScenariosApiAxiosParamCreator = function (configuration?: C
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -112,8 +111,8 @@ export const CapacityScenariosApiAxiosParamCreator = function (configuration?: C
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -128,7 +127,6 @@ export const CapacityScenariosApiAxiosParamCreator = function (configuration?: C
 
 /**
  * CapacityScenariosApi - functional programming interface
- * @export
  */
 export const CapacityScenariosApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = CapacityScenariosApiAxiosParamCreator(configuration)
@@ -165,7 +163,6 @@ export const CapacityScenariosApiFp = function(configuration?: Configuration) {
 
 /**
  * CapacityScenariosApi - factory interface
- * @export
  */
 export const CapacityScenariosApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = CapacityScenariosApiFp(configuration)
@@ -195,8 +192,6 @@ export const CapacityScenariosApiFactory = function (configuration?: Configurati
 
 /**
  * CapacityScenariosApi - interface
- * @export
- * @interface CapacityScenariosApi
  */
 export interface CapacityScenariosApiInterface {
     /**
@@ -205,7 +200,6 @@ export interface CapacityScenariosApiInterface {
      * @param {CapacityScenariosApiCapacityScenariosByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacityScenariosApiInterface
      */
     capacityScenariosByIdGet(requestParameters: CapacityScenariosApiCapacityScenariosByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<CapacityscenariosGetResponse>;
 
@@ -215,7 +209,6 @@ export interface CapacityScenariosApiInterface {
      * @param {CapacityScenariosApiCapacityScenariosGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacityScenariosApiInterface
      */
     capacityScenariosGet(requestParameters?: CapacityScenariosApiCapacityScenariosGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<CapacityscenariosGetResponse>;
 
@@ -223,44 +216,25 @@ export interface CapacityScenariosApiInterface {
 
 /**
  * Request parameters for capacityScenariosByIdGet operation in CapacityScenariosApi.
- * @export
- * @interface CapacityScenariosApiCapacityScenariosByIdGetRequest
  */
 export interface CapacityScenariosApiCapacityScenariosByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof CapacityScenariosApiCapacityScenariosByIdGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for capacityScenariosGet operation in CapacityScenariosApi.
- * @export
- * @interface CapacityScenariosApiCapacityScenariosGetRequest
  */
 export interface CapacityScenariosApiCapacityScenariosGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityScenariosApiCapacityScenariosGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityScenariosApiCapacityScenariosGet
-     */
     readonly perPage?: string
 }
 
 /**
  * CapacityScenariosApi - object-oriented interface
- * @export
- * @class CapacityScenariosApi
- * @extends {BaseAPI}
  */
 export class CapacityScenariosApi extends BaseAPI implements CapacityScenariosApiInterface {
     /**
@@ -269,7 +243,6 @@ export class CapacityScenariosApi extends BaseAPI implements CapacityScenariosAp
      * @param {CapacityScenariosApiCapacityScenariosByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacityScenariosApi
      */
     public capacityScenariosByIdGet(requestParameters: CapacityScenariosApiCapacityScenariosByIdGetRequest, options?: RawAxiosRequestConfig) {
         return CapacityScenariosApiFp(this.configuration).capacityScenariosByIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -281,7 +254,6 @@ export class CapacityScenariosApi extends BaseAPI implements CapacityScenariosAp
      * @param {CapacityScenariosApiCapacityScenariosGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CapacityScenariosApi
      */
     public capacityScenariosGet(requestParameters: CapacityScenariosApiCapacityScenariosGetRequest = {}, options?: RawAxiosRequestConfig) {
         return CapacityScenariosApiFp(this.configuration).capacityScenariosGet(requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));

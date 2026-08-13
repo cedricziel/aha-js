@@ -20,23 +20,8 @@ import type { NotesGetResponsePagesInner } from './notes-get-response-pages-inne
 // @ts-ignore
 import type { NotesGetResponsePagination } from './notes-get-response-pagination';
 
-/**
- * 
- * @export
- * @interface NotesGetResponse
- */
 export interface NotesGetResponse {
-    /**
-     * 
-     * @type {Array<NotesGetResponsePagesInner>}
-     * @memberof NotesGetResponse
-     */
     'pages'?: Array<NotesGetResponsePagesInner>;
-    /**
-     * 
-     * @type {NotesGetResponsePagination}
-     * @memberof NotesGetResponse
-     */
     'pagination'?: NotesGetResponsePagination;
 }
 

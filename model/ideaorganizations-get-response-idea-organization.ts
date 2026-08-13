@@ -13,30 +13,13 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface IdeaorganizationsGetResponseIdeaOrganization
- */
 export interface IdeaorganizationsGetResponseIdeaOrganization {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsGetResponseIdeaOrganization
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsGetResponseIdeaOrganization
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof IdeaorganizationsGetResponseIdeaOrganization
-     */
-    'revenue'?: any | null;
+    'revenue'?: Null;
 }
 

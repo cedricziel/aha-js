@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface IntegrationsGetResponseIntegrationOwner
- */
 export interface IntegrationsGetResponseIntegrationOwner {
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationsGetResponseIntegrationOwner
-     */
     'type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationsGetResponseIntegrationOwner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationsGetResponseIntegrationOwner
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IntegrationsGetResponseIntegrationOwner
-     */
     'resource'?: string;
 }
 

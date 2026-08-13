@@ -17,53 +17,13 @@
 // @ts-ignore
 import type { IdeausersPutResponseIdeaUserIdeaOrganizationsInner } from './ideausers-put-response-idea-user-idea-organizations-inner';
 
-/**
- * 
- * @export
- * @interface IdeausersPutResponseIdeaUser
- */
 export interface IdeausersPutResponseIdeaUser {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeausersPutResponseIdeaUser
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeausersPutResponseIdeaUser
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeausersPutResponseIdeaUser
-     */
     'email'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeausersPutResponseIdeaUser
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {Array<IdeausersPutResponseIdeaUserIdeaOrganizationsInner>}
-     * @memberof IdeausersPutResponseIdeaUser
-     */
     'idea_organizations'?: Array<IdeausersPutResponseIdeaUserIdeaOrganizationsInner>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof IdeausersPutResponseIdeaUser
-     */
     'custom_fields'?: Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof IdeausersPutResponseIdeaUser
-     */
     'integration_fields'?: Array<any>;
 }
 

@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeausersPostRequestIdeaUser
- */
 export interface IdeausersPostRequestIdeaUser {
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof IdeausersPostRequestIdeaUser
-     */
     'discovery_group_ids'?: Array<any>;
 }
 

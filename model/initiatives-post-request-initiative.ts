@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface InitiativesPostRequestInitiative
- */
 export interface InitiativesPostRequestInitiative {
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPostRequestInitiative
-     */
     'name'?: string;
 }
 

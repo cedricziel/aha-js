@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { IdeavotesPutResponseIdeaEndorsement } from './ideavotes-put-response-idea-endorsement';
 
-/**
- * 
- * @export
- * @interface IdeavotesPutResponse
- */
 export interface IdeavotesPutResponse {
-    /**
-     * 
-     * @type {IdeavotesPutResponseIdeaEndorsement}
-     * @memberof IdeavotesPutResponse
-     */
     'idea_endorsement'?: IdeavotesPutResponseIdeaEndorsement;
 }
 

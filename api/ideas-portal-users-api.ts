@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { IdeasportalusersPostResponse } from '../model';
 import type { IdeasportalusersPutResponse } from '../model';
 /**
  * IdeasPortalUsersApi - axios parameter creator
- * @export
  */
 export const IdeasPortalUsersApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -49,8 +48,8 @@ export const IdeasPortalUsersApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'id' is not null or undefined
             assertParamExists('ideaPortalsByIdeaPortalPortalUsersByIdDelete', 'id', id)
             const localVarPath = `/idea_portals/{idea_portal_id}/portal_users/{id}`
-                .replace(`{${"idea_portal_id"}}`, encodeURIComponent(String(ideaPortalId)))
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{idea_portal_id}', encodeURIComponent(String(ideaPortalId)))
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -73,7 +72,6 @@ export const IdeasPortalUsersApiAxiosParamCreator = function (configuration?: Co
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -97,8 +95,8 @@ export const IdeasPortalUsersApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'id' is not null or undefined
             assertParamExists('ideaPortalsByIdeaPortalPortalUsersByIdGet', 'id', id)
             const localVarPath = `/idea_portals/{idea_portal_id}/portal_users/{id}`
-                .replace(`{${"idea_portal_id"}}`, encodeURIComponent(String(ideaPortalId)))
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{idea_portal_id}', encodeURIComponent(String(ideaPortalId)))
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -120,8 +118,8 @@ export const IdeasPortalUsersApiAxiosParamCreator = function (configuration?: Co
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -148,8 +146,8 @@ export const IdeasPortalUsersApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'ideasportalusersPostRequest' is not null or undefined
             assertParamExists('ideaPortalsByIdeaPortalPortalUsersByIdPut', 'ideasportalusersPostRequest', ideasportalusersPostRequest)
             const localVarPath = `/idea_portals/{idea_portal_id}/portal_users/{id}`
-                .replace(`{${"idea_portal_id"}}`, encodeURIComponent(String(ideaPortalId)))
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{idea_portal_id}', encodeURIComponent(String(ideaPortalId)))
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -171,9 +169,8 @@ export const IdeasPortalUsersApiAxiosParamCreator = function (configuration?: Co
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -201,7 +198,7 @@ export const IdeasPortalUsersApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'ideaPortalId' is not null or undefined
             assertParamExists('ideaPortalsByIdeaPortalPortalUsersGet', 'ideaPortalId', ideaPortalId)
             const localVarPath = `/idea_portals/{idea_portal_id}/portal_users`
-                .replace(`{${"idea_portal_id"}}`, encodeURIComponent(String(ideaPortalId)));
+                .replace('{idea_portal_id}', encodeURIComponent(String(ideaPortalId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -243,8 +240,8 @@ export const IdeasPortalUsersApiAxiosParamCreator = function (configuration?: Co
                 localVarQueryParameter['fields'] = fields;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -268,7 +265,7 @@ export const IdeasPortalUsersApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'ideasportalusersPostRequest' is not null or undefined
             assertParamExists('ideaPortalsByIdeaPortalPortalUsersPost', 'ideasportalusersPostRequest', ideasportalusersPostRequest)
             const localVarPath = `/idea_portals/{idea_portal_id}/portal_users`
-                .replace(`{${"idea_portal_id"}}`, encodeURIComponent(String(ideaPortalId)));
+                .replace('{idea_portal_id}', encodeURIComponent(String(ideaPortalId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -290,9 +287,8 @@ export const IdeasPortalUsersApiAxiosParamCreator = function (configuration?: Co
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -315,7 +311,7 @@ export const IdeasPortalUsersApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'id' is not null or undefined
             assertParamExists('portalUsersByIdGet', 'id', id)
             const localVarPath = `/portal_users/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -337,8 +333,8 @@ export const IdeasPortalUsersApiAxiosParamCreator = function (configuration?: Co
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -387,8 +383,8 @@ export const IdeasPortalUsersApiAxiosParamCreator = function (configuration?: Co
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -403,7 +399,6 @@ export const IdeasPortalUsersApiAxiosParamCreator = function (configuration?: Co
 
 /**
  * IdeasPortalUsersApi - functional programming interface
- * @export
  */
 export const IdeasPortalUsersApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = IdeasPortalUsersApiAxiosParamCreator(configuration)
@@ -515,7 +510,6 @@ export const IdeasPortalUsersApiFp = function(configuration?: Configuration) {
 
 /**
  * IdeasPortalUsersApi - factory interface
- * @export
  */
 export const IdeasPortalUsersApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = IdeasPortalUsersApiFp(configuration)
@@ -595,8 +589,6 @@ export const IdeasPortalUsersApiFactory = function (configuration?: Configuratio
 
 /**
  * IdeasPortalUsersApi - interface
- * @export
- * @interface IdeasPortalUsersApi
  */
 export interface IdeasPortalUsersApiInterface {
     /**
@@ -605,7 +597,6 @@ export interface IdeasPortalUsersApiInterface {
      * @param {IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasPortalUsersApiInterface
      */
     ideaPortalsByIdeaPortalPortalUsersByIdDelete(requestParameters: IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -615,7 +606,6 @@ export interface IdeasPortalUsersApiInterface {
      * @param {IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasPortalUsersApiInterface
      */
     ideaPortalsByIdeaPortalPortalUsersByIdGet(requestParameters: IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasportalusersGetResponse>;
 
@@ -625,7 +615,6 @@ export interface IdeasPortalUsersApiInterface {
      * @param {IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasPortalUsersApiInterface
      */
     ideaPortalsByIdeaPortalPortalUsersByIdPut(requestParameters: IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasportalusersPutResponse>;
 
@@ -635,7 +624,6 @@ export interface IdeasPortalUsersApiInterface {
      * @param {IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasPortalUsersApiInterface
      */
     ideaPortalsByIdeaPortalPortalUsersGet(requestParameters: IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasportalusersGetResponse>;
 
@@ -645,7 +633,6 @@ export interface IdeasPortalUsersApiInterface {
      * @param {IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasPortalUsersApiInterface
      */
     ideaPortalsByIdeaPortalPortalUsersPost(requestParameters: IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasportalusersPostResponse>;
 
@@ -655,7 +642,6 @@ export interface IdeasPortalUsersApiInterface {
      * @param {IdeasPortalUsersApiPortalUsersByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasPortalUsersApiInterface
      */
     portalUsersByIdGet(requestParameters: IdeasPortalUsersApiPortalUsersByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasportalusersGetResponse>;
 
@@ -665,7 +651,6 @@ export interface IdeasPortalUsersApiInterface {
      * @param {IdeasPortalUsersApiPortalUsersGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasPortalUsersApiInterface
      */
     portalUsersGet(requestParameters?: IdeasPortalUsersApiPortalUsersGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdeasportalusersGetResponse>;
 
@@ -673,184 +658,104 @@ export interface IdeasPortalUsersApiInterface {
 
 /**
  * Request parameters for ideaPortalsByIdeaPortalPortalUsersByIdDelete operation in IdeasPortalUsersApi.
- * @export
- * @interface IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersByIdDeleteRequest
  */
 export interface IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersByIdDeleteRequest {
     /**
      * IdeaPortalId identifier
-     * @type {string}
-     * @memberof IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersByIdDelete
      */
     readonly ideaPortalId: string
 
     /**
      * Id identifier
-     * @type {string}
-     * @memberof IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersByIdDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for ideaPortalsByIdeaPortalPortalUsersByIdGet operation in IdeasPortalUsersApi.
- * @export
- * @interface IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersByIdGetRequest
  */
 export interface IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersByIdGetRequest {
     /**
      * IdeaPortalId identifier
-     * @type {string}
-     * @memberof IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersByIdGet
      */
     readonly ideaPortalId: string
 
     /**
      * Id identifier
-     * @type {string}
-     * @memberof IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersByIdGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for ideaPortalsByIdeaPortalPortalUsersByIdPut operation in IdeasPortalUsersApi.
- * @export
- * @interface IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersByIdPutRequest
  */
 export interface IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersByIdPutRequest {
     /**
      * IdeaPortalId identifier
-     * @type {string}
-     * @memberof IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersByIdPut
      */
     readonly ideaPortalId: string
 
     /**
      * Id identifier
-     * @type {string}
-     * @memberof IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {IdeasportalusersPostRequest}
-     * @memberof IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersByIdPut
-     */
     readonly ideasportalusersPostRequest: IdeasportalusersPostRequest
 }
 
 /**
  * Request parameters for ideaPortalsByIdeaPortalPortalUsersGet operation in IdeasPortalUsersApi.
- * @export
- * @interface IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersGetRequest
  */
 export interface IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersGetRequest {
     /**
      * IdeaPortalId identifier
-     * @type {string}
-     * @memberof IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersGet
      */
     readonly ideaPortalId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersGet
-     */
     readonly perPage?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersGet
-     */
     readonly ideaUserId?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersGet
-     */
     readonly hasPortalUserSubscriptions?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersGet
-     */
     readonly fields?: string
 }
 
 /**
  * Request parameters for ideaPortalsByIdeaPortalPortalUsersPost operation in IdeasPortalUsersApi.
- * @export
- * @interface IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersPostRequest
  */
 export interface IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersPostRequest {
     /**
      * IdeaPortalId identifier
-     * @type {string}
-     * @memberof IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersPost
      */
     readonly ideaPortalId: string
 
-    /**
-     * 
-     * @type {IdeasportalusersPostRequest}
-     * @memberof IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersPost
-     */
     readonly ideasportalusersPostRequest: IdeasportalusersPostRequest
 }
 
 /**
  * Request parameters for portalUsersByIdGet operation in IdeasPortalUsersApi.
- * @export
- * @interface IdeasPortalUsersApiPortalUsersByIdGetRequest
  */
 export interface IdeasPortalUsersApiPortalUsersByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof IdeasPortalUsersApiPortalUsersByIdGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for portalUsersGet operation in IdeasPortalUsersApi.
- * @export
- * @interface IdeasPortalUsersApiPortalUsersGetRequest
  */
 export interface IdeasPortalUsersApiPortalUsersGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPortalUsersApiPortalUsersGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeasPortalUsersApiPortalUsersGet
-     */
     readonly perPage?: string
 }
 
 /**
  * IdeasPortalUsersApi - object-oriented interface
- * @export
- * @class IdeasPortalUsersApi
- * @extends {BaseAPI}
  */
 export class IdeasPortalUsersApi extends BaseAPI implements IdeasPortalUsersApiInterface {
     /**
@@ -859,7 +764,6 @@ export class IdeasPortalUsersApi extends BaseAPI implements IdeasPortalUsersApiI
      * @param {IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasPortalUsersApi
      */
     public ideaPortalsByIdeaPortalPortalUsersByIdDelete(requestParameters: IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return IdeasPortalUsersApiFp(this.configuration).ideaPortalsByIdeaPortalPortalUsersByIdDelete(requestParameters.ideaPortalId, requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -871,7 +775,6 @@ export class IdeasPortalUsersApi extends BaseAPI implements IdeasPortalUsersApiI
      * @param {IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasPortalUsersApi
      */
     public ideaPortalsByIdeaPortalPortalUsersByIdGet(requestParameters: IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersByIdGetRequest, options?: RawAxiosRequestConfig) {
         return IdeasPortalUsersApiFp(this.configuration).ideaPortalsByIdeaPortalPortalUsersByIdGet(requestParameters.ideaPortalId, requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -883,7 +786,6 @@ export class IdeasPortalUsersApi extends BaseAPI implements IdeasPortalUsersApiI
      * @param {IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasPortalUsersApi
      */
     public ideaPortalsByIdeaPortalPortalUsersByIdPut(requestParameters: IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersByIdPutRequest, options?: RawAxiosRequestConfig) {
         return IdeasPortalUsersApiFp(this.configuration).ideaPortalsByIdeaPortalPortalUsersByIdPut(requestParameters.ideaPortalId, requestParameters.id, requestParameters.ideasportalusersPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -895,7 +797,6 @@ export class IdeasPortalUsersApi extends BaseAPI implements IdeasPortalUsersApiI
      * @param {IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasPortalUsersApi
      */
     public ideaPortalsByIdeaPortalPortalUsersGet(requestParameters: IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersGetRequest, options?: RawAxiosRequestConfig) {
         return IdeasPortalUsersApiFp(this.configuration).ideaPortalsByIdeaPortalPortalUsersGet(requestParameters.ideaPortalId, requestParameters.page, requestParameters.perPage, requestParameters.ideaUserId, requestParameters.hasPortalUserSubscriptions, requestParameters.fields, options).then((request) => request(this.axios, this.basePath));
@@ -907,7 +808,6 @@ export class IdeasPortalUsersApi extends BaseAPI implements IdeasPortalUsersApiI
      * @param {IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasPortalUsersApi
      */
     public ideaPortalsByIdeaPortalPortalUsersPost(requestParameters: IdeasPortalUsersApiIdeaPortalsByIdeaPortalPortalUsersPostRequest, options?: RawAxiosRequestConfig) {
         return IdeasPortalUsersApiFp(this.configuration).ideaPortalsByIdeaPortalPortalUsersPost(requestParameters.ideaPortalId, requestParameters.ideasportalusersPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -919,7 +819,6 @@ export class IdeasPortalUsersApi extends BaseAPI implements IdeasPortalUsersApiI
      * @param {IdeasPortalUsersApiPortalUsersByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasPortalUsersApi
      */
     public portalUsersByIdGet(requestParameters: IdeasPortalUsersApiPortalUsersByIdGetRequest, options?: RawAxiosRequestConfig) {
         return IdeasPortalUsersApiFp(this.configuration).portalUsersByIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -931,7 +830,6 @@ export class IdeasPortalUsersApi extends BaseAPI implements IdeasPortalUsersApiI
      * @param {IdeasPortalUsersApiPortalUsersGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdeasPortalUsersApi
      */
     public portalUsersGet(requestParameters: IdeasPortalUsersApiPortalUsersGetRequest = {}, options?: RawAxiosRequestConfig) {
         return IdeasPortalUsersApiFp(this.configuration).portalUsersGet(requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));

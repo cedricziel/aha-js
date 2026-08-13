@@ -13,48 +13,16 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface InitiativesGetResponseInitiativesInnerWorkflowStatus
- */
 export interface InitiativesGetResponseInitiativesInnerWorkflowStatus {
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesGetResponseInitiativesInnerWorkflowStatus
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesGetResponseInitiativesInnerWorkflowStatus
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesGetResponseInitiativesInnerWorkflowStatus
-     */
     'position'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesGetResponseInitiativesInnerWorkflowStatus
-     */
     'complete'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesGetResponseInitiativesInnerWorkflowStatus
-     */
     'color'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof InitiativesGetResponseInitiativesInnerWorkflowStatus
-     */
-    'workflow_status_category'?: any | null;
+    'workflow_status_category'?: Null;
 }
 

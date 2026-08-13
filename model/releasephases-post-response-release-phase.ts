@@ -17,95 +17,20 @@
 // @ts-ignore
 import type { ReleasephasesPostResponseReleasePhaseDescription } from './releasephases-post-response-release-phase-description';
 
-/**
- * 
- * @export
- * @interface ReleasephasesPostResponseReleasePhase
- */
 export interface ReleasephasesPostResponseReleasePhase {
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasephasesPostResponseReleasePhase
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasephasesPostResponseReleasePhase
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasephasesPostResponseReleasePhase
-     */
     'start_on'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasephasesPostResponseReleasePhase
-     */
     'end_on'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasephasesPostResponseReleasePhase
-     */
     'type'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof ReleasephasesPostResponseReleasePhase
-     */
     'release_id'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasephasesPostResponseReleasePhase
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasephasesPostResponseReleasePhase
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof ReleasephasesPostResponseReleasePhase
-     */
     'progress'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasephasesPostResponseReleasePhase
-     */
     'progress_source'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReleasephasesPostResponseReleasePhase
-     */
     'duration_source'?: string;
-    /**
-     * 
-     * @type {ReleasephasesPostResponseReleasePhaseDescription}
-     * @memberof ReleasephasesPostResponseReleasePhase
-     */
     'description'?: ReleasephasesPostResponseReleasePhaseDescription;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof ReleasephasesPostResponseReleasePhase
-     */
     'integration_fields'?: Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof ReleasephasesPostResponseReleasePhase
-     */
     'custom_fields'?: Array<any>;
 }
 

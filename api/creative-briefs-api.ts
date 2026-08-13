@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -31,7 +31,6 @@ import type { CreativebriefsPostResponse } from '../model';
 import type { CreativebriefsPutResponse } from '../model';
 /**
  * CreativeBriefsApi - axios parameter creator
- * @export
  */
 export const CreativeBriefsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -46,7 +45,7 @@ export const CreativeBriefsApiAxiosParamCreator = function (configuration?: Conf
             // verify required parameter 'id' is not null or undefined
             assertParamExists('creativeBriefsByIdGet', 'id', id)
             const localVarPath = `/creative_briefs/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -68,8 +67,8 @@ export const CreativeBriefsApiAxiosParamCreator = function (configuration?: Conf
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -93,8 +92,8 @@ export const CreativeBriefsApiAxiosParamCreator = function (configuration?: Conf
             // verify required parameter 'id' is not null or undefined
             assertParamExists('productsByProductCreativeBriefsByIdDelete', 'id', id)
             const localVarPath = `/products/{product_id}/creative_briefs/{id}`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)))
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{product_id}', encodeURIComponent(String(productId)))
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -117,7 +116,6 @@ export const CreativeBriefsApiAxiosParamCreator = function (configuration?: Conf
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -144,8 +142,8 @@ export const CreativeBriefsApiAxiosParamCreator = function (configuration?: Conf
             // verify required parameter 'creativebriefsPostRequest' is not null or undefined
             assertParamExists('productsByProductCreativeBriefsByIdPut', 'creativebriefsPostRequest', creativebriefsPostRequest)
             const localVarPath = `/products/{product_id}/creative_briefs/{id}`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)))
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{product_id}', encodeURIComponent(String(productId)))
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -167,9 +165,8 @@ export const CreativeBriefsApiAxiosParamCreator = function (configuration?: Conf
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -194,7 +191,7 @@ export const CreativeBriefsApiAxiosParamCreator = function (configuration?: Conf
             // verify required parameter 'productId' is not null or undefined
             assertParamExists('productsByProductCreativeBriefsGet', 'productId', productId)
             const localVarPath = `/products/{product_id}/creative_briefs`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -224,8 +221,8 @@ export const CreativeBriefsApiAxiosParamCreator = function (configuration?: Conf
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -249,7 +246,7 @@ export const CreativeBriefsApiAxiosParamCreator = function (configuration?: Conf
             // verify required parameter 'creativebriefsPostRequest' is not null or undefined
             assertParamExists('productsByProductCreativeBriefsPost', 'creativebriefsPostRequest', creativebriefsPostRequest)
             const localVarPath = `/products/{product_id}/creative_briefs`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+                .replace('{product_id}', encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -271,9 +268,8 @@ export const CreativeBriefsApiAxiosParamCreator = function (configuration?: Conf
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -290,7 +286,6 @@ export const CreativeBriefsApiAxiosParamCreator = function (configuration?: Conf
 
 /**
  * CreativeBriefsApi - functional programming interface
- * @export
  */
 export const CreativeBriefsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = CreativeBriefsApiAxiosParamCreator(configuration)
@@ -371,7 +366,6 @@ export const CreativeBriefsApiFp = function(configuration?: Configuration) {
 
 /**
  * CreativeBriefsApi - factory interface
- * @export
  */
 export const CreativeBriefsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = CreativeBriefsApiFp(configuration)
@@ -431,8 +425,6 @@ export const CreativeBriefsApiFactory = function (configuration?: Configuration,
 
 /**
  * CreativeBriefsApi - interface
- * @export
- * @interface CreativeBriefsApi
  */
 export interface CreativeBriefsApiInterface {
     /**
@@ -441,7 +433,6 @@ export interface CreativeBriefsApiInterface {
      * @param {CreativeBriefsApiCreativeBriefsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CreativeBriefsApiInterface
      */
     creativeBriefsByIdGet(requestParameters: CreativeBriefsApiCreativeBriefsByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<CreativebriefsGetResponse>;
 
@@ -451,7 +442,6 @@ export interface CreativeBriefsApiInterface {
      * @param {CreativeBriefsApiProductsByProductCreativeBriefsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CreativeBriefsApiInterface
      */
     productsByProductCreativeBriefsByIdDelete(requestParameters: CreativeBriefsApiProductsByProductCreativeBriefsByIdDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -461,7 +451,6 @@ export interface CreativeBriefsApiInterface {
      * @param {CreativeBriefsApiProductsByProductCreativeBriefsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CreativeBriefsApiInterface
      */
     productsByProductCreativeBriefsByIdPut(requestParameters: CreativeBriefsApiProductsByProductCreativeBriefsByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<CreativebriefsPutResponse>;
 
@@ -471,7 +460,6 @@ export interface CreativeBriefsApiInterface {
      * @param {CreativeBriefsApiProductsByProductCreativeBriefsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CreativeBriefsApiInterface
      */
     productsByProductCreativeBriefsGet(requestParameters: CreativeBriefsApiProductsByProductCreativeBriefsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<CreativebriefsGetResponse>;
 
@@ -481,7 +469,6 @@ export interface CreativeBriefsApiInterface {
      * @param {CreativeBriefsApiProductsByProductCreativeBriefsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CreativeBriefsApiInterface
      */
     productsByProductCreativeBriefsPost(requestParameters: CreativeBriefsApiProductsByProductCreativeBriefsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<CreativebriefsPostResponse>;
 
@@ -489,121 +476,74 @@ export interface CreativeBriefsApiInterface {
 
 /**
  * Request parameters for creativeBriefsByIdGet operation in CreativeBriefsApi.
- * @export
- * @interface CreativeBriefsApiCreativeBriefsByIdGetRequest
  */
 export interface CreativeBriefsApiCreativeBriefsByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof CreativeBriefsApiCreativeBriefsByIdGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for productsByProductCreativeBriefsByIdDelete operation in CreativeBriefsApi.
- * @export
- * @interface CreativeBriefsApiProductsByProductCreativeBriefsByIdDeleteRequest
  */
 export interface CreativeBriefsApiProductsByProductCreativeBriefsByIdDeleteRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof CreativeBriefsApiProductsByProductCreativeBriefsByIdDelete
      */
     readonly productId: string
 
     /**
      * Id identifier
-     * @type {string}
-     * @memberof CreativeBriefsApiProductsByProductCreativeBriefsByIdDelete
      */
     readonly id: string
 }
 
 /**
  * Request parameters for productsByProductCreativeBriefsByIdPut operation in CreativeBriefsApi.
- * @export
- * @interface CreativeBriefsApiProductsByProductCreativeBriefsByIdPutRequest
  */
 export interface CreativeBriefsApiProductsByProductCreativeBriefsByIdPutRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof CreativeBriefsApiProductsByProductCreativeBriefsByIdPut
      */
     readonly productId: string
 
     /**
      * Id identifier
-     * @type {string}
-     * @memberof CreativeBriefsApiProductsByProductCreativeBriefsByIdPut
      */
     readonly id: string
 
-    /**
-     * 
-     * @type {CreativebriefsPostRequest}
-     * @memberof CreativeBriefsApiProductsByProductCreativeBriefsByIdPut
-     */
     readonly creativebriefsPostRequest: CreativebriefsPostRequest
 }
 
 /**
  * Request parameters for productsByProductCreativeBriefsGet operation in CreativeBriefsApi.
- * @export
- * @interface CreativeBriefsApiProductsByProductCreativeBriefsGetRequest
  */
 export interface CreativeBriefsApiProductsByProductCreativeBriefsGetRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof CreativeBriefsApiProductsByProductCreativeBriefsGet
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CreativeBriefsApiProductsByProductCreativeBriefsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof CreativeBriefsApiProductsByProductCreativeBriefsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for productsByProductCreativeBriefsPost operation in CreativeBriefsApi.
- * @export
- * @interface CreativeBriefsApiProductsByProductCreativeBriefsPostRequest
  */
 export interface CreativeBriefsApiProductsByProductCreativeBriefsPostRequest {
     /**
      * ProductId identifier
-     * @type {string}
-     * @memberof CreativeBriefsApiProductsByProductCreativeBriefsPost
      */
     readonly productId: string
 
-    /**
-     * 
-     * @type {CreativebriefsPostRequest}
-     * @memberof CreativeBriefsApiProductsByProductCreativeBriefsPost
-     */
     readonly creativebriefsPostRequest: CreativebriefsPostRequest
 }
 
 /**
  * CreativeBriefsApi - object-oriented interface
- * @export
- * @class CreativeBriefsApi
- * @extends {BaseAPI}
  */
 export class CreativeBriefsApi extends BaseAPI implements CreativeBriefsApiInterface {
     /**
@@ -612,7 +552,6 @@ export class CreativeBriefsApi extends BaseAPI implements CreativeBriefsApiInter
      * @param {CreativeBriefsApiCreativeBriefsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CreativeBriefsApi
      */
     public creativeBriefsByIdGet(requestParameters: CreativeBriefsApiCreativeBriefsByIdGetRequest, options?: RawAxiosRequestConfig) {
         return CreativeBriefsApiFp(this.configuration).creativeBriefsByIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -624,7 +563,6 @@ export class CreativeBriefsApi extends BaseAPI implements CreativeBriefsApiInter
      * @param {CreativeBriefsApiProductsByProductCreativeBriefsByIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CreativeBriefsApi
      */
     public productsByProductCreativeBriefsByIdDelete(requestParameters: CreativeBriefsApiProductsByProductCreativeBriefsByIdDeleteRequest, options?: RawAxiosRequestConfig) {
         return CreativeBriefsApiFp(this.configuration).productsByProductCreativeBriefsByIdDelete(requestParameters.productId, requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -636,7 +574,6 @@ export class CreativeBriefsApi extends BaseAPI implements CreativeBriefsApiInter
      * @param {CreativeBriefsApiProductsByProductCreativeBriefsByIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CreativeBriefsApi
      */
     public productsByProductCreativeBriefsByIdPut(requestParameters: CreativeBriefsApiProductsByProductCreativeBriefsByIdPutRequest, options?: RawAxiosRequestConfig) {
         return CreativeBriefsApiFp(this.configuration).productsByProductCreativeBriefsByIdPut(requestParameters.productId, requestParameters.id, requestParameters.creativebriefsPostRequest, options).then((request) => request(this.axios, this.basePath));
@@ -648,7 +585,6 @@ export class CreativeBriefsApi extends BaseAPI implements CreativeBriefsApiInter
      * @param {CreativeBriefsApiProductsByProductCreativeBriefsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CreativeBriefsApi
      */
     public productsByProductCreativeBriefsGet(requestParameters: CreativeBriefsApiProductsByProductCreativeBriefsGetRequest, options?: RawAxiosRequestConfig) {
         return CreativeBriefsApiFp(this.configuration).productsByProductCreativeBriefsGet(requestParameters.productId, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -660,7 +596,6 @@ export class CreativeBriefsApi extends BaseAPI implements CreativeBriefsApiInter
      * @param {CreativeBriefsApiProductsByProductCreativeBriefsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CreativeBriefsApi
      */
     public productsByProductCreativeBriefsPost(requestParameters: CreativeBriefsApiProductsByProductCreativeBriefsPostRequest, options?: RawAxiosRequestConfig) {
         return CreativeBriefsApiFp(this.configuration).productsByProductCreativeBriefsPost(requestParameters.productId, requestParameters.creativebriefsPostRequest, options).then((request) => request(this.axios, this.basePath));

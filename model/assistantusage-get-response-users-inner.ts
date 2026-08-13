@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface AssistantusageGetResponseUsersInner
- */
 export interface AssistantusageGetResponseUsersInner {
-    /**
-     * 
-     * @type {number}
-     * @memberof AssistantusageGetResponseUsersInner
-     */
     'id'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof AssistantusageGetResponseUsersInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof AssistantusageGetResponseUsersInner
-     */
     'email'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof AssistantusageGetResponseUsersInner
-     */
     'message_count'?: number;
 }
 

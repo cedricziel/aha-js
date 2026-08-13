@@ -13,54 +13,17 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface CapacityestimatevaluesDeleteResponseDestroyedInner
- */
 export interface CapacityestimatevaluesDeleteResponseDestroyedInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityestimatevaluesDeleteResponseDestroyedInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof CapacityestimatevaluesDeleteResponseDestroyedInner
-     */
     'team_id'?: number;
-    /**
-     * 
-     * @type {any}
-     * @memberof CapacityestimatevaluesDeleteResponseDestroyedInner
-     */
-    'team_membership_id'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof CapacityestimatevaluesDeleteResponseDestroyedInner
-     */
+    'team_membership_id'?: Null;
     'period_start'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof CapacityestimatevaluesDeleteResponseDestroyedInner
-     */
     'total'?: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof CapacityestimatevaluesDeleteResponseDestroyedInner
-     */
     'computed'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof CapacityestimatevaluesDeleteResponseDestroyedInner
-     */
     'ignored'?: boolean;
 }
 

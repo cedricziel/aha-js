@@ -20,23 +20,8 @@ import type { CommentsGetResponseCommentsInner } from './comments-get-response-c
 // @ts-ignore
 import type { CommentsGetResponsePagination } from './comments-get-response-pagination';
 
-/**
- * 
- * @export
- * @interface CommentsGetResponse
- */
 export interface CommentsGetResponse {
-    /**
-     * 
-     * @type {Array<CommentsGetResponseCommentsInner>}
-     * @memberof CommentsGetResponse
-     */
     'comments'?: Array<CommentsGetResponseCommentsInner>;
-    /**
-     * 
-     * @type {CommentsGetResponsePagination}
-     * @memberof CommentsGetResponse
-     */
     'pagination'?: CommentsGetResponsePagination;
 }
 

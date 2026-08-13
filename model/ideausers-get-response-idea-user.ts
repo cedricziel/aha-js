@@ -13,42 +13,15 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface IdeausersGetResponseIdeaUser
- */
 export interface IdeausersGetResponseIdeaUser {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeausersGetResponseIdeaUser
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeausersGetResponseIdeaUser
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeausersGetResponseIdeaUser
-     */
     'email'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof IdeausersGetResponseIdeaUser
-     */
-    'phone'?: any | null;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof IdeausersGetResponseIdeaUser
-     */
+    'phone'?: Null;
     'idea_organizations'?: Array<any>;
 }
 

@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { ReleasephasesPutResponseReleasePhase } from './releasephases-put-response-release-phase';
 
-/**
- * 
- * @export
- * @interface ReleasephasesPutResponse
- */
 export interface ReleasephasesPutResponse {
-    /**
-     * 
-     * @type {ReleasephasesPutResponseReleasePhase}
-     * @memberof ReleasephasesPutResponse
-     */
     'release_phase'?: ReleasephasesPutResponseReleasePhase;
 }
 

@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { TeamsGetResponseTeam } from './teams-get-response-team';
 
-/**
- * 
- * @export
- * @interface TeamsGetResponse
- */
 export interface TeamsGetResponse {
-    /**
-     * 
-     * @type {TeamsGetResponseTeam}
-     * @memberof TeamsGetResponse
-     */
     'team'?: TeamsGetResponseTeam;
 }
 

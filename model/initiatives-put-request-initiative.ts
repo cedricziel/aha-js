@@ -14,24 +14,12 @@
 
 
 
-/**
- * 
- * @export
- * @interface InitiativesPutRequestInitiative
- */
 export interface InitiativesPutRequestInitiative {
     [key: string]: any;
 
-    /**
-     * 
-     * @type {string}
-     * @memberof InitiativesPutRequestInitiative
-     */
     'name'?: string;
     /**
      * Custom table records to link, keyed by many-to-many custom field name. Replaces the existing list.
-     * @type {{ [key: string]: Array<string>; }}
-     * @memberof InitiativesPutRequestInitiative
      */
     'custom_object_links'?: { [key: string]: Array<string>; };
 }

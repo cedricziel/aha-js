@@ -15,61 +15,19 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
+import type { Null } from './null';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { PaidSeatGroupsPostResponseAdministratorsInner } from './paid-seat-groups-post-response-administrators-inner';
 
-/**
- * 
- * @export
- * @interface PaidSeatGroupsPutResponse
- */
 export interface PaidSeatGroupsPutResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof PaidSeatGroupsPutResponse
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PaidSeatGroupsPutResponse
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {Array<PaidSeatGroupsPostResponseAdministratorsInner>}
-     * @memberof PaidSeatGroupsPutResponse
-     */
     'administrators'?: Array<PaidSeatGroupsPostResponseAdministratorsInner>;
-    /**
-     * 
-     * @type {number}
-     * @memberof PaidSeatGroupsPutResponse
-     */
     'capacity'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof PaidSeatGroupsPutResponse
-     */
     'allocated_seats'?: number;
-    /**
-     * 
-     * @type {any}
-     * @memberof PaidSeatGroupsPutResponse
-     */
-    'description'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof PaidSeatGroupsPutResponse
-     */
+    'description'?: Null;
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PaidSeatGroupsPutResponse
-     */
     'updated_at'?: string;
 }
 

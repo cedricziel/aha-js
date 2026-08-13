@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface TeamsPostRequestTeam
- */
 export interface TeamsPostRequestTeam {
-    /**
-     * 
-     * @type {boolean}
-     * @memberof TeamsPostRequestTeam
-     */
     'automatically_calculate_team_members_count'?: boolean;
 }
 

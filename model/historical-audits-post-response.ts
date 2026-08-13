@@ -14,17 +14,7 @@
 
 
 
-/**
- * 
- * @export
- * @interface HistoricalAuditsPostResponse
- */
 export interface HistoricalAuditsPostResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof HistoricalAuditsPostResponse
-     */
     'search_id'?: string;
 }
 

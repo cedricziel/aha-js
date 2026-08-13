@@ -14,41 +14,11 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeausersPutResponseIdeaUserIdeaOrganizationsInner
- */
 export interface IdeausersPutResponseIdeaUserIdeaOrganizationsInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeausersPutResponseIdeaUserIdeaOrganizationsInner
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeausersPutResponseIdeaUserIdeaOrganizationsInner
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeausersPutResponseIdeaUserIdeaOrganizationsInner
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeausersPutResponseIdeaUserIdeaOrganizationsInner
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeausersPutResponseIdeaUserIdeaOrganizationsInner
-     */
     'resource'?: string;
 }
 

@@ -20,23 +20,8 @@ import type { FeaturesGetResponseFeaturesInner } from './features-get-response-f
 // @ts-ignore
 import type { FeaturesGetResponsePagination } from './features-get-response-pagination';
 
-/**
- * 
- * @export
- * @interface FeaturesGetResponse
- */
 export interface FeaturesGetResponse {
-    /**
-     * 
-     * @type {Array<FeaturesGetResponseFeaturesInner>}
-     * @memberof FeaturesGetResponse
-     */
     'features'?: Array<FeaturesGetResponseFeaturesInner>;
-    /**
-     * 
-     * @type {FeaturesGetResponsePagination}
-     * @memberof FeaturesGetResponse
-     */
     'pagination'?: FeaturesGetResponsePagination;
 }
 

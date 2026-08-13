@@ -23,29 +23,9 @@ import type { CustomreportsGetResponseRows5 } from './customreports-get-response
 // @ts-ignore
 import type { CustomreportsGetResponseRows6 } from './customreports-get-response-rows6';
 
-/**
- * 
- * @export
- * @interface CustomreportsGetResponseRows
- */
 export interface CustomreportsGetResponseRows {
-    /**
-     * 
-     * @type {CustomreportsGetResponseRows4}
-     * @memberof CustomreportsGetResponseRows
-     */
     '4'?: CustomreportsGetResponseRows4;
-    /**
-     * 
-     * @type {CustomreportsGetResponseRows5}
-     * @memberof CustomreportsGetResponseRows
-     */
     '5'?: CustomreportsGetResponseRows5;
-    /**
-     * 
-     * @type {CustomreportsGetResponseRows6}
-     * @memberof CustomreportsGetResponseRows
-     */
     '6'?: CustomreportsGetResponseRows6;
 }
 

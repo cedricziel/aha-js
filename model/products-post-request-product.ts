@@ -14,29 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface ProductsPostRequestProduct
- */
 export interface ProductsPostRequestProduct {
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsPostRequestProduct
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsPostRequestProduct
-     */
     'description'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsPostRequestProduct
-     */
     'prefix'?: string;
 }
 

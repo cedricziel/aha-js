@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { ToDosPostResponseTask } from './to-dos-post-response-task';
 
-/**
- * 
- * @export
- * @interface ToDosPostResponse
- */
 export interface ToDosPostResponse {
-    /**
-     * 
-     * @type {ToDosPostResponseTask}
-     * @memberof ToDosPostResponse
-     */
     'task'?: ToDosPostResponseTask;
 }
 

@@ -18,14 +18,13 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
 import type { MeGetResponse } from '../model';
 /**
  * MeApi - axios parameter creator
- * @export
  */
 export const MeApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -73,8 +72,8 @@ export const MeApiAxiosParamCreator = function (configuration?: Configuration) {
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -118,8 +117,8 @@ export const MeApiAxiosParamCreator = function (configuration?: Configuration) {
                 localVarQueryParameter['include'] = include;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -168,8 +167,8 @@ export const MeApiAxiosParamCreator = function (configuration?: Configuration) {
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -184,7 +183,6 @@ export const MeApiAxiosParamCreator = function (configuration?: Configuration) {
 
 /**
  * MeApi - functional programming interface
- * @export
  */
 export const MeApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = MeApiAxiosParamCreator(configuration)
@@ -236,7 +234,6 @@ export const MeApiFp = function(configuration?: Configuration) {
 
 /**
  * MeApi - factory interface
- * @export
  */
 export const MeApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = MeApiFp(configuration)
@@ -276,8 +273,6 @@ export const MeApiFactory = function (configuration?: Configuration, basePath?: 
 
 /**
  * MeApi - interface
- * @export
- * @interface MeApi
  */
 export interface MeApiInterface {
     /**
@@ -286,7 +281,6 @@ export interface MeApiInterface {
      * @param {MeApiMeAssignedGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MeApiInterface
      */
     meAssignedGet(requestParameters?: MeApiMeAssignedGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<MeGetResponse>;
 
@@ -296,7 +290,6 @@ export interface MeApiInterface {
      * @param {MeApiMeGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MeApiInterface
      */
     meGet(requestParameters?: MeApiMeGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<MeGetResponse>;
 
@@ -306,7 +299,6 @@ export interface MeApiInterface {
      * @param {MeApiMeTasksGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MeApiInterface
      */
     meTasksGet(requestParameters?: MeApiMeTasksGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<MeGetResponse>;
 
@@ -314,72 +306,33 @@ export interface MeApiInterface {
 
 /**
  * Request parameters for meAssignedGet operation in MeApi.
- * @export
- * @interface MeApiMeAssignedGetRequest
  */
 export interface MeApiMeAssignedGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof MeApiMeAssignedGet
-     */
     readonly recordType?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof MeApiMeAssignedGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof MeApiMeAssignedGet
-     */
     readonly perPage?: string
 }
 
 /**
  * Request parameters for meGet operation in MeApi.
- * @export
- * @interface MeApiMeGetRequest
  */
 export interface MeApiMeGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof MeApiMeGet
-     */
     readonly include?: string
 }
 
 /**
  * Request parameters for meTasksGet operation in MeApi.
- * @export
- * @interface MeApiMeTasksGetRequest
  */
 export interface MeApiMeTasksGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof MeApiMeTasksGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof MeApiMeTasksGet
-     */
     readonly perPage?: string
 }
 
 /**
  * MeApi - object-oriented interface
- * @export
- * @class MeApi
- * @extends {BaseAPI}
  */
 export class MeApi extends BaseAPI implements MeApiInterface {
     /**
@@ -388,7 +341,6 @@ export class MeApi extends BaseAPI implements MeApiInterface {
      * @param {MeApiMeAssignedGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MeApi
      */
     public meAssignedGet(requestParameters: MeApiMeAssignedGetRequest = {}, options?: RawAxiosRequestConfig) {
         return MeApiFp(this.configuration).meAssignedGet(requestParameters.recordType, requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));
@@ -400,7 +352,6 @@ export class MeApi extends BaseAPI implements MeApiInterface {
      * @param {MeApiMeGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MeApi
      */
     public meGet(requestParameters: MeApiMeGetRequest = {}, options?: RawAxiosRequestConfig) {
         return MeApiFp(this.configuration).meGet(requestParameters.include, options).then((request) => request(this.axios, this.basePath));
@@ -412,7 +363,6 @@ export class MeApi extends BaseAPI implements MeApiInterface {
      * @param {MeApiMeTasksGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MeApi
      */
     public meTasksGet(requestParameters: MeApiMeTasksGetRequest = {}, options?: RawAxiosRequestConfig) {
         return MeApiFp(this.configuration).meTasksGet(requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));

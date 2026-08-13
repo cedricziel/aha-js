@@ -18,14 +18,13 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
 import type { StrategicvisionsGetResponse } from '../model';
 /**
  * StrategicVisionsApi - axios parameter creator
- * @export
  */
 export const StrategicVisionsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -40,7 +39,7 @@ export const StrategicVisionsApiAxiosParamCreator = function (configuration?: Co
             // verify required parameter 'id' is not null or undefined
             assertParamExists('strategyVisionsByIdGet', 'id', id)
             const localVarPath = `/strategy_visions/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -62,8 +61,8 @@ export const StrategicVisionsApiAxiosParamCreator = function (configuration?: Co
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -112,8 +111,8 @@ export const StrategicVisionsApiAxiosParamCreator = function (configuration?: Co
                 localVarQueryParameter['per_page'] = perPage;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -128,7 +127,6 @@ export const StrategicVisionsApiAxiosParamCreator = function (configuration?: Co
 
 /**
  * StrategicVisionsApi - functional programming interface
- * @export
  */
 export const StrategicVisionsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = StrategicVisionsApiAxiosParamCreator(configuration)
@@ -165,7 +163,6 @@ export const StrategicVisionsApiFp = function(configuration?: Configuration) {
 
 /**
  * StrategicVisionsApi - factory interface
- * @export
  */
 export const StrategicVisionsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = StrategicVisionsApiFp(configuration)
@@ -195,8 +192,6 @@ export const StrategicVisionsApiFactory = function (configuration?: Configuratio
 
 /**
  * StrategicVisionsApi - interface
- * @export
- * @interface StrategicVisionsApi
  */
 export interface StrategicVisionsApiInterface {
     /**
@@ -205,7 +200,6 @@ export interface StrategicVisionsApiInterface {
      * @param {StrategicVisionsApiStrategyVisionsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StrategicVisionsApiInterface
      */
     strategyVisionsByIdGet(requestParameters: StrategicVisionsApiStrategyVisionsByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<StrategicvisionsGetResponse>;
 
@@ -215,7 +209,6 @@ export interface StrategicVisionsApiInterface {
      * @param {StrategicVisionsApiStrategyVisionsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StrategicVisionsApiInterface
      */
     strategyVisionsGet(requestParameters?: StrategicVisionsApiStrategyVisionsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<StrategicvisionsGetResponse>;
 
@@ -223,44 +216,25 @@ export interface StrategicVisionsApiInterface {
 
 /**
  * Request parameters for strategyVisionsByIdGet operation in StrategicVisionsApi.
- * @export
- * @interface StrategicVisionsApiStrategyVisionsByIdGetRequest
  */
 export interface StrategicVisionsApiStrategyVisionsByIdGetRequest {
     /**
      * Id identifier
-     * @type {string}
-     * @memberof StrategicVisionsApiStrategyVisionsByIdGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for strategyVisionsGet operation in StrategicVisionsApi.
- * @export
- * @interface StrategicVisionsApiStrategyVisionsGetRequest
  */
 export interface StrategicVisionsApiStrategyVisionsGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicVisionsApiStrategyVisionsGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof StrategicVisionsApiStrategyVisionsGet
-     */
     readonly perPage?: string
 }
 
 /**
  * StrategicVisionsApi - object-oriented interface
- * @export
- * @class StrategicVisionsApi
- * @extends {BaseAPI}
  */
 export class StrategicVisionsApi extends BaseAPI implements StrategicVisionsApiInterface {
     /**
@@ -269,7 +243,6 @@ export class StrategicVisionsApi extends BaseAPI implements StrategicVisionsApiI
      * @param {StrategicVisionsApiStrategyVisionsByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StrategicVisionsApi
      */
     public strategyVisionsByIdGet(requestParameters: StrategicVisionsApiStrategyVisionsByIdGetRequest, options?: RawAxiosRequestConfig) {
         return StrategicVisionsApiFp(this.configuration).strategyVisionsByIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -281,7 +254,6 @@ export class StrategicVisionsApi extends BaseAPI implements StrategicVisionsApiI
      * @param {StrategicVisionsApiStrategyVisionsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StrategicVisionsApi
      */
     public strategyVisionsGet(requestParameters: StrategicVisionsApiStrategyVisionsGetRequest = {}, options?: RawAxiosRequestConfig) {
         return StrategicVisionsApiFp(this.configuration).strategyVisionsGet(requestParameters.page, requestParameters.perPage, options).then((request) => request(this.axios, this.basePath));

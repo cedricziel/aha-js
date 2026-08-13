@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { GoalsPutResponseGoal } from './goals-put-response-goal';
 
-/**
- * 
- * @export
- * @interface GoalsPutResponse
- */
 export interface GoalsPutResponse {
-    /**
-     * 
-     * @type {GoalsPutResponseGoal}
-     * @memberof GoalsPutResponse
-     */
     'goal'?: GoalsPutResponseGoal;
 }
 

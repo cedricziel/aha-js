@@ -15,6 +15,9 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
+import type { Null } from './null';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { ProductsGetResponseProductCustomFieldsInner } from './products-get-response-product-custom-fields-inner';
 // May contain unused imports in some cases
 // @ts-ignore
@@ -53,197 +56,37 @@ import type { ProductsGetResponseProductScreenDefinitionsInner } from './product
 // @ts-ignore
 import type { ProductsGetResponseProductStrategicImperativeWorkflow } from './products-get-response-product-strategic-imperative-workflow';
 
-/**
- * 
- * @export
- * @interface ProductsGetResponseProduct
- */
 export interface ProductsGetResponseProduct {
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsGetResponseProduct
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsGetResponseProduct
-     */
     'reference_prefix'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsGetResponseProduct
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ProductsGetResponseProduct
-     */
     'product_line'?: boolean;
-    /**
-     * 
-     * @type {any}
-     * @memberof ProductsGetResponseProduct
-     */
-    'product_line_type'?: any | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsGetResponseProduct
-     */
+    'product_line_type'?: Null;
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsGetResponseProduct
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {ProductsGetResponseProductDescription}
-     * @memberof ProductsGetResponseProduct
-     */
     'description'?: ProductsGetResponseProductDescription;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsGetResponseProduct
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsGetResponseProduct
-     */
     'resource'?: string;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof ProductsGetResponseProduct
-     */
     'children'?: Array<any>;
-    /**
-     * 
-     * @type {Array<ProductsGetResponseProductCustomFieldsInner>}
-     * @memberof ProductsGetResponseProduct
-     */
     'custom_fields'?: Array<ProductsGetResponseProductCustomFieldsInner>;
-    /**
-     * 
-     * @type {ProductsGetResponseProductScreenDefinitionIds}
-     * @memberof ProductsGetResponseProduct
-     */
     'screen_definition_ids'?: ProductsGetResponseProductScreenDefinitionIds;
-    /**
-     * 
-     * @type {Array<ProductsGetResponseProductScreenDefinitionsInner>}
-     * @memberof ProductsGetResponseProduct
-     */
     'screen_definitions'?: Array<ProductsGetResponseProductScreenDefinitionsInner>;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ProductsGetResponseProduct
-     */
     'has_ideas'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ProductsGetResponseProduct
-     */
     'has_master_features'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ProductsGetResponseProduct
-     */
     'has_epics'?: boolean;
-    /**
-     * 
-     * @type {ProductsGetResponseProductReleaseWorkflow}
-     * @memberof ProductsGetResponseProduct
-     */
     'release_workflow'?: ProductsGetResponseProductReleaseWorkflow;
-    /**
-     * 
-     * @type {ProductsGetResponseProductFeatureWorkflow}
-     * @memberof ProductsGetResponseProduct
-     */
     'feature_workflow'?: ProductsGetResponseProductFeatureWorkflow;
-    /**
-     * 
-     * @type {ProductsGetResponseProductInitiativeWorkflow}
-     * @memberof ProductsGetResponseProduct
-     */
     'initiative_workflow'?: ProductsGetResponseProductInitiativeWorkflow;
-    /**
-     * 
-     * @type {ProductsGetResponseProductEpicWorkflow}
-     * @memberof ProductsGetResponseProduct
-     */
     'epic_workflow'?: ProductsGetResponseProductEpicWorkflow;
-    /**
-     * 
-     * @type {ProductsGetResponseProductIdeaWorkflow}
-     * @memberof ProductsGetResponseProduct
-     */
     'idea_workflow'?: ProductsGetResponseProductIdeaWorkflow;
-    /**
-     * 
-     * @type {ProductsGetResponseProductStrategicImperativeWorkflow}
-     * @memberof ProductsGetResponseProduct
-     */
     'strategic_imperative_workflow'?: ProductsGetResponseProductStrategicImperativeWorkflow;
-    /**
-     * 
-     * @type {ProductsGetResponseProductPageWorkflow}
-     * @memberof ProductsGetResponseProduct
-     */
     'page_workflow'?: ProductsGetResponseProductPageWorkflow;
-    /**
-     * 
-     * @type {ProductsGetResponseProductRequirementWorkflow}
-     * @memberof ProductsGetResponseProduct
-     */
     'requirement_workflow'?: ProductsGetResponseProductRequirementWorkflow;
-    /**
-     * 
-     * @type {ProductsGetResponseProductKeyResultWorkflow}
-     * @memberof ProductsGetResponseProduct
-     */
     'key_result_workflow'?: ProductsGetResponseProductKeyResultWorkflow;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ProductsGetResponseProduct
-     */
     'capacity_planning_enabled'?: boolean;
-    /**
-     * 
-     * @type {number}
-     * @memberof ProductsGetResponseProduct
-     */
     'default_capacity_units'?: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ProductsGetResponseProduct
-     */
     'enhanced_capacity_planning_enabled'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsGetResponseProduct
-     */
     'workspace_type'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductsGetResponseProduct
-     */
     'color'?: string;
 }
 

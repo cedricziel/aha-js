@@ -13,42 +13,15 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-/**
- * 
- * @export
- * @interface IdeavotesPutResponseIdeaEndorsementEndorsedByIdeaUser
- */
 export interface IdeavotesPutResponseIdeaEndorsementEndorsedByIdeaUser {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPutResponseIdeaEndorsementEndorsedByIdeaUser
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPutResponseIdeaEndorsementEndorsedByIdeaUser
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPutResponseIdeaEndorsementEndorsedByIdeaUser
-     */
     'email'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPutResponseIdeaEndorsementEndorsedByIdeaUser
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof IdeavotesPutResponseIdeaEndorsementEndorsedByIdeaUser
-     */
-    'title'?: any | null;
+    'title'?: Null;
 }
 

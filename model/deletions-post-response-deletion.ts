@@ -20,41 +20,11 @@ import type { DeletionsPostResponseDeletionDeletedBy } from './deletions-post-re
 // @ts-ignore
 import type { DeletionsPostResponseDeletionRecord } from './deletions-post-response-deletion-record';
 
-/**
- * 
- * @export
- * @interface DeletionsPostResponseDeletion
- */
 export interface DeletionsPostResponseDeletion {
-    /**
-     * 
-     * @type {string}
-     * @memberof DeletionsPostResponseDeletion
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DeletionsPostResponseDeletion
-     */
     'deleted_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DeletionsPostResponseDeletion
-     */
     'status'?: string;
-    /**
-     * 
-     * @type {DeletionsPostResponseDeletionRecord}
-     * @memberof DeletionsPostResponseDeletion
-     */
     'record'?: DeletionsPostResponseDeletionRecord;
-    /**
-     * 
-     * @type {DeletionsPostResponseDeletionDeletedBy}
-     * @memberof DeletionsPostResponseDeletion
-     */
     'deleted_by'?: DeletionsPostResponseDeletionDeletedBy;
 }
 

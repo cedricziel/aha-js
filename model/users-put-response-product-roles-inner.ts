@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface UsersPutResponseProductRolesInner
- */
 export interface UsersPutResponseProductRolesInner {
-    /**
-     * 
-     * @type {number}
-     * @memberof UsersPutResponseProductRolesInner
-     */
     'role'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersPutResponseProductRolesInner
-     */
     'role_description'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersPutResponseProductRolesInner
-     */
     'product_id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersPutResponseProductRolesInner
-     */
     'product_name'?: string;
 }
 

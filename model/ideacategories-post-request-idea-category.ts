@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeacategoriesPostRequestIdeaCategory
- */
 export interface IdeacategoriesPostRequestIdeaCategory {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeacategoriesPostRequestIdeaCategory
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeacategoriesPostRequestIdeaCategory
-     */
     'parent_id'?: number;
 }
 

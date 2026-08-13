@@ -18,14 +18,13 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
 import type { KnowledgebasepagesGetResponse } from '../model';
 /**
  * KnowledgeBasePagesApi - axios parameter creator
- * @export
  */
 export const KnowledgeBasePagesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -43,8 +42,8 @@ export const KnowledgeBasePagesApiAxiosParamCreator = function (configuration?: 
             // verify required parameter 'id' is not null or undefined
             assertParamExists('knowledgeBasesByKnowledgeBasePagesByIdGet', 'id', id)
             const localVarPath = `/knowledge_bases/{knowledge_base_id}/pages/{id}`
-                .replace(`{${"knowledge_base_id"}}`, encodeURIComponent(String(knowledgeBaseId)))
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{knowledge_base_id}', encodeURIComponent(String(knowledgeBaseId)))
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -66,8 +65,8 @@ export const KnowledgeBasePagesApiAxiosParamCreator = function (configuration?: 
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -91,7 +90,7 @@ export const KnowledgeBasePagesApiAxiosParamCreator = function (configuration?: 
             // verify required parameter 'knowledgeBaseId' is not null or undefined
             assertParamExists('knowledgeBasesByKnowledgeBasePagesGet', 'knowledgeBaseId', knowledgeBaseId)
             const localVarPath = `/knowledge_bases/{knowledge_base_id}/pages`
-                .replace(`{${"knowledge_base_id"}}`, encodeURIComponent(String(knowledgeBaseId)));
+                .replace('{knowledge_base_id}', encodeURIComponent(String(knowledgeBaseId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -125,8 +124,8 @@ export const KnowledgeBasePagesApiAxiosParamCreator = function (configuration?: 
                 localVarQueryParameter['q'] = q;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json; charset=utf-8';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -141,7 +140,6 @@ export const KnowledgeBasePagesApiAxiosParamCreator = function (configuration?: 
 
 /**
  * KnowledgeBasePagesApi - functional programming interface
- * @export
  */
 export const KnowledgeBasePagesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = KnowledgeBasePagesApiAxiosParamCreator(configuration)
@@ -181,7 +179,6 @@ export const KnowledgeBasePagesApiFp = function(configuration?: Configuration) {
 
 /**
  * KnowledgeBasePagesApi - factory interface
- * @export
  */
 export const KnowledgeBasePagesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = KnowledgeBasePagesApiFp(configuration)
@@ -211,8 +208,6 @@ export const KnowledgeBasePagesApiFactory = function (configuration?: Configurat
 
 /**
  * KnowledgeBasePagesApi - interface
- * @export
- * @interface KnowledgeBasePagesApi
  */
 export interface KnowledgeBasePagesApiInterface {
     /**
@@ -221,7 +216,6 @@ export interface KnowledgeBasePagesApiInterface {
      * @param {KnowledgeBasePagesApiKnowledgeBasesByKnowledgeBasePagesByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof KnowledgeBasePagesApiInterface
      */
     knowledgeBasesByKnowledgeBasePagesByIdGet(requestParameters: KnowledgeBasePagesApiKnowledgeBasesByKnowledgeBasePagesByIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<KnowledgebasepagesGetResponse>;
 
@@ -231,7 +225,6 @@ export interface KnowledgeBasePagesApiInterface {
      * @param {KnowledgeBasePagesApiKnowledgeBasesByKnowledgeBasePagesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof KnowledgeBasePagesApiInterface
      */
     knowledgeBasesByKnowledgeBasePagesGet(requestParameters: KnowledgeBasePagesApiKnowledgeBasesByKnowledgeBasePagesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<KnowledgebasepagesGetResponse>;
 
@@ -239,65 +232,37 @@ export interface KnowledgeBasePagesApiInterface {
 
 /**
  * Request parameters for knowledgeBasesByKnowledgeBasePagesByIdGet operation in KnowledgeBasePagesApi.
- * @export
- * @interface KnowledgeBasePagesApiKnowledgeBasesByKnowledgeBasePagesByIdGetRequest
  */
 export interface KnowledgeBasePagesApiKnowledgeBasesByKnowledgeBasePagesByIdGetRequest {
     /**
      * KnowledgeBaseId identifier
-     * @type {string}
-     * @memberof KnowledgeBasePagesApiKnowledgeBasesByKnowledgeBasePagesByIdGet
      */
     readonly knowledgeBaseId: string
 
     /**
      * Id identifier
-     * @type {string}
-     * @memberof KnowledgeBasePagesApiKnowledgeBasesByKnowledgeBasePagesByIdGet
      */
     readonly id: string
 }
 
 /**
  * Request parameters for knowledgeBasesByKnowledgeBasePagesGet operation in KnowledgeBasePagesApi.
- * @export
- * @interface KnowledgeBasePagesApiKnowledgeBasesByKnowledgeBasePagesGetRequest
  */
 export interface KnowledgeBasePagesApiKnowledgeBasesByKnowledgeBasePagesGetRequest {
     /**
      * KnowledgeBaseId identifier
-     * @type {string}
-     * @memberof KnowledgeBasePagesApiKnowledgeBasesByKnowledgeBasePagesGet
      */
     readonly knowledgeBaseId: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof KnowledgeBasePagesApiKnowledgeBasesByKnowledgeBasePagesGet
-     */
     readonly page?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof KnowledgeBasePagesApiKnowledgeBasesByKnowledgeBasePagesGet
-     */
     readonly perPage?: string
 
-    /**
-     * 
-     * @type {string}
-     * @memberof KnowledgeBasePagesApiKnowledgeBasesByKnowledgeBasePagesGet
-     */
     readonly q?: string
 }
 
 /**
  * KnowledgeBasePagesApi - object-oriented interface
- * @export
- * @class KnowledgeBasePagesApi
- * @extends {BaseAPI}
  */
 export class KnowledgeBasePagesApi extends BaseAPI implements KnowledgeBasePagesApiInterface {
     /**
@@ -306,7 +271,6 @@ export class KnowledgeBasePagesApi extends BaseAPI implements KnowledgeBasePages
      * @param {KnowledgeBasePagesApiKnowledgeBasesByKnowledgeBasePagesByIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof KnowledgeBasePagesApi
      */
     public knowledgeBasesByKnowledgeBasePagesByIdGet(requestParameters: KnowledgeBasePagesApiKnowledgeBasesByKnowledgeBasePagesByIdGetRequest, options?: RawAxiosRequestConfig) {
         return KnowledgeBasePagesApiFp(this.configuration).knowledgeBasesByKnowledgeBasePagesByIdGet(requestParameters.knowledgeBaseId, requestParameters.id, options).then((request) => request(this.axios, this.basePath));
@@ -318,7 +282,6 @@ export class KnowledgeBasePagesApi extends BaseAPI implements KnowledgeBasePages
      * @param {KnowledgeBasePagesApiKnowledgeBasesByKnowledgeBasePagesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof KnowledgeBasePagesApi
      */
     public knowledgeBasesByKnowledgeBasePagesGet(requestParameters: KnowledgeBasePagesApiKnowledgeBasesByKnowledgeBasePagesGetRequest, options?: RawAxiosRequestConfig) {
         return KnowledgeBasePagesApiFp(this.configuration).knowledgeBasesByKnowledgeBasePagesGet(requestParameters.knowledgeBaseId, requestParameters.page, requestParameters.perPage, requestParameters.q, options).then((request) => request(this.axios, this.basePath));

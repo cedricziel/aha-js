@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface CustomfieldoptionsDeleteResponse
- */
 export interface CustomfieldoptionsDeleteResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomfieldoptionsDeleteResponse
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomfieldoptionsDeleteResponse
-     */
     'value'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof CustomfieldoptionsDeleteResponse
-     */
     'color'?: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof CustomfieldoptionsDeleteResponse
-     */
     'hidden'?: boolean;
 }
 

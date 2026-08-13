@@ -14,35 +14,10 @@
 
 
 
-/**
- * 
- * @export
- * @interface IdeavotesPutResponseIdeaEndorsementEndorsedByPortalUser
- */
 export interface IdeavotesPutResponseIdeaEndorsementEndorsedByPortalUser {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPutResponseIdeaEndorsementEndorsedByPortalUser
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPutResponseIdeaEndorsementEndorsedByPortalUser
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPutResponseIdeaEndorsementEndorsedByPortalUser
-     */
     'email'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeavotesPutResponseIdeaEndorsementEndorsedByPortalUser
-     */
     'created_at'?: string;
 }
 

@@ -20,89 +20,19 @@ import type { IdeaorganizationsPostResponseIdeaOrganizationCreatedByUser } from 
 // @ts-ignore
 import type { IdeaorganizationsPostResponseIdeaOrganizationDescription } from './ideaorganizations-post-response-idea-organization-description';
 
-/**
- * 
- * @export
- * @interface IdeaorganizationsPostResponseIdeaOrganization
- */
 export interface IdeaorganizationsPostResponseIdeaOrganization {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsPostResponseIdeaOrganization
-     */
     'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsPostResponseIdeaOrganization
-     */
     'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsPostResponseIdeaOrganization
-     */
     'created_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsPostResponseIdeaOrganization
-     */
     'url'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsPostResponseIdeaOrganization
-     */
     'updated_at'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsPostResponseIdeaOrganization
-     */
     'reference_num'?: string;
-    /**
-     * 
-     * @type {IdeaorganizationsPostResponseIdeaOrganizationDescription}
-     * @memberof IdeaorganizationsPostResponseIdeaOrganization
-     */
     'description'?: IdeaorganizationsPostResponseIdeaOrganizationDescription;
-    /**
-     * 
-     * @type {IdeaorganizationsPostResponseIdeaOrganizationCreatedByUser}
-     * @memberof IdeaorganizationsPostResponseIdeaOrganization
-     */
     'created_by_user'?: IdeaorganizationsPostResponseIdeaOrganizationCreatedByUser;
-    /**
-     * 
-     * @type {number}
-     * @memberof IdeaorganizationsPostResponseIdeaOrganization
-     */
     'endorsements_count'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsPostResponseIdeaOrganization
-     */
     'email_domains'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdeaorganizationsPostResponseIdeaOrganization
-     */
     'revenue'?: string;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof IdeaorganizationsPostResponseIdeaOrganization
-     */
     'custom_fields'?: Array<any>;
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof IdeaorganizationsPostResponseIdeaOrganization
-     */
     'integration_fields'?: Array<any>;
 }
 
