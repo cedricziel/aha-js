@@ -563,7 +563,7 @@ export * from './to-dos-post-response-task';
 export * from './to-dos-post-response-task-taskable';
 export * from './to-dos-put-response';
 export * from './to-dos-put-response-task';
-export * from './to-dos-put-response-task-assigned-to-users-inner';
+export * from './to-dos-put-response-task-assigned-to-products-inner';
 export * from './to-dos-put-response-task-taskable';
 export * from './users-get-response';
 export * from './users-get-response-user-roles-inner';

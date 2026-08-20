@@ -41794,11 +41794,11 @@
             "properties": {
               "id": {
                 "type": "string",
-                "example": "568474467"
+                "example": "356548669"
               },
               "name": {
                 "type": "string",
-                "example": "Task name"
+                "example": "Work request"
               },
               "due_date": {
                 "type": "string",
@@ -41806,7 +41806,7 @@
               },
               "status": {
                 "type": "string",
-                "example": "completed"
+                "example": "pending"
               },
               "created_at": {
                 "type": "string",
@@ -41814,7 +41814,7 @@
               },
               "body": {
                 "type": "string",
-                "example": "Task body"
+                "example": "Some simple work to be done"
               },
               "position": {
                 "type": "integer",
@@ -41826,9 +41826,9 @@
               },
               "product_id": {
                 "type": "string",
-                "example": "702241743"
+                "example": "517761884"
               },
-              "assigned_to_users": {
+              "assigned_to_products": {
                 "type": "array",
                 "items": {
                   "type": "object",
@@ -41840,36 +41840,32 @@
                       "type": "string"
                     },
                     "completed_date": {
-                      "type": "string"
+                      "type": "null"
                     },
-                    "user": {
+                    "product": {
                       "type": "string"
                     }
                   },
                   "example": {
-                    "id": "938180846",
-                    "status": "completed",
-                    "completed_date": "2019-01-01T00:00:00.000Z",
-                    "user": {
-                      "id": "1020675218",
-                      "name": "Mary Humpty",
-                      "email": "no-reply@aha.io",
-                      "created_at": "2019-01-01T00:00:00.000Z",
-                      "updated_at": "2019-01-01T00:00:00.000Z"
+                    "id": "909771936",
+                    "status": "pending",
+                    "completed_date": null,
+                    "product": {
+                      "id": "702241743",
+                      "reference_prefix": "PRJ3",
+                      "name": "Project 3"
                     }
                   }
                 },
                 "example": [
                   {
-                    "id": "938180846",
-                    "status": "completed",
-                    "completed_date": "2019-01-01T00:00:00.000Z",
-                    "user": {
-                      "id": "1020675218",
-                      "name": "Mary Humpty",
-                      "email": "no-reply@aha.io",
-                      "created_at": "2019-01-01T00:00:00.000Z",
-                      "updated_at": "2019-01-01T00:00:00.000Z"
+                    "id": "909771936",
+                    "status": "pending",
+                    "completed_date": null,
+                    "product": {
+                      "id": "702241743",
+                      "reference_prefix": "PRJ3",
+                      "name": "Project 3"
                     }
                   }
                 ]
@@ -41912,11 +41908,11 @@
               },
               "url": {
                 "type": "string",
-                "example": "https://company.aha.io/tasks/568474467"
+                "example": "https://company.aha.io/tasks/356548669"
               },
               "resource": {
                 "type": "string",
-                "example": "https://company.aha.io/api/v1/tasks/568474467"
+                "example": "https://company.aha.io/api/v1/tasks/356548669"
               },
               "comments_count": {
                 "type": "integer",
@@ -41931,7 +41927,7 @@
                 "properties": {
                   "id": {
                     "type": "string",
-                    "example": "959120953"
+                    "example": "622562724"
                   },
                   "type": {
                     "type": "string",
@@ -41939,52 +41935,50 @@
                   },
                   "reference_num": {
                     "type": "string",
-                    "example": "PRJ3-2"
+                    "example": "PRJ1-2"
                   },
                   "name": {
                     "type": "string",
-                    "example": "A third Feature"
+                    "example": "Another Feature"
                   },
                   "url": {
                     "type": "string",
-                    "example": "https://company.aha.io/features/PRJ3-2"
+                    "example": "https://company.aha.io/features/PRJ1-2"
                   },
                   "resource": {
                     "type": "string",
-                    "example": "https://company.aha.io/api/v1/features/PRJ3-2"
+                    "example": "https://company.aha.io/api/v1/features/PRJ1-2"
                   }
                 },
                 "example": {
-                  "id": "959120953",
+                  "id": "622562724",
                   "type": "Feature",
-                  "reference_num": "PRJ3-2",
-                  "name": "A third Feature",
-                  "url": "https://company.aha.io/features/PRJ3-2",
-                  "resource": "https://company.aha.io/api/v1/features/PRJ3-2"
+                  "reference_num": "PRJ1-2",
+                  "name": "Another Feature",
+                  "url": "https://company.aha.io/features/PRJ1-2",
+                  "resource": "https://company.aha.io/api/v1/features/PRJ1-2"
                 }
               }
             },
             "example": {
-              "id": "568474467",
-              "name": "Task name",
+              "id": "356548669",
+              "name": "Work request",
               "due_date": "2019-01-01",
-              "status": "completed",
+              "status": "pending",
               "created_at": "2019-01-01T00:00:00.000Z",
-              "body": "Task body",
+              "body": "Some simple work to be done",
               "position": 1,
               "updated_at": "2019-01-01T00:00:00.000Z",
-              "product_id": "702241743",
-              "assigned_to_users": [
+              "product_id": "517761884",
+              "assigned_to_products": [
                 {
-                  "id": "938180846",
-                  "status": "completed",
-                  "completed_date": "2019-01-01T00:00:00.000Z",
-                  "user": {
-                    "id": "1020675218",
-                    "name": "Mary Humpty",
-                    "email": "no-reply@aha.io",
-                    "created_at": "2019-01-01T00:00:00.000Z",
-                    "updated_at": "2019-01-01T00:00:00.000Z"
+                  "id": "909771936",
+                  "status": "pending",
+                  "completed_date": null,
+                  "product": {
+                    "id": "702241743",
+                    "reference_prefix": "PRJ3",
+                    "name": "Project 3"
                   }
                 }
               ],
@@ -41996,43 +41990,41 @@
                 "updated_at": "2019-01-01T00:00:00.000Z"
               },
               "attachments": [],
-              "url": "https://company.aha.io/tasks/568474467",
-              "resource": "https://company.aha.io/api/v1/tasks/568474467",
+              "url": "https://company.aha.io/tasks/356548669",
+              "resource": "https://company.aha.io/api/v1/tasks/356548669",
               "comments_count": 0,
               "custom_fields": [],
               "taskable": {
-                "id": "959120953",
+                "id": "622562724",
                 "type": "Feature",
-                "reference_num": "PRJ3-2",
-                "name": "A third Feature",
-                "url": "https://company.aha.io/features/PRJ3-2",
-                "resource": "https://company.aha.io/api/v1/features/PRJ3-2"
+                "reference_num": "PRJ1-2",
+                "name": "Another Feature",
+                "url": "https://company.aha.io/features/PRJ1-2",
+                "resource": "https://company.aha.io/api/v1/features/PRJ1-2"
               }
             }
           }
         },
         "example": {
           "task": {
-            "id": "568474467",
-            "name": "Task name",
+            "id": "356548669",
+            "name": "Work request",
             "due_date": "2019-01-01",
-            "status": "completed",
+            "status": "pending",
             "created_at": "2019-01-01T00:00:00.000Z",
-            "body": "Task body",
+            "body": "Some simple work to be done",
             "position": 1,
             "updated_at": "2019-01-01T00:00:00.000Z",
-            "product_id": "702241743",
-            "assigned_to_users": [
+            "product_id": "517761884",
+            "assigned_to_products": [
               {
-                "id": "938180846",
-                "status": "completed",
-                "completed_date": "2019-01-01T00:00:00.000Z",
-                "user": {
-                  "id": "1020675218",
-                  "name": "Mary Humpty",
-                  "email": "no-reply@aha.io",
-                  "created_at": "2019-01-01T00:00:00.000Z",
-                  "updated_at": "2019-01-01T00:00:00.000Z"
+                "id": "909771936",
+                "status": "pending",
+                "completed_date": null,
+                "product": {
+                  "id": "702241743",
+                  "reference_prefix": "PRJ3",
+                  "name": "Project 3"
                 }
               }
             ],
@@ -42044,17 +42036,17 @@
               "updated_at": "2019-01-01T00:00:00.000Z"
             },
             "attachments": [],
-            "url": "https://company.aha.io/tasks/568474467",
-            "resource": "https://company.aha.io/api/v1/tasks/568474467",
+            "url": "https://company.aha.io/tasks/356548669",
+            "resource": "https://company.aha.io/api/v1/tasks/356548669",
             "comments_count": 0,
             "custom_fields": [],
             "taskable": {
-              "id": "959120953",
+              "id": "622562724",
               "type": "Feature",
-              "reference_num": "PRJ3-2",
-              "name": "A third Feature",
-              "url": "https://company.aha.io/features/PRJ3-2",
-              "resource": "https://company.aha.io/api/v1/features/PRJ3-2"
+              "reference_num": "PRJ1-2",
+              "name": "Another Feature",
+              "url": "https://company.aha.io/features/PRJ1-2",
+              "resource": "https://company.aha.io/api/v1/features/PRJ1-2"
             }
           }
         }
@@ -81248,26 +81240,24 @@
                 },
                 "example": {
                   "task": {
-                    "id": "568474467",
-                    "name": "Task name",
+                    "id": "356548669",
+                    "name": "Work request",
                     "due_date": "2019-01-01",
-                    "status": "completed",
+                    "status": "pending",
                     "created_at": "2019-01-01T00:00:00.000Z",
-                    "body": "Task body",
+                    "body": "Some simple work to be done",
                     "position": 1,
                     "updated_at": "2019-01-01T00:00:00.000Z",
-                    "product_id": "702241743",
-                    "assigned_to_users": [
+                    "product_id": "517761884",
+                    "assigned_to_products": [
                       {
-                        "id": "938180846",
-                        "status": "completed",
-                        "completed_date": "2019-01-01T00:00:00.000Z",
-                        "user": {
-                          "id": "1020675218",
-                          "name": "Mary Humpty",
-                          "email": "no-reply@aha.io",
-                          "created_at": "2019-01-01T00:00:00.000Z",
-                          "updated_at": "2019-01-01T00:00:00.000Z"
+                        "id": "909771936",
+                        "status": "pending",
+                        "completed_date": null,
+                        "product": {
+                          "id": "702241743",
+                          "reference_prefix": "PRJ3",
+                          "name": "Project 3"
                         }
                       }
                     ],
@@ -81279,17 +81269,17 @@
                       "updated_at": "2019-01-01T00:00:00.000Z"
                     },
                     "attachments": [],
-                    "url": "https://company.aha.io/tasks/568474467",
-                    "resource": "https://company.aha.io/api/v1/tasks/568474467",
+                    "url": "https://company.aha.io/tasks/356548669",
+                    "resource": "https://company.aha.io/api/v1/tasks/356548669",
                     "comments_count": 0,
                     "custom_fields": [],
                     "taskable": {
-                      "id": "959120953",
+                      "id": "622562724",
                       "type": "Feature",
-                      "reference_num": "PRJ3-2",
-                      "name": "A third Feature",
-                      "url": "https://company.aha.io/features/PRJ3-2",
-                      "resource": "https://company.aha.io/api/v1/features/PRJ3-2"
+                      "reference_num": "PRJ1-2",
+                      "name": "Another Feature",
+                      "url": "https://company.aha.io/features/PRJ1-2",
+                      "resource": "https://company.aha.io/api/v1/features/PRJ1-2"
                     }
                   }
                 }

@@ -959,7 +959,7 @@ Class | Method | HTTP request | Description
  - [ToDosPostResponseTaskTaskable](docs/ToDosPostResponseTaskTaskable.md)
  - [ToDosPutResponse](docs/ToDosPutResponse.md)
  - [ToDosPutResponseTask](docs/ToDosPutResponseTask.md)
- - [ToDosPutResponseTaskAssignedToUsersInner](docs/ToDosPutResponseTaskAssignedToUsersInner.md)
+ - [ToDosPutResponseTaskAssignedToProductsInner](docs/ToDosPutResponseTaskAssignedToProductsInner.md)
  - [ToDosPutResponseTaskTaskable](docs/ToDosPutResponseTaskTaskable.md)
  - [UsersGetResponse](docs/UsersGetResponse.md)
  - [UsersGetResponseUserRolesInner](docs/UsersGetResponseUserRolesInner.md)

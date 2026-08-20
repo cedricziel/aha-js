@@ -18,7 +18,7 @@
 import type { CommentsPostResponseCommentUser } from './comments-post-response-comment-user';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ToDosPutResponseTaskAssignedToUsersInner } from './to-dos-put-response-task-assigned-to-users-inner';
+import type { ToDosPutResponseTaskAssignedToProductsInner } from './to-dos-put-response-task-assigned-to-products-inner';
 // May contain unused imports in some cases
 // @ts-ignore
 import type { ToDosPutResponseTaskTaskable } from './to-dos-put-response-task-taskable';
@@ -33,7 +33,7 @@ export interface ToDosPutResponseTask {
     'position'?: number;
     'updated_at'?: string;
     'product_id'?: string;
-    'assigned_to_users'?: Array<ToDosPutResponseTaskAssignedToUsersInner>;
+    'assigned_to_products'?: Array<ToDosPutResponseTaskAssignedToProductsInner>;
     'created_by_user'?: CommentsPostResponseCommentUser;
     'attachments'?: Array<any>;
     'url'?: string;

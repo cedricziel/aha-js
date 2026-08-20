@@ -13,11 +13,14 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Null } from './null';
 
-export interface ToDosPutResponseTaskAssignedToUsersInner {
+export interface ToDosPutResponseTaskAssignedToProductsInner {
     'id'?: string;
     'status'?: string;
-    'completed_date'?: string;
-    'user'?: string;
+    'completed_date'?: Null;
+    'product'?: string;
 }
 
