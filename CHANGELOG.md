@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.2](https://github.com/cedricziel/aha-js/compare/v2.0.1...v2.0.2) (2026-10-07)
+
+
+### Bug Fixes
+
+* Update API client from Aha's OpenAPI spec (2026-10-07) ([de7eb1d](https://github.com/cedricziel/aha-js/commit/de7eb1d0b1534edfdd26831be34ebcb3d1b12905))
+
 ## [2.0.1](https://github.com/cedricziel/aha-js/compare/v2.0.0...v2.0.1) (2026-08-20)
 
 
