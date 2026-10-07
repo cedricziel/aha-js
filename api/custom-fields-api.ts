@@ -73,7 +73,7 @@ export const CustomFieldsApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * Custom fields are defined by record type, and are shared across all workspaces across the account. Fields must be added to a layout before they will appear on a record.  For custom fields that include options, (e.g. tags, choice lists), you can also load the list of all available options.
+         * To update a worksheet, match its `key` and `custom_fieldable_type`, then find the intended input row by name in `worksheet_rows` (`equation: null`). Calculated rows expose their equation as a string. Rows are discoverable even when the worksheet has no saved values.  Use the row\'s `id`, not the definition\'s `id`, as the update key. Row IDs can be reused across records using the same worksheet definition, but not independently created or copied worksheets. Existing record permissions still apply.
          * @summary List all custom fields
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -135,7 +135,7 @@ export const CustomFieldsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Custom fields are defined by record type, and are shared across all workspaces across the account. Fields must be added to a layout before they will appear on a record.  For custom fields that include options, (e.g. tags, choice lists), you can also load the list of all available options.
+         * To update a worksheet, match its `key` and `custom_fieldable_type`, then find the intended input row by name in `worksheet_rows` (`equation: null`). Calculated rows expose their equation as a string. Rows are discoverable even when the worksheet has no saved values.  Use the row\'s `id`, not the definition\'s `id`, as the update key. Row IDs can be reused across records using the same worksheet definition, but not independently created or copied worksheets. Existing record permissions still apply.
          * @summary List all custom fields
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -166,7 +166,7 @@ export const CustomFieldsApiFactory = function (configuration?: Configuration, b
             return localVarFp.customFieldDefinitionsByCustomFieldDefinitionOptionsGet(requestParameters.customFieldDefinitionId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Custom fields are defined by record type, and are shared across all workspaces across the account. Fields must be added to a layout before they will appear on a record.  For custom fields that include options, (e.g. tags, choice lists), you can also load the list of all available options.
+         * To update a worksheet, match its `key` and `custom_fieldable_type`, then find the intended input row by name in `worksheet_rows` (`equation: null`). Calculated rows expose their equation as a string. Rows are discoverable even when the worksheet has no saved values.  Use the row\'s `id`, not the definition\'s `id`, as the update key. Row IDs can be reused across records using the same worksheet definition, but not independently created or copied worksheets. Existing record permissions still apply.
          * @summary List all custom fields
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -191,7 +191,7 @@ export interface CustomFieldsApiInterface {
     customFieldDefinitionsByCustomFieldDefinitionOptionsGet(requestParameters: CustomFieldsApiCustomFieldDefinitionsByCustomFieldDefinitionOptionsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<CustomfieldsGetResponse>;
 
     /**
-     * Custom fields are defined by record type, and are shared across all workspaces across the account. Fields must be added to a layout before they will appear on a record.  For custom fields that include options, (e.g. tags, choice lists), you can also load the list of all available options.
+     * To update a worksheet, match its `key` and `custom_fieldable_type`, then find the intended input row by name in `worksheet_rows` (`equation: null`). Calculated rows expose their equation as a string. Rows are discoverable even when the worksheet has no saved values.  Use the row\'s `id`, not the definition\'s `id`, as the update key. Row IDs can be reused across records using the same worksheet definition, but not independently created or copied worksheets. Existing record permissions still apply.
      * @summary List all custom fields
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -226,7 +226,7 @@ export class CustomFieldsApi extends BaseAPI implements CustomFieldsApiInterface
     }
 
     /**
-     * Custom fields are defined by record type, and are shared across all workspaces across the account. Fields must be added to a layout before they will appear on a record.  For custom fields that include options, (e.g. tags, choice lists), you can also load the list of all available options.
+     * To update a worksheet, match its `key` and `custom_fieldable_type`, then find the intended input row by name in `worksheet_rows` (`equation: null`). Calculated rows expose their equation as a string. Rows are discoverable even when the worksheet has no saved values.  Use the row\'s `id`, not the definition\'s `id`, as the update key. Row IDs can be reused across records using the same worksheet definition, but not independently created or copied worksheets. Existing record permissions still apply.
      * @summary List all custom fields
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

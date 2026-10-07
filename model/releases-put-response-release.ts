@@ -24,6 +24,9 @@ import type { EpicsPutResponseEpicCreatedByUser } from './epics-put-response-epi
 import type { EpicsPutResponseEpicGoalsInner } from './epics-put-response-epic-goals-inner';
 // May contain unused imports in some cases
 // @ts-ignore
+import type { GoalsPutResponseGoalInitiativesInner } from './goals-put-response-goal-initiatives-inner';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { Null } from './null';
 // May contain unused imports in some cases
 // @ts-ignore
@@ -71,6 +74,7 @@ export interface ReleasesPutResponseRelease {
     'owner'?: EpicsPutResponseEpicCreatedByUser;
     'goals'?: Array<EpicsPutResponseEpicGoalsInner>;
     'key_results'?: Array<any>;
+    'initiatives'?: Array<GoalsPutResponseGoalInitiativesInner>;
     'project'?: EpicsPostResponseEpicProject;
     'created_by_user'?: EpicsPutResponseEpicCreatedByUser;
 }

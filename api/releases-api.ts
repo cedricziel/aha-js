@@ -22,8 +22,6 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import type { CustomtablerecordlinksPutResponse } from '../model';
-// @ts-ignore
 import type { ReleasesGetResponse } from '../model';
 // @ts-ignore
 import type { ReleasesPostRequest } from '../model';
@@ -725,7 +723,7 @@ export const ReleasesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async releasesByIdPut(id: string, releasesPutRequest: ReleasesPutRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomtablerecordlinksPutResponse>> {
+        async releasesByIdPut(id: string, releasesPutRequest: ReleasesPutRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReleasesPutResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.releasesByIdPut(id, releasesPutRequest, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ReleasesApi.releasesByIdPut']?.[localVarOperationServerIndex]?.url;
@@ -857,7 +855,7 @@ export const ReleasesApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        releasesByIdPut(requestParameters: ReleasesApiReleasesByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<CustomtablerecordlinksPutResponse> {
+        releasesByIdPut(requestParameters: ReleasesApiReleasesByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleasesPutResponse> {
             return localVarFp.releasesByIdPut(requestParameters.id, requestParameters.releasesPutRequest, options).then((request) => request(axios, basePath));
         },
         /**
@@ -966,7 +964,7 @@ export interface ReleasesApiInterface {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    releasesByIdPut(requestParameters: ReleasesApiReleasesByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<CustomtablerecordlinksPutResponse>;
+    releasesByIdPut(requestParameters: ReleasesApiReleasesByIdPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<ReleasesPutResponse>;
 
     /**
      * 
