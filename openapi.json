@@ -69279,7 +69279,7 @@
     "/integration_changes": {
       "post": {
         "summary": "Send a record to an integration",
-        "description": "This endpoint mimicks the \"Send to integration\" button on a record in the UI.",
+        "description": "This endpoint mimicks the \"Send to integration\" button on a record in the UI.\n\nThis endpoint only supports Integrations 2.0 integrations. Requests for an Integrations 1.0\nintegration return a `422 Unprocessable Entity` error.",
         "tags": [
           "Integration changes"
         ],

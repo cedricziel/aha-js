@@ -31,7 +31,7 @@ import type { IntegrationchangesPostResponse } from '../model';
 export const IntegrationChangesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This endpoint mimicks the \"Send to integration\" button on a record in the UI.
+         * This endpoint mimicks the \"Send to integration\" button on a record in the UI.  This endpoint only supports Integrations 2.0 integrations. Requests for an Integrations 1.0 integration return a `422 Unprocessable Entity` error.
          * @summary Send a record to an integration
          * @param {IntegrationchangesPostRequest} integrationchangesPostRequest 
          * @param {*} [options] Override http request option.
@@ -85,7 +85,7 @@ export const IntegrationChangesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = IntegrationChangesApiAxiosParamCreator(configuration)
     return {
         /**
-         * This endpoint mimicks the \"Send to integration\" button on a record in the UI.
+         * This endpoint mimicks the \"Send to integration\" button on a record in the UI.  This endpoint only supports Integrations 2.0 integrations. Requests for an Integrations 1.0 integration return a `422 Unprocessable Entity` error.
          * @summary Send a record to an integration
          * @param {IntegrationchangesPostRequest} integrationchangesPostRequest 
          * @param {*} [options] Override http request option.
@@ -107,7 +107,7 @@ export const IntegrationChangesApiFactory = function (configuration?: Configurat
     const localVarFp = IntegrationChangesApiFp(configuration)
     return {
         /**
-         * This endpoint mimicks the \"Send to integration\" button on a record in the UI.
+         * This endpoint mimicks the \"Send to integration\" button on a record in the UI.  This endpoint only supports Integrations 2.0 integrations. Requests for an Integrations 1.0 integration return a `422 Unprocessable Entity` error.
          * @summary Send a record to an integration
          * @param {IntegrationChangesApiIntegrationChangesPostRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -124,7 +124,7 @@ export const IntegrationChangesApiFactory = function (configuration?: Configurat
  */
 export interface IntegrationChangesApiInterface {
     /**
-     * This endpoint mimicks the \"Send to integration\" button on a record in the UI.
+     * This endpoint mimicks the \"Send to integration\" button on a record in the UI.  This endpoint only supports Integrations 2.0 integrations. Requests for an Integrations 1.0 integration return a `422 Unprocessable Entity` error.
      * @summary Send a record to an integration
      * @param {IntegrationChangesApiIntegrationChangesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -146,7 +146,7 @@ export interface IntegrationChangesApiIntegrationChangesPostRequest {
  */
 export class IntegrationChangesApi extends BaseAPI implements IntegrationChangesApiInterface {
     /**
-     * This endpoint mimicks the \"Send to integration\" button on a record in the UI.
+     * This endpoint mimicks the \"Send to integration\" button on a record in the UI.  This endpoint only supports Integrations 2.0 integrations. Requests for an Integrations 1.0 integration return a `422 Unprocessable Entity` error.
      * @summary Send a record to an integration
      * @param {IntegrationChangesApiIntegrationChangesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
